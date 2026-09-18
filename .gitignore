@@ -1,0 +1,35 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Environment
+.env
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / temporary files
+*.log
+*.tmp
+
+# PDFs
+papers/*.pdf
+
+# Generated storage
+storage/artifacts/
+storage/parsed/
+storage/cleaned/
+storage/grobid/
+storage/chroma/
+storage/tmp/
+storage/temp/

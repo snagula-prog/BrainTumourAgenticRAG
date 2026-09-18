@@ -1,0 +1,40 @@
+{
+  "evaluation_type": "integrity",
+  "integrity_score": 0.839,
+  "status": "review",
+  "metrics": {
+    "metadata_integrity": 0.75,
+    "abstract_integrity": 0.9663,
+    "structure_integrity": 1.0,
+    "duplication_integrity": 1.0,
+    "reference_integrity": 1.0,
+    "truncation_integrity": 0.8,
+    "numeric_consistency": 0.9488,
+    "cross_parser_consistency": 0.6217,
+    "contamination_integrity": 0.9474,
+    "coordinate_integrity": 1.0
+  },
+  "orphan_paragraph_ratio": 0.0,
+  "artifact_counts": {
+    "figures": 8,
+    "tables": 6,
+    "formulas": 3,
+    "text_blocks": 601
+  },
+  "extraction_counts": {
+    "sections": 14,
+    "paragraphs": 57,
+    "references": 51,
+    "figures": 7,
+    "tables": 6,
+    "formulas": 3
+  },
+  "ground_truth": {
+    "available": false,
+    "accuracy_score": null
+  },
+  "issues": [
+    "possible_truncation",
+    "cross_parser_disagreement"
+  ]
+}

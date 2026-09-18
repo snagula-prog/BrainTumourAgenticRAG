@@ -1,0 +1,3097 @@
+{
+  "paper_id": "paper_002",
+  "filename": "engproc-62-00001.pdf",
+  "metadata": {
+    "title": "Brain Tumor Detection and Classification Using Transfer Learning Models †",
+    "authors": [
+      "Valentina Emilia Cheng",
+      "Balas",
+      "Vinod Kumar Dhakshnamurthy",
+      "Murali Govindan",
+      "Kannan Sreerangan",
+      "Manikanda Devarajan Nagarajan",
+      "Abhijith Thomas"
+    ],
+    "year": 2024,
+    "doi": "10.3390/engproc2024062001"
+  },
+  "abstract": "Diagnosing brain tumors is a time-consuming process requiring radiologist expertise. With the growing patient population and increased data volume, conventional procedures have become expensive and ineffective. Scholars have explored algorithms for detecting and classifying brain tumors, focusing on precision and efficiency. Deep learning methodologies are being used to create automated systems that can diagnose or segment brain tumors with precision and efficiency, particularly in brain cancer classification. This approach facilitates transfer learning models in medical imaging. The present study undertakes an evaluation of three foundational models in the domain of computer vision, namely AlexNet, VGG16, and ResNet-50. The VGG16 and ResNet-50 models demonstrated praiseworthy performance, thereby instigating the amalgamation of these models into a groundbreaking hybrid VGG16-ResNet-50 model. The amalgamated model was subsequently implemented on the dataset, yielding a remarkable accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on a comparative analysis with alternative models, it can be deduced that the suggested framework exhibits a commendable level of dependability in facilitating the timely identification of diverse cerebral neoplasms.",
+  "sections": [
+    {
+      "heading": "Introduction",
+      "level": 1,
+      "path": [
+        "Introduction"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 166.394,
+          "y": 269.3666967864407,
+          "w": 68.11429620000004,
+          "h": 9.210170413559354,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Related Work",
+      "level": 1,
+      "path": [
+        "Related Work"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.394,
+          "y": 607.1296967864406,
+          "w": 72.63731660000002,
+          "h": 9.210170413559354,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Deep Learning Methods",
+      "level": 1,
+      "path": [
+        "Deep Learning Methods"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.394,
+          "y": 556.6426551178423,
+          "w": 114.89866579999995,
+          "h": 9.396426682157653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Machine Learning Methods",
+      "level": 1,
+      "path": [
+        "Machine Learning Methods"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.394,
+          "y": 380.6016551178423,
+          "w": 129.46398699999992,
+          "h": 9.396426682157653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Hybrid Methods",
+      "level": 1,
+      "path": [
+        "Hybrid Methods"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.394,
+          "y": 229.6676551178423,
+          "w": 84.35333420000003,
+          "h": 9.396426682157767,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Materials and Methods",
+      "level": 1,
+      "path": [
+        "Materials and Methods"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 164.56624,
+          "y": 665.4139180000002,
+          "w": 118.59271199999989,
+          "h": 13.69094919999975,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Experimental Setup",
+      "level": 1,
+      "path": [
+        "Experimental Setup"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 164.567242,
+          "y": 573.4964500000004,
+          "w": 100.2380759999999,
+          "h": 17.64863179999952,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Dataset",
+      "level": 1,
+      "path": [
+        "Dataset"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 166.394,
+          "y": 531.2376551178422,
+          "w": 49.01599200000001,
+          "h": 9.396426682157653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Propose Methodology",
+      "level": 1,
+      "path": [
+        "Propose Methodology"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 742.5456551178423,
+          "w": 109.34850199999977,
+          "h": 13.503552882157692,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "AlexNet",
+      "level": 1,
+      "path": [
+        "AlexNet"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 315.31872,
+          "w": 66.98370199999985,
+          "h": 13.808848000000012,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "VGG16",
+      "level": 1,
+      "path": [
+        "VGG16"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 223.4603699999999,
+          "w": 62.48973199999986,
+          "h": 17.498198000000116,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "ResNet-50",
+      "level": 1,
+      "path": [
+        "ResNet-50"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 130.7928042234637,
+          "w": 70.73445999999998,
+          "h": 9.442763776536253,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Confusion Metrics",
+      "level": 1,
+      "path": [
+        "Confusion Metrics"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 168.53627360000002,
+          "y": 751.973908,
+          "w": 95.45147839999987,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Classification Metrics",
+      "level": 1,
+      "path": [
+        "Classification Metrics"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 166.394,
+          "y": 435.4856551178423,
+          "w": 110.5521776,
+          "h": 12.078264882157612,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "𝑆𝑒𝑛𝑠𝑖𝑡𝑖𝑣𝑖𝑡𝑦 𝑇𝑃 𝑇𝑃 𝐹𝑁",
+      "level": 1,
+      "path": [
+        "𝑆𝑒𝑛𝑠𝑖𝑡𝑖𝑣𝑖𝑡𝑦 𝑇𝑃 𝑇𝑃 𝐹𝑁"
+      ],
+      "coords": []
+    },
+    {
+      "heading": "Results and Discussion",
+      "level": 1,
+      "path": [
+        "Results and Discussion"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 166.39399999999995,
+          "y": 209.30569678644065,
+          "w": 116.78159720000002,
+          "h": 9.210170413559354,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "Conclusions and Future Works",
+      "level": 1,
+      "path": [
+        "Conclusions and Future Works"
+      ],
+      "coords": [
+        {
+          "page": 6,
+          "x": 166.394,
+          "y": 218.92861000000005,
+          "w": 157.43283040000006,
+          "h": 12.522257200000013,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  ],
+  "paragraphs": [
+    {
+      "text": "The brain and spinal cord make up the central nervous system of Homo sapiens [1] The brain controls most biological activities, such as analyzing, integrating, organizing, determining, and issuing directions to the body. The structural complexity of the human brain is remarkable [2] Certain CNC problems, including stroke, infection, brain tumors, and headaches, are difficult to diagnose, analyze, and cure [3]",
+      "sentences": [
+        "The brain and spinal cord make up the central nervous system of Homo sapiens [1] The brain controls most biological activities, such as analyzing, integrating, organizing, determining, and issuing directions to the body.",
+        "The structural complexity of the human brain is remarkable [2] Certain CNC problems, including stroke, infection, brain tumors, and headaches, are difficult to diagnose, analyze, and cure [3]"
+      ],
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 166.085,
+          "y": 203.45980422346372,
+          "w": 394.934318737,
+          "h": 59.65476377653624,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "text": "Brain tumors are abnormal cell growths in the rigid skull that encloses the brain [4, 5] Any growth in a small space might cause problems. Any skull tumor may cause brain damage, posing a significant danger to the brain [6, 7] Brain tumors are the tenth leading cause of mortality in both adults and children [8] Various tumor kinds have poor survival rates dependent on texture, location, and shape [9, 10] Brain tumors affect 700,000 people, with 80% benign and 20% malignant [11] According to 2021 American Cancer Society projections, 78,980 persons were diagnosed with brain tumors, including 55,150 noncancerous and 24,530 malignant tumors (13,840 men and 10,690 females) [12] Research indicates that brain tumors are the primary cause of cancer mortality in both children and adults globally [13]",
+      "sentences": [
+        "Brain tumors are abnormal cell growths in the rigid skull that encloses the brain [4, 5] Any growth in a small space might cause problems.",
+        "Any skull tumor may cause brain damage, posing a significant danger to the brain [6, 7] Brain tumors are the tenth leading cause of mortality in both adults and children [8] Various tumor kinds have poor survival rates dependent on texture, location, and shape [9, 10] Brain tumors affect 700,000 people, with 80% benign and 20% malignant [11] According to 2021 American Cancer Society projections, 78,980 persons were diagnosed with brain tumors, including 55,150 noncancerous and 24,530 malignant tumors (13,840 men and 10,690 females) [12] Research indicates that brain tumors are the primary cause of cancer mortality in both children and adults globally [13]"
+      ],
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 165.975,
+          "y": 77.92980422346375,
+          "w": 395.0437061,
+          "h": 122.41976377653623,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "text": "Many disorders need digital medical images for diagnosis, which are also useful for training and research. The need for digitised medical images is rising. In 2002, the University Hospital of Geneva Radiology Department produced 12,000-15,000 pictures daily [14] Medical reports and image studies need a reliable computer-aided diagnostic system. Manual medical ageing assessment is time-consuming, inaccurate, and errorprone [15] Machine and deep learning are essential for medical diagnosis and treatment. Multiple algorithms for brain tumor identification and classification have shown strong performance and low error [16] DL provides brain tumor classification using pre-trained CNN models for medical pictures such as GoogLeNet, AlexNet, and ResNet-34 [15, 16] DL employs multi-layered deep neural networks.",
+      "sentences": [
+        "Many disorders need digital medical images for diagnosis, which are also useful for training and research.",
+        "The need for digitised medical images is rising.",
+        "In 2002, the University Hospital of Geneva Radiology Department produced 12,000-15,000 pictures daily [14] Medical reports and image studies need a reliable computer-aided diagnostic system.",
+        "Manual medical ageing assessment is time-consuming, inaccurate, and errorprone [15] Machine and deep learning are essential for medical diagnosis and treatment.",
+        "Multiple algorithms for brain tumor identification and classification have shown strong performance and low error [16] DL provides brain tumor classification using pre-trained CNN models for medical pictures such as GoogLeNet, AlexNet, and ResNet-34 [15, 16] DL employs multi-layered deep neural networks."
+      ],
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.095,
+          "y": 629.3928042234637,
+          "w": 394.923697018,
+          "h": 122.41976377653634,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "text": "This section discusses advanced deep learning (DL)-based brain tumor classification methods, including deep learning, machine learning, and hybrid approaches.",
+      "sentences": [
+        "This section discusses advanced deep learning (DL)-based brain tumor classification methods, including deep learning, machine learning, and hybrid approaches."
+      ],
+      "section": "Related Work",
+      "section_path": [
+        "Related Work"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 166.394,
+          "y": 578.8828042234637,
+          "w": 392.87962128200013,
+          "h": 21.995763776536364,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "text": "Mahmud et al. [15] ZainEldin et al. [16] The ADSCFGWO algorithm combines sine-cosine and grey wolf algorithms, achieving 99.98% accuracy on the BRaTS 2021 Task 1 dataset. Srikanth et al. [17] Musallam et al. [18] Wozniak et al. [19]",
+      "sentences": [
+        "Mahmud et al.",
+        "[15] ZainEldin et al.",
+        "[16] The ADSCFGWO algorithm combines sine-cosine and grey wolf algorithms, achieving 99.98% accuracy on the BRaTS 2021 Task 1 dataset.",
+        "Srikanth et al.",
+        "[17] Musallam et al.",
+        "[18] Wozniak et al.",
+        "[19]"
+      ],
+      "section": "Deep Learning Methods",
+      "section_path": [
+        "Deep Learning Methods"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 166.035,
+          "y": 402.84180422346367,
+          "w": 394.4890599464004,
+          "h": 147.52576377653634,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Garg et al. [20] Their technique showed 97.305% accuracy, 97.73% precision, 97.60% specificity, 97.04% sensitivity, and 97.41% dependability. Pareek et al. [21] The suggested approach in [22] Tested on a large dataset, it achieved a 90% higher accuracy than current methods. The Quantum Fully Self-Supervised Neural Network (QFS-Net) uses qubits/three-quantum states for brain lesion segmentation, replacing supervised QINN networks with a qutritbased counter-propagating technique [23]",
+      "sentences": [
+        "Garg et al.",
+        "[20] Their technique showed 97.305% accuracy, 97.73% precision, 97.60% specificity, 97.04% sensitivity, and 97.41% dependability.",
+        "Pareek et al.",
+        "[21] The suggested approach in [22] Tested on a large dataset, it achieved a 90% higher accuracy than current methods.",
+        "The Quantum Fully Self-Supervised Neural Network (QFS-Net) uses qubits/three-quantum states for brain lesion segmentation, replacing supervised QINN networks with a qutritbased counter-propagating technique [23]"
+      ],
+      "section": "Machine Learning Methods",
+      "section_path": [
+        "Machine Learning Methods"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 165.975,
+          "y": 251.9078042234637,
+          "w": 395.04376281200007,
+          "h": 122.41976377653629,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Stadlbauer et al. [24] An automated technique employing MR images by Aamir et al. enhanced classification accuracy to 98.95%. For better brain tumor detection in BRATS MR images, Sajid et al. [25] The model has 86% dice, 86% sensitivity, and 91% specificity. Lotlikar et al. [26] A deep learning-based architecture for early embryonic neurodevelopmental disease identification by Attallah et al. [27] Khairandish et al. [20] The research extracts tumor and tissue properties using pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al. [25] The suggested CNN models determine parameters via grid search optimization.",
+      "sentences": [
+        "Stadlbauer et al.",
+        "[24] An automated technique employing MR images by Aamir et al.",
+        "enhanced classification accuracy to 98.95%.",
+        "For better brain tumor detection in BRATS MR images, Sajid et al.",
+        "[25] The model has 86% dice, 86% sensitivity, and 91% specificity.",
+        "Lotlikar et al.",
+        "[26] A deep learning-based architecture for early embryonic neurodevelopmental disease identification by Attallah et al.",
+        "[27] Khairandish et al.",
+        "[20] The research extracts tumor and tissue properties using pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al.",
+        "[25] The suggested CNN models determine parameters via grid search optimization."
+      ],
+      "section": "Hybrid Methods",
+      "section_path": [
+        "Hybrid Methods"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The method includes multiple stages. We pre-processed the dataset from Kaggle data. For validation, we used holdout validation. We trained our images using machine learning. The dataset was split by 80% training, 10% testing, and 10% validation. We checked four brain images: glioma, meningioma, no tumor, and pituitary tumors. To verify our findings, we checked accuracy, specificity, and sensitivity.",
+      "sentences": [
+        "The method includes multiple stages.",
+        "We pre-processed the dataset from Kaggle data.",
+        "For validation, we used holdout validation.",
+        "We trained our images using machine learning.",
+        "The dataset was split by 80% training, 10% testing, and 10% validation.",
+        "We checked four brain images: glioma, meningioma, no tumor, and pituitary tumors.",
+        "To verify our findings, we checked accuracy, specificity, and sensitivity."
+      ],
+      "section": "Materials and Methods",
+      "section_path": [
+        "Materials and Methods"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 164.567242,
+          "y": 598.3360300000004,
+          "w": 396.4522850815998,
+          "h": 65.3065379999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The proposed architectures are implemented using Python 3.12 software on a computer with an Intel Core i7-2.8 GHz CPU and 16 GB of RAM.",
+      "sentences": [
+        "The proposed architectures are implemented using Python 3.12 software on a computer with an Intel Core i7-2.8 GHz CPU and 16 GB of RAM."
+      ],
+      "section": "Experimental Setup",
+      "section_path": [
+        "Experimental Setup"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 164.567242,
+          "y": 544.8763240000005,
+          "w": 394.90333988400005,
+          "h": 30.597243999999478,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The brain tumor detection dataset, sourced from kaggle.com, was analyzed using 3264 MRI images, as in Table 1 1",
+      "sentences": [
+        "The brain tumor detection dataset, sourced from kaggle.com, was analyzed using 3264 MRI images, as in Table 1 1"
+      ],
+      "section": "Dataset",
+      "section_path": [
+        "Dataset"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 164.567242,
+          "y": 478.6371100000005,
+          "w": 395.9500334157999,
+          "h": 51.569934000000046,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "using pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al. [25] The suggested CNN models determine parameters via grid search optimization.",
+      "sentences": [
+        "using pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al.",
+        "[25] The suggested CNN models determine parameters via grid search optimization."
+      ],
+      "section": "Dataset",
+      "section_path": [
+        "Dataset"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 164.56624,
+          "y": 690.2534980000001,
+          "w": 395.5074360000008,
+          "h": 87.02870999999982,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Recent advancements in deep learning, especially in medical image classification, offer promising opportunities for various CNN frameworks. Transfer learning methodologies accelerate data training and reduce sample quantity, allowing newly trained models to effectively utilize pre-existing information. The study evaluates three baseline models in computer vision, including AlexNet, VGG16, and ResNet-50 using transfer learning models which are shown in Figure 2",
+      "sentences": [
+        "Recent advancements in deep learning, especially in medical image classification, offer promising opportunities for various CNN frameworks.",
+        "Transfer learning methodologies accelerate data training and reduce sample quantity, allowing newly trained models to effectively utilize pre-existing information.",
+        "The study evaluates three baseline models in computer vision, including AlexNet, VGG16, and ResNet-50 using transfer learning models which are shown in Figure 2"
+      ],
+      "section": "Propose Methodology",
+      "section_path": [
+        "Propose Methodology"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 165.975,
+          "y": 651.5098042234637,
+          "w": 398.5859860000012,
+          "h": 88.75890577653638,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Eng. Proc. 2024, 62, 1 4 of 8",
+      "sentences": [
+        "Eng.",
+        "Proc.",
+        "2024, 62, 1 4 of 8"
+      ],
+      "section": "Propose Methodology",
+      "section_path": [
+        "Propose Methodology"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The AlexNet architecture is a groundbreaking deep convolutional neural network model known for its efficacy in image classification and recognition tasks. It overcomes hardware constraints by using two NVIDIA GTX 580 GPUs for training. The model has five convolutional layers, three pooling layers, and three fully connected layers, with approximately 60 million trainable parameters.",
+      "sentences": [
+        "The AlexNet architecture is a groundbreaking deep convolutional neural network model known for its efficacy in image classification and recognition tasks.",
+        "It overcomes hardware constraints by using two NVIDIA GTX 580 GPUs for training.",
+        "The model has five convolutional layers, three pooling layers, and three fully connected layers, with approximately 60 million trainable parameters."
+      ],
+      "section": "AlexNet",
+      "section_path": [
+        "AlexNet"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 248.29994999999997,
+          "w": 397.97536400000047,
+          "h": 65.28661800000009,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The VGG Net, a deep convolutional neural network architecture from the University of Oxford, demonstrated exceptional performance in the ILSVRC 2014 object localization and classification competitions. Its design aims to enhance the depth of convolutional neural network architectures by using multiple diminutive kernels, potentially improving precision. The VGG Net is widely used in computer vision applications, particularly in medical imaging.",
+      "sentences": [
+        "The VGG Net, a deep convolutional neural network architecture from the University of Oxford, demonstrated exceptional performance in the ILSVRC 2014 object localization and classification competitions.",
+        "Its design aims to enhance the depth of convolutional neural network architectures by using multiple diminutive kernels, potentially improving precision.",
+        "The VGG Net is widely used in computer vision applications, particularly in medical imaging."
+      ],
+      "section": "VGG16",
+      "section_path": [
+        "VGG16"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 166.095,
+          "y": 143.60197199999993,
+          "w": 398.2382920000001,
+          "h": 81.81459600000005,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "ResNet frameworks mitigate network performance degradation by stacking convolutional and pooling layers and using identity shortcut connections. These connections bypass layers, maintaining identity relationships within residual blocks and reducing training errors in deep architectures.",
+      "sentences": [
+        "ResNet frameworks mitigate network performance degradation by stacking convolutional and pooling layers and using identity shortcut connections.",
+        "These connections bypass layers, maintaining identity relationships within residual blocks and reducing training errors in deep architectures."
+      ],
+      "section": "ResNet-50",
+      "section_path": [
+        "ResNet-50"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 166.394,
+          "y": 64.46401199999991,
+          "w": 397.9974079999996,
+          "h": 64.46868000000006,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The system model's effectiveness was evaluated using confusion metrics, which categorize accurate and erroneous prognostications into four distinct classifications (Figure 3",
+      "sentences": [
+        "The system model's effectiveness was evaluated using confusion metrics, which categorize accurate and erroneous prognostications into four distinct classifications (Figure 3"
+      ],
+      "section": "Confusion Metrics",
+      "section_path": [
+        "Confusion Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.394,
+          "y": 710.5141540000002,
+          "w": 397.6440656000001,
+          "h": 35.84955599999989,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "• True positive (TP) occurs when both the predicted and actual outcomes are positive;",
+      "sentences": [
+        "• True positive (TP) occurs when both the predicted and actual outcomes are positive;"
+      ],
+      "section": "Confusion Metrics",
+      "section_path": [
+        "Confusion Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.518,
+          "y": 694.6444780000002,
+          "w": 397.2035600000013,
+          "h": 13.84681329999978,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "False positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive.",
+      "sentences": [
+        "False positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive."
+      ],
+      "section": "•",
+      "section_path": [
+        "•"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Eng. Proc. 2024, 62, 1 5 of 8",
+      "sentences": [
+        "Eng.",
+        "Proc.",
+        "2024, 62, 1 5 of 8"
+      ],
+      "section": "•",
+      "section_path": [
+        "•"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 538.43727759,
+          "y": 795.45298,
+          "w": 25.03487295000025,
+          "h": 8.099699999999984,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 540.315,
+          "y": 781.2114380223463,
+          "w": 18.96086790000004,
+          "h": 7.5542299776536765,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "True positive (TP) occurs when both the predicted and actual outcomes are positive; • False positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive.",
+      "sentences": [
+        "True positive (TP) occurs when both the predicted and actual outcomes are positive; • False positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive."
+      ],
+      "section": "Confusion Metrics",
+      "section_path": [
+        "Confusion Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The performance of the model was assessed through the utilization of three distinct metrics, as enumerated below:",
+      "sentences": [
+        "The performance of the model was assessed through the utilization of three distinct metrics, as enumerated below:"
+      ],
+      "section": "Classification Metrics",
+      "section_path": [
+        "Classification Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.394,
+          "y": 407.21480422346366,
+          "w": 397.5376208,
+          "h": 24.569619776536285,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Accuracy is the ratio of accurate predictions to the total number of predictions made; 𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦 𝑇𝑃 𝑇𝑁 𝑇𝑃 𝐹𝑃 𝑇𝑁 𝐹𝑁 (1)",
+      "sentences": [
+        "Accuracy is the ratio of accurate predictions to the total number of predictions made; 𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦 𝑇𝑃 𝑇𝑁 𝑇𝑃 𝐹𝑃 𝑇𝑁 𝐹𝑁 (1)"
+      ],
+      "section": "Classification Metrics",
+      "section_path": [
+        "Classification Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "Specificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;",
+      "sentences": [
+        "Specificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;"
+      ],
+      "section": "•",
+      "section_path": [
+        "•"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.51799999999997,
+          "y": 316.73409200000003,
+          "w": 397.5500496000007,
+          "h": 30.77519929999994,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "• Sensitivity is a model's ability to identify positive samples.",
+      "sentences": [
+        "• Sensitivity is a model's ability to identify positive samples."
+      ],
+      "section": "•",
+      "section_path": [
+        "•"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 168.53866079999997,
+          "y": 258.6239300000001,
+          "w": 282.8147808000001,
+          "h": 13.056060000000002,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.51799999999997,
+          "y": 269.2818042234637,
+          "w": 279.0070782,
+          "h": 9.758487076536312,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "(3)",
+      "sentences": [
+        "(3)"
+      ],
+      "section": "𝑆𝑒𝑛𝑠𝑖𝑡𝑖𝑣𝑖𝑡𝑦 𝑇𝑃 𝑇𝑃 𝐹𝑁",
+      "section_path": [
+        "𝑆𝑒𝑛𝑠𝑖𝑡𝑖𝑣𝑖𝑡𝑦 𝑇𝑃 𝑇𝑃 𝐹𝑁"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images. The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance. Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision. Furthermore, the model exhibited a sensitivity",
+      "sentences": [
+        "The analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images.",
+        "The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance.",
+        "Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision.",
+        "Furthermore, the model exhibited a sensitivity"
+      ],
+      "section": "Results and Discussion",
+      "section_path": [
+        "Results and Discussion"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.394,
+          "y": 68.0808042234637,
+          "w": 397.65494560000036,
+          "h": 134.97276377653623,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "• Accuracy is the ratio of accurate predictions to the total number of predictions made;",
+      "sentences": [
+        "• Accuracy is the ratio of accurate predictions to the total number of predictions made;"
+      ],
+      "section": "Classification Metrics",
+      "section_path": [
+        "Classification Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.518,
+          "y": 391.6728042234637,
+          "w": 397.5097743999992,
+          "h": 14.227955776536305,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "• Specificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;",
+      "sentences": [
+        "• Specificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;"
+      ],
+      "section": "Classification Metrics",
+      "section_path": [
+        "Classification Metrics"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 166.51799999999997,
+          "y": 316.73409200000003,
+          "w": 397.5500496000007,
+          "h": 30.77519929999994,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images. The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance. Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision. Furthermore, the model exhibited a sensitivity rate of 94.79%, signifying its proficiency in accurately identifying positive instances. Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%. These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task. In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%. Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%. The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%. Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%. rate of 94.79%, signifying its proficiency in accurately identifying positive instances. Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%. These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task. In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%. Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%. The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%. Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%. The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model. This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models.",
+      "sentences": [
+        "The analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images.",
+        "The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance.",
+        "Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision.",
+        "Furthermore, the model exhibited a sensitivity rate of 94.79%, signifying its proficiency in accurately identifying positive instances.",
+        "Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%.",
+        "These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task.",
+        "In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%.",
+        "Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%.",
+        "The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%.",
+        "Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%.",
+        "rate of 94.79%, signifying its proficiency in accurately identifying positive instances.",
+        "Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%.",
+        "These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task.",
+        "In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%.",
+        "Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%.",
+        "The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%.",
+        "Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%.",
+        "The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model.",
+        "This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%.",
+        "Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models."
+      ],
+      "section": "Results and Discussion",
+      "section_path": [
+        "Results and Discussion"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models. The researchers developed a hybrid model that uses a large number of MRI images for timely identification. The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results. The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients. This study aimed to scrutinize transfer learning models but did not conduct empirical investigations. Future research will focus on refining these models and The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model. This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models.",
+      "sentences": [
+        "The study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models.",
+        "The researchers developed a hybrid model that uses a large number of MRI images for timely identification.",
+        "The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results.",
+        "The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients.",
+        "This study aimed to scrutinize transfer learning models but did not conduct empirical investigations.",
+        "Future research will focus on refining these models and The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model.",
+        "This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%.",
+        "Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models."
+      ],
+      "section": "Conclusions and Future Works",
+      "section_path": [
+        "Conclusions and Future Works"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "text": "The study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models. The researchers developed a hybrid model that uses a large number of MRI images for timely identification. The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results. The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients. This study aimed to scrutinize transfer learning models but did not conduct empirical investigations. Future research will focus on refining these models and understanding their inner workings. The absence of elucidation tools hindered the visualization of crucial brain tumor regions.",
+      "sentences": [
+        "The study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models.",
+        "The researchers developed a hybrid model that uses a large number of MRI images for timely identification.",
+        "The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results.",
+        "The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients.",
+        "This study aimed to scrutinize transfer learning models but did not conduct empirical investigations.",
+        "Future research will focus on refining these models and understanding their inner workings.",
+        "The absence of elucidation tools hindered the visualization of crucial brain tumor regions."
+      ],
+      "section": "Conclusions and Future Works",
+      "section_path": [
+        "Conclusions and Future Works"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 220.78582,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.145526,
+          "y": 232.15180600000008,
+          "w": 5.009999999999991,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 229.125466,
+          "y": 232.15180600000008,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.2853579999999,
+          "y": 232.15180600000008,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 232.15180600000008,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 232.15180600000008,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 221.08541799999998,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 224.44512399999996,
+          "y": 105.31163200000003,
+          "w": 4.448880000000003,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 228.88498599999997,
+          "y": 105.31163200000003,
+          "w": 5.8045860000000005,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 336.28435599999995,
+          "y": 105.31163200000003,
+          "w": 3.336659999999995,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 339.64506399999993,
+          "y": 105.31163200000003,
+          "w": 6.122220000000027,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 345.76527999999996,
+          "y": 105.31163200000003,
+          "w": 5.804585999999972,
+          "h": 10.170299999999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 6,
+          "x": 166.095,
+          "y": 93.56980422346373,
+          "w": 399.38285440000016,
+          "h": 122.41876377653625,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    }
+  ],
+  "formulas": [
+    {
+      "formula_id": "formula_001",
+      "text": "A c u e r a y = \\frac { T P + P T + N T N } { T \\overline { T } P + 4 F P ^ { T } + T F N ^ { 2 } + F N } \\frac { ( 1 ) } { F N }",
+      "page": null,
+      "coords": [],
+      "source": "docling"
+    },
+    {
+      "formula_id": "formula_002",
+      "text": "\\S p e c i f i c t { y } _ { \\overline { T } } = \\frac { T N _ { T N } } { \\mp N _ { T } + F P } \\\\ \\text {model} \\, ^ { \\prime } s \\, \\text {ability to identify positive samples} .",
+      "page": null,
+      "coords": [],
+      "source": "docling"
+    },
+    {
+      "formula_id": "formula_003",
+      "text": "\\sum _ { S e n s i t i v i t y } \\frac { S e n s i t i v i t y } { \\mathbb { E } \\frac { + F N } { T P + F N } }",
+      "page": null,
+      "coords": [],
+      "source": "docling"
+    }
+  ],
+  "figures": [
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 1,
+          "x": 34.756098515452955,
+          "y": 756.5675680753114,
+          "w": 112.08110467682909,
+          "h": 35.833601577786,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 1,
+          "x": 515.3183772574815,
+          "y": 756.8757324619248,
+          "w": 44.16466883962744,
+          "h": 29.73693645785363,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 1,
+          "x": 34.570773226257934,
+          "y": 341.499996856182,
+          "w": 52.27493342234464,
+          "h": 18.797928414242847,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 1,
+          "x": 34.618372347121266,
+          "y": 165.17141213170135,
+          "w": 58.166796266133346,
+          "h": 20.79812483545163,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 3,
+          "x": 170.17723950891687,
+          "y": 104.70653405558755,
+          "w": 221.26369607462019,
+          "h": 255.19492812349222,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 4,
+          "x": 168.70256212703012,
+          "y": 359.9262087015981,
+          "w": 163.6958036593239,
+          "h": 276.07978784212304,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 5,
+          "x": 167.43024482737292,
+          "y": 482.2721616517563,
+          "w": 134.7969611826647,
+          "h": 123.36985176195162,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "figure",
+      "caption": "",
+      "coords": [
+        {
+          "page": 6,
+          "x": 168.94983523549328,
+          "y": 363.011712537027,
+          "w": 269.7236626409748,
+          "h": 162.15526568922468,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "label": "table",
+      "coords": [
+        {
+          "page": 3,
+          "x": 163.91279438464272,
+          "y": 372.2003618163337,
+          "w": 395.78160354409437,
+          "h": 86.00212979858111,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "label": "table",
+      "coords": [
+        {
+          "page": 6,
+          "x": 38.98556977846798,
+          "y": 536.7671471370597,
+          "w": 524.1355686058454,
+          "h": 82.822338966134,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": "Intelligent Ultra-Light Deep Learning Model for Multi-Class Brain Tumor Detection",
+      "authors": [
+        "SAQureshi",
+        "SE ARaza",
+        "LHussain",
+        "AAMalibari",
+        "MKNour",
+        "AURehman",
+        "FNAl-Wesabi",
+        "AMHilal"
+      ],
+      "raw": "Intelligent Ultra-Light Deep Learning Model for Multi-Class Brain Tumor Detection SAQureshi SE ARaza LHussain AAMalibari MKNour AURehman FNAl-Wesabi AMHilal 10.3390/app12083715 Appl. Sci 12 3715 2022 Qureshi, S.A.; Raza, S.E.A.; Hussain, L.; Malibari, A.A.; Nour, M.K.; Rehman, A.U.; Al-Wesabi, F.N.; Hilal, A.M. Intelligent Ultra-Light Deep Learning Model for Multi-Class Brain Tumor Detection. Appl. Sci. 2022, 12, 3715. [CrossRef]"
+    },
+    {
+      "title": "A New Deep Hybrid Boosted and Ensemble Learning-Based Brain Tumor Analysis Using MRI",
+      "authors": [
+        "MMZahoor",
+        "SAQureshi",
+        "SBibi",
+        "SHKhan",
+        "AKhan",
+        "UGhafoor",
+        "MRBhutta"
+      ],
+      "raw": "A New Deep Hybrid Boosted and Ensemble Learning-Based Brain Tumor Analysis Using MRI MMZahoor SAQureshi SBibi SHKhan AKhan UGhafoor MRBhutta 10.3390/s22072726 Sensors 22 2726 2022 Zahoor, M.M.; Qureshi, S.A.; Bibi, S.; Khan, S.H.; Khan, A.; Ghafoor, U.; Bhutta, M.R. A New Deep Hybrid Boosted and Ensemble Learning-Based Brain Tumor Analysis Using MRI. Sensors 2022, 22, 2726. [CrossRef]"
+    },
+    {
+      "title": "Deep Learning for Smart Healthcare-A Survey on Brain Tumor Detection from Medical Imaging",
+      "authors": [
+        "MArabahmadi",
+        "RFarahbakhsh",
+        "JRezazadeh"
+      ],
+      "raw": "Deep Learning for Smart Healthcare-A Survey on Brain Tumor Detection from Medical Imaging MArabahmadi RFarahbakhsh JRezazadeh 10.3390/s22051960 Sensors 22 2022. 1960 Arabahmadi, M.; Farahbakhsh, R.; Rezazadeh, J. Deep Learning for Smart Healthcare-A Survey on Brain Tumor Detection from Medical Imaging. Sensors 2022, 22, 1960. [CrossRef] [PubMed]"
+    },
+    {
+      "title": "Comparative study of various techniques using deep Learning for brain tumor detection",
+      "authors": [
+        "DVGore",
+        "VDeshpande"
+      ],
+      "raw": "Comparative study of various techniques using deep Learning for brain tumor detection DVGore VDeshpande Proceedings of the 2020 IEEE International Conference for Emerging Technology (INCET) the 2020 IEEE International Conference for Emerging Technology (INCET)Belgaum, India June 2020 Gore, D.V.; Deshpande, V. Comparative study of various techniques using deep Learning for brain tumor detection. In Proceedings of the 2020 IEEE International Conference for Emerging Technology (INCET), Belgaum, India, 5-7 June 2020; pp. 1-4."
+    },
+    {
+      "title": "Brain tumors",
+      "authors": [
+        "LMDeangelis"
+      ],
+      "raw": "Brain tumors LMDeangelis 10.1056/NEJM200101113440207 N. Engl. J. Med 344 2001 DeAngelis, L.M. Brain tumors. N. Engl. J. Med. 2001, 344, 114-123. [CrossRef]"
+    },
+    {
+      "title": "Image processing techniques for brain tumor detection: A review",
+      "authors": [
+        "VYBorole",
+        "SSNimbhore",
+        "DS SKawthekar"
+      ],
+      "raw": "Image processing techniques for brain tumor detection: A review VYBorole SSNimbhore DS SKawthekar Int. J. Emerg. Trends Technol. Comput. Sci. (IJETTCS) 4 2 2015 Borole, V.Y.; Nimbhore, S.S.; Kawthekar, D.S.S. Image processing techniques for brain tumor detection: A review. Int. J. Emerg. Trends Technol. Comput. Sci. (IJETTCS) 2015, 4, 2."
+    },
+    {
+      "title": "Big data analysis for brain tumor detection: Deep convolutional neural networks",
+      "authors": [
+        "JAmin",
+        "MSharif",
+        "MYasmin",
+        "SLFernandes"
+      ],
+      "raw": "Big data analysis for brain tumor detection: Deep convolutional neural networks JAmin MSharif MYasmin SLFernandes 10.1016/j.future.2018.04.065 Future Gener. Comput. Syst 87 2018 Amin, J.; Sharif, M.; Yasmin, M.; Fernandes, S.L. Big data analysis for brain tumor detection: Deep convolutional neural networks. Future Gener. Comput. Syst. 2018, 87, 290-297. [CrossRef]"
+    },
+    {
+      "title": "Molecular biomarker-defined brain tumors: Epidemiology, validity, and completeness in the United States",
+      "authors": [
+        "JBIorgulescu",
+        "CSun",
+        "CNeff",
+        "GCioffi",
+        "CGutierrez",
+        "CKruchko",
+        "JRuhl",
+        "KAWaite",
+        "SNegoita",
+        "JHofferkamp"
+      ],
+      "raw": "Molecular biomarker-defined brain tumors: Epidemiology, validity, and completeness in the United States JBIorgulescu CSun CNeff GCioffi CGutierrez CKruchko JRuhl KAWaite SNegoita JHofferkamp 10.1093/neuonc/noac113 Neuro-Oncology 24 2022 Iorgulescu, J.B.; Sun, C.; Neff, C.; Cioffi, G.; Gutierrez, C.; Kruchko, C.; Ruhl, J.; Waite, K.A.; Negoita, S.; Hofferkamp, J.; et al. Molecular biomarker-defined brain tumors: Epidemiology, validity, and completeness in the United States. Neuro-Oncology 2022, 24, 1989-2000. [CrossRef]"
+    },
+    {
+      "title": "Update on brain tumor imaging: From anatomy to physiology",
+      "authors": [
+        "SCha"
+      ],
+      "raw": "Update on brain tumor imaging: From anatomy to physiology SCha Am. J. Neuroradiol 27 2006 Cha, S. Update on brain tumor imaging: From anatomy to physiology. Am. J. Neuroradiol. 2006, 27, 475-487."
+    },
+    {
+      "title": "Brain tumor segmentation based on deep learning and an attention mechanism using MRI multi-modalities brain images",
+      "authors": [
+        "RRanjbarzadeh",
+        "ABagherian Kasgari",
+        "SJafarzadeh Ghoushchi",
+        "SAnari",
+        "MNaseri",
+        "MBendechache"
+      ],
+      "raw": "Brain tumor segmentation based on deep learning and an attention mechanism using MRI multi-modalities brain images RRanjbarzadeh ABagherian Kasgari SJafarzadeh Ghoushchi SAnari MNaseri MBendechache 10.1038/s41598-021-90428-8 Sci. Rep 11 10930 2021 Ranjbarzadeh, R.; Bagherian Kasgari, A.; Jafarzadeh Ghoushchi, S.; Anari, S.; Naseri, M.; Bendechache, M. Brain tumor segmentation based on deep learning and an attention mechanism using MRI multi-modalities brain images. Sci. Rep. 2021, 11, 10930. [CrossRef]"
+    },
+    {
+      "title": "An internet of things-based automatic brain tumor detection system",
+      "authors": [
+        "MLRahman",
+        "AWReza",
+        "SIShabuj"
+      ],
+      "raw": "An internet of things-based automatic brain tumor detection system MLRahman AWReza SIShabuj 10.11591/ijeecs.v25.i1.pp214-222 Indones. J. Electr. Eng. Comput. Sci 25 2022 Rahman, M.L.; Reza, A.W.; Shabuj, S.I. An internet of things-based automatic brain tumor detection system. Indones. J. Electr. Eng. Comput. Sci. 2022, 25, 214-222. [CrossRef]"
+    },
+    {
+      "title": "Key Statistics for Brain and Spinal Cord Tumors",
+      "authors": [],
+      "raw": "Key Statistics for Brain and Spinal Cord Tumors 12 February 2023 Key Statistics for Brain and Spinal Cord Tumors. Available online: https://www.cancer.org/cancer/brain-spinal-cord- tumorsadults/about/key-statistics.html (accessed on 12 February 2023)."
+    },
+    {
+      "title": "Deep CNN for Brain Tumor Classification",
+      "authors": [
+        "WAyadi",
+        "WElhamzi",
+        "ICharfi",
+        "MAtri"
+      ],
+      "raw": "Deep CNN for Brain Tumor Classification WAyadi WElhamzi ICharfi MAtri 10.1007/s11063-020-10398-2 Neural Process. Lett 53 2021 Ayadi, W.; Elhamzi, W.; Charfi, I.; Atri, M. Deep CNN for Brain Tumor Classification. Neural Process. Lett. 2021, 53, 671-700. [CrossRef]"
+    },
+    {
+      "title": "MRI brain tumor medical images analysis using deep learning techniques: A systematic review",
+      "authors": [
+        "SA YAl-Galal",
+        "IF TAlshaikhli",
+        "MMAbdulrazzaq"
+      ],
+      "raw": "MRI brain tumor medical images analysis using deep learning techniques: A systematic review SA YAl-Galal IF TAlshaikhli MMAbdulrazzaq 10.1007/s12553-020-00514-6 Health Technol 11 2021 Al-Galal, S.A.Y.; Alshaikhli, I.F.T.; Abdulrazzaq, M.M. MRI brain tumor medical images analysis using deep learning techniques: A systematic review. Health Technol. 2021, 11, 267-282. [CrossRef]"
+    },
+    {
+      "title": "A Deep Analysis of Brain Tumor Detection from MRImages Using Deep Learning Networks",
+      "authors": [
+        "MIMahmud",
+        "MMamun",
+        "AAbdelgawad"
+      ],
+      "raw": "A Deep Analysis of Brain Tumor Detection from MRImages Using Deep Learning Networks MIMahmud MMamun AAbdelgawad 10.3390/a16040176 Algorithms 16 176 2023 Mahmud, M.I.; Mamun, M.; Abdelgawad, A. A Deep Analysis of Brain Tumor Detection from MRImages Using Deep Learning Networks. Algorithms 2023, 16, 176. [CrossRef]"
+    },
+    {
+      "title": "Brain Tumor Detection and Classification Using Deep Learning and Sine-Cosine Fitness GreyWolf Optimization",
+      "authors": [
+        "HZaineldin",
+        "SAGamel",
+        "E.-SMEl-Kenawy",
+        "AHAlharbi",
+        "DSKhafaga",
+        "AIbrahim",
+        "FMTalaat"
+      ],
+      "raw": "Brain Tumor Detection and Classification Using Deep Learning and Sine-Cosine Fitness GreyWolf Optimization HZaineldin SAGamel E.-SMEl-Kenawy AHAlharbi DSKhafaga AIbrahim FMTalaat Bioengineering 10 18 2023 ZainEldin, H.; Gamel, S.A.; El-Kenawy, E.-S.M.; Alharbi, A.H.; Khafaga, D.S.; Ibrahim, A.; Talaat, F.M. Brain Tumor Detection and Classification Using Deep Learning and Sine-Cosine Fitness GreyWolf Optimization. Bioengineering 2023, 10, 18."
+    },
+    {
+      "title": "Multi-Class classification of brain tumor images using data augmentation with deep neuralnetwork",
+      "authors": [
+        "BSrikanth",
+        "SVSuryanarayana"
+      ],
+      "raw": "Multi-Class classification of brain tumor images using data augmentation with deep neuralnetwork BSrikanth SVSuryanarayana 10.1016/j.matpr.2021.01.601 Mater. Today Proc 2021 Srikanth, B.; Suryanarayana, S.V. Multi-Class classification of brain tumor images using data augmentation with deep neuralnet- work. Mater. Today Proc. 2021. [CrossRef]"
+    },
+    {
+      "title": "A New Convolutional Neural Network Architecture for Automatic Detection of Brain Tumors in Magnetic Resonance Imaging Images",
+      "authors": [
+        "ASMusallam",
+        "ASSherif",
+        "MKHussein"
+      ],
+      "raw": "A New Convolutional Neural Network Architecture for Automatic Detection of Brain Tumors in Magnetic Resonance Imaging Images ASMusallam ASSherif MKHussein 10.1109/ACCESS.2022.3140289 IEEE Access 10 2022 Musallam, A.S.; Sherif, A.S.; Hussein, M.K. A New Convolutional Neural Network Architecture for Automatic Detection of Brain Tumors in Magnetic Resonance Imaging Images. IEEE Access 2022, 10, 2775-2782. [CrossRef]"
+    },
+    {
+      "title": "Deep neural network correlation learning mechanism for CT brain tumor detection",
+      "authors": [
+        "MWoźniak",
+        "JSiłka",
+        "MWieczorek"
+      ],
+      "raw": "Deep neural network correlation learning mechanism for CT brain tumor detection MWoźniak JSiłka MWieczorek 10.1007/s00521-021-05841-x Neural Comput. Appl 35 2023 Woźniak, M.; Siłka, J.; Wieczorek, M. Deep neural network correlation learning mechanism for CT brain tumor detection. Neural Comput. Appl. 2023, 35, 14611-14626. [CrossRef]"
+    },
+    {
+      "title": "Brain tumor detection and classification using machine learning: A comprehensive survey",
+      "authors": [
+        "JAmin",
+        "MSharif",
+        "AHaldorai",
+        "MYasmin",
+        "RSNayak"
+      ],
+      "raw": "Brain tumor detection and classification using machine learning: A comprehensive survey JAmin MSharif AHaldorai MYasmin RSNayak 10.1007/s40747-021-00563-y Complex Intell. Syst 8 2022 Amin, J.; Sharif, M.; Haldorai, A.; Yasmin, M.; Nayak, R.S. Brain tumor detection and classification using machine learning: A comprehensive survey. Complex Intell. Syst. 2022, 8, 3161-3183. [CrossRef]"
+    },
+    {
+      "title": "Brain Tumor Classification from MRI Images and Calculation of Tumor Area",
+      "authors": [
+        "MPareek",
+        "CKJha",
+        "SMukherjee"
+      ],
+      "raw": "Brain Tumor Classification from MRI Images and Calculation of Tumor Area MPareek CKJha SMukherjee Advances in Intelligent Systems and Computing Singapore Springer 2020 Pareek, M.; Jha, C.K.; Mukherjee, S. Brain Tumor Classification from MRI Images and Calculation of Tumor Area. In Advances in Intelligent Systems and Computing; Springer: Singapore, 2020; pp. 73-83."
+    },
+    {
+      "title": "Brain tumor classification based on hybrid approach",
+      "authors": [
+        "WAyadi",
+        "ICharfi",
+        "WElhamzi",
+        "MAtri"
+      ],
+      "raw": "Brain tumor classification based on hybrid approach WAyadi ICharfi WElhamzi MAtri 10.1007/s00371-020-02005-1 Vis. Comput 38 2020 Ayadi, W.; Charfi, I.; Elhamzi, W.; Atri, M. Brain tumor classification based on hybrid approach. Vis. Comput. 2020, 38, 107-117. [CrossRef]"
+    },
+    {
+      "title": "Qutrit-Inspired Fully Self-Supervised Shallow Quantum Learning Network for Brain Tumor Segmentation",
+      "authors": [
+        "DKonar",
+        "SBhattacharyya",
+        "BKPanigrahi",
+        "ECBehrman"
+      ],
+      "raw": "Qutrit-Inspired Fully Self-Supervised Shallow Quantum Learning Network for Brain Tumor Segmentation DKonar SBhattacharyya BKPanigrahi ECBehrman 10.1109/TNNLS.2021.3077188 IEEE Trans. Neural Netw. Learn. Syst 33 2022 Konar, D.; Bhattacharyya, S.; Panigrahi, B.K.; Behrman, E.C. Qutrit-Inspired Fully Self-Supervised Shallow Quantum Learning Network for Brain Tumor Segmentation. IEEE Trans. Neural Netw. Learn. Syst. 2022, 33, 6331-6345. [CrossRef]"
+    },
+    {
+      "title": "Radiophysiomics: Brain Tumors Classification by Machine Learning and Physiological MRI Data",
+      "authors": [
+        "AStadlbauer",
+        "FMarhold",
+        "SOberndorfer",
+        "GHeinz",
+        "MBuchfelder",
+        "TMKinfe",
+        "AMeyer-Bäse"
+      ],
+      "raw": "Radiophysiomics: Brain Tumors Classification by Machine Learning and Physiological MRI Data AStadlbauer FMarhold SOberndorfer GHeinz MBuchfelder TMKinfe AMeyer-Bäse 10.3390/cancers14102363 Cancers 14 2363 2022 Stadlbauer, A.; Marhold, F.; Oberndorfer, S.; Heinz, G.; Buchfelder, M.; Kinfe, T.M.; Meyer-Bäse, A. Radiophysiomics: Brain Tumors Classification by Machine Learning and Physiological MRI Data. Cancers 2022, 14, 2363. [CrossRef]"
+    },
+    {
+      "title": "Brain tumor detection and segmentation in MR images using deep learning",
+      "authors": [
+        "SSajid",
+        "SHussain",
+        "ASarwar"
+      ],
+      "raw": "Brain tumor detection and segmentation in MR images using deep learning SSajid SHussain ASarwar 10.1007/s13369-019-03967-8 Arab. J. Sci. Eng 44 2019 Sajid, S.; Hussain, S.; Sarwar, A. Brain tumor detection and segmentation in MR images using deep learning. Arab. J. Sci. Eng. 2019, 44, 9249-9261. [CrossRef]"
+    },
+    {
+      "title": "Brain Tumor Detection Using Machine Learning and Deep Learning: A Review",
+      "authors": [
+        "VSLotlikar",
+        "NSatpute",
+        "AGupta"
+      ],
+      "raw": "Brain Tumor Detection Using Machine Learning and Deep Learning: A Review VSLotlikar NSatpute AGupta 10.2174/1573405617666210923144739 Curr. Med. Imaging 18 2022 Lotlikar, V.S.; Satpute, N.; Gupta, A. Brain Tumor Detection Using Machine Learning and Deep Learning: A Review. Curr. Med. Imaging 2022, 18, 604-622. [CrossRef] [PubMed]"
+    },
+    {
+      "title": "Deep learning techniques for automatic detection of embryonic neuro developmental disorders",
+      "authors": [
+        "OAttallah",
+        "MASharkas",
+        "HGadelkarim"
+      ],
+      "raw": "Deep learning techniques for automatic detection of embryonic neuro developmental disorders OAttallah MASharkas HGadelkarim 10.3390/diagnostics10010027 Diagnostics 10 27 2020 Attallah, O.; Sharkas, M.A.; Gadelkarim, H. Deep learning techniques for automatic detection of embryonic neuro developmental disorders. Diagnostics 2020, 10, 27. [CrossRef] [PubMed]"
+    },
+    {
+      "title": "Brain Tumor Classification Using Dense Efficient-Net",
+      "authors": [
+        "DRNayak",
+        "NPadhy",
+        "PKMallick",
+        "MZymbler",
+        "SKumar"
+      ],
+      "raw": "Brain Tumor Classification Using Dense Efficient-Net DRNayak NPadhy PKMallick MZymbler SKumar 10.3390/axioms11010034 Axioms 11 34 2022 Nayak, D.R.; Padhy, N.; Mallick, P.K.; Zymbler, M.; Kumar, S. Brain Tumor Classification Using Dense Efficient-Net. Axioms 2022, 11, 34. [CrossRef]"
+    },
+    {
+      "title": "Tumor Detection in Brain MRI using Residual Convolutional Neural Networks",
+      "authors": [
+        "MRObeidavi",
+        "KMaghooli"
+      ],
+      "raw": "Tumor Detection in Brain MRI using Residual Convolutional Neural Networks MRObeidavi KMaghooli Proceedings of the 2022 IEEE International Conference on Machine Vision and Image Processing (MVIP) the 2022 IEEE International Conference on Machine Vision and Image Processing (MVIP)Ahvaz, Iran February 2022 Obeidavi, M.R.; Maghooli, K. Tumor Detection in Brain MRI using Residual Convolutional Neural Networks. In Proceedings of the 2022 IEEE International Conference on Machine Vision and Image Processing (MVIP), Ahvaz, Iran, 23-24 February 2022; pp. 1-5."
+    },
+    {
+      "title": "3D-MRI brain tumor detection model using modified version of level set segmentation based on dragonfly algorithm",
+      "authors": [
+        "HAKhalil",
+        "SDarwish",
+        "YMIbrahim",
+        "OFHassan"
+      ],
+      "raw": "3D-MRI brain tumor detection model using modified version of level set segmentation based on dragonfly algorithm HAKhalil SDarwish YMIbrahim OFHassan 10.3390/sym12081256 Symmetry 12 1256 2020 Khalil, H.A.; Darwish, S.; Ibrahim, Y.M.; Hassan, O.F. 3D-MRI brain tumor detection model using modified version of level set segmentation based on dragonfly algorithm. Symmetry 2020, 12, 1256. [CrossRef"
+    },
+    {
+      "title": "editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content",
+      "authors": [],
+      "raw": "editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content Disclaimer/Publisher's Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the Disclaimer/Publisher's Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+    }
+  ],
+  "canonical_text": "Brain Tumor Detection and Classification Using Transfer Learning Models †\n\n## Abstract\n\nDiagnosing brain tumors is a time-consuming process requiring radiologist expertise. With the growing patient population and increased data volume, conventional procedures have become expensive and ineffective. Scholars have explored algorithms for detecting and classifying brain tumors, focusing on precision and efficiency. Deep learning methodologies are being used to create automated systems that can diagnose or segment brain tumors with precision and efficiency, particularly in brain cancer classification. This approach facilitates transfer learning models in medical imaging. The present study undertakes an evaluation of three foundational models in the domain of computer vision, namely AlexNet, VGG16, and ResNet-50. The VGG16 and ResNet-50 models demonstrated praiseworthy performance, thereby instigating the amalgamation of these models into a groundbreaking hybrid VGG16-ResNet-50 model. The amalgamated model was subsequently implemented on the dataset, yielding a remarkable accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on a comparative analysis with alternative models, it can be deduced that the suggested framework exhibits a commendable level of dependability in facilitating the timely identification of diverse cerebral neoplasms.\n\n## Introduction\n\nThe brain and spinal cord make up the central nervous system of Homo sapiens [1] The brain controls most biological activities, such as analyzing, integrating, organizing, determining, and issuing directions to the body. The structural complexity of the human brain is remarkable [2] Certain CNC problems, including stroke, infection, brain tumors, and headaches, are difficult to diagnose, analyze, and cure [3]\n\nBrain tumors are abnormal cell growths in the rigid skull that encloses the brain [4, 5] Any growth in a small space might cause problems. Any skull tumor may cause brain damage, posing a significant danger to the brain [6, 7] Brain tumors are the tenth leading cause of mortality in both adults and children [8] Various tumor kinds have poor survival rates dependent on texture, location, and shape [9, 10] Brain tumors affect 700,000 people, with 80% benign and 20% malignant [11] According to 2021 American Cancer Society projections, 78,980 persons were diagnosed with brain tumors, including 55,150 noncancerous and 24,530 malignant tumors (13,840 men and 10,690 females) [12] Research indicates that brain tumors are the primary cause of cancer mortality in both children and adults globally [13]\n\nMany disorders need digital medical images for diagnosis, which are also useful for training and research. The need for digitised medical images is rising. In 2002, the University Hospital of Geneva Radiology Department produced 12,000-15,000 pictures daily [14] Medical reports and image studies need a reliable computer-aided diagnostic system. Manual medical ageing assessment is time-consuming, inaccurate, and errorprone [15] Machine and deep learning are essential for medical diagnosis and treatment. Multiple algorithms for brain tumor identification and classification have shown strong performance and low error [16] DL provides brain tumor classification using pre-trained CNN models for medical pictures such as GoogLeNet, AlexNet, and ResNet-34 [15, 16] DL employs multi-layered deep neural networks.\n\n## Related Work\n\nThis section discusses advanced deep learning (DL)-based brain tumor classification methods, including deep learning, machine learning, and hybrid approaches.\n\n## Deep Learning Methods\n\nMahmud et al. [15] ZainEldin et al. [16] The ADSCFGWO algorithm combines sine-cosine and grey wolf algorithms, achieving 99.98% accuracy on the BRaTS 2021 Task 1 dataset. Srikanth et al. [17] Musallam et al. [18] Wozniak et al. [19]\n\n## Machine Learning Methods\n\nGarg et al. [20] Their technique showed 97.305% accuracy, 97.73% precision, 97.60% specificity, 97.04% sensitivity, and 97.41% dependability. Pareek et al. [21] The suggested approach in [22] Tested on a large dataset, it achieved a 90% higher accuracy than current methods. The Quantum Fully Self-Supervised Neural Network (QFS-Net) uses qubits/three-quantum states for brain lesion segmentation, replacing supervised QINN networks with a qutritbased counter-propagating technique [23]\n\n## Hybrid Methods\n\nStadlbauer et al. [24] An automated technique employing MR images by Aamir et al. enhanced classification accuracy to 98.95%. For better brain tumor detection in BRATS MR images, Sajid et al. [25] The model has 86% dice, 86% sensitivity, and 91% specificity. Lotlikar et al. [26] A deep learning-based architecture for early embryonic neurodevelopmental disease identification by Attallah et al. [27] Khairandish et al. [20] The research extracts tumor and tissue properties using pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al. [25] The suggested CNN models determine parameters via grid search optimization.\n\n## Materials and Methods\n\nThe method includes multiple stages. We pre-processed the dataset from Kaggle data. For validation, we used holdout validation. We trained our images using machine learning. The dataset was split by 80% training, 10% testing, and 10% validation. We checked four brain images: glioma, meningioma, no tumor, and pituitary tumors. To verify our findings, we checked accuracy, specificity, and sensitivity.\n\n## Experimental Setup\n\nThe proposed architectures are implemented using Python 3.12 software on a computer with an Intel Core i7-2.8 GHz CPU and 16 GB of RAM.\n\n## Dataset\n\nThe brain tumor detection dataset, sourced from kaggle.com, was analyzed using 3264 MRI images, as in Table 1 1\n\nusing pre-trained AlexNet, GoogLeNet, ShuffleNet, and ResNet-18 [28] The article proposes a deep learning-based multimodal [29] Using ISLES2015 and BRATS2015 datasets, VGG19 with SVM-Cubic identifies brain tumors 96% more accurately than previous approaches [30] For brain tumor identification, Irmak et al. [25] The suggested CNN models determine parameters via grid search optimization.\n\n## Propose Methodology\n\nRecent advancements in deep learning, especially in medical image classification, offer promising opportunities for various CNN frameworks. Transfer learning methodologies accelerate data training and reduce sample quantity, allowing newly trained models to effectively utilize pre-existing information. The study evaluates three baseline models in computer vision, including AlexNet, VGG16, and ResNet-50 using transfer learning models which are shown in Figure 2\n\nEng. Proc. 2024, 62, 1 4 of 8\n\n## AlexNet\n\nThe AlexNet architecture is a groundbreaking deep convolutional neural network model known for its efficacy in image classification and recognition tasks. It overcomes hardware constraints by using two NVIDIA GTX 580 GPUs for training. The model has five convolutional layers, three pooling layers, and three fully connected layers, with approximately 60 million trainable parameters.\n\n## VGG16\n\nThe VGG Net, a deep convolutional neural network architecture from the University of Oxford, demonstrated exceptional performance in the ILSVRC 2014 object localization and classification competitions. Its design aims to enhance the depth of convolutional neural network architectures by using multiple diminutive kernels, potentially improving precision. The VGG Net is widely used in computer vision applications, particularly in medical imaging.\n\n## ResNet-50\n\nResNet frameworks mitigate network performance degradation by stacking convolutional and pooling layers and using identity shortcut connections. These connections bypass layers, maintaining identity relationships within residual blocks and reducing training errors in deep architectures.\n\n## Confusion Metrics\n\nThe system model's effectiveness was evaluated using confusion metrics, which categorize accurate and erroneous prognostications into four distinct classifications (Figure 3\n\n• True positive (TP) occurs when both the predicted and actual outcomes are positive;\n\nTrue positive (TP) occurs when both the predicted and actual outcomes are positive; • False positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive.\n\n## Classification Metrics\n\nThe performance of the model was assessed through the utilization of three distinct metrics, as enumerated below:\n\nAccuracy is the ratio of accurate predictions to the total number of predictions made; 𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦 𝑇𝑃 𝑇𝑁 𝑇𝑃 𝐹𝑃 𝑇𝑁 𝐹𝑁 (1)\n\n• Accuracy is the ratio of accurate predictions to the total number of predictions made;\n\n• Specificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;\n\n## 𝑆𝑒𝑛𝑠𝑖𝑡𝑖𝑣𝑖𝑡𝑦 𝑇𝑃 𝑇𝑃 𝐹𝑁\n\n(3)\n\n## Results and Discussion\n\nThe analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images. The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance. Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision. Furthermore, the model exhibited a sensitivity\n\nThe analysis pertains to the outcomes derived from diverse categories of sophisticated deep learning models, namely AlexNet, VGG16, ResNet-50, and hybrid VGG16-ResNet-50 classification algorithms, when applied to the dataset comprising brain tumor MR images. The evaluation is conducted by considering performance metrics such as accuracy, specificity, and sensitivity, which are presented in Table 2 4 Based on the analysis conducted, it was duly noted that the AlexNet model demonstrated a commendable level of performance. Specifically, it achieved an impressive accuracy rate of 95.60%, indicating its ability to correctly classify instances with a high degree of precision. Furthermore, the model exhibited a sensitivity rate of 94.79%, signifying its proficiency in accurately identifying positive instances. Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%. These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task. In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%. Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%. The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%. Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%. rate of 94.79%, signifying its proficiency in accurately identifying positive instances. Additionally, the model showcased a specificity rate of 96.15%, highlighting its capability to correctly classify negative instances with an F1 score of 94.68%. These findings underscore the effectiveness and reliability of the AlexNet model in the context of the analyzed task. In contrast, the VGG16 model demonstrated a remarkable level of performance, attaining an accuracy rate of 97.66%. Additionally, it exhibited a sensitivity rate of 97.56% and a specificity rate of 97.72% with an F1 score of 97.62%. The ResNet-50 model has demonstrated a remarkable level of performance, attaining an accuracy rate of 96.90%. Additionally, it has exhibited a sensitivity of 96.69%, indicating its ability to correctly identify positive instances, and a specificity of 97.06%, highlighting its proficiency in accurately recognizing negative instances with an F1 score of 96.51%. The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model. This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models.\n\n## Conclusions and Future Works\n\nThe study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models. The researchers developed a hybrid model that uses a large number of MRI images for timely identification. The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results. The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients. This study aimed to scrutinize transfer learning models but did not conduct empirical investigations. Future research will focus on refining these models and The VGG16 and ResNet-50 models exhibited commendable performance, prompting the integration of both models into a novel hybrid VGG16-ResNet50 model. This amalgamated model was subsequently deployed on the dataset, resulting in an impressive accuracy of 99.98%, sensitivity of 99.98%, and specificity of 99.98% with an F1 score of 99.98%. Based on the meticulous examination of the accuracy graph analysis, it has been discerned that the hybrid VGG16-ResNet50 models have exhibited superior performance in comparison to the remaining models.\n\nThe study aims to improve the early detection of brain tumors using magnetic resonance imaging (MRI) images and deep learning models. The researchers developed a hybrid model that uses a large number of MRI images for timely identification. The study used various indicators to evaluate the effectiveness of the machine learning models, and considered several other models to evaluate the results. The goal is to reduce global fatality rates and improve clinical diagnosis and therapeutic decision-making for brain tumor patients. This study aimed to scrutinize transfer learning models but did not conduct empirical investigations. Future research will focus on refining these models and understanding their inner workings. The absence of elucidation tools hindered the visualization of crucial brain tumor regions.\n\n## •\n\nFalse positive (FP) occurs when a forecast predicts a positive outcome, but the actual outcome is negative; • True negative (TN) occurs when both the observed outcome and prognostications are negative; • False negative (FN) occurs when a prediction incorrectly predicts a negative outcome, despite the actual result being positive.\n\nEng. Proc. 2024, 62, 1 5 of 8\n\nSpecificity refers to a model's inherent capacity to accurately identify and classify negative samples within a specific dataset;\n\n• Sensitivity is a model's ability to identify positive samples.",
+  "quality": {
+    "evaluation_type": "integrity",
+    "integrity_score": 0.8921,
+    "status": "healthy",
+    "metrics": {
+      "metadata_integrity": 1.0,
+      "abstract_integrity": 0.9944,
+      "structure_integrity": 1.0,
+      "duplication_integrity": 0.9667,
+      "reference_integrity": 1.0,
+      "truncation_integrity": 0.8333,
+      "numeric_consistency": 1.0,
+      "cross_parser_consistency": 0.6413,
+      "contamination_integrity": 1.0,
+      "coordinate_integrity": 1.0
+    },
+    "orphan_paragraph_ratio": 0.0,
+    "artifact_counts": {
+      "figures": 8,
+      "tables": 2,
+      "formulas": 3,
+      "text_blocks": 141
+    },
+    "extraction_counts": {
+      "sections": 18,
+      "paragraphs": 33,
+      "references": 31,
+      "figures": 4,
+      "tables": 2,
+      "formulas": 3
+    },
+    "ground_truth": {
+      "available": false,
+      "accuracy_score": null
+    },
+    "issues": [
+      "possible_truncation",
+      "cross_parser_disagreement"
+    ]
+  }
+}
