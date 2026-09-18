@@ -1,5 +1,3 @@
-# chunking/text_chunker.py
-
 from __future__ import annotations
 
 import re
@@ -7,398 +5,611 @@ from typing import Any
 
 from transformers import AutoTokenizer
 
+from chunking.config import ChunkingConfig
 
-class ScientificTextChunker:
 
-    SECTION_RE = re.compile(
-        r"^\s*"
-        r"(?P<number>\d+(?:\.\d+)*)"
-        r"\.?\s+"
-        r"(?P<title>.+?)"
-        r"\s*$"
-    )
+class TextChunker:
+    """
+    Section-aware, paragraph-aware, sentence-aware text chunker.
+
+    It consumes canonical JSON paragraph records.
+
+    It does NOT know about:
+        GROBID
+        Docling
+        PyMuPDF
+        ChromaDB
+        embeddings
+    """
 
     def __init__(
         self,
-        *,
-        embedding_model: str,
-        max_tokens: int = 450,
-        overlap_tokens: int = 60,
+        config: ChunkingConfig,
     ) -> None:
+
+        self.config = config
 
         self.tokenizer = (
             AutoTokenizer.from_pretrained(
-                embedding_model
+                config.tokenizer_name
             )
         )
 
-        self.max_tokens = max_tokens
-        self.overlap_tokens = (
-            overlap_tokens
-        )
-
-    # =========================================================
+    # ============================================================
     # PUBLIC
-    # =========================================================
+    # ============================================================
 
     def chunk(
         self,
-        cleaned: dict[str, Any],
-    ) -> list[dict]:
+        paragraphs: list[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
 
-        paper_id = cleaned[
-            "paper_id"
-        ]
-
-        chunks = []
-
-        # -----------------------------------------------------
-        # ABSTRACT
-        # -----------------------------------------------------
-
-        abstract = (
-            cleaned.get(
-                "abstract"
-            )
-            or ""
-        ).strip()
-
-        if abstract:
-
-            abstract_chunks = (
-                self._chunk_text(
-                    abstract
-                )
-            )
-
-            for index, text in enumerate(
-                abstract_chunks
-            ):
-
-                chunks.append(
-                    self._record(
-                        cleaned=cleaned,
-                        paper_id=paper_id,
-                        chunk_id=(
-                            f"{paper_id}"
-                            f"_abstract_"
-                            f"{index:03d}"
-                        ),
-                        section="Abstract",
-                        text=text,
-                        page_no=1,
-                        source="pymupdf",
-                    )
-                )
-
-        # -----------------------------------------------------
-        # BODY
-        # -----------------------------------------------------
-
-        sections = self._extract_sections(
-            cleaned[
-                "canonical_text"
-            ]
+        groups = self._group_by_section(
+            paragraphs
         )
 
-        index = len(chunks)
+        chunks: list[dict[str, Any]] = []
 
-        for section in sections:
+        for group in groups:
 
-            pieces = self._chunk_text(
-                section["text"]
-            )
-
-            for piece in pieces:
-
-                chunks.append(
-                    self._record(
-                        cleaned=cleaned,
-                        paper_id=paper_id,
-                        chunk_id=(
-                            f"{paper_id}"
-                            f"_chunk_"
-                            f"{index:03d}"
-                        ),
-                        section=section[
-                            "heading"
-                        ],
-                        text=piece,
-                        page_no=section.get(
-                            "page_no"
-                        ),
-                        source="pymupdf",
-                    )
+            chunks.extend(
+                self._chunk_group(
+                    group
                 )
-
-                index += 1
+            )
 
         return chunks
 
-    # =========================================================
-    # SECTIONS
-    # =========================================================
+    # ============================================================
+    # GROUPING
+    # ============================================================
 
-    def _extract_sections(
-        self,
-        text: str,
-    ) -> list[dict]:
+    @staticmethod
+    def _group_by_section(
+        paragraphs: list[dict[str, Any]],
+    ) -> list[list[dict[str, Any]]]:
 
-        lines = [
-            line.strip()
-            for line in text.splitlines()
-            if line.strip()
-        ]
+        groups: list[
+            list[dict[str, Any]]
+        ] = []
 
-        sections = []
+        current: list[
+            dict[str, Any]
+        ] = []
 
-        current_heading = (
-            "Introduction"
-        )
+        current_key: tuple[
+            str,
+            tuple[str, ...],
+        ] | None = None
 
-        current_text: list[str] = []
+        for paragraph in paragraphs:
 
-        for line in lines:
-
-            # Skip obvious metadata.
-            if self._metadata_line(
-                line
-            ):
-                continue
-
-            match = self.SECTION_RE.match(
-                line
+            text = TextChunker._clean_text(
+                paragraph.get("text")
             )
 
-            if match:
+            if not text:
+                continue
 
-                if current_text:
+            section = str(
+                paragraph.get(
+                    "section"
+                )
+                or "Unclassified"
+            ).strip()
 
-                    sections.append(
-                        {
-                            "heading": (
-                                current_heading
-                            ),
-                            "text": " ".join(
-                                current_text
-                            ),
-                            "page_no": None,
-                        }
+            section_path = tuple(
+                str(item).strip()
+                for item in (
+                    paragraph.get(
+                        "section_path"
                     )
+                    or [section]
+                )
+                if str(item).strip()
+            )
 
-                current_heading = (
-                    self._clean_heading(
-                        line
+            key = (
+                section,
+                section_path,
+            )
+
+            if (
+                current_key is not None
+                and key != current_key
+            ):
+                groups.append(
+                    current
+                )
+                current = []
+
+            current_key = key
+            current.append(
+                paragraph
+            )
+
+        if current:
+            groups.append(
+                current
+            )
+
+        return groups
+
+    # ============================================================
+    # GROUP CHUNKING
+    # ============================================================
+
+    def _chunk_group(
+        self,
+        paragraphs: list[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+
+        if not paragraphs:
+            return []
+
+        section = str(
+            paragraphs[0].get(
+                "section"
+            )
+            or "Unclassified"
+        )
+
+        section_path = (
+            paragraphs[0].get(
+                "section_path"
+            )
+            or [section]
+        )
+
+        chunks: list[
+            dict[str, Any]
+        ] = []
+
+        current_sentences: list[str] = []
+        current_paragraphs: list[
+            dict[str, Any]
+        ] = []
+
+        current_tokens = 0
+
+        for paragraph in paragraphs:
+
+            text = self._clean_text(
+                paragraph.get("text")
+            )
+
+            if not text:
+                continue
+
+            sentences = (
+                self._split_sentences(
+                    text
+                )
+            )
+
+            if not sentences:
+                sentences = [text]
+
+            for sentence in sentences:
+
+                sentence_tokens = (
+                    self._token_count(
+                        sentence
                     )
                 )
 
-                current_text = []
+                # ------------------------------------------------
+                # Extremely long sentence
+                # ------------------------------------------------
 
-                continue
+                if (
+                    sentence_tokens
+                    > self.config.chunk_size
+                ):
 
-            current_text.append(
-                line
+                    if current_sentences:
+
+                        chunks.append(
+                            self._make_chunk(
+                                current_sentences,
+                                current_paragraphs,
+                                section,
+                                section_path,
+                            )
+                        )
+
+                    current_sentences = []
+                    current_paragraphs = []
+                    current_tokens = 0
+
+                    pieces = (
+                        self._hard_token_split(
+                            sentence
+                        )
+                    )
+
+                    for piece in pieces:
+
+                        chunks.append(
+                            self._make_chunk(
+                                [piece],
+                                [paragraph],
+                                section,
+                                section_path,
+                                boundary_type="token",
+                            )
+                        )
+
+                    continue
+
+                # ------------------------------------------------
+                # Fits current chunk
+                # ------------------------------------------------
+
+                if (
+                    current_tokens
+                    + sentence_tokens
+                    <= self.config.chunk_size
+                ):
+
+                    current_sentences.append(
+                        sentence
+                    )
+
+                    if (
+                        paragraph
+                        not in current_paragraphs
+                    ):
+                        current_paragraphs.append(
+                            paragraph
+                        )
+
+                    current_tokens += (
+                        sentence_tokens
+                    )
+
+                    continue
+
+                # ------------------------------------------------
+                # Flush current chunk
+                # ------------------------------------------------
+
+                if current_sentences:
+
+                    chunks.append(
+                        self._make_chunk(
+                            current_sentences,
+                            current_paragraphs,
+                            section,
+                            section_path,
+                        )
+                    )
+
+                # ------------------------------------------------
+                # Add overlap
+                # ------------------------------------------------
+
+                overlap_sentences = (
+                    self._get_overlap_sentences(
+                        current_sentences
+                    )
+                )
+
+                overlap_tokens = sum(
+                    self._token_count(
+                        sentence
+                    )
+                    for sentence
+                    in overlap_sentences
+                )
+
+                current_sentences = (
+                    overlap_sentences
+                    + [sentence]
+                )
+
+                current_paragraphs = (
+                    current_paragraphs[-1:]
+                    if overlap_sentences
+                    and current_paragraphs
+                    else []
+                )
+
+                if (
+                    paragraph
+                    not in current_paragraphs
+                ):
+                    current_paragraphs.append(
+                        paragraph
+                    )
+
+                current_tokens = (
+                    overlap_tokens
+                    + sentence_tokens
+                )
+
+        # --------------------------------------------------------
+        # Final chunk
+        # --------------------------------------------------------
+
+        if current_sentences:
+
+            chunks.append(
+                self._make_chunk(
+                    current_sentences,
+                    current_paragraphs,
+                    section,
+                    section_path,
+                )
             )
 
-        if current_text:
+        return chunks
 
-            sections.append(
-                {
-                    "heading": current_heading,
-                    "text": " ".join(
-                        current_text
-                    ),
-                    "page_no": None,
-                }
-            )
+    # ============================================================
+    # CHUNK CREATION
+    # ============================================================
 
-        return sections
+    def _make_chunk(
+        self,
+        sentences: list[str],
+        paragraphs: list[dict[str, Any]],
+        section: str,
+        section_path: list[str],
+        boundary_type: str = "sentence",
+    ) -> dict[str, Any]:
 
-    @staticmethod
-    def _clean_heading(
-        heading: str,
-    ) -> str:
-
-        heading = re.sub(
-            r"\s+",
-            " ",
-            heading,
+        text = " ".join(
+            sentence.strip()
+            for sentence in sentences
+            if sentence.strip()
         ).strip()
 
-        # Remove duplicate trailing number.
-        match = re.match(
-            r"^(?P<num>\d+(?:\.\d+)*\.)"
-            r"\s+"
-            r"(?P<title>.*?)"
-            r"\s+"
-            r"(?P<trailing>\d+(?:\.\d+)*\.)$",
-            heading,
-        )
+        pages: list[int] = []
+        coords: list[dict[str, Any]] = []
 
-        if match and (
-            match.group("num")
-            == match.group("trailing")
-        ):
+        for paragraph in paragraphs:
 
-            return (
-                f"{match.group('num')} "
-                f"{match.group('title')}"
+            page = paragraph.get(
+                "page"
             )
 
-        return heading
+            if isinstance(
+                page,
+                int,
+            ):
+                pages.append(
+                    page
+                )
 
-    # =========================================================
-    # TOKEN CHUNKING
-    # =========================================================
+            for coord in (
+                paragraph.get(
+                    "coords"
+                )
+                or []
+            ):
 
-    def _chunk_text(
+                if isinstance(
+                    coord,
+                    dict,
+                ):
+                    coords.append(
+                        coord
+                    )
+
+                    coord_page = (
+                        coord.get(
+                            "page"
+                        )
+                    )
+
+                    if isinstance(
+                        coord_page,
+                        int,
+                    ):
+                        pages.append(
+                            coord_page
+                        )
+
+        pages = sorted(
+            set(pages)
+        )
+
+        return {
+            "unit_type": "text",
+            "section": section,
+            "section_path": section_path,
+            "text": text,
+            "embedding_text": (
+                f"Section: "
+                f"{' > '.join(section_path)}\n"
+                f"{text}"
+            ),
+            "token_count": (
+                self._token_count(text)
+            ),
+            "boundary_type": boundary_type,
+            "pages": pages,
+            "page_start": (
+                pages[0]
+                if pages
+                else None
+            ),
+            "page_end": (
+                pages[-1]
+                if pages
+                else None
+            ),
+            "coords": coords,
+            "source_paragraph_count": len(
+                paragraphs
+            ),
+        }
+
+    # ============================================================
+    # SENTENCES
+    # ============================================================
+
+    @staticmethod
+    def _split_sentences(
+        text: str,
+    ) -> list[str]:
+
+        text = re.sub(
+            r"\s+",
+            " ",
+            text.strip(),
+        )
+
+        if not text:
+            return []
+
+        parts = re.split(
+            r"(?<=[.!?])\s+(?=[A-Z0-9(\[])",
+            text,
+        )
+
+        return [
+            part.strip()
+            for part in parts
+            if part.strip()
+        ]
+
+    # ============================================================
+    # TOKEN SPLIT
+    # ============================================================
+
+    def _hard_token_split(
         self,
         text: str,
     ) -> list[str]:
 
-        sentences = re.split(
-            r"(?<=[.!?])\s+(?=[A-Z0-9])",
-            text.strip(),
+        token_ids = (
+            self.tokenizer.encode(
+                text,
+                add_special_tokens=False,
+            )
         )
 
-        sentences = [
-            sentence.strip()
-            for sentence in sentences
-            if sentence.strip()
-        ]
+        step = (
+            self.config.chunk_size
+            - self.config.overlap
+        )
 
-        chunks = []
-        current: list[str] = []
-        current_tokens = 0
+        pieces: list[str] = []
 
-        for sentence in sentences:
+        for start in range(
+            0,
+            len(token_ids),
+            step,
+        ):
 
-            token_count = len(
-                self.tokenizer.encode(
-                    sentence,
-                    add_special_tokens=False,
+            window = token_ids[
+                start:
+                start + self.config.chunk_size
+            ]
+
+            if not window:
+                break
+
+            piece = (
+                self.tokenizer.decode(
+                    window,
+                    skip_special_tokens=True,
+                    clean_up_tokenization_spaces=True,
+                ).strip()
+            )
+
+            if piece:
+                pieces.append(
+                    piece
+                )
+
+            if (
+                start
+                + self.config.chunk_size
+                >= len(token_ids)
+            ):
+                break
+
+        return pieces
+
+    # ============================================================
+    # OVERLAP
+    # ============================================================
+
+    def _get_overlap_sentences(
+        self,
+        sentences: list[str],
+    ) -> list[str]:
+
+        if not sentences:
+            return []
+
+        selected: list[str] = []
+        token_count = 0
+
+        for sentence in reversed(
+            sentences
+        ):
+
+            count = (
+                self._token_count(
+                    sentence
                 )
             )
 
             if (
-                current
-                and
-                current_tokens
-                + token_count
-                > self.max_tokens
+                token_count + count
+                > self.config.overlap
             ):
+                break
 
-                chunks.append(
-                    " ".join(
-                        current
-                    )
-                )
-
-                overlap = []
-
-                overlap_tokens = 0
-
-                for previous in reversed(
-                    current
-                ):
-
-                    count = len(
-                        self.tokenizer.encode(
-                            previous,
-                            add_special_tokens=False,
-                        )
-                    )
-
-                    if (
-                        overlap_tokens
-                        + count
-                        > self.overlap_tokens
-                    ):
-                        break
-
-                    overlap.insert(
-                        0,
-                        previous,
-                    )
-
-                    overlap_tokens += count
-
-                current = overlap
-                current_tokens = (
-                    overlap_tokens
-                )
-
-            current.append(
+            selected.insert(
+                0,
                 sentence
             )
 
-            current_tokens += (
-                token_count
-            )
+            token_count += count
 
-        if current:
+        return selected
 
-            chunks.append(
-                " ".join(
-                    current
-                )
-            )
+    # ============================================================
+    # TOKEN COUNT
+    # ============================================================
 
-        return chunks
-
-    # =========================================================
-    # RECORD
-    # =========================================================
-
-    @staticmethod
-    def _record(
-        *,
-        cleaned: dict,
-        paper_id: str,
-        chunk_id: str,
-        section: str,
+    def _token_count(
+        self,
         text: str,
-        page_no: int | None,
-        source: str,
-    ) -> dict:
+    ) -> int:
 
-        return {
-            "chunk_id": chunk_id,
-            "paper_id": paper_id,
-            "section": section,
-            "text": text,
-            "page_no": page_no,
-            "source": source,
-            "title": cleaned.get(
-                "title"
-            ),
-            "authors": cleaned.get(
-                "authors",
-                [],
-            ),
-            "year": cleaned.get(
-                "year"
-            ),
-        }
-
-    @staticmethod
-    def _metadata_line(
-        text: str,
-    ) -> bool:
-
-        lower = text.lower()
-
-        return (
-            lower.startswith(
-                "scientific reports"
-            )
-            or lower.startswith(
-                "eng. proc."
-            )
-            or lower.startswith(
-                "www.nature.com"
-            )
-            or lower.startswith(
-                "doi.org"
+        return len(
+            self.tokenizer.encode(
+                text,
+                add_special_tokens=False,
             )
         )
+
+    # ============================================================
+    # CLEAN
+    # ============================================================
+
+    @staticmethod
+    def _clean_text(
+        text: Any,
+    ) -> str:
+
+        if text is None:
+            return ""
+
+        text = str(text)
+
+        text = text.replace(
+            "\u00ad",
+            "",
+        )
+
+        return re.sub(
+            r"\s+",
+            " ",
+            text,
+        ).strip()

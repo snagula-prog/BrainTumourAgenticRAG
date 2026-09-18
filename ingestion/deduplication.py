@@ -147,6 +147,8 @@ def register_new_paper(
         "year": None,
         "num_pages": None,
         "num_chunks": None,
+        "quality_score": None,
+        "quality_status": None,
     }
 
     registry[paper_id] = record

@@ -1,40 +1,73 @@
 {
   "evaluation_type": "integrity",
-  "integrity_score": 0.8921,
+  "integrity_score": 0.9023,
   "status": "healthy",
   "metrics": {
     "metadata_integrity": 1.0,
-    "abstract_integrity": 0.9944,
-    "structure_integrity": 1.0,
-    "duplication_integrity": 0.9667,
+    "abstract_integrity": 1.0,
+    "structure_integrity": 0.9911,
+    "duplication_integrity": 1.0,
     "reference_integrity": 1.0,
-    "truncation_integrity": 0.8333,
-    "numeric_consistency": 1.0,
-    "cross_parser_consistency": 0.6413,
+    "truncation_integrity": 0.9286,
+    "numeric_consistency": 0.9068,
+    "cross_parser_consistency": 0.6595,
     "contamination_integrity": 1.0,
     "coordinate_integrity": 1.0
   },
-  "orphan_paragraph_ratio": 0.0,
+  "orphan_paragraph_ratio": 0.0222,
   "artifact_counts": {
-    "figures": 8,
-    "tables": 2,
-    "formulas": 3,
-    "text_blocks": 141
+    "figures": 36,
+    "tables": 8,
+    "formulas": 9,
+    "text_blocks": 501
   },
   "extraction_counts": {
-    "sections": 18,
-    "paragraphs": 33,
-    "references": 31,
-    "figures": 4,
-    "tables": 2,
-    "formulas": 3
+    "sections": 48,
+    "paragraphs": 135,
+    "references": 90,
+    "figures": 9,
+    "tables": 6,
+    "formulas": 9
   },
   "ground_truth": {
     "available": false,
     "accuracy_score": null
   },
   "issues": [
-    "possible_truncation",
-    "cross_parser_disagreement"
-  ]
+    "cross_parser_disagreement",
+    "figure_captions_missing"
+  ],
+  "canonical_counts": {
+    "sections": 48,
+    "paragraphs": 135,
+    "references": 90,
+    "figures": 36,
+    "tables": 8,
+    "formulas": 9
+  },
+  "artifact_integrity": {
+    "evaluation_type": "canonical_artifact_integrity",
+    "integrity_score": 0.8556,
+    "status": "review",
+    "tables": {
+      "count": 8,
+      "structured_count": 8,
+      "structured_ratio": 1.0,
+      "provenance_ratio": 1.0
+    },
+    "figures": {
+      "count": 36,
+      "captioned_count": 10,
+      "caption_coverage": 0.2778,
+      "provenance_ratio": 1.0
+    },
+    "formulas": {
+      "count": 9,
+      "provenance_count": 9,
+      "provenance_coverage": 1.0
+    },
+    "issues": [
+      "figure_captions_missing"
+    ]
+  }
 }

@@ -34,6 +34,42 @@
     "accuracy_score": null
   },
   "issues": [
-    "cross_parser_disagreement"
-  ]
+    "cross_parser_disagreement",
+    "table_structure_missing",
+    "figure_captions_missing"
+  ],
+  "canonical_counts": {
+    "sections": 19,
+    "paragraphs": 51,
+    "references": 106,
+    "figures": 25,
+    "tables": 8,
+    "formulas": 0
+  },
+  "artifact_integrity": {
+    "evaluation_type": "canonical_artifact_integrity",
+    "integrity_score": 0.624,
+    "status": "review",
+    "tables": {
+      "count": 8,
+      "structured_count": 0,
+      "structured_ratio": 0.0,
+      "provenance_ratio": 1.0
+    },
+    "figures": {
+      "count": 25,
+      "captioned_count": 3,
+      "caption_coverage": 0.12,
+      "provenance_ratio": 1.0
+    },
+    "formulas": {
+      "count": 0,
+      "provenance_count": 0,
+      "provenance_coverage": 1.0
+    },
+    "issues": [
+      "table_structure_missing",
+      "figure_captions_missing"
+    ]
+  }
 }

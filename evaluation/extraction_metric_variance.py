@@ -1,21 +1,20 @@
 """
-Run this anytime you've added new papers to see whether the
-integrity-score weights still make sense.
+Evaluate the observed variance of integrity metrics across papers.
 
 Usage:
-    python metric_variance_report.py [evaluation_dir]
+    python extraction_metric_variance.py [evaluation_dir]
 
-Defaults to ./storage/evaluation (settings.evaluation_dir) if no
-argument is given. Reads every *_quality.json in that directory.
+Defaults to ./storage/evaluation.
 """
+
+from __future__ import annotations
 
 import json
 import statistics
 import sys
 from pathlib import Path
 
-# Current weights, kept in sync with
-# extraction_quality_metrics.py::_weighted_integrity_score
+
 CURRENT_WEIGHTS = {
     "coordinate_integrity": 0.03,
     "reference_integrity": 0.03,
@@ -29,9 +28,6 @@ CURRENT_WEIGHTS = {
     "cross_parser_consistency": 0.22,
 }
 
-# Metrics currently treated as "near-zero variance, low weight".
-# If their observed std climbs meaningfully above this, it's worth
-# reconsidering their weight.
 WATCH_THRESHOLD = 0.02
 
 
@@ -44,7 +40,9 @@ def main() -> None:
     )
 
     files = sorted(
-        directory.glob("*_quality.json")
+        directory.glob(
+            "*_quality.json"
+        )
     )
 
     if not files:
@@ -53,83 +51,137 @@ def main() -> None:
         )
         return
 
-    per_metric: dict[str, list[float]] = {
-        name: [] for name in CURRENT_WEIGHTS
+    per_metric: dict[
+        str,
+        list[
+            tuple[str, float]
+        ],
+    ] = {
+        name: []
+        for name in CURRENT_WEIGHTS
     }
-
-    paper_ids = []
 
     for file_path in files:
 
-        data = json.loads(
-            file_path.read_text(
-                encoding="utf-8"
+        try:
+            data = json.loads(
+                file_path.read_text(
+                    encoding="utf-8"
+                )
             )
-        )
+        except (
+            OSError,
+            json.JSONDecodeError,
+        ) as exc:
+
+            print(
+                f"[SKIP] {file_path.name}: "
+                f"{exc}"
+            )
+
+            continue
 
         metrics = data.get(
             "metrics",
             {},
         )
 
-        paper_ids.append(
-            file_path.stem.replace(
-                "_quality",
-                "",
-            )
+        if not isinstance(
+            metrics,
+            dict,
+        ):
+            continue
+
+        paper_id = file_path.stem.replace(
+            "_quality",
+            "",
         )
 
         for name in CURRENT_WEIGHTS:
 
-            if name in metrics:
+            value = metrics.get(
+                name
+            )
 
-                per_metric[name].append(
-                    metrics[name]
+            if isinstance(
+                value,
+                (int, float),
+            ):
+
+                per_metric[
+                    name
+                ].append(
+                    (
+                        paper_id,
+                        float(value),
+                    )
                 )
 
-    n = len(files)
-
+    print()
     print(
-        f"Loaded {n} quality report(s) "
-        f"from {directory}\n"
+        f"Loaded {len(files)} quality report(s) "
+        f"from {directory}"
     )
+    print()
 
-    if n < 15:
+    if len(files) < 15:
         print(
-            "Note: fewer than 15 papers -- single outliers can "
-            "still dominate std. Treat flags below as leads to "
-            "investigate, not final verdicts.\n"
+            "Note: fewer than 15 papers -- single "
+            "outliers can dominate standard deviation."
         )
+        print()
 
     header = (
-        f"{'metric':28s}{'weight':>8s}"
-        f"{'mean':>8s}{'std':>8s}{'min':>8s}  worst paper"
+        f"{'metric':28s}"
+        f"{'weight':>8s}"
+        f"{'n':>6s}"
+        f"{'mean':>9s}"
+        f"{'std':>9s}"
+        f"{'min':>9s}"
+        f"{'max':>9s}"
+        f"  worst paper"
     )
+
     print(header)
     print("-" * len(header))
 
-    # Sort by weight ascending so the low-weight ("assumed boring")
-    # metrics are grouped together at the top for easy scanning.
     for name, weight in sorted(
         CURRENT_WEIGHTS.items(),
         key=lambda item: item[1],
     ):
 
-        values = per_metric[name]
+        pairs = per_metric[
+            name
+        ]
 
-        if not values:
+        if not pairs:
             continue
 
-        mean = statistics.mean(values)
+        values = [
+            value
+            for _, value in pairs
+        ]
+
+        mean = statistics.mean(
+            values
+        )
+
         std = (
-            statistics.pstdev(values)
+            statistics.pstdev(
+                values
+            )
             if len(values) > 1
             else 0.0
         )
 
-        min_value = min(values)
-        min_index = values.index(min_value)
-        worst_paper = paper_ids[min_index]
+        worst_paper, min_value = min(
+            pairs,
+            key=lambda item: item[1],
+        )
+
+        max_value = max(
+            values
+        )
 
         flag = ""
 
@@ -137,15 +189,21 @@ def main() -> None:
             weight <= 0.06
             and std > WATCH_THRESHOLD
         ):
+
             flag = (
-                "  <-- more variance than expected for "
-                "its current low weight"
+                "  <-- variance worth reviewing"
             )
 
         print(
-            f"{name:28s}{weight:8.2f}"
-            f"{mean:8.4f}{std:8.4f}{min_value:8.4f}"
-            f"  {worst_paper}{flag}"
+            f"{name:28s}"
+            f"{weight:8.2f}"
+            f"{len(values):6d}"
+            f"{mean:9.4f}"
+            f"{std:9.4f}"
+            f"{min_value:9.4f}"
+            f"{max_value:9.4f}"
+            f"  {worst_paper}"
+            f"{flag}"
         )
 
 

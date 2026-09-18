@@ -15,6 +15,11 @@ class QualityMetrics:
 
     Ground-truth accuracy is handled separately by:
         evaluation/extraction_benchmark.py
+
+    This evaluator runs BEFORE canonicalization, so its
+    extraction_counts describe the parser/artifact layer.
+    The ingestion pipeline separately records canonical_counts
+    after the final canonical representation is built.
     """
 
     # =========================================================
@@ -30,45 +35,68 @@ class QualityMetrics:
     ) -> dict[str, Any]:
 
         metrics = {
-            "metadata_integrity": self.metadata_integrity(
-                grobid
+            "metadata_integrity": (
+                self.metadata_integrity(
+                    grobid
+                )
             ),
-            "abstract_integrity": self.abstract_integrity(
-                grobid,
-                pymupdf,
+            "abstract_integrity": (
+                self.abstract_integrity(
+                    grobid,
+                    pymupdf,
+                )
             ),
-            "structure_integrity": self.structure_integrity(
-                grobid
+            "structure_integrity": (
+                self.structure_integrity(
+                    grobid
+                )
             ),
-            "duplication_integrity": self.duplication_integrity(
-                grobid
+            "duplication_integrity": (
+                self.duplication_integrity(
+                    grobid
+                )
             ),
-            "reference_integrity": self.reference_integrity(
-                grobid
+            "reference_integrity": (
+                self.reference_integrity(
+                    grobid
+                )
             ),
-            "truncation_integrity": self.truncation_integrity(
-                grobid
+            "truncation_integrity": (
+                self.truncation_integrity(
+                    grobid
+                )
             ),
-            "numeric_consistency": self.numeric_consistency(
-                grobid,
-                pymupdf,
+            "numeric_consistency": (
+                self.numeric_consistency(
+                    grobid,
+                    pymupdf,
+                    artifacts,
+                )
             ),
-            "cross_parser_consistency": self.cross_parser_consistency(
-                grobid,
-                pymupdf,
+            "cross_parser_consistency": (
+                self.cross_parser_consistency(
+                    grobid,
+                    pymupdf,
+                )
             ),
-            "contamination_integrity": self.contamination_integrity(
-                grobid,
-                pymupdf,
-                artifacts,
+            "contamination_integrity": (
+                self.contamination_integrity(
+                    grobid,
+                    pymupdf,
+                    artifacts,
+                )
             ),
-            "coordinate_integrity": self.coordinate_integrity(
-                artifacts
+            "coordinate_integrity": (
+                self.coordinate_integrity(
+                    artifacts
+                )
             ),
         }
 
-        integrity_score = self._weighted_integrity_score(
-            metrics
+        integrity_score = (
+            self._weighted_integrity_score(
+                metrics
+            )
         )
 
         issues = self._issues(
@@ -84,70 +112,35 @@ class QualityMetrics:
             "status": self._status(
                 integrity_score
             ),
-
             "metrics": {
                 key: round(
                     value,
                     4,
                 )
-                for key, value in metrics.items()
+                for key, value
+                in metrics.items()
             },
-
             "orphan_paragraph_ratio": round(
                 self.orphan_paragraph_ratio(
                     grobid
                 ),
                 4,
             ),
-
-            "artifact_counts": self._artifact_counts(
-                artifacts
+            "artifact_counts": (
+                self._artifact_counts(
+                    artifacts
+                )
             ),
-
-            "extraction_counts": {
-                "sections": len(
-                    grobid.get(
-                        "sections",
-                        [],
-                    )
-                ),
-                "paragraphs": len(
-                    grobid.get(
-                        "paragraphs",
-                        [],
-                    )
-                ),
-                "references": len(
-                    grobid.get(
-                        "references",
-                        [],
-                    )
-                ),
-                "figures": len(
-                    grobid.get(
-                        "figures",
-                        [],
-                    )
-                ),
-                "tables": len(
-                    grobid.get(
-                        "tables",
-                        [],
-                    )
-                ),
-                "formulas": len(
-                    artifacts.get(
-                        "formulas",
-                        [],
-                    )
-                ),
-            },
-
+            "extraction_counts": (
+                self._parser_counts(
+                    grobid,
+                    artifacts,
+                )
+            ),
             "ground_truth": {
                 "available": False,
                 "accuracy_score": None,
             },
-
             "issues": issues,
         }
 
@@ -206,11 +199,31 @@ class QualityMetrics:
             ),
         }
 
-        return (
+        # DOI can legitimately be absent in valid papers. Treat
+        # title/authors/year as core metadata and DOI as optional.
+        core = (
             sum(
-                fields.values()
+                fields[
+                    name
+                ]
+                for name in (
+                    "title",
+                    "authors",
+                    "year",
+                )
             )
-            / len(fields)
+            / 3
+        )
+
+        doi_component = (
+            1.0
+            if fields["doi"]
+            else 0.5
+        )
+
+        return (
+            0.85 * core
+            + 0.15 * doi_component
         )
 
     # =========================================================
@@ -268,38 +281,39 @@ class QualityMetrics:
         grobid: dict[str, Any],
     ) -> float:
 
-        sections = grobid.get(
-            "sections",
-            [],
+        sections = cls._records(
+            grobid.get(
+                "sections"
+            )
         )
 
-        paragraphs = grobid.get(
-            "paragraphs",
-            [],
+        paragraphs = cls._records(
+            grobid.get(
+                "paragraphs"
+            )
         )
 
         if not sections:
             return 0.0
 
-        valid_sections = 0
-
-        for section in sections:
-
-            heading = cls._clean_text(
-                section.get(
-                    "heading"
+        valid_sections = sum(
+            1
+            for section in sections
+            if (
+                cls._clean_text(
+                    section.get(
+                        "heading"
+                    )
+                )
+                and not cls._is_garbage_heading(
+                    cls._clean_text(
+                        section.get(
+                            "heading"
+                        )
+                    )
                 )
             )
-
-            if not heading:
-                continue
-
-            if cls._is_garbage_heading(
-                heading
-            ):
-                continue
-
-            valid_sections += 1
+        )
 
         section_validity = (
             valid_sections
@@ -310,12 +324,11 @@ class QualityMetrics:
             assigned = sum(
                 1
                 for paragraph in paragraphs
-                if str(
+                if cls._clean_text(
                     paragraph.get(
                         "section"
                     )
-                    or ""
-                ).strip()
+                )
             )
 
             assignment_ratio = (
@@ -340,9 +353,10 @@ class QualityMetrics:
         grobid: dict[str, Any],
     ) -> float:
 
-        paragraphs = grobid.get(
-            "paragraphs",
-            [],
+        paragraphs = cls._records(
+            grobid.get(
+                "paragraphs"
+            )
         )
 
         texts = []
@@ -359,12 +373,10 @@ class QualityMetrics:
             )
 
             if len(text) >= 40:
-                texts.append(
-                    text
-                )
+                texts.append(text)
 
         if not texts:
-            return 0.0
+            return 1.0
 
         counts = Counter(
             texts
@@ -395,24 +407,24 @@ class QualityMetrics:
         grobid: dict[str, Any],
     ) -> float:
 
-        references = grobid.get(
-            "references",
-            [],
+        references = cls._records(
+            grobid.get(
+                "references"
+            )
         )
 
         if not references:
-            return 0.0
+            return 1.0
 
-        valid = 0
-
-        for reference in references:
-
-            text = cls._reference_text(
-                reference
-            )
-
-            if len(text) >= 20:
-                valid += 1
+        valid = sum(
+            1
+            for reference in references
+            if len(
+                cls._reference_text(
+                    reference
+                )
+            ) >= 20
+        )
 
         return (
             valid
@@ -462,13 +474,14 @@ class QualityMetrics:
         grobid: dict[str, Any],
     ) -> float:
 
-        paragraphs = grobid.get(
-            "paragraphs",
-            [],
+        paragraphs = cls._records(
+            grobid.get(
+                "paragraphs"
+            )
         )
 
         if not paragraphs:
-            return 0.0
+            return 1.0
 
         suspicious = 0
         checked = 0
@@ -516,6 +529,7 @@ class QualityMetrics:
                 and words[-1].lower()
                 in bad_endings
             ):
+
                 suspicious += 1
                 continue
 
@@ -531,7 +545,7 @@ class QualityMetrics:
                 suspicious += 1
 
         if checked == 0:
-            return 0.0
+            return 1.0
 
         return max(
             0.0,
@@ -551,13 +565,19 @@ class QualityMetrics:
         cls,
         grobid: dict[str, Any],
         pymupdf: dict[str, Any],
+        artifacts: dict[str, Any] | None = None,
     ) -> float:
 
-        grobid_text = (
-            cls._combined_body_text(
-                grobid
-            )
+        grobid_text = cls._combined_body_text(
+            grobid
         )
+
+        if artifacts:
+            artifact_text = cls._artifact_numeric_text(
+                artifacts
+            )
+        else:
+            artifact_text = ""
 
         pdf_text = cls._normalize(
             str(
@@ -575,15 +595,17 @@ class QualityMetrics:
             grobid_text
         )
 
+        if artifact_text:
+            grobid_numbers.extend(
+                cls._extract_numbers(
+                    artifact_text
+                )
+            )
+
         pdf_numbers = cls._extract_numbers(
             pdf_text
         )
 
-        # No numbers means the metric is not applicable.
-        #
-        # We return None conceptually, but the evaluator keeps
-        # numeric metrics numeric. A neutral score is preferable
-        # to claiming perfection.
         if not grobid_numbers:
             return 0.5
 
@@ -603,6 +625,7 @@ class QualityMetrics:
         for value, count in (
             g_counts.items()
         ):
+
             matched += min(
                 count,
                 p_counts.get(
@@ -627,10 +650,8 @@ class QualityMetrics:
         pymupdf: dict[str, Any],
     ) -> float:
 
-        grobid_text = (
-            cls._combined_body_text(
-                grobid
-            )
+        grobid_text = cls._combined_body_text(
+            grobid
         )
 
         pdf_text = str(
@@ -714,25 +735,15 @@ class QualityMetrics:
         pymupdf: dict[str, Any],
         artifacts: dict[str, Any],
     ) -> float:
-        """
-        Detect likely contamination using evidence from:
 
-        1. Explicit parser structure
-        2. Repeated short boilerplate text
-        3. Known header/footer patterns
-        4. Figure/chart-like text
-
-        This does NOT penalize a paragraph merely because its exact
-        normalized text differs from PyMuPDF output.
-        """
-
-        paragraphs = grobid.get(
-            "paragraphs",
-            [],
+        paragraphs = cls._records(
+            grobid.get(
+                "paragraphs"
+            )
         )
 
         if not paragraphs:
-            return 0.0
+            return 1.0
 
         candidates = []
 
@@ -745,15 +756,11 @@ class QualityMetrics:
                 )
             )
 
-            if len(text) < 20:
-                continue
-
-            candidates.append(
-                text
-            )
+            if len(text) >= 20:
+                candidates.append(text)
 
         if not candidates:
-            return 0.0
+            return 1.0
 
         suspicious = 0
 
@@ -773,20 +780,13 @@ class QualityMetrics:
             normalized,
         ):
 
-            # -------------------------------------------------
-            # Repeated boilerplate
-            # -------------------------------------------------
-
             if (
                 len(text) < 180
                 and frequency[norm] >= 3
             ):
+
                 suspicious += 1
                 continue
-
-            # -------------------------------------------------
-            # Explicit header/footer patterns
-            # -------------------------------------------------
 
             if cls._looks_like_header_footer(
                 text
@@ -794,22 +794,20 @@ class QualityMetrics:
                 suspicious += 1
                 continue
 
-            # -------------------------------------------------
-            # Email / correspondence blocks
-            # -------------------------------------------------
-
             if cls._looks_like_email_block(
                 text
             ):
                 suspicious += 1
                 continue
 
-            # -------------------------------------------------
-            # Figure/chart text
-            # -------------------------------------------------
-
+            # Only flag chart-like paragraphs when there is
+            # no matching figure/table artifact nearby. This
+            # avoids penalizing legitimate discussion of metrics.
             if cls._looks_like_chart_text(
                 text
+            ) and not cls._has_matching_artifact_text(
+                text,
+                artifacts,
             ):
                 suspicious += 1
                 continue
@@ -823,10 +821,6 @@ class QualityMetrics:
             0.0,
             1.0 - ratio,
         )
-
-    # =========================================================
-    # HEADER / FOOTER
-    # =========================================================
 
     @staticmethod
     def _looks_like_header_footer(
@@ -856,10 +850,6 @@ class QualityMetrics:
             )
             for pattern in patterns
         )
-
-    # =========================================================
-    # EMAIL BLOCK
-    # =========================================================
 
     @staticmethod
     def _looks_like_email_block(
@@ -894,10 +884,6 @@ class QualityMetrics:
             )
         )
 
-    # =========================================================
-    # CHART / FIGURE TEXT
-    # =========================================================
-
     @staticmethod
     def _looks_like_chart_text(
         text: str,
@@ -905,7 +891,7 @@ class QualityMetrics:
 
         words = text.split()
 
-        if len(words) < 12:
+        if len(words) < 18:
             return False
 
         numeric_tokens = sum(
@@ -945,9 +931,69 @@ class QualityMetrics:
         )
 
         return (
-            numeric_ratio >= 0.25
+            numeric_ratio >= 0.35
             and has_chart_term
         )
+
+    @classmethod
+    def _has_matching_artifact_text(
+        cls,
+        text: str,
+        artifacts: dict[str, Any],
+    ) -> bool:
+
+        normalized = cls._normalize(
+            text
+        )
+
+        for key in (
+            "figures",
+            "tables",
+        ):
+
+            for item in cls._records(
+                artifacts.get(
+                    key
+                )
+            ):
+
+                candidate = cls._normalize(
+                    " ".join(
+                        [
+                            str(
+                                item.get(
+                                    "caption",
+                                    ""
+                                )
+                                or ""
+                            ),
+                            str(
+                                item.get(
+                                    "text",
+                                    ""
+                                )
+                                or ""
+                            ),
+                            str(
+                                item.get(
+                                    "content",
+                                    ""
+                                )
+                                or ""
+                            ),
+                        ]
+                    )
+                )
+
+                if candidate and (
+                    normalized[:80]
+                    in candidate
+                    or candidate[:80]
+                    in normalized
+                ):
+                    return True
+
+        return False
 
     # =========================================================
     # ORPHAN PARAGRAPHS
@@ -958,18 +1004,18 @@ class QualityMetrics:
         grobid: dict[str, Any],
     ) -> float:
 
-        paragraphs = grobid.get(
-            "paragraphs",
-            [],
+        paragraphs = QualityMetrics._records(
+            grobid.get(
+                "paragraphs"
+            )
         )
 
         if not paragraphs:
-            return 1.0
+            return 0.0
 
         orphaned = sum(
             1
-            for paragraph
-            in paragraphs
+            for paragraph in paragraphs
             if not str(
                 paragraph.get(
                     "section"
@@ -992,26 +1038,11 @@ class QualityMetrics:
         cls,
         artifacts: dict[str, Any],
     ) -> float:
-        """
-        Validate Docling text-block coordinate coverage.
 
-        The current DoclingArtifactExtractor / canonical representation
-        uses coordinate records like:
-
-        {
-            "page": 13,
-            "x": 306.14,
-            "y": 276.38,
-            "w": 30.56,
-            "h": 9.69
-        }
-
-        We also accept older/raw provenance representations.
-        """
-
-        text_blocks = artifacts.get(
-            "text_blocks",
-            [],
+        text_blocks = cls._records(
+            artifacts.get(
+                "text_blocks"
+            )
         )
 
         if not text_blocks:
@@ -1026,37 +1057,41 @@ class QualityMetrics:
                 [],
             )
 
-            if isinstance(
-                coords,
-                list,
-            ) and any(
-                cls._valid_coord_record(
-                    coord
+            if (
+                isinstance(
+                    coords,
+                    list,
                 )
-                for coord in coords
+                and any(
+                    cls._valid_coord_record(
+                        coord
+                    )
+                    for coord in coords
+                )
             ):
                 valid_blocks += 1
                 continue
 
-            # Raw Docling provenance fallback.
             provenance = block.get(
                 "prov",
                 [],
             )
 
-            if isinstance(
-                provenance,
-                list,
-            ) and any(
-                cls._valid_provenance_record(
-                    item
+            if (
+                isinstance(
+                    provenance,
+                    list,
                 )
-                for item in provenance
+                and any(
+                    cls._valid_provenance_record(
+                        item
+                    )
+                    for item in provenance
+                )
             ):
                 valid_blocks += 1
                 continue
 
-            # Flattened page + bbox fallback.
             page = block.get(
                 "page"
             )
@@ -1109,13 +1144,11 @@ class QualityMetrics:
                     "x"
                 )
             )
-
             y = float(
                 coord.get(
                     "y"
                 )
             )
-
             w = float(
                 coord.get(
                     "w",
@@ -1124,7 +1157,6 @@ class QualityMetrics:
                     ),
                 )
             )
-
             h = float(
                 coord.get(
                     "h",
@@ -1133,7 +1165,6 @@ class QualityMetrics:
                     ),
                 )
             )
-
         except (
             TypeError,
             ValueError,
@@ -1190,19 +1221,15 @@ class QualityMetrics:
             left = float(
                 bbox["l"]
             )
-
             right = float(
                 bbox["r"]
             )
-
             top = float(
                 bbox["t"]
             )
-
             bottom = float(
                 bbox["b"]
             )
-
         except (
             KeyError,
             TypeError,
@@ -1212,7 +1239,7 @@ class QualityMetrics:
 
         return (
             right > left
-            and top > bottom
+            and top != bottom
         )
 
     # =========================================================
@@ -1225,28 +1252,13 @@ class QualityMetrics:
     ) -> float:
 
         weights = {
-            # Zero variance across every paper checked so far --
-            # coordinate provenance and reference-list sanity both
-            # hold for every well-formed, born-digital PDF. Kept as
-            # a nonzero floor because they still guard against real
-            # (if rare) failure modes -- scanned PDFs with no
-            # provenance, or a reference list that duplicates itself
-            # -- not because we expect them to move often.
             "coordinate_integrity": 0.03,
             "reference_integrity": 0.03,
-
-            # Small but real variance, tracking the messier papers
-            # in the batch without dominating the score.
             "abstract_integrity": 0.06,
             "duplication_integrity": 0.06,
             "contamination_integrity": 0.06,
-
-            # Moderate, consistent variance.
             "numeric_consistency": 0.11,
             "structure_integrity": 0.13,
-
-            # The three metrics that actually separate healthy from
-            # problematic extractions in observed data.
             "metadata_integrity": 0.14,
             "truncation_integrity": 0.16,
             "cross_parser_consistency": 0.22,
@@ -1270,169 +1282,170 @@ class QualityMetrics:
 
         issues = []
 
-        if (
-            metrics[
-                "metadata_integrity"
-            ]
-            < 0.75
-        ):
-            issues.append(
-                "metadata_integrity_low"
-            )
+        thresholds = {
+            "metadata_integrity": (
+                0.75,
+                "metadata_integrity_low",
+            ),
+            "abstract_integrity": (
+                0.75,
+                "abstract_integrity_low",
+            ),
+            "structure_integrity": (
+                0.80,
+                "structure_integrity_low",
+            ),
+            "duplication_integrity": (
+                0.90,
+                "duplicate_text_detected",
+            ),
+            "reference_integrity": (
+                0.80,
+                "reference_integrity_low",
+            ),
+            "truncation_integrity": (
+                0.85,
+                "possible_truncation",
+            ),
+            "numeric_consistency": (
+                0.80,
+                "numeric_consistency_low",
+            ),
+            "cross_parser_consistency": (
+                0.70,
+                "cross_parser_disagreement",
+            ),
+            "contamination_integrity": (
+                0.85,
+                "possible_contamination",
+            ),
+            "coordinate_integrity": (
+                0.90,
+                "coordinate_integrity_low",
+            ),
+        }
 
-        if (
-            metrics[
-                "abstract_integrity"
-            ]
-            < 0.75
-        ):
-            issues.append(
-                "abstract_integrity_low"
-            )
+        for metric, (
+            threshold,
+            issue,
+        ) in thresholds.items():
 
-        if (
-            metrics[
-                "structure_integrity"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "structure_integrity_low"
-            )
-
-        if (
-            metrics[
-                "duplication_integrity"
-            ]
-            < 0.90
-        ):
-            issues.append(
-                "duplicate_text_detected"
-            )
-
-        if (
-            metrics[
-                "reference_integrity"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "reference_integrity_low"
-            )
-
-        if (
-            metrics[
-                "truncation_integrity"
-            ]
-            < 0.85
-        ):
-            issues.append(
-                "possible_truncation"
-            )
-
-        if (
-            metrics[
-                "numeric_consistency"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "numeric_consistency_low"
-            )
-
-        if (
-            metrics[
-                "cross_parser_consistency"
-            ]
-            < 0.70
-        ):
-            issues.append(
-                "cross_parser_disagreement"
-            )
-
-        if (
-            metrics[
-                "contamination_integrity"
-            ]
-            < 0.85
-        ):
-            issues.append(
-                "possible_contamination"
-            )
-
-        if (
-            metrics[
-                "coordinate_integrity"
-            ]
-            < 0.90
-        ):
-            issues.append(
-                "coordinate_integrity_low"
-            )
+            if metrics.get(
+                metric,
+                0.0,
+            ) < threshold:
+                issues.append(issue)
 
         return issues
 
     # =========================================================
-    # ARTIFACT COUNTS
+    # COUNTS
     # =========================================================
 
     @staticmethod
     def _artifact_counts(
         artifacts: dict[str, Any],
-    ) -> dict[str, Any]:
+    ) -> dict[str, int]:
 
-        counts = dict(
-            artifacts.get(
-                "counts",
-                {},
-            )
-        )
+        counts = {}
 
-        # Ensure these are always exposed.
-        counts.setdefault(
+        for key in (
             "figures",
-            len(
-                artifacts.get(
-                    "figures",
-                    [],
-                )
-            ),
-        )
-
-        counts.setdefault(
             "tables",
-            len(
-                artifacts.get(
-                    "tables",
-                    [],
-                )
-            ),
-        )
-
-        counts.setdefault(
             "formulas",
-            len(
-                artifacts.get(
-                    "formulas",
-                    [],
+            "text_blocks",
+        ):
+
+            value = artifacts.get(
+                key,
+                [],
+            )
+
+            counts[key] = (
+                len(value)
+                if isinstance(
+                    value,
+                    list,
                 )
-            ),
+                else 0
+            )
+
+        provided = artifacts.get(
+            "counts"
         )
 
-        counts.setdefault(
-            "text_blocks",
-            len(
-                artifacts.get(
-                    "text_blocks",
-                    [],
+        if isinstance(
+            provided,
+            dict,
+        ):
+            for key in counts:
+                value = provided.get(
+                    key
                 )
-            ),
-        )
+
+                if isinstance(
+                    value,
+                    int,
+                ):
+                    counts[key] = value
 
         return counts
 
+    @staticmethod
+    def _parser_counts(
+        grobid: dict[str, Any],
+        artifacts: dict[str, Any],
+    ) -> dict[str, int]:
+
+        return {
+            "sections": len(
+                QualityMetrics._records(
+                    grobid.get(
+                        "sections"
+                    )
+                )
+            ),
+            "paragraphs": len(
+                QualityMetrics._records(
+                    grobid.get(
+                        "paragraphs"
+                    )
+                )
+            ),
+            "references": len(
+                QualityMetrics._records(
+                    grobid.get(
+                        "references"
+                    )
+                )
+            ),
+            # GROBID often has fewer/no figure/table structures in the
+            # parser output. These are kept as parser-level counts.
+            "figures": len(
+                QualityMetrics._records(
+                    grobid.get(
+                        "figures"
+                    )
+                )
+            ),
+            "tables": len(
+                QualityMetrics._records(
+                    grobid.get(
+                        "tables"
+                    )
+                )
+            ),
+            "formulas": len(
+                QualityMetrics._records(
+                    artifacts.get(
+                        "formulas"
+                    )
+                )
+            ),
+        }
+
     # =========================================================
-    # HELPERS
+    # TEXT HELPERS
     # =========================================================
 
     @staticmethod
@@ -1454,9 +1467,10 @@ class QualityMetrics:
                 abstract
             )
 
-        for paragraph in grobid.get(
-            "paragraphs",
-            [],
+        for paragraph in QualityMetrics._records(
+            grobid.get(
+                "paragraphs"
+            )
         ):
 
             text = str(
@@ -1472,6 +1486,46 @@ class QualityMetrics:
                 )
 
         return "\n".join(
+            parts
+        )
+
+    @classmethod
+    def _artifact_numeric_text(
+        cls,
+        artifacts: dict[str, Any],
+    ) -> str:
+
+        parts: list[str] = []
+
+        for key in (
+            "tables",
+            "figures",
+            "formulas",
+        ):
+
+            for item in cls._records(
+                artifacts.get(
+                    key
+                )
+            ):
+
+                for field in (
+                    "caption",
+                    "text",
+                    "content",
+                    "orig",
+                ):
+
+                    value = item.get(
+                        field
+                    )
+
+                    if value:
+                        parts.append(
+                            str(value)
+                        )
+
+        return " ".join(
             parts
         )
 
@@ -1536,22 +1590,23 @@ class QualityMetrics:
         return re.sub(
             r"\s+",
             " ",
-            str(text)
+            str(text or "")
             .lower(),
         ).strip()
 
-    @staticmethod
+    @classmethod
     def _coverage(
+        cls,
         source: str,
         target: str,
     ) -> float:
 
-        source_tokens = QualityMetrics._tokenize(
+        source_tokens = cls._tokenize(
             source
         )
 
         target_counts = Counter(
-            QualityMetrics._tokenize(
+            cls._tokenize(
                 target
             )
         )
@@ -1561,8 +1616,7 @@ class QualityMetrics:
 
         matched = sum(
             1
-            for token
-            in source_tokens
+            for token in source_tokens
             if target_counts.get(
                 token,
                 0,
@@ -1603,6 +1657,26 @@ class QualityMetrics:
         return 0.0
 
     @staticmethod
+    def _records(
+        value: Any,
+    ) -> list[dict[str, Any]]:
+
+        if not isinstance(
+            value,
+            list,
+        ):
+            return []
+
+        return [
+            item
+            for item in value
+            if isinstance(
+                item,
+                dict,
+            )
+        ]
+
+    @staticmethod
     def _is_garbage_heading(
         heading: str,
     ) -> bool:
@@ -1612,9 +1686,7 @@ class QualityMetrics:
         if not heading:
             return True
 
-        if len(
-            heading
-        ) > 180:
+        if len(heading) > 180:
             return True
 
         if len(
@@ -1622,8 +1694,6 @@ class QualityMetrics:
         ) > 20:
             return True
 
-        # Formula-like headings are almost certainly not
-        # real section headings.
         if (
             len(
                 heading.split()

@@ -1936,8 +1936,13 @@
   "formulas": [],
   "figures": [
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_001",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 1,
       "coords": [
         {
           "page": 1,
@@ -1947,11 +1952,17 @@
           "h": 24.64043515723995,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_002",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 1,
       "coords": [
         {
           "page": 1,
@@ -1961,11 +1972,17 @@
           "h": 25.7989909821531,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_003",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 2,
       "coords": [
         {
           "page": 2,
@@ -1975,11 +1992,17 @@
           "h": 13.114426561552932,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_004",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 3,
       "coords": [
         {
           "page": 3,
@@ -1989,11 +2012,17 @@
           "h": 13.609821166059191,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_005",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 4,
       "coords": [
         {
           "page": 4,
@@ -2003,11 +2032,17 @@
           "h": 13.498516486176527,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_006",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 5,
       "coords": [
         {
           "page": 5,
@@ -2017,11 +2052,17 @@
           "h": 13.310238195833449,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_007",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 6,
       "coords": [
         {
           "page": 6,
@@ -2031,11 +2072,17 @@
           "h": 13.478967935452488,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_008",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 7,
       "coords": [
         {
           "page": 7,
@@ -2045,11 +2092,17 @@
           "h": 13.362777071476671,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_009",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 8,
       "coords": [
         {
           "page": 8,
@@ -2059,11 +2112,17 @@
           "h": 13.301467094879285,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_010",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 9,
       "coords": [
         {
           "page": 9,
@@ -2073,11 +2132,17 @@
           "h": 13.665541210737274,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_011",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 10,
       "coords": [
         {
           "page": 10,
@@ -2087,11 +2152,17 @@
           "h": 13.27580795327549,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_012",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 11,
       "coords": [
         {
           "page": 11,
@@ -2101,11 +2172,17 @@
           "h": 13.397417103359317,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_013",
+      "label": "picture",
+      "caption": "FIGURE 1. Evaluation of machine learning techniques for brain tumor detection.",
+      "caption_status": "available",
+      "section": null,
+      "section_path": [],
+      "page": 11,
       "coords": [
         {
           "page": 11,
@@ -2115,11 +2192,17 @@
           "h": 174.88556107747354,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_014",
+      "label": "picture",
+      "caption": "FIGURE 2. Evaluation of deep learning methods for brain tumor detection.",
+      "caption_status": "available",
+      "section": null,
+      "section_path": [],
+      "page": 11,
       "coords": [
         {
           "page": 11,
@@ -2129,11 +2212,17 @@
           "h": 168.04515509426852,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_015",
+      "label": "picture",
+      "caption": "FIGURE 3. Flowchart of the proposed work.",
+      "caption_status": "available",
+      "section": null,
+      "section_path": [],
+      "page": 11,
       "coords": [
         {
           "page": 11,
@@ -2143,11 +2232,17 @@
           "h": 445.5168034612818,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_016",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 12,
       "coords": [
         {
           "page": 12,
@@ -2157,11 +2252,17 @@
           "h": 13.141731595768874,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_017",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 13,
       "coords": [
         {
           "page": 13,
@@ -2171,11 +2272,17 @@
           "h": 13.277512968333781,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_018",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 14,
       "coords": [
         {
           "page": 14,
@@ -2185,11 +2292,17 @@
           "h": 13.104694244055963,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_019",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 15,
       "coords": [
         {
           "page": 15,
@@ -2199,11 +2312,17 @@
           "h": 13.17781154529041,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_020",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 16,
       "coords": [
         {
           "page": 16,
@@ -2213,11 +2332,17 @@
           "h": 13.0381071123511,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_021",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 17,
       "coords": [
         {
           "page": 17,
@@ -2227,11 +2352,17 @@
           "h": 13.137663590042735,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_022",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 17,
       "coords": [
         {
           "page": 17,
@@ -2241,11 +2372,17 @@
           "h": 91.21114989384722,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_023",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 17,
       "coords": [
         {
           "page": 17,
@@ -2255,11 +2392,17 @@
           "h": 92.00382550753307,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_024",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 17,
       "coords": [
         {
           "page": 17,
@@ -2269,11 +2412,17 @@
           "h": 90.57804385498747,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     },
     {
-      "label": "figure",
-      "caption": "",
+      "figure_id": "figure_025",
+      "label": "picture",
+      "caption": null,
+      "caption_status": "missing",
+      "section": null,
+      "section_path": [],
+      "page": 17,
       "coords": [
         {
           "page": 17,
@@ -2283,12 +2432,21 @@
           "h": 90.84661996300161,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "source": "docling"
     }
   ],
   "tables": [
     {
+      "table_id": "table_001",
       "label": "table",
+      "caption": "TABLE 1. Brain tumor detection using deep learning techniques.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 3,
@@ -2298,10 +2456,21 @@
           "h": 612.447954354531,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 3,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_002",
       "label": "table",
+      "caption": "TABLE 1. (Continued.) Brain tumor detection using deep learning techniques.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 4,
@@ -2311,10 +2480,21 @@
           "h": 608.3531032233986,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 4,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_003",
       "label": "table",
+      "caption": "TABLE 1. (Continued.) Brain tumor detection using deep learning techniques.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 5,
@@ -2324,10 +2504,21 @@
           "h": 130.5550322460208,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 5,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_004",
       "label": "table",
+      "caption": "TABLE 2. Brain tumor detection using 3d deep learning techniques.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 6,
@@ -2337,10 +2528,21 @@
           "h": 510.20567743924505,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 6,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_005",
       "label": "table",
+      "caption": "TABLE 3. Machine learning methodologies for brain tumor detection.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 7,
@@ -2350,10 +2552,21 @@
           "h": 342.45907162598354,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 7,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_006",
       "label": "table",
+      "caption": "TABLE 4. Gap analysis of machine learning and deep learning methods.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 8,
@@ -2363,10 +2576,21 @@
           "h": 612.2924127347417,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 8,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_007",
       "label": "table",
+      "caption": null,
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 9,
@@ -2376,10 +2600,21 @@
           "h": 604.7927876632612,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 9,
+      "source": "docling",
+      "structure_status": "bbox_only"
     },
     {
+      "table_id": "table_008",
       "label": "table",
+      "caption": "TABLE 4. (Continued.) Gap analysis of machine learning and deep learning methods.",
+      "section": null,
+      "section_path": [],
+      "rows": [],
+      "cells": [],
+      "content": "",
+      "text": "",
       "coords": [
         {
           "page": 10,
@@ -2389,7 +2624,10 @@
           "h": 252.41676104831816,
           "coord_origin": "BOTTOMLEFT"
         }
-      ]
+      ],
+      "page": 10,
+      "source": "docling",
+      "structure_status": "bbox_only"
     }
   ],
   "references": [
@@ -3486,7 +3724,43 @@
       "accuracy_score": null
     },
     "issues": [
-      "cross_parser_disagreement"
-    ]
+      "cross_parser_disagreement",
+      "table_structure_missing",
+      "figure_captions_missing"
+    ],
+    "canonical_counts": {
+      "sections": 19,
+      "paragraphs": 51,
+      "references": 106,
+      "figures": 25,
+      "tables": 8,
+      "formulas": 0
+    },
+    "artifact_integrity": {
+      "evaluation_type": "canonical_artifact_integrity",
+      "integrity_score": 0.624,
+      "status": "review",
+      "tables": {
+        "count": 8,
+        "structured_count": 0,
+        "structured_ratio": 0.0,
+        "provenance_ratio": 1.0
+      },
+      "figures": {
+        "count": 25,
+        "captioned_count": 3,
+        "caption_coverage": 0.12,
+        "provenance_ratio": 1.0
+      },
+      "formulas": {
+        "count": 0,
+        "provenance_count": 0,
+        "provenance_coverage": 1.0
+      },
+      "issues": [
+        "table_structure_missing",
+        "figure_captions_missing"
+      ]
+    }
   }
 }

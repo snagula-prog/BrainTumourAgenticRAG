@@ -1,7 +1,6 @@
-# ingestion/pipeline.py
-
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from pathlib import Path
@@ -41,13 +40,20 @@ from evaluation.extraction_quality_metrics import (
     QualityMetrics,
 )
 
+from evaluation.artifact_quality import (
+    ArtifactQualityEvaluator,
+)
+
 
 class IngestionPipeline:
     """
     Complete PDF ingestion pipeline.
 
-    Input:
-        PDF file
+    Normal ingestion:
+        duplicate PDF -> skip
+
+    Reprocessing:
+        duplicate PDF -> reuse existing paper_id -> rebuild in place
 
     Flow:
         PDF
@@ -62,21 +68,28 @@ class IngestionPipeline:
           ↓
         Docling artifacts
           ↓
-        extraction quality evaluation
+        preliminary extraction quality
           ↓
         canonical document
           ↓
+        canonical artifact quality evaluation
+          ↓
+        final canonical document
+          ↓
         registry update
 
-    Chunking, embeddings and retrieval are intentionally not
-    performed here yet.
+    Chunking, embeddings and retrieval remain outside this pipeline.
     """
 
     def __init__(self) -> None:
 
         self.grobid = GrobidParser(
-            base_url=settings.grobid_base_url,
-            timeout_seconds=settings.grobid_timeout,
+            base_url=(
+                settings.grobid_base_url
+            ),
+            timeout_seconds=(
+                settings.grobid_timeout
+            ),
             coordinate_elements=[
                 "head",
                 "p",
@@ -92,11 +105,21 @@ class IngestionPipeline:
             do_ocr=False,
         )
 
-        self.artifacts = DoclingArtifactExtractor()
+        self.artifacts = (
+            DoclingArtifactExtractor()
+        )
 
-        self.quality = QualityMetrics()
+        self.quality = (
+            QualityMetrics()
+        )
 
-        self.builder = CanonicalBuilder()
+        self.builder = (
+            CanonicalBuilder()
+        )
+
+        self.artifact_quality = (
+            ArtifactQualityEvaluator()
+        )
 
     # =========================================================
     # PUBLIC API
@@ -105,16 +128,14 @@ class IngestionPipeline:
     def process_single_pdf(
         self,
         pdf_path: Path,
+        *,
+        force_reprocess: bool = False,
     ) -> dict:
-        """
-        Process one PDF.
 
-        Idempotent:
-        uploading/running the same PDF again will detect its
-        SHA-256 hash and skip duplicate processing.
-        """
-
-        pdf_path = Path(pdf_path).resolve()
+        pdf_path = (
+            Path(pdf_path)
+            .resolve()
+        )
 
         if not pdf_path.exists():
             raise FileNotFoundError(
@@ -129,14 +150,18 @@ class IngestionPipeline:
 
         print()
         print("=" * 70)
-        print(f"[INGEST] {pdf_path.name}")
+        print(
+            f"[INGEST] {pdf_path.name}"
+        )
         print("=" * 70)
 
         # -----------------------------------------------------
         # 1. HASH + DUPLICATE CHECK
         # -----------------------------------------------------
 
-        print("[1/6] Checking duplicate...")
+        print(
+            "[1/6] Checking duplicate..."
+        )
 
         file_hash = compute_file_hash(
             pdf_path
@@ -144,12 +169,17 @@ class IngestionPipeline:
 
         registry = load_registry()
 
-        existing_paper_id = find_by_hash(
-            registry,
-            file_hash,
+        existing_paper_id = (
+            find_by_hash(
+                registry,
+                file_hash,
+            )
         )
 
-        if existing_paper_id:
+        if (
+            existing_paper_id
+            and not force_reprocess
+        ):
 
             existing_record = registry[
                 existing_paper_id
@@ -162,33 +192,54 @@ class IngestionPipeline:
 
             return {
                 "skipped": True,
-                "paper_id": existing_paper_id,
+                "paper_id": (
+                    existing_paper_id
+                ),
                 "record": existing_record,
             }
 
-        # -----------------------------------------------------
-        # 2. REGISTER PAPER
-        # -----------------------------------------------------
+        if (
+            existing_paper_id
+            and force_reprocess
+        ):
 
-        print("[2/6] Registering paper...")
+            paper_id = (
+                existing_paper_id
+            )
 
-        record = register_new_paper(
-            pdf_path,
-            file_hash,
-        )
+            print(
+                f"[REPROCESS] Reusing existing "
+                f"paper_id: {paper_id}"
+            )
 
-        paper_id = record[
-            "paper_id"
-        ]
+            self._update_registry_status(
+                paper_id,
+                "processing",
+            )
 
-        print(
-            f"[REGISTERED] {paper_id}"
-        )
+        else:
 
-        self._update_registry_status(
-            paper_id,
-            "processing",
-        )
+            print(
+                "[2/6] Registering paper..."
+            )
+
+            record = register_new_paper(
+                pdf_path,
+                file_hash,
+            )
+
+            paper_id = record[
+                "paper_id"
+            ]
+
+            print(
+                f"[REGISTERED] {paper_id}"
+            )
+
+            self._update_registry_status(
+                paper_id,
+                "processing",
+            )
 
         try:
 
@@ -196,10 +247,14 @@ class IngestionPipeline:
             # 3. GROBID
             # -------------------------------------------------
 
-            print("[3/6] GROBID...")
+            print(
+                "[3/6] GROBID..."
+            )
 
-            tei_xml = self.grobid.process_pdf(
-                pdf_path
+            tei_xml = (
+                self.grobid.process_pdf(
+                    pdf_path
+                )
             )
 
             grobid = parse_grobid_tei(
@@ -207,16 +262,26 @@ class IngestionPipeline:
             )
 
             # -------------------------------------------------
-            # 4. PYMUPDF + DOCLING
+            # 4. PYMuPDF
             # -------------------------------------------------
 
-            print("[4/6] PyMuPDF audit...")
+            print(
+                "[4/6] PyMuPDF audit..."
+            )
 
-            pymupdf = PyMuPDFAudit(
-                pdf_path
-            ).extract()
+            pymupdf = (
+                PyMuPDFAudit(
+                    pdf_path
+                ).extract()
+            )
 
-            print("[5/6] Docling artifacts...")
+            # -------------------------------------------------
+            # 5. DOCLING
+            # -------------------------------------------------
+
+            print(
+                "[5/6] Docling artifacts..."
+            )
 
             document, docling_metadata = (
                 self.docling.parse(
@@ -230,17 +295,8 @@ class IngestionPipeline:
 
             artifacts = (
                 self.artifacts.extract(
-                    raw_docling
-                )
-            )
-            text_blocks = artifacts.get("text_blocks", [])
-
-            print(
-                "[DEBUG TEXT BLOCK]",
-                json.dumps(
-                    text_blocks[0] if text_blocks else {"error": "No text_blocks found"},
-                    indent=2,
-                    default=str,
+                    raw_docling,
+                    fallback_pdf_path=pdf_path,
                 )
             )
 
@@ -255,33 +311,74 @@ class IngestionPipeline:
             )
 
             if pdf_year:
-                grobid["year"] = pdf_year
+                grobid["year"] = (
+                    pdf_year
+                )
 
             # -------------------------------------------------
-            # QUALITY
+            # 6. PRELIMINARY QUALITY
             # -------------------------------------------------
 
             print(
                 "[6/6] Evaluating extraction quality..."
             )
 
-            quality = self.quality.evaluate(
-                grobid=grobid,
-                pymupdf=pymupdf,
-                artifacts=artifacts,
+            quality = (
+                self.quality.evaluate(
+                    grobid=grobid,
+                    pymupdf=pymupdf,
+                    artifacts=artifacts,
+                )
             )
 
             # -------------------------------------------------
-            # CANONICAL DOCUMENT
+            # PROVISIONAL CANONICAL DOCUMENT
             # -------------------------------------------------
 
-            canonical = self.builder.build(
-                paper_id=paper_id,
-                filename=pdf_path.name,
-                grobid=grobid,
-                pymupdf=pymupdf,
-                artifacts=artifacts,
-                quality=quality,
+            canonical = (
+                self.builder.build(
+                    paper_id=paper_id,
+                    filename=pdf_path.name,
+                    grobid=grobid,
+                    pymupdf=pymupdf,
+                    artifacts=artifacts,
+                    quality=quality,
+                )
+            )
+
+            # -------------------------------------------------
+            # CANONICAL COUNTS + ARTIFACT QUALITY
+            # -------------------------------------------------
+
+            canonical_counts = self._canonical_counts(
+                canonical
+            )
+
+            artifact_integrity = (
+                self.artifact_quality.evaluate(
+                    canonical
+                )
+            )
+
+            # Keep parser/extraction counts from QualityMetrics
+            # separate from the counts that survived into the
+            # final canonical representation.
+            quality["canonical_counts"] = (
+                canonical_counts
+            )
+
+            quality["artifact_integrity"] = (
+                artifact_integrity
+            )
+
+            quality["issues"] = self._merge_issues(
+                quality.get("issues", []),
+                artifact_integrity.get("issues", []),
+            )
+
+            # Canonical must contain the final quality object.
+            canonical["quality"] = (
+                quality
             )
 
             # -------------------------------------------------
@@ -293,7 +390,9 @@ class IngestionPipeline:
                 pdf_path=pdf_path,
                 tei_xml=tei_xml,
                 raw_docling=raw_docling,
-                docling_metadata=docling_metadata,
+                docling_metadata=(
+                    docling_metadata
+                ),
                 canonical=canonical,
                 quality=quality,
             )
@@ -316,8 +415,10 @@ class IngestionPipeline:
             return {
                 "skipped": False,
                 "paper_id": paper_id,
-                "record": self._get_registry_record(
-                    paper_id
+                "record": (
+                    self._get_registry_record(
+                        paper_id
+                    )
                 ),
                 "canonical": canonical,
                 "quality": quality,
@@ -344,16 +445,9 @@ class IngestionPipeline:
 
     def run_ingestion(
         self,
+        *,
+        force_reprocess: bool = False,
     ) -> list[dict]:
-        """
-        Process every PDF currently in papers/.
-
-        This is useful for:
-          - first-time ingestion
-          - rebuilding from the current papers directory
-
-        Duplicate PDFs are automatically skipped.
-        """
 
         papers_dir = Path(
             settings.papers_dir
@@ -379,7 +473,7 @@ class IngestionPipeline:
         )
         print("=" * 70)
 
-        results = []
+        results: list[dict] = []
 
         success = 0
         skipped = 0
@@ -391,7 +485,10 @@ class IngestionPipeline:
 
                 result = (
                     self.process_single_pdf(
-                        pdf_path
+                        pdf_path,
+                        force_reprocess=(
+                            force_reprocess
+                        ),
                     )
                 )
 
@@ -413,41 +510,53 @@ class IngestionPipeline:
                 results.append(
                     {
                         "skipped": False,
-                        "filename": pdf_path.name,
+                        "filename": (
+                            pdf_path.name
+                        ),
                         "error": str(exc),
                     }
                 )
 
         print()
         print("=" * 70)
-        print("INGESTION COMPLETE")
+        print(
+            "INGESTION COMPLETE"
+        )
         print("=" * 70)
+
         print(
             f"Processed : {success}"
         )
+
         print(
             f"Skipped   : {skipped}"
         )
+
         print(
             f"Failed    : {failed}"
         )
+
         print()
         print(
             f"Canonical : "
             f"{settings.canonical_dir}"
         )
+
         print(
             f"Evaluation: "
             f"{settings.evaluation_dir}"
         )
+
         print(
             f"Artifacts : "
             f"{settings.artifacts_dir}"
         )
+
         print(
             f"GROBID   : "
             f"{settings.grobid_dir}"
         )
+
         print("=" * 70)
 
         return results
@@ -480,15 +589,25 @@ class IngestionPipeline:
         if paper_id not in registry:
             return
 
-        registry[paper_id]["status"] = status
+        registry[
+            paper_id
+        ][
+            "status"
+        ] = status
 
         if error:
-            registry[paper_id][
+
+            registry[
+                paper_id
+            ][
                 "error"
             ] = error
 
         else:
-            registry[paper_id].pop(
+
+            registry[
+                paper_id
+            ].pop(
                 "error",
                 None,
             )
@@ -516,56 +635,70 @@ class IngestionPipeline:
             {},
         )
 
-        registry[paper_id].update(
+        canonical_counts = quality.get(
+            "canonical_counts",
+            {},
+        )
+
+        registry[
+            paper_id
+        ].update(
             {
-                "status": (
-                    "extracted"
-                ),
+                "status": "extracted",
+
                 "title": (
                     metadata.get(
                         "title"
                     )
                 ),
+
                 "authors": (
                     metadata.get(
                         "authors"
                     )
                 ),
+
                 "year": (
                     metadata.get(
                         "year"
                     )
                 ),
+
                 "num_pages": (
                     pymupdf.get(
                         "num_pages"
                     )
                 ),
+
                 "quality_score": (
                     quality.get(
                         "integrity_score"
                     )
                 ),
+
                 "quality_status": (
                     quality.get(
                         "status"
                     )
                 ),
+
                 "num_tables": (
-                    quality.get(
-                        "artifact_counts",
-                        {},
-                    ).get(
+                    canonical_counts.get(
                         "tables",
                         0,
                     )
                 ),
+
                 "num_figures": (
-                    quality.get(
-                        "artifact_counts",
-                        {},
-                    ).get(
+                    canonical_counts.get(
                         "figures",
+                        0,
+                    )
+                ),
+
+                "num_formulas": (
+                    canonical_counts.get(
+                        "formulas",
                         0,
                     )
                 ),
@@ -575,6 +708,61 @@ class IngestionPipeline:
         save_registry(
             registry
         )
+
+    # =========================================================
+    # CANONICAL COUNTS / ISSUES
+    # =========================================================
+
+    @staticmethod
+    def _count_records(value: object) -> int:
+        return len(value) if isinstance(value, list) else 0
+
+    @classmethod
+    def _canonical_counts(
+        cls,
+        canonical: dict,
+    ) -> dict[str, int]:
+
+        return {
+            "sections": cls._count_records(
+                canonical.get("sections")
+            ),
+            "paragraphs": cls._count_records(
+                canonical.get("paragraphs")
+            ),
+            "references": cls._count_records(
+                canonical.get("references")
+            ),
+            "figures": cls._count_records(
+                canonical.get("figures")
+            ),
+            "tables": cls._count_records(
+                canonical.get("tables")
+            ),
+            "formulas": cls._count_records(
+                canonical.get("formulas")
+            ),
+        }
+
+    @staticmethod
+    def _merge_issues(
+        existing: object,
+        added: object,
+    ) -> list[str]:
+
+        merged: list[str] = []
+
+        for source in (existing, added):
+            if not isinstance(source, list):
+                continue
+
+            for issue in source:
+                if not isinstance(issue, str):
+                    continue
+                if issue not in merged:
+                    merged.append(issue)
+
+        return merged
 
     # =========================================================
     # YEAR
@@ -625,10 +813,6 @@ class IngestionPipeline:
         quality: dict,
     ) -> None:
 
-        # -----------------------------------------------------
-        # GROBID TEI
-        # -----------------------------------------------------
-
         grobid_path = (
             Path(
                 settings.grobid_dir
@@ -646,10 +830,6 @@ class IngestionPipeline:
             encoding="utf-8",
         )
 
-        # -----------------------------------------------------
-        # DOCLING RAW DOCUMENT
-        # -----------------------------------------------------
-
         artifacts_path = (
             Path(
                 settings.artifacts_dir
@@ -661,15 +841,17 @@ class IngestionPipeline:
             artifacts_path,
             {
                 "paper_id": paper_id,
-                "filename": pdf_path.name,
-                "metadata": docling_metadata,
-                "docling_document": raw_docling,
+                "filename": (
+                    pdf_path.name
+                ),
+                "metadata": (
+                    docling_metadata
+                ),
+                "docling_document": (
+                    raw_docling
+                ),
             },
         )
-
-        # -----------------------------------------------------
-        # CANONICAL DOCUMENT
-        # -----------------------------------------------------
 
         canonical_path = (
             Path(
@@ -682,10 +864,6 @@ class IngestionPipeline:
             canonical_path,
             canonical,
         )
-
-        # -----------------------------------------------------
-        # EVALUATION
-        # -----------------------------------------------------
 
         evaluation_path = (
             Path(
@@ -745,8 +923,13 @@ class IngestionPipeline:
             {},
         )
 
-        artifacts = quality.get(
-            "artifact_counts",
+        canonical_counts = quality.get(
+            "canonical_counts",
+            {},
+        )
+
+        artifact_integrity = quality.get(
+            "artifact_integrity",
             {},
         )
 
@@ -757,49 +940,70 @@ class IngestionPipeline:
 
         print()
         print("-" * 70)
+
         print(
             f"Paper ID   : "
             f"{canonical.get('paper_id')}"
         )
+
         print(
             f"Title      : "
             f"{metadata.get('title')}"
         )
+
         print(
             f"Authors    : "
             f"{len(authors)}"
         )
+
         print(
             f"Year       : "
             f"{metadata.get('year')}"
         )
+
         print(
             f"Sections   : "
-            f"{len(canonical.get('sections', []))}"
+            f"{canonical_counts.get('sections', 0)}"
         )
+
+        print(
+            f"Paragraphs : "
+            f"{canonical_counts.get('paragraphs', 0)}"
+        )
+
         print(
             f"References : "
-            f"{len(canonical.get('references', []))}"
+            f"{canonical_counts.get('references', 0)}"
         )
+
         print(
             f"Tables     : "
-            f"{artifacts.get('tables', 0)}"
+            f"{canonical_counts.get('tables', 0)}"
         )
+
         print(
             f"Figures    : "
-            f"{artifacts.get('figures', 0)}"
+            f"{canonical_counts.get('figures', 0)}"
         )
+
         print(
             f"Formulas   : "
-            f"{artifacts.get('formulas', 0)}"
+            f"{canonical_counts.get('formulas', 0)}"
         )
+
         print(
             f"Quality    : "
             f"{quality.get('integrity_score', 0):.3f}"
         )
+
         print(
             f"Status     : "
             f"{quality.get('status', 'unknown')}"
+        )
+
+        print(
+            f"Artifact   : "
+            f"{artifact_integrity.get('status', 'unknown')}"
         )
 
         issues = quality.get(
@@ -821,31 +1025,68 @@ class IngestionPipeline:
 
 def process_single_pdf(
     file_path: Path,
+    *,
+    force_reprocess: bool = False,
 ) -> dict:
-    """
-    Convenience function so other modules, including the
-    Streamlit upload interface later, can simply call:
 
-        process_single_pdf(pdf_path)
-    """
+    pipeline = (
+        IngestionPipeline()
+    )
 
-    pipeline = IngestionPipeline()
-
-    return pipeline.process_single_pdf(
-        file_path
+    return (
+        pipeline.process_single_pdf(
+            file_path,
+            force_reprocess=(
+                force_reprocess
+            ),
+        )
     )
 
 
-def run_ingestion() -> list[dict]:
-    """
-    Convenience function for processing all PDFs in papers/.
-    """
+def run_ingestion(
+    *,
+    force_reprocess: bool = False,
+) -> list[dict]:
 
-    pipeline = IngestionPipeline()
+    pipeline = (
+        IngestionPipeline()
+    )
 
-    return pipeline.run_ingestion()
+    return (
+        pipeline.run_ingestion(
+            force_reprocess=(
+                force_reprocess
+            ),
+        )
+    )
+
+
+def _parse_args() -> argparse.Namespace:
+
+    parser = argparse.ArgumentParser(
+        description=(
+            "Brain Tumor paper ingestion pipeline"
+        )
+    )
+
+    parser.add_argument(
+        "--reprocess",
+        action="store_true",
+        help=(
+            "Reprocess already-registered PDFs "
+            "in place using their existing paper_id."
+        ),
+    )
+
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
 
-    run_ingestion()
+    args = _parse_args()
+
+    run_ingestion(
+        force_reprocess=(
+            args.reprocess
+        )
+    )

@@ -1,20 +1,17 @@
-# evaluation/extraction_benchmark.py
-
 from __future__ import annotations
 
-import math
 import re
+from difflib import SequenceMatcher
 from typing import Any
 
 
 class ExtractionBenchmark:
-
     """
-    Compares canonical extraction against manually verified
+    Compare canonical extraction against manually verified
     ground-truth annotations.
 
-    This is the ONLY evaluator allowed to report an
-    extraction accuracy score.
+    This is the ONLY evaluator allowed to report extraction
+    accuracy.
     """
 
     def evaluate(
@@ -37,10 +34,14 @@ class ExtractionBenchmark:
 
         sections = self._list_f1(
             [
-                item.get("heading", "")
-                for item in canonical.get(
-                    "sections",
-                    [],
+                item.get(
+                    "heading",
+                    "",
+                )
+                for item in self._records(
+                    canonical.get(
+                        "sections"
+                    )
                 )
             ],
             ground_truth.get(
@@ -62,10 +63,14 @@ class ExtractionBenchmark:
 
         formulas = self._list_f1(
             [
-                item.get("text", "")
-                for item in canonical.get(
-                    "formulas",
-                    [],
+                item.get(
+                    "text",
+                    "",
+                )
+                for item in self._records(
+                    canonical.get(
+                        "formulas"
+                    )
                 )
             ],
             ground_truth.get(
@@ -88,12 +93,13 @@ class ExtractionBenchmark:
 
         tables = self._count_score(
             len(
-                canonical.get(
-                    "tables",
-                    [],
+                self._records(
+                    canonical.get(
+                        "tables"
+                    )
                 )
             ),
-            int(
+            self._safe_int(
                 ground_truth.get(
                     "table_count",
                     0,
@@ -103,12 +109,13 @@ class ExtractionBenchmark:
 
         figures = self._count_score(
             len(
-                canonical.get(
-                    "figures",
-                    [],
+                self._records(
+                    canonical.get(
+                        "figures"
+                    )
                 )
             ),
-            int(
+            self._safe_int(
                 ground_truth.get(
                     "figure_count",
                     0,
@@ -116,32 +123,86 @@ class ExtractionBenchmark:
             ),
         )
 
+        # Canonical schema stores abstract at top level.
+        # Keep a metadata fallback for older ground-truth files.
+        actual_abstract = (
+            canonical.get(
+                "abstract"
+            )
+            or canonical.get(
+                "metadata",
+                {},
+            ).get(
+                "abstract"
+            )
+        )
+
+        expected_metadata = ground_truth.get(
+            "metadata",
+            {},
+        )
+
+        expected_abstract = (
+            ground_truth.get(
+                "abstract"
+            )
+            or expected_metadata.get(
+                "abstract"
+            )
+        )
+
+        abstract_similarity = self._abstract_score(
+            actual_abstract,
+            expected_abstract,
+        )
+
+        table_structure = self._table_structure_score(
+            canonical,
+            ground_truth,
+        )
+
+        figure_provenance = self._artifact_provenance_score(
+            canonical.get(
+                "figures",
+                [],
+            ),
+            ground_truth.get(
+                "figures",
+                [],
+            ),
+            count_key="figure_count",
+        )
+
+        formula_provenance = self._artifact_provenance_score(
+            canonical.get(
+                "formulas",
+                [],
+            ),
+            ground_truth.get(
+                "formulas",
+                [],
+            ),
+            count_key=None,
+        )
+
         overall = (
-            metadata["score"] * 0.20
-            + sections["f1"] * 0.15
-            + paragraphs["coverage"] * 0.20
-            + formulas["f1"] * 0.15
-            + references * 0.10
+            metadata["score"] * 0.18
+            + sections["f1"] * 0.14
+            + paragraphs["coverage"] * 0.18
+            + formulas["f1"] * 0.14
+            + references * 0.08
             + tables * 0.05
             + figures * 0.05
-            + self._abstract_score(
-                canonical.get(
-                    "metadata",
-                    {},
-                ).get(
-                    "abstract"
-                ),
-                ground_truth.get(
-                    "metadata",
-                    {},
-                ).get(
-                    "abstract"
-                ),
-            ) * 0.10
+            + abstract_similarity * 0.10
+            + table_structure * 0.04
+            + figure_provenance * 0.02
+            + formula_provenance * 0.02
         )
 
         return {
-            "evaluation_type": "ground_truth_accuracy",
+            "evaluation_type": (
+                "ground_truth_accuracy"
+            ),
             "accuracy_score": round(
                 overall,
                 4,
@@ -167,20 +228,19 @@ class ExtractionBenchmark:
                     4,
                 ),
                 "abstract_similarity": round(
-                    self._abstract_score(
-                        canonical.get(
-                            "metadata",
-                            {},
-                        ).get(
-                            "abstract"
-                        ),
-                        ground_truth.get(
-                            "metadata",
-                            {},
-                        ).get(
-                            "abstract"
-                        ),
-                    ),
+                    abstract_similarity,
+                    4,
+                ),
+                "table_structure_score": round(
+                    table_structure,
+                    4,
+                ),
+                "figure_provenance_score": round(
+                    figure_provenance,
+                    4,
+                ),
+                "formula_provenance_score": round(
+                    formula_provenance,
                     4,
                 ),
             },
@@ -196,33 +256,38 @@ class ExtractionBenchmark:
         expected: dict[str, Any],
     ) -> dict[str, Any]:
 
-        scores = {}
-
-        scores["title"] = self._similarity(
+        title_score = self._similarity(
             actual.get("title"),
             expected.get("title"),
         )
 
-        scores["year"] = (
+        year_score = (
             1.0
             if actual.get("year")
             == expected.get("year")
+            and expected.get("year") is not None
             else 0.0
         )
 
-        scores["doi"] = (
+        expected_doi = expected.get(
+            "doi"
+        )
+
+        doi_score = (
             1.0
-            if self._normalize_doi(
-                actual.get("doi")
+            if (
+                expected_doi
+                and self._normalize_doi(
+                    actual.get("doi")
+                )
+                == self._normalize_doi(
+                    expected_doi
+                )
             )
-            == self._normalize_doi(
-                expected.get("doi")
-            )
-            and expected.get("doi")
             else 0.0
         )
 
-        scores["authors"] = self._list_f1(
+        author_result = self._list_f1(
             actual.get(
                 "authors",
                 [],
@@ -233,26 +298,43 @@ class ExtractionBenchmark:
             ),
         )
 
+        values = [
+            title_score,
+            year_score,
+            doi_score,
+            author_result["f1"],
+        ]
+
         return {
             "title_similarity": round(
-                scores["title"],
+                title_score,
                 4,
             ),
             "year_accuracy": round(
-                scores["year"],
+                year_score,
                 4,
             ),
             "doi_accuracy": round(
-                scores["doi"],
+                doi_score,
+                4,
+            ),
+            "author_precision": round(
+                author_result["precision"],
+                4,
+            ),
+            "author_recall": round(
+                author_result["recall"],
                 4,
             ),
             "author_f1": round(
-                scores["authors"]["f1"],
+                author_result["f1"],
                 4,
             ),
-            "score": sum(
-                scores.values()
-            ) / 4,
+            "score": round(
+                sum(values)
+                / len(values),
+                4,
+            ),
         }
 
     # =========================================================
@@ -286,27 +368,31 @@ class ExtractionBenchmark:
     ) -> dict[str, Any]:
 
         actual_norm = [
-            self._normalize_formula(
-                value
-            )
-            if formula
-            else self._normalize(
-                str(value)
+            (
+                self._normalize_formula(value)
+                if formula
+                else self._normalize(
+                    value
+                )
             )
             for value in actual
-            if str(value).strip()
+            if str(
+                value or ""
+            ).strip()
         ]
 
         expected_norm = [
-            self._normalize_formula(
-                value
-            )
-            if formula
-            else self._normalize(
-                str(value)
+            (
+                self._normalize_formula(value)
+                if formula
+                else self._normalize(
+                    value
+                )
             )
             for value in expected
-            if str(value).strip()
+            if str(
+                value or ""
+            ).strip()
         ]
 
         if not expected_norm:
@@ -336,6 +422,7 @@ class ExtractionBenchmark:
                 score = self._similarity(
                     actual_value,
                     expected_value,
+                    normalized=True,
                 )
 
                 threshold = (
@@ -369,11 +456,6 @@ class ExtractionBenchmark:
             / len(expected_norm)
         )
 
-        f1 = self._f1(
-            precision,
-            recall,
-        )
-
         return {
             "precision": round(
                 precision,
@@ -384,13 +466,16 @@ class ExtractionBenchmark:
                 4,
             ),
             "f1": round(
-                f1,
+                self._f1(
+                    precision,
+                    recall,
+                ),
                 4,
             ),
         }
 
     # =========================================================
-    # PARAGRAPH COVERAGE
+    # PARAGRAPHS
     # =========================================================
 
     def _paragraph_coverage(
@@ -403,16 +488,17 @@ class ExtractionBenchmark:
 
         for item in expected:
 
-            if isinstance(
-                item,
-                dict,
-            ):
-                value = item.get(
+            value = (
+                item.get(
                     "text",
                     "",
                 )
-            else:
-                value = str(item)
+                if isinstance(
+                    item,
+                    dict,
+                )
+                else str(item)
+            )
 
             if value.strip():
                 expected_texts.append(
@@ -429,7 +515,9 @@ class ExtractionBenchmark:
                 "text",
                 "",
             )
-            for item in actual
+            for item in self._records(
+                actual
+            )
         ]
 
         matched = 0
@@ -442,8 +530,7 @@ class ExtractionBenchmark:
                         actual_text,
                         expected_text,
                     )
-                    for actual_text
-                    in actual_texts
+                    for actual_text in actual_texts
                     if actual_text
                 ),
                 default=0.0,
@@ -455,7 +542,9 @@ class ExtractionBenchmark:
         return {
             "coverage": (
                 matched
-                / len(expected_texts)
+                / len(
+                    expected_texts
+                )
             )
         }
 
@@ -473,12 +562,16 @@ class ExtractionBenchmark:
             self._reference_to_text(
                 item
             )
-            for item in actual
+            for item in self._records(
+                actual
+            )
         ]
 
         expected_texts = [
             (
-                self._reference_to_text(item)
+                self._reference_to_text(
+                    item
+                )
                 if isinstance(
                     item,
                     dict,
@@ -494,8 +587,305 @@ class ExtractionBenchmark:
         )["f1"]
 
     # =========================================================
-    # COUNT SCORE
+    # TABLE STRUCTURE
     # =========================================================
+
+    def _table_structure_score(
+        self,
+        canonical: dict[str, Any],
+        ground_truth: dict[str, Any],
+    ) -> float:
+
+        expected_tables = ground_truth.get(
+            "tables"
+        )
+
+        actual_tables = self._records(
+            canonical.get(
+                "tables"
+            )
+        )
+
+        if not isinstance(
+            expected_tables,
+            list,
+        ):
+
+            # No structural annotations means this metric
+            # is not evaluable from ground truth.
+            return 1.0
+
+        if not expected_tables:
+            return 1.0 if not actual_tables else 0.0
+
+        matched = 0
+
+        for expected in expected_tables:
+
+            expected_rows = (
+                expected.get(
+                    "rows"
+                )
+                if isinstance(
+                    expected,
+                    dict,
+                )
+                else None
+            )
+
+            expected_cells = (
+                expected.get(
+                    "cells"
+                )
+                if isinstance(
+                    expected,
+                    dict,
+                )
+                else None
+            )
+
+            best = 0.0
+
+            for actual in actual_tables:
+
+                actual_rows = actual.get(
+                    "rows",
+                    [],
+                )
+
+                actual_cells = actual.get(
+                    "cells",
+                    [],
+                )
+
+                row_score = (
+                    self._structure_similarity(
+                        actual_rows,
+                        expected_rows,
+                    )
+                    if expected_rows is not None
+                    else 1.0
+                )
+
+                cell_score = (
+                    self._structure_similarity(
+                        actual_cells,
+                        expected_cells,
+                    )
+                    if expected_cells is not None
+                    else 1.0
+                )
+
+                best = max(
+                    best,
+                    (
+                        row_score
+                        + cell_score
+                    )
+                    / 2,
+                )
+
+            if best >= 0.80:
+                matched += 1
+
+        return matched / len(
+            expected_tables
+        )
+
+    def _structure_similarity(
+        self,
+        actual: Any,
+        expected: Any,
+    ) -> float:
+
+        if expected is None:
+            return 1.0
+
+        actual_text = self._normalize(
+            self._flatten_structure(
+                actual
+            )
+        )
+
+        expected_text = self._normalize(
+            self._flatten_structure(
+                expected
+            )
+        )
+
+        if not actual_text or not expected_text:
+            return 0.0
+
+        return self._similarity(
+            actual_text,
+            expected_text,
+            normalized=True,
+        )
+
+    @classmethod
+    def _flatten_structure(
+        cls,
+        value: Any,
+    ) -> str:
+
+        if isinstance(
+            value,
+            dict,
+        ):
+
+            parts = []
+
+            for key in (
+                "text",
+                "value",
+                "content",
+            ):
+
+                if key in value:
+                    parts.append(
+                        str(
+                            value[key]
+                            or ""
+                        )
+                    )
+
+            if not parts:
+
+                for nested in value.values():
+                    parts.append(
+                        cls._flatten_structure(
+                            nested
+                        )
+                    )
+
+            return " ".join(parts)
+
+        if isinstance(
+            value,
+            list,
+        ):
+
+            return " ".join(
+                cls._flatten_structure(
+                    item
+                )
+                for item in value
+            )
+
+        return str(
+            value or ""
+        )
+
+    # =========================================================
+    # ARTIFACT PROVENANCE
+    # =========================================================
+
+    def _artifact_provenance_score(
+        self,
+        actual: list[Any],
+        expected: list[Any],
+        *,
+        count_key: str | None,
+    ) -> float:
+
+        actual_records = self._records(
+            actual
+        )
+
+        if count_key:
+            expected_count = (
+                self._safe_int(
+                    (
+                        expected.get(
+                            count_key,
+                            0,
+                        )
+                        if isinstance(
+                            expected,
+                            dict,
+                        )
+                        else 0
+                    )
+                )
+            )
+
+            if expected_count <= 0:
+                return 1.0
+
+        expected_list = (
+            expected
+            if isinstance(
+                expected,
+                list,
+            )
+            else []
+        )
+
+        if not expected_list:
+            return 1.0
+
+        expected_provenance = sum(
+            1
+            for item in expected_list
+            if isinstance(
+                item,
+                dict,
+            )
+            and (
+                item.get(
+                    "page"
+                ) is not None
+                or item.get(
+                    "coords"
+                )
+            )
+        )
+
+        actual_provenance = sum(
+            1
+            for item in actual_records
+            if (
+                item.get(
+                    "page"
+                ) is not None
+                or item.get(
+                    "coords"
+                )
+            )
+        )
+
+        if expected_provenance == 0:
+            return 1.0
+
+        return min(
+            1.0,
+            actual_provenance
+            / expected_provenance,
+        )
+
+    # =========================================================
+    # HELPERS
+    # =========================================================
+
+    @staticmethod
+    def _records(
+        value: Any,
+    ) -> list[dict[str, Any]]:
+
+        if not isinstance(
+            value,
+            list,
+        ):
+            return []
+
+        return [
+            item
+            for item in value
+            if isinstance(
+                item,
+                dict,
+            )
+        ]
 
     @staticmethod
     def _count_score(
@@ -504,7 +894,11 @@ class ExtractionBenchmark:
     ) -> float:
 
         if expected <= 0:
-            return 0.0
+            return (
+                1.0
+                if actual == 0
+                else 0.0
+            )
 
         difference = abs(
             actual - expected
@@ -518,10 +912,6 @@ class ExtractionBenchmark:
                 / expected
             ),
         )
-
-    # =========================================================
-    # HELPERS
-    # =========================================================
 
     @staticmethod
     def _f1(
@@ -595,7 +985,7 @@ class ExtractionBenchmark:
         ).strip().lower()
 
         text = re.sub(
-            r"^https?://doi.org/",
+            r"^https?://doi\.org/",
             "",
             text,
         )
@@ -612,25 +1002,32 @@ class ExtractionBenchmark:
     def _similarity(
         a: Any,
         b: Any,
+        *,
+        normalized: bool = False,
     ) -> float:
 
-        a = ExtractionBenchmark._normalize(
-            a
-        )
+        if normalized:
+            left = str(
+                a or ""
+            )
+            right = str(
+                b or ""
+            )
+        else:
+            left = ExtractionBenchmark._normalize(
+                a
+            )
+            right = ExtractionBenchmark._normalize(
+                b
+            )
 
-        b = ExtractionBenchmark._normalize(
-            b
-        )
-
-        if not a or not b:
+        if not left or not right:
             return 0.0
-
-        from difflib import SequenceMatcher
 
         return SequenceMatcher(
             None,
-            a,
-            b,
+            left,
+            right,
         ).ratio()
 
     @staticmethod
@@ -648,6 +1045,20 @@ class ExtractionBenchmark:
                     "authors",
                     [],
                 )
+                if isinstance(
+                    reference.get(
+                        "authors",
+                        [],
+                    ),
+                    list,
+                )
+                else [
+                    str(
+                        reference.get(
+                            "authors"
+                        )
+                    )
+                ]
             ),
             reference.get(
                 "year",
@@ -657,6 +1068,10 @@ class ExtractionBenchmark:
                 "doi",
                 "",
             ),
+            reference.get(
+                "raw",
+                "",
+            ),
         ]
 
         return " ".join(
@@ -664,3 +1079,16 @@ class ExtractionBenchmark:
             for part in parts
             if part
         )
+
+    @staticmethod
+    def _safe_int(
+        value: Any,
+    ) -> int:
+
+        try:
+            return int(value)
+        except (
+            TypeError,
+            ValueError,
+        ):
+            return 0
