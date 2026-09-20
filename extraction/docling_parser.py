@@ -14,7 +14,10 @@ from docling.datamodel.base_models import (
 )
 from docling.datamodel.pipeline_options import (
     PdfPipelineOptions,
+    TableFormerMode,
 )
+
+import time
 
 
 class DoclingError(RuntimeError):
@@ -40,6 +43,8 @@ class DoclingParser:
         do_formula_enrichment: bool = False,
         do_table_structure: bool = True,
         do_ocr: bool = False,
+        table_mode: str = "fast",
+        document_timeout: float = 600.0,
     ) -> None:
 
         # Base converter: cheap pass. Docling's layout model
@@ -50,12 +55,39 @@ class DoclingParser:
         # reads the *content* of regions already labeled "formula".
         # So this cheap pass is enough to tell us whether a document
         # has any formulas at all, before paying for recognition.
+        
+        table_mode_normalized = (
+            str(table_mode)
+            .strip()
+            .lower()
+        )
+
+        if table_mode_normalized == "fast":
+            self._table_mode = TableFormerMode.FAST
+        elif table_mode_normalized == "accurate":
+            self._table_mode = TableFormerMode.ACCURATE
+        else:
+            raise ValueError(
+                "table_mode must be 'fast' or 'accurate'"
+            )
+
+        self._document_timeout = float(
+            document_timeout
+        )
+        
         options = PdfPipelineOptions()
 
         options.do_ocr = do_ocr
         options.do_formula_enrichment = False
         options.do_table_structure = (
             do_table_structure
+        )
+        options.document_timeout = (
+            self._document_timeout
+        )
+
+        options.table_structure_options.mode = (
+            self._table_mode
         )
 
         self.converter = DocumentConverter(
@@ -100,6 +132,14 @@ class DoclingParser:
             options.do_formula_enrichment = True
             options.do_table_structure = (
                 self._do_table_structure
+            )
+            
+            options.document_timeout = (
+                self._document_timeout
+            )
+
+            options.table_structure_options.mode = (
+                self._table_mode
             )
 
             self._formula_converter = (
@@ -163,8 +203,26 @@ class DoclingParser:
 
         try:
 
+            start_time = time.perf_counter()
+
+            print(
+                f"[DOCLING] Starting: "
+                f"{file_path.name}"
+            )
+
             result = self.converter.convert(
                 str(file_path)
+            )
+
+            elapsed = (
+                time.perf_counter()
+                - start_time
+            )
+
+            print(
+                f"[DOCLING] Completed: "
+                f"{file_path.name} "
+                f"({elapsed:.1f}s)"
             )
 
             document = result.document
@@ -173,10 +231,32 @@ class DoclingParser:
                 "input_file": str(
                     file_path
                 ),
-                "status": "success",
+                "status": str(
+                    getattr(
+                        result,
+                        "status",
+                        "unknown",
+                    )
+                ),
                 "formula_enrichment_ran": False,
+                "elapsed_seconds": round(
+                    elapsed,
+                    2,
+                ),
+                "table_mode": (
+                    self._table_mode.value
+                    if hasattr(
+                        self._table_mode,
+                        "value",
+                    )
+                    else str(
+                        self._table_mode
+                    )
+                ),
+                "document_timeout": (
+                    self._document_timeout
+                ),
             }
-
             # Only pay for the GPU-heavy recognition pass if the
             # cheap layout pass actually found formula regions, and
             # only if the caller asked for enrichment at all.

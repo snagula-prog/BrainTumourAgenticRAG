@@ -163,6 +163,113 @@ def parse_grobid_tei(
         return clean_text(
             " ".join(parts)
         )
+        
+    def parse_tei_table_structure(
+        figure_element,
+    ) -> dict[str, Any]:
+        """
+        Extract actual TEI table structure from a GROBID table figure.
+
+        This preserves the cells GROBID actually found. It does not infer
+        missing cells or use PDF-specific coordinates/dimensions.
+        """
+        table_el = figure_element.find(
+            "tei:table",
+            NS,
+        )
+
+        if table_el is None:
+            return {}
+
+        rows: list[list[dict[str, Any]]] = []
+
+        for row_el in table_el.findall(
+            "tei:row",
+            NS,
+        ):
+            row: list[dict[str, Any]] = []
+
+            for cell_el in row_el.findall(
+                "tei:cell",
+                NS,
+            ):
+
+                def parse_span(*names: str) -> int:
+                    for name in names:
+                        raw = cell_el.attrib.get(name)
+
+                        if raw is None:
+                            continue
+
+                        try:
+                            return max(
+                                1,
+                                int(raw),
+                            )
+                        except (
+                            TypeError,
+                            ValueError,
+                        ):
+                            pass
+
+                    return 1
+
+                row.append(
+                    {
+                        "text": text_content(
+                            cell_el
+                        ),
+                        "row_span": parse_span(
+                            "rows",
+                            "rowspan",
+                        ),
+                        "col_span": parse_span(
+                            "cols",
+                            "colspan",
+                        ),
+                        "column_header": (
+                            cell_el.attrib.get(
+                                "role"
+                            )
+                            in {
+                                "head",
+                                "header",
+                            }
+                        ),
+                    }
+                )
+
+            if row:
+                rows.append(row)
+
+        if not rows:
+            return {}
+
+        num_cols = max(
+            (
+                sum(
+                    max(
+                        1,
+                        int(
+                            cell.get(
+                                "col_span",
+                                1,
+                            )
+                        ),
+                    )
+                    for cell in row
+                )
+                for row in rows
+            ),
+            default=0,
+        )
+
+        return {
+            "num_rows": len(rows),
+            "num_cols": num_cols,
+            "grid": rows,
+            "source": "grobid_tei",
+        }
 
     def parse_coords(
         element: ET.Element,

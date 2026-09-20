@@ -4,6 +4,13 @@ import re
 from collections import Counter
 from typing import Any
 
+from .evaluation_config import (
+    DIAGNOSTIC_INTEGRITY_METRICS,
+    INTEGRITY_ISSUE_THRESHOLDS,
+    PRIMARY_INTEGRITY_WEIGHTS,
+    weighted_mean,
+)
+
 
 class QualityMetrics:
     """
@@ -75,6 +82,23 @@ class QualityMetrics:
             metrics
         )
 
+        diagnostics = {
+            "orphan_paragraph_ratio": round(
+                self.orphan_paragraph_ratio(
+                    grobid
+                ),
+                4,
+            ),
+            **{
+                name: round(
+                    metrics[name],
+                    4,
+                )
+                for name in DIAGNOSTIC_INTEGRITY_METRICS
+                if name in metrics
+            },
+        }
+
         return {
             "evaluation_type": "integrity",
             "integrity_score": round(
@@ -82,9 +106,17 @@ class QualityMetrics:
                 4,
             ),
             "status": self._status(
-                integrity_score
+                integrity_score,
+                issues,
             ),
-
+            "scoring": {
+                "primary_metrics": dict(
+                    PRIMARY_INTEGRITY_WEIGHTS
+                ),
+                "diagnostic_metrics": sorted(
+                    DIAGNOSTIC_INTEGRITY_METRICS
+                ),
+            },
             "metrics": {
                 key: round(
                     value,
@@ -92,19 +124,11 @@ class QualityMetrics:
                 )
                 for key, value in metrics.items()
             },
-
-            "orphan_paragraph_ratio": round(
-                self.orphan_paragraph_ratio(
-                    grobid
-                ),
-                4,
-            ),
-
-            "artifact_counts": self._artifact_counts(
+            "diagnostics": diagnostics,
+            "parser_artifact_counts": self._artifact_counts(
                 artifacts
             ),
-
-            "extraction_counts": {
+            "raw_extraction_counts": {
                 "sections": len(
                     grobid.get(
                         "sections",
@@ -142,12 +166,7 @@ class QualityMetrics:
                     )
                 ),
             },
-
-            "ground_truth": {
-                "available": False,
-                "accuracy_score": None,
-            },
-
+            "ground_truth_available": False,
             "issues": issues,
         }
 
@@ -158,15 +177,19 @@ class QualityMetrics:
     @staticmethod
     def _status(
         score: float,
+        issues: list[str],
     ) -> str:
 
-        if score >= 0.85:
-            return "healthy"
+        if score < 0.70:
+            return "poor"
 
-        if score >= 0.70:
+        if score < 0.85:
             return "review"
 
-        return "poor"
+        if issues:
+            return "healthy_with_warnings"
+
+        return "healthy"
 
     # =========================================================
     # METADATA
@@ -1224,39 +1247,15 @@ class QualityMetrics:
         metrics: dict[str, float],
     ) -> float:
 
-        weights = {
-            # Zero variance across every paper checked so far --
-            # coordinate provenance and reference-list sanity both
-            # hold for every well-formed, born-digital PDF. Kept as
-            # a nonzero floor because they still guard against real
-            # (if rare) failure modes -- scanned PDFs with no
-            # provenance, or a reference list that duplicates itself
-            # -- not because we expect them to move often.
-            "coordinate_integrity": 0.03,
-            "reference_integrity": 0.03,
+        score = weighted_mean(
+            metrics,
+            PRIMARY_INTEGRITY_WEIGHTS,
+        )
 
-            # Small but real variance, tracking the messier papers
-            # in the batch without dominating the score.
-            "abstract_integrity": 0.06,
-            "duplication_integrity": 0.06,
-            "contamination_integrity": 0.06,
-
-            # Moderate, consistent variance.
-            "numeric_consistency": 0.11,
-            "structure_integrity": 0.13,
-
-            # The three metrics that actually separate healthy from
-            # problematic extractions in observed data.
-            "metadata_integrity": 0.14,
-            "truncation_integrity": 0.16,
-            "cross_parser_consistency": 0.22,
-        }
-
-        return sum(
-            metrics[name]
-            * weight
-            for name, weight
-            in weights.items()
+        return (
+            score
+            if score is not None
+            else 0.0
         )
 
     # =========================================================
@@ -1270,105 +1269,27 @@ class QualityMetrics:
 
         issues = []
 
-        if (
-            metrics[
-                "metadata_integrity"
-            ]
-            < 0.75
-        ):
-            issues.append(
-                "metadata_integrity_low"
-            )
+        for metric_name, threshold in INTEGRITY_ISSUE_THRESHOLDS.items():
+            value = metrics.get(metric_name)
 
-        if (
-            metrics[
-                "abstract_integrity"
-            ]
-            < 0.75
-        ):
-            issues.append(
-                "abstract_integrity_low"
-            )
+            if value is None:
+                continue
 
-        if (
-            metrics[
-                "structure_integrity"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "structure_integrity_low"
-            )
+            if value < threshold:
+                issue_name = metric_name
 
-        if (
-            metrics[
-                "duplication_integrity"
-            ]
-            < 0.90
-        ):
-            issues.append(
-                "duplicate_text_detected"
-            )
+                if metric_name == "duplication_integrity":
+                    issue_name = "duplicate_text_detected"
+                elif metric_name == "truncation_integrity":
+                    issue_name = "possible_truncation"
+                elif metric_name == "cross_parser_consistency":
+                    issue_name = "cross_parser_disagreement"
+                elif metric_name == "contamination_integrity":
+                    issue_name = "possible_contamination"
+                else:
+                    issue_name = f"{metric_name}_low"
 
-        if (
-            metrics[
-                "reference_integrity"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "reference_integrity_low"
-            )
-
-        if (
-            metrics[
-                "truncation_integrity"
-            ]
-            < 0.85
-        ):
-            issues.append(
-                "possible_truncation"
-            )
-
-        if (
-            metrics[
-                "numeric_consistency"
-            ]
-            < 0.80
-        ):
-            issues.append(
-                "numeric_consistency_low"
-            )
-
-        if (
-            metrics[
-                "cross_parser_consistency"
-            ]
-            < 0.70
-        ):
-            issues.append(
-                "cross_parser_disagreement"
-            )
-
-        if (
-            metrics[
-                "contamination_integrity"
-            ]
-            < 0.85
-        ):
-            issues.append(
-                "possible_contamination"
-            )
-
-        if (
-            metrics[
-                "coordinate_integrity"
-            ]
-            < 0.90
-        ):
-            issues.append(
-                "coordinate_integrity_low"
-            )
+                issues.append(issue_name)
 
         return issues
 

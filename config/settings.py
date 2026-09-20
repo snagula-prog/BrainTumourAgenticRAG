@@ -1,116 +1,50 @@
-# config/settings.py
+"""
+Central configuration for the Brain Tumor Research Agent.
+
+Every other module imports `settings` from here instead of reading
+os.environ directly. This keeps configuration in one place and makes
+it trivially swappable (e.g. changing the embedding model or LLM
+model) without hunting through the codebase.
+"""
 
 from pathlib import Path
-
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-
-    # =========================================================
-    # LLM
-    # =========================================================
-
-    ollama_base_url: str = (
-        "http://localhost:11434"
-    )
-
-    ollama_model: str = (
-        "qwen2.5:7b-instruct"
-    )
-
-    # =========================================================
-    # EMBEDDINGS
-    # =========================================================
-
-    embedding_model: str = (
-        "pritamdeka/S-PubMedBert-MS-MARCO"
-    )
-
-    # =========================================================
-    # GROBID
-    # =========================================================
-
-    grobid_base_url: str = (
-        "http://localhost:8070"
-    )
-
+    grobid_base_url: str = "http://localhost:8070"
     grobid_timeout: int = 120
 
-    # =========================================================
-    # DIRECTORIES
-    # =========================================================
+    raw_pds_dir: str = "./storage/raw_pds"
+    registry_dir: str = "./storage/registry"
+    grobid_dir: str = "./storage/grobid"
+    artifacts_dir: str = "./storage/artifacts"
+    canonical_dir: str = "./storage/canonical"
+    evaluation_dir: str = "./storage/evaluation"
+    extraction_metrics_dir: str = "./storage/evaluation/extraction_metrics"
+    chunks_dir: str = "./storage/chunks"
+    chroma_persist_dir: str = "./storage/chroma"
 
-    # Persistent vector database.
-    chroma_persist_dir: str = (
-        "./storage/chroma"
-    )
 
-    # Uploaded/source PDFs.
-    papers_dir: str = (
-        "./papers"
-    )
-
-    # Paper-level registry.
-    registry_dir: str = (
-        "./storage/registry"
-    )
-
-    # Raw GROBID TEI output.
-    grobid_dir: str = (
-        "./storage/grobid"
-    )
-
-    # Clean canonical representation used by later stages.
-    canonical_dir: str = (
-        "./storage/canonical"
-    )
-
-    # Structured Docling artifacts.
-    artifacts_dir: str = (
-        "./storage/artifacts"
-    )
-
-    # Extraction/retrieval evaluation results.
-    evaluation_dir: str = (
-        "./storage/evaluation"
-    )
-
-    # Future chunked representation.
-    chunks_dir: str = (
-        "./storage/chunks"
-    )
-
-    # =========================================================
-    # ENVIRONMENT
-    # =========================================================
-
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        extra="ignore",
-    )
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+        extra = "ignore"
 
 
 settings = Settings()
 
-
-# =============================================================
-# CREATE DIRECTORIES
-# =============================================================
-
+# Ensure critical directories exist at import time so the rest of the
+# app never has to worry about "does this folder exist yet".
 for directory in (
-    settings.chroma_persist_dir,
+    settings.raw_pds_dir,
     settings.registry_dir,
-    settings.papers_dir,
     settings.grobid_dir,
-    settings.canonical_dir,
     settings.artifacts_dir,
+    settings.canonical_dir,
     settings.evaluation_dir,
+    settings.extraction_metrics_dir,
     settings.chunks_dir,
+    settings.chroma_persist_dir,
 ):
-
-    Path(directory).mkdir(
-        parents=True,
-        exist_ok=True,
-    )
+    Path(directory).mkdir(parents=True, exist_ok=True)

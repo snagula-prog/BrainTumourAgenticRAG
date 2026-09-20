@@ -1,4 +1,4 @@
-# extraction/pipeline.py
+﻿# extraction/pipeline.py
 
 from __future__ import annotations
 
@@ -52,21 +52,21 @@ class ExtractionPipeline:
 
     Flow:
         PDF
-          ↓
+          â†“
         SHA-256 / duplicate check
-          ↓
+          â†“
         stable paper_id
-          ↓
+          â†“
         GROBID
-          ↓
+          â†“
         PyMuPDF audit
-          ↓
+          â†“
         Docling artifacts
-          ↓
+          â†“
         extraction quality evaluation
-          ↓
+          â†“
         canonical document
-          ↓
+          â†“
         registry update
 
     Chunking, embeddings and retrieval are intentionally not
@@ -389,7 +389,7 @@ class ExtractionPipeline:
                 )
 
             # -------------------------------------------------
-            # 5. DOCLING + ARTIFACT EXTRACTION
+            # 5. DOCLING + FORMULA ENRICHMENT
             # -------------------------------------------------
 
             current_stage = "docling"
@@ -398,8 +398,100 @@ class ExtractionPipeline:
                 "[5/6] Docling artifacts..."
             )
 
-            if should_run("docling"):
+            formula_requested = (
+                normalized_stage == "formula"
+                or enrich_formulas
+            )
 
+            formula_cache_exists = self._stage_cache_exists(
+                paper_id,
+                "formula",
+            )
+
+            # Explicit --from-stage formula means rebuild formula extraction.
+            # --enrich-formulas reuses the formula cache when available.
+            force_formula_rebuild = (
+                force
+                or normalized_stage == "formula"
+            )
+
+            use_formula_cache = (
+                formula_requested
+                and formula_cache_exists
+                and not force_formula_rebuild
+            )
+
+            if use_formula_cache:
+
+                (
+                    raw_docling,
+                    docling_metadata,
+                ) = self._load_formula_cache(
+                    paper_id
+                )
+
+                print(
+                    "[CACHE] Loaded formula-enriched Docling artifact"
+                )
+
+            elif formula_requested:
+
+                # IMPORTANT:
+                # Formula enrichment happens during this SAME Docling pass.
+                # There is no second PDF conversion.
+
+                print(
+                    "[5/6] Docling + formula enrichment..."
+                )
+
+                formula_parser = DoclingParser(
+                    do_formula_enrichment=True,
+                    do_table_structure=True,
+                    do_ocr=False,
+                )
+
+                (
+                    document,
+                    docling_metadata,
+                ) = formula_parser.parse(
+                    pdf_path
+                )
+
+                raw_docling = (
+                    document.export_to_dict()
+                )
+
+                # Keep the normal Docling cache populated because
+                # downstream stage prerequisites require it.
+                self._save_docling_cache(
+                    paper_id=paper_id,
+                    pdf_path=pdf_path,
+                    file_hash=file_hash,
+                    raw_docling=raw_docling,
+                    docling_metadata=docling_metadata,
+                )
+
+                # The SAME parsed artifact is also stored as the
+                # formula-enriched cache.
+                self._save_formula_cache(
+                    paper_id=paper_id,
+                    pdf_path=pdf_path,
+                    file_hash=file_hash,
+                    raw_docling=raw_docling,
+                    docling_metadata=docling_metadata,
+                )
+
+                print(
+                    "[CACHE] Saved Docling artifact"
+                )
+
+                print(
+                    "[CACHE] Saved formula-enriched Docling artifact"
+                )
+
+            elif should_run("docling"):
+
+                # Normal Docling extraction: formula enrichment OFF.
                 (
                     document,
                     docling_metadata,
@@ -419,12 +511,29 @@ class ExtractionPipeline:
                     docling_metadata=docling_metadata,
                 )
 
-                # Formula output depends on the Docling base artifact.
-                # Rebuilds invalidate the old enrichment cache.
-                self._delete_formula_cache(paper_id)
+                # A newly rebuilt non-formula Docling artifact invalidates
+                # a previous formula-enriched artifact.
+                self._delete_formula_cache(
+                    paper_id
+                )
 
                 print(
                     "[CACHE] Saved Docling artifact"
+                )
+
+            elif formula_cache_exists:
+
+                # Existing enriched artifact can be reused even when the
+                # current invocation does not explicitly request enrichment.
+                (
+                    raw_docling,
+                    docling_metadata,
+                ) = self._load_formula_cache(
+                    paper_id
+                )
+
+                print(
+                    "[CACHE] Using existing formula-enriched Docling artifact"
                 )
 
             else:
@@ -438,84 +547,6 @@ class ExtractionPipeline:
 
                 print(
                     "[CACHE] Loaded Docling artifact"
-                )
-
-            # -------------------------------------------------
-            # 5.1 FORMULA ENRICHMENT (OPTIONAL / CACHED)
-            # -------------------------------------------------
-
-            current_stage = "formula"
-
-            formula_cache_exists = self._stage_cache_exists(
-                paper_id,
-                "formula",
-            )
-
-            formula_requested = (
-                normalized_stage == "formula"
-                or enrich_formulas
-            )
-
-            if should_run("formula") and formula_requested:
-
-                if force or normalized_stage == "formula" or not formula_cache_exists:
-                    print(
-                        "[5.1/6] Formula enrichment (one-time)..."
-                    )
-
-                    formula_parser = DoclingParser(
-                        do_formula_enrichment=True,
-                        do_table_structure=True,
-                        do_ocr=False,
-                    )
-
-                    (
-                        formula_document,
-                        formula_metadata,
-                    ) = formula_parser.parse(
-                        pdf_path
-                    )
-
-                    formula_docling = formula_document.export_to_dict()
-
-                    self._save_formula_cache(
-                        paper_id=paper_id,
-                        pdf_path=pdf_path,
-                        file_hash=file_hash,
-                        raw_docling=formula_docling,
-                        docling_metadata=formula_metadata,
-                    )
-
-                    raw_docling = formula_docling
-                    docling_metadata = formula_metadata
-
-                    print(
-                        "[CACHE] Saved formula-enriched Docling artifact"
-                    )
-
-                else:
-                    (
-                        raw_docling,
-                        docling_metadata,
-                    ) = self._load_formula_cache(
-                        paper_id
-                    )
-
-                    print(
-                        "[CACHE] Loaded formula-enriched Docling artifact"
-                    )
-
-            elif formula_cache_exists:
-
-                (
-                    raw_docling,
-                    docling_metadata,
-                ) = self._load_formula_cache(
-                    paper_id
-                )
-
-                print(
-                    "[CACHE] Using existing formula-enriched Docling artifact"
                 )
 
             # Artifact extraction is cheap and deterministic, so
@@ -596,6 +627,12 @@ class ExtractionPipeline:
                         pymupdf=pymupdf,
                         artifacts=artifacts,
                         quality=quality,
+                        source_pdf=pdf_path,
+                        table_fallback_cache_path=(
+                            Path(settings.artifacts_dir)
+                            / f"{paper_id}_table_fallback.json"
+                        ),
+                        source_file_hash=file_hash,
                     )
                 )
 
@@ -1797,3 +1834,4 @@ if __name__ == "__main__":
         from_stage=args.from_stage,
         enrich_formulas=args.enrich_formulas,
     )
+

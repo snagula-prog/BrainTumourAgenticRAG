@@ -14,25 +14,12 @@ import statistics
 import sys
 from pathlib import Path
 
-# Current weights, kept in sync with
-# extraction_quality_metrics.py::_weighted_integrity_score
-CURRENT_WEIGHTS = {
-    "coordinate_integrity": 0.03,
-    "reference_integrity": 0.03,
-    "abstract_integrity": 0.06,
-    "duplication_integrity": 0.06,
-    "contamination_integrity": 0.06,
-    "numeric_consistency": 0.11,
-    "structure_integrity": 0.13,
-    "metadata_integrity": 0.14,
-    "truncation_integrity": 0.16,
-    "cross_parser_consistency": 0.22,
-}
+from evaluation.extraction_metrics.evaluation_config import (
+    PRIMARY_INTEGRITY_WEIGHTS,
+    LOW_VARIANCE_WATCH_THRESHOLD,
+)
 
-# Metrics currently treated as "near-zero variance, low weight".
-# If their observed std climbs meaningfully above this, it's worth
-# reconsidering their weight.
-WATCH_THRESHOLD = 0.02
+# Scoring policy is centralized in evaluation_config.py.
 
 
 def main() -> None:
@@ -54,7 +41,7 @@ def main() -> None:
         return
 
     per_metric: dict[str, list[float]] = {
-        name: [] for name in CURRENT_WEIGHTS
+        name: [] for name in PRIMARY_INTEGRITY_WEIGHTS
     }
 
     paper_ids = []
@@ -79,7 +66,7 @@ def main() -> None:
             )
         )
 
-        for name in CURRENT_WEIGHTS:
+        for name in PRIMARY_INTEGRITY_WEIGHTS:
 
             if name in metrics:
 
@@ -111,7 +98,7 @@ def main() -> None:
     # Sort by weight ascending so the low-weight ("assumed boring")
     # metrics are grouped together at the top for easy scanning.
     for name, weight in sorted(
-        CURRENT_WEIGHTS.items(),
+        PRIMARY_INTEGRITY_WEIGHTS.items(),
         key=lambda item: item[1],
     ):
 
@@ -135,7 +122,7 @@ def main() -> None:
 
         if (
             weight <= 0.06
-            and std > WATCH_THRESHOLD
+            and std > LOW_VARIANCE_WATCH_THRESHOLD
         ):
             flag = (
                 "  <-- more variance than expected for "

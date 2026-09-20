@@ -3,8 +3,8 @@
     "paper_id": "paper_001",
     "filename": "Brain_Tumor_Detection_and_Classification_Using_Intelligence_Techniques_An_Overview.pdf",
     "file_hash": "181923deef9320ea6e172fa9906d3ee0bc9541d0ffdcae020b558d3a5b80ab86",
-    "ingestion_date": "2026-09-13T18:37:24.831896+00:00",
-    "status": "extracted",
+    "ingestion_date": "2026-09-18T14:56:21.572951+00:00",
+    "status": "failed",
     "title": "Brain Tumor Detection and Classification Using Intelligence Techniques: An Overview",
     "authors": [
       "Shubhangi Solanki",
@@ -15,40 +15,17 @@
     "year": 2023,
     "num_pages": 17,
     "num_chunks": null,
-    "quality_score": 0.9073,
-    "quality_status": "healthy",
-    "num_tables": 8,
-    "num_figures": 25
+    "quality_score": 0.9297,
+    "quality_status": "healthy_with_warnings",
+    "num_tables": 4,
+    "num_figures": 3,
+    "error": "[canonical] type object 'CanonicalBuilder' has no attribute '_match_raw_table'"
   },
   "paper_002": {
     "paper_id": "paper_002",
-    "filename": "engproc-62-00001.pdf",
-    "file_hash": "cc27d3055014e86be1f8ed2767e4003cf2ee9d605350e7119427fd3b16f3c2d9",
-    "ingestion_date": "2026-09-13T18:38:24.407540+00:00",
-    "status": "extracted",
-    "title": "Brain Tumor Detection and Classification Using Transfer Learning Models †",
-    "authors": [
-      "Valentina Emilia Cheng",
-      "Balas",
-      "Vinod Kumar Dhakshnamurthy",
-      "Murali Govindan",
-      "Kannan Sreerangan",
-      "Manikanda Devarajan Nagarajan",
-      "Abhijith Thomas"
-    ],
-    "year": 2024,
-    "num_pages": 8,
-    "num_chunks": null,
-    "quality_score": 0.8921,
-    "quality_status": "healthy",
-    "num_tables": 2,
-    "num_figures": 8
-  },
-  "paper_003": {
-    "paper_id": "paper_003",
     "filename": "s11831-025-10416-3.pdf",
     "file_hash": "300a7b28d9da2048844de6bf7145eb4d4f53985fa7568b8b6e8c3df98c003daf",
-    "ingestion_date": "2026-09-13T18:40:44.811683+00:00",
+    "ingestion_date": "2026-09-18T14:57:11.475801+00:00",
     "status": "extracted",
     "title": "Deep LearnIng and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
     "authors": [
@@ -59,90 +36,9 @@
     "year": 2026,
     "num_pages": 25,
     "num_chunks": null,
-    "quality_score": 0.9125,
-    "quality_status": "healthy",
+    "quality_score": 0.9329,
+    "quality_status": "healthy_with_warnings",
     "num_tables": 8,
-    "num_figures": 36
-  },
-  "paper_004": {
-    "paper_id": "paper_004",
-    "filename": "s41598-024-52823-9.pdf",
-    "file_hash": "4ec9d6df1ba7e9a53d155e35411bbe6d0ae668cfbeb6219b36ea13506a61a645",
-    "ingestion_date": "2026-09-13T18:48:27.602427+00:00",
-    "status": "extracted",
-    "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
-    "authors": [
-      "Mohammad Zafer Khaliki",
-      "& Muhammet",
-      "Sinan Başarslan"
-    ],
-    "year": 2024,
-    "num_pages": 10,
-    "num_chunks": null,
-    "quality_score": 0.9226,
-    "quality_status": "healthy",
-    "num_tables": 4,
-    "num_figures": 7
-  },
-  "paper_005": {
-    "paper_id": "paper_005",
-    "filename": "s41598-025-87934-4.pdf",
-    "file_hash": "b9823b93a29247f903aa205ce2bb3554acbbfd0a91208875ee9523a4d6ce06f4",
-    "ingestion_date": "2026-09-13T18:51:37.491595+00:00",
-    "status": "extracted",
-    "title": "A novel approach for the detection of brain tumor and its classification via independent component analysis",
-    "authors": [
-      "C Gunasundari",
-      "& K Selva Bhuvaneswari"
-    ],
-    "year": 2025,
-    "num_pages": 14,
-    "num_chunks": null,
-    "quality_score": 0.9425,
-    "quality_status": "healthy",
-    "num_tables": 1,
-    "num_figures": 12
-  },
-  "paper_006": {
-    "paper_id": "paper_006",
-    "filename": "s41598-026-36164-3.pdf",
-    "file_hash": "2292678ef658a7502d1ebc4b163bd7423ad512802026ae42d251c18896c608b4",
-    "ingestion_date": "2026-09-13T19:08:08.823746+00:00",
-    "status": "extracted",
-    "title": "Brain tumor classification from MRI images using a multi-scale channel attention CNN integrated with SVM",
-    "authors": [
-      "Longzhang Ke",
-      "Guozhen Hu",
-      "Min Zhao",
-      "Zhi Liu",
-      "Zean Lv",
-      "Yuqing Yang"
-    ],
-    "year": 2026,
-    "num_pages": 17,
-    "num_chunks": null,
-    "quality_score": 0.9371,
-    "quality_status": "healthy",
-    "num_tables": 6,
-    "num_figures": 13
-  },
-  "paper_007": {
-    "paper_id": "paper_007",
-    "filename": "tan19a.pdf",
-    "file_hash": "f82da3f7dfb827fe701fae2088f3653e17cb3216ef61111be1167f01dcc92137",
-    "ingestion_date": "2026-09-13T19:21:20.142959+00:00",
-    "status": "extracted",
-    "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
-    "authors": [
-      "Mingxing Tan",
-      "Quoc V Le"
-    ],
-    "year": 2019,
-    "num_pages": 10,
-    "num_chunks": null,
-    "quality_score": 0.839,
-    "quality_status": "review",
-    "num_tables": 6,
-    "num_figures": 8
+    "num_figures": 3
   }
 }

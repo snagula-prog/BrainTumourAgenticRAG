@@ -6,6 +6,8 @@ import math
 import re
 from typing import Any
 
+from .evaluation_config import ACCURACY_WEIGHTS, weighted_mean
+
 
 class ExtractionBenchmark:
 
@@ -116,43 +118,69 @@ class ExtractionBenchmark:
             ),
         )
 
-        overall = (
-            metadata["score"] * 0.20
-            + sections["f1"] * 0.15
-            + paragraphs["coverage"] * 0.20
-            + formulas["f1"] * 0.15
-            + references * 0.10
-            + tables * 0.05
-            + figures * 0.05
-            + self._abstract_score(
-                canonical.get(
-                    "metadata",
-                    {},
-                ).get(
-                    "abstract"
-                ),
-                ground_truth.get(
-                    "metadata",
-                    {},
-                ).get(
-                    "abstract"
-                ),
-            ) * 0.10
+        abstract_similarity = self._abstract_score(
+            canonical.get(
+                "metadata",
+                {},
+            ).get(
+                "abstract"
+            ),
+            ground_truth.get(
+                "metadata",
+                {},
+            ).get(
+                "abstract"
+            ),
+        )
+
+        component_scores = {
+            "metadata": metadata["score"],
+            "abstract_similarity": abstract_similarity,
+            "sections": sections["f1"],
+            "paragraphs": paragraphs["f1"],
+            "reference_score": references,
+            "formulas": formulas["f1"],
+            "table_count_score": tables,
+            "figure_count_score": figures,
+        }
+
+        overall = weighted_mean(
+            component_scores,
+            ACCURACY_WEIGHTS,
         )
 
         return {
             "evaluation_type": "ground_truth_accuracy",
             "accuracy_score": round(
-                overall,
+                overall or 0.0,
                 4,
             ),
+            "scoring": {
+                "weights": dict(
+                    ACCURACY_WEIGHTS
+                ),
+            },
             "metrics": {
                 "metadata": metadata,
                 "sections": sections,
-                "paragraph_coverage": round(
-                    paragraphs["coverage"],
-                    4,
-                ),
+                "paragraphs": {
+                    "precision": round(
+                        paragraphs["precision"],
+                        4,
+                    ),
+                    "recall": round(
+                        paragraphs["recall"],
+                        4,
+                    ),
+                    "f1": round(
+                        paragraphs["f1"],
+                        4,
+                    ),
+                    "coverage": round(
+                        paragraphs["coverage"],
+                        4,
+                    ),
+                },
                 "formulas": formulas,
                 "reference_score": round(
                     references,
@@ -167,20 +195,7 @@ class ExtractionBenchmark:
                     4,
                 ),
                 "abstract_similarity": round(
-                    self._abstract_score(
-                        canonical.get(
-                            "metadata",
-                            {},
-                        ).get(
-                            "abstract"
-                        ),
-                        ground_truth.get(
-                            "metadata",
-                            {},
-                        ).get(
-                            "abstract"
-                        ),
-                    ),
+                    abstract_similarity,
                     4,
                 ),
             },
@@ -310,9 +325,16 @@ class ExtractionBenchmark:
         ]
 
         if not expected_norm:
+            if not actual_norm:
+                return {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1": 1.0,
+                }
+
             return {
                 "precision": 0.0,
-                "recall": 0.0,
+                "recall": 1.0,
                 "f1": 0.0,
             }
 
@@ -402,7 +424,6 @@ class ExtractionBenchmark:
         expected_texts = []
 
         for item in expected:
-
             if isinstance(
                 item,
                 dict,
@@ -419,44 +440,96 @@ class ExtractionBenchmark:
                     value
                 )
 
-        if not expected_texts:
-            return {
-                "coverage": 0.0
-            }
-
         actual_texts = [
             item.get(
                 "text",
                 "",
             )
             for item in actual
+            if isinstance(item, dict)
+        ]
+        actual_texts = [
+            text
+            for text in actual_texts
+            if str(text).strip()
         ]
 
-        matched = 0
+        if not expected_texts:
+            if not actual_texts:
+                return {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1": 1.0,
+                    "coverage": 1.0,
+                }
+
+            return {
+                "precision": 0.0,
+                "recall": 1.0,
+                "f1": 0.0,
+                "coverage": 1.0,
+            }
+
+        if not actual_texts:
+            return {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "coverage": 0.0,
+            }
+
+        expected_matched = 0
+        actual_matched = 0
+        threshold = 0.80
 
         for expected_text in expected_texts:
-
             best = max(
                 (
                     self._similarity(
                         actual_text,
                         expected_text,
                     )
-                    for actual_text
-                    in actual_texts
-                    if actual_text
+                    for actual_text in actual_texts
                 ),
                 default=0.0,
             )
 
-            if best >= 0.80:
-                matched += 1
+            if best >= threshold:
+                expected_matched += 1
+
+        for actual_text in actual_texts:
+            best = max(
+                (
+                    self._similarity(
+                        actual_text,
+                        expected_text,
+                    )
+                    for expected_text in expected_texts
+                ),
+                default=0.0,
+            )
+
+            if best >= threshold:
+                actual_matched += 1
+
+        recall = (
+            expected_matched
+            / len(expected_texts)
+        )
+
+        precision = (
+            actual_matched
+            / len(actual_texts)
+        )
 
         return {
-            "coverage": (
-                matched
-                / len(expected_texts)
-            )
+            "precision": precision,
+            "recall": recall,
+            "f1": self._f1(
+                precision,
+                recall,
+            ),
+            "coverage": recall,
         }
 
     # =========================================================
