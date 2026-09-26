@@ -22,8 +22,11 @@ Thumbs.db
 *.log
 *.tmp
 
-# PDFs
-papers/*.pdf
+validate_chunks.py
+validate_downstream.py
+validate_pipeline.py
+validate_reference_fixes.py
+validate_references.py
 
 # Generated storage
 storage/artifacts/
@@ -33,3 +36,5 @@ storage/grobid/
 storage/chroma/
 storage/tmp/
 storage/temp/
+# Source PDFs (keep local; do not commit)
+storage/raw_pds/*.pdf

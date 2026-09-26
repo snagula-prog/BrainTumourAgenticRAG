@@ -3,29 +3,28 @@
     "paper_id": "paper_001",
     "filename": "Brain_Tumor_Detection_and_Classification_Using_Intelligence_Techniques_An_Overview.pdf",
     "file_hash": "181923deef9320ea6e172fa9906d3ee0bc9541d0ffdcae020b558d3a5b80ab86",
-    "ingestion_date": "2026-09-18T14:56:21.572951+00:00",
-    "status": "failed",
+    "ingestion_date": "2026-09-25T17:02:26.067786+00:00",
+    "status": "extracted",
     "title": "Brain Tumor Detection and Classification Using Intelligence Techniques: An Overview",
     "authors": [
-      "Shubhangi Solanki",
-      "Uda Pratap Singh",
-      "Singh Chouhan",
-      "Sanjeev Jain"
+      "SHUBHANGI SOLANKI",
+      "UDAY PRATAP SINGH",
+      "SIDDHARTH SINGH CHOUHAN",
+      "SANJEEV JAIN"
     ],
     "year": 2023,
     "num_pages": 17,
     "num_chunks": null,
-    "quality_score": 0.9297,
+    "quality_score": 0.9264,
     "quality_status": "healthy_with_warnings",
     "num_tables": 4,
-    "num_figures": 3,
-    "error": "[canonical] type object 'CanonicalBuilder' has no attribute '_match_raw_table'"
+    "num_figures": 3
   },
   "paper_002": {
     "paper_id": "paper_002",
     "filename": "s11831-025-10416-3.pdf",
     "file_hash": "300a7b28d9da2048844de6bf7145eb4d4f53985fa7568b8b6e8c3df98c003daf",
-    "ingestion_date": "2026-09-18T14:57:11.475801+00:00",
+    "ingestion_date": "2026-09-25T17:04:09.538603+00:00",
     "status": "extracted",
     "title": "Deep LearnIng and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
     "authors": [
@@ -36,9 +35,97 @@
     "year": 2026,
     "num_pages": 25,
     "num_chunks": null,
-    "quality_score": 0.9329,
-    "quality_status": "healthy_with_warnings",
+    "quality_score": 0.9359,
+    "quality_status": "healthy",
     "num_tables": 8,
     "num_figures": 3
+  },
+  "paper_003": {
+    "paper_id": "paper_003",
+    "filename": "MCACNN-SVM.pdf",
+    "file_hash": "2292678ef658a7502d1ebc4b163bd7423ad512802026ae42d251c18896c608b4",
+    "ingestion_date": "2026-09-25T18:06:18.463239+00:00",
+    "status": "extracted",
+    "title": "Brain tumor classification from MRI images using a multi-scale channel attention CNN integrated with SVM",
+    "authors": [
+      "Longzhang Ke",
+      "Guozhen Hu",
+      "Min Zhao",
+      "Zhi Liu",
+      "Zean Lv",
+      "Yuqing Yang"
+    ],
+    "year": 2026,
+    "num_pages": 17,
+    "num_chunks": null,
+    "quality_score": 0.9388,
+    "quality_status": "healthy",
+    "num_tables": 6,
+    "num_figures": 1
+  },
+  "paper_004": {
+    "paper_id": "paper_004",
+    "filename": "first.pdf",
+    "file_hash": "1fd7853bedde139f474816a66a9dec200a5744ae254d1aea7c478d06cfdc00f0",
+    "ingestion_date": "2026-09-25T18:12:02.581932+00:00",
+    "status": "extracted",
+    "title": "Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme",
+    "authors": [
+      "Evangelia I Zacharaki",
+      "Sumei Wang",
+      "Sanjeev Chawla",
+      "Dong Soo Yoo",
+      "Ronald Wolf",
+      "Elias R Melhem",
+      "Christos Davatzikos"
+    ],
+    "year": 2010,
+    "num_pages": 22,
+    "num_chunks": null,
+    "quality_score": 0.9406,
+    "quality_status": "healthy",
+    "num_tables": 2,
+    "num_figures": 1
+  },
+  "paper_005": {
+    "paper_id": "paper_005",
+    "filename": "fourth.pdf",
+    "file_hash": "2848711c4a7d268707f0f72da8aae4071ad26ef2a6a34cc9ec74b334d10be214",
+    "ingestion_date": "2026-09-25T18:12:47.541723+00:00",
+    "status": "extracted",
+    "title": "High-Resolution Swin Transformer for Automatic Medical Image Segmentation",
+    "authors": [
+      "Chen Wei",
+      "Shenghan Ren",
+      "Kaitai Guo",
+      "Haihong Hu",
+      "Jimin Liang"
+    ],
+    "year": 2023,
+    "num_pages": 15,
+    "num_chunks": null,
+    "quality_score": 0.9283,
+    "quality_status": "healthy_with_warnings",
+    "num_tables": 5,
+    "num_figures": 6
+  },
+  "paper_006": {
+    "paper_id": "paper_006",
+    "filename": "third.pdf",
+    "file_hash": "4ec9d6df1ba7e9a53d155e35411bbe6d0ae668cfbeb6219b36ea13506a61a645",
+    "ingestion_date": "2026-09-25T18:13:17.492367+00:00",
+    "status": "extracted",
+    "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+    "authors": [
+      "Mohammad Zafer Khaliki",
+      "Muhammet Sinan Başarslan"
+    ],
+    "year": 2024,
+    "num_pages": 10,
+    "num_chunks": null,
+    "quality_score": 0.9352,
+    "quality_status": "healthy",
+    "num_tables": 4,
+    "num_figures": 5
   }
 }

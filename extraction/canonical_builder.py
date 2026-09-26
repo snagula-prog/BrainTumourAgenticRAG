@@ -21,7 +21,8 @@ class CanonicalBuilder:
         paragraphs, references, figures, tables
 
     PyMuPDF:
-        fallback source for abstract recovery
+        fallback source for abstract recovery and conservative page-local
+        reading-order repair when GROBID emits layout-order fragments.
 
     Docling:
         page/bounding-box provenance for text and headings
@@ -64,6 +65,11 @@ class CanonicalBuilder:
             grobid.get("doi")
         ) or None
 
+        keywords = self._extract_keywords(
+            grobid=grobid,
+            pymupdf=pymupdf,
+        )
+
         abstract = self._extract_abstract(
             grobid=grobid,
             pymupdf=pymupdf,
@@ -89,16 +95,39 @@ class CanonicalBuilder:
             for section in sections
         }
 
+        ordered_paragraphs, reading_order_report = (
+            self._repair_paragraph_reading_order(
+                paragraphs=grobid.get(
+                    "paragraphs",
+                    [],
+                ),
+                pymupdf=pymupdf,
+            )
+        )
+
         paragraphs = self._build_paragraphs(
-            paragraphs=grobid.get(
-                "paragraphs",
-                [],
-            ),
+            paragraphs=ordered_paragraphs,
             section_lookup=section_lookup,
             abstract=abstract,
             text_blocks=text_blocks,
         )
-        
+
+        biographies = self._extract_author_biographies(
+            grobid=grobid,
+            pymupdf=pymupdf,
+            authors=authors,
+        )
+        if biographies:
+            bio_heading = "Author Biographies"
+            if not any(s.get("heading") == bio_heading for s in sections):
+                sections.append({
+                    "heading": bio_heading,
+                    "level": 1,
+                    "path": [bio_heading],
+                    "coords": [],
+                })
+            paragraphs.extend(biographies)
+
         reconstructed = reconstruct_artifacts(
             grobid=grobid,
             artifacts=artifacts,
@@ -151,6 +180,10 @@ class CanonicalBuilder:
             source_file_hash=source_file_hash,
         )
 
+        paragraphs, table_derived_paragraphs = self._strip_table_derived_paragraphs(
+        paragraphs, tables
+        )
+
         residual_visuals = reconstructed.get(
             "visual_artifacts"
         )
@@ -172,16 +205,28 @@ class CanonicalBuilder:
             if item.get("classification") == "unknown"
         ]
 
-        artifact_reconstruction = reconstructed.get(
-            "stats",
-            {},
+        artifact_reconstruction = dict(reconstructed.get("stats", {}))
+        artifact_reconstruction["table_derived_paragraphs_removed"] = len(
+            table_derived_paragraphs
         )
 
-        references = self._clean_references(
-            grobid.get(
+        references, reference_recovery = self._recover_references(
+            grobid_references=grobid.get(
                 "references",
                 [],
-            )
+            ),
+            paragraphs=paragraphs,
+            pymupdf=pymupdf,
+        )
+
+        # Reference-list fragments sometimes leak into GROBID body paragraphs.
+        # Remove only paragraphs that are overwhelmingly reference records;
+        # ordinary prose containing bracketed citations is preserved.
+        paragraphs, reference_contamination_removed = (
+            self._remove_reference_contamination(paragraphs)
+        )
+        reference_recovery["contamination_paragraphs_removed"] = (
+            len(reference_contamination_removed)
         )
 
         canonical_text = self._build_canonical_text(
@@ -199,7 +244,9 @@ class CanonicalBuilder:
                 "authors": authors,
                 "year": year,
                 "doi": doi,
+                "keywords": keywords,
             },
+            "reading_order_repair": reading_order_report,
             "abstract": abstract,
             "sections": sections,
             "paragraphs": paragraphs,
@@ -209,7 +256,9 @@ class CanonicalBuilder:
             "visual_artifacts": visual_artifacts,
             "unclassified_visuals": unclassified_visuals,
             "artifact_reconstruction": artifact_reconstruction,
+            "table_derived_paragraphs": table_derived_paragraphs,
             "references": references,
+            "reference_recovery": reference_recovery,
             "canonical_text": canonical_text,
             "quality": quality,
         }
@@ -339,6 +388,260 @@ class CanonicalBuilder:
 
         return abstract
 
+    @classmethod
+    def _extract_keywords(
+        cls,
+        *,
+        grobid: dict[str, Any],
+        pymupdf: dict[str, Any],
+    ) -> list[str]:
+        raw_kw = grobid.get("keywords")
+        if raw_kw:
+            if isinstance(raw_kw, list):
+                return [cls._clean_text(k) for k in raw_kw if cls._clean_text(k)]
+            if isinstance(raw_kw, str):
+                return [cls._clean_text(k) for k in re.split(r"[,;]", raw_kw) if cls._clean_text(k)]
+
+        pdf_text = ""
+        if isinstance(pymupdf, dict):
+            pdf_text = pymupdf.get("text", "")
+            if not pdf_text and "pages" in pymupdf and pymupdf["pages"]:
+                pdf_text = pymupdf["pages"][0].get("text", "")
+
+        m = re.search(r"\b(?:INDEX\s+TERMS|KEYWORDS?)\b[:\s]+([^\n\.]+)", pdf_text, re.IGNORECASE)
+        if m:
+            extracted = m.group(1).strip()
+            parts = [cls._clean_text(p) for p in re.split(r"[,;]", extracted) if cls._clean_text(p)]
+            if parts:
+                return parts
+        return []
+
+    @classmethod
+    def _extract_author_biographies(
+        cls,
+        *,
+        grobid: dict[str, Any],
+        pymupdf: dict[str, Any],
+        authors: list[str],
+    ) -> list[dict[str, Any]]:
+        """Extract biographies only when there is strong document evidence.
+
+        Priority:
+        1. Structured biographies emitted by the GROBID parser, after
+           re-validating author association.
+        2. A conservative PyMuPDF fallback restricted to late-page back matter.
+
+        No document-specific author names, page numbers, or publisher strings
+        are assumed here.
+        """
+
+        def normalize_name(value: Any) -> str:
+            text = cls._clean_text(value)
+            text = re.sub(r"\d+", " ", text)
+            text = re.sub(r"[^\w\s'’.-]", " ", text, flags=re.UNICODE)
+            return re.sub(r"\s+", " ", text).strip().casefold()
+
+        def name_tokens(value: Any) -> set[str]:
+            return set(re.findall(r"[\w’'-]+", normalize_name(value)))
+
+        author_values = [
+            cls._clean_text(value)
+            for value in authors
+            if isinstance(value, str) and cls._clean_text(value)
+        ]
+
+        def matches_author(candidate: Any) -> bool:
+            candidate_norm = normalize_name(candidate)
+            if not candidate_norm:
+                return False
+            candidate_tokens = name_tokens(candidate)
+            for author in author_values:
+                author_norm = normalize_name(author)
+                author_tokens = name_tokens(author)
+                if not author_tokens or not candidate_tokens:
+                    continue
+                shared = author_tokens & candidate_tokens
+                coverage = len(shared) / len(author_tokens)
+                similarity = SequenceMatcher(
+                    None,
+                    author_norm,
+                    candidate_norm,
+                ).ratio()
+                if len(shared) >= 2 and coverage >= 0.66:
+                    return True
+                if similarity >= 0.82:
+                    return True
+            return False
+
+        bio_signal_re = re.compile(
+            r"\b(?:received|was born|is currently|currently pursuing|"
+            r"currently working|research interests?|has published|"
+            r"has authored|earned|obtained|degrees? in)\b",
+            re.IGNORECASE,
+        )
+
+        def clean_biography(text: Any) -> str:
+            value = cls._clean_text(text)
+            if not value:
+                return ""
+            value = re.sub(
+                r"\b\d{4,5}\s+VOLUME\s+\d+\s*,?\s*\d{1,2}\b",
+                " ",
+                value,
+                flags=re.IGNORECASE,
+            )
+            value = re.sub(
+                r"\bVOLUME\s+\d+\s*,?\s*\d{1,2}\b",
+                " ",
+                value,
+                flags=re.IGNORECASE,
+            )
+            value = re.sub(r"[\r\n\t]+", " ", value)
+            value = re.sub(r" {2,}", " ", value).strip()
+            return value
+
+        # ---- 1. Structured GROBID biographies ----------------------------
+        structured = grobid.get("author_biographies")
+        if isinstance(structured, list):
+            result: list[dict[str, Any]] = []
+            seen: set[str] = set()
+            for item in structured:
+                if not isinstance(item, dict):
+                    continue
+                text = clean_biography(item.get("text"))
+                author = cls._clean_text(item.get("author"))
+                if len(text.split()) < 15 or len(text.split()) > 300:
+                    continue
+                if not author or not matches_author(author):
+                    continue
+                if len(bio_signal_re.findall(text)) < 2:
+                    continue
+                key = cls._normalize(text)
+                if key in seen:
+                    continue
+                seen.add(key)
+                result.append(
+                    {
+                        "text": text,
+                        "sentences": [
+                            part.strip()
+                            for part in re.split(
+                                r"(?<=[.!?])\s+",
+                                text,
+                            )
+                            if part.strip()
+                        ],
+                        "author": author,
+                        "section": "Author Biographies",
+                        "section_path": ["Author Biographies"],
+                        "coords": (
+                            item.get("coords")
+                            if isinstance(item.get("coords"), list)
+                            else []
+                        ),
+                        "page": item.get("page"),
+                    }
+                )
+            if result:
+                return result
+
+        # ---- 2. Conservative PDF back-matter fallback ---------------------
+        pages = pymupdf.get("pages", []) if isinstance(pymupdf, dict) else []
+        if not pages or not author_values:
+            return []
+
+        # Author biographies are normally back matter. Restrict fallback to
+        # the final quarter of pages so title/abstract authors cannot be
+        # mistaken for biographies.
+        start_index = max(0, len(pages) - max(2, (len(pages) + 3) // 4))
+        back_matter_pages = pages[start_index:]
+
+        author_pattern = re.compile(
+            "|".join(
+                sorted(
+                    (re.escape(value) for value in author_values),
+                    key=len,
+                    reverse=True,
+                )
+            ),
+            re.IGNORECASE,
+        )
+
+        result: list[dict[str, Any]] = []
+        seen: set[str] = set()
+
+        for page in back_matter_pages:
+            if not isinstance(page, dict):
+                continue
+            page_text = str(page.get("text") or "")
+            if not page_text:
+                continue
+
+            matches = list(author_pattern.finditer(page_text))
+            for index, match in enumerate(matches):
+                # Only consider an author occurrence when it appears reasonably
+                # close to the start of the candidate block. This avoids taking
+                # an author mentioned in references and turning the remainder of
+                # the page into a biography.
+                start_pos = match.start()
+                end_pos = (
+                    matches[index + 1].start()
+                    if index + 1 < len(matches)
+                    else len(page_text)
+                )
+                candidate = clean_biography(
+                    page_text[start_pos:end_pos]
+                )
+                if not candidate:
+                    continue
+
+                words = candidate.split()
+                if len(words) < 15 or len(words) > 300:
+                    continue
+                if len(bio_signal_re.findall(candidate)) < 2:
+                    continue
+                if not matches_author(match.group(0)):
+                    continue
+
+                # Reject obvious article-body/reference blocks.
+                candidate_lower = candidate.casefold()
+                if "abstract" in candidate_lower[:120]:
+                    continue
+                if "references" in candidate_lower[:120]:
+                    continue
+                if re.search(
+                    r"\b(?:https?://|doi:\s*10\.)",
+                    candidate,
+                    re.IGNORECASE,
+                ):
+                    continue
+
+                key = cls._normalize(candidate)
+                if key in seen:
+                    continue
+                seen.add(key)
+
+                result.append(
+                    {
+                        "text": candidate,
+                        "sentences": [
+                            part.strip()
+                            for part in re.split(
+                                r"(?<=[.!?])\s+",
+                                candidate,
+                            )
+                            if part.strip()
+                        ],
+                        "author": cls._clean_text(match.group(0)),
+                        "section": "Author Biographies",
+                        "section_path": ["Author Biographies"],
+                        "coords": [],
+                        "page": page.get("page_number"),
+                    }
+                )
+
+        return result
+
     # =========================================================
     # SECTIONS
     # =========================================================
@@ -451,6 +754,16 @@ class CanonicalBuilder:
             if not text:
                 continue
 
+            text = re.sub(
+                r"\s*The associate editor coordinating the review of this manuscript and approving it for publication was [^.]+\.\s*",
+                " ",
+                text
+            )
+            text = re.sub(r" {2,}", " ", text).strip()
+
+            if not text or cls._is_noise_paragraph(text):
+                continue
+
             normalized_text = cls._normalize(
                 text
             )
@@ -469,9 +782,26 @@ class CanonicalBuilder:
                 )
             )
 
+            # A parser may assign formula fragments / running banners as a
+            # section. Treat those exactly like a missing section so the
+            # previous real section remains active.
+            if section_value and cls._is_garbage_heading(section_value):
+                section_value = ""
+
             section_key = cls._normalize(
                 section_value
             )
+
+            raw_path = paragraph.get(
+                "section_path"
+            )
+
+            clean_path: list[str] = []
+            if isinstance(raw_path, list):
+                for value in raw_path:
+                    cleaned = cls._clean_text(value)
+                    if cleaned and not cls._is_garbage_heading(cleaned):
+                        clean_path.append(cleaned)
 
             if section_key:
 
@@ -482,39 +812,17 @@ class CanonicalBuilder:
 
                 last_section = section
 
-                raw_path = paragraph.get(
-                    "section_path"
-                )
-
-                if isinstance(
-                    raw_path,
-                    list,
-                ):
-                    last_section_path = [
-                        cls._clean_text(
-                            value
-                        )
-                        for value in raw_path
-                        if cls._clean_text(
-                            value
-                        )
-                    ]
+                if clean_path:
+                    last_section_path = clean_path.copy()
+                else:
+                    last_section_path = [section]
 
             else:
 
                 section = last_section
 
-                raw_path = paragraph.get(
-                    "section_path"
-                )
-
-                if (
-                    not raw_path
-                    and last_section_path
-                ):
-                    raw_path = (
-                        last_section_path.copy()
-                    )
+                if not clean_path and last_section_path:
+                    clean_path = last_section_path.copy()
 
             coords = paragraph.get(
                 "coords",
@@ -544,9 +852,7 @@ class CanonicalBuilder:
             if dedup_key in seen:
                 continue
 
-            seen.add(
-                dedup_key
-            )
+            seen.add(dedup_key)
 
             sentences = paragraph.get(
                 "sentences"
@@ -570,20 +876,14 @@ class CanonicalBuilder:
 
             result.append(
                 {
+                    "paragraph_id": f"para_{len(result) + 1:04d}",
                     "text": text,
                     "sentences": sentences,
                     "section": section,
                     "section_path": (
-                        raw_path
-                        if isinstance(
-                            raw_path,
-                            list,
-                        )
-                        else (
-                            [section]
-                            if section
-                            else []
-                        )
+                        clean_path
+                        if clean_path
+                        else ([section] if section else [])
                     ),
                     "coords": coords,
                     "page": page,
@@ -591,7 +891,370 @@ class CanonicalBuilder:
             )
 
         return result
-    
+
+    # =========================================================
+    # READING ORDER
+    # =========================================================
+
+    @classmethod
+    def _repair_paragraph_reading_order(
+        cls,
+        *,
+        paragraphs: list[dict[str, Any]],
+        pymupdf: dict[str, Any],
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        """Repair page-local paragraph order using PDF layout evidence.
+
+        GROBID occasionally emits a page's column fragments in structural
+        order rather than physical reading order. This fallback does not
+        globally sort the document and does not rely on paper-specific text.
+        It only reorders paragraph records on pages where enough paragraph text
+        can be confidently matched back to PyMuPDF text blocks.
+        """
+
+        if not isinstance(paragraphs, list) or not paragraphs:
+            return paragraphs, {
+                "applied": False,
+                "reason": "no_paragraphs",
+                "pages_reordered": [],
+                "paragraphs_reordered": 0,
+            }
+
+        pages = pymupdf.get("pages") if isinstance(pymupdf, dict) else None
+        if not isinstance(pages, list) or not pages:
+            return paragraphs, {
+                "applied": False,
+                "reason": "no_pymupdf_pages",
+                "pages_reordered": [],
+                "paragraphs_reordered": 0,
+            }
+
+        def normalize(value: Any) -> str:
+            text = cls._clean_text(value)
+            return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+        def tokens(value: Any) -> list[str]:
+            value = normalize(value)
+            return value.split() if value else []
+
+        def numeric_page(value: Any) -> int | None:
+            try:
+                page = int(value)
+            except (TypeError, ValueError):
+                return None
+            return page if page > 0 else None
+
+        # Build a compact searchable representation of PDF text blocks. The
+        # same PyMuPDF block schema is already used by reference recovery.
+        blocks_by_page: dict[int, list[dict[str, Any]]] = {}
+        page_widths: dict[int, float] = {}
+
+        for page_index, page in enumerate(pages, start=1):
+            if not isinstance(page, dict):
+                continue
+
+            page_number = numeric_page(page.get("page_number")) or page_index
+            try:
+                page_widths[page_number] = float(page.get("width"))
+            except (TypeError, ValueError):
+                page_widths[page_number] = 0.0
+
+            raw_blocks = page.get("blocks")
+            if not isinstance(raw_blocks, list):
+                continue
+
+            page_blocks: list[dict[str, Any]] = []
+            for block_index, block in enumerate(raw_blocks):
+                if not isinstance(block, dict):
+                    continue
+
+                text = cls._clean_text(block.get("text"))
+                if not text:
+                    continue
+
+                block_tokens = tokens(text)
+                if len(block_tokens) < 3:
+                    continue
+
+                try:
+                    x0 = float(block.get("x0", 0.0))
+                    x1 = float(block.get("x1", x0))
+                    y0 = float(block.get("y0", 0.0))
+                except (TypeError, ValueError):
+                    continue
+
+                page_blocks.append({
+                    "index": block_index,
+                    "text": text,
+                    "tokens": block_tokens,
+                    "x0": x0,
+                    "x1": x1,
+                    "y0": y0,
+                })
+
+            if page_blocks:
+                blocks_by_page[page_number] = page_blocks
+
+        if not blocks_by_page:
+            return paragraphs, {
+                "applied": False,
+                "reason": "no_text_blocks",
+                "pages_reordered": [],
+                "paragraphs_reordered": 0,
+            }
+
+        def match_score(
+            paragraph_text: str,
+            paragraph_tokens: list[str],
+            block: dict[str, Any],
+        ) -> tuple[float, int]:
+            block_text = block["text"]
+            block_tokens = block["tokens"]
+
+            shared = set(paragraph_tokens) & set(block_tokens)
+            shared_count = len(shared)
+            if shared_count < 5:
+                return 0.0, shared_count
+
+            para_norm = normalize(paragraph_text)
+            block_norm = normalize(block_text)
+
+            if para_norm == block_norm:
+                return 1.0, shared_count
+
+            prefix_len = min(24, len(paragraph_tokens))
+            suffix_len = min(24, len(paragraph_tokens))
+            prefix = " ".join(paragraph_tokens[:prefix_len])
+            suffix = " ".join(paragraph_tokens[-suffix_len:])
+
+            prefix_tokens = set(prefix.split())
+            suffix_tokens = set(suffix.split())
+            prefix_overlap = (
+                len(prefix_tokens & set(block_tokens)) / max(len(prefix_tokens), 1)
+            )
+            suffix_overlap = (
+                len(suffix_tokens & set(block_tokens)) / max(len(suffix_tokens), 1)
+            )
+
+            block_coverage = shared_count / max(len(block_tokens), 1)
+            paragraph_coverage = shared_count / max(len(paragraph_tokens), 1)
+
+            score = max(
+                0.60 * block_coverage + 0.40 * prefix_overlap,
+                0.60 * block_coverage + 0.40 * suffix_overlap,
+                0.50 * block_coverage + 0.25 * prefix_overlap + 0.25 * suffix_overlap,
+                0.35 * paragraph_coverage,
+            )
+
+            # Character similarity provides a useful tie-break for near-identical
+            # fragments without requiring any document-specific terms.
+            if para_norm and block_norm:
+                similarity = SequenceMatcher(
+                    None,
+                    para_norm[:400],
+                    block_norm[:400],
+                ).ratio()
+                score = max(score, 0.55 * similarity + 0.45 * block_coverage)
+
+            return score, shared_count
+
+        mappings: dict[int, dict[str, Any]] = {}
+        candidate_page_count = 0
+
+        for paragraph_index, paragraph in enumerate(paragraphs):
+            if not isinstance(paragraph, dict):
+                continue
+
+            text = cls._clean_text(paragraph.get("text"))
+            paragraph_tokens = tokens(text)
+            if len(paragraph_tokens) < 6:
+                continue
+
+            known_page = numeric_page(paragraph.get("page"))
+            candidate_pages = (
+                [known_page]
+                if known_page in blocks_by_page
+                else list(blocks_by_page)
+            )
+
+            best: tuple[float, int | None, dict[str, Any] | None, int] = (
+                0.0,
+                None,
+                None,
+                0,
+            )
+
+            for page_number in candidate_pages:
+                if page_number is None:
+                    continue
+                for block in blocks_by_page.get(page_number, []):
+                    score, shared_count = match_score(
+                        text,
+                        paragraph_tokens,
+                        block,
+                    )
+                    if score > best[0]:
+                        best = (
+                            score,
+                            page_number,
+                            block,
+                            shared_count,
+                        )
+
+            score, page_number, block, shared_count = best
+            if block is None:
+                continue
+
+            # Confidence threshold intentionally requires both meaningful
+            # lexical overlap and a reasonably strong block match.
+            if score < 0.50 or shared_count < 5:
+                continue
+
+            mappings[paragraph_index] = {
+                "page": page_number,
+                "x0": block["x0"],
+                "x1": block["x1"],
+                "y0": block["y0"],
+                "score": score,
+            }
+            candidate_page_count += 1
+
+        if candidate_page_count < 2:
+            return paragraphs, {
+                "applied": False,
+                "reason": "insufficient_confident_matches",
+                "matched_paragraphs": candidate_page_count,
+                "pages_reordered": [],
+                "paragraphs_reordered": 0,
+            }
+
+        result = list(paragraphs)
+        pages_reordered: list[int] = []
+        moved_count = 0
+        reordered_page_details: list[dict[str, Any]] = []
+
+        mapped_by_page: dict[int, list[int]] = {}
+        all_by_page: dict[int, list[int]] = {}
+
+        for index, mapping in mappings.items():
+            mapped_by_page.setdefault(mapping["page"], []).append(index)
+
+        # Include known paragraph pages even when an individual paragraph did
+        # not match; this lets us enforce a conservative page-level coverage
+        # threshold before changing order.
+        for index, paragraph in enumerate(paragraphs):
+            if not isinstance(paragraph, dict):
+                continue
+            page_number = numeric_page(paragraph.get("page"))
+            if page_number is not None:
+                all_by_page.setdefault(page_number, []).append(index)
+            elif index in mappings:
+                all_by_page.setdefault(mappings[index]["page"], []).append(index)
+
+        def page_reading_key(
+            page_number: int,
+            indices: list[int],
+        ) -> dict[int, tuple[int, float, float, int]]:
+            mapped = [mappings[i] for i in indices if i in mappings]
+            page_width = page_widths.get(page_number, 0.0)
+            if page_width <= 0:
+                page_width = max(
+                    (float(m["x1"]) for m in mapped),
+                    default=600.0,
+                )
+
+            x_values = sorted(float(m["x0"]) for m in mapped)
+            clusters: list[list[float]] = []
+            gap_threshold = max(40.0, page_width * 0.12)
+            for x in x_values:
+                if not clusters or x - clusters[-1][-1] > gap_threshold:
+                    clusters.append([x])
+                else:
+                    clusters[-1].append(x)
+
+            # A large horizontal gap between text starts is enough evidence
+            # for column-major order when the matched paragraph set spans both
+            # sides. This also handles pages where one column contains only a
+            # single matched paragraph.
+            use_columns = len(clusters) >= 2
+
+            column_bounds: list[tuple[float, float, int]] = []
+            if use_columns:
+                for column_index, cluster in enumerate(clusters):
+                    column_bounds.append((min(cluster), max(cluster), column_index))
+
+            keys: dict[int, tuple[int, float, float, int]] = {}
+            for index in indices:
+                mapping = mappings.get(index)
+                if mapping is None:
+                    continue
+
+                x0 = float(mapping["x0"])
+                y0 = float(mapping["y0"])
+                column_index = 0
+                if use_columns:
+                    # Assign by nearest x-cluster center.
+                    column_index = min(
+                        column_bounds,
+                        key=lambda item: abs(
+                            x0 - ((item[0] + item[1]) / 2.0)
+                        ),
+                    )[2]
+
+                keys[index] = (
+                    column_index if use_columns else 0,
+                    y0,
+                    x0,
+                    index,
+                )
+
+            return keys
+
+        for page_number in sorted(mapped_by_page):
+            mapped_indices = mapped_by_page[page_number]
+            all_indices = all_by_page.get(page_number, mapped_indices)
+            if len(mapped_indices) < 2:
+                continue
+
+            coverage = len(mapped_indices) / max(len(all_indices), 1)
+            if coverage < 0.80:
+                continue
+
+            keys = page_reading_key(page_number, all_indices)
+            ordered_mapped = sorted(
+                mapped_indices,
+                key=lambda index: keys.get(index, (9999, 999999.0, 999999.0, index)),
+            )
+
+            original_mapped = list(mapped_indices)
+            if ordered_mapped == original_mapped:
+                continue
+
+            target_slots = sorted(mapped_indices)
+            for slot, source_index in zip(target_slots, ordered_mapped):
+                if result[slot] is not paragraphs[source_index]:
+                    moved_count += 1
+                result[slot] = paragraphs[source_index]
+
+            pages_reordered.append(page_number)
+            reordered_page_details.append({
+                "page": page_number,
+                "matched_paragraphs": len(mapped_indices),
+                "page_paragraphs": len(all_indices),
+                "coverage": coverage,
+            })
+
+        report = {
+            "applied": bool(pages_reordered),
+            "reason": "reordered_page_local_layout" if pages_reordered else "already_in_layout_order",
+            "matched_paragraphs": candidate_page_count,
+            "pages_reordered": pages_reordered,
+            "paragraphs_reordered": moved_count,
+            "page_details": reordered_page_details,
+        }
+
+        return result, report
+
     def _build_formulas(
         self,
         raw_formulas: list[dict],
@@ -937,6 +1600,8 @@ class CanonicalBuilder:
 
         return best_raw
 
+
+
     @staticmethod
     def _table_structure_is_usable(
         structure: Any,
@@ -1145,8 +1810,8 @@ class CanonicalBuilder:
                 structured = cls._normalize_raw_table_structure(
                     raw.get("structure")
                 )
-            
-            
+
+
             if cls._table_structure_is_usable(
                 structured
             ):
@@ -1216,7 +1881,7 @@ class CanonicalBuilder:
             )
             cache[key] = result
             cache_dirty = True
-            
+
         # Normalize table status after all reconstruction attempts.
         for table in tables:
 
@@ -1276,6 +1941,208 @@ class CanonicalBuilder:
             )
 
         return tables
+
+    # --- new helper on CanonicalBuilder ---
+
+    TABLE_LABEL_SCAN_RE = re.compile(r"\bTABLE\s+\d+\b", re.IGNORECASE)
+
+    @classmethod
+    def _looks_like_table_dump(cls, text: str) -> bool:
+        """
+        Heuristic catch for GROBID emitting raw table content as a <p>
+        instead of isolating it into a <table>. Two or more table labels
+        inside one paragraph is a strong signal it's not prose.
+        """
+        return len(cls.TABLE_LABEL_SCAN_RE.findall(text)) >= 2
+
+
+    @staticmethod
+    def _inline_table_segment(
+        text: str,
+        table: dict[str, Any],
+    ) -> tuple[str, str | None]:
+        """Remove a small table dump embedded inside a prose paragraph.
+
+        Only acts when a strong table-content prefix/suffix sequence is
+        present, which avoids deleting ordinary prose that merely mentions a
+        table. The original table artifact remains available as a structured
+        table record.
+        """
+        content = str(table.get("content") or "").strip()
+        if not content:
+            return text, None
+
+        tokens = re.findall(
+            r"[A-Za-z0-9]+(?:[.'’/-][A-Za-z0-9]+)*|%",
+            content,
+        )
+
+        # Do not construct large regexes for legitimately large tables.
+        if len(tokens) < 10 or len(tokens) > 120:
+            return text, None
+
+        prefix = tokens[:6]
+        suffix = tokens[-6:]
+        sep = r"[\s|,;:()\[\]{}–—-]+"
+        prefix_pat = sep.join(re.escape(t) for t in prefix)
+        suffix_pat = sep.join(re.escape(t) for t in suffix)
+
+        pattern = rf"{prefix_pat}.*?{suffix_pat}"
+        match = re.search(pattern, text, re.IGNORECASE | re.DOTALL)
+        if not match:
+            return text, None
+
+        # Require a nearby label/caption as a second signal before removing.
+        label = str(table.get("label") or "").strip()
+        caption = str(table.get("caption") or "").strip()
+        nearby_end = min(len(text), match.end() + 180)
+        nearby_start = max(0, match.start() - 180)
+        nearby = text[nearby_start:nearby_end]
+
+        label_hit = bool(label and re.search(re.escape(label), nearby, re.IGNORECASE))
+        caption_hit = bool(caption and re.search(re.escape(caption), nearby, re.IGNORECASE))
+        if not (label_hit or caption_hit):
+            return text, None
+
+        start = match.start()
+        end = match.end()
+
+        # Absorb an adjacent caption/label, whether it appears immediately
+        # before or after the cell dump.
+        if caption:
+            cap_match_after = re.search(
+                re.escape(caption),
+                text[end:end + 220],
+                re.IGNORECASE,
+            )
+            if cap_match_after:
+                end += cap_match_after.end()
+            else:
+                cap_match_before = re.search(
+                    re.escape(caption),
+                    text[max(0, start - 220):start],
+                    re.IGNORECASE,
+                )
+                if cap_match_before:
+                    start = max(0, start - 220) + cap_match_before.start()
+
+        cleaned = (text[:start].rstrip() + " " + text[end:].lstrip()).strip()
+        return cleaned, text[start:end].strip()
+
+    @classmethod
+    def _strip_table_derived_paragraphs(
+        cls,
+        paragraphs: list[dict[str, Any]],
+        tables: list[dict[str, Any]],
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        """
+        Remove paragraphs that are actually table content folded into the
+        body stream by the parser. Matches on:
+        1. multi-label table dump heuristic
+        2. paragraph text contained inside a reconstructed table's content
+        3. paragraph text matching a table's caption (fuzzy)
+        Returns (clean_paragraphs, removed_paragraphs) — removals are kept,
+        not discarded, so this stays auditable.
+        """
+        table_contents = [
+            cls._normalize(t.get("content", "")) for t in tables if t.get("content")
+        ]
+        table_captions = [
+            cls._normalize(t.get("caption", "")) for t in tables if t.get("caption")
+        ]
+
+        kept, removed = [], []
+
+        for paragraph in paragraphs:
+            text = paragraph.get("text", "")
+            inline_segments = []
+
+            # Remove small structured-table dumps that were copied into body
+            # paragraphs, but keep the surrounding prose intact.
+            for table in tables:
+                text, removed_segment = cls._inline_table_segment(text, table)
+                if removed_segment:
+                    inline_segments.append(removed_segment)
+
+            if inline_segments:
+                paragraph["text"] = text
+                paragraph["table_derived_segments_removed"] = inline_segments
+                paragraph["sentences"] = [
+                    s.strip()
+                    for s in re.split(r"(?<=[.!?])\s+", text)
+                    if s.strip()
+                ]
+
+            # If paragraph starts with a table continuation header but contains body prose, strip the prefix
+            table_prefix_match = re.match(
+                r"^\s*TABLE\s+\d+\.?\s*(?:\([^\)]+\)\s*)?(?:[A-Za-z0-9\s,–-]+?\.)\s+(?=[A-Z])",
+                text,
+                re.IGNORECASE
+            )
+            if table_prefix_match:
+                prefix = table_prefix_match.group(0)
+                remaining = text[len(prefix):].strip()
+                if len(remaining.split()) >= 15:
+                    text = remaining
+                    paragraph["text"] = text
+                    if "sentences" in paragraph and paragraph["sentences"]:
+                        paragraph["sentences"] = [
+                            s for s in paragraph["sentences"]
+                            if not re.match(r"^\s*TABLE\s+\d+", s, re.IGNORECASE)
+                        ]
+
+            normalized = cls._normalize(text)
+
+            is_dump = cls._looks_like_table_dump(text)
+
+            is_matched_content = any(
+                normalized and normalized in table_text
+                for table_text in table_contents
+            )
+
+            # Strip running volume headers/table-label artifacts when the
+            # surrounding structure identifies them as non-prose content.
+            norm_without_vol = re.sub(r"\bvolume\s+\d+,\s*\d+\b", "", normalized).strip()
+            is_table_header_artifact = bool(re.match(r"^table\s+\d+\b", norm_without_vol) and len(norm_without_vol.split()) <= 20)
+
+            is_matched_caption = any(
+                normalized
+                and (
+                    normalized == caption
+                    or norm_without_vol == caption
+                    or SequenceMatcher(None, normalized, caption).ratio() >= 0.85
+                    or SequenceMatcher(None, norm_without_vol, caption).ratio() >= 0.85
+                )
+                for caption in table_captions
+            )
+
+            if is_dump or is_matched_content or is_matched_caption or is_table_header_artifact:
+                removed.append(paragraph)
+            else:
+                kept.append(paragraph)
+
+        # Stitch split paragraphs across stripped table artifacts
+        stitched = []
+        i = 0
+        while i < len(kept):
+            p = kept[i]
+            p_text = p.get("text", "").strip()
+            if i + 1 < len(kept) and p_text and not p_text[-1] in ".!?\":":
+                next_p = kept[i + 1]
+                next_text = next_p.get("text", "").strip()
+                if p.get("section") == next_p.get("section") and next_text and (next_text[0].islower() or len(p_text.split()) < 30):
+                    merged_text = f"{p_text} {next_text}"
+                    merged_p = dict(p)
+                    merged_p["text"] = merged_text
+                    merged_p["sentences"] = (p.get("sentences") or []) + (next_p.get("sentences") or [])
+                    stitched.append(merged_p)
+                    i += 2
+                    continue
+            stitched.append(p)
+            i += 1
+        kept = stitched
+
+        return kept, removed
 
     @classmethod
     def _apply_table_fallback_result(
@@ -1646,13 +2513,17 @@ class CanonicalBuilder:
         references: list[dict[str, Any]],
     ) -> list[dict[str, Any]]:
 
-        result: list[
-            dict[str, Any]
-        ] = []
+        result: list[dict[str, Any]] = []
 
-        seen: set[str] = set()
+        # Reference number is source metadata when available. Never allow
+        # semantic deduplication to collapse two distinct numbered records.
+        seen_numbered: set[int] = set()
+        seen_unnumbered: set[str] = set()
 
         for reference in references:
+
+            if not isinstance(reference, dict):
+                continue
 
             title = cls._clean_text(
                 reference.get(
@@ -1687,32 +2558,488 @@ class CanonicalBuilder:
                 )
             ]
 
+            number = reference.get("number")
+            if isinstance(number, str) and number.strip().isdigit():
+                number = int(number.strip())
+            elif not isinstance(number, int):
+                number = None
+
             if not title and not raw:
                 continue
 
             if raw and len(raw) < 15:
                 continue
 
-            key = cls._normalize(
-                raw or title
-            )
+            if number is not None:
+                if number in seen_numbered:
+                    continue
+                seen_numbered.add(number)
+            else:
+                key = cls._normalize(
+                    raw or title
+                )
 
-            if key in seen:
-                continue
+                if key in seen_unnumbered:
+                    continue
+                seen_unnumbered.add(key)
 
-            seen.add(
-                key
-            )
+            cleaned = {
+                "number": number,
+                "title": title,
+                "authors": authors,
+                "raw": raw,
+            }
 
-            result.append(
-                {
-                    "title": title,
-                    "authors": authors,
-                    "raw": raw,
-                }
-            )
+            # Preserve optional provenance fields when a parser supplies them.
+            for field in (
+                "page",
+                "source",
+                "coords",
+                "source_refs",
+            ):
+                if field in reference:
+                    cleaned[field] = reference[field]
+
+            result.append(cleaned)
 
         return result
+
+    # =========================================================
+    # REFERENCE RECOVERY
+    # =========================================================
+
+    REFERENCE_MARKER_RE = re.compile(
+        r"(?<![\w\[])\b(?P<number>[1-9]\d{0,2})\.(?=\s*(?:[A-Za-zÀ-ÖØ-öø-ÿ]|https?://|www\.|doi\b))",
+        re.IGNORECASE,
+    )
+
+    @classmethod
+    def _split_numbered_reference_text(
+        cls,
+        text: str,
+        *,
+        min_number: int = 1,
+        max_number: int = 999,
+    ) -> list[tuple[int, str]]:
+        """Split a flattened bibliography stream into numbered records."""
+        if not isinstance(text, str) or not text.strip():
+            return []
+
+        matches = [
+            m
+            for m in cls.REFERENCE_MARKER_RE.finditer(text)
+            if min_number <= int(m.group("number")) <= max_number
+        ]
+
+        entries: list[tuple[int, str]] = []
+        for index, match in enumerate(matches):
+            number = int(match.group("number"))
+            start = match.end()
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+            raw = cls._clean_text(text[start:end]).strip()
+            if len(raw.split()) < 4:
+                continue
+            entries.append((number, raw))
+        return entries
+
+    BACKMATTER_HEADING_RE = re.compile(
+        r"(?im)^\s*(?:acknowledg(?:e)?ments?|author(?:s)?\s+contributions?|funding|declarations?|"
+        r"competing\s+interests?|conflicts?\s+of\s+interest|data\s+availability|"
+        r"ethical?(?:\s+approval)?|ethics|additional\s+information|"
+        r"reprints(?:\s+and\s+permissions)?|supplementary\s+(?:information|material))\b\s*:?.*$"
+    )
+
+    @classmethod
+    def _reference_block_fingerprint(
+        cls,
+        text: str,
+    ) -> str:
+        """Normalize an edge block so repeated running headers/footers compare equal."""
+        value = cls._clean_text(text).lower()
+        value = re.sub(r"\b(?:19|20)\d{2}\b", "<year>", value)
+        value = re.sub(r"\b\d{1,4}\b", "<n>", value)
+        value = re.sub(r"https?://\S+", "<url>", value)
+        value = re.sub(r"\s+", " ", value).strip()
+        return value
+
+    @classmethod
+    def _collect_repeated_edge_block_fingerprints(
+        cls,
+        pages: list[dict[str, Any]],
+    ) -> set[str]:
+        """Find repeated top/bottom blocks without depending on journal wording."""
+        if len(pages) < 3:
+            return set()
+
+        page_count_by_fp: dict[str, set[int]] = {}
+
+        for page_index, page in enumerate(pages):
+            if not isinstance(page, dict):
+                continue
+
+            blocks = page.get("blocks")
+            if not isinstance(blocks, list):
+                continue
+
+            page_height = page.get("height")
+            try:
+                page_height = float(page_height) if page_height is not None else None
+            except (TypeError, ValueError):
+                page_height = None
+
+            if page_height is None:
+                y_values = []
+                for block in blocks:
+                    if not isinstance(block, dict):
+                        continue
+                    for key in ("y1", "y0"):
+                        try:
+                            y_values.append(float(block.get(key)))
+                        except (TypeError, ValueError):
+                            pass
+                page_height = max(y_values, default=0.0)
+
+            if page_height <= 0:
+                continue
+
+            for block in blocks:
+                if not isinstance(block, dict):
+                    continue
+
+                value = cls._clean_text(block.get("text"))
+                if not value:
+                    continue
+
+                try:
+                    y0 = float(block.get("y0", 0.0))
+                    y1 = float(block.get("y1", y0))
+                except (TypeError, ValueError):
+                    continue
+
+                is_edge = (
+                    y0 <= page_height * 0.12
+                    or y1 >= page_height * 0.88
+                )
+                if not is_edge:
+                    continue
+
+                fingerprint = cls._reference_block_fingerprint(value)
+                if len(fingerprint) < 8:
+                    continue
+
+                page_count_by_fp.setdefault(fingerprint, set()).add(page_index)
+
+        threshold = max(2, int(len(pages) * 0.50 + 0.999))
+        return {
+            fp
+            for fp, page_indexes in page_count_by_fp.items()
+            if len(page_indexes) >= threshold
+        }
+
+    @classmethod
+    def _strip_reference_page_noise(
+        cls,
+        page_text: str,
+    ) -> str:
+        """Remove generic running back-matter headings before bibliography splitting."""
+        if not page_text:
+            return ""
+        match = cls.BACKMATTER_HEADING_RE.search(page_text)
+        if match:
+            page_text = page_text[:match.start()]
+        return page_text.strip()
+
+    @classmethod
+    def _collect_pymupdf_text_for_references(
+        cls,
+        pymupdf: dict[str, Any],
+    ) -> str:
+        """Collect PDF text from the bibliography onward using page/block order."""
+        if not isinstance(pymupdf, dict):
+            return ""
+
+        pages = pymupdf.get("pages")
+        if not isinstance(pages, list) or not pages:
+            text = cls._clean_text(pymupdf.get("text", ""))
+            return cls._strip_reference_page_noise(text)
+
+        repeated_edge_blocks = cls._collect_repeated_edge_block_fingerprints(pages)
+
+        page_parts: list[str] = []
+        reference_started = False
+
+        for page in pages:
+            if not isinstance(page, dict):
+                continue
+
+            blocks = page.get("blocks")
+            texts: list[tuple[float, float, str]] = []
+
+            if isinstance(blocks, list):
+                page_height = page.get("height")
+                try:
+                    page_height = float(page_height) if page_height is not None else None
+                except (TypeError, ValueError):
+                    page_height = None
+
+                if page_height is None:
+                    y_values = []
+                    for block in blocks:
+                        if not isinstance(block, dict):
+                            continue
+                        for key in ("y1", "y0"):
+                            try:
+                                y_values.append(float(block.get(key)))
+                            except (TypeError, ValueError):
+                                pass
+                    page_height = max(y_values, default=0.0)
+
+                for block in blocks:
+                    if not isinstance(block, dict):
+                        continue
+
+                    value = cls._clean_text(block.get("text"))
+                    if not value:
+                        continue
+
+                    try:
+                        x0 = float(block.get("x0", 0.0))
+                        y0 = float(block.get("y0", 0.0))
+                        y1 = float(block.get("y1", y0))
+                    except (TypeError, ValueError):
+                        x0, y0, y1 = 0.0, 0.0, 0.0
+
+                    if page_height and (
+                        y0 <= page_height * 0.12
+                        or y1 >= page_height * 0.88
+                    ):
+                        fingerprint = cls._reference_block_fingerprint(value)
+                        if fingerprint in repeated_edge_blocks:
+                            continue
+
+                    texts.append((x0, y0, value))
+
+            if texts:
+                # Preserve simple two-column reading order: top-to-bottom in
+                # the left column, then top-to-bottom in the right column.
+                xs = sorted(x for x, _, _ in texts)
+                if len(xs) >= 4 and (xs[-1] - xs[0]) > 120:
+                    midpoint = (xs[0] + xs[-1]) / 2.0
+                    left = [item for item in texts if item[0] <= midpoint]
+                    right = [item for item in texts if item[0] > midpoint]
+                    ordered = sorted(left, key=lambda item: (item[1], item[0]))
+                    ordered.extend(sorted(right, key=lambda item: (item[1], item[0])))
+                else:
+                    ordered = sorted(texts, key=lambda item: (item[1], item[0]))
+                page_text = "\n".join(item[2] for item in ordered)
+            else:
+                page_text = cls._clean_text(page.get("text", ""))
+
+            if not page_text:
+                continue
+
+            if not reference_started:
+                if re.search(r"(?im)^\s*(?:##\s*)?references\s*$", page_text):
+                    reference_started = True
+                    page_text = re.split(
+                        r"(?im)^\s*(?:##\s*)?references\s*$",
+                        page_text,
+                        maxsplit=1,
+                    )[1]
+                elif re.search(r"(?i)\bReferences\b", page_text) and len(pages) > 1:
+                    marker = re.search(r"(?i)\bReferences\b", page_text)
+                    if marker:
+                        reference_started = True
+                        page_text = page_text[marker.end():]
+
+            if reference_started:
+                backmatter = cls.BACKMATTER_HEADING_RE.search(page_text)
+                if backmatter:
+                    page_text = page_text[:backmatter.start()].strip()
+                    if page_text:
+                        page_parts.append(page_text)
+                    # Once the bibliography ends, later pages are article
+                    # back matter/license material, not references.
+                    break
+
+                page_text = cls._strip_reference_page_noise(page_text)
+                if page_text:
+                    page_parts.append(page_text)
+
+        return "\n".join(page_parts).strip()
+
+    @classmethod
+    def _recover_references(
+        cls,
+        *,
+        grobid_references: list[dict[str, Any]],
+        paragraphs: list[dict[str, Any]],
+        pymupdf: dict[str, Any],
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        """Recover flattened/missing bibliography records without inventing content."""
+        structured = cls._clean_references(grobid_references or [])
+
+        by_number: dict[int, dict[str, Any]] = {}
+        paragraph_reference_numbers: set[int] = set()
+        embedded_from_grobid = 0
+
+        # Recover explicit numbered records that GROBID flattened into a raw
+        # bibliography string. We never assign numbers based on list position.
+        for reference in structured:
+            raw = str(reference.get("raw") or "")
+            fragments = cls._split_numbered_reference_text(raw, min_number=91)
+            for number, fragment in fragments:
+                if number not in by_number:
+                    by_number[number] = {
+                        "number": number,
+                        "title": "",
+                        "authors": [],
+                        "raw": f"{fragment}",
+                    }
+                    embedded_from_grobid += 1
+
+        # Recover reference records that leaked into body paragraphs. A normal
+        # prose paragraph usually has few numbered references; require a strong
+        # concentration of bibliography markers before treating it as contamination.
+        for paragraph in paragraphs:
+            text = str(paragraph.get("text") or "")
+            fragments = cls._split_numbered_reference_text(text, min_number=91)
+            if len(fragments) < 4:
+                continue
+            high_numbered = [item for item in fragments if item[0] >= 91]
+            if len(high_numbered) < 4:
+                continue
+            for number, fragment in high_numbered:
+                paragraph_reference_numbers.add(number)
+                by_number.setdefault(
+                    number,
+                    {
+                        "number": number,
+                        "title": "",
+                        "authors": [],
+                        "raw": fragment,
+                    },
+                )
+
+        pdf_text = cls._collect_pymupdf_text_for_references(pymupdf)
+        pdf_entries = cls._split_numbered_reference_text(pdf_text, min_number=1)
+
+        # PDF extraction is the strongest recovery source when it contains a
+        # sufficiently complete numbered bibliography. Use total coverage rather
+        # than stopping at the first isolated gap.
+        pdf_by_number = {number: raw for number, raw in pdf_entries}
+        max_pdf_number = max(pdf_by_number, default=0)
+        contiguous = 0
+        if max_pdf_number:
+            for number in range(1, max_pdf_number + 1):
+                if number in pdf_by_number:
+                    contiguous += 1
+                else:
+                    break
+
+        coverage_ratio = (
+            len(pdf_by_number) / max_pdf_number
+            if max_pdf_number
+            else 0.0
+        )
+        use_pdf_bibliography = (
+            max_pdf_number >= 20
+            and coverage_ratio >= 0.80
+        )
+
+        backfilled_reference_numbers: list[int] = []
+
+        if use_pdf_bibliography:
+            output = []
+            for number in range(1, max_pdf_number + 1):
+                raw = pdf_by_number.get(number)
+                existing = by_number.get(number)
+
+                if raw is None:
+                    if existing and existing.get("raw"):
+                        raw = str(existing.get("raw"))
+                        backfilled_reference_numbers.append(number)
+                    else:
+                        continue
+
+                output.append({
+                    "number": number,
+                    "title": existing.get("title", "") if existing else "",
+                    "authors": existing.get("authors", []) if existing else [],
+                    "raw": f"{raw}",
+                    "source": "pymupdf_reference_section",
+                })
+            recovery_source = "pymupdf_reference_section"
+        else:
+            output = []
+            for reference in structured:
+                cleaned = dict(reference)
+                if cleaned.get("number") is None:
+                    cleaned["number"] = None
+                output.append(cleaned)
+
+            for number in sorted(by_number):
+                candidate = by_number[number]
+                if not candidate.get("raw"):
+                    continue
+                output.append(dict(candidate))
+            recovery_source = "grobid_embedded_or_body"
+
+        output = cls._clean_references(output)
+
+        final_numbers = sorted(
+            {
+                int(reference["number"])
+                for reference in output
+                if isinstance(reference.get("number"), int)
+            }
+        )
+        missing_reference_numbers = (
+            [n for n in range(1, max_pdf_number + 1) if n not in set(final_numbers)]
+            if max_pdf_number
+            else []
+        )
+
+        report = {
+            "source": recovery_source,
+            "structured_reference_count": len(structured),
+            "recovered_numbered_records": len(by_number),
+            "embedded_grobid_records": embedded_from_grobid,
+            "paragraph_reference_numbers": sorted(paragraph_reference_numbers),
+            "pdf_reference_records": len(pdf_by_number),
+            "pdf_max_reference_number": max_pdf_number,
+            "pdf_contiguous_reference_count": contiguous,
+            "pdf_coverage_ratio": coverage_ratio,
+            "backfilled_reference_numbers": backfilled_reference_numbers,
+            "missing_reference_numbers": missing_reference_numbers,
+            "final_reference_count": len(output),
+            "final_reference_numbers": final_numbers,
+        }
+        return output, report
+
+    @classmethod
+    def _remove_reference_contamination(
+        cls,
+        paragraphs: list[dict[str, Any]],
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        kept: list[dict[str, Any]] = []
+        removed: list[dict[str, Any]] = []
+
+        for paragraph in paragraphs:
+            text = str(paragraph.get("text") or "").strip()
+            fragments = cls._split_numbered_reference_text(text, min_number=91)
+            if len(fragments) >= 4:
+                high_numbered = [number for number, _ in fragments if number >= 91]
+                starts_like_reference_list = bool(
+                    re.match(r"^\s*(?:e\d+\s+)?(?:9[1-9]|1\d\d)\.\s*[A-ZÀ-ÖØ-Þ]", text)
+                )
+                if len(high_numbered) >= 4 and starts_like_reference_list:
+                    removed.append(paragraph)
+                    continue
+
+            kept.append(paragraph)
+
+        return kept, removed
 
     # =========================================================
     # CANONICAL TEXT
@@ -1839,7 +3166,7 @@ class CanonicalBuilder:
             for part in parts
             if part
         )
-    
+
 
     # =========================================================
     # AUTHORS / YEAR
@@ -1932,6 +3259,23 @@ class CanonicalBuilder:
     # HEADING FILTERS
     # =========================================================
 
+    @staticmethod
+    def _is_noise_paragraph(text: str) -> bool:
+        value = re.sub(r"\s+", " ", str(text or "")).strip()
+
+        if not value:
+            return True
+
+        # Standalone page-number/footer artifacts such as "1 3".
+        if re.fullmatch(r"\d{1,4}(?:\s+\d{1,4}){1,2}", value):
+            return True
+
+        # Generic journal running banners accidentally emitted as body paragraphs.
+        if re.search(r"^[^|\n]{2,80}\s*\|\s*\(\d{4}\)", value, re.IGNORECASE):
+            return True
+
+        return False
+
     @classmethod
     def _is_garbage_heading(
         cls,
@@ -1955,15 +3299,20 @@ class CanonicalBuilder:
         }:
             return True
 
+        if re.fullmatch(r"\d+\)", value.strip()):
+            return True
+
         if re.fullmatch(
             r"[\d\s%=+\-*/().]+",
             value,
         ):
             return True
 
-        if re.search(
-            r"scientific reports\s*\|",
+        # Generic publisher running-banner shape, independent of journal.
+        if re.fullmatch(
+            r"[a-z][^|\n]{1,100}\s*\|\s*(?:\(\d{4}\)|\d{4,5}(?:\s+volume\s+\d+(?:\s*,\s*\d+)?)?(?:\s*\|\s*\d+)?)",
             value,
+            re.IGNORECASE,
         ):
             return True
 
@@ -1991,6 +3340,7 @@ class CanonicalBuilder:
             return True
 
         return False
+
 
     @staticmethod
     def _is_major_section(
@@ -2198,7 +3548,7 @@ class CanonicalBuilder:
             .lower()
             .strip(),
         )
-        
+
     @staticmethod
     def _clean_formula(
         text: str,
@@ -2219,7 +3569,7 @@ class CanonicalBuilder:
         )
 
         return text.strip()
-    
+
     @staticmethod
     def _normalize_formula(
         text: str,

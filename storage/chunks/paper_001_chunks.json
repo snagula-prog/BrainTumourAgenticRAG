@@ -1,0 +1,2068 @@
+[
+  {
+    "chunk_id": "paper_001_abstract_0000_ff5f8cab",
+    "paper_id": "paper_001",
+    "chunk_type": "abstract",
+    "order_index": 0,
+    "text": "A tumor is carried on by rapid and uncontrolled cell growth in the brain.If it is not treated in the initial phases, it could prove fatal.Despite numerous significant efforts and encouraging outcomes, accurate segmentation and classification continue to be a challenge.Detection of brain tumors is significantly complicated by the distinctions in tumor position, structure, and proportions.The main disinterest of this study stays to offer investigators, comprehensive literature on Magnetic Resonance (MR) imaging's ability to identify brain tumors.Using computational intelligence and statistical image processing techniques, this research paper proposed several ways to detect brain cancer and tumors.This study also shows an assessment matrix for a specific system using particular systems and dataset types.This paper also explains the morphology of brain tumors, accessible data sets, augmentation methods, component extraction, and categorization among Deep Learning (DL), Transfer Learning (TL), and Machine Learning (ML) models.Finally, our study compiles all relevant material for the identification of understanding tumors, including their benefits, drawbacks, advancements, and upcoming trends.",
+    "word_count": 161,
+    "metadata": {
+      "section": "Abstract",
+      "title": "Brain Tumor Detection and Classification Using Intelligence Techniques: An Overview",
+      "authors": [
+        "SHUBHANGI SOLANKI",
+        "UDAY PRATAP SINGH",
+        "SIDDHARTH SINGH CHOUHAN",
+        "SANJEEV JAIN"
+      ],
+      "index_terms": [
+        "Brain tumor",
+        "image classification",
+        "image segmentation",
+        "deep learning",
+        "machine learning"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_index_terms_0001_7167e626",
+    "paper_id": "paper_001",
+    "chunk_type": "index_terms",
+    "order_index": 1,
+    "text": "[Index Terms] Brain tumor, image classification, image segmentation, deep learning, machine learning",
+    "word_count": 12,
+    "metadata": {
+      "section": "Index Terms",
+      "terms": [
+        "Brain tumor",
+        "image classification",
+        "image segmentation",
+        "deep learning",
+        "machine learning"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_author_bio_0002_6fffaf52",
+    "paper_id": "paper_001",
+    "chunk_type": "author_bio",
+    "order_index": 2,
+    "text": "SHUBHANGI SOLANKI received the B.E. degree in computer science from Savitribai Phule Pune University (SPPU), in 2002, and the M.Tech. degree (Hons.) in artificial intelligence from RGPV, Bhopal, in 2007. She is currently pursu- ing the Ph.D. from LNCT University Bhopal. She has published more than ten paper in journal and conferences.",
+    "word_count": 52,
+    "metadata": {
+      "section": "Author Biographies",
+      "author": "SHUBHANGI SOLANKI",
+      "coordinates": [],
+      "section_path": [
+        "Author Biographies"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_author_bio_0003_32c2dc33",
+    "paper_id": "paper_001",
+    "chunk_type": "author_bio",
+    "order_index": 3,
+    "text": "UDAY PRATAP SINGH (Member, IEEE) received the B.Sc. degree from Dr. Rammanohar Lohia Avadh University, Faizabad, Uttar Pradesh, India, the M.Sc. degree from the Indian Institute of Tech- nology, Guwahati, India, and the Ph.D. degree in computer science from Barkatullah University, Bhopal. He had worked in various areas, such as soft computing, theoretical computer science, and image processing. He is currently working as an Associate Professor with the Department of Math- ematics, Shri Mata Vaishno Devi University, Katra, India. He had authored several research papers, published in reputed journals and conferences. He is a Life Member of IAENG and the Computer Society of India.",
+    "word_count": 104,
+    "metadata": {
+      "section": "Author Biographies",
+      "author": "UDAY PRATAP SINGH",
+      "coordinates": [],
+      "section_path": [
+        "Author Biographies"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_author_bio_0004_b1dacfe2",
+    "paper_id": "paper_001",
+    "chunk_type": "author_bio",
+    "order_index": 4,
+    "text": "SIDDHARTH SINGH CHOUHAN received the B.E. and M.Tech. degrees in computer science and engineering from Rajiv Gandhi Proudyo- giki Vishwavidyalaya University, Bhopal, India, in 2010 and 2013, respectively, and the Ph.D. degree in computer science and engineering from Shri Mata Vaishno Devi University, Katra, India. He is currently a Postdoctoral with the Univer- sity of Malta, Europe. He is currently working as an Assistant Professor in SCSE with VIT Bhopal University. He had authored several research papers, published in reputed journals and conferences. His research interests include developing soft computing, computer vision, drone technology, deep learning, and precision agriculture.",
+    "word_count": 99,
+    "metadata": {
+      "section": "Author Biographies",
+      "author": "SIDDHARTH SINGH CHOUHAN",
+      "coordinates": [],
+      "section_path": [
+        "Author Biographies"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_author_bio_0005_3f3eec2a",
+    "paper_id": "paper_001",
+    "chunk_type": "author_bio",
+    "order_index": 5,
+    "text": "SANJEEV JAIN (Member, IEEE) was born in Vidisha, Madhya Pradesh, in 1967. He received the master's degree in computer science and engi- neering from IIT Delhi, New Delhi, India, in 1992, and the Ph.D. degree in computer science and engineering. He has over 35 years of experience in teaching and research. He is currently the Vice Chancellor with the Central University of Jammu. He has the credit of making a significant contri- bution to research and development in the area of image processing and mobile ad hoc networks. He has guided Ph.D. scholars and has undertaken a number of major research and development projects sponsored by the government and private agencies. He is a member of various societies, such as the Computer Society of India.",
+    "word_count": 125,
+    "metadata": {
+      "section": "Author Biographies",
+      "author": "SANJEEV JAIN",
+      "coordinates": [],
+      "section_path": [
+        "Author Biographies"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0006_511b20a4",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 6,
+    "text": "I. INTRODUCTION",
+    "word_count": 2,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_001_subsection_511b20a4e6b0"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0007_80d0fd26",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 7,
+    "text": "An unchecked expansion of brain tissues is known as a brain tumor.It produces pressure in the skull and interferes with the brain's natural functioning.Brain tumor comes in two different types: Benign (non-cancerous) and Malignant (cancerous).Among them, malignant tumors grow quickly in the brain, damage the normal tissues, and may replicate themselves in other parts of the body [1], [2], [3].Brain tumors are graded into four different categories:\nGrade I: These tumors do not spread quickly and develop slowly.These are connected to a higher chance of enhanced order and may be surgically eliminated nearly entirely.One such tumor is a pilocytic astrocytoma.\nGrade II: Although they may migrate to surrounding tissues and advance to higher grades, these tumors also grow over time.These tumors may detect even though treatment is taken by the patient.An oligodendroglioma tumor is an example of an overtime growth tumor.",
+    "word_count": 141,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_001_subsection_511b20a4e6b0",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0001",
+        "para_0002",
+        "para_0003"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 36.169999999999995,
+          "y": 157.92802899999992,
+          "w": 241.2141930000001,
+          "h": 92.76592200000005,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 36.169999999999995,
+          "y": 110.1070289999999,
+          "w": 241.21523300000015,
+          "h": 44.92236700000001,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 36.16999999999999,
+          "y": 86.19702899999993,
+          "w": 241.21419300000005,
+          "h": 21.01136699999995,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0008_f01265ae",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 8,
+    "text": "The growth of these tumors has been quicker than grade II malignancies and could spread to adjoining tissues.Such tumors require post-operative chemo or radiotherapy because surgery alone would be insufficient to treat them.Aden squamous astrocytoma is an indication of such a tumor.Grade IV: The most dangerous and likely to spread malignant tumors are in this category.They might even use blood vessels to speed up their growth.An illustration of one of these tumors is glioblastoma multiforme [3], [4], [5].\nBrain tumors must be identified in time and appropriately be classified in order to get proper treatment and endure for patients.Because of the several vulnerabilities including different shapes, sizes of tumors, appearance, positions, scanning parameters, and modalities detection of brain tumors is a very challenging job to perform [5].To attain this task a number of traditional and intelligence techniques are being used.Typically, traditional approaches like Leksell Gamma Knife, Gamma Knife (GK), and Radioactive beams are helpful in diagnosing the lesions, but this process includes human involvement and is often a time-consuming task to perform [6].For brain tumor identification, many medical imaging modalities like Computer Tomography (CT), Magnetic resonance imaging (MRI) scans, and Poisson Emission Tomography (PET) are employed.Also, A unique MR technique called chemical exchange saturation transfer (CEST) makes it possible in imaging some substances at concentrations that are too low to affect the contrast of conventional MR imaging and too low to be directly identified in MRS at usual water imaging resolution.Among them, MRI scan is a non-invasive method that shows the internal body structure with the help of magnetization and microwave pulses.For brain tumor diagnosis, three categories of magnetic resonance image patterns are used: Fluid Attenuated Inversion Recovery (FLAIR), T1 weighted, and T2 weighted.The problem of identifying and detecting tumor-infected areas using brain MRI is crucial [6].",
+    "word_count": 297,
+    "metadata": {
+      "section": "Grade III:",
+      "section_path": [
+        "Grade III:"
+      ],
+      "subsection_id": "paper_001_subsection_b44f3fdeb165",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0004",
+        "para_0005"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 297.07900000000006,
+          "y": 122.06402899999989,
+          "w": 241.21857799999975,
+          "h": 104.8703670000001,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 297.07900000000006,
+          "y": 50.3330289999999,
+          "w": 241.2141929999999,
+          "h": 68.68192199999999,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 36.17,
+          "y": 468.4610289999995,
+          "w": 241.21419300000014,
+          "h": 248.18292200000053,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0009_75e295e0",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 9,
+    "text": "The human visual system has a minimal ability to notice tiny variations brought on by the Magnetic Resonance Image's increased complexity (MRI).Recently, a number of investigators developed Systems for computer-aided diagnosis (CAD) to help radiologists make precise diagnoses [6].Although Leksell Gamma Knife is a better approach to diagnosing tumors, because of the presence of necrosis in the brain the finding suffers.Therefore, effective machine learning should be adopted in order to solve this problem.Authors in [7] have proposed a novel method with the amalgamation of a Random Forest classifier along with a voxel clustering algorithm.Similarly, conventional diagnosis processes including Leksell Gamma Knife are time-consuming processes, therefore authors in [8] have introduced a semiautomated method using an unsupervised FCM clustering algorithm for accurately segmenting the lesion volume.A pipeline of four algorithms namely K-means, Fuzzy K-means and Gaussian Mixture Model (GMM), and Gaussian Hidden Markov Random Field (GHMRF) has been proposed for the segmentation of brain tumors by the authors in [9].Authors in [10] propose a two-stage mechanism for the assessment in dose escalation and eliminate the need for multispectral MRI data to analyze the image.The proposed framework incorporates the FCM algorithm in defining a novel method named a fully automatic method for necrosis extraction (NeXt).Although ML approaches are quite efficient in handling the MRI images for accurate detection of the tumor region, with the availability of complex, large volumes of data and high computing devices, deep learning models are being cast-off for achieving advanced performance.Therefore, to understand the detailed learning mechanism of these intelligence techniques the proposed work is aimed in presenting:\n1) The proposed work incorporates various deep learning and machine learning mechanisms adopted for the detection and classification of brain tumors from MRI images.",
+    "word_count": 284,
+    "metadata": {
+      "section": "Grade III:",
+      "section_path": [
+        "Grade III:"
+      ],
+      "subsection_id": "paper_001_subsection_b44f3fdeb165",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0006",
+        "para_0007"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 36.17,
+          "y": 85.20502899999963,
+          "w": 241.2141930000002,
+          "h": 380.2079219999999,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 36.17,
+          "y": 49.34002899999962,
+          "w": 241.21419300000002,
+          "h": 32.81692199999998,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0010_0e4542a2",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 10,
+    "text": "2) Study was carried out for about 100 articles collected from various sources like ScienceDirect, Springer, IEEE, etc.\n3) A separate analysis of both approaches has been carried out and various findings are tabularized individually.\n4) Further, a research gap analysis has been carried out to differentiate between the importance of DL over ML.\n5) Various findings like datasets, deep models, classification approaches, parameters, future research directions along with the importance of using 3D models and attention-based mechanisms are being discussed followed by our proposed work.\nOrganization of manuscript: introduction in section I is followed by a literature review given in section II.It includes the various studies categorized among DL and ML in a separate section.A research gap analysis of the underlying technologies is also been given in this section.Further, the various findings are given in Section III.Section IV demonstrates our proposed work.The manuscript ends with a conclusion followed by references.",
+    "word_count": 151,
+    "metadata": {
+      "section": "Grade III:",
+      "section_path": [
+        "Grade III:"
+      ],
+      "subsection_id": "paper_001_subsection_b44f3fdeb165",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0008",
+        "para_0009",
+        "para_0010",
+        "para_0011",
+        "para_0012"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 297.079,
+          "y": 695.7810289999995,
+          "w": 241.21419299999997,
+          "h": 20.86192200000005,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 297.079,
+          "y": 671.8710289999995,
+          "w": 241.2134499999998,
+          "h": 20.86192200000005,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 297.07900000000006,
+          "y": 636.0050289999994,
+          "w": 241.2149119999998,
+          "h": 32.81792200000007,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 297.0790000000001,
+          "y": 576.2300289999991,
+          "w": 241.21419299999974,
+          "h": 56.72692200000017,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 297.0790000000001,
+          "y": 480.588028999999,
+          "w": 241.21419299999997,
+          "h": 92.59292200000016,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 14,
+          "x": 37.166000000000004,
+          "y": 198.04156799999953,
+          "w": 53.58978200000001,
+          "h": 9.028762000000029,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0011_24adc6fe",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 11,
+    "text": "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES",
+    "word_count": 7,
+    "metadata": {
+      "section": "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES",
+      "section_path": [
+        "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES"
+      ],
+      "subsection_id": "paper_001_subsection_24adc6fe1499"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0012_90256418",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 12,
+    "text": "In recent years, a lot of research has been directed toward the adaptation of deep learning models in diagnosing brain tumors.Academicians have put in their efforts and with the help of high-end computing devices, higher accuracy has been achieved.Convolutional neural networks (CNN), which include input, output, hidden layers, and hyperparameters, are often called Deep Learning (DL) [5].It uses supervised classification and generates feature maps by having the kernel convolve all around the input image.Automatic-based feature extraction is both possible with DL models.Apart from its usefulness for medical condition detection, it has some shortcomings, including the requirements to design complex models, fine-tuning of hyper-parameters, the requirement of large data set, and time and effort to training/testing.As per recent research, significant data augmentation methods like resizing, rotation, scaling, and transformation are enforced to tackle the big data availability problem.A trained NN is used in transfer learning techniques to extract similar properties from an application-specific dataset [1].For brain tumor identification current TL methods like RESNET-100, VGGNET, Google-Net, AlexNet, etc. are applied.The various deeplearning techniques used by the researchers in the past are summarized in Table 1.\nWith the recent developments in technology, 3D scanning is also being used for the analysis of tumors.3D image processing for brain tumor detection and classification has been described in [48].It used various deep learning frameworks, such as MobileNetV2, MobileNetV3 small, MobileNetV3 big, VGG16, VGG19, and custom CNN models.CNN achieved the highest accuracy.It offers a solution that combines a CNN built with Keras and Tensor flow with a fully-featured cross-platform application built with",
+    "word_count": 255,
+    "metadata": {
+      "section": "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES",
+      "section_path": [
+        "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES"
+      ],
+      "subsection_id": "paper_001_subsection_24adc6fe1499",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0013",
+        "para_0014"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 297.0790000000001,
+          "y": 157.9710289999989,
+          "w": 241.21419299999997,
+          "h": 271.920922,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 297.0790000000001,
+          "y": 50.2020289999989,
+          "w": 241.21419299999985,
+          "h": 104.72092199999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 36.17,
+          "y": 292.2270290000002,
+          "w": 241.21419300000008,
+          "h": 248.1829219999998,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0013_fd1c2b12",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 13,
+    "text": "PyQt5 and MariaDB, all of which are designed for usage in medical settings like hospitals and clinical images.The primary goal of this work is to characterize a brain damaged by a tumor using real-world data and identify abnormal pixels [51].In [52] authors describe a pre-processing, data augmentation, segmentation, and binary classification of brain tumors implemented with a 3D medical image.In this context, classification is performed using two distinct classifiers: Dense-Net and Dark-Net.On the BRATS 2018 dataset of 3D-MR images, the suggested framework obtained an accuracy of 98.67% and a dice similarity coefficient (DSC) of 97.91% for segmentation.For brain tumor classification on 3D-MR images from the BRATS 2018 dataset, the suggested framework obtained a DSC of 98.14%, an accuracy of 98.26% using the Dense-Net classifier, and a DSC of 96.4%, an accuracy of 96.52% using the Dark-Net classifier.A higher level of accuracy was achieved by the Dense-Net classifier compared to the Dark-Net classifier.In addition, they have compared this framework to earlier research, and the results show that custom CNN obtains higher classification accuracy.Some of the 3D-based methods are given be Table 2.\ncorrespondingly.Convolutional neural networks, Deep CNN, dual-force CNN, cascaded CNN, 3-dimensional CNN, and Modern deep learning techniques are employed to train the data in the healthcare sector, including convolutional encoder networks, long short-term memories, CRF, U-Net CNN, and WRN-PPNet [49], [50], [51], [52], [53], [54], [55], [56], [57], [58], [59], [60], [61], [62].",
+    "word_count": 233,
+    "metadata": {
+      "section": "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES",
+      "section_path": [
+        "II. LITERATURE REVIEW A. DEEP LEARNING TECHNIQUES"
+      ],
+      "subsection_id": "paper_001_subsection_24adc6fe1499",
+      "pages": [
+        2,
+        10
+      ],
+      "paragraph_ids": [
+        "para_0016",
+        "para_0017"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 297.0790000000001,
+          "y": 50.2020289999989,
+          "w": 241.21419299999985,
+          "h": 104.72092199999997,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 36.17,
+          "y": 292.2270290000002,
+          "w": 241.21419300000008,
+          "h": 248.1829219999998,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 10,
+          "x": 297.079,
+          "y": 50.20202900000004,
+          "w": 241.21419299999997,
+          "h": 152.541922,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 36.169999999999995,
+          "y": 50.202028999999925,
+          "w": 241.2141930000001,
+          "h": 224.2729220000001,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 297.079,
+          "y": 50.202028999999925,
+          "w": 241.21419299999997,
+          "h": 164.32492200000002,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 36.17,
+          "y": 636.0060289999998,
+          "w": 241.21419300000008,
+          "h": 80.63792200000023,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0014_3ceb301f",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 14,
+    "text": "B. MACHINE LEARNING METHODS",
+    "word_count": 4,
+    "metadata": {
+      "section": "B. MACHINE LEARNING METHODS",
+      "section_path": [
+        "B. MACHINE LEARNING METHODS"
+      ],
+      "subsection_id": "paper_001_subsection_3ceb301fbd94"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0015_cce1a6ef",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 15,
+    "text": "Pre-processing, segmentation, extraction of features, and categorization are the four key phases of ML techniques used to diagnose brain tumors.",
+    "word_count": 20,
+    "metadata": {
+      "section": "B. MACHINE LEARNING METHODS",
+      "section_path": [
+        "B. MACHINE LEARNING METHODS"
+      ],
+      "subsection_id": "paper_001_subsection_3ceb301fbd94",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0018"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 36.169999999999995,
+          "y": 227.19802900000025,
+          "w": 241.2141930000001,
+          "h": 32.81692199999998,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0016_e0772a14",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 16,
+    "text": "1) PREPARATION",
+    "word_count": 2,
+    "metadata": {
+      "section": "1) PREPARATION",
+      "section_path": [
+        "1) PREPARATION"
+      ],
+      "subsection_id": "paper_001_subsection_e0772a142bcc"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0017_2624f9bb",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 17,
+    "text": "To produce accurate diagnoses in the clinical field, precise imaging is essential.The efficiency of clinical images is influenced by the artifact acquisition methods, like magnetic resonance scans, CT, and PET.A Magnetic resonance scan's real images could contain a lot of unwanted and pointless details.Magnetic resonance imaging is impacted by Rician noise [36].It is challenging to remove Rician distortion since it is signal-sensitive.Pre-processing techniques including filtration, intensity correction, and skull stripping is being used to maintain the original visual characteristics.",
+    "word_count": 79,
+    "metadata": {
+      "section": "1) PREPARATION",
+      "section_path": [
+        "1) PREPARATION"
+      ],
+      "subsection_id": "paper_001_subsection_e0772a142bcc",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0019"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 36.169999999999995,
+          "y": 66.52802900000017,
+          "w": 241.2141930000001,
+          "h": 128.45892200000003,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0018_ccab4dc2",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 18,
+    "text": "2) SEGMENTATION",
+    "word_count": 2,
+    "metadata": {
+      "section": "2) SEGMENTATION",
+      "section_path": [
+        "2) SEGMENTATION"
+      ],
+      "subsection_id": "paper_001_subsection_ccab4dc2a0ad"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0019_481c3a94",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 19,
+    "text": "It is a technique used to obtain areas of interest from digital images.The tumor's position must be distinguished from the MR brain scans, which is crucial.\nFor segmentation, numerous supervised methods are available, including thresholding, soft computing technique, atlas-based, Neural Networks (NNs), clustering, etc. Thresholding methods include global, adaptable, Otsu's, and histogram-dependent techniques.There are two unsupervised clustering methods namely K-means clustering and fuzzy C-means clustering.It successfully separates brain MRI scans into Gray Matter (GM), Cerebrospinal Fluid (CSF) as well as White Matter (WM).Segmentation techniques that draw inspiration from nature include Particle Swarm Optimization (PSO) and Genetic Algorithm.Recent studies show that DL frameworks like Convolutional Neural Networks (CNN), Mask-Recurrent Neural Networks, and UNET outperform conventional methods in segmentation.",
+    "word_count": 117,
+    "metadata": {
+      "section": "2) SEGMENTATION",
+      "section_path": [
+        "2) SEGMENTATION"
+      ],
+      "subsection_id": "paper_001_subsection_ccab4dc2a0ad",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0020",
+        "para_0021"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 297.079,
+          "y": 327.26802900000024,
+          "w": 241.21419300000008,
+          "h": 200.18992199999985,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0020_2de4c278",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 20,
+    "text": "3) FEATURE EXTRACTION",
+    "word_count": 3,
+    "metadata": {
+      "section": "3) FEATURE EXTRACTION",
+      "section_path": [
+        "3) FEATURE EXTRACTION"
+      ],
+      "subsection_id": "paper_001_subsection_2de4c278a61b"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0021_23f261d9",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 21,
+    "text": "While extracting features, properties of brain MR scans such as shape, structure, wavelet, and Gabor are retrieved.The Gray-Level Co-occurrence Matrix (GLCM) is commonly studied.A second-order statistical method is used to evaluate textural features like energy, correlation, and intensity.Wavelet data is derived using the Discrete Wavelet Transform (DWT).The approximation coefficients are obtained and it is applied to an original image, and then the feature vector is selected.Both automatic features produced by DL techniques like Convolutional Neural Networks, ResNet, Capsule Networks, and handwritten features have shown success.To decrease the number of features, PCA and Genetic Algorithms are utilized.",
+    "word_count": 96,
+    "metadata": {
+      "section": "3) FEATURE EXTRACTION",
+      "section_path": [
+        "3) FEATURE EXTRACTION"
+      ],
+      "subsection_id": "paper_001_subsection_2de4c278a61b",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0022"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 297.079,
+          "y": 143.6460290000001,
+          "w": 241.21419299999997,
+          "h": 152.3689220000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0022_8c7a9b68",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 22,
+    "text": "4) CLASSIFICATION",
+    "word_count": 2,
+    "metadata": {
+      "section": "4) CLASSIFICATION",
+      "section_path": [
+        "4) CLASSIFICATION"
+      ],
+      "subsection_id": "paper_001_subsection_8c7a9b6839f0"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0023_efad91ac",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 23,
+    "text": "Benign and malignant tumors are the most prevalent forms of brain tumors.The three types of malignant tumors include hypothalamic, gliomas, and malignant tumors.Table 3 shows a summary of some ML methods.",
+    "word_count": 31,
+    "metadata": {
+      "section": "4) CLASSIFICATION",
+      "section_path": [
+        "4) CLASSIFICATION"
+      ],
+      "subsection_id": "paper_001_subsection_8c7a9b6839f0",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0023"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 297.079,
+          "y": 67.62002900000016,
+          "w": 241.21419299999985,
+          "h": 44.772921999999994,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0024_85893b4e",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 24,
+    "text": "C. GAP ANALYSIS OF ML AND DL METHODS",
+    "word_count": 8,
+    "metadata": {
+      "section": "C. GAP ANALYSIS OF ML AND DL METHODS",
+      "section_path": [
+        "C. GAP ANALYSIS OF ML AND DL METHODS"
+      ],
+      "subsection_id": "paper_001_subsection_85893b4efac2"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0025_eae8a8f3",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 25,
+    "text": "Further, to analyze the research gap between the existing machine learning and deep learning approaches, the study has been directed towards summarizing the various literature work incorporating both technologies which are presented in Table 4.This table compromises the details with respect to methodology, algorithms, gap analysis, and dataset used by the authors.",
+    "word_count": 52,
+    "metadata": {
+      "section": "C. GAP ANALYSIS OF ML AND DL METHODS",
+      "section_path": [
+        "C. GAP ANALYSIS OF ML AND DL METHODS"
+      ],
+      "subsection_id": "paper_001_subsection_85893b4efac2",
+      "pages": [
+        6
+      ],
+      "paragraph_ids": [
+        "para_0025"
+      ],
+      "coordinates": [
+        {
+          "page": 6,
+          "x": 36.169999999999995,
+          "y": 56.07602899999995,
+          "w": 241.2141930000001,
+          "h": 92.59292200000004,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0026_55763d7f",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 26,
+    "text": "III. FINDINGS",
+    "word_count": 2,
+    "metadata": {
+      "section": "III. FINDINGS",
+      "section_path": [
+        "III. FINDINGS"
+      ],
+      "subsection_id": "paper_001_subsection_55763d7f6cfd"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0027_ec79cf12",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 27,
+    "text": "Expert radiologists do brain tumor segmentation and classification.ML and DL may help radiologists to make better decisions.This paper summarizes current strategies for automated brain tumor categorization.Histogram equalization, median, Gaussian, and Wiener filters preprocess MRI images.There are six forms of segmentation: clustering, statistical, CNN, region, and threshold-based [37].K-means Researchers often utilize C-means clustering and adaptive global thresholding.",
+    "word_count": 56,
+    "metadata": {
+      "section": "III. FINDINGS",
+      "section_path": [
+        "III. FINDINGS"
+      ],
+      "subsection_id": "paper_001_subsection_55763d7f6cfd",
+      "pages": [
+        6
+      ],
+      "paragraph_ids": [
+        "para_0026"
+      ],
+      "coordinates": [
+        {
+          "page": 6,
+          "x": 297.079,
+          "y": 57.07102900000007,
+          "w": 241.21419299999985,
+          "h": 92.5939219999999,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0028_383e3804",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 28,
+    "text": "Deep learning-based segmentation allows for more precise tumor extraction [26].GLCM and DWT largely extract features.GLCM returns texture characteristics, whereas DWT returns approximation coefficients.Deep learning architectures automate feature extraction.ResNet [4], [11].PCA and bio-inspired algorithms like PSO are used to reduce dimensionality.Choosing the optimal characteristics for categorization is challenging.Hence a hybrid technique integrating several features is utilized.ML and DL techniques are used to classify data.multi-kernel SVM Binary classification uses linear, RBF, and Cubic.These findings are comparable to VGG19 and ResNet.ANFIS, a fuzzy-ANN hybrid, performs better for binary classification.However, the database does not capture all tumor forms and grades.Or they have to obtain MRIs from nearby hospitals.As a result, comparing the performance of various approaches is difficult.A common database of all tumor kinds is required for future study.The deep learning approach can extract more detailed features from the dataset for segmentation and classification.Transfer learning techniques provide better prediction results for deep learning approaches in the effective detection of brain tumors.The machine learning approach gives better performance when the dataset is small, whereas, with large datasets deep learning, models are efficient.The deep learning approach used several pre-processing techniques like scaling and normalization to enhance desired features.Preprocessing techniques of machine learning including filtration, intensity correction, and skull stripping are being used to maintain the original visual characteristics with a limited data set.The primary drawback of machine learning technology is that it is complicated, with a large number of parameters increasing with the execution time and system requirements for implementation.The deep learning approach offers low complexity, where the features are self-learned by the network.Figure 1 and Figure 2 demonstrate the valuation of Machine Learning and Deep Learning methods over accuracy.",
+    "word_count": 274,
+    "metadata": {
+      "section": "III. FINDINGS",
+      "section_path": [
+        "III. FINDINGS"
+      ],
+      "subsection_id": "paper_001_subsection_55763d7f6cfd",
+      "pages": [
+        7
+      ],
+      "paragraph_ids": [
+        "para_0028"
+      ],
+      "coordinates": [
+        {
+          "page": 7,
+          "x": 36.17,
+          "y": 56.52502900000002,
+          "w": 241.21419300000014,
+          "h": 271.919922,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 297.079,
+          "y": 164.1210289999999,
+          "w": 241.21419300000008,
+          "h": 164.32392200000004,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0029_02d39d4d",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 29,
+    "text": "Further, the various findings from the literature are being discussed in separate categories like datasets used, different tumor classification approaches, deep learning models, parameters used, limitations of existing approaches, and future research directions.",
+    "word_count": 33,
+    "metadata": {
+      "section": "III. FINDINGS",
+      "section_path": [
+        "III. FINDINGS"
+      ],
+      "subsection_id": "paper_001_subsection_55763d7f6cfd",
+      "pages": [
+        7
+      ],
+      "paragraph_ids": [
+        "para_0029"
+      ],
+      "coordinates": [
+        {
+          "page": 7,
+          "x": 297.079,
+          "y": 104.34502899999984,
+          "w": 241.21419299999985,
+          "h": 56.727922000000035,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0030_5ddd8422",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 30,
+    "text": "A. DATASETS USED",
+    "word_count": 3,
+    "metadata": {
+      "section": "A. DATASETS USED",
+      "section_path": [
+        "A. DATASETS USED"
+      ],
+      "subsection_id": "paper_001_subsection_5ddd84228b68"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0031_403f375f",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 31,
+    "text": "The researchers make use of a variety of datasets that are available to the general public in order to test the proposed",
+    "word_count": 22,
+    "metadata": {
+      "section": "A. DATASETS USED",
+      "section_path": [
+        "A. DATASETS USED"
+      ],
+      "subsection_id": "paper_001_subsection_5ddd84228b68",
+      "pages": [
+        7
+      ],
+      "paragraph_ids": [
+        "para_0030"
+      ],
+      "coordinates": [
+        {
+          "page": 7,
+          "x": 297.079,
+          "y": 56.18002899999988,
+          "w": 241.21419299999997,
+          "h": 20.861921999999936,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0032_7831a716",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 32,
+    "text": "methodologies.In this section, we will go through various challenging datasets that are both significant and crucial.The BRATS datasets are considered to be the most difficult MRI datasets [73], [74], [75].BRATS Challenge is issued at different times throughout the years, and more recent challenges have had a resolution of 1 mm3 voxel [76].Employed two benchmark datasets and one dataset obtained from qualified radiologists.These datasets include 15 photographs of patients, and each patient included 9 slices of imaging data.The core dataset that was used was known as the digital imaging and communication in medicine (DICOM) dataset.Twenty-two photos from the DICOM collection, some of which depict tumor-infected brain tissue, have been taken into consideration for the purpose of this investigation.This dataset did not contain any images that represented the ground truth.The brain web dataset [77] was used as a supplemental source of information for this study.The whole threedimensional simulated brain MR data that is included in this paper were obtained using three modalities: proton densityweighted MRI, T1, and T2-weighted MRI, and T1-weighted MRI.The BRATS 2017 dataset [78] was utilized by Shubhashis Banerjee and Francesco Masulli.This dataset comprises data from the BRATS 2012/13/14, and 2015.A total of 210 HGG cases and 75 LGG instances of brain tumors are included in the dataset.The patient's MRI scan includes four distinct MRI sequences: the initial (T1) sequence, the T1 & T2 weighted sequence, and the Fluid Attenuated Inversion Recovery (FLAIR) volume with 155 two-dimensional slices at a resolution of 240 by 240.The BRATS training dataset, which consists of 274 multi-modality MRI images of people with gliomas, is used by the researchers Ali Isin, Cem Direkoglu, and Melike sah (both high and low grades).For the purposes of testing, a total of 110 scans were taken from ground truths and unknown grades.",
+    "word_count": 293,
+    "metadata": {
+      "section": "A. DATASETS USED",
+      "section_path": [
+        "A. DATASETS USED"
+      ],
+      "subsection_id": "paper_001_subsection_5ddd84228b68",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0033"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 36.17,
+          "y": 52.44502900000009,
+          "w": 241.2141930000002,
+          "h": 367.5619219999999,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 10,
+          "x": 297.079,
+          "y": 387.18902900000006,
+          "w": 241.21419299999963,
+          "h": 32.81792200000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0033_384e7163",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 33,
+    "text": "B. TUMOR CLASSIFICATION APPROACHES",
+    "word_count": 4,
+    "metadata": {
+      "section": "B. TUMOR CLASSIFICATION APPROACHES",
+      "section_path": [
+        "B. TUMOR CLASSIFICATION APPROACHES"
+      ],
+      "subsection_id": "paper_001_subsection_384e7163e8b6"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0034_ec6d3785",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 34,
+    "text": "The input data is sorted using classification techniques into a variety of separate classes., after which training and validation are carried out using both known and unknown instances.The classification of tumors into relevant classifications is a widespread application of machine learning, tumor as well as non-tumor, and malignant and benign tumors.Supervised methods include KNN, support vector machine, nearest subspace classification model, and representation classification model.Fuzzy C Means, hidden Markova random field, and self-organization map, are examples of unsupervised approaches [67], [68], [69], [70], [71].",
+    "word_count": 84,
+    "metadata": {
+      "section": "B. TUMOR CLASSIFICATION APPROACHES",
+      "section_path": [
+        "B. TUMOR CLASSIFICATION APPROACHES"
+      ],
+      "subsection_id": "paper_001_subsection_384e7163e8b6",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0034"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 297.079,
+          "y": 230.73702900000012,
+          "w": 241.21419299999997,
+          "h": 128.45892199999992,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0035_e384af5a",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 35,
+    "text": "C. DL MODELS",
+    "word_count": 3,
+    "metadata": {
+      "section": "C. DL MODELS",
+      "section_path": [
+        "C. DL MODELS"
+      ],
+      "subsection_id": "paper_001_subsection_e384af5aee14"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0036_4f54607a",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 36,
+    "text": "Deep learning (DL) models, as opposed to shallow Machine Learning (ML) techniques, are founded on the principles of learning data representations as well as learning hierarchical features.Deep learning techniques are used to categorize brain tumors, and these techniques find the descriptive data that most properly describes the many forms of brain tumors.The classification of brain tumors shifts away from being driven by manually created characteristics and toward being driven by data due to the nature of deep learning [87].In the domain of deep learning technics, a convolutional neural network is one of the most popularly utilized ones for the categorization of brain tumors, and a significant amount of progress has been made [88].There are a few different approaches that may be taken when classifying brain tumors, which can be seen in the research that was looked through.The difference includes the following aspects: (i) the dataset that was used for categorization, which included the types of tumors; (ii) the pre-processing as well as data augmentation methods that were incorporated; (iii) The use of ROI segmentation as a preliminary step in classification; The use of either a pre-trained or custom-designed deep learning technique; and (iv) the ROI segmentation question.For example, Bada and Barjaktarovi'c [88] used contrast-enhanced T1-weighted brain tumor MRI images that were readily available to the public [89].Meningioma, glioma, and pituitary tumor scans are included in the collection, as well as images from the three anatomical perspectives of axial, sagittal, and coronal.The images were preprocessed using several techniques, such as scaling and normalization, among others.To increase the size of the training dataset, the photographs in the dataset are also flipped vertically and rotated via a 90-degree angle.Additionally, they employed a specially created CNN classifier trained with the Adam optimizer using a mini-batch size of 16 and then tested the Classifier with 10-fold cross-validation.A Glorot initializer is used to get the convolution layers' weights started off in the right direction.The measures utilized to assess the model's performance were the highly sensitive, selectivity, accuracy, recall, and F1-score.Meningiomas, gliomas, and pituitary tumors all have sensitivity values of 89.8%, 96.2 percent, and 98.4%, respectively.Meningiomas have a specificity of 90.2 percent, gliomas have a specificity of 95.5 percent, and pituitary tumors have a specificity of 97.7 percent according to the model.In addition, the models have an overall accuracy of 95.4 percent, an average precision of 94.81 percent, an average recall of 95.07 percent, and an F1-score of 94.94 percent,",
+    "word_count": 403,
+    "metadata": {
+      "section": "C. DL MODELS",
+      "section_path": [
+        "C. DL MODELS"
+      ],
+      "subsection_id": "paper_001_subsection_e384af5aee14",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0035"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 297.079,
+          "y": 50.20202900000004,
+          "w": 241.21419299999997,
+          "h": 152.541922,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 36.169999999999995,
+          "y": 50.202028999999925,
+          "w": 241.2141930000001,
+          "h": 224.2729220000001,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 297.079,
+          "y": 50.202028999999925,
+          "w": 241.21419299999997,
+          "h": 164.32492200000002,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 36.17,
+          "y": 636.0060289999998,
+          "w": 241.21419300000008,
+          "h": 80.63792200000023,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "oversized": true
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0037_58aee958",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 37,
+    "text": "D. PARAMETERS",
+    "word_count": 2,
+    "metadata": {
+      "section": "D. PARAMETERS",
+      "section_path": [
+        "D. PARAMETERS"
+      ],
+      "subsection_id": "paper_001_subsection_58aee9589a9b"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0038_e6e98787",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 38,
+    "text": "MRI images are identified and categorized using an automated technique, as described in [31].The Super Pixel Methodology forms the foundation for this strategy, as does the categorization of every Super-the pixel.When attempting to categorize each superpixel as either tumorous or normal; the extremely randomized trees classification model is evaluated alongside the support vector machine.This methodology utilizes two datasets, which are referred to as a dataset of BRATS released in 2012 and 19 MRI FLAIR images respectively.The findings indicate that the utilization of the ERT classifier yields satisfactory results for this strategy.An instinctive organization technique is employed to recognize a tumor using a convolutional neural network with 3 × 3 tiny kernels [84].The tumor is ordered using this technique.",
+    "word_count": 118,
+    "metadata": {
+      "section": "D. PARAMETERS",
+      "section_path": [
+        "D. PARAMETERS"
+      ],
+      "subsection_id": "paper_001_subsection_58aee9589a9b",
+      "pages": [
+        12
+      ],
+      "paragraph_ids": [
+        "para_0036"
+      ],
+      "coordinates": [
+        {
+          "page": 12,
+          "x": 36.17,
+          "y": 50.2020289999997,
+          "w": 241.21419300000014,
+          "h": 546.8899220000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0039_5294495e",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 39,
+    "text": "The method won the BRATS Challenge in 2013 by simultaneously placing first in the whole, core, and improving areas of the dice similarity, coefficient metric (0.880, 0.830, and 0.770).In the [32], the Alexnet model convolutional neural network is rummage-sale to concurrently identify multiple sclerosis and normal tumors.A convolutional neural network was successful in correctly categorizing 98.67% of the photos into one of three categories.To segment brain cancers from MRI scans, a multi-stage Clustering framework was proposed in [54].According to [85], there is a method for categorization and segmentation that makes use of CNNs that is both efficient and effective.Image-Net was utilized in the suggested method in order to extract features.According to the findings, the classification was accurate to the extent of 97.5%, while the segmentation was accurate to the extent of 84%.In the study referred to as [86], Analysis of multiphase MRI images for tumor grading has been conducted, and the results of base neural networks and deep learning structures have been contrasted and compared.According to the findings, the performance of the network which is measured by the specificity and sensitivity of CNN has increased by 18 percent when related to the efficiency of neural networks.In the paper [33], the authors present a deep learning-based supervised technique for detection variations in artificial opening radar scans.This technique provides a dataset that had an adequate amount of data volume and variety for the purpose of training the DBN with the help of the input photographs and the images that were acquired by applying structural operatives on those images.The finding accuracy of this technique demonstrates the applicability of techniques based on deep learning for the purpose of finding solutions to change detection challenges.",
+    "word_count": 280,
+    "metadata": {
+      "section": "D. PARAMETERS",
+      "section_path": [
+        "D. PARAMETERS"
+      ],
+      "subsection_id": "paper_001_subsection_58aee9589a9b",
+      "pages": [
+        12
+      ],
+      "paragraph_ids": [
+        "para_0037"
+      ],
+      "coordinates": [
+        {
+          "page": 12,
+          "x": 36.17,
+          "y": 50.2020289999997,
+          "w": 241.21419300000014,
+          "h": 546.8899220000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0040_505b925c",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 40,
+    "text": "E. LIMITATIONS OF ML OVER DL APPROACHES",
+    "word_count": 7,
+    "metadata": {
+      "section": "E. LIMITATIONS OF ML OVER DL APPROACHES",
+      "section_path": [
+        "E. LIMITATIONS OF ML OVER DL APPROACHES"
+      ],
+      "subsection_id": "paper_001_subsection_505b925c163d"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0041_116d78bf",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 41,
+    "text": "Recent research on the diagnosis of brain tumors is examined in this survey; the findings suggest that there is an opportunity for further development in this area.Noise is introduced into an MRI scan during the image capture process, and removing this noise is a complex process [20], [21], [22], [23].Due to the tentacles and dispersed features that are characteristic of brain tumors [23], [24], [25], accurate segmentation is a thought-provoking task.In order to achieve better categorization, one of the most significant tasks is to select and retrieve the optimal features, as well as determine the right amount of training and testing samples [26], [27].The fact that deep learning models can autonomously learn new features is one of the reasons they are getting popular.On the other hand, these models need a portion of memory and a lot of dispensation control.Therefore, it is still necessary to develop a lightweight computing framework that can produce a high ACC in a shorter length of time.The following is a list of the primary difficulties associated with detecting brain tumors.The glioma tumor and the stroke tumor do not contrast very well with one another.It is made up of tentacles and scattered components, both of which make the segmentation and categorization procedures far more difficult [83].The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area [29].Some of the existing approaches perform admirably for a complete tumor region but not for other regions (whether enhanced or not), and conversely [90], [91], [92], [93], [94], [95].",
+    "word_count": 261,
+    "metadata": {
+      "section": "E. LIMITATIONS OF ML OVER DL APPROACHES",
+      "section_path": [
+        "E. LIMITATIONS OF ML OVER DL APPROACHES"
+      ],
+      "subsection_id": "paper_001_subsection_505b925c163d",
+      "pages": [
+        12
+      ],
+      "paragraph_ids": [
+        "para_0038"
+      ],
+      "coordinates": [
+        {
+          "page": 12,
+          "x": 297.079,
+          "y": 383.77802899999926,
+          "w": 241.21419299999997,
+          "h": 319.9139220000004,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0042_2ca2d04b",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 42,
+    "text": "F. FUTURE RESEARCH DIRECTIONS",
+    "word_count": 4,
+    "metadata": {
+      "section": "F. FUTURE RESEARCH DIRECTIONS",
+      "section_path": [
+        "F. FUTURE RESEARCH DIRECTIONS"
+      ],
+      "subsection_id": "paper_001_subsection_2ca2d04bee70"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0043_03612550",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 43,
+    "text": "This survey includes all of the significant features as well as the most recent work that has been done along with their constraints and obstacles.The researchers will benefit from gaining a better understanding of how to do new research in the appropriate manner within a reasonable amount of time.Even though deep learning approaches have made substantial contributions, there is still a need for a generic approach.These methodologies produce better outcomes once training and testing are carried out on achievement features (intensity range as well as resolution) that are comparable; moreover, the robustness of the methodologies are directly impacted by even the slightest change between the training imaginings and the testing imaginings.In the future, studies may be conducted to detect brain cancers more precisely, with actual patient information since somewhat average (various image capture methods) (scanners).Combining handcrafted characteristics with deep features has the potential to enhance classification accuracy.Similar to this, lightweight technologies like quantum machine learning are crucial in enhancing accuracy and efficacy, which in turn cuts down on the time required by radiologists and raises the percentage of patients who survive their illnesses.An attention-based mechanism improves brain tumor segmentation outcomes and reduces computational complexity issues.To be more precise, an image processing and attention mechanism are used to extract the desired area of the image, and then a pre-trained encoder part extracts the fewest but most crucial features to further improve the efficiency of the results.One of the most studied ideas in the field of deep learning is attention, which is used to solve issues like neural machine translation and image captioning.The attention mechanism idea is supported by a number of theories, including Seq2Seq models, encoders, decoders, hidden states, context vectors, and others.Channel attention, Spatial attention, and Block attention are some of the useful methods.",
+    "word_count": 294,
+    "metadata": {
+      "section": "F. FUTURE RESEARCH DIRECTIONS",
+      "section_path": [
+        "F. FUTURE RESEARCH DIRECTIONS"
+      ],
+      "subsection_id": "paper_001_subsection_2ca2d04bee70",
+      "pages": [
+        12
+      ],
+      "paragraph_ids": [
+        "para_0039"
+      ],
+      "coordinates": [
+        {
+          "page": 12,
+          "x": 297.079,
+          "y": 50.20202899999924,
+          "w": 241.21419299999997,
+          "h": 295.83092200000004,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 36.17,
+          "y": 600.1400289999997,
+          "w": 241.21419300000014,
+          "h": 116.50392200000033,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0044_e2a98aed",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 44,
+    "text": "Some of the suggestions and possible improvements made by the published review articles includes: Further practice of hybrid-based learning technique is important to obtain strong CAD system [88], Noise estimation is challenging in machine learning and in deep learning lack of interpretability [89], How effectively automatic methods can manage the impact of treatment effects is still being researched [90], Technical issues stemming from the difficulty in defining exactly what deep learning is due to the lack of mathematical and theoretical foundations for many of its core models and techniques [91], Research should carefully consider how to lessen or compensate for observer, spectrum, and selection biases, as well as how to increase reporting transparency [92], Research should focus on optimization technique which will decide number of layers and filters in the model [93], Semi supervised training gives weak performance [94], Absences of transfer learning mechanism leads to weak generalization ability [95], Deficiency of training data and no resolution gives poor performance of CNN [96], With large volume of data quality of image segmentation needed to improved [97], Transfer learning model is required incapacitating overfitting of image [98], Accurate analysis is difficult for vast number of images [99], and Computation is difficult with multiple task [100].",
+    "word_count": 204,
+    "metadata": {
+      "section": "F. FUTURE RESEARCH DIRECTIONS",
+      "section_path": [
+        "F. FUTURE RESEARCH DIRECTIONS"
+      ],
+      "subsection_id": "paper_001_subsection_2ca2d04bee70",
+      "pages": [
+        13
+      ],
+      "paragraph_ids": [
+        "para_0040"
+      ],
+      "coordinates": [
+        {
+          "page": 13,
+          "x": 36.17,
+          "y": 312.35402899999957,
+          "w": 241.21419300000014,
+          "h": 284.7379220000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0045_ba166a5b",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 45,
+    "text": "IV. PROPOSED FUTURE WORK",
+    "word_count": 4,
+    "metadata": {
+      "section": "IV. PROPOSED FUTURE WORK",
+      "section_path": [
+        "IV. PROPOSED FUTURE WORK"
+      ],
+      "subsection_id": "paper_001_subsection_ba166a5b365e"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0046_15510dfe",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 46,
+    "text": "The flowchart for the proposed work is given in Figure 3.This describes the execution of the proposed system in the detection of various diseases using CNN.The entire architecture depicts how the system deals with the recognition and detection of the test image, and below we explain the process of execution.The purpose of this research is to combine feature selection approaches with machine learning to identify pre-illnesses.For the early diagnosis of early diseases in MRI, CT scan, and X-ray images, this system makes use of deep learning techniques and image processing technology.to make feature extraction more efficient, the dataset including defective images from several categories was pre-processed and segmented.\nImage Acquisition: In image acquisition, heterogeneous images of the medical dataset collected which contains abnormal and normal samples are gathered from a variety of individuals and converted into image format using a camera or some synthetic dataset.\nPre-processing: There may be difficulties like noise, image blurring, and other concerns since the input data samples were gathered from a range of people.As a consequence, preprocessing methods are used for images in order to reduce noise and improve image quality using modern techniques.\nProcessing the image is tough due to the fact that it is originally in RGB color format.The RGB to greyscale conversion is required to reduce the complexity of a 3D pixel value to a 1D value.Many applications, such as edge detection, do not benefit from the use of three-dimensional pixels.\nFeature Selection: In image processing and data mining, feature selection is critical.It calculates the best subset of predicted characteristics from the original data.A subset of the original characteristics is chosen that retains enough information to distinguish successfully across classes.For feature selection, many search techniques can be utilized such as IG, PCA, and RAE.",
+    "word_count": 292,
+    "metadata": {
+      "section": "IV. PROPOSED FUTURE WORK",
+      "section_path": [
+        "IV. PROPOSED FUTURE WORK"
+      ],
+      "subsection_id": "paper_001_subsection_ba166a5b365e",
+      "pages": [
+        13
+      ],
+      "paragraph_ids": [
+        "para_0041",
+        "para_0042",
+        "para_0043",
+        "para_0044",
+        "para_0045"
+      ],
+      "coordinates": [
+        {
+          "page": 13,
+          "x": 36.17,
+          "y": 133.8880289999994,
+          "w": 241.2141930000002,
+          "h": 152.36992200000014,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 36.170000000000016,
+          "y": 74.11302899999941,
+          "w": 241.21419300000008,
+          "h": 56.726921999999945,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 36.170000000000016,
+          "y": 50.20202899999947,
+          "w": 241.21419300000002,
+          "h": 20.861921999999936,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 683.8260289999994,
+          "w": 241.21419299999963,
+          "h": 32.81692200000009,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 624.0500289999992,
+          "w": 241.21419299999997,
+          "h": 56.72792200000015,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 540.3640289999989,
+          "w": 241.21419299999985,
+          "h": 80.63792200000023,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0047_28924ded",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 47,
+    "text": "Feature Extraction: There are six separate sets of photos taken, from various available datasets.The obtained images are then subjected to image processing methods in order to identify valuable information for future study.Because the gathered photos are of various sizes, it is necessary to transform them to a consistent size for effective preprocessing.The RGB photos are first scaled and transformed to Hue Saturation Intensity (HSI) format.Color perception is greatly aided by the use of HSI color space representation.Masking is then used to eliminate the pixels.Setting the pixel value of a picture to zero or another background value is known as masking.The diseased section of the original picture is then segmented using the K-means segmentation technique.The goal of segmentation is to transform a picture's representation into a meaningful image that is simpler to explore.The best characteristics from this dataset are then selected for accurate categorization via feature selection.Relief-f Attribute Evaluator (RAE), Principal Component Analysis (PCA), as well as Information Gain (IG), are the three techniques of feature selection used in this study.\nClassification and Recognition: Disease classification is the process of recognizing a test sample and giving it the appropriate class label.The result of the feature extraction module is to feed the classifier as an input.The classifier will identify the right class label for the input image based on the retrieved characteristics.There are a variety of methods for categorization.Deep learning is one of them.Deep learning employs a variety of artificial neural networks, including CNN, ANN, RNN, and others.The image is sent into CNN, which extracts the most important characteristics as distinct layers.The key benefit of the convolutional neural network is that it lowers the amount of work required by humans to extract characteristics.",
+    "word_count": 281,
+    "metadata": {
+      "section": "IV. PROPOSED FUTURE WORK",
+      "section_path": [
+        "IV. PROPOSED FUTURE WORK"
+      ],
+      "subsection_id": "paper_001_subsection_ba166a5b365e",
+      "pages": [
+        13
+      ],
+      "paragraph_ids": [
+        "para_0046",
+        "para_0047"
+      ],
+      "coordinates": [
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 301.26102899999904,
+          "w": 241.21419299999997,
+          "h": 236.05492199999986,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 145.84302899999898,
+          "w": 241.21419300000008,
+          "h": 152.36892200000005,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0048_8c3140ec",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 48,
+    "text": "Implementation Process",
+    "word_count": 2,
+    "metadata": {
+      "section": "Implementation Process",
+      "section_path": [
+        "Implementation Process"
+      ],
+      "subsection_id": "paper_001_subsection_8c3140ec4bf5"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0049_93bc1e13",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 49,
+    "text": "The images from the dataset can be pre-processed in this phase to prepare the data for subsequent processing.Initially, photos are processed to reduce noise.The photos were then transformed to grayscale and scaled to proper pixels while keeping the aspect ratio constant.\n2) The aspect ratio of the picture, the amount of lateral and vertical lines in the picture, the location and number of loops and curves, and other geometrical elements can all be extracted from each image sample through processing.These traits were then combined with the pixel-based information from the image to yield accurate classification outcomes.\n3) The input values of a traditional neural network are modified by passing through a sequence of hidden layers.A group of neurons makes up each layer, each of which is totally linked to every neuron in the layer preceding it.The superior performance of CNNs is due to the fact that these networks capture the fundamental features of pictures.This important property of CNN gives the confidence to apply it in the suggested dataset analysis.\n4) Download the dataset from open-source websites such as the Kaggle dataset or any unseen dataset.\n5) Extract various features by using the CNN model, train module, and save features in a. pkl file.There are below layered concepts in Convolutional Neural Networks: 6) In the dense layer, it will classify the validation image set and show classification results accordingly.",
+    "word_count": 228,
+    "metadata": {
+      "section": "Implementation Process",
+      "section_path": [
+        "Implementation Process"
+      ],
+      "subsection_id": "paper_001_subsection_8c3140ec4bf5",
+      "pages": [
+        13,
+        14
+      ],
+      "paragraph_ids": [
+        "para_0048",
+        "para_0049",
+        "para_0050",
+        "para_0051",
+        "para_0052"
+      ],
+      "coordinates": [
+        {
+          "page": 13,
+          "x": 297.079,
+          "y": 74.11202899999898,
+          "w": 241.21419299999974,
+          "h": 56.72792199999992,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 297.07900000000006,
+          "y": 50.202028999999015,
+          "w": 241.21825899999988,
+          "h": 20.861921999999936,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 14,
+          "x": 36.17,
+          "y": 671.8710289999999,
+          "w": 241.21419300000014,
+          "h": 44.77292200000011,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 14,
+          "x": 36.17,
+          "y": 576.2300289999996,
+          "w": 241.21488699999998,
+          "h": 92.59292200000027,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 14,
+          "x": 36.17,
+          "y": 552.3190289999995,
+          "w": 241.21626199999997,
+          "h": 20.862922000000026,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 14,
+          "x": 36.17,
+          "y": 492.54402899999945,
+          "w": 241.21322499999985,
+          "h": 20.861921999999936,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_heading_0050_e58cd07b",
+    "paper_id": "paper_001",
+    "chunk_type": "heading",
+    "order_index": 50,
+    "text": "V. CONCLUSION",
+    "word_count": 2,
+    "metadata": {
+      "section": "V. CONCLUSION",
+      "section_path": [
+        "V. CONCLUSION"
+      ],
+      "subsection_id": "paper_001_subsection_e58cd07b2e58"
+    }
+  },
+  {
+    "chunk_id": "paper_001_body_0051_9d65a1ae",
+    "paper_id": "paper_001",
+    "chunk_type": "body",
+    "order_index": 51,
+    "text": "CAD systems for the detection of brain tumors are developed using brain MRI scans and digital image processing methods like pre-processing, separation, and classification.The classic deep and machine-learning techniques for brain tumor identification are discussed in this work.Various research publications from reputable journals and conferences have been examined, with a full analysis of each work offered.This section provides a summary of commonly used MRI datasets.Although several ML and deep learning methods are used for classification, CNN has shown to be quite accurate.CNN is often used to categorize brain tumors into two types: normal and pathological.The development of an autonomous brain tumor detection system must consider reliability, accuracy, and calculation time.This review examines current methodologies and can be utilized in the future to build effective diagnostic tools for additional brain illnesses that as Alzheimer's disease, Parkinson's disease, dementia, and stroke using various MRI imaging modalities.Implementing this system in collaboration with multiple deep learning algorithms as deep hybrid learning for brain tumor detection and classification will be future work for this study.",
+    "word_count": 170,
+    "metadata": {
+      "section": "V. CONCLUSION",
+      "section_path": [
+        "V. CONCLUSION"
+      ],
+      "subsection_id": "paper_001_subsection_e58cd07b2e58",
+      "pages": [
+        14
+      ],
+      "paragraph_ids": [
+        "para_0053"
+      ],
+      "coordinates": [
+        {
+          "page": 14,
+          "x": 36.17,
+          "y": 222.3020289999996,
+          "w": 241.21419300000014,
+          "h": 248.01092199999982,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_table_caption_0052_ae9f0264",
+    "paper_id": "paper_001",
+    "chunk_type": "table_caption",
+    "order_index": 52,
+    "text": "TABLE 1. (Continued.) Brain tumor detection using deep learning techniques.",
+    "word_count": 10,
+    "metadata": {
+      "table_id": "table_001",
+      "label": "Table 1",
+      "structure_status": "structured",
+      "pages": [
+        3,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 0
+        },
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 1
+        },
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_table_caption_0053_21b32dde",
+    "paper_id": "paper_001",
+    "chunk_type": "table_caption",
+    "order_index": 53,
+    "text": "TABLE 2. Brain tumor detection using 3d deep learning techniques.",
+    "word_count": 10,
+    "metadata": {
+      "table_id": "table_002",
+      "label": "Table 2",
+      "structure_status": "structured",
+      "pages": [
+        6
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 3
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_table_caption_0054_1f15082e",
+    "paper_id": "paper_001",
+    "chunk_type": "table_caption",
+    "order_index": 54,
+    "text": "TABLE 3. Machine learning methodologies for brain tumor detection.",
+    "word_count": 9,
+    "metadata": {
+      "table_id": "table_003",
+      "label": "Table 3",
+      "structure_status": "structured",
+      "pages": [
+        7
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 4
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_table_caption_0055_573a08a2",
+    "paper_id": "paper_001",
+    "chunk_type": "table_caption",
+    "order_index": 55,
+    "text": "TABLE 4. (Continued.) Gap analysis of machine learning and deep learning methods.",
+    "word_count": 12,
+    "metadata": {
+      "table_id": "table_004",
+      "label": "Table 4",
+      "structure_status": "structured",
+      "pages": [
+        8,
+        9,
+        10
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 5
+        },
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 6
+        },
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 7
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_figure_caption_0056_06a07a11",
+    "paper_id": "paper_001",
+    "chunk_type": "figure_caption",
+    "order_index": 56,
+    "text": "FIGURE 1. Evaluation of machine learning techniques for brain tumor detection.",
+    "word_count": 11,
+    "metadata": {
+      "figure_id": "figure_001",
+      "label": "Figure 1",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 11
+        },
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 12
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_figure_caption_0057_1c32413b",
+    "paper_id": "paper_001",
+    "chunk_type": "figure_caption",
+    "order_index": 57,
+    "text": "FIGURE 2. Evaluation of deep learning methods for brain tumor detection.",
+    "word_count": 11,
+    "metadata": {
+      "figure_id": "figure_002",
+      "label": "Figure 2",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 13
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 1
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_figure_caption_0058_c3bfe4c7",
+    "paper_id": "paper_001",
+    "chunk_type": "figure_caption",
+    "order_index": 58,
+    "text": "FIGURE 3. Flowchart of the proposed work.",
+    "word_count": 7,
+    "metadata": {
+      "figure_id": "figure_003",
+      "label": "Figure 3",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 14
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0059_685fa47f",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 59,
+    "text": "[References [1]-[7]]\n[1] M. J. Lakshmi and S. N. Rao, ''Brain tumor magnetic resonance image classification: A deep learning approach,'' Soft Comput., vol. 26, no. 13, pp. 6245-6253, Jul. 2022, doi: 10.1007/s00500-022-07163-z.\n[2] W. Jun and Z. Liyuan, ''Brain tumor classification based on attention guided deep learning model,'' Int. J. Comput. Intell. Syst., vol. 15, no. 1, p. 35, Dec. 2022, doi: 10.1007/s44196-022-00090-9.\n[3] A. Rehman, S. Naz, M. I. Razzak, F. Akram, and M. Imran, ''A deep learning-based framework for automatic brain tumors classification using transfer learning,'' Circuits, Syst., Signal Process., vol. 39, no. 2, pp. 757-775, Feb. 2020, doi: 10.1007/s00034-019-01246-3.\n[4] T. Fernando, H. Gammulle, S. Denman, S. Sridharan, and C. Fookes, ''Deep learning for medical anomaly detection-A survey,'' ACM Com- put. Surveys, vol. 54, no. 7, pp. 1-37, Sep. 2022, doi: 10.1145/3464423.\n[5] A. S. Lundervold and A. Lundervold, ''An overview of deep learning in medical imaging focusing on MRI,'' Zeitschrift für Medizinische Physik, vol. 29, no. 2, pp. 102-127, 2019, doi: 10.1016/j.zemedi.2018.11.002.\n[6] L. Rundo, C. Militello, S. Vitabile, G. Russo, P. Pisciotta, F. Marletta, M. Ippolito, C. D'Arrigo, M. Midiri, and M. C. Gilardi, ''Semi-automatic brain lesion segmentation in gamma knife treatments using an unsu- pervised fuzzy C-means clustering technique,'' in Advances in Neural Networks (Smart Innovation, Systems and Technologies), vol. 54. Cham, Switzerland: Springer, 2016, doi: 10.1007/978-3-319-33747-0_2.\n[7] S. Bonte, I. Goethals, and R. Van Holen, ''Machine learning based brain tumour segmentation on limited data using local texture and abnormality,'' Comput. Biol. Med., vol. 98, pp. 39-47, Jul. 2018, doi: 10.1016/j.compbiomed.2018.05.005.",
+    "word_count": 257,
+    "metadata": {
+      "section": "References",
+      "start_ref": 1,
+      "end_ref": 7,
+      "reference_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0060_272099ee",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 60,
+    "text": "[References [8]-[13]]\n[8] C. Militello, L. Rundo, S. Vitabile, G. Russo, P. Pisciotta, F. Marletta, M. Ippolito, C. D'arrigo, M. Midiri, and M. C. Gilardi, ''Gamma Knife treatment planning: MR brain tumor segmentation and, volume measure- ment based on unsupervised fuzzy C-means clustering,'' Int. J. Imag. Syst. Technol., vol. 25, no. 3, pp. 213-225, Sep. 2015, doi: 10.1002/ima.22139.\n[9] J. Juan-Albarracín, E. Fuster-Garcia, J. V. Manjón, M. Robles, F. Aparici, L. Martí-Bonmatí, and J. M. García-Gómez, ''Automated glioblastoma segmentation based on a multiparametric structured unsupervised classi- fication,'' PLoS ONE, vol. 10, no. 5, May 2015, Art. no. e0125143, doi: 10.1371/journal.pone.0125143.\n[10] L. Rundo, C. Militello, A. Tangherloni, G. Russo, S. Vitabile, M. C. Gilardi, and G. Mauri, ''NeXt for neuro-radiosurgery: A fully automatic approach for necrosis extraction in brain tumor MRI using an unsupervised machine learning technique,'' Int. J. Imag. Syst. Technol., vol. 28, no. 1, pp. 21-37, Mar. 2018, doi: 10.1002/ima.22253.\n[11] Y. Jiang, J. Hou, X. Xiao, and H. Deng, ''A brain tumor segmentation new method based on statistical thresholding and multiscale CNN,'' Intell. Comput. Methodologies, vol. 2, no. 3, pp. 235-245, 2019, doi: 10.1007/978-3-319-95957-3_26.\n[12] D. Liu, D. Zhang, Y. Song, F. Zhang, L. J. O'Donnell, and W. Cai, ''3D large kernel anisotropic network for brain tumor segmentation,'' in Proc. Int. Conf. Neural Inf. Process. Cham, Switzerland: Springer, 2018 pp. 444-454, doi: 10.1007/978-3-030-04239-4_40.\n[13] M. W. Nadeem, M. A. A. Ghamdi, M. Hussain, M. A. Khan, K. M. Khan, S. H. Almotiri, and S. A. Butt, ''Brain tumor analysis empowered with deep learning: A review, taxonomy, and future challenges,'' Brain Sci., vol. 10, no. 2, pp. 118-151, 2020, doi: 10.3390/brainsci10020118.",
+    "word_count": 273,
+    "metadata": {
+      "section": "References",
+      "start_ref": 8,
+      "end_ref": 13,
+      "reference_numbers": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0061_27e612e4",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 61,
+    "text": "[References [14]-[21]]\n[14] Y. Bhanothu, A. Kamalakannan, and G. Rajamanickam, ''Detection and classification of brain tumor in MRI images using deep convolutional network,'' in Proc. 6th Int. Conf. Adv. Comput. Commun. Syst. (ICACCS), Mar. 2020, pp. 248-252, doi: 10.1109/ICACCS48705.2020.9074375.\n[15] Z. Huang, X. Du, L. Chen, Y. Li, M. Liu, Y. Chou, and L. Jin, ''Convolu- tional neural network based on complex networks for brain tumor image classification with a modified activation function,'' IEEE Access, vol. 8, pp. 89281-89290, 2020, doi: 10.1109/ACCESS.2020.2993618.\n[16] N. Abiwinanda, M. Hanif, S. T. Hesaputra, A. Handayani, and T. R. Mengko, ''Brain tumor classification using convolutional neural network,'' in Proc. World Congr. Med. Phys. Biomed. Eng., vol. 68, 2018, pp. 183-189, doi: 10.1007/978-981-10-9035-6_33.\n[17] A. Ari and D. Hanbay, ''Deep learning based brain tumor classification and detection system,'' TURKISH J. Electr. Eng. Comput. Sci., vol. 26, no. 5, pp. 2275-2286, Sep. 2018, doi: 10.3906/elk-1801-8.\n[18] Y. Ishikawa, K. Washiya, K. Aoki, and H. Nagahashi, ''Brain tumor clas- sification of microscopy images using deep residual learning,'' in Proc. SPIE, vol. 10013, 2016, Art. no. 100132Y, doi: 10.1117/12.2242711.\n[19] H. Mohsen, E.-S. A. El-Dahshan, E.-S. M. El-Horbaty, and A.-B. M. Salem, ''Classification using deep learning neural networks for brain tumors,'' Future Comput. Informat. J., vol. 3, no. 1, pp. 68-71, 2018, doi: 10.1016/j.fcij.2017.12.001.\n[20] J. S. Paul, A. J. Plassard, B. A. Landman, and D. Fabbri, ''Deep learn- ing for brain tumor classification,'' in Proc. SPIE, vol. 10137, 2017, pp. 1013710-1013726, doi: 10.1117/12.2254195.\n[21] Y. Xu, Z. Jia, Y. Ai, F. Zhang, M. Lai, and E. I-Chao Chang, ''Deep convolutional activation features for large scale brain tumor histopathology image classification and segmentation,'' in Proc. IEEE Int. Conf. Acoust., Speech Signal Process. (ICASSP), South Brisbane, QLD, Australia, Apr. 2015, pp. 947-951, doi: 10.1109/ICASSP.2015. 7178109.",
+    "word_count": 296,
+    "metadata": {
+      "section": "References",
+      "start_ref": 14,
+      "end_ref": 21,
+      "reference_numbers": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0062_88241161",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 62,
+    "text": "[References [22]-[28]]\n[22] K. B. Ahmed, L. O. Hall, D. B. Goldgof, R. Liu, and R. A. Gatenby, ''Fine-tuning convolutional deep features for MRI based brain tumor classification,'' in Proc. SPIE, vol. 10134, 2017, pp. 613-619, doi: 10.1117/12.2253982.\n[23] M. R. Ismael, ''Hybrid model-Statistical features and deep neural net- work for brain tumor classification in MRI images,'' Ph.D. dissertation, Western Michigan Univ., Kalamazoo, MI, USA, 2018. [Online]. Avail- able: https://scholarworks.wmich.edu/dissertations/3291\n[24] R. Liu, L. O. Hall, D. B. Goldgof, M. Zhou, R. A. Gatenby, and K. B. Ahmed, ''Exploring deep features from brain tumor magnetic reso- nance images via transfer learning,'' in Proc. Int. Joint Conf. Neural Netw. (IJCNN), Jul. 2016, pp. 235-242, doi: 10.1109/IJCNN.2016.7727204.\n[25] C. N. Ladefoged, L. Marner, A. Hindsholm, I. Law, L. Højgaard, and F. L. Andersen, ''Deep learning-based attenuation correction of PET/MRI in pediatric brain tumor patients: Evaluation in a clin- ical setting,'' Frontiers Neurosci, vol. 2, p. 1005, Jan. 2018, doi: 10.3389/fnins.2018.01005.\n[26] H. Fabelo, M. Halicek, S. Ortega, M. Shahedi, A. Szolna, J. Piñeiro, C. Sosa, A. O'Shanahan, S. Bisshopp, C. Espino, M. Márquez, M. Hernández, D. Carrera, J. Morera, G. Callico, R. Sarmiento, and B. Fei, ''Deep learning-based framework for in vivo identification of glioblastoma tumor using hyperspectral images of human brain,'' Sen- sors, vol. 19, no. 4, p. 920, Feb. 2019, doi: 10.3390/s19040920.\n[27] Y. Li and L. Shen, ''Deep learning based multimodal brain tumor diag- nosis,'' in Proc. Int. MICCAI Brainlesion Workshop, vol. 10670, 2017, pp. 149-158, doi: 10.1007/978-3-319-75238-9_13.\n[28] L. Chato and S. Latifi, ''Machine learning and deep learning techniques to predict overall survival of brain tumor patients using MRI images,'' in Proc. IEEE 17th Int. Conf. Bioinf. Bioengineering (BIBE), Oct. 2017, pp. 9-14, doi: 10.1109/BIBE.2017.00-86.",
+    "word_count": 287,
+    "metadata": {
+      "section": "References",
+      "start_ref": 22,
+      "end_ref": 28,
+      "reference_numbers": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0063_f88ecbca",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 63,
+    "text": "[References [29]-[37]]\n[29] B. Amarapur, ''Computer-aided diagnosis applied to MRI images of brain tumor using cognition based modified level set and optimized ANN classifier,'' Multimedia Tools Appl., vol. 3601, pp. 3571-3599, Feb. 2020, doi: 10.1007/s11042-018-6308-7.\n[30] E. Benson, M. P. Pound, A. P. French, A. S. Jackson, and T. P. Pridmore, ''Deep hourglass for brain tumor segmentation,'' in Proc. Int. MIC- CAI Brainlesion Workshop, vol. 10, no. 2, 2018, pp. 419-428, doi: 10.3390/brainsci10020118.\n[31] C. Zhou, S. Chen, C. Ding, and D. Tao, ''Learning contextual and attentive information for brain tumor segmentation,'' in Proc. Int. MICCAI Brainlesion Workshop, vol. 4798, 2018, pp. 497-507, doi: 10.1007/978-3-030-11726-9_44.\n[32] G. Kim, ''Brain tumor segmentation using deep fully convolutional neural networks,'' in Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain Injuries (Lecture Notes in Computer Science), vol. 10670, A.\n[33] Crimi, S. Bakas, H. Kuijf, B. Menze, and M. Reyes, Eds. Cham, Switzerland: Springer, 2018, doi: 10.1007/978-3-319-75238- 9_30.\n[34] P. Afshar, A. Mohammadi, and K. N. Plataniotis, ''Brain tumor type classification via capsule networks,'' in Proc. 25th IEEE Int. Conf. Image Process. (ICIP), Oct. 2018, pp. 3129-3133, doi: 10.1109/ICIP.2018.8451379.\n[35] P. D. Chang, ''Fully convolutional deep residual neural networks for brain tumor segmentation,'' in Proc. Int. Workshop Brainlesion, 2016, pp. 108-118, doi: 10.1007/978-3-319-55524-9_11.\n[36] F. Isensee et al., ''Brain tumor segmentation using large receptive field deep convolutional neural networks,'' in Bildverarbeitung für die Medizin 2017 (Informatik aktuell), K. H. Maier-Hein, geb. Fritzsche, T. M. Deserno, geb. Lehmann, H. Handels, and T. Tolxdorff, Eds. Berlin, Germany: Springer Vieweg, 2017, doi: 10.1007/978-3-662-54345- 0_24.\n[37] S. Kumar, A. Negi, and J. N. Singh, ''Semantic segmentation using deep learning for brain tumor MRI via fully convolution neural networks,'' in Information and Communication Technology for Intelligent Systems. Singapore: Springer, 2019, pp. 11-19, doi: 10.1007/978-981-13-1742- 2_2.",
+    "word_count": 296,
+    "metadata": {
+      "section": "References",
+      "start_ref": 29,
+      "end_ref": 37,
+      "reference_numbers": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0064_48bd839d",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 64,
+    "text": "[References [38]-[45]]\n[38] A. M. Hasan, H. A. Jalab, F. Meziane, H. Kahtan, and A. S. Al-Ahmad, ''Combining deep and handcrafted image features for MRI brain scan classification,'' IEEE Access, vol. 7, pp. 79959-79967, 2019, doi: 10.1109/ACCESS.2019.2922691.\n[39] S. Deepak and P. M. Ameer, ''Brain tumor classification using deep CNN features via transfer learning,'' Comput. Biol. Med., vol. 111, pp. 1-7, Aug. 2019, doi: 10.1016/j.compbiomed.2019.103345.\n[40] H. M. Rai and K. Chatterjee, ''2D MRI image analysis and brain tumor detection using deep learning CNN model LeU-Net,'' Multimedia Tools Appl., vol. 80, nos. 28-29, pp. 36111-36141, Nov. 2021, doi: 10.1007/s11042-021-11504-9.\n[41] V. K. Deepak and R. Sarath, ''An intelligent brain tumor seg- mentation using improved deep learning model based on cascade regression method,'' Multimedia Tools Appl., pp. 1-20, Dec. 2022, doi: 10.1007/s11042-022-13945-2.\n[42] E. U. Haq, H. Jianjun, K. Li, H. U. Haq, and T. Zhang, ''An MRI-based deep learning approach for efficient classification of brain tumors,'' J. Ambient Intell. Humanized Comput., pp. 1-22, Oct. 2021, doi: 10.1007/s12652-021-03535-9.\n[43] S. Sajid, S. Hussain, and A. Sarwar, ''Brain tumor detection and segmen- tation in MR images using deep learning,'' Arabian J. Sci. Eng., vol. 44, no. 11, pp. 9249-9261, Nov. 2019, doi: 10.1007/s13369-019-03967-8.\n[44] R. Ranjbarzadeh, A. B. Kasgari, S. J. Ghoushchi, S. Anari, M. Naseri, and M. Bendechache, ''Brain tumor segmentation based on deep learning and an attention mechanism using MRI multi-modalities brain images,'' Sci. Rep., vol. 11, no. 1, p. 10930, May 2021, doi: 10.1038/s41598-021-90428-8.\n[45] T. Ruba, R. Tamilselvi, and M. P. Beham, ''Brain tumor segmentation in multimodal MRI images using novel LSIS operator and deep learn- ing,'' J. Ambient Intell. Humanized Comput., pp. 1-15, Mar. 2022, doi: 10.1007/s12652-022-03773-5.",
+    "word_count": 280,
+    "metadata": {
+      "section": "References",
+      "start_ref": 38,
+      "end_ref": 45,
+      "reference_numbers": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0065_1779dec0",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 65,
+    "text": "[References [46]-[53]]\n[46] A. Verma and V. P. Singh, ''Design, analysis and implementation of efficient deep learning frameworks for brain tumor classification,'' Mul- timedia Tools Appl., vol. 81, no. 26, pp. 37541-37567, Nov. 2022, doi: 10.1007/s11042-022-13545-0.\n[47] P. K. Ramtekkar, A. Pandey, and M. K. Pawar, ''Innovative brain tumor detection using optimized deep learning techniques,'' Int. J. Syst. Assurance Eng. Manage., vol. 14, no. 1, pp. 459-473, Feb. 2022, doi: 10.1007/s13198-022-01819-7.\n[48] R. Rajasree, C. C. Columbus, and C. Shilaja, ''Multiscale-based multi- modal image classification of brain tumor using deep learning method,'' Neural Comput. Appl., vol. 33, no. 11, pp. 5543-5553, Jun. 2021, doi: 10.1007/s00521-020-05332-5.\n[49] M. A. H. Tuhin, T. Pramanick, H. K. Emon, W. Rahman, M. M. I. Rahi, and M. A. Alam, ''Detection and 3D visualization of brain tumor using deep learning and polynomial interpolation,'' in Proc. IEEE Asia- Pacific Conf. Comput. Sci. Data Eng. (CSDE), Dec. 2020, pp. 1-6, doi: 10.1109/CSDE50874.2020.9411595.\n[50] R. D. Shirwaikar, K. Ramesh, and A. Hiremath, ''A survey on brain tumor detection using machine learning,'' in Proc. Int. Conf. Forensics, Analytics, Big Data, Secur. (FABS), vol. 1, Dec. 2021, pp. 1-6, doi: 10.1109/FABS52071.2021.9702583.\n[51] H. Yahyaoui, F. Ghazouani, and I. R. Farah, ''Deep learning guided by an ontology for medical images classification using a multimodal fusion,'' in Proc. Int. Congr. Adv. Technol. Eng. (ICOTEN), 2021, pp. 1-6, doi: 10.1109/ICOTEN52080.2021.9493469.\n[52] S. Pokhrel, L. K. Dahal, N. Gupta, R. Shrestha, A. Srivastava, and A. Bhasney, ''Brain tumor detection application based on convolutional neural network,'' in Proc. 2nd Int. Conf. Intell. Technol. (CONIT), Jun. 2022, pp. 1-5, doi: 10.1109/CONIT55038.2022.9848177.\n[53] S. Gull, S. Akbar, and K. Safdar, ''An interactive deep learning approach for brain tumor detection through 3D-magnetic resonance images,'' in Proc. Int. Conf. Frontiers Inf. Technol. (FIT), Dec. 2021, pp. 114-119, doi: 10.1109/FIT53504.2021.00030.",
+    "word_count": 300,
+    "metadata": {
+      "section": "References",
+      "start_ref": 46,
+      "end_ref": 53,
+      "reference_numbers": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0066_f0ec17a5",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 66,
+    "text": "[References [54]-[60]]\n[54] Y. Suter, A. Jungo, M. Rebsamen, U. Knecht, E. Herrmann, R. Wiest, and M. Reyes, ''Deep learning versus classical regression for brain tumor patient survival prediction,'' in Proc. Int. MICCAI Brainlesion Workshop, 2019, pp. 429-440, doi: 10.1007/978-3-030-11726-9_38.\n[55] Y. Hu and Y. Xia, ''3D deep neural network-based brain tumor segmentation using multimodality magnetic resonance sequences,'' in Proc. Int. MICCAI Brainlesion Workshop, 2017, pp. 423-434, doi: 10.1007/978-3-319-75238-9_36.\n[56] D. Nie, H. Zhang, E. Adeli, L. Liu, and D. Shen, ''3D deep learning for multi-modal imaging-guided survival time prediction of brain tumor patients,'' in Proc. Int. Conf. Med. Image Comput. Comput.-Assist. Inter- vent., 2016, pp. 212-220, doi: 10.1007/978-3-319-46723-8_25.\n[57] G. Anand Kumar and P. V. Sridevi, ''3D deep learning for automatic brain MR tumor segmentation with T-spline intensity inhomogeneity correction,'' Autom. Control Comput. Sci., vol. 52, no. 5, pp. 439-450, Sep. 2018, doi: 10.3103/S0146411618050048.\n[58] G. Chetty, M. Yamin, and M. White, ''A low resource 3D U-Net based deep learning model for medical image analysis,'' Int. J. Inf. Tech- nol., vol. 14, no. 1, pp. 95-103, Feb. 2022, doi: 10.1007/s41870-021- 00850-4.\n[59] Z. Shaukat, Q. U. A. Farooq, S. Tu, C. Xiao, and S. Ali, ''A state-of- the-art technique to perform cloud-based semantic segmentation using deep learning 3D U-Net architecture,'' BMC Bioinf., vol. 23, no. 1, pp. 251-272, Dec. 2022, doi: 10.1186/s12859-022-04794-9.\n[60] H. Mzoughi, I. Njeh, A. Wali, M. B. Slima, A. BenHamida, C. Mhiri, and K. B. Mahfoudhe, ''Deep multi-scale 3D convolutional neu- ral network (CNN) for MRI gliomas brain tumor classification,'' J. Digit. Imag., vol. 33, no. 4, pp. 903-915, Aug. 2020, doi: 10.1007/ s10278-020-00347-9.",
+    "word_count": 269,
+    "metadata": {
+      "section": "References",
+      "start_ref": 54,
+      "end_ref": 60,
+      "reference_numbers": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0067_d429aa0b",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 67,
+    "text": "[References [61]-[67]]\n[61] J. N. Stember and H. Shalu, ''Deep reinforcement learning with auto- mated label extraction from clinical reports accurately classifies 3D MRI brain volumes,'' J. Digit. Imag., vol. 35, no. 5, pp. 1143-1152, Oct. 2022, doi: 10.1007/s10278-022-00644-5.\n[62] Y. Jun, T. Eo, T. Kim, H. Shin, D. Hwang, S. H. Bae, Y. W. Park, H. J. Lee, B. W. Choi, and S. S. Ahn, ''Deep-learned 3D black-blood imaging using automatic labelling technique and 3D convolutional neural networks for detecting metastatic brain tumors,'' Sci. Rep., vol. 8, pp. 9450-9461, 2018, doi: 10.1038/s41598-018-27742-1.\n[63] P. Agrawal, N. Katal, and N. Hooda, ''Segmentation and classifica- tion of brain tumor using 3D-UNet deep neural networks,'' Int. J. Cognit. Comput. Eng., vol. 3, pp. 199-210, Jun. 2022, doi: 10.1016/ j.ijcce.2022.11.001.\n[64] A. S. Akbar, C. Fatichah, and N. Suciati, ''Single level UNet3D with multipath residual attention block for brain tumor segmentation,'' J. King Saud Univ. Comput. Inf. Sci., vol. 34, no. 6, pp. 3247-3258, Jun. 2022, doi: 10.1016/j.jksuci.2022.03.022.\n[65] H. T. Zaw, ''Brain tumor detection based on Naïve Bayes classification,'' in Proc. 5th Int. Conf. Eng., Appl. Sci. Technol. (ICEAST), 2019, pp. 1-4, doi: 10.1109/ICEAST.2019.8802562.\n[66] E. Sert, F. Özyurt, and A. Dogantekin, ''A new approach for brain tumor diagnosis system: Single image super-resolution based max- imum fuzzy entropy segmentation and convolutional neural net- work,'' Med. Hypothesis, vol. 133, pp. 1-9, Dec. 2019, doi: 10.1016/ j.mehy.2019.109413.\n[67] T. L. Narayana and T. S. Reddy, ''An efficient optimization tech- nique to detect brain tumor from MRI images,'' in Proc. Int. Conf. Smart Syst. Inventive Technol., 2018, pp. 1-4, doi: 10.1109/ICSSIT.2018. 8748288.",
+    "word_count": 267,
+    "metadata": {
+      "section": "References",
+      "start_ref": 61,
+      "end_ref": 67,
+      "reference_numbers": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0068_fac0ad4f",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 68,
+    "text": "[References [68]-[75]]\n[68] F. P. Polly, S. K. Shil, M. A. Hossain, A. Ayman, and Y. M. Jang, ''Detec- tion and classification of HGG and LGG brain tumor using machine learning,'' in Proc. Int. Conf. Inf. Netw. (ICOIN), Jan. 2018, pp. 813-817, doi: 10.1109/ICOIN.2018.8343231.\n[69] J. Amin, M. Sharif, M. Yasmin, and S. L. Fernandes, ''A dis- tinctive approach in brain tumor detection and classification using MRI,'' Pattern Recognit. Lett., vol. 139, pp. 1-10, Nov. 2017, doi: 10.1016/j.patrec.2017.10.036.\n[70] N. Gupta and P. Khanna, ''A non-invasive and adaptive CAD sys- tem to detect brain tumor from T2-weighted MRIs using customized Otsu's thresholding with prominent features and supervised learning,'' Signal Process., Image Commun., vol. 59, pp. 18-26, Nov. 2017, doi: 10.1016/j.image.2017.05.013.\n[71] N. Gupta, P. Bhatele, and P. Khanna, ''Identification of Gliomas from brain MRI through adaptive segmentation and run length of central- ized patterns,'' J. Comput. Sci., vol. 25, pp. 1-8, Mar. 2017, doi: 10.1016/j.jocs.2017.02.009.\n[72] A. Minz and C. Mahobiya, ''MR image classification using Adaboost for brain tumor type,'' in Proc. Int. Advance Comput. Conf., 2017, pp. 1-5, doi: 10.1109/IACC.2017.0146.\n[73] A. S. Shankar, A. Asokan, and D. Sivakumar, ''Brain tumor classification using Gustafson-Kessel (G-k) fuzzy clustering algorithm,'' Int. J. Latest Eng. Res. Appl., vol. 1, pp. 68-72, Aug. 2016.\n[74] M. K. Islam, M. S. Ali, M. S. Miah, M. M. Rahman, M. S. Alam, and M. A. Hossain, ''Brain tumor detection in MR image using superpixels, principal component analysis and template based K-means clustering algorithm,'' Mach. Learn. Appl., vol. 5, Sep. 2021, Art. no. 100044, doi: 10.1016/j.mlwa.2021.100044.\n[75] S. Banerjee, S. Mitra, F. Masulli, and S. Rovetta, ''Deep radiomics for brain tumor detection and classification from multi-sequence MRI,'' Social Netw. Comput. Sci., vol. 1, no. 4, pp. 1-15, 2019, doi: 10.1007/s42979-020-00214-y.",
+    "word_count": 294,
+    "metadata": {
+      "section": "References",
+      "start_ref": 68,
+      "end_ref": 75,
+      "reference_numbers": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0069_77ef5deb",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 69,
+    "text": "[References [76]-[82]]\n[76] A. Naseer, T. Yasir, A. Azhar, T. Shakeel, and K. Zafar, ''Computer-aided brain tumor diagnosis: Performance evaluation of deep learner CNN using augmented brain MRI,'' Int. J. Biomed. Imag., vol. 2021, pp. 1-11, Jun. 2021, doi: 10.1155/2021/5513500.\n[77] I. Abd El Kader, G. Xu, Z. Shuai, S. Saminu, I. Javaid, I. S. Ahmad, and S. Kamhi, ''Brain tumor detection and classification on MR images by a deep wavelet auto-encoder model,'' Diagnostics, vol. 11, no. 9, p. 1589, Aug. 2021, doi: 10.3390/diagnostics11091589.\n[78] L. Sheeba, A. Mitra, S. Chaudhuri, and S. D. Sarkar, ''Detection of exact location of brain tumor from MRI data using big data analyt- ics,'' Systematic Rev. Pharmacy, vol. 12, no. 5, pp. 378-381, 2021, doi: 10.5530/srp.2020.1.01.\n[79] J. Amin, M. Sharif, A. Haldorai, M. Yasmin, and R. S. Nayak, ''Brain tumor detection and classification using machine learning: A comprehen- sive survey,'' Complex Intell. Syst., vol. 8, pp. 3163-3183, Nov. 2022, doi: 10.1007/s40747-021-00563-y.\n[80] M. Shahajad, D. Gambhir, and R. Gandhi, ''Features extraction for clas- sification of brain tumor MRI images using support vector machine,'' in Proc. 11th Int. Conf. Cloud Comput., Data Sci. Eng. (Confluence), 2021, pp. 767-772, doi: 10.1109/Confluence51648.2021.9377111.\n[81] E. Alberts, G. Tetteh, S. Trebeschi, M. Bieth, A. Valentinitsch, B. Wiestler, C. Zimmer, and B. H. Menze, ''Multi-modal image classi- fication using low-dimensional texture features for genomic brain tumor recognition,'' in Proc. Int. Workshop Graphs Biomed. Image Anal., vol. 10551, pp. 201-209, 2017, doi: 10.1007/978-3-319-67675-3_18.\n[82] S. Iqbal, M. U. G. Khan, T. Saba, and A. Rehman, ''Computer-assisted brain tumor type discrimination using magnetic resonance imaging fea- tures,'' Biomed. Eng. Lett., vol. 8, no. 1, pp. 5-28, Feb. 2018, doi: 10.1007/s13534-017-0050-3.",
+    "word_count": 279,
+    "metadata": {
+      "section": "References",
+      "start_ref": 76,
+      "end_ref": 82,
+      "reference_numbers": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0070_18e6a624",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 70,
+    "text": "[References [83]-[90]]\n[83] A. R. Deepa and W. R. S. Emmanuel, ''An efficient detection of brain tumor using fused feature adaptive firefly backpropagation neural network,'' Multimedia Tools Appl., vol. 78, no. 9, pp. 11799-11814, May 2019, doi: 10.1007/s11042-018-6731-9.\n[84] J. Amin, M. Sharif, M. Raza, and M. Yasmin, ''Detection of brain tumor based on features fusion and machine learning,'' J. Ambient Intell. Humanized Comput., pp. 1-17, Nov. 2018, doi: 10.1007/s12652-018- 1092-9.\n[85] R. McKinley et al., ''Pooling-free fully convolutional networks with dense skip connections for semantic segmentation, with application to brain tumor segmentation,'' in Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain Injuries (Lecture Notes in Computer Sci- ence), vol. 10670, A.\n[86] Crimi, S. Bakas, H. Kuijf, B. Menze, and M. Reyes, Eds. Cham, Switzerland: Springer, 2018, doi: 10.1007/978-3-319-75238- 9_15.\n[87] A. Natarajan and S. Kumarasamy, ''Efficient segmentation of brain tumor using FL-SNM with a Metaheuristic approach to optimization,'' J. Med. Syst., vol. 43, no. 2, p. 25, Feb. 2019, doi: 10.1007/s10916-018-1135-y.\n[88] M. B. Naceur, M. Akil, R. Saouli, and R. Kachouri, ''Fully auto- matic brain tumor segmentation with deep learning-based selective attention using overlapping patches and multi-class weighted cross- entropy,'' Med. Image Anal., vol. 63, Jul. 2020, Art. no. 101692, doi: 10.1016/j.media.2020.101692.\n[89] S. Amiri, M. A. Mahjoub, and I. Rekik, ''Bayesian network and structured random forest cooperative deep learning for automatic multi-label brain tumor segmentation,'' in Proc. ICAART, vol. 2, 2018, pp. 183-190, doi: 10.5220/0006629901830190.\n[90] S. Ali, J. Li, Y. Pei, R. Khurram, K. U. Rehman, and T. Mahmood, ''A comprehensive survey on brain tumor diagnosis using deep learning and emerging hybrid techniques with multi-modal MR image,'' Arch. Comput. Methods Eng., vol. 29, no. 7, pp. 4871-4896, Nov. 2022, doi: 10.1007/s11831-022-09758-z.",
+    "word_count": 286,
+    "metadata": {
+      "section": "References",
+      "start_ref": 83,
+      "end_ref": 90,
+      "reference_numbers": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0071_c704303f",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 71,
+    "text": "[References [91]-[98]]\n[91] E. S. Biratu, F. Schwenker, Y. M. Ayano, and T. G. Debelee, ''A survey of brain tumor segmentation and classification algorithms,'' J. Imag., vol. 7, no. 9, p. 179, Sep. 2021, doi: 10.3390/jimaging7090179.\n[92] S. Bauer, R. Wiest, L. P. Nolte, and M. Reyes, ''A survey of MRI-based medical image analysis for brain tumor studies,'' Phys. Med. Biol., vol. 58, no. 13, pp. 97-129, 2013, doi: 10.1088/0031-9155/58/13/R97.\n[93] C. S. Rao and K. Karunakara, ''A comprehensive review on brain tumor segmentation and classification of MRI images,'' Multimedia Tools Appl., vol. 80, pp. 17611-17643, May 2021, doi: 10.1007/s11042-020- 10443-1.\n[94] R. Balakrishnan, M. D. C. V. Hernández, and A. J. Farrall, ''Auto- matic segmentation of white matter hyperintensities from brain magnetic resonance images in the era of deep learning and big data - A systematic review,'' Computerized Med. Imag. Graph., vol. 88, pp. 101867-101888, Mar. 2021, doi: 10.1016/j.compmedimag.2021. 101867.\n[95] P. G. Brindha, M. Kavinraj, P. Manivasakam, and P. Prasanth, ''Brain tumor detection from MRI images using deep learning techniques,'' Mater. Sci. Eng., vol. 1055, pp. 1-8, Feb. 2021, doi: 10.1088/1757-899X/1055/1/012115.\n[96] Z. Liu, L. Tong, L. Chen, Z. Jiang, F. Zhou, Q. Zhang, X. Zhang, Y. Jin, and H. Zhou, ''Deep learning based brain tumor segmentation: A survey,'' Complex Intell. Syst., pp. 1-26, Jul. 2022, doi: 10.1007/s40747-022-00815-5.\n[97] Z. Akkus, A. Galimzianova, A. Hoogi, D. L. Rubin, and B. J. Erickson, ''Deep learning for brain MRI segmentation: State of the art and future directions,'' J. Digit. Imag., vol. 30, no. 4, pp. 449-459, 2017, doi: 10.1007/s10278-017-9983-4.\n[98] P. Jyothi and A. R. Singh, ''Deep learning models and traditional auto- mated techniques for brain tumor segmentation in MRI: A review,'' Artif. Intell. Rev., pp. 1-47, Aug. 2022, doi: 10.1007/s10462-022-10245-x.",
+    "word_count": 291,
+    "metadata": {
+      "section": "References",
+      "start_ref": 91,
+      "end_ref": 98,
+      "reference_numbers": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_001_reference_0072_966ae06f",
+    "paper_id": "paper_001",
+    "chunk_type": "reference",
+    "order_index": 72,
+    "text": "[References [99]-[102]]\n[99] S. Devunooru, A. Alsadoon, P. W. C. Chandana, and A. Beg, ''Deep learning neural networks for medical image segmentation of brain tumours for diagnosis: A recent review and taxonomy,'' J. Ambient Intell. Humanized Comput., vol. 12, no. 1, pp. 455-483, Jan. 2021, doi: 10.1007/s12652-020-01998-w.\n[100] H. Jiang, Z. Diao, and Y.-D. Yao, ''Deep learning techniques for tumor segmentation: A review,'' J. Supercomput., vol. 78, no. 2, pp. 1807-1851, Feb. 2022, doi: 10.1007/s11227-021-03901-6.\n[101] S. A. Y. Al-Galal, I. F. T. Alshaikhli, and M. M. Abdulrazzaq, ''MRI brain tumor medical images analysis using deep learning techniques: A systematic review,'' Health Technol., vol. 11, no. 2, pp. 267-282, Mar. 2021, doi: 10.1007/s12553-020-00514-6.\n[102] A. Chattopadhyay and M. Maitra, ''MRI-based brain tumour image detec- tion using CNN based deep learning method,'' Neurosci. Informat., vol. 2, pp. 100060-100066, 2022, doi: 10.1016/j.neuri.2022.100060.",
+    "word_count": 140,
+    "metadata": {
+      "section": "References",
+      "start_ref": 99,
+      "end_ref": 102,
+      "reference_numbers": [
+        99,
+        100,
+        101,
+        102
+      ]
+    }
+  }
+]

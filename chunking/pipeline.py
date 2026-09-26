@@ -1,192 +1,165 @@
 # chunking/pipeline.py
-
-from __future__ import annotations
-
+import argparse
 import json
 from pathlib import Path
 
-from config.settings import settings
-from chunking.text_chunker import (
-    ScientificTextChunker,
-)
+from chunking.text_chunker import SectionAwareChunker
 
 
-CHUNKS_DIR = Path(
-    "storage/chunks"
-)
+ROOT = Path(__file__).resolve().parents[1]
+CLEANED_DIR = ROOT / "storage" / "cleaned"
+CHUNKS_DIR = ROOT / "storage" / "chunks"
 
 
-def chunk_paper(
-    *,
-    cleaned_path: Path,
-    output_path: Path,
-) -> None:
+def chunk_paper(paper_id: str) -> Path:
+    source = CLEANED_DIR / f"{paper_id}_clean.json"
 
-    with cleaned_path.open(
-        "r",
-        encoding="utf-8",
-    ) as file:
-
-        cleaned = json.load(
-            file
+    if not source.exists():
+        raise FileNotFoundError(
+            f"Cleaned artifact not found: {source}"
         )
 
-    paper_id = cleaned[
-        "paper_id"
-    ]
+    with source.open("r", encoding="utf-8") as f:
+        cleaned_doc = json.load(f)
 
-    chunker = ScientificTextChunker(
-        embedding_model=(
-            settings.embedding_model
-        ),
-        max_tokens=450,
-        overlap_tokens=60,
-    )
-
+    chunker = SectionAwareChunker(max_words=300)
     chunks = chunker.chunk(
-        cleaned
+        paper_id,
+        cleaned_doc,
     )
-
-    output = {
-        "paper_id": paper_id,
-        "filename": cleaned.get(
-            "filename"
-        ),
-        "title": cleaned.get(
-            "title"
-        ),
-        "authors": cleaned.get(
-            "authors",
-            [],
-        ),
-        "year": cleaned.get(
-            "year"
-        ),
-        "abstract": cleaned.get(
-            "abstract",
-            "",
-        ),
-        "num_chunks": len(
-            chunks
-        ),
-        "chunks": chunks,
-
-        # Keep structured information available
-        # to the future visualizer.
-        "references": cleaned.get(
-            "references",
-            [],
-        ),
-        "docling_document": cleaned.get(
-            "docling_document"
-        ),
-    }
-
-    output_path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    with output_path.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
-
-        json.dump(
-            output,
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
-
-    print(
-        f"[CHUNKED] {paper_id} -> "
-        f"{len(chunks)} chunks"
-    )
-
-
-def chunk_all_papers() -> None:
 
     CHUNKS_DIR.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    cleaned_dir = Path(
-        settings.cleaned_dir
+    destination = (
+        CHUNKS_DIR
+        / f"{paper_id}_chunks.json"
     )
 
-    files = sorted(
-        cleaned_dir.glob(
-            "paper_*_clean.json"
+    with destination.open(
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            chunks,
+            f,
+            indent=2,
+            ensure_ascii=False,
         )
+
+    print(f"[CHUNK] Input : {source}")
+    print(f"[CHUNK] Output: {destination}")
+    print(f"[CHUNK] Total Chunks Generated: {len(chunks)}")
+
+    # Simple distribution stats
+    types = {}
+    for c in chunks:
+        types[c["chunk_type"]] = types.get(c["chunk_type"], 0) + 1
+    print(f"[CHUNK] Distribution: {types}")
+
+    return destination
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Phase 8 section-aware chunking"
     )
 
-    if not files:
+    selection = parser.add_mutually_exclusive_group()
 
+    selection.add_argument(
+        "--paper-id",
+        help="Chunk one paper by paper_id.",
+    )
+
+    selection.add_argument(
+        "--file",
+        type=Path,
+        help="Chunk one specific cleaned JSON file.",
+    )
+
+    args = parser.parse_args()
+
+    # ---------------------------------------------------------
+    # --paper-id
+    # ---------------------------------------------------------
+
+    if args.paper_id:
+        chunk_paper(args.paper_id)
+        return
+
+    # ---------------------------------------------------------
+    # --file
+    # ---------------------------------------------------------
+
+    if args.file:
+        if not args.file.exists():
+            parser.error(
+                f"Cleaned artifact not found: {args.file}"
+            )
+
+        paper_id = args.file.stem
+
+        # Ensure the supplied file corresponds to the expected
+        # cleaned artifact location.
+        cleaned_path = CLEANED_DIR / f"{paper_id}.json"
+
+        if args.file.resolve() != cleaned_path.resolve():
+            parser.error(
+                "--file must point to a file in "
+                "storage/cleaned/"
+            )
+
+        chunk_paper(paper_id)
+        return
+
+    # ---------------------------------------------------------
+    # NO ARGUMENTS = ALL PAPERS
+    # ---------------------------------------------------------
+
+    cleaned_files = sorted(
+        CLEANED_DIR.glob("paper_*.json")
+    )
+
+    if not cleaned_files:
         print(
-            "No cleaned papers found."
+            f"[CHUNK] No cleaned papers found in "
+            f"{CLEANED_DIR}"
         )
-
         return
 
     print(
-        f"[INFO] Found "
-        f"{len(files)} cleaned paper(s)"
+        f"[CHUNK] Processing "
+        f"{len(cleaned_files)} papers..."
     )
 
     success = 0
     failed = 0
 
-    for cleaned_path in files:
+    for source in cleaned_files:
+        paper_id = source.stem.removesuffix("_clean")
 
         try:
-
-            with cleaned_path.open(
-                "r",
-                encoding="utf-8",
-            ) as file:
-
-                cleaned = json.load(
-                    file
-                )
-
-            paper_id = cleaned[
-                "paper_id"
-            ]
-
-            output_path = (
-                CHUNKS_DIR
-                / f"{paper_id}_chunks.json"
-            )
-
-            chunk_paper(
-                cleaned_path=cleaned_path,
-                output_path=output_path,
-            )
-
+            chunk_paper(paper_id)
             success += 1
 
         except Exception as exc:
-
             print(
-                f"[FAILED] "
-                f"{cleaned_path.name}: "
-                f"{type(exc).__name__}: "
+                f"[CHUNK] {paper_id} -> FAILED: "
                 f"{exc}"
             )
-
             failed += 1
 
     print()
-    print("=" * 60)
-    print("CHUNKING COMPLETE")
-    print("=" * 60)
-    print(f"Successful : {success}")
-    print(f"Failed     : {failed}")
-    print(f"Output     : {CHUNKS_DIR}")
-    print("=" * 60)
+    print(
+        f"[CHUNK] Complete: "
+        f"{success} succeeded, "
+        f"{failed} failed"
+    )
+
 
 
 if __name__ == "__main__":
-    chunk_all_papers()
+    main()

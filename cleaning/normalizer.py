@@ -1,3 +1,4 @@
+# cleaning/normalizer.py
 from __future__ import annotations
 
 import copy
@@ -6,6 +7,10 @@ import unicodedata
 from collections import Counter
 from dataclasses import dataclass
 from typing import Any
+
+NUMERIC_TOKEN_RE = re.compile(
+    r"(?<![\w])(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:[eE][+-]?\d+)?%?(?![\w])"
+)
 
 
 @dataclass
@@ -29,7 +34,7 @@ class CleaningStats:
 class CanonicalNormalizer:
     """Phase 6 normalization. No logical reconstruction or semantic rewriting."""
 
-    VERSION = "phase6-normalizer-v1"
+    VERSION = "phase6-normalizer-v2"
 
     def clean(
             self,
@@ -83,14 +88,28 @@ class CanonicalNormalizer:
 
     def _clean_metadata(self, metadata: dict[str, Any], stats: CleaningStats) -> dict[str, Any]:
         metadata = copy.deepcopy(metadata)
-        for key in ("title", "subject", "keywords"):
+        for key in ("title", "subject"):
             if isinstance(metadata.get(key), str):
                 metadata[key] = self._normalize_text(metadata[key], stats)
+        if isinstance(metadata.get("keywords"), list):
+            metadata["keywords"] = [
+                self._normalize_text(x, stats) if isinstance(x, str) else x
+                for x in metadata["keywords"]
+            ]
+        elif isinstance(metadata.get("keywords"), str):
+            metadata["keywords"] = self._normalize_text(metadata["keywords"], stats)
         if isinstance(metadata.get("authors"), list):
             metadata["authors"] = [
                 self._normalize_text(x, stats) if isinstance(x, str) else x
                 for x in metadata["authors"]
             ]
+
+        if isinstance(metadata.get("index_terms"), list):
+            metadata["index_terms"] = [
+                self._normalize_text(x, stats) if isinstance(x, str) else x
+                for x in metadata["index_terms"]
+            ]
+
         return metadata
 
     def _clean_sections(self, sections: Any, stats: CleaningStats) -> None:
@@ -191,7 +210,6 @@ class CanonicalNormalizer:
     def _clean_formulas(self, formulas: Any, stats: CleaningStats) -> None:
         if not isinstance(formulas, list):
             return
-        # Only metadata/IDs are normalized. Formula semantics are untouched.
         for formula in formulas:
             if not isinstance(formula, dict):
                 continue
@@ -219,19 +237,44 @@ class CanonicalNormalizer:
 
     @staticmethod
     def _numeric_tokens(text: str) -> Counter[str]:
-        return Counter(re.findall(r"(?<![\w])(?:\d+(?:\.\d+)?%?)(?![\w])", text))
+        return Counter(NUMERIC_TOKEN_RE.findall(text))
 
     def _normalize_text(self, value: str, stats: CleaningStats) -> str:
         stats.input_text_fields += 1
         original = value
+
         text = unicodedata.normalize("NFKC", value)
         text = text.replace("\u00ad", "").replace("\u00a0", " ")
         for char in ("\u200b", "\u200c", "\u200d", "\ufeff"):
             text = text.replace(char, "")
 
-        # Only repair a hyphen when it is actually splitting a word at a line break.
-        text = re.sub(r"(?<=[A-Za-z0-9])-\s*\n\s*(?=[A-Za-z0-9])", "", text)
+        # Repair PDF line-wrap hyphenation before flattening line breaks.
+        text = re.sub(
+            r"(?<=[A-Za-z0-9])-\s*\n\s*(?=[A-Za-z0-9])",
+            "",
+            text,
+        )
         text = re.sub(r"[\r\n\t]+", " ", text)
+
+        # Remove common publisher/editor boilerplate when embedded in text.
+        # The rule is wording-based but not tied to a journal or paper.
+        text = re.sub(
+            r"\s*The associate editor coordinating the review of this manuscript "
+            r"and approving it for publication was [^.]+\.\s*",
+            " ",
+            text,
+            flags=re.IGNORECASE,
+        )
+
+        # Generic journal-banner shape such as `Journal Name | (2026)` or
+        # `Journal Name | 16 | 6297`, without naming a specific publisher.
+        text = re.sub(
+            r"\s*[A-Z][A-Za-z&.,'\- ]{2,100}\s*\|\s*"
+            r"(?:\(\d{4}\)|\d{4,5}(?:\s*\|\s*\d{1,6}){0,2})\s*",
+            " ",
+            text,
+        )
+
         text = re.sub(r" {2,}", " ", text).strip()
         text = re.sub(r"\s+([,.;:!?])", r"\1", text)
 

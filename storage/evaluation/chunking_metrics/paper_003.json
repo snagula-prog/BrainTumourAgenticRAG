@@ -1,0 +1,95 @@
+{
+  "evaluation_type": "chunking_integrity",
+  "paper_id": "paper_003",
+  "integrity_score": 0.9932,
+  "status": "pass",
+  "scoring": {
+    "weights": {
+      "paragraph_preservation": 0.2,
+      "source_character_coverage": 0.2,
+      "section_integrity": 0.15,
+      "size_compliance": 0.1,
+      "heading_coverage": 0.05,
+      "provenance_completeness": 0.1,
+      "subsection_id_integrity": 0.05,
+      "artifact_caption_coverage": 0.1,
+      "reference_coverage": 0.05
+    }
+  },
+  "metrics": {
+    "paragraph_preservation": 1.0,
+    "source_character_coverage": 1.0,
+    "section_integrity": 1.0,
+    "size_compliance": 1.0,
+    "heading_coverage": 1.0,
+    "provenance_completeness": 0.9773,
+    "subsection_id_integrity": 0.9091,
+    "artifact_caption_coverage": 1.0,
+    "reference_coverage": 1.0
+  },
+  "counts": {
+    "canonical_paragraphs": 70,
+    "canonical_tables": 6,
+    "canonical_figures": 1,
+    "canonical_references": 41,
+    "canonical_sections": 19,
+    "total_chunks": 68,
+    "chunks_by_type": {
+      "abstract": 1,
+      "index_terms": 1,
+      "body": 37,
+      "heading": 18,
+      "table_caption": 6,
+      "figure_caption": 1,
+      "reference": 4
+    }
+  },
+  "diagnostics": {
+    "body_chunk_size": {
+      "count": 37,
+      "mean_words": 167.08,
+      "median_words": 181,
+      "max_words": 299,
+      "min_words": 39,
+      "normal_chunk_max_words": 299
+    },
+    "short_body_chunks": {
+      "count": 4,
+      "items": [
+        {
+          "chunk_id": "paper_003_body_0019_204535bb",
+          "word_count": 74,
+          "reason": "section_boundary"
+        },
+        {
+          "chunk_id": "paper_003_body_0023_710b07b6",
+          "word_count": 46,
+          "reason": "section_boundary"
+        },
+        {
+          "chunk_id": "paper_003_body_0030_95b2fb92",
+          "word_count": 45,
+          "reason": "section_boundary"
+        },
+        {
+          "chunk_id": "paper_003_body_0045_cf197100",
+          "word_count": 39,
+          "reason": "section_boundary"
+        }
+      ]
+    },
+    "duplicate_chunk_text_count": 0,
+    "artifact_leakage": {
+      "table_content_exact_leaks": 0,
+      "table_ids": []
+    }
+  },
+  "issues": [
+    "subsection_id_invalid"
+  ],
+  "notes": [
+    "Chunking integrity measures preservation and structural correctness of retrieval units.",
+    "It does not measure retrieval accuracy.",
+    "Retrieval Recall@K, Precision@K, MRR and nDCG belong to the retrieval evaluation stage."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "evaluation_type": "cleaning_integrity",
+  "metrics": {
+    "paragraph_retention": 1.0,
+    "numeric_token_retention": 1.0,
+    "logical_id_retention": 1.0,
+    "artifact_provenance_coverage": 1.0
+  },
+  "counts": {
+    "original_paragraphs": 57,
+    "cleaned_paragraphs": 57,
+    "original_numeric_tokens": 2136,
+    "cleaned_numeric_tokens": 2136
+  },
+  "notes": [
+    "Cleaning integrity is not ground-truth extraction accuracy.",
+    "Numeric token preservation is used as a semantic safety guard."
+  ]
+}

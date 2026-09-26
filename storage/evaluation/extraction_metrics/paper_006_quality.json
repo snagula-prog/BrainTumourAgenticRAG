@@ -1,7 +1,7 @@
 {
   "evaluation_type": "integrity",
-  "integrity_score": 0.9264,
-  "status": "healthy_with_warnings",
+  "integrity_score": 0.9352,
+  "status": "healthy",
   "scoring": {
     "primary_metrics": {
       "metadata_integrity": 0.15,
@@ -20,38 +20,36 @@
   },
   "metrics": {
     "metadata_integrity": 1.0,
-    "abstract_integrity": 0.9506,
-    "structure_integrity": 0.9774,
+    "abstract_integrity": 0.9642,
+    "structure_integrity": 0.9771,
     "duplication_integrity": 1.0,
     "reference_integrity": 1.0,
-    "truncation_integrity": 0.9245,
-    "numeric_consistency": 1.0,
-    "cross_parser_consistency": 0.6401,
+    "truncation_integrity": 0.9143,
+    "numeric_consistency": 0.9286,
+    "cross_parser_consistency": 0.7363,
     "contamination_integrity": 1.0,
     "coordinate_integrity": 1.0
   },
   "diagnostics": {
-    "orphan_paragraph_ratio": 0.0566,
+    "orphan_paragraph_ratio": 0.0571,
     "reference_integrity": 1.0,
-    "abstract_integrity": 0.9506,
+    "abstract_integrity": 0.9642,
     "coordinate_integrity": 1.0
   },
   "parser_artifact_counts": {
-    "figures": 25,
-    "tables": 8,
+    "figures": 7,
+    "tables": 4,
     "formulas": 0,
-    "text_blocks": 247
+    "text_blocks": 178
   },
   "raw_extraction_counts": {
-    "sections": 19,
-    "paragraphs": 53,
-    "references": 102,
-    "figures": 3,
-    "tables": 1,
+    "sections": 16,
+    "paragraphs": 35,
+    "references": 28,
+    "figures": 6,
+    "tables": 4,
     "formulas": 0
   },
   "ground_truth_available": false,
-  "issues": [
-    "cross_parser_disagreement"
-  ]
+  "issues": []
 }
