@@ -23,6 +23,22 @@ class Settings(BaseSettings):
     evaluation_dir: str = "./storage/evaluation"
     extraction_metrics_dir: str = "./storage/evaluation/extraction_metrics"
     chunks_dir: str = "./storage/chunks"
+
+    # Embeddings
+    embeddings_dir: str = "./storage/embeddings"
+    embedding_model_name: str = "BAAI/bge-small-en-v1.5"
+    embedding_model_revision: str = "main"
+    embedding_batch_size: int = 16
+    embedding_overlap_tokens: int = 64
+    embedding_device: str = "cpu"
+    embedding_normalize: bool = True
+    embedding_include_chunk_types: list[str] = [
+        "abstract",
+        "body",
+        "table_caption",
+        "figure_caption",
+        "index_terms",
+    ]
     chroma_persist_dir: str = "./storage/chroma"
 
 

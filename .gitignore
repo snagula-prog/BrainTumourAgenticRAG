@@ -21,6 +21,7 @@ Thumbs.db
 # Logs / temporary files
 *.log
 *.tmp
+*.patch
 
 validate_chunks.py
 validate_downstream.py
@@ -38,3 +39,18 @@ storage/tmp/
 storage/temp/
 # Source PDFs (keep local; do not commit)
 storage/raw_pds/*.pdf
+
+# Temporary phase bundles and backups
+_phase*/
+.phase*_backups/
+*_bundle.zip
+
+# Generated embeddings and evaluation runs
+storage/embeddings/
+storage/evaluation/runs/
+storage/evaluation/retrieval_metrics/retrieval_results_*.json
+storage/evaluation/retrieval_metrics/*comparison_*.json
+
+# Local query audits
+query_audit_*.csv
+storage/evaluation/retrieval_metrics/chunk_catalog.json
