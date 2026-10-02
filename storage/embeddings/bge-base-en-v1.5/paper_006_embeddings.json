@@ -1,0 +1,1834 @@
+{
+  "schema_version": 2,
+  "model_alias": "bge-base",
+  "paper_id": "paper_006",
+  "created_at": "2026-09-28T17:35:42.396002+00:00",
+  "input_fingerprint": "35818c0f19f7ee5c35a9d430cc29cfa0ecb440740d9fd9c85236482375266214",
+  "source": {
+    "file": "storage\\chunks\\paper_006_chunks.json",
+    "sha256": "cc83c00d0a1bde552b3848b7854b6fcac20b8c272cb075092557b1c9ed96d047",
+    "chunk_count": 51
+  },
+  "embedding": {
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "requested_revision": "main",
+    "resolved_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+    "dimension": 768,
+    "max_seq_length": 512,
+    "batch_size": 8,
+    "device": "cpu",
+    "normalize": true,
+    "windowing": {
+      "strategy": "overlapping_token_windows",
+      "overlap_tokens": 64
+    },
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "query_instruction": "Represent this sentence for searching relevant passages: "
+  },
+  "selection": {
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "selected_chunk_count": 33,
+    "embedded_segment_count": 35,
+    "oversized_chunk_count": 2,
+    "excluded_counts": {
+      "heading": 15,
+      "reference": 3
+    }
+  },
+  "vectors": {
+    "file": "paper_006_embeddings.npz",
+    "sha256": "2f75db4684cb46f8d3b30177ed2809b0f0ac5e9afc728a92fd220e6b4a5f2eaf",
+    "dtype": "float32",
+    "shape": [
+      35,
+      768
+    ],
+    "normalized": true
+  },
+  "records": [
+    {
+      "segment_id": "paper_006_abstract_0000_23171cbe::segment_0000",
+      "chunk_id": "paper_006_abstract_0000_23171cbe",
+      "paper_id": "paper_006",
+      "chunk_type": "abstract",
+      "order_index": 0,
+      "source_index": 0,
+      "segment_index": 0,
+      "segment_count": 2,
+      "token_start": 0,
+      "token_end": 510,
+      "token_count": 510,
+      "text": "health is very important for human life. in particular, the health of the brain, which is the executive of the vital resource, is very important. diagnosis for human health is provided by magnetic resonance imaging ( mri ) devices, which help health decision makers in critical organs such as brain health. images from these devices are a source of big data for artificial intelligence. this big data enables high performance in image processing classification problems, which is a subfield of artificial intelligence. in this study, we aim to classify brain tumors such as glioma, meningioma, and pituitary tumor from brain mr images. convolutional neural network ( cnn ) and cnn - based inception - v3, efficientnetb4, vgg19, transfer learning methods were used for classification. f - score, recall, imprinting and accuracy were used to evaluate these models. the best accuracy result was obtained with vgg16 with 98 %, while the f - score value of the same transfer learning model was 97 %, the area under the curve ( auc ) value was 99 %, the recall value was 98 %, and the precision value was 98 %. cnn architecture and cnn - based transfer learning models are very important for human health in early diagnosis and rapid treatment of such diseases. the healthcare industry has been rapidly transformed by technological advances in recent years, and an important component of this transformation is artificial intelligence ( ai ) technology. ai is a computer system that simulates human - like intelligence and has many applications in medicine. one such area is the fight against brain tumors. brain tumors are a major public health problem in the healthcare sector, and accurate diagnosis, treatment, and follow - up processes are critical. ai has become an important tool for improving these processes and has great potential for early diagnosis and treatment of brain tumors. brain tumors affect human health due to their location 1. ai is designed to help diagnose and treat complex diseases such as brain tumors by combining technologies such as big data analytics, machine learning, and deep learning. ai has the ability to detect and classify tumors by analyzing brain imaging techniques, such as magnetic resonance imaging ( mri ). ai algorithms can help determine the size, location, class, and aggressiveness of tumors. this helps physicians make a more accurate diagnosis and treatment plan, and helps patients better understand their health. ai can also be used to track a patient ' s progress through treatment. ai - based analytics can be used to assess treatment response and predict potential tumor recurrence. in this",
+      "metadata": {
+        "section": "Abstract",
+        "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+        "authors": [
+          "Mohammad Zafer Khaliki",
+          "& Muhammet",
+          "Sinan Başarslan"
+        ],
+        "index_terms": []
+      },
+      "text_sha256": "056ce566e33487239fab1c9a54cc0a8423afce09e7ee63f9f00458020e068182"
+    },
+    {
+      "segment_id": "paper_006_abstract_0000_23171cbe::segment_0001",
+      "chunk_id": "paper_006_abstract_0000_23171cbe",
+      "paper_id": "paper_006",
+      "chunk_type": "abstract",
+      "order_index": 0,
+      "source_index": 0,
+      "segment_index": 1,
+      "segment_count": 2,
+      "token_start": 446,
+      "token_end": 655,
+      "token_count": 209,
+      "text": "class, and aggressiveness of tumors. this helps physicians make a more accurate diagnosis and treatment plan, and helps patients better understand their health. ai can also be used to track a patient ' s progress through treatment. ai - based analytics can be used to assess treatment response and predict potential tumor recurrence. in this way, patients ' treatment plans can be more effectively organized and individualized treatment approaches can be developed. in this study, difference detection was performed on brain images. classification was performed with multilayer cnn and cnn - based transfer learning methods on 4 classes labeled by physicians. the contribution of the study is as follows. • we investigate the transfer learning method with the highest performance in the classification process of transfer learning methods on brain images. • we investigate the performance of cnn and transfer learning on brain images using cnn as a multi - layer without using transfer learning. • we investigate whether it is possible to achieve good results with a skewed and poor quality dataset. the flow diagram of the study is shown in fig. 1.",
+      "metadata": {
+        "section": "Abstract",
+        "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+        "authors": [
+          "Mohammad Zafer Khaliki",
+          "& Muhammet",
+          "Sinan Başarslan"
+        ],
+        "index_terms": []
+      },
+      "text_sha256": "d874c928d8c7e2f4f4fb97161fe92e63c66b79c2aab2476ad31ad95166bbe523"
+    },
+    {
+      "segment_id": "paper_006_body_0001_7136a8c7::segment_0000",
+      "chunk_id": "paper_006_body_0001_7136a8c7",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 1,
+      "source_index": 1,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 35,
+      "token_count": 35,
+      "text": "studies on brain tumors in the last 5 years will be scanned from indexes such as wos and ieee and the details of the related studies will be explained in this section.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0001"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.90850231899998,
+            "y": 450.7813862403367,
+            "w": 400.2444000189018,
+            "h": 17.990699696663285,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "ed5ce91291d0528f6eaccd90683f024a3d8715ae2ef8e1d095ee03b211d88cb8"
+    },
+    {
+      "segment_id": "paper_006_body_0002_1ba4019a::segment_0000",
+      "chunk_id": "paper_006_body_0002_1ba4019a",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 2,
+      "source_index": 2,
+      "segment_index": 0,
+      "segment_count": 2,
+      "token_start": 0,
+      "token_end": 510,
+      "token_count": 510,
+      "text": "in a study of 3064 mri images from 233 patients belonging to 4 different tumor classes ( meningioma, glioma, pituitary, tumor ) with support vector machine ( svm ) on datasets generated after various preprocessing, an accuracy value between 94 % was obtained 1. santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue. this system relied on a combination of thresholding and watershed segmentation techniques. using svm, the classification accuracy reached an impressive 85. 32 % across all categories 2. rafael et al. achieved an accuracy rate of 89. 6 % using svm for brain tumor classification 3. similarly, gupta and sasidhar achieved 87 % accuracy using svm 4. gumaei et al. proposed a classification framework that harnesses the power of regularized extreme learning machine ( relm ) for the purpose of distinguishing between benign and malignant brain tumors. their study involved the collection and preprocessing of mri data related to meningioma, glioma, and pituitary tumors. the feature selection process was performed using gist, normalized gist ( ngist ), and pca - ngist methods. using a meticulous fivefold cross - validation procedure, the relm technique yielded an impressive overall accuracy of 92. 61 % 5. 92 % accuracy was achieved using svm machine learning on a dataset of 90 normal and 154 tumor brain images 6. 3264 brain tumor images from kaggle were classified using cnn, lstm and cnn - lstm hybrid. the results obtained ; cnn 89 %, lstm 90. 02 %, cnn - lstm 92 % accuracy 7. srinivas and co - authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based cnn models pre - trained with vgg16, resnet - 50 and inceptionv3 architectures for brain tumor cell prediction. in particular, inceptionv3 had an accuracy of 78 %, vgg16 had a high accuracy of 96 %, and resnet - 50 had an accuracy of 95 % 8. in a cnn - based study of brain tumor images, choudhury, mahanty, kumar, and mishra achieved an accuracy of 96. 08 % 9, while martini and oermann ' s cnn - based study achieved an accuracy of 93. 9 % 10. between 2005 and 2010, a study was conducted to predict the classes of meningioma, glio",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0002"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.90120288000003,
+            "y": 140.78140149933677,
+            "w": 400.46466733917396,
+            "h": 307.9926844376632,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 591.6807701503025,
+            "w": 123.05000000000007,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ],
+        "oversized": true
+      },
+      "text_sha256": "95af1611235f13518ed12773daa450368ce07c1420d684b2c73eba3ce03809a6"
+    },
+    {
+      "segment_id": "paper_006_body_0002_1ba4019a::segment_0001",
+      "chunk_id": "paper_006_body_0002_1ba4019a",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 2,
+      "source_index": 2,
+      "segment_index": 1,
+      "segment_count": 2,
+      "token_start": 446,
+      "token_end": 747,
+      "token_count": 301,
+      "text": "##hury, mahanty, kumar, and mishra achieved an accuracy of 96. 08 % 9, while martini and oermann ' s cnn - based study achieved an accuracy of 93. 9 % 10. between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in china. in this study, 4 - layer cnn was used. the accuracy was 91. 3 % 11. in a study of 200 brain tumor images, the accuracy of image segmentation was 92. 14 % 12. classification studies on 102 brain tumor patients using svm and knn machine learning methods achieved 85 % and 88 % accuracy, respectively 13. in a classification study of 233 brain tumor patients, svm and knn were used. in this study, the accuracy result was 91. 28 % 14. in a classification study using cnn on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91. 43 % with fivefold cross - validation 15. the author introduced a novel approach known as a capsule network ( capsnet ), which effectively integrates brain mri images and approximate tumor boundaries for the purpose of brain tumor classification. this study achieved an impressive accuracy of 90. 89 % in accurately classifying brain tumors 16. in this study, as seen in the literature, cnn and cnn - based transfer learning methods will be used for brain tumor detection.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0002"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.90120288000003,
+            "y": 140.78140149933677,
+            "w": 400.46466733917396,
+            "h": 307.9926844376632,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 591.6807701503025,
+            "w": 123.05000000000007,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ],
+        "oversized": true
+      },
+      "text_sha256": "f554c0b5d51408dbead5868666553c3141eb67315d7571ecb0eb23533652754e"
+    },
+    {
+      "segment_id": "paper_006_body_0004_88a3e148::segment_0000",
+      "chunk_id": "paper_006_body_0004_88a3e148",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 4,
+      "source_index": 4,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 46,
+      "token_count": 46,
+      "text": "this section describes the dataset, the classification algorithm ( cnn ) used in the study, and the transfer learning architectures vgg19, vgg16, inceptionv3, efficientnetb4 developed based on this algorithm.",
+      "metadata": {
+        "section": "Material method",
+        "section_path": [
+          "Material method"
+        ],
+        "subsection_id": "paper_006_subsection_d696476860d8",
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0003"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 98.78140149933677,
+            "w": 400.25610004294066,
+            "h": 17.990699696663228,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "ab205f5f4902ab98b6e5194e7e952b15c31ebe3a0bf0c4d7f888f3ed9cc3db70"
+    },
+    {
+      "segment_id": "paper_006_body_0006_0e4a6c53::segment_0000",
+      "chunk_id": "paper_006_body_0006_0e4a6c53",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 6,
+      "source_index": 6,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 31,
+      "token_count": 31,
+      "text": "in this study, transfer learning models inceptionv3, vgg16, vgg19, and efficientnetb4 were used in the classification process.",
+      "metadata": {
+        "section": "Transfer learning",
+        "section_path": [
+          "Transfer learning"
+        ],
+        "subsection_id": "paper_006_subsection_2be9ecbc53f1",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0004"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 317.97528785133665,
+            "w": 400.32989998630205,
+            "h": 17.990699696663285,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "ef30074fa8085636da03a23ca7c88bb21c1590adf285ad672cafb139ed144bcb"
+    },
+    {
+      "segment_id": "paper_006_body_0008_9d9dc4ed::segment_0000",
+      "chunk_id": "paper_006_body_0008_9d9dc4ed",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 8,
+      "source_index": 8,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 80,
+      "token_count": 80,
+      "text": "deep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data. unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [ 18 ] [ 19 ] [ 20 ]. in this study, a cnn architecture is employed.",
+      "metadata": {
+        "section": "Deep learning",
+        "section_path": [
+          "Deep learning"
+        ],
+        "subsection_id": "paper_006_subsection_9ce87bb3945f",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0006"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.90348052999997,
+            "y": 521.9743183693367,
+            "w": 400.43902185255905,
+            "h": 47.99069969666334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 572.4666588223025,
+            "w": 60.10000000000002,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "6ab0a442106cc823df79e3b98b735cdb4827d5f26e34863158bdd9d11fb7fdba"
+    },
+    {
+      "segment_id": "paper_006_body_0010_f8c1ba34::segment_0000",
+      "chunk_id": "paper_006_body_0010_f8c1ba34",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 10,
+      "source_index": 10,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 163,
+      "token_count": 163,
+      "text": "convolutional neural networks represent a major breakthrough in deep learning and computer vision. these architectures are specifically designed to extract meaningful features from complex visual data, such as images and video. the inherent structure of the cnn, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features. convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information. the resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks. cnn have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21.",
+      "metadata": {
+        "section": "Convolution neural network",
+        "section_path": [
+          "Convolution neural network"
+        ],
+        "subsection_id": "paper_006_subsection_a42bb5e03eaf",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0007"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.90348052999997,
+            "y": 409.9732878513367,
+            "w": 400.47390004985033,
+            "h": 87.9977302146633,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 572.4666588223025,
+            "w": 60.10000000000002,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "663d36211985a2b7b1e0e9bf08bb54d41ce205342b9bbf9f07916f25e3f399b2"
+    },
+    {
+      "segment_id": "paper_006_body_0011_8c0054bf::segment_0000",
+      "chunk_id": "paper_006_body_0011_8c0054bf",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 11,
+      "source_index": 11,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 98,
+      "token_count": 98,
+      "text": "transfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task. in the realm of neural networks, transfer learning manifests significant potency. it encompasses the process of employing a pre - trained model, typically trained on a comprehensive and varied dataset, and fine - tuning it on a fresh dataset or task [ 21 ] [ 22 ] [ 23 ].",
+      "metadata": {
+        "section": "Transfer learning",
+        "section_path": [
+          "Transfer learning"
+        ],
+        "subsection_id": "paper_006_subsection_2be9ecbc53f1",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0008"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 337.9732878513367,
+            "w": 400.37940002750395,
+            "h": 47.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 572.4666588223025,
+            "w": 60.10000000000002,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "09032cb3f2b60ba8b718df92520c8ffa5ef5871532aeb27460895f6170b30b1c"
+    },
+    {
+      "segment_id": "paper_006_body_0013_590cebb3::segment_0000",
+      "chunk_id": "paper_006_body_0013_590cebb3",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 13,
+      "source_index": 13,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 144,
+      "token_count": 144,
+      "text": "this architecture stands as a notable cnn model introduced by 24, which builds upon its predecessor, the alexnet model. it achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels. the model occupies approximately 528 mb of storage space and has achieved a documented top - 5 accuracy of 90. 1 % on imagenet data, encompassing approximately 138. 4 million parameters. the imagenet dataset comprises approximately 14 million images categorized across 1000 classes. the training of vgg16 was conducted on robust gpus over the span of several weeks. this study used vgg16 and vgg19.",
+      "metadata": {
+        "section": "VGG",
+        "section_path": [
+          "VGG"
+        ],
+        "subsection_id": "paper_006_subsection_4dc193f86a89",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0009"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 225.9792878513366,
+            "w": 400.37220748477955,
+            "h": 69.08507411066341,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d26358ce81caf9fdad8f82370c737c33cd9dacb8fb036fd0ef1d524f5bad9959"
+    },
+    {
+      "segment_id": "paper_006_body_0015_9ac61103::segment_0000",
+      "chunk_id": "paper_006_body_0015_9ac61103",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 15,
+      "source_index": 15,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 122,
+      "token_count": 122,
+      "text": "efficientnet is a family of scalable and efficient cnn models. the main goal of this series is to achieve better performance with fewer parameters. the term \" efficientnet \" is a combination of the words \" efficiency \" and \" network \". the model series is mainly used in visual processing tasks such as image classification. efficientnet is a family of models that delivers competitive results in both performance and computational cost. it offers variations of different size and complexity at different scales. higher numbered models are typically larger and more complex, but require more computing power. it was the top performing model in the imagenet competition 24.",
+      "metadata": {
+        "section": "EfficientNET",
+        "section_path": [
+          "EfficientNET"
+        ],
+        "subsection_id": "paper_006_subsection_272e6c401f67",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0010",
+          "para_0011"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 173.98628785133667,
+            "w": 400.3703999999824,
+            "h": 27.98969969666325,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.92631395099988,
+            "y": 133.9733031103367,
+            "w": 400.4379000636284,
+            "h": 38.00568443766326,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "e232deafa20031531e395b61e5b238ae5ffefa0726e11b4c3b32f78ad26bee72"
+    },
+    {
+      "segment_id": "paper_006_body_0017_7b3b509a::segment_0000",
+      "chunk_id": "paper_006_body_0017_7b3b509a",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 17,
+      "source_index": 17,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 100,
+      "token_count": 100,
+      "text": "the inception architecture is an architecture used in the field of deep learning and cnn. it is designed to perform feature extraction and classification tasks more efficiently. first introduced in a paper titled \" going deeper with convolutions \", the inception architecture aims to provide better performance when processing complex visual datasets 25. the inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers. in this way, features of different sizes can be captured and processed simultaneously 25.",
+      "metadata": {
+        "section": "Inception",
+        "section_path": [
+          "Inception"
+        ],
+        "subsection_id": "paper_006_subsection_52420946ea26",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0012"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 61.9733031103367,
+            "w": 400.46220004472076,
+            "h": 47.99669969666331,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 572.4666588223025,
+            "w": 60.10000000000002,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "9c322fbf64f6201bb27946730593f9910eec8cadc62db6a8d7b4fa901cb7f490"
+    },
+    {
+      "segment_id": "paper_006_body_0019_df852a60::segment_0000",
+      "chunk_id": "paper_006_body_0019_df852a60",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 19,
+      "source_index": 19,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 48,
+      "token_count": 48,
+      "text": "performance evaluation methods such as accuracy, precision, recall, and f - score are used to evaluate models created for classification problems such as image processing. these methods are obtained from the confusion matrix. the confusion matrix is given in table 2 26.",
+      "metadata": {
+        "section": "Performance metric",
+        "section_path": [
+          "Performance metric"
+        ],
+        "subsection_id": "paper_006_subsection_9c3f56b6bec1",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0013"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.905502319,
+            "y": 692.2938139743367,
+            "w": 400.39199999312234,
+            "h": 27.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "ffccb4f6869b3792d09d936c8281834e9aa5d06b71fcba3be38e18dd834ed9c2"
+    },
+    {
+      "segment_id": "paper_006_body_0021_d27b4c1e::segment_0000",
+      "chunk_id": "paper_006_body_0021_d27b4c1e",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 21,
+      "source_index": 21,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 248,
+      "token_count": 248,
+      "text": "the roc curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios. it provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27. the roc curve is plotted with the false positive rate on the x - axis and the true positive rate ( tpr ) on the y - axis. an optimal classifier, characterized by a tpr of one and a false positive rate of zero, lies in the upper left corner of the graph. the curve takes shape around this point, illustrating the performance of the model across different thresholds 26. in addition, the area under the receiver operating characteristic ( roc ) curve, commonly referred to as the \" area under the curve \", succinctly summarizes the overall model performance in a single metric. the auc value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26. the roc curve and auc value serve as essential tools for comparing models and understanding classification model performance. a higher auc value generally indicates superior model performance, while the curve illustrates the model ' s performance strengths and weaknesses at various thresholds 26.",
+      "metadata": {
+        "section": "Receiver operating characteristic (ROC) curve",
+        "section_path": [
+          "Receiver operating characteristic (ROC) curve"
+        ],
+        "subsection_id": "paper_006_subsection_7a53b571398c",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0014",
+          "para_0015"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.908211181,
+            "y": 442.39360645533674,
+            "w": 400.3418998187522,
+            "h": 57.991907215663105,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.90130234100002,
+            "y": 382.39360645533674,
+            "w": 400.37059894862784,
+            "h": 57.99269969666324,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.908211181,
+            "y": 502.4204837308801,
+            "w": 159.712199996562,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d1fe6eb0cacdc921b78ef43bdd104ea682706805c4b07fd9bcccd50969f2c821"
+    },
+    {
+      "segment_id": "paper_006_body_0023_5e3206d3::segment_0000",
+      "chunk_id": "paper_006_body_0023_5e3206d3",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 23,
+      "source_index": 23,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 27,
+      "token_count": 27,
+      "text": "as the data is open source, there are no experiments on humans conducted by the authors. open source has been studied on mri images.",
+      "metadata": {
+        "section": "Approval for participation",
+        "section_path": [
+          "Approval for participation"
+        ],
+        "subsection_id": "paper_006_subsection_3e51dc7a65af",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0016"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.905395507,
+            "y": 340.3946064553367,
+            "w": 400.36320000000103,
+            "h": 17.990699696663285,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 94.263801574,
+            "y": 633.2936601963446,
+            "w": 47.35800000000002,
+            "h": 14.704846638655454,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "a27d12ad98486e41af54aa518e5a96c8906a9a23ce8f80dc35fe71d67f0d2510"
+    },
+    {
+      "segment_id": "paper_006_body_0025_71fded49::segment_0000",
+      "chunk_id": "paper_006_body_0025_71fded49",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 25,
+      "source_index": 25,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 110,
+      "token_count": 110,
+      "text": "this study addresses the problem of image classification using deep learning methods. the most important and widely studied of these problems is that of health images. in this context, five different models ( inceptionv3, efficientnetb4, vgg16, vgg19, multi - layer cnn ) were selected for the classification of brain tumors and their performances were compared on the same dataset. 10 % of the dataset was used for testing, 15 % for validation and 75 % for training. all experimental setup and results were done at google colab.",
+      "metadata": {
+        "section": "Experimental settings and results",
+        "section_path": [
+          "Experimental settings and results"
+        ],
+        "subsection_id": "paper_006_subsection_1a3dd94c8d9c",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0017"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.905395507,
+            "y": 268.3976064553366,
+            "w": 400.28940002750437,
+            "h": 47.98769969666341,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 572.4666588223025,
+            "w": 60.10000000000002,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.905395507,
+            "y": 246.88694690830255,
+            "w": 69.34,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "f9379a300d2c23e9b2f7542c13f2c679bf1350513cb1b23fb2427f7d9013bc4b"
+    },
+    {
+      "segment_id": "paper_006_body_0027_1bdaa0d8::segment_0000",
+      "chunk_id": "paper_006_body_0027_1bdaa0d8",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 27,
+      "source_index": 27,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 285,
+      "token_count": 285,
+      "text": "first, we need to determine the architecture of our model. the input form of our data is 400 × 400 and has 3 channels. since we have a total of 4 different classes, the number of output classes is set to 4. our model has a structure that includes convolutional and pooling layers. first, there is a 3 × 3 convolutional layer with 32 filters. this is followed by a 2 × 2 max pooling layer. this reduces the size by emphasizing lower - level features. to deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2. the resulting feature map is transformed into a flat vector with a flattening layer. a hidden ( dense ) layer of 128 neurons is then added. this layer deepens the learned features and increases generalization. finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function. to train our model, we need to determine the optimal function and metrics. in this paper, we use the rectified adam optimization algorithm. this algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently. also, categorical cross - entropy is used as the loss function during training, as it is widely used in multiclass classification task.",
+      "metadata": {
+        "section": "Multi-layer CNN",
+        "section_path": [
+          "Multi-layer CNN"
+        ],
+        "subsection_id": "paper_006_subsection_84e61e681abb",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0018"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.89639495800003,
+            "y": 186.39860645533668,
+            "w": 400.43700633694453,
+            "h": 57.98669969666332,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "3be296272aa84c13236963917279ddb0246f665a9b571d078e278346ff1e06ed"
+    },
+    {
+      "segment_id": "paper_006_body_0028_39182b8d::segment_0000",
+      "chunk_id": "paper_006_body_0028_39182b8d",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 28,
+      "source_index": 28,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 63,
+      "token_count": 63,
+      "text": "in table 2, the symbols t n, t p, f p, and f n correspond to the true negative, true positive, false positive, and false negative values, respectively. from eqs. ( 1 ) to ( 4 ), accuracy, precision, recall and f - score is given respectively.",
+      "metadata": {
+        "section": "Performance metric",
+        "section_path": [
+          "Performance metric"
+        ],
+        "subsection_id": "paper_006_subsection_9c3f56b6bec1",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0019"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.908211181,
+            "y": 662.2958139743366,
+            "w": 400.34430002406583,
+            "h": 28.208751922127362,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "91eed6e76610d83e6e2209f562fa87743002289822ee381dcf96c243386fabe0"
+    },
+    {
+      "segment_id": "paper_006_body_0029_345b93a6::segment_0000",
+      "chunk_id": "paper_006_body_0029_345b93a6",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 29,
+      "source_index": 29,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 92,
+      "token_count": 92,
+      "text": "the metrics tracked during training are accuracy, as well as precision and recall. these metrics are important for evaluating the classification performance of the model. in addition, a reduced learning rate recall ( reducelronplateau ) is used to dynamically adjust the learning rate. this recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training. the epoch is set to 14 and the batch size to 10.",
+      "metadata": {
+        "section": "Multi-layer CNN",
+        "section_path": [
+          "Multi-layer CNN"
+        ],
+        "subsection_id": "paper_006_subsection_84e61e681abb",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0020"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.90850231899998,
+            "y": 613.1984296973365,
+            "w": 400.43610005841884,
+            "h": 47.98769969666341,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "2d7ffe37de10126216f656aee0866e726d9acb04f3ec451d70b8834cea60278e"
+    },
+    {
+      "segment_id": "paper_006_body_0031_b6751fcc::segment_0000",
+      "chunk_id": "paper_006_body_0031_b6751fcc",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 31,
+      "source_index": 31,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 421,
+      "token_count": 421,
+      "text": "in transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead : the globalaveragepooling2d layer contains fewer parameters than the flatten layer, which reduces the risk of overfitting and helps build a more efficient model. also, while the flatten layer is used to organize the data, the globalaveragepooling2d layer is used for feature extraction, making the network learning process more efficient. due to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures. for all models, the dilution rate was set to 0. 05. during the model training process, the designated optimizer was \" rectifiedadam \", with the optimizer parameters configured as follows : learning _ rate = 0. 0001, beta _ 1 = 0. 9, beta _ 2 = 0. 999, and epsilon = 1e - 08. the loss function selected is categorical _ crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy. this completes the pre - training of the model. the final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems. the activation function of this layer is \" softmax \". the softmax function makes the output values interpretable as probabilities between classes. furthermore, the data type of this layer is \" float64 \", which means that the output values are of a 64 - bit double precision type. the layer also applies regularization using the \" kernel _ regularizer \" property. the l2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights. the regularization coefficient of 0. 1, denoted by \" regulars. l2 ( 0. 1 ) \", controls the effectiveness of the regularization.",
+      "metadata": {
+        "section": "CNN-based transfer learning",
+        "section_path": [
+          "CNN-based transfer learning"
+        ],
+        "subsection_id": "paper_006_subsection_00909fd9ccf4",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0021",
+          "para_0022"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 541.1914296973366,
+            "w": 400.40999998456584,
+            "h": 47.98769969666341,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 421.20342969733633,
+            "w": 400.45680646504263,
+            "h": 117.98069969666358,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1e74155f3272665f32d5bd94f23171fe8222837b17c3dc76e72f9459cd021678"
+    },
+    {
+      "segment_id": "paper_006_body_0032_61c70189::segment_0000",
+      "chunk_id": "paper_006_body_0032_61c70189",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 32,
+      "source_index": 32,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 372,
+      "token_count": 372,
+      "text": "during the model training process, the \" reducelronplateau \" function of the keras library was used as a backpropagation algorithm. this function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease. the parameters of the \" reducelronplateau \" function are as follows monitor : the metric monitored is usually \" val _ loss \" ( validation loss ). this is the metric used to determine if the learning rate should be reduced : • patience : the expected patience time for lowering the learning rate, i. e. how long the metric should not improve. • factor : the factor used to reduce the learning rate. for example, a value of 0. 3 reduces the learning rate by 30 %. • min _ lr : specifies the minimum achievable learning rate. this limits the learning rate without making it infinitesimal. using this feature allows for more stable and efficient model training, streamlining the process of fine - tuning training parameters without the need to manually adjust the learning rate. the training program was run over 14 epochs with batches of size 10. details of the multilayer cnn model used in the study are presented in fig. 2, which outlines its architectural features. the training and validation accuracy loss graphs of the models created with vgg19, efficientnetb4, inceptionv3 transfer learning, and cnn are shown in fig. 3. according to the auc values in fig. 4, the transfer learning models vgg, inceptionv3, and efficientnetb4 and the models built with cnn have distinctive features. the confusion matrix of the study on the classification of glioma, meningioma, non - tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in fig. 5.",
+      "metadata": {
+        "section": "CNN-based transfer learning",
+        "section_path": [
+          "CNN-based transfer learning"
+        ],
+        "subsection_id": "paper_006_subsection_00909fd9ccf4",
+        "pages": [
+          5,
+          6
+        ],
+        "paragraph_ids": [
+          "para_0023",
+          "para_0024",
+          "para_0025",
+          "para_0026",
+          "para_0027",
+          "para_0028",
+          "para_0030"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.90550877200008,
+            "y": 371.2084296973362,
+            "w": 400.35510003094066,
+            "h": 47.987699696663356,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 338.68839917933667,
+            "w": 400.22699132002367,
+            "h": 18.954505547779377,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 318.68839917933667,
+            "w": 400.3637913217523,
+            "h": 18.954505547779377,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 298.68839917933667,
+            "w": 400.37909131828576,
+            "h": 18.954505547779377,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.91059362700003,
+            "y": 246.1913991793366,
+            "w": 400.3650000309419,
+            "h": 37.98869969666333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.91060269000002,
+            "y": 226.19339917933655,
+            "w": 400.16610000342814,
+            "h": 17.99069969666334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.917512408,
+            "y": 200.5793855083367,
+            "w": 400.3541962954381,
+            "h": 37.98869969666339,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "c4b7f741990e66cb7d8cfcec5478bd386feee9ac8968c76d7124a1b9fa01e32f"
+    },
+    {
+      "segment_id": "paper_006_body_0034_b558d0f9::segment_0000",
+      "chunk_id": "paper_006_body_0034_b558d0f9",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 34,
+      "source_index": 34,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 254,
+      "token_count": 254,
+      "text": "as shown in table 4, the cnn - based transfer learning models used in the study performed better. ai in healthcare plays an important role in the management of complex diseases such as brain tumors. ai enables faster, more accurate, and more effective diagnosis and treatment processes. however, ai technology is not intended to completely replace doctors, but to support and enhance their work. to realize the full potential of ai, it is important to consider issues such as ethics, security and privacy. in the future, ai - based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients. as seen in this study, ai - based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process. based on the results of this study, transfer learning methods should be preferred especially in image processing - based applications to support health decision makers. the data obtained from mri or ct can be used as an early warning system to help health decision makers make quick and accurate decisions. therefore, in addition to empirical analysis, ai - based applications should take a more active role as soon as possible. to this end, the diagnosis of diseases from instant ct or mr images will be investigated in the coming years.",
+      "metadata": {
+        "section": "Results and discussion",
+        "section_path": [
+          "Results and discussion"
+        ],
+        "subsection_id": "paper_006_subsection_34d6de4d0f92",
+        "pages": [
+          6,
+          7
+        ],
+        "paragraph_ids": [
+          "para_0031",
+          "para_0032"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 155.905489692,
+            "y": 68.58140030333675,
+            "w": 400.41090002059315,
+            "h": 57.98669969666321,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 175.78140149933677,
+            "w": 400.2984000206285,
+            "h": 17.990699696663228,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 591.6807701503025,
+            "w": 123.05000000000007,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 125.78640149933676,
+            "w": 400.34070002406634,
+            "h": 47.9876996966633,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4144caf0a876021931d4ffac9cd7f1918a5139a716f74d76e8e44665210199a6"
+    },
+    {
+      "segment_id": "paper_006_body_0036_81bed54b::segment_0000",
+      "chunk_id": "paper_006_body_0036_81bed54b",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 36,
+      "source_index": 36,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 48,
+      "token_count": 48,
+      "text": "with our motivation to investigate how it will work in single cnn and multilayer cnn based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "metadata": {
+        "section": "Limitation",
+        "section_path": [
+          "Limitation"
+        ],
+        "subsection_id": "paper_006_subsection_9c8e8a7df0ee",
+        "pages": [
+          7
+        ],
+        "paragraph_ids": [
+          "para_0033"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 73.78240149933674,
+            "w": 400.32090001889105,
+            "h": 27.98969969666325,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 104.10980602793279,
+            "w": 49.709,
+            "h": 8.986295168067159,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "831ba61f0217c1dd3a11b9283f7f9807d11a0c0c70f87622129888ed52796db3"
+    },
+    {
+      "segment_id": "paper_006_body_0037_1df745cf::segment_0000",
+      "chunk_id": "paper_006_body_0037_1df745cf",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 37,
+      "source_index": 37,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 70,
+      "token_count": 70,
+      "text": "as part of the study, cnn and cnn - based transfer learning models such as inceptionv3, efficientnetb4, vgg19 were trained on open - source shared brain tumor patients. the best accuracy result was obtained with efficientnetb4 with 95 %. the comparison of the brain tumor studies with the literature is shown in table 4.",
+      "metadata": {
+        "section": "Results and discussion",
+        "section_path": [
+          "Results and discussion"
+        ],
+        "subsection_id": "paper_006_subsection_34d6de4d0f92",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0034"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 128.57540030333666,
+            "w": 400.30290001719015,
+            "h": 27.989699696663365,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 94.263801574,
+            "y": 633.2936601963446,
+            "w": 47.35800000000002,
+            "h": 14.704846638655454,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 591.6807701503025,
+            "w": 123.05000000000007,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "2b0f4930d85d713f8169f4328b7bf8e82efeda256cfdd79bee5bd9f848f73ae3"
+    },
+    {
+      "segment_id": "paper_006_body_0038_748c4ef6::segment_0000",
+      "chunk_id": "paper_006_body_0038_748c4ef6",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 38,
+      "source_index": 38,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 45,
+      "token_count": 45,
+      "text": "as shown in the confusion matrix in fig. 5, the classification performance is high for all four models ( vgg16 and vgg19 models, cnn model, efficientnetb4 model, inceptionv3 model ).",
+      "metadata": {
+        "section": "CNN-based transfer learning",
+        "section_path": [
+          "CNN-based transfer learning"
+        ],
+        "subsection_id": "paper_006_subsection_00909fd9ccf4",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0035"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 155.91750512700003,
+            "y": 180.58138550833678,
+            "w": 400.2911999931247,
+            "h": 17.990699696663228,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90740551700003,
+            "y": 296.00695760788017,
+            "w": 18.17999999999998,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.9263139509999,
+            "y": 204.0109576078802,
+            "w": 45.52199999999999,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.90309954399999,
+            "y": 112.00497286688028,
+            "w": 32.62500000000006,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "0cd010143d9c29aa3b0cc87fcae0fd8f58a07402ba3d13e8aefbb195d24ba8c7"
+    },
+    {
+      "segment_id": "paper_006_table_caption_0039_70e38d61::segment_0000",
+      "chunk_id": "paper_006_table_caption_0039_70e38d61",
+      "paper_id": "paper_006",
+      "chunk_type": "table_caption",
+      "order_index": 39,
+      "source_index": 39,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 15,
+      "token_count": 15,
+      "text": "table 1. distribution of the preprocessed brain tumor dataset.",
+      "metadata": {
+        "table_id": "table_001",
+        "label": "Table 1",
+        "structure_status": "structured",
+        "pages": [
+          3
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 0
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "0f95face22fc7bafb1f0cbe834020d34f8a4c8af0438c6e041670210c98b2b08"
+    },
+    {
+      "segment_id": "paper_006_table_caption_0040_a9e07610::segment_0000",
+      "chunk_id": "paper_006_table_caption_0040_a9e07610",
+      "paper_id": "paper_006",
+      "chunk_type": "table_caption",
+      "order_index": 40,
+      "source_index": 40,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 6,
+      "token_count": 6,
+      "text": "table 2. confusion matrix.",
+      "metadata": {
+        "table_id": "table_002",
+        "label": "Table 2",
+        "structure_status": "structured",
+        "pages": [
+          4
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 1
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 1
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "96de3f4b8e22a90fa5aa4d9a75758a027c17d62918dbe34106d2f6a1fc4dfe69"
+    },
+    {
+      "segment_id": "paper_006_table_caption_0041_b02e4041::segment_0000",
+      "chunk_id": "paper_006_table_caption_0041_b02e4041",
+      "paper_id": "paper_006",
+      "chunk_type": "table_caption",
+      "order_index": 41,
+      "source_index": 41,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 15,
+      "token_count": 15,
+      "text": "table 3. performances ( % ) of the models created in the study.",
+      "metadata": {
+        "table_id": "table_003",
+        "label": "Table 3",
+        "structure_status": "structured",
+        "pages": [
+          6
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 2
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "c498ecb3ca44c036943a508dbe68d88ae9510fbf3728a369fe6fb7ec26955780"
+    },
+    {
+      "segment_id": "paper_006_table_caption_0042_62066763::segment_0000",
+      "chunk_id": "paper_006_table_caption_0042_62066763",
+      "paper_id": "paper_006",
+      "chunk_type": "table_caption",
+      "order_index": 42,
+      "source_index": 42,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 18,
+      "token_count": 18,
+      "text": "table 4. comparison with previous studies on brain tumor. best results obtained in the study.",
+      "metadata": {
+        "table_id": "table_004",
+        "label": "Table 4",
+        "structure_status": "structured",
+        "pages": [
+          8
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 3
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "0482e7eb476b927f170d0c3341831d089f1379fa7854be85ecc201d48eb41ee9"
+    },
+    {
+      "segment_id": "paper_006_figure_caption_0043_2c3b1554::segment_0000",
+      "chunk_id": "paper_006_figure_caption_0043_2c3b1554",
+      "paper_id": "paper_006",
+      "chunk_type": "figure_caption",
+      "order_index": 43,
+      "source_index": 43,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 9,
+      "token_count": 9,
+      "text": "figure 1. flow diagram of the work.",
+      "metadata": {
+        "figure_id": "figure_001",
+        "label": "Figure 1",
+        "pages": [
+          2
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 1
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "5ebefd993e21b7d46d1a7f95d368d0ad50d40cbb1a74a69044dd9e33cdeda253"
+    },
+    {
+      "segment_id": "paper_006_figure_caption_0044_a0050326::segment_0000",
+      "chunk_id": "paper_006_figure_caption_0044_a0050326",
+      "paper_id": "paper_006",
+      "chunk_type": "figure_caption",
+      "order_index": 44,
+      "source_index": 44,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 13,
+      "token_count": 13,
+      "text": "figure 2. multi - layer cnn model arthitecture.",
+      "metadata": {
+        "figure_id": "figure_002",
+        "label": "Figure 2",
+        "pages": [
+          5
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 2
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "a2f6625ad32ab8d9a1295c6ffccb0d8226ff5172535e32009062f3941717fe88"
+    },
+    {
+      "segment_id": "paper_006_figure_caption_0045_4802b143::segment_0000",
+      "chunk_id": "paper_006_figure_caption_0045_4802b143",
+      "paper_id": "paper_006",
+      "chunk_type": "figure_caption",
+      "order_index": 45,
+      "source_index": 45,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 50,
+      "token_count": 50,
+      "text": "figure 3. learning curves of losses and accuracies of ( a ) cnn model, ( b ) efficientnetb4 model, ( c ) vgg19 model, ( d ) inceptionv3, ( e ) vgg16 model.",
+      "metadata": {
+        "figure_id": "figure_003",
+        "label": "Figure 3",
+        "pages": [
+          6
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 3
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "395ad48c03a56f2b6f4de62ffe7cf2228c5811a19f8d409e8ca30d97c84481f1"
+    },
+    {
+      "segment_id": "paper_006_figure_caption_0046_5da1342f::segment_0000",
+      "chunk_id": "paper_006_figure_caption_0046_5da1342f",
+      "paper_id": "paper_006",
+      "chunk_type": "figure_caption",
+      "order_index": 46,
+      "source_index": 46,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 44,
+      "token_count": 44,
+      "text": "figure 4. the roc curve of ( a ) cnn model, ( b ) efficientnetb4 model, ( c ) vgg19 model ( d ) inceptionv3 model, ( e ) vgg16.",
+      "metadata": {
+        "figure_id": "figure_004",
+        "label": "Figure 4",
+        "pages": [
+          7
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 4
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 4
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "db02bf12df26fed7fc5397822511b27eef7004dde2b9deae94ee86858ef2970a"
+    },
+    {
+      "segment_id": "paper_006_figure_caption_0047_6460f405::segment_0000",
+      "chunk_id": "paper_006_figure_caption_0047_6460f405",
+      "paper_id": "paper_006",
+      "chunk_type": "figure_caption",
+      "order_index": 47,
+      "source_index": 47,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 45,
+      "token_count": 45,
+      "text": "figure 5. the confusion metrics of ( a ) cnn model, ( b ) efficientnetb4 model, ( c ) vgg19 model ( d ) inceptionv3 model, ( e ) vgg16.",
+      "metadata": {
+        "figure_id": "figure_005",
+        "label": "Figure 5",
+        "pages": [
+          8
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 5
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 5
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "61ec18933de548add7b8bb94ccc653c466a50848e6377ef96f74cb98ebb8ddcb"
+    }
+  ],
+  "execution": {
+    "elapsed_seconds": 5.859
+  }
+}

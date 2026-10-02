@@ -1,0 +1,3843 @@
+{
+  "schema_version": 2,
+  "model_alias": "bge-base",
+  "paper_id": "paper_003",
+  "created_at": "2026-09-28T17:35:20.209759+00:00",
+  "input_fingerprint": "f2428b486326bada0f57148948fde8f13686a668e04b37448f8c3cf7f096c4cf",
+  "source": {
+    "file": "storage\\chunks\\paper_003_chunks.json",
+    "sha256": "9cac52070e77846df2b35abac57f03aca4e87192d3b9a087fda074d8a33bf400",
+    "chunk_count": 68
+  },
+  "embedding": {
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "requested_revision": "main",
+    "resolved_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+    "dimension": 768,
+    "max_seq_length": 512,
+    "batch_size": 8,
+    "device": "cpu",
+    "normalize": true,
+    "windowing": {
+      "strategy": "overlapping_token_windows",
+      "overlap_tokens": 64
+    },
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "query_instruction": "Represent this sentence for searching relevant passages: "
+  },
+  "selection": {
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "selected_chunk_count": 46,
+    "embedded_segment_count": 46,
+    "oversized_chunk_count": 0,
+    "excluded_counts": {
+      "heading": 18,
+      "reference": 4
+    }
+  },
+  "vectors": {
+    "file": "paper_003_embeddings.npz",
+    "sha256": "51338eb3fb495f7efc23515967283c6393628fd1449e492b94671b7bc5080982",
+    "dtype": "float32",
+    "shape": [
+      46,
+      768
+    ],
+    "normalized": true
+  },
+  "records": [
+    {
+      "segment_id": "paper_003_abstract_0000_e4c91a48::segment_0000",
+      "chunk_id": "paper_003_abstract_0000_e4c91a48",
+      "paper_id": "paper_003",
+      "chunk_type": "abstract",
+      "order_index": 0,
+      "source_index": 0,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 232,
+      "token_count": 232,
+      "text": "accurate classification of brain tumors from magnetic resonance imaging ( mri ) images remains a significant technical challenge in medical image analysis. recent advancements have primarily focused on developing automated image classification methods. however, traditional convolutional neural networks ( cnns ) have limited feature extraction capabilities, leading to suboptimal recognition performance. to address this issue, this paper proposes a novel image classification framework named multi - scale channel attention cnn integrated with support vector machine ( mcacnn - svm ). in the proposed mcacnn - svm, hierarchical spatial features are extracted with multi - scale convolutional kernels, and then further adaptively enhanced by adopting the channel attention mechanism. finally, an svm classifier optimized by grid search algorithm is employed to optimize the decision boundaries and enhance classification accuracy. furthermore, the cosine annealing with warm restarts strategy is adopted to accelerate convergence and improve generalization. extensive experiments on the brain tumor mri dataset demonstrate that the proposed framework achieves competitive performance in accuracy, precision, recall, and f1 - score, exhibiting strong robustness and generalization ability for practical applications.",
+      "metadata": {
+        "section": "Abstract",
+        "title": "Brain tumor classification from MRI images using a multi-scale channel attention CNN integrated with SVM",
+        "authors": [
+          "Longzhang Ke",
+          "Guozhen Hu",
+          "Min Zhao",
+          "Zhi Liu",
+          "Zean Lv",
+          "Yuqing Yang"
+        ],
+        "index_terms": [
+          "Image classification",
+          "Convolutional neural networks",
+          "Support vector machines",
+          "Attention mechanism Accurate and automated classification of brain tumors from Magnetic Resonance Imaging (MRI) images"
+        ]
+      },
+      "text_sha256": "01b46173e4f982d58e708acd3b49fbc6249c022687f214189426d8dbf6e28e8f"
+    },
+    {
+      "segment_id": "paper_003_index_terms_0001_86e2ab48::segment_0000",
+      "chunk_id": "paper_003_index_terms_0001_86e2ab48",
+      "paper_id": "paper_003",
+      "chunk_type": "index_terms",
+      "order_index": 1,
+      "source_index": 1,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 36,
+      "token_count": 36,
+      "text": "[ index terms ] image classification, convolutional neural networks, support vector machines, attention mechanism accurate and automated classification of brain tumors from magnetic resonance imaging ( mri ) images",
+      "metadata": {
+        "section": "Index Terms",
+        "terms": [
+          "Image classification",
+          "Convolutional neural networks",
+          "Support vector machines",
+          "Attention mechanism Accurate and automated classification of brain tumors from Magnetic Resonance Imaging (MRI) images"
+        ]
+      },
+      "text_sha256": "433301e3d548c130fe8e74511b01eca1f0b28e4b8ebc958a68b4c7ce76fb3c65"
+    },
+    {
+      "segment_id": "paper_003_body_0002_9c01a85a::segment_0000",
+      "chunk_id": "paper_003_body_0002_9c01a85a",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 2,
+      "source_index": 2,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 274,
+      "token_count": 274,
+      "text": "presents a significant challenge in medical image analysis 1, 2. the complex anatomical structure of the brain and the considerable inter - subject variability render manual diagnosis time - consuming and prone to subjectivity 3, 4. while deep learning has shown promise in automating this task, models based on traditional convolutional neural networks ( cnns ) often have limitations in capturing comprehensive features and constructing optimal decision boundaries 5. therefore, developing advanced computer - aided diagnostic frameworks that are both robust and highly accurate is of paramount importance for practical applications. mri has emerged as a primary modality for brain tumor characterization owing to its superior soft - tissue contrast. the precise analysis of mri data now serves as a cornerstone for brain tumor classification. driven by continuous developments in medical imaging, substantial research efforts have been directed toward automating the classification process to enhance diagnostic accuracy and reproducibility 6. early approaches frequently relied on traditional machine learning techniques. for example, helen et al. 7 implemented an automated preprocessing and feature extraction method combined with a random forest ( rf ) classifier for binary classification on the brats 2015 dataset, markedly improving the differentiation between benign and malignant tumors through block - wise features. similarly, soltaninejad et al. 8 confirmed the effectiveness of rf in feature selection tasks, reporting an average classification accuracy of 80. 86 %.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0001",
+          "para_0002"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 155.905502319,
+            "y": 239.7533934423367,
+            "w": 400.35420000343845,
+            "h": 67.99171495566327,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 155.905502319,
+            "y": 148.54574676699997,
+            "w": 400.37130000000025,
+            "h": 89.19934637200004,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 15,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "5ab76d8556ed464e9964b7d42c70030d0bb19d1394f93a4cde1ffdda0b23ff8c"
+    },
+    {
+      "segment_id": "paper_003_body_0003_79d3600b::segment_0000",
+      "chunk_id": "paper_003_body_0003_79d3600b",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 3,
+      "source_index": 3,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 260,
+      "token_count": 260,
+      "text": "the evolution of computer - aided diagnosis ( cad ) systems has incorporated a wider range of classifiers and methodologies. sachdeva et al. 9 developed an integrated framework that combined image segmentation, feature extraction, and multi - class classification, achieving 85 % overall accuracy using artificial neural networks for six tumor types. support vector machines ( svms ) have also demonstrated strong performance. dandil et al. 10 achieved a classification accuracy of 91. 05 %, with a sensitivity of 90. 8 % and specificity of 94. 7 % in medical imaging applications. recognizing that feature extraction is pivotal for model performance, gumaei et al. 11 introduced a hybrid method based on a regularized extreme learning machine ( relm ), while paul et al. 12 merged fully connected networks with convolutional neural networks ( cnns ) to devise a generalized classification technique, attaining an accuracy of 91. 43 %. other specialized approaches, such as the tumor resection technique by hamamci et al. 13 which processes multiple mri modalities ( t1, t2, t1 - gd, flair ) separately, and the voxel - level svm classification utilizing intensity and spatial features by havaei et al. 14, further enriched the methodological landscape.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0003"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 355.78029518360506,
+            "w": 103.30000000000001,
+            "h": 8.17621848739492,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 11,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 14,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "3e0fde3ef9d51188e8e7e375d2b94cbf69246f73995fb1c5e7db084f27c6d316"
+    },
+    {
+      "segment_id": "paper_003_body_0004_e0f621da::segment_0000",
+      "chunk_id": "paper_003_body_0004_e0f621da",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 4,
+      "source_index": 4,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 334,
+      "token_count": 334,
+      "text": "more recently, deep learning approaches have dominated the field, offering significant improvements in accuracy 15. cnn - based models achieved 97 % classification accuracy on the brats 2013 dataset 16, and subsequent studies with data augmentation reported accuracies of 95 % and 98 % on other datasets 17. sliding window - based cnns and other deep architectures have been widely employed for medical image classification, demonstrating notable advantages in both accuracy and stability over traditional machine learning methods. despite their success, these techniques are often hampered by inherent limitations, including high model complexity, substantial computational demands, long training times, and a propensity for overfitting. for instance, deepak et al. 18 employed transfer learning with data augmentation to enhance model generalization, while swati et al. 19 demonstrated the effectiveness of fine - tuning pre - trained networks for brain tumor classification. similarly, diaz - pernas et al. 20 developed a multi - scale cnn architecture that captures discriminative features at different resolutions, achieving robust performance on mri datasets. convolutional neural networks, while representing a cornerstone technology in image recognition and achieving remarkable success in classification tasks, are consequently often characterized by these operational drawbacks [ 21 ] [ 22 ] [ 23 ]. in parallel, support vector machines ( svms ) have been extensively applied across various image processing tasks - including image recognition, object detection, and segmentation - due to their strong theoretical foundations and effectiveness in high - dimensional spaces 24. nevertheless, svms are also associated with challenges such as high computational complexity, poor scalability, and limited efficacy in handling nonlinear data without appropriate kernel choices.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0004",
+          "para_0005"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905502319,
+            "y": 533.1874296973367,
+            "w": 400.35330000343856,
+            "h": 107.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 93.568298339,
+            "y": 631.7374292806891,
+            "w": 47.304,
+            "h": 14.717193277310912,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 15,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 16,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 17,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905502319,
+            "y": 463.1873991793367,
+            "w": 400.3515,
+            "h": 67.99173021466333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 355.78029518360506,
+            "w": 103.30000000000001,
+            "h": 8.17621848739492,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "644ac0f083211fb0a56ee2658c01d3f4950301a2b27eba469fe7ce365c71f55e"
+    },
+    {
+      "segment_id": "paper_003_body_0005_3ec32bf0::segment_0000",
+      "chunk_id": "paper_003_body_0005_3ec32bf0",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 5,
+      "source_index": 5,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 364,
+      "token_count": 364,
+      "text": "motivated by the above discussion, this paper proposes a novel hybrid model named multi - scale channel attention cnn integrated with support vector machine ( mcacnn - svm ) ) for brain tumor image classification. this model leverages the powerful image feature extraction capability of mcacnn and the efficient classification performance of svm, fully utilizing the strengths of both techniques. this multi - scale fusion approach provides a more efficient and flexible solution for brain tumor image classification, laying a foundation for further improving classification accuracy and robustness. the main contributions of this paper are summarized as follows : 1 ) a hybrid model named mcacnn - svm is proposed for brain tumor mri image classification, which integrates a multi - scale convolutional neural network with a support vector machine. the mcacnn extracts rich spatial features from the mri images using convolution kernels of different scales, while the svm effectively classifies the features, improving the model ' s performance. 2 ) the introduction of a channel attention mechanism ( senet ) optimizes the feature extraction process by enhancing the importance of critical feature channels, thus improving the robustness and classification accuracy of the model. 3 ) a comprehensive optimization strategy is implemented to enhance model performance : a cosine annealing with warm restarts strategy dynamically adjusts the learning rate to facilitate convergence and generalization, while the hyperparameters of the svm classifier are systematically optimized via grid search with cross - validation to ensure the formation of optimal decision boundaries. 4 ) extensive experiments on the brain tumor mri dataset demonstrate that the mcacnn - svm model outperforms existing state - of - the - art methods in accuracy, recall, precision, and f1 - score, confirming its high robustness and practical value for clinical diagnostic applications.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0006"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905502319,
+            "y": 283.1873991793367,
+            "w": 400.3544999965619,
+            "h": 177.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 355.78029518360506,
+            "w": 103.30000000000001,
+            "h": 8.17621848739492,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "18db8497c5e20c8308d033ae4be11cc6c2f48dbbfc97f98f47176ba1fe161970"
+    },
+    {
+      "segment_id": "paper_003_body_0006_e93a6df4::segment_0000",
+      "chunk_id": "paper_003_body_0006_e93a6df4",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 6,
+      "source_index": 6,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 102,
+      "token_count": 102,
+      "text": "the remainder of this paper is organized as follows : section 2 introduces the fundamental theories related to image classification algorithms, including the multi - scale convolutional layers, channel attention mechanism and support vector. section 3 describes the model framework and image classification process. section 4 analyses the experimental results and compares the performance of the proposed model with other leading methods. finally, section 5 concludes the paper and discusses potential future directions for enhancing the model ' s efficiency and exploring its broader application in other medical image classification tasks.",
+      "metadata": {
+        "section": "Body",
+        "section_path": [],
+        "subsection_id": null,
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0007"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905502319,
+            "y": 223.1873991793367,
+            "w": 400.3604999965612,
+            "h": 57.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "fe6be4ff24f7abb0c13aece6c751e5c3a038c93d982aa6ae06599eadad8fb73d"
+    },
+    {
+      "segment_id": "paper_003_body_0008_3502d99f::segment_0000",
+      "chunk_id": "paper_003_body_0008_3502d99f",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 8,
+      "source_index": 8,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 185,
+      "token_count": 185,
+      "text": "traditional cnn networks are fully convolutional networks. cnns are well - known for their excellent image feature learning capabilities, as they rely on fully connected convolutional structures to extract feature vectors and classify targets 25. their multi - layer structure automatically learns hierarchical features of the data, from edges and textures to more complex patterns 26, 27. moreover, due to the characteristics of parameter sharing and local connections, cnns generally require fewer training parameters than fully connected networks for image recognition tasks, reducing the risk of overfitting and improving computational efficiency 28. however, traditional cnns also have limitations. when the network structure becomes deeper, issues such as vanishing or exploding gradients may occur during training, making the model difficult to train. additionally, traditional cnns may be limited when processing very large images or capturing global contextual information due to the restricted receptive field of their convolution kernels.",
+      "metadata": {
+        "section": "Convolutional neural network",
+        "section_path": [
+          "Convolutional neural network"
+        ],
+        "subsection_id": "paper_003_subsection_a7ba48a145d9",
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0008"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905502319,
+            "y": 91.1873991793367,
+            "w": 400.36599155299984,
+            "h": 97.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "86cf82359144131d78d69bce80e0fd2a265fabb99f3de90ee6ff5dfcc343fee8"
+    },
+    {
+      "segment_id": "paper_003_body_0010_6f78b79f::segment_0000",
+      "chunk_id": "paper_003_body_0010_6f78b79f",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 10,
+      "source_index": 10,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 366,
+      "token_count": 366,
+      "text": "the attention mechanism works by generating and assigning weights to modulate the network parameters. after training, the network focuses on the key features, thus optimizing the learning capability of the cnn. to improve feature discriminability in convolutional neural networks, where different channels often contribute unequally to task performance, this work incorporates and refines the channel attention mechanism established in 29. this mechanism, known as senet ( squeeze - and - excitation network ), enhances representational power by explicitly modeling inter - channel relationships and adaptively emphasizing informative features. its fundamental building block, the se block, performs sequential squeezing and excitation operations to dynamically recalibrate channel - wise responses, as illustrated in fig. 1. brain tumor images typically exhibit complex textural and structural features. the channel attention mechanism can effectively assist the network in extracting and focusing on important feature channels. by enhancing the weights of critical features, it accelerates the extraction of key characteristics in brain tumor images while suppressing less relevant features, thereby reducing computational load and significantly improving recognition and classification performance. furthermore, compared to other types of attention mechanisms, the channel attention mechanism offers lower computational complexity, making it easier to implement and train within networks. thus, employing a channel attention mechanism represents a rational and efficient choice for brain tumor image recognition and classification tasks. in a standard convolutional neural network ( cnn ), each channel processes information within its confined receptive area, lacking the capacity to incorporate contextual cues from neighboring channels. to address this limitation, the squeeze network first extracts a feature map x through convolutional operations, then compresses it using global average pooling to capture global information z. the c element of z, denoted as zc, is calculated as follows.",
+      "metadata": {
+        "section": "Channel attention mechanism",
+        "section_path": [
+          "Channel attention mechanism"
+        ],
+        "subsection_id": "paper_003_subsection_29fb1d1d0404",
+        "pages": [
+          2,
+          3
+        ],
+        "paragraph_ids": [
+          "para_0009",
+          "para_0010",
+          "para_0011",
+          "para_0012"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 51.187399179336694,
+            "w": 400.32540000343823,
+            "h": 17.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 673.1874296973367,
+            "w": 400.3422976844379,
+            "h": 57.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 593.1874296973367,
+            "w": 400.35239999656187,
+            "h": 77.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 543.1874296973367,
+            "w": 400.3505999931241,
+            "h": 47.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "503b07d2f7343275c8b960385e7c2cf28aae3becce72b9ea6b6cc3370ae34d48"
+    },
+    {
+      "segment_id": "paper_003_body_0011_291b7afa::segment_0000",
+      "chunk_id": "paper_003_body_0011_291b7afa",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 11,
+      "source_index": 11,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 117,
+      "token_count": 117,
+      "text": "where uc denotes the c - th channel of the feature map x, while h and w represent its height and width, respectively. following the excitation step, the interdependencies between channels are modeled to produce the channel - wise weight coefficient s, computed as follows. where δ denotes the relu activation function, σ represents the sigmoid function, and r is the reduction ratio ( set to 16 in this study ). the output feature map x is subsequently obtained by eq. ( 3 ). where sc corresponds to the c - th element of s.",
+      "metadata": {
+        "section": "Channel attention mechanism",
+        "section_path": [
+          "Channel attention mechanism"
+        ],
+        "subsection_id": "paper_003_subsection_29fb1d1d0404",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0013",
+          "para_0014",
+          "para_0015"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 462.7296049903367,
+            "w": 400.3514999965623,
+            "h": 28.35275919766326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 414.0117094823367,
+            "w": 400.318184741,
+            "h": 18.256750896663277,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 16,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 375.1646124283333,
+            "w": 164.22300524900004,
+            "h": 8.481930226666691,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "5f1c71aeb0058e5bee7119c458da339ef9c7307e61dbc84c1c7eccdf084708d8"
+    },
+    {
+      "segment_id": "paper_003_body_0013_8fe3b825::segment_0000",
+      "chunk_id": "paper_003_body_0013_8fe3b825",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 13,
+      "source_index": 13,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 174,
+      "token_count": 174,
+      "text": "support vector machines ( svms ) are a class of generalized linear classifiers that perform binary classification on data using supervised learning 30, 31. their decision boundary is the maximum margin hyperplane derived from the training samples. compared to neural networks, svms offer a clearer and more powerful approach when learning complex nonlinear equations. the core idea of the svm algorithm is to identify a subset of data points located on the margins, known as support vectors, and use these points to determine a plane, referred to as the decision boundary, such that the distance from the support vectors to this plane is maximized any hyperplane can be described by the following linear equation : where w is the weight matrix and b is the bias term. the distance formula from a point ( x, y ) in two - dimensional space to a line ax + by + c = 0 is as follows.",
+      "metadata": {
+        "section": "Support vector machine",
+        "section_path": [
+          "Support vector machine"
+        ],
+        "subsection_id": "paper_003_subsection_3d078a07cb64",
+        "pages": [
+          1,
+          3
+        ],
+        "paragraph_ids": [
+          "para_0016",
+          "para_0017"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 355.78029518360506,
+            "w": 103.30000000000001,
+            "h": 8.17621848739492,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 167.905502319,
+            "y": 285.29381397433673,
+            "w": 237.71249999656175,
+            "h": 7.991699696663261,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 295.29381397433673,
+            "w": 400.36859999656167,
+            "h": 57.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 244.90590503933674,
+            "w": 186.23379201599994,
+            "h": 7.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "c720a799e3ced7a82751759d45c350512fa0308091819d57dcc36a30839ba315"
+    },
+    {
+      "segment_id": "paper_003_body_0015_c8a45489::segment_0000",
+      "chunk_id": "paper_003_body_0015_c8a45489",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 15,
+      "source_index": 15,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 120,
+      "token_count": 120,
+      "text": "when extended to n - dimensional space, the distance from a point x = ( x1, x2,..., xn ) to the hyperplane w t x + b = 0 is given by eq. ( 6 ). as illustrated, according to the definition of support vectors, it is known that the distance from the support vectors to the hyperplane is d, while the distance from other points to the hyperplane is strictly greater than d. thus, the two parallel hyperplanes above and below the maximum - margin hyperplane can be obtained as shown in fig. 2.",
+      "metadata": {
+        "section": "Scientific Reports | (2026) 16:6297",
+        "section_path": [
+          "Scientific Reports | (2026) 16:6297"
+        ],
+        "subsection_id": "paper_003_subsection_c6c2af88e009",
+        "pages": [
+          1,
+          4
+        ],
+        "paragraph_ids": [
+          "para_0018",
+          "para_0019"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.905502319,
+            "y": 218.80159595733664,
+            "w": 400.3062837125623,
+            "h": 18.35672071466331,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.905502319,
+            "y": 122.55370167033675,
+            "w": 400.34520000687587,
+            "h": 37.991699696663204,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "89c94cba6738d6b3aa62802f763ad91bfded9a5ffad52110510d14b523fc4450"
+    },
+    {
+      "segment_id": "paper_003_body_0017_89c84650::segment_0000",
+      "chunk_id": "paper_003_body_0017_89c84650",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 17,
+      "source_index": 17,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 239,
+      "token_count": 239,
+      "text": "in order to overcome the limitations of traditional cnn feature extraction capabilities, this paper proposes the mcacnn - svm model, with the overall framework shown in fig. 3. the model integrates multi - scale convolutional neural networks with different scales to enhance the perception of information at varying scales within an image. in the mcacnn architecture, the traditional cnn network structure is carefully adjusted and extended to meet the specific needs of brain mri image classification. by introducing multi - scale convolution kernels and pooling windows, the model captures richer image features, improving the network ' s ability to recognize edges, textures, and more complex patterns. in addition, svm serves as the final classifier responsible for optimizing the classification of high - level features extracted by multi - scale channel attention cnn ( mcacnn ). svm achieves decision boundary partitioning in feature space by constructing the optimal hyperplane, which has the advantage of maintaining strong generalization ability when processing high - dimensional feature data. the synergy between mcacnn ' s nuanced feature extraction and svm ' s discriminative classification creates a powerful framework for accurate image analysis.",
+      "metadata": {
+        "section": "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework",
+        "section_path": [
+          "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework"
+        ],
+        "subsection_id": "paper_003_subsection_399fb4677a7e",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0020"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 155.905502319,
+            "y": 40.55370167033675,
+            "w": 400.351499996562,
+            "h": 47.991699696663204,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 663.1874296973367,
+            "w": 400.3335000000003,
+            "h": 67.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "660e84e6f4566c2b785bf2f658d872e7057645a698b0259a18a1b310900d4b1f"
+    },
+    {
+      "segment_id": "paper_003_body_0018_7629a7c4::segment_0000",
+      "chunk_id": "paper_003_body_0018_7629a7c4",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 18,
+      "source_index": 18,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 426,
+      "token_count": 426,
+      "text": "in the proposed mcacnn - svm hybrid model, through this parallel design, the multi - scale convolutional network layers can simultaneously extract features at various scales and fuse them together. this enhances the model ' s ability to perceive multi - scale features, thereby improving its understanding and classification accuracy of brain tumor images. to extract fine - grained spatial features from mri images and enhance spatial attention information, three parallel 2d convolutional pathways are designed, as illustrated in fig. 3. each pathway consists of three sequential layers : a convolutional layer ( conv ), a batch normalization layer ( bn ), and a max pooling layer ( maxpool ). the original single - scale convolution kernels are replaced with 3 × 3, 5 × 5, and 7 × 7 kernels to capture features at different scales. after the three different - scale convolutions, a 1 × 1 convolution is applied to concatenate the inputs from the three scales and then compress the channels. this design enables the model to capture more comprehensive details and structural features in brain tumor images. this parallel structure ensures that features extracted from convolution kernels of different scales can be learned and updated independently, thereby avoiding potential interference among multi - scale features. the outputs from multiple branches are merged through concatenation and then compressed with a 1 × 1 convolution, transforming the complex nonlinear features of brain tumors into a more linear feature space. although the softmax layer in cnns performs well for classifying linearly separable data, it is less effective in handling complex decision boundaries. in contrast, svm offers a more distinct separation of the feature space. unlike fully connected layers with softmax, svm leverages maximum - margin separation to establish a more robust decision boundary in the high - dimensional feature space extracted by deep networks, thereby enhancing classification stability and generalization. therefore, in this model, cnn is employed for feature extraction, and classification is ultimately performed by svm, with the integration carried out at the feature level.",
+      "metadata": {
+        "section": "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework",
+        "section_path": [
+          "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework"
+        ],
+        "subsection_id": "paper_003_subsection_399fb4677a7e",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0021",
+          "para_0022"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 563.1874296973367,
+            "w": 400.3164000034384,
+            "h": 97.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 463.1873991793367,
+            "w": 400.354200003438,
+            "h": 97.99173021466333,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "982bb01dc48177c594abe3fa640d05d57ac3961c72a21463b5f7bef2f4e1266c"
+    },
+    {
+      "segment_id": "paper_003_body_0019_204535bb::segment_0000",
+      "chunk_id": "paper_003_body_0019_204535bb",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 19,
+      "source_index": 19,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 105,
+      "token_count": 105,
+      "text": "the improved mcacnn network, by introducing multi - scale convolution and pooling operations, is better equipped to capture multi - scale information in images. this enhances the network ' s ability to perceive information at different scales, thereby improving the accuracy and robustness of image classification tasks. with the incorporation of multi - scale convolutions and pooling operations, the network gains a more comprehensive understanding of image features and can effectively process information at various scales. the key model parameters are summarized in table 1.",
+      "metadata": {
+        "section": "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework",
+        "section_path": [
+          "The proposed image classification framework of MCACNN-SVM MCACNN-SVM model framework"
+        ],
+        "subsection_id": "paper_003_subsection_399fb4677a7e",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0023"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 403.1873991793367,
+            "w": 400.33079999999995,
+            "h": 57.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "dea852aecde55cf16dec12120f1e7cdf93951f9df1a20a5782c6822074493d08"
+    },
+    {
+      "segment_id": "paper_003_body_0021_e2ed26d3::segment_0000",
+      "chunk_id": "paper_003_body_0021_e2ed26d3",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 21,
+      "source_index": 21,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 129,
+      "token_count": 129,
+      "text": "the full flowchart of the mcacnn - svm model for mri image classification is shown in fig. 4. the overall pipeline comprises three main stages : data partitioning, model training, and diagnostic classification. initially, the dataset is partitioned into training, validation, and test subsets. the model is then initialized and trained on the training set, with hyperparameters iteratively optimized using the validation set. upon reaching a predefined maximum number of iterations, the optimal model is automatically saved. lastly, the trained model is utilized for performing classification and diagnostic tasks on the test set.",
+      "metadata": {
+        "section": "Image classification process of MCACNN-SVM model",
+        "section_path": [
+          "Image classification process of MCACNN-SVM model"
+        ],
+        "subsection_id": "paper_003_subsection_dfa20c694590",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0024",
+          "para_0025"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 373.1873991793367,
+            "w": 343.703992798,
+            "h": 7.991699696663261,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 323.1873991793367,
+            "w": 400.334699996562,
+            "h": 47.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "00997ccb0da4f50cb45e97827ee34ec596ce6cf3291a3dc976f27bdad7a9640c"
+    },
+    {
+      "segment_id": "paper_003_body_0023_710b07b6::segment_0000",
+      "chunk_id": "paper_003_body_0023_710b07b6",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 23,
+      "source_index": 23,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 67,
+      "token_count": 67,
+      "text": "the experiments were conducted using the keras deep learning framework with python 3. 7. the hardware environment included an intel i7 - 13700kf cpu and a colorful geforce rtx 4060 ti gpu with 16 gb vram, accelerated by the cuda 10. 1 parallel computing architecture on a windows 11 operating system.",
+      "metadata": {
+        "section": "Experimental results and analysis",
+        "section_path": [
+          "Experimental results and analysis"
+        ],
+        "subsection_id": "paper_003_subsection_6ee187a0f7e9",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0026"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 271.1873991793367,
+            "w": 400.31820000000016,
+            "h": 27.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 11,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 16,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "2ebc000a111561d7ca416d18e827de3ff0a79cd21f139eb7ad39afc2279e4e19"
+    },
+    {
+      "segment_id": "paper_003_body_0025_18bc968d::segment_0000",
+      "chunk_id": "paper_003_body_0025_18bc968d",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 25,
+      "source_index": 25,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 349,
+      "token_count": 349,
+      "text": "to evaluate the effectiveness of the proposed mcacnn - svm model, we employed the publicly available brain tumor mri dataset 32. this dataset, also hosted on kaggle, comprises a total of 7, 023 t1 - weighted contrast - enhanced magnetic resonance imaging ( ce - mri ) slices. the images were collected from real clinical cases in chinese hospitals and have been rigorously preprocessed, including anonymization, skull - stripping, and alignment, to ensure quality and consistency 33, 34. the dataset is categorized into four classes : glioma, meningioma, pituitary tumor, and no tumor, providing a approximately balanced multi - class classification task. the detailed distribution of the dataset for training and testing is summarized in table 2. additionally, to enhance the model ' s generalization capability and mitigate overfitting, a comprehensive data preprocessing and augmentation pipeline was applied exclusively to the training set. each image was first normalized to a fixed size of 224 × 224 pixels. pixel values were then rescaled to the range [ 0, 1 ] by dividing by 255. during training, the following real - time data augmentation techniques were employed using the keras imagedatagenerator : • random horizontal flip with a probability of 0. 5. • random zoom a zoom range of ±10 %. • grayscale normalization performed per - image by standardizing to zero mean and unit variance. the validation and test sets were only subjected to resizing and normalization, without any augmentation, to ensure a fair evaluation. figure 5 shows example mri images for each of the four tumor categories in the brain tumor mri dataset.",
+      "metadata": {
+        "section": "Experimental dataset and data preprocessing",
+        "section_path": [
+          "Experimental dataset and data preprocessing"
+        ],
+        "subsection_id": "paper_003_subsection_1974750b7c87",
+        "pages": [
+          1,
+          5,
+          6
+        ],
+        "paragraph_ids": [
+          "para_0027",
+          "para_0028",
+          "para_0029",
+          "para_0030",
+          "para_0031"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 259.49968555633666,
+            "w": 187.48970009799996,
+            "h": 7.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 244.1552546483938,
+            "w": 152.869611694,
+            "h": 13.714726177606167,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 239.49970030333668,
+            "w": 353.69079475099954,
+            "h": 7.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 200.99570301333665,
+            "w": 400.32630000343806,
+            "h": 27.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "dc872cc9553ae2ae250af9da098d73ac7f7f3b714a1534131e02a49aa0e325ec"
+    },
+    {
+      "segment_id": "paper_003_body_0027_191c20db::segment_0000",
+      "chunk_id": "paper_003_body_0027_191c20db",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 27,
+      "source_index": 27,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 329,
+      "token_count": 329,
+      "text": "in this paper, a four - class performance evaluation was conducted on the mcacnn - svm hybrid model developed based on the brain tumor mri dataset. the performance metrics used include precision, recall, accuracy, f1 - score, as well as macro average and micro average. accuracy refers to the proportion of correctly predicted samples to the total number of samples. the formula is as follows. t p + t n t p + t n + f p + f n ( 7 ) recall is the proportion of all actually positive samples that are correctly identified as positive. the formula is as follows. recall = t p t p + f n ( 8 ) table 2. distribution of brain tumor mri dataset across training and test sets. precision is the proportion of samples that are actually positive among all the samples predicted as positive by the model. the formula is as follows. p recision = t p t p + f p ( the f1 - score is the harmonic mean of precision and recall. it aims to balance the two metrics, and is particularly meaningful in cases of imbalanced data. the formula is as follows where tp, fp, tn, and fn represent true positive, false positive, true negative, and false negative, respectively. these metrics are derived by comparing the model ' s predictions with the ground truth labels. in addition, this paper introduces two summary metrics : macro average and micro average to provide a more comprehensive evaluation of the multi - class model ' s overall performance. due to the weak class balance present in the data, macro - average was specifically adopted as the model performance evaluation metric.",
+      "metadata": {
+        "section": "Model performance metrics",
+        "section_path": [
+          "Model performance metrics"
+        ],
+        "subsection_id": "paper_003_subsection_acce4b0d7a38",
+        "pages": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "paragraph_ids": [
+          "para_0032",
+          "para_0033",
+          "para_0034",
+          "para_0035",
+          "para_0036",
+          "para_0038"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 150.99570301333665,
+            "w": 400.31550000000027,
+            "h": 27.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 130.99570301333665,
+            "w": 400.31040000343773,
+            "h": 17.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 155.905502319,
+            "y": 72.85780170633666,
+            "w": 400.3586999931241,
+            "h": 17.991699696663318,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 14,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 15,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 155.905502319,
+            "y": 218.80159595733664,
+            "w": 400.3062837125623,
+            "h": 18.35672071466331,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 201.83589771533673,
+            "w": 400.31129397000007,
+            "h": 24.15217948766326,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4f00668370c90f2c574671b7d9a9bdf7d081334051efca00ef0ccdcfbe6b9b92"
+    },
+    {
+      "segment_id": "paper_003_body_0028_c571ded1::segment_0000",
+      "chunk_id": "paper_003_body_0028_c571ded1",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 28,
+      "source_index": 28,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 242,
+      "token_count": 242,
+      "text": "macro average is the simple average of metrics, such as precision, recall, f1 - score for each class, assigning equal weight to each class without considering the differences in the number of samples across classes. macro average emphasizes the balanced performance of the model across classes and is suitable for performance comparison in imbalanced class situations. the calculation equations for the macro average of recall, precision and f1 are shown as follows. where pi is the precision of category i, ri is the recall of category i, f 1i = 2 • p i • r i p i + r i is the f1 value of category i, and c is the total number of categories. micro average is calculated by accumulating the true positives, false positives, and false negatives for all classes and then computing the metrics. it gives equal weight to all samples, and is more reflective of the model ' s overall classification ability across the entire dataset. the calculation equations for the micro average of recall, precision and f1 are shown in eq. ( 14 ), eq. ( 15 ) and eq. ( 16 ), respectively. scientific reports | ( 2026 ) 16 : 6297",
+      "metadata": {
+        "section": "Model performance metrics",
+        "section_path": [
+          "Model performance metrics"
+        ],
+        "subsection_id": "paper_003_subsection_acce4b0d7a38",
+        "pages": [
+          1,
+          7
+        ],
+        "paragraph_ids": [
+          "para_0039",
+          "para_0040",
+          "para_0041"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 341.05238941433674,
+            "w": 400.36139999312365,
+            "h": 47.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 201.83589771533673,
+            "w": 400.31129397000007,
+            "h": 24.15217948766326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 101.5242,
+            "y": 17.111212605042056,
+            "w": 68.07999999999997,
+            "h": 6.535487394957954,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 41.102298736,
+            "y": 17.105725210084074,
+            "w": 60.429600006104,
+            "h": 6.540974789915936,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1a16beec01d84aa5ad3dca5f51dc94fb57dba4d3611ddd8c2fc3db518589fb87"
+    },
+    {
+      "segment_id": "paper_003_body_0030_95b2fb92::segment_0000",
+      "chunk_id": "paper_003_body_0030_95b2fb92",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 30,
+      "source_index": 30,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 67,
+      "token_count": 67,
+      "text": "the configuration of hyperparameters, such as learning rate, optimizer, and batch size - critically influences model training outcomes. in particular, the learning rate and optimizer settings significantly affect convergence behavior and overall performance, ultimately determining the effectiveness of the training procedure. therefore, meticulous tuning of these parameters is essential.",
+      "metadata": {
+        "section": "Model parameter settings",
+        "section_path": [
+          "Model parameter settings"
+        ],
+        "subsection_id": "paper_003_subsection_4899952da9dc",
+        "pages": [
+          8
+        ],
+        "paragraph_ids": [
+          "para_0042"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 682.2938139743367,
+            "w": 400.3443000034382,
+            "h": 37.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "6fc4a7c3031091591e038f9453ba216555b5e1ebe6e464f708ea13c710d11e5d"
+    },
+    {
+      "segment_id": "paper_003_body_0032_4a3b814a::segment_0000",
+      "chunk_id": "paper_003_body_0032_4a3b814a",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 32,
+      "source_index": 32,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 309,
+      "token_count": 309,
+      "text": "based on the stochastic gradient descent with warm restarts ( sgdr ) algorithm 35, which combines the sgd optimizer with a warm restart mechanism, significant improvements have been achieved in multiple classification tasks. taking inspiration from the above, this paper further improves the performance of the mcacnn - svm model by applying cosine annealing and warm restart strateg to the training process. the core idea of the warm restart mechanism is to set a periodic cycle during training. once this cycle is completed, the learning rate is reset to its initial value and training continues. moreover, after each restart, the model uses the parameters from the previous restart as its initial state. this mechanism essentially constitutes a method for dynamically adjusting the learning rate. the accuracy of the model varies with the number of iterations under different configurations of the optimizer and learning rate schedulers. notably, the warm restart strategy combined with cosine annealing cyclically adjusts the learning rate, beginning from a low value, rising to a peak, and then decaying gradually following a cosine schedule. after each annealing cycle, the warm restart mechanism resets the learning rate to its initial value and begins a new annealing process. the purpose of this strategy is to prevent the model from being trapped in local optima by allowing the periodically increased learning rate to escape from local minima, thereby improving convergence performance. the learning rate update formula based on warm restarts mechanism for each iteration is shown in eq. ( 17 ).",
+      "metadata": {
+        "section": "Optimizer and learning rate parameters",
+        "section_path": [
+          "Optimizer and learning rate parameters"
+        ],
+        "subsection_id": "paper_003_subsection_0ad86b17e2dd",
+        "pages": [
+          8
+        ],
+        "paragraph_ids": [
+          "para_0043",
+          "para_0044"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 582.2938139743367,
+            "w": 400.3424999965623,
+            "h": 77.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 502.29381397433673,
+            "w": 400.3640999965619,
+            "h": 77.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 17,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "e876204ae18fe12a65aa50b36ac5d454a73649511e661b558a644e4314c0f63e"
+    },
+    {
+      "segment_id": "paper_003_body_0033_e5d11320::segment_0000",
+      "chunk_id": "paper_003_body_0033_e5d11320",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 33,
+      "source_index": 33,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 300,
+      "token_count": 300,
+      "text": "among these, i denotes the number of iterations, η i max and η i min represent the upper and lower bounds of the learning rate adjustment, espectively, tcur indicates the number of epoch changes during the interval from the start to the end of each restart, and ti stands for the restart cycle. the learning rate adaptively adjusts according to the number of iterations, as illustrated in fig. 6. to facilitate rapid training of the mcacnn - svm model based on the warm restart mechanism and further improve its performance, the initial cycle a is typically set to a relatively small value 36. therefore, the maximum initial learning rate for the cosine annealing with warm restart learning rate scheduler is set at η i max = 1e - 2, and the minimum initial learning rate is set at η i min = 1e - 5 in this paper. before each subsequent restart, it is multiplied by a scaling factor b to adjust the restart cycle c. this dynamic adjustment of the restart cycle enables the model to explore different local minima, efficiently converge to the optimal solution, and reduce training costs. different warm restarts mechanism parameter settings have a significant impact on the performance of the network model. additionally, the number of epochs required for convergence varies depending on the configuration. to find the best configuration that promotes model convergence while minimizing training costs, an ablation study was conducted to analyze the effect of different warm restarts mechanism settings on model performance.",
+      "metadata": {
+        "section": "Optimizer and learning rate parameters",
+        "section_path": [
+          "Optimizer and learning rate parameters"
+        ],
+        "subsection_id": "paper_003_subsection_0ad86b17e2dd",
+        "pages": [
+          8
+        ],
+        "paragraph_ids": [
+          "para_0045",
+          "para_0046",
+          "para_0047"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 423.9860136813367,
+            "w": 400.33499162600026,
+            "h": 40.11737803566331,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 353.9860136813367,
+            "w": 400.3214038295621,
+            "h": 67.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 155.905502319,
+            "y": 303.9860136813367,
+            "w": 400.3262999999997,
+            "h": 47.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 261.8838718446051,
+            "w": 63.44,
+            "h": 8.176218487394863,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d0615a93cba4202883c69196013b41eb4dc943d42db226c79161d06a24e9925d"
+    },
+    {
+      "segment_id": "paper_003_body_0034_f7be567e::segment_0000",
+      "chunk_id": "paper_003_body_0034_f7be567e",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 34,
+      "source_index": 34,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 300,
+      "token_count": 300,
+      "text": "as shown in table 3, although the training cost is the lowest under the configuration t0 = 20, t mult = 1, its classification error rate on the mri image dataset is not the best. in contrast, with the t0 = 10, t mult = 2 parameter setting, the training cost increases by approximately 5 epochs, but the lowest test error rate of only 2. 06 % is achieved on the same dataset. therefore, this configuration demonstrates a better balance between training cost and model performance. based on this observation, all subsequent experiments in this study adopt the t0 = 10, t mult = 2 configuration for model training. additionally, in this paper, the impact of five commonly used optimizers and learning rate combinations on model accuracy was evaluated, and the average results of five independent experiments are shown in fig. 7. these configurations encompass : the classical stochastic gradient descent ( sgd ), famous adam optimizer, sgd implemented with a cosine annealing learning rate scheduler incorporating warm restarts ( sgdr ), the adam optimizer augmented with a warm restart learning rate scheduling mechanism, and the adamw optimizer integrated with a similar warm restart learning rate adjustment protocol. among them, the learning rates of sgd and adam optimizers are fixed at 1e - 3. adamw adds weight decay on the basis of adam, improving the problem of incompatibility between regularization and adaptive learning rates.",
+      "metadata": {
+        "section": "Optimizer and learning rate parameters",
+        "section_path": [
+          "Optimizer and learning rate parameters"
+        ],
+        "subsection_id": "paper_003_subsection_0ad86b17e2dd",
+        "pages": [
+          8,
+          9
+        ],
+        "paragraph_ids": [
+          "para_0049",
+          "para_0050"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 155.905395507,
+            "y": 263.98601368133666,
+            "w": 400.360499996562,
+            "h": 38.34964640466336,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 155.905502319,
+            "y": 367.9137884533333,
+            "w": 400.28849998968565,
+            "h": 18.189901546666647,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 155.905502319,
+            "y": 288.1119903033367,
+            "w": 400.351500003438,
+            "h": 77.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "38065e26ebe38a2708716a1f04b8f7f606b4ee9c8a19e142c35aa760569ef2a4"
+    },
+    {
+      "segment_id": "paper_003_body_0035_f012bae5::segment_0000",
+      "chunk_id": "paper_003_body_0035_f012bae5",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 35,
+      "source_index": 35,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 167,
+      "token_count": 167,
+      "text": "adamw with cosine annealing warm restarts learning rate scheduler demonstrated high training and validation accuracy in this experiment, especially achieving an accuracy of 97. 94 % on the validation set. this indicates that adamw with cosine annealing warm restarts mechanism performs well in preventing overfitting and accelerating model convergence. considering that adamw with cosine annealing warm restarts periodically increases the learning rate, warm restarts can help escape these mundane local optima and continue to search for better solutions, potentially achieving better performance and generalization ability. although the adam optimizer is adaptive and converges quickly, it occasionally settles into suboptimal local minima. therefore, when facing complex image classification tasks, it is appropriate to choose adamw optimizer with the warm restarts learning rate scheduler.",
+      "metadata": {
+        "section": "Optimizer and learning rate parameters",
+        "section_path": [
+          "Optimizer and learning rate parameters"
+        ],
+        "subsection_id": "paper_003_subsection_0ad86b17e2dd",
+        "pages": [
+          9
+        ],
+        "paragraph_ids": [
+          "para_0051"
+        ],
+        "coordinates": [
+          {
+            "page": 9,
+            "x": 155.905502319,
+            "y": 198.11209705533668,
+            "w": 400.33169999999984,
+            "h": 87.9915929446633,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "8d6b5c5ef49722d7e59923bd60599b49492fc2717f7687279563f2d45ef921d5"
+    },
+    {
+      "segment_id": "paper_003_body_0037_e3b16295::segment_0000",
+      "chunk_id": "paper_003_body_0037_e3b16295",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 37,
+      "source_index": 37,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 165,
+      "token_count": 165,
+      "text": "to optimize the performance of the svm classifier, this research employs gridsearchcv algorithm combined with 5 - fold cross - validation to systematically adjust its key hyperparameters. based on the theoretical foundation and practical experience of svm, a search space for three core hyperparameters was established. regularization parameter c : set values include 1, 10, 100, used to control model complexity and overfitting penalty strength. kernel function parameter gamma : set values include 0. 1, 0. 01, 0. 001, affecting the influence range of samples in the radial basis function ( rbf ) kernel. kernel function type : evaluating three commonly used kernel functions, including radial basis function ( rbf ), linear, and sigmoid, in order to adapt to diverse feature distribution characteristics.",
+      "metadata": {
+        "section": "Support vector machine parameters",
+        "section_path": [
+          "Support vector machine parameters"
+        ],
+        "subsection_id": "paper_003_subsection_023c3d12fa13",
+        "pages": [
+          9
+        ],
+        "paragraph_ids": [
+          "para_0052"
+        ],
+        "coordinates": [
+          {
+            "page": 9,
+            "x": 155.905502319,
+            "y": 98.11209705533668,
+            "w": 400.3640999999999,
+            "h": 77.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "b626f0c0a86a8d9558e27a7e12dd606adda95ed0748c981155b873aee226679a"
+    },
+    {
+      "segment_id": "paper_003_body_0038_2b2db294::segment_0000",
+      "chunk_id": "paper_003_body_0038_2b2db294",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 38,
+      "source_index": 38,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 322,
+      "token_count": 322,
+      "text": "the svm hyperparameter optimization process is as follows : firstly, the trained mcacnn model is used to extract feature representations from the training set as inputs for svm. after initializing the svm classifier, the gridsearchcv algorithm is used to traverse all hyperparameter combinations, with a total of 27 configurations of 3 × 3 × 3. use 5 - fold cross validation to evaluate the performance of each set of parameters, with classification parameter settings parameter epochs test error t0 = 5, t mult = 2 1. 8m 80 2. 64 t0 = 10, t mult = 2 1. 8m 70 2. 06 t0 = 10, t mult = 1 1. 8m 75 2. 14 t0 = 20, t mult = 1 1. 8m 65 2. 23 accuracy as the evaluation metric, to ensure the robustness of parameter selection. the hyperparameter combination that performs the best on the validation set is ultimately selected to construct the final svm model. after the above hyperparameter optimization verification experiments, the svm parameters ultimately used in this study are : [ ' c ' = 1, ' gamma ' = 0. 01, ' kernel ' = rbf ]. this study significantly improved the classification accuracy of the hybrid model on the test set, verifying the effectiveness of parameter optimization. through the above systematic hyperparameter tuning, svm can fully utilize the discriminative features extracted by cnn, achieving more accurate brain tumor mri image classification, while avoiding the subjectivity of manual parameter selection.",
+      "metadata": {
+        "section": "Support vector machine parameters",
+        "section_path": [
+          "Support vector machine parameters"
+        ],
+        "subsection_id": "paper_003_subsection_023c3d12fa13",
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0053"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 14,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "5415eed05d004a06d4d4f5d9b81d0574473553d24b68962c3ddc799033948396"
+    },
+    {
+      "segment_id": "paper_003_body_0040_17f6da12::segment_0000",
+      "chunk_id": "paper_003_body_0040_17f6da12",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 40,
+      "source_index": 40,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 157,
+      "token_count": 157,
+      "text": "analysis of the model convergence process batch normalization is integrated into the mcacnn - svm model to accelerate the training process and enhance generalization capability. by normalizing the input data, batch normalization effectively enhances the training speed, stability, and generalization performance of the model. to evaluate the convergence behavior of the model across both training and validation sets, a 100 - epoch experiment was carried out to enhance performance and prevent underfitting or overfitting. following several refinements, the convergence behavior of the mcacnn - svm model is depicted in figure 8. the results reveal a steady decline in loss values for both sets as iterations proceed. around epoch 70, the training and validation loss values stabilize, suggesting successful convergence of both loss and accuracy curves.",
+      "metadata": {
+        "section": "Analysis of model performance and visualization",
+        "section_path": [
+          "Analysis of model performance and visualization"
+        ],
+        "subsection_id": "paper_003_subsection_142224403139",
+        "pages": [
+          10
+        ],
+        "paragraph_ids": [
+          "para_0055",
+          "para_0056"
+        ],
+        "coordinates": [
+          {
+            "page": 10,
+            "x": 155.905502319,
+            "y": 623.2150994538803,
+            "w": 144.88920000000024,
+            "h": 7.964029940119758,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 155.905502319,
+            "y": 543.1874296973367,
+            "w": 400.3442999965623,
+            "h": 47.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "53fef2b63842611fe00c40541acef9e6c2bed61ea960f8c8b3c49bfc470b7e6e"
+    },
+    {
+      "segment_id": "paper_003_body_0042_b7a3427f::segment_0000",
+      "chunk_id": "paper_003_body_0042_b7a3427f",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 42,
+      "source_index": 42,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 218,
+      "token_count": 218,
+      "text": "this paper applied t - sne to visualize the training dynamics of the model. the technique projects highdimensional data into a two - dimensional space, offering an intuitive depiction of feature distribution. figure 9 illustrates the evolution of feature representations before and after training. the initial feature distribution of the test set, illustrated in fig. 9a, shows complete overlap among the four classes, indicating no separability at the input stage. after processing by the channel attention mechanism, the features exhibit reduced inter - class separation, as visible in fig. 9b. subsequent feature maps following the fusion layer, shown in fig. 9c, reveal initial clustering tendencies, though with limited margin between classes. as the network deepens, the model progressively learns more discriminative feature representations, ultimately forming well - separated class boundaries in the output layer which is shown in fig. 9d. notably, the final features demonstrate large inter - class margins and compact intra - class clustering, confirming the ability of the mcacnn - svm model to achieve effective and robust mri image recognition.",
+      "metadata": {
+        "section": "Visualization of the model training process",
+        "section_path": [
+          "Visualization of the model training process"
+        ],
+        "subsection_id": "paper_003_subsection_497bf40f1653",
+        "pages": [
+          10
+        ],
+        "paragraph_ids": [
+          "para_0057",
+          "para_0058"
+        ],
+        "coordinates": [
+          {
+            "page": 10,
+            "x": 155.905502319,
+            "y": 493.1873991793367,
+            "w": 400.31071545400005,
+            "h": 27.991730214663335,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 155.905502319,
+            "y": 413.1873991793367,
+            "w": 400.35149999656164,
+            "h": 77.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "cac9361becebbed2ec15eaae9e3e32b81ad76600371932465daa0592f87372a2"
+    },
+    {
+      "segment_id": "paper_003_body_0044_bd9a91ca::segment_0000",
+      "chunk_id": "paper_003_body_0044_bd9a91ca",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 44,
+      "source_index": 44,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 317,
+      "token_count": 317,
+      "text": "fig. 10 presents the confusion matrix for the four - class classification results of the mscnn - svm model on the test set. the numbers on the matrix diagonal represent the correctly classified samples, while those off the diagonal indicate the number of misclassified samples. as shown, the classifier used performs well in classifying the sample data. table 4 provides the detailed performance of the mcacnn - svm model on the four - class brain tumor dataset. clearly, the mcacnn - svm model achieves a classification accuracy of 96. 9 % across all test samples. this demonstrates that the model has strong generalization ability in distinguishing different types of brain tumors and can accurately differentiate normal tissue from various tumor types. it is worth noting that compared to other categories, the recall rate for the category of meningioma is 90. 79 %, which is slightly lower. this performance gap may be partially attributed to its relatively smaller sample size in the training dataset. although the slight class imbalance present in the dataset, the model maintains robust performance across most categories. this resilience can be attributed to two key factors : first, the incorporation of the channel attention mechanism ( senet ) enables the model to adaptively focus on the most discriminative features for each class, effectively mitigating the bias towards majority classes ; second, the adoption of macro - averaged evaluation metrics such as macro f1 - score and auc ensures that each class contributes equally to the overall performance assessment, providing a more balanced view of the model ' s capability.",
+      "metadata": {
+        "section": "Visualization of model cassification results",
+        "section_path": [
+          "Visualization of model cassification results"
+        ],
+        "subsection_id": "paper_003_subsection_d9950e181968",
+        "pages": [
+          1,
+          10
+        ],
+        "paragraph_ids": [
+          "para_0059",
+          "para_0061"
+        ],
+        "coordinates": [
+          {
+            "page": 10,
+            "x": 155.905502319,
+            "y": 353.1873991793367,
+            "w": 400.36950000000024,
+            "h": 37.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "eec772c715bb6670cc6ca4ca8ee70f1612efa38fca1509f819f57f23b816d3c6"
+    },
+    {
+      "segment_id": "paper_003_body_0045_cf197100::segment_0000",
+      "chunk_id": "paper_003_body_0045_cf197100",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 45,
+      "source_index": 45,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 50,
+      "token_count": 50,
+      "text": ", resnet18 proposed by he et al. to solve the gradient vanishing problem 39, densenet121 proposed by huang et al. with dense connections 40, and efficientnet proposed by tan et al. to achieve high parameter efficiency through composite scaling",
+      "metadata": {
+        "section": "Model parameter settings",
+        "section_path": [
+          "Model parameter settings"
+        ],
+        "subsection_id": "paper_003_subsection_4899952da9dc",
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0062"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 155.905502319,
+            "y": 134.8855955913367,
+            "w": 400.3356024728762,
+            "h": 67.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "ed5d5285e9c7bf4ef529a225ffcb044a443579eb6498727a4c6ebd0f6ecb1f0e"
+    },
+    {
+      "segment_id": "paper_003_body_0047_0fd707b2::segment_0000",
+      "chunk_id": "paper_003_body_0047_0fd707b2",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 47,
+      "source_index": 47,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 190,
+      "token_count": 190,
+      "text": "in order to comprehensively evaluate the performance of the proposed model algorithm, a comparative analysis of the macacnn - svm model with several well - established and high - performance modern cnn architectures in the field of computer vision, including the classic deep network vgg16 proposed by simonyan et al. 38 41. these pre trained model weights were loaded and fine tuned. in addition, mscnn 16 which is the multi - scale cnn structures applied to brain tumor classification were also compared. specifically, pre trained weights are used and fine tuned for fair experimentation. ensure that all comparison models are fine tuned and tested under identical training conditions such as data augmentation, optimizer, learning rate strategy, and training cycle. specifically, the feature maps are first converted into single - channel images in mscnn, and then features are extracted using convolutional kernels of sizes 3×3, 7×7, and 11×11.",
+      "metadata": {
+        "section": "Comparative analysis with other image classification methods",
+        "section_path": [
+          "Comparative analysis with other image classification methods"
+        ],
+        "subsection_id": "paper_003_subsection_e08c94021873",
+        "pages": [
+          12
+        ],
+        "paragraph_ids": [
+          "para_0063",
+          "para_0064"
+        ],
+        "coordinates": [
+          {
+            "page": 12,
+            "x": 155.905502319,
+            "y": 134.8855955913367,
+            "w": 400.3356024728762,
+            "h": 67.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 16,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 155.905593872,
+            "y": 89.5422556853938,
+            "w": 400.36139999999983,
+            "h": 43.33504723160627,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 11,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "dd8fc08acad155b01f2fb0c8f1d7f637fe331f4bcd6a89ea75debc15836278bc"
+    },
+    {
+      "segment_id": "paper_003_body_0048_2a203997::segment_0000",
+      "chunk_id": "paper_003_body_0048_2a203997",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 48,
+      "source_index": 48,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 312,
+      "token_count": 312,
+      "text": "in order to accurately evaluate the performance of the mcacnn - svm fusion model in brain tumor mri image classification tasks, this paper conducted ten fold cross validation evaluations on the comparative models, and the experimental average results are shown in table 5. the experiment compared the accuracy, precision, recall, f1 score and the number of parameters of the algorithm separately. the testing accuracy of densenet121 model is the lowest, with an mean value of91. 2 %, indicating its limited feature representation capability. this category recall ( % ) f1 - score ( % ) precision ( % ) glioma 98. 23 92. 98 95. 53 meningioma 90. 79 96. 73 93. 67 pituitary 99. 32 96. 67 97. 98no tumor 100 100 100 macro average 97. 0996. 59 96. 79 micro average 97. 17 96. 87 97. 02 performance gap may stem from its relatively shallow depth in this specific task or suboptimal adaptation to the dataset ' s characteristics. mscnn, with larger convolutional kernels and pooling sizes, not only increases the computational complexity of the model but also leads to a rapid decrease in the spatial resolution of the feature maps, causing some loss of image detail 37. although the model achieves an accuracy of 96. 68 %, its recall rate is only 83. 4 %. the vgg16, resnet18 and efficientnet - b3 models have slightly improved performance, but their parameters are relatively the largest.",
+      "metadata": {
+        "section": "Comparative analysis with other image classification methods",
+        "section_path": [
+          "Comparative analysis with other image classification methods"
+        ],
+        "subsection_id": "paper_003_subsection_e08c94021873",
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0065"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 17,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "c5791de0456f85629940ec4e1efaba6418e199e03c848cffbd2a1d298741f539"
+    },
+    {
+      "segment_id": "paper_003_body_0049_7903e07f::segment_0000",
+      "chunk_id": "paper_003_body_0049_7903e07f",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 49,
+      "source_index": 49,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 153,
+      "token_count": 153,
+      "text": "compared with other models, the evaluation metrics and the number of parameters of the mcacnn - svm model are all optimal, as this hybrid model combines the powerful feature extraction capability of the multiscale cnn with the efficient classification performance of svm, further enhanced by the introduction of a channel attention mechanism to improve feature representation. the model extracts rich image features through parallel multiscale convolutional layers, while the channel attention mechanism dynamically adjusts the weights of different channels to emphasize key features and suppress redundant information. subsequently, svm performs efficient classification decisions using these optimized features. this combined model significantly improves performance, extracting image features more precisely while maintaining computational efficiency, which is particularly crucial for the accurate classification of brain tumors.",
+      "metadata": {
+        "section": "Comparative analysis with other image classification methods",
+        "section_path": [
+          "Comparative analysis with other image classification methods"
+        ],
+        "subsection_id": "paper_003_subsection_e08c94021873",
+        "pages": [
+          13
+        ],
+        "paragraph_ids": [
+          "para_0067"
+        ],
+        "coordinates": [
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 451.3973906353367,
+            "w": 400.3554000034378,
+            "h": 87.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "b720c4cc709316dcb142b73a827f5e8c08485b65ecb4e01c562604403c6f9d3b"
+    },
+    {
+      "segment_id": "paper_003_body_0050_db0c8da9::segment_0000",
+      "chunk_id": "paper_003_body_0050_db0c8da9",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 50,
+      "source_index": 50,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 352,
+      "token_count": 352,
+      "text": "further examination of the accuracy distribution of each comparative model is shown in fig. 12a, where the red dots represent the mean values. the results indicate that the median and mean of densenet121 are nearly identical, suggesting a relatively symmetric distribution of experimental results with good overall stability, although its accuracy level is comparatively lower. for mscnn, the mean is slightly higher than the median, implying a slight right - skewed distribution in which a few higher accuracy values pull the mean upward. the vgg16 model demonstrates stronger performance with a mean accuracy near 97. 0 %, benefiting from its deep hierarchical architecture. however, its relatively large variance indicates sensitivity to data distribution and potential overfitting. in contrast, the performance distribution of resnet18 is more concentrated, reflecting greater robustness. the efficientnet model slighty outperforms the others, achieving a median accuracy close to 98. 0 % with a tight interquartile range, highlighting its superior efficiency and robustness in extracting discriminative features across multiple scales. notably, the median and mean of mcacnn - svm almost completely overlap, demonstrating both high accuracy and optimal stability. this performance can be primarily attributed to the integration of an svm classifier with multi - scale feature extraction, which enhances both feature representation and classification robustness. therefore, mcacnn - svm can be considered superior to the other models in terms of both accuracy and stability. moreover, fig. 12b, c, and d present the distributions of precision, recall, and f1 for the five comparative models, respectively. in comparison, mcacnn - svm exhibits consistent results with higher values across all performance metrics, further validating its generalization and effectiveness.",
+      "metadata": {
+        "section": "Comparative analysis with other image classification methods",
+        "section_path": [
+          "Comparative analysis with other image classification methods"
+        ],
+        "subsection_id": "paper_003_subsection_e08c94021873",
+        "pages": [
+          13
+        ],
+        "paragraph_ids": [
+          "para_0068"
+        ],
+        "coordinates": [
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 281.3973906353367,
+            "w": 400.3389000103143,
+            "h": 167.99169969666326,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 16,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "55d3ba35ab657e3bf09e7471339f7c36176995a50d796a09957575a0926d7b13"
+    },
+    {
+      "segment_id": "paper_003_body_0052_26dfcc67::segment_0000",
+      "chunk_id": "paper_003_body_0052_26dfcc67",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 52,
+      "source_index": 52,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 272,
+      "token_count": 272,
+      "text": "to verify the contributions of each component in the proposed model, an ablation study was conducted on each module of the model architecture. explore the multi - scale cnn feature extraction module, channel attention mechanism, and svm of the model for classifying brain tumor mri images separately. the algorithm in the macnn - svm model that removes the convolutional layers of the 5 × 5 and 7 × 7 parallel branches and only retains one branch of the 3 × 3 convolutional layer architecture is denoted as baseline, and the algorithm that removes the channel attention mechanism module and svm module in the macnn - svm model is denoted as macnn - svm without multi - scale ( w. / o. multi - scale ). the algorithm that removes the senet module in the macnn - svm model is denoted as macnn - svm without senet ( w. / o. senet ), while the model with the svm replaced by a fully connected layer with softmax activation is denoted as mcacnn - svm without svm ( w. / o. svm ). in order to ensure the fairness of the experiment, the experimental settings for all four groups used identical configurations. each component was analyzed to determine its impact on the overall performance, and the experimental results are shown in table 6.",
+      "metadata": {
+        "section": "Ablation study",
+        "section_path": [
+          "Ablation study"
+        ],
+        "subsection_id": "paper_003_subsection_e77cb9e9262d",
+        "pages": [
+          13
+        ],
+        "paragraph_ids": [
+          "para_0069"
+        ],
+        "coordinates": [
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 141.39740589333667,
+            "w": 400.3514999965621,
+            "h": 117.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 155.905593872,
+            "y": 71.67388038860508,
+            "w": 129.85000000000002,
+            "h": 8.176218487394976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 261.8838718446051,
+            "w": 63.44,
+            "h": 8.176218487394863,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "9544062e7aa195ad29f67dce2bf0f822375eacfbef780b9d4c7cdce8ae034942"
+    },
+    {
+      "segment_id": "paper_003_body_0053_47bf61e9::segment_0000",
+      "chunk_id": "paper_003_body_0053_47bf61e9",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 53,
+      "source_index": 53,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 343,
+      "token_count": 343,
+      "text": "as shown in table 6, the removal of multi - scale cnn module resulted in a comprehensive decline across all performance metrics. specifically, the accuracy decreased by 2. 44 %, and other performance indicators also decreased synchronously. this indicates that the multi - scale cnn fusion architecture can effectively capture discriminative features at varying receptive field, which plays a key role in improving the model ' s ability to distinguish diverse fault modes. excluding the senet module caused a 1. 07 % decrease in accuracy, underscoring the importance of channel - wise attention in adaptively recalibrating feature responses and enhancing interchannel dependencies. furthermore, removing the svm resulted in a marginal accuracy decrease of 0. 91 %, but it led to relatively larger reductions in precision, recall, and f1 - score. this indicates svm ' s crucial role in enhancing classification robustness, particularly in handling ambiguously classified cases near decision boundaries. these findings confirm that svm provides more reliable decision boundaries in the high - dimensional feature model accuracy ( % ) precision ( % ) recall ( % ) f1 - score ( % ) params ( m ) space, which is critical for clinical applications where both false positives and false negatives carry serious consequences. in the end, our complete model achieved the best performance in all evaluation metrics, verifying the effectiveness of the collaborative design of multi - scale feature extraction, attention mechanism, and svm classifier. this architecture not only achieves multi - scale and adaptive enhancement at the feature representation level, but also further optimizes the partitioning of the feature space in the classification decision stage, thereby exhibiting higher comprehensive performance and robustness in fault diagnosis tasks.",
+      "metadata": {
+        "section": "Ablation study",
+        "section_path": [
+          "Ablation study"
+        ],
+        "subsection_id": "paper_003_subsection_e77cb9e9262d",
+        "pages": [
+          1
+        ],
+        "paragraph_ids": [
+          "para_0070",
+          "para_0071"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 13,
+            "x": 155.905502319,
+            "y": 41.39740207933676,
+            "w": 400.3304048580004,
+            "h": 97.99170351066323,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 14,
+            "x": 155.905502319,
+            "y": 109.38670185333672,
+            "w": 400.34700001717226,
+            "h": 57.99169206666329,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4257e71685bd1098147636e87d7aacb982f2e04666ffb10e6e4aebbb14ae1810"
+    },
+    {
+      "segment_id": "paper_003_body_0055_e186c064::segment_0000",
+      "chunk_id": "paper_003_body_0055_e186c064",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 55,
+      "source_index": 55,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 265,
+      "token_count": 265,
+      "text": "this paper proposes a hybrid mcacnn - svm model by comprehensively analyzing the strengths and limitations of deep learning techniques in brain tumor mri image classification. the model first employs a multiscale cnn fusion strategy to capture richer image features, and then applies svm for classification, with its key hyperparameters tuned using a grid search algorithm to improve performance. the cnn component table 6. ablation experiment results comparison of classification models. is responsible for automatically extracting informative features, while the svm focuses on learning decision boundaries, achieving a clear task separation that facilitates both optimization and interpretability. the model was optimized using adamw, which decouples weight decay from gradient updates, leading to improved generalization. the learning rate was scheduled using a cosine annealing strategy with warm restarts. experimental results show that the mcacnn - svm model performs excellently in terms of accuracy, auc, and confusion matrix, confirming that the cnn - svm combination indeed enhances overall performance. the findings demonstrate the effectiveness of the mcacnn - svm model, addressing issues such as limited data and overfitting that may arise in single - model approaches. by integrating the advantages of different architectures, multiscale fusion provides medical professionals with a more accurate and comprehensive diagnostic tool.",
+      "metadata": {
+        "section": "Conclusions",
+        "section_path": [
+          "Conclusions"
+        ],
+        "subsection_id": "paper_003_subsection_26201645fb14",
+        "pages": [
+          1,
+          14
+        ],
+        "paragraph_ids": [
+          "para_0072",
+          "para_0073"
+        ],
+        "coordinates": [
+          {
+            "page": 14,
+            "x": 155.905502319,
+            "y": 47.38670185333672,
+            "w": 400.3533000034381,
+            "h": 37.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 15,
+            "x": 155.905502319,
+            "y": 643.1874296973367,
+            "w": 400.3505999965621,
+            "h": 87.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 1,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 549.046203613,
+            "y": 16.85494075630254,
+            "w": 5.1299999999999955,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 543.919311523,
+            "y": 16.85494075630254,
+            "w": 10.259999999999991,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "11428a61f1189b097be2a7ac51b2105cf82890ba41c772820c0be697bb673ed4"
+    },
+    {
+      "segment_id": "paper_003_body_0056_d6602b46::segment_0000",
+      "chunk_id": "paper_003_body_0056_d6602b46",
+      "paper_id": "paper_003",
+      "chunk_type": "body",
+      "order_index": 56,
+      "source_index": 56,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 311,
+      "token_count": 311,
+      "text": "despite the promising potential of multiscale fusion in brain tumor mri image classification, several challenges remain, including computational complexity, the choice of fusion strategies, and large - scale data processing. furthermore, while the model demonstrates robust performance using metrics that are less sensitive to class imbalance, the inherent slight class distribution differences in the datasets as observed in the current dataset, especially between glioma and no tumor categories, warrant further investigation. additionally, the model was trained and evaluated solely on high - quality, preprocessed contrast - enhanced mri slices from a single source, which may compromise its robustness on low - quality, noisy, or unprocessed clinical scans. moreover, the consistent imaging protocol limits our understanding of its sensitivity to variations in mri scanners, field strengths, or acquisition sequences. while the framework achieves strong performance across four brain tumor categories, its generalizability to other tumor types or broader medical imaging tasksremains unverified. future work will prioritize lightweight model design without sacrificing accuracy, multi - center and multiprotocol data collection, domain adaptation, and cross - disease transfer learning. to ensure uniformly high sensitivity across all tumor types, this work explores advanced class - imbalance learning techniques, such as weighted loss functions, data resampling, or focal loss, to explicitly address this issue. in addition, deeper algorithmic optimization coupled with clinical feedback is expected to enhance both accuracy and real - world usability, ultimately advancing the model ' s value in clinical practice.",
+      "metadata": {
+        "section": "Conclusions",
+        "section_path": [
+          "Conclusions"
+        ],
+        "subsection_id": "paper_003_subsection_26201645fb14",
+        "pages": [
+          15
+        ],
+        "paragraph_ids": [
+          "para_0074",
+          "para_0075"
+        ],
+        "coordinates": [
+          {
+            "page": 15,
+            "x": 155.905502319,
+            "y": 543.1874296973367,
+            "w": 400.3443000068762,
+            "h": 97.99169969666332,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 15,
+            "x": 155.905502319,
+            "y": 483.1873991793367,
+            "w": 400.34069999999986,
+            "h": 57.991730214663335,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "b22a62514819a8c177333132723545b0f874115c3a49c4feb56df44116f9847d"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0057_64b10373::segment_0000",
+      "chunk_id": "paper_003_table_caption_0057_64b10373",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 57,
+      "source_index": 57,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 17,
+      "token_count": 17,
+      "text": "table 1. architectural configuration of the proposed mcacnn model for brain tumor classification.",
+      "metadata": {
+        "table_id": "table_001",
+        "label": "Table 1",
+        "structure_status": "structured",
+        "pages": [
+          5
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 0
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "bbe5abaf27e2f1b142f381bf638ff4c926c717a47c240569f2147f42b300def8"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0058_eebbba5d::segment_0000",
+      "chunk_id": "paper_003_table_caption_0058_eebbba5d",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 58,
+      "source_index": 58,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 16,
+      "token_count": 16,
+      "text": "table 2. distribution of brain tumor mri dataset across training and test sets.",
+      "metadata": {
+        "table_id": "table_002",
+        "label": "Table 2",
+        "structure_status": "structured",
+        "pages": [
+          6
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 1
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "4e90774968c7359e651b0904689176837b2dd163badc484f389232ef05a2794d"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0059_71002be9::segment_0000",
+      "chunk_id": "paper_003_table_caption_0059_71002be9",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 59,
+      "source_index": 59,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 17,
+      "token_count": 17,
+      "text": "table 3. test error rate of models under different warm restarts mechanism parameter settings.",
+      "metadata": {
+        "table_id": "table_003",
+        "label": "Table 3",
+        "structure_status": "structured",
+        "pages": [
+          9
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "8a9d79c9809d04dfeb18606bc5ebd1d5865dafe372a5113fb5dc1576d9a7af35"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0060_475c3ab8::segment_0000",
+      "chunk_id": "paper_003_table_caption_0060_475c3ab8",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 60,
+      "source_index": 60,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 15,
+      "token_count": 15,
+      "text": "table 4. the classification performance of mcacnn - svm model.",
+      "metadata": {
+        "table_id": "table_004",
+        "label": "Table 4",
+        "structure_status": "structured",
+        "pages": [
+          12
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "07d90c2fcbcdcfbf47ad34cf1a0426f79b4d751d30bc1ea0f9cf5fcb1a4a8f8d"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0061_896e56d8::segment_0000",
+      "chunk_id": "paper_003_table_caption_0061_896e56d8",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 61,
+      "source_index": 61,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 10,
+      "token_count": 10,
+      "text": "table 5. experimental results comparison of classification models.",
+      "metadata": {
+        "table_id": "table_005",
+        "label": "Table 5",
+        "structure_status": "structured",
+        "pages": [
+          13
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 4
+          },
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 1
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "b31a7a2515fc39d7796c96089a3f54927842eb470e109cc0e086ad19e076413e"
+    },
+    {
+      "segment_id": "paper_003_table_caption_0062_6065b974::segment_0000",
+      "chunk_id": "paper_003_table_caption_0062_6065b974",
+      "paper_id": "paper_003",
+      "chunk_type": "table_caption",
+      "order_index": 62,
+      "source_index": 62,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 12,
+      "token_count": 12,
+      "text": "table 6. ablation experiment results comparison of classification models.",
+      "metadata": {
+        "table_id": "table_006",
+        "label": "Table 6",
+        "structure_status": "structured",
+        "pages": [
+          14
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 5
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "28c1f0188e39e7f0571f65e4c42058703d582394dbb6fccbc3761d84caf8ce3b"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0063_ab5947d9::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0063_ab5947d9",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 63,
+      "source_index": 63,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 322,
+      "token_count": 322,
+      "text": "figure 11 illustrates the roc curves for the four - class classification task, where the model demonstrates outstanding roc - auc performance. the auc values for all categories exceed 0. 99, with no tumor, pituitary, as well as the micro - and macro - averages achieving an auc of 1. 00, indicating virtually no errors in distinguishing these classes. the roc curves are almost adjacent to the top - left corner of the figure, suggesting that the model possesses very strong classification capability. although there is a slight decline in recall for the specific class of meningioma, the model generally performs at a high level across most categories, with particularly excellent performance in classifying no tumor and pituitary. both the macro - average and micro - average auc values reach 1. 0, demonstrating that the model achieves an ideal balance between overall and class - specific performance. the roc curves further confirm that the mcacnn - svm model exhibits exceptional performance in the classification of brain tumor mri images. although the slight class imbalance present in the dataset, the model maintains robust performance across most categories. this resilience can be attributed to two key factors : first, the incorporation of the channel attention mechanism ( senet ) enables the model to adaptively focus on the most discriminative features for each class, effectively mitigating the bias towards majority classes ; second, the adoption of macro - averaged evaluation metrics such as macro f1 - score and auc ensures that each class contributes equally to the overall performance assessment, providing a more balanced view of the model ' s capability.",
+      "metadata": {
+        "figure_id": "figure_001",
+        "label": "Figure 11",
+        "pages": [],
+        "source_refs": [
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 10
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "d6cb127df236974524d2b757108f4038142b1f3993a36d0234e059e815e84119"
+    }
+  ],
+  "execution": {
+    "elapsed_seconds": 8.655
+  }
+}

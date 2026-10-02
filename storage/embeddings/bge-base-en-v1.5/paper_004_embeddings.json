@@ -1,0 +1,1584 @@
+{
+  "schema_version": 2,
+  "model_alias": "bge-base",
+  "paper_id": "paper_004",
+  "created_at": "2026-09-28T17:35:28.412226+00:00",
+  "input_fingerprint": "8704262d118206f1482f0184928e3775d8a8ab4cbead64641e08f56c2c260254",
+  "source": {
+    "file": "storage\\chunks\\paper_004_chunks.json",
+    "sha256": "7079f593ad677e3faa70eebdf14fc5de559fc67cd063765c5809096d2b31040d",
+    "chunk_count": 51
+  },
+  "embedding": {
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "requested_revision": "main",
+    "resolved_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+    "dimension": 768,
+    "max_seq_length": 512,
+    "batch_size": 8,
+    "device": "cpu",
+    "normalize": true,
+    "windowing": {
+      "strategy": "overlapping_token_windows",
+      "overlap_tokens": 64
+    },
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "query_instruction": "Represent this sentence for searching relevant passages: "
+  },
+  "selection": {
+    "included_chunk_types": [
+      "abstract",
+      "body",
+      "figure_caption",
+      "index_terms",
+      "table_caption"
+    ],
+    "selected_chunk_count": 34,
+    "embedded_segment_count": 35,
+    "oversized_chunk_count": 1,
+    "excluded_counts": {
+      "heading": 10,
+      "reference": 7
+    }
+  },
+  "vectors": {
+    "file": "paper_004_embeddings.npz",
+    "sha256": "7193769c43615a6e447dc17e9121c29d369a6577cea93659c2e68b892d72292f",
+    "dtype": "float32",
+    "shape": [
+      35,
+      768
+    ],
+    "normalized": true
+  },
+  "records": [
+    {
+      "segment_id": "paper_004_abstract_0000_dc3d7c67::segment_0000",
+      "chunk_id": "paper_004_abstract_0000_dc3d7c67",
+      "paper_id": "paper_004",
+      "chunk_type": "abstract",
+      "order_index": 0,
+      "source_index": 0,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 307,
+      "token_count": 307,
+      "text": "the objective of this study is to investigate the use of pattern classification methods for distinguishing different types of brain tumors, such as primary gliomas from metastases, and also for grading of gliomas. the availability of an automated computer analysis tool that is more objective than human readers can potentially lead to more reliable and reproducible brain tumor diagnostic procedures. a computer - assisted classification method combining conventional mri and perfusion mri is developed and used for differential diagnosis. the proposed scheme consists of several steps including roi definition, feature extraction, feature selection and classification. the extracted features include tumor shape and intensity characteristics as well as rotation invariant texture features. feature subset selection is performed using support vector machines ( svms ) with recursive feature elimination. the method was applied on a population of 102 brain tumors histologically diagnosed as metastasis ( 24 ), meningiomas ( 4 ), gliomas who grade 2 ( 22 ), gliomas who grade 3 ( 18 ), and glioblastomas ( 34 ). the binary svm classification accuracy, sensitivity, and specificity, assessed by leave - one - out cross - validation, were respectively 85 %, 87 %, and 79 % for discrimination of metastases from gliomas, and 88 %, 85 %, and 96 % for discrimination of high grade ( grade iii and iv ) from low grade ( grade ii ) neoplasms. multi - class classification was also performed via a oneversus - all voting scheme.",
+      "metadata": {
+        "section": "Abstract",
+        "title": "Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme",
+        "authors": [
+          "Evangelia I Zacharaki",
+          "Sumei Wang",
+          "Sanjeev Chawla",
+          "Dong Soo Yoo",
+          "Ronald Wolf",
+          "Elias R Melhem",
+          "Christos Davatzikos"
+        ],
+        "index_terms": [
+          "brain tumor",
+          "MRI",
+          "classification",
+          "SVM",
+          "feature selection",
+          "texture",
+          "tumor grade"
+        ]
+      },
+      "text_sha256": "372b4b4311c515d5b98ad8698c0fa8dc2a7166b03275ab29f30a79c02e6f8b64"
+    },
+    {
+      "segment_id": "paper_004_index_terms_0001_259d0ea2::segment_0000",
+      "chunk_id": "paper_004_index_terms_0001_259d0ea2",
+      "paper_id": "paper_004",
+      "chunk_type": "index_terms",
+      "order_index": 1,
+      "source_index": 1,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 21,
+      "token_count": 21,
+      "text": "[ index terms ] brain tumor, mri, classification, svm, feature selection, texture, tumor grade",
+      "metadata": {
+        "section": "Index Terms",
+        "terms": [
+          "brain tumor",
+          "MRI",
+          "classification",
+          "SVM",
+          "feature selection",
+          "texture",
+          "tumor grade"
+        ]
+      },
+      "text_sha256": "9e950eb99b037ff303ec45038a261d826b26a36e2499bef4cb1c1f1e5390b004"
+    },
+    {
+      "segment_id": "paper_004_body_0003_76a12101::segment_0000",
+      "chunk_id": "paper_004_body_0003_76a12101",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 3,
+      "source_index": 3,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 354,
+      "token_count": 354,
+      "text": "clinical decisions regarding the treatment of brain neoplasms rely, in part, on mri at various stages of the treatment process. radiological diagnosis is based on the multi - parametric imaging profile ( ct, conventional mri, advanced mri ). tumor characterization is difficult, because neoplastic tissue is often heterogeneous in spatial and imaging profiles [ 1 ], and for some imaging techniques often overlaps with normal tissue ( especially the infiltrating part ) [ 2 ] [ 3 ]. gliomas might show mixed characteristics, for example demonstrating both low and high grade features. the reference standard for characterizing brain neoplasms is currently based on histopathologic analysis following surgical biopsy or resection, but this also has limitations including sampling error and variability in interpretation [ 1 ] [ 4 ]. the objective of this study is to provide an automated tool that may assist in the imaging evaluation of brain neoplasms by determining the glioma grade and differentiating between different tissue types, such as primary neoplasms ( gliomas ) from secondary neoplasms ( metastases ). these issues are of critical clinical importance in making decisions regarding initial and evolving treatment strategies, and conventional mr imaging is often not adequate in providing answers [ 1 ] [ 5 ]. automated tools, if proven accurate, can ultimately be applied to ( i ) provide more reliable differentiation, especially when the neoplasm is heterogeneous and therefore cannot be adequately sampled by localized needle biopsy, ( ii ) avoid invasive procedures such as biopsy, especially in cases where the risks outweigh the benefits ( iii ) expedite or anticipate the diagnosis ( histological examination is usually time consuming ).",
+      "metadata": {
+        "section": "Introduction",
+        "section_path": [
+          "Introduction"
+        ],
+        "subsection_id": "paper_004_subsection_b605350bc002",
+        "pages": [
+          1,
+          2
+        ],
+        "paragraph_ids": [
+          "para_0001",
+          "para_0002"
+        ],
+        "coordinates": [
+          {
+            "page": 1,
+            "x": 150.0,
+            "y": 94.08632999999998,
+            "w": 372.04931999999917,
+            "h": 83.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 150.0,
+            "y": 708.47598,
+            "w": 357.47999999999945,
+            "h": 23.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 2,
+            "x": 150.0,
+            "y": 578.4759799999999,
+            "w": 372.04615999999965,
+            "h": 119.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "27dff5b4b8ec9e24123cba566337a5eba22d5f5c90fb934b5b93e94c613b1bcb"
+    },
+    {
+      "segment_id": "paper_004_body_0004_e69ac81b::segment_0000",
+      "chunk_id": "paper_004_body_0004_e69ac81b",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 4,
+      "source_index": 4,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 256,
+      "token_count": 256,
+      "text": "toward a similar goal, researchers used conventional mr imaging and echo - planar relative cerebral blood volume ( rcbv ) maps calculated from perfusion imaging to differentiate between high grade and low grade neoplasms [ 6 ], or assessed the contribution of mr perfusion alone in differentiating certain tumor types [ 7 ] [ 8 ]. many studies have used mr spectroscopy for brain tumor classification [ 9 ] [ 10 ] [ 11 ]. specifically, spectroscopic and conventional mr imaging were used in [ 9 ] to differentiate benign from malignant brain neoplasms applying a decision tree algorithm, whereas spectroscopic and perfusion mri was used in [ 10 ] to evaluate the inherent heterogeneity of brain neoplasms by defining four regions of interest ( rois ) in the tumoral and peritumoral region. some studies used apparent diffusion coefficient ( adc ) maps computed from diffusion tensor imaging ( dti ) data to differentiate metastases from primary cerebral tumors ( by measuring diffusion in peritumoral edema ) [ 12 ] or combined adc with rcbv to differentiate tumefactive demyelinating lesions and primary neoplasms from abscesses and lymphomas [ 13 ].",
+      "metadata": {
+        "section": "Introduction",
+        "section_path": [
+          "Introduction"
+        ],
+        "subsection_id": "paper_004_subsection_b605350bc002",
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0003"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 150.00001,
+            "y": 412.47598000000005,
+            "w": 372.01104999999984,
+            "h": 155.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1bbc9985cc755a16d68c87b7f5d856ff40911a8d13cdcd4e881769c527e4a672"
+    },
+    {
+      "segment_id": "paper_004_body_0005_c8a9ec23::segment_0000",
+      "chunk_id": "paper_004_body_0005_c8a9ec23",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 5,
+      "source_index": 5,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 311,
+      "token_count": 311,
+      "text": "the previous studies are very useful in determining the clinical significance of each mr sequence separately ; however, they don ' t investigate non - linear relationships between different variables by pattern analysis. pattern classification techniques were applied for differentiating brain neoplasms based on linear discriminant analysis ( lda ) [ 14 ] [ 15 ], or independent component analysis [ 16 ] on spectral intensities. others applied support vector machines ( svms ) on perfusion mri [ 17 ] or combined variable selection and classification using bayesian least squares svms and relevance vector machines on microarray or spectroscopy data [ 18 ]. textural features from t1 post - contrast images were employed in [ 19 ] to discriminate between metastatic and primary brain tumors using a probabilistic neural network with a nonlinear least squares features transformation method. although these studies apply more advance machine learning techniques, they use a single mr sequence and don ' t investigate the contribution of multiple imaging parameters. multi - parametric features are explored by nonlinear classification techniques in [ 20 ] [ 21 ]. li et al. [ 20 ] classify gliomas according to their clinical grade using linear svms trained on a maximum of 15 descriptive features ( such as amount of mass effect or blood supply ), which are estimated quantitatively by domain experts. the definition of such features is based on expert knowledge and therefore is not completely automated and reproducible. devos et al. [ 21 ] combine standard mr intensities with spectroscopy imaging to improve classification performance using 3 classification techniques.",
+      "metadata": {
+        "section": "Introduction",
+        "section_path": [
+          "Introduction"
+        ],
+        "subsection_id": "paper_004_subsection_b605350bc002",
+        "pages": [
+          2
+        ],
+        "paragraph_ids": [
+          "para_0004"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 149.99999,
+            "y": 186.47598000000005,
+            "w": 372.0584199999994,
+            "h": 215.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "e5b44bf87d2477f047a9b74fdf7c95745a886391d86bd162972cc271a4605f49"
+    },
+    {
+      "segment_id": "paper_004_body_0006_13d79bb0::segment_0000",
+      "chunk_id": "paper_004_body_0006_13d79bb0",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 6,
+      "source_index": 6,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 448,
+      "token_count": 448,
+      "text": "in this study, we explore the heterogeneous regions of brain tumors by combining imaging features from several sequences and extract morphological and texture characteristics. our analysis requires 3 rois, which define the neoplastic and necrotic region on contrast enhanced t1 - weighted mri, and edematous region on flair image. instead of only measuring mean values in the rois, we investigate if conventional mri has higher potential when complicated features are extracted, such as rotation invariant texture features based on gabor filtering [ 22 ]. moreover, since it has been shown that contrast enhancement in conventional mri is not sufficient for glioma grading or differentiating between metastasis and high grade tumor, we also incorporate rcbv maps. this approach incorporates imaging data which are ( or can be ) acquired in a routine clinical protocol, including multi - parametric conventional mri and perfusion. we apply the method for binary classification, but also investigate the multi - class classification problem for differentiating between the most common brain tumors : metastasis, meningioma ( usually grade i ), low grade glioma ( grade ii ), grade iii glioma, and glioblastoma ( grade iv ) according to the world health organization ( who ) system. grade ii and grade iii gliomas include astrocytomas ( anaplastic or not ), oligodendrogliomas and oligoastrocytomas. the proposed framework consists of a training step, where the classifier learns the imaging characteristics of the different tumor types, and a testing step, where the classifier recognizes the tumor type in a new image. the framework is general and, if a significant number of observations ( training samples ) exists, can be applied to classify any other neoplasm and also non - neoplastic pathologies including lymphoma, abscess, encephalitis. we differentiate between tumor types by combining multi - parametric mr images into a single classification rule rather than using single modalities independently. we exploit the potential of features extracted automatically from the images in order to avoid descriptive criteria, which are raterdependent and require prior knowledge ( the help of experts ).",
+      "metadata": {
+        "section": "Introduction",
+        "section_path": [
+          "Introduction"
+        ],
+        "subsection_id": "paper_004_subsection_b605350bc002",
+        "pages": [
+          2,
+          3
+        ],
+        "paragraph_ids": [
+          "para_0005",
+          "para_0006"
+        ],
+        "coordinates": [
+          {
+            "page": 2,
+            "x": 149.99999,
+            "y": 104.47598000000005,
+            "w": 372.0493899999997,
+            "h": 71.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 150.0,
+            "y": 494.47598,
+            "w": 372.06933999999933,
+            "h": 167.06,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 90.00000000000003,
+            "y": 274.69525,
+            "w": 51.68000000000001,
+            "h": 11.170000000000016,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d94304235f3eeb174ffa255b0703c7d1bd1bb68ef110d7a8490f95a9e717504a"
+    },
+    {
+      "segment_id": "paper_004_body_0007_38f8e164::segment_0000",
+      "chunk_id": "paper_004_body_0007_38f8e164",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 7,
+      "source_index": 7,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 46,
+      "token_count": 46,
+      "text": "the proposed scheme consists of four parts : roi definition, feature extraction, feature selection and classification based on svms. leave - one - out cross - validation is used to test the robustness and accuracy of the proposed classification scheme.",
+      "metadata": {
+        "section": "Introduction",
+        "section_path": [
+          "Introduction"
+        ],
+        "subsection_id": "paper_004_subsection_b605350bc002",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0007"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 150.0,
+            "y": 448.47598000000005,
+            "w": 372.04691999999955,
+            "h": 35.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "6d9be6ac46260d94318cdbb81bc3779863a4bcd851effe025d8034acf1eae7a2"
+    },
+    {
+      "segment_id": "paper_004_body_0009_67742581::segment_0000",
+      "chunk_id": "paper_004_body_0009_67742581",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 9,
+      "source_index": 9,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 143,
+      "token_count": 143,
+      "text": "we propose a multi - parametric framework for brain tumor classification and prediction of degree of malignancy. intensity and texture based features are integrated via a pattern classification technique into a multi - parametric imaging profile. the features are first normalized to have zero mean and unit variance. a feature selection method is then used to select a small set of effective features for classification in order to improve the generalization ability and the performance of the classifier. in this section, the clinical data and the acquisition protocol are first reviewed. then, the preprocessing of the data and the rois for feature extraction are described followed by the definition of the features. finally, the methods for feature selection and classification are presented.",
+      "metadata": {
+        "section": "Methods",
+        "section_path": [
+          "Methods"
+        ],
+        "subsection_id": "paper_004_subsection_8696622f3441",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0008",
+          "para_0009"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 150.0,
+            "y": 342.48184000000003,
+            "w": 372.0662399999992,
+            "h": 71.06,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 150.0,
+            "y": 284.48184000000003,
+            "w": 363.2299999999997,
+            "h": 47.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "a696800a875f597ad17f65ca2e98cc13278124e28baa241c54ef188d7d8e239d"
+    },
+    {
+      "segment_id": "paper_004_body_0011_89b5e418::segment_0000",
+      "chunk_id": "paper_004_body_0011_89b5e418",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 11,
+      "source_index": 11,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 304,
+      "token_count": 304,
+      "text": "we examined 98 patients ( 52 women, 46 men ; age 17 - 83 years ) with a diagnosis of brain neoplasm ( from september 2006 to december 2007 ) who had not been treated at the time of mri. four patients had multiple ( 2 ), not related to each other, lesions which were regarded as independent masses. all patients underwent biopsy or surgical resection of the tumor with histopathological diagnosis. the total of 102 brain masses were histologically diagnosed and graded based on world health organization ( who ) criteria as • metastasis ( 24 ), • meningiomas ( 4 ), • gliomas grade ii ( 22 ) including astrocytomas, oligodendrogliomas, oligoastrocytomas, ependymomas and gliomatosis cerebri, • gliomas grade iii ( 18 ) including anaplastic astrocytomas and ( anaplastic ) oligodendrogliomas, • glioblastomas ( gbms ) ( 34 ) including 1 giant cell gbm. the primary sites of cancer for patients with metastatic lesions were lung ( 14 ), breast ( 5 ), melanoma ( 3 ) and esophagus ( 1 ). for one case the primary tumor type could not be confirmed, most likely came from breast or lung. the study was approved by the institutional review board and was compliant with the health insurance portability and accountability act ( hipaa ).",
+      "metadata": {
+        "section": "Data",
+        "section_path": [
+          "Data"
+        ],
+        "subsection_id": "paper_004_subsection_cec3a9b89b2e",
+        "pages": [
+          3,
+          4
+        ],
+        "paragraph_ids": [
+          "para_0010",
+          "para_0011",
+          "para_0013",
+          "para_0015"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 150.0,
+            "y": 184.38907000000006,
+            "w": 372.0423499999994,
+            "h": 71.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 168.0,
+            "y": 166.38907000000006,
+            "w": 80.76999999999998,
+            "h": 11.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 168.0,
+            "y": 148.38907000000006,
+            "w": 88.55000000000001,
+            "h": 11.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 168.0,
+            "y": 708.47598,
+            "w": 310.15999999999957,
+            "h": 23.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 150.0,
+            "y": 624.4759799999999,
+            "w": 372.04064999999946,
+            "h": 59.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "abae5e46ba454c9d33cfc7e614c71d37be333f9000d462e3dbd11b2bd49636ab"
+    },
+    {
+      "segment_id": "paper_004_body_0012_f673288b::segment_0000",
+      "chunk_id": "paper_004_body_0012_f673288b",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 12,
+      "source_index": 12,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 470,
+      "token_count": 470,
+      "text": "the patients were imaged using a 3. 0 tesla mri scanner system ( magnetom trio tim system, siemens medical systems, erlangen, germany ), with a multi - channel phased - array coil. the imaging acquisition protocol was the same for all patients and includes the following sequences : axial 3d t1 - weighted ( t1 ) ( magnetization prepared rapid acquisition gradient echo tr / te / ti 1760 / 3. 1 / 950, matrix size 192×256, pixel spacing 0. 9766×0. 9766mm slice thickness 1 mm ), sagittal 3d t2 - weighted ( t2 ) ( matrix size 256×320, pixel spacing 0. 8969×0. 8969mm, slice thickness 0. 9 mm ), fluid attenuated inversion recovery ( flair ) ( tr / te / ti 9420 / 141 / 2500, matrix size 192×256, pixel spacing 0. 9375×0. 9375mm, slice thickness 3 mm ) and dti. dti was not used as part of this study, but will be incorporated in the future. axial 3d contrast enhanced t1 - weighted images ( t1ce ) were obtained after administration of a standard dose ( 0. 1 mmol / kg ) of gadodiamide with a power injector ( medrad, idianola, pa ). also, after an initial loading dose of 3ml gadodiamide and a 5min delay, t2 * - weighted dynamic susceptibility perfusion mri was performed using a gradient echo epi acquisition during bolus injection of 12 ml gadodiamide. twenty slices were acquired with tr / te 2000 / 45 ms, matrix size 128×128, pixel spacing 1. 7×1. 7 mm, slice thickness 3. 0 mm. relative cerebral blood volume ( rcbv ) maps were generated off - line by calculating the change in relaxation rate using the equation δr2 * ( t ) = - ln ( s ( t ) / s 0 ) / te, where s ( t ) is signal intensity at time t and s 0 is baseline signal intensity, and then integrating under the δr2 * ( t ) curve over time points corresponding to the first pass of the contrast bolus.",
+      "metadata": {
+        "section": "Data",
+        "section_path": [
+          "Data"
+        ],
+        "subsection_id": "paper_004_subsection_cec3a9b89b2e",
+        "pages": [
+          4
+        ],
+        "paragraph_ids": [
+          "para_0016"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 150.0,
+            "y": 386.47598000000005,
+            "w": 372.1099999999997,
+            "h": 227.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "e41c7157ae1507aa30c6a4420112d6fa1c104554185d2ddef7d22a14cc33d5db"
+    },
+    {
+      "segment_id": "paper_004_body_0014_d170313c::segment_0000",
+      "chunk_id": "paper_004_body_0014_d170313c",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 14,
+      "source_index": 14,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 467,
+      "token_count": 467,
+      "text": "the images are preprocessed following a number of steps including noise reduction, bias - field correction, and rigid intra - subject registration using the public software package fsl [ 23 ]. the co - registration of all sequences ( t1, t1ce, t2, flair, rcbv ) is required in order to extract features from the rois and is performed with the rigid registration algorithm flirt [ 24 ] from fsl. the intensity levels are made comparable across subjects by histogram matching. for this purpose skull stripping is first performed using bet [ 25 ] to generate a brain tissue mask from the t1 image which is then used to extract the brain region from all other co - registered sequences. a linear transformation of the intensities ( translation and scaling ) is applied in order to minimize the l 2 - norm of the histogram difference between each subject and a template image. histogram matching is not applied to the rcbv maps, calculated from the perfusion sequence. the features were extracted from rois manually traced by two expert neuroradiologists. maximum 4 rois were used : • roi1 ( neoplastic, enhancing ), roi2 ( neoplastic, non - enhancing ) : includes all nonnecrotic enhancing neoplastic tissue, or, if the lesion did not show enhancement, the whole non - necrotic t1 - hypointense neoplastic tissue avoiding peritumoral edema by tracing the flair image. • roi3 ( necrotic ) : this roi was delineated only in cases including necrotic tumor tissue by tracing the coregistered t1ce, t1, t2 and flair images and by excluding hemorrhage. • roi4 ( edematous ) : flair and t2 images were used to depict the peritumoral edema ( possibly including neoplastic infiltration ), drawing the roi surrounding the high signal intensity seen on these sequences. it should be noted that the rois were drawn based on the signal intensity of different sequences and are not expected to be highly specific to each tissue type. for example, non - enhancing neoplastic tissue and edematous tissue might overlap and be both present in roi2 or roi4.",
+      "metadata": {
+        "section": "Preprocessing and definition of ROIs",
+        "section_path": [
+          "Preprocessing and definition of ROIs"
+        ],
+        "subsection_id": "paper_004_subsection_9735eaa95c84",
+        "pages": [
+          4,
+          5
+        ],
+        "paragraph_ids": [
+          "para_0017",
+          "para_0018",
+          "para_0019",
+          "para_0020",
+          "para_0021",
+          "para_0022"
+        ],
+        "coordinates": [
+          {
+            "page": 4,
+            "x": 150.0000000000001,
+            "y": 226.38321000000008,
+            "w": 372.05067999999915,
+            "h": 131.06,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 150.0000000000001,
+            "y": 192.38321000000008,
+            "w": 354.9099999999997,
+            "h": 23.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 4,
+            "x": 168.0000000000001,
+            "y": 138.38321000000008,
+            "w": 354.3399999999996,
+            "h": 47.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 168.0,
+            "y": 696.47598,
+            "w": 354.04127999999946,
+            "h": 35.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 168.0,
+            "y": 654.4759799999999,
+            "w": 354.04083999999966,
+            "h": 35.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 150.0,
+            "y": 612.4759799999999,
+            "w": 372.03583999999944,
+            "h": 35.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d7f0d36fc602828da205d40881d60b1ccbd63d795d10bd6a357d6c9348d36ab3"
+    },
+    {
+      "segment_id": "paper_004_body_0016_c13a2a7c::segment_0000",
+      "chunk_id": "paper_004_body_0016_c13a2a7c",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 16,
+      "source_index": 16,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 442,
+      "token_count": 442,
+      "text": "we chose a large number of features ( 161 ) for investigation which included age, tumor shape characteristics, image intensity characteristics within some of the rois and gabor texture features, as explained next. shape and statistical characteristics of tumor ( evaluated in roi1 ∪ roi2 ∪ roi3 ) - five shape features ( s i, i = 1,..., 5 ) of the total tumor area are investigated, i. e. the tumor circularity, irregularity, rectangularity, the entropy of radial length distribution of the boundary voxels, and the surface - to - volume ratio. also three statistical features are calculated, i. e. the ratio of enhancing ( v enh ), necrotic ( v nec ), and edematous ( v edm ) tumor volume versus total ( enhancing and non - enhancing ) tumor volume. image intensity characteristics - the mean ( μ ) and variance ( var ) of image intensities of t1, t1ce, t2 are calculated in the central and marginal area of roi1, roi2 and roi3. for flair images the same intensity characteristics are extracted from roi4. for the rcbv maps, since hyperintense areas are indicative but not specific to tumor, we first mask out areas that appear hypointense in flair and then calculate the mean and variance of rcbv in the central and marginal region of roi1, roi2 and roi4. more analytically, the voxels with low intensity on the flair image, such as ventricles or peripheral vessels in the cortical sulci, are excluded from the analysis of the rcbv maps, because they may represent normal vasculature which may be indistinguishable from abnormal neovascularity due to neoplastic infiltration. all intensity related features sum up to 52 features in total. these features are denoted as,, when measured in the central area and,, when measured in the marginal area, where r ∈ { 1,..., 4 } for roi1 to roi4, and i ∈ { t1, t1ce, t2, flair, rcbv }.",
+      "metadata": {
+        "section": "Feature description",
+        "section_path": [
+          "Feature description"
+        ],
+        "subsection_id": "paper_004_subsection_62623c06d1ba",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0023",
+          "para_0024",
+          "para_0025"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 150.0,
+            "y": 548.38321,
+            "w": 372.0434199999994,
+            "h": 35.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 150.0,
+            "y": 522.05044,
+            "w": 372.00011000000006,
+            "h": 15.350000000000023,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 149.99999000000017,
+            "y": 464.10978,
+            "w": 372.0620299999995,
+            "h": 59.200000000000045,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 150.00000000000003,
+            "y": 301.26599,
+            "w": 343.8429400000001,
+            "h": 12.680000000000007,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 149.99999000000017,
+            "y": 314.08505,
+            "w": 372.0549099999997,
+            "h": 137.13196,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "e35886374ca713f54384cc891f48270c626c2e633d1b670dc6c68c867534f0a7"
+    },
+    {
+      "segment_id": "paper_004_body_0017_73448ec9::segment_0000",
+      "chunk_id": "paper_004_body_0017_73448ec9",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 17,
+      "source_index": 17,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 323,
+      "token_count": 323,
+      "text": "gabor texture - the voxel - wise texture features of image i ( x, y, z ) are extracted at each tomographic slice of the 3d roi by convoluting with 2d gabor filters [ 26 ] [ 27 ] and averaging inside the roi. the 2d gabor filters are mathematically described at location ( x, y ) as λ = 1 / f is the wavelength, θ the orientation, γ the spatial aspect ratio which determines the eccentricity of the convolution kernel and which was taken as γ = 1 in this study, and ψ the phase offset which determines the symmetry of the gabor function. the standard deviation σ of the gaussian factor determines the neighborhood of a voxel in which weighted summation takes place. the ratio σ / λ determines the spatial frequency bandwidth. we used a constant ratio σ / λ [ 27 ] and therefore σ is not considered as independent parameter. we calculated the texture by combining the output of a symmetric ( ψ = 0 ) and anti - symmetric ( ψ = π / 2 ) gabor kernel using the l 2 - norm [ 27 ], as shown below : where ⊗ denotes 2d linear convolution. then, in order to make the average gabor features rotation invariant, for each radial frequency f fast fourier transform ( fft ) is performed across orientation θ [ 22 ]. suppose we use n θ orientations within a period of π, then n θ magnitudes of fourier coefficients can be obtained for each frequency f, but only the first n c = n θ / 2 + 1 coefficients for each frequency are unique.",
+      "metadata": {
+        "section": "Feature description",
+        "section_path": [
+          "Feature description"
+        ],
+        "subsection_id": "paper_004_subsection_62623c06d1ba",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0026",
+          "para_0027",
+          "para_0028"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 150.0,
+            "y": 708.47598,
+            "w": 372.0146699999997,
+            "h": 23.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 6,
+            "x": 150.0,
+            "y": 579.35339,
+            "w": 372.0072799999996,
+            "h": 59.89999,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "fe743cb5aef3d6a72d422b984394f6120f816a6fdb488c6ef275b50981102994"
+    },
+    {
+      "segment_id": "paper_004_body_0018_b1507280::segment_0000",
+      "chunk_id": "paper_004_body_0018_b1507280",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 18,
+      "source_index": 18,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 222,
+      "token_count": 222,
+      "text": "we extract the texture features from the t1ce in roi1 ∪ roi2 ∪ roi3 and from flair in roi4. we use 5 wavelengths,, and n θ = 8 orientations in [ 0, π ] which after the fft produce n c = n θ / 2 + 1 = 5 unique coefficients for each frequency. therefore for each bandwidth we obtain 25 rotation - invariant texture features,, where l = 1,..., 5 is the wavelength index and c = 1,..., 5 is the index on fft coefficients and i ∈ { t1ce, flair }. we used 2 bandwidth values ( 1 and 1. 5 ) and finally obtained 100 features in total describing texture in t1ce and flair for tumor classification. it should be noted that texture features are affected by the mri acquisition parameters, especially the spatial resolution [ 28 ]. therefore it is important to use the same acquisition protocol during training of the classifier and during testing, i. e. when the classifier learns the imaging characteristics and when the classifier recognizes a new case, respectively.",
+      "metadata": {
+        "section": "Feature description",
+        "section_path": [
+          "Feature description"
+        ],
+        "subsection_id": "paper_004_subsection_62623c06d1ba",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0029"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 149.99999999999994,
+            "y": 477.07531,
+            "w": 372.0458599999993,
+            "h": 92.13902000000002,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "a17dd3347b93ec7ec0ebc2488ad1df7ce130404d3053f4b285b44e7f27ec78ba"
+    },
+    {
+      "segment_id": "paper_004_body_0020_b74d1a43::segment_0000",
+      "chunk_id": "paper_004_body_0020_b74d1a43",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 20,
+      "source_index": 20,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 245,
+      "token_count": 245,
+      "text": "feature selection methods can be divided into feature ranking methods and feature subset selection methods [ 29 ]. the feature ranking methods compute a ranking score for each feature according to its discriminative power, and then simply select the top ranked features as final features for classification. these feature selection methods are preferable for high dimensional problems, due to their computational scalability. however, the subset of features selected by the feature ranking methods might contain a lot of redundant features, since the ranking score is computed independently for each feature, by completely ignoring its correlation with others. on the contrary, the feature subset selection methods focus on selecting a subset of features that jointly have better discriminative power. in general, sophisticated subset selection methods have better classification performance than feature ranking methods, but their high computational cost usually limits their applications to the high dimensional problems. since combinatorial search of the optimal combination of features would be computationally prohibitive, we combine the advantages of both the feature ranking method and the feature subset selection method. specifically, we first reduce the number of features by eliminating the less relevant features using a forward selection method based on a ranking criterion and then apply backward feature elimination using a feature subset selection method, as explained next.",
+      "metadata": {
+        "section": "Feature selection",
+        "section_path": [
+          "Feature selection"
+        ],
+        "subsection_id": "paper_004_subsection_9c31992ceab7",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0030"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 150.00001000000003,
+            "y": 104.98257000000012,
+            "w": 372.0591799999997,
+            "h": 179.05996999999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 150.0,
+            "y": 708.47598,
+            "w": 372.05691999999954,
+            "h": 23.059999999999945,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "2f8b009561d562b5dc40d7ee345ef6f4d5095e7a5e863a64496c2158c5b28139"
+    },
+    {
+      "segment_id": "paper_004_body_0021_56086d48::segment_0000",
+      "chunk_id": "paper_004_body_0021_56086d48",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 21,
+      "source_index": 21,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 304,
+      "token_count": 304,
+      "text": "ranking - based criterion - we use a simple ranking - based feature selection criterion, a two - tailed t - test, which measures the significance of a difference of means between two distributions [ 30 ], and therefore evaluates the discriminative power of each individual feature in separating two classes. if the features are assumed to come from normal distributions with unknown, but equal, variances, the t - statistic is defined as : where x1, v 1 and x2, v 2 are the sample mean and sample variance of a particular feature in 1 st and 2 nd class, respectively. n 1 and n 2 are the numbers of samples in each class. since the correlation among features has been completely ignored in this feature ranking method, redundant features are inevitably selected, which ultimately affects the classification results. therefore, we use this feature ranking method to select the more discriminative features, e. g. by applying a cut - off ratio ( p - value < = α, where α = 0. 1 is the significance level for rejecting the null hypothesis ), and then apply the feature subset selection method on the reduced feature space, as detailed in the next paragraph. the remaining features ( with pvalue > α ) are ranked by applying the t - test using a bagging strategy [ 31 ]. specifically, the training set is divided in 5 folds and the features are ranked at each fold separately. then the rankings are combined to produce the total rank for each feature based on forward selection.",
+      "metadata": {
+        "section": "Feature selection",
+        "section_path": [
+          "Feature selection"
+        ],
+        "subsection_id": "paper_004_subsection_9c31992ceab7",
+        "pages": [
+          7
+        ],
+        "paragraph_ids": [
+          "para_0031",
+          "para_0032"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 149.99999999999997,
+            "y": 636.38321,
+            "w": 372.0501299999994,
+            "h": 59.200000000000045,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 149.99997999999985,
+            "y": 417.97061,
+            "w": 372.31661999999983,
+            "h": 107.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "d96c981652ec6fd4da425a36d99db48ce27c00a6f9e2d20d03f0a9aa62bd795b"
+    },
+    {
+      "segment_id": "paper_004_body_0022_02088b9a::segment_0000",
+      "chunk_id": "paper_004_body_0022_02088b9a",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 22,
+      "source_index": 22,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 317,
+      "token_count": 317,
+      "text": "2 ) features subset selection method based on svm - svm - based feature selection methods have been successfully applied in a variety of problems. one good example is the support vector machine recursive feature elimination ( svm - rfe ) algorithm which was initially proposed for a cancer classification problem [ 32 ], and was later extended by introducing svm - based leave - one - out error bound criteria in [ 33 ]. the goal of svm - rfe is to find a subset of features that optimizes the performance of the classifier. this algorithm determines the ranking of the features based on a backward sequential selection method that removes one feature at a time. at each time, the removed feature makes the variation of svmbased leave - one - out error bound smallest, compared to removing other features. the training data set { x k, y k } ∈ r n × { - 1, 1 } consists of the training patterns x k and the known class labels y k, where k = 1,..., n s ( n s = n 1 + n 2 is the total number of training samples belonging to both classes ). we apply the zero - order method for identifying the variable that produces the smallest value of the ranking criterion when removed, and use the weight magnitude ‖ w ‖ 2 as ranking criterion, defined as ( 1 ) where k ( i ) is the gram matrix of the training data ( see eq. 2 next paragraph ) when the variable i is removed and a ( i ) is the corresponding solution of the svm classifier.",
+      "metadata": {
+        "section": "Feature selection",
+        "section_path": [
+          "Feature selection"
+        ],
+        "subsection_id": "paper_004_subsection_9c31992ceab7",
+        "pages": [
+          7
+        ],
+        "paragraph_ids": [
+          "para_0033",
+          "para_0034"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 149.99997999999985,
+            "y": 297.87784,
+            "w": 372.05647999999985,
+            "h": 107.19999999999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 149.99995999999987,
+            "y": 227.79971999999998,
+            "w": 372.0518399999994,
+            "h": 60.65039999999999,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1c5b62119c24521365bd8725684fe40fc8f820e974c0c2619f5d4c72ca8f09f5"
+    },
+    {
+      "segment_id": "paper_004_body_0023_ff03f1a2::segment_0000",
+      "chunk_id": "paper_004_body_0023_ff03f1a2",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 23,
+      "source_index": 23,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 366,
+      "token_count": 366,
+      "text": "3 ) constrained lda ( clda ) - for the purpose of comparison of the previously described feature selection algorithm with a commonly used dimensionality reduction method, such as lda, we also investigated the performance of the constrained lda ( clda ) algorithm for feature selection [ 34 ]. clda maximizes the discriminant capability between classes without transforming the original features, as done by traditional lda or pca ( principle component analysis ). this is important because it allows to preserve the physical meaning of the input variables and to assess the contribution of each original variable in classification. 4 ) calculating total rank by combination - classification is performed by following a leave - one - out strategy on the training samples. for each leave - one - out experiment, feature ranking is performed using data only from the training samples. the feature selection method is implemented in each training subset in order to correct for the selection bias [ 35 ]. it is important that cross - validation is external to the feature selection process in order to more accurately estimate the prediction error. evidently, there is no guarantee that the same subset of features will be selected at each leave - one - out experiment. we combine the rankings of all leave - one - out experiments and report the total rank of features ( in table 2 ) according to the frequency of a feature appearing in a specific rank. for example the top - ranked feature is assumed to be the one that more frequently has the highest ranking score, regardless of the distribution of the scores it receives across experiments. in order to assess if the features are selected consistently, we use two measures : the entropy ( e ) to evaluate the certainty in ranking and the standard deviation ( s ) to measure the compactness. these measures are normalized between 0 ( no consistency ) and 1 ( same rank in all experiments ).",
+      "metadata": {
+        "section": "Feature selection",
+        "section_path": [
+          "Feature selection"
+        ],
+        "subsection_id": "paper_004_subsection_9c31992ceab7",
+        "pages": [
+          20
+        ],
+        "paragraph_ids": [
+          "para_0035"
+        ],
+        "coordinates": [
+          {
+            "page": 20,
+            "x": 55.97731,
+            "y": 407.4939,
+            "w": 10.052999999999997,
+            "h": 31.014000000000124,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4f2d5767d0e717ef955ff1b41f01cd9e9fc309a9c3b03b1c70a93dba01bf4c3d"
+    },
+    {
+      "segment_id": "paper_004_body_0025_14d9ae57::segment_0000",
+      "chunk_id": "paper_004_body_0025_14d9ae57",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 25,
+      "source_index": 25,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 205,
+      "token_count": 205,
+      "text": "classification was performed by starting with the more discriminative features and gradually adding less discriminative features, until classification performance no longer improved. three pattern classification methods were investigated for comparison : lda with fisher ' s discriminant rule [ 36 ], k - nearest neighbor ( k - nn ) [ 37 ], and nonlinear svms [ 33 ]. in lda, a transformation function is sought that maximizes the ratio of between - class variance to within - class variance. since usually there is no transformation that provides complete separation, the goal is to find the transformation that minimizes the overlap of the transformed distributions. k - nn classification is performed based on closest training examples in the feature space. in svms, the original input space is mapped into a higher dimensional feature space in which an optimal separating hyperplane is constructed such that the distance from the hyperplane to the nearest data point is maximized. due to this property, svm classifiers tend to possess good generalization ability.",
+      "metadata": {
+        "section": "Classification",
+        "section_path": [
+          "Classification"
+        ],
+        "subsection_id": "paper_004_subsection_72f049954fdd",
+        "pages": [
+          8
+        ],
+        "paragraph_ids": [
+          "para_0036"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 150.0,
+            "y": 296.19766000000004,
+            "w": 372.29789000000005,
+            "h": 143.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "bd934eb90db7ed9a9097ca5e892fd019379ac108bcdb8001011b6db17500b811"
+    },
+    {
+      "segment_id": "paper_004_body_0026_2ff2bb2c::segment_0000",
+      "chunk_id": "paper_004_body_0026_2ff2bb2c",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 26,
+      "source_index": 26,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 290,
+      "token_count": 290,
+      "text": "a critical parameter in svm is the penalty parameter c. a larger c corresponds to assigning a higher penalty to misclassification. since the data are unbalanced and the sample size is rather small to produce balanced classes by subsampling the largest class, we used a weighted svmfoot _ 1 [ 38 ] to apply larger penalty to the class with the smaller number of samples. if the penalty parameter is not weighted ( equal c for both classes ), there is an undesirable bias towards the class with the large training size ; and thus we set the ratio of penalties for the two classes, c 1 and c 2, ( in each binary classification ) to the inverse ratio of the training class sizes [ 38 ]. the kernel function used in our svm classifier is gaussian radial basis function kernel. the gram matrix for two feature vectors x i, x j is defined as ( 2 ) where s controls the size of the gaussian kernel. we defined s to be adaptive to the number of retained features ( n f ), using the equation s = k • n f • log ( n f ), where k is a constant. the aim was to include a constant fraction of the training samples in a ball in feature space of size s for any dimensionality ( number of features ). the constant k was determined such that the fraction of the training samples contained in the kernel is approximately 20 %.",
+      "metadata": {
+        "section": "Classification",
+        "section_path": [
+          "Classification"
+        ],
+        "subsection_id": "paper_004_subsection_72f049954fdd",
+        "pages": [
+          8
+        ],
+        "paragraph_ids": [
+          "para_0037"
+        ],
+        "coordinates": [
+          {
+            "page": 8,
+            "x": 149.9999699999999,
+            "y": 176.62766,
+            "w": 372.15999999999957,
+            "h": 108.63000000000005,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "0c22172da01b530193e392dbf97c95f176ebd44a5a138f66abf2bf0bd7e2322e"
+    },
+    {
+      "segment_id": "paper_004_body_0027_fb5cea0a::segment_0000",
+      "chunk_id": "paper_004_body_0027_fb5cea0a",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 27,
+      "source_index": 27,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 106,
+      "token_count": 106,
+      "text": "the multi - class problem was solved by constructing and combining several binary classifiers into a voting scheme. we applied majority voting from all one - versus - all binary classification problems. for assessing the predictive ability of the classification scheme we applied leaveone - out cross - validation. in the future, when more training data will be available for each class, we will assess the generalization ability through 3 - fold cross validation and will further optimize the classification parameters, c and s, for each classification problem by exhaustive search.",
+      "metadata": {
+        "section": "Classification",
+        "section_path": [
+          "Classification"
+        ],
+        "subsection_id": "paper_004_subsection_72f049954fdd",
+        "pages": [
+          9
+        ],
+        "paragraph_ids": [
+          "para_0038"
+        ],
+        "coordinates": [
+          {
+            "page": 9,
+            "x": 150.00000000000003,
+            "y": 517.2864500000001,
+            "w": 372.35243999999966,
+            "h": 83.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 90.00000000000003,
+            "y": 274.69525,
+            "w": 51.68000000000001,
+            "h": 11.170000000000016,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "a79f39f69df61e86cdf2e405af9b8624b46ba2eb20694deeffd7b3ac0bb26e22"
+    },
+    {
+      "segment_id": "paper_004_body_0029_8f27d993::segment_0000",
+      "chunk_id": "paper_004_body_0029_8f27d993",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 29,
+      "source_index": 29,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 277,
+      "token_count": 277,
+      "text": "table 2 also shows the top ranked features ( thresholded based on t - statistic and ranked by the svm - rfe algorithm, as described in section 2. 4 ) for each classification task. not all selected features are shown in the third column, but only the overall top ranked calculated by combining all leave - one - out results. the notation used for these features is described analytically in section 2. 3. the subsequent columns show the sensitivity, specificity, accuracy and auc values, respectively. the results of table 2 show that perfusion is an important mr imaging technique for most classification tasks. the enhancing portion in t1ce appears as significant parameter in the distinction of meningioma from gliomas of all grades ; specifically in the case of glioblastoma, the enhancing portion in t1ce is selected as a single feature and achieves 97. 4 % accuracy. a combination of multi - parametric features, including t2 and t1 pre - contrast imaging characteristics, is used for classifying primary glioma versus metastasis ( with accuracy 84. 7 % ) and low versus high grade glioma ( with accuracy 87. 8 % ). gabor texture seems also to be a relevant pattern. it is interesting to note that usually the large wavelengths ( λ = 8 or ) appear as part of the selected patterns.",
+      "metadata": {
+        "section": "Results",
+        "section_path": [
+          "Results"
+        ],
+        "subsection_id": "paper_004_subsection_219c4a6c86a7",
+        "pages": [
+          9,
+          10
+        ],
+        "paragraph_ids": [
+          "para_0041",
+          "para_0042"
+        ],
+        "coordinates": [
+          {
+            "page": 9,
+            "x": 150.0,
+            "y": 127.2923300000001,
+            "w": 372.05847999999924,
+            "h": 71.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 20,
+            "x": 55.97731,
+            "y": 407.4939,
+            "w": 10.052999999999997,
+            "h": 31.014000000000124,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 150.0,
+            "y": 622.968,
+            "w": 372.06110999999964,
+            "h": 108.56798000000003,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1668321c69d1992f8e146e52048b366595412f5948fc878e3edc252e0662672c"
+    },
+    {
+      "segment_id": "paper_004_body_0030_81133bec::segment_0000",
+      "chunk_id": "paper_004_body_0030_81133bec",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 30,
+      "source_index": 30,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 307,
+      "token_count": 307,
+      "text": "for most binary classification pairs the number of features selected with svm - rfe giving the highest classification accuracy is relatively small which means that the chance of overfitting is reduced and the generalization ability improved. the feature reduction is an important advantage of svm - rfe over the simple t - test. although the accuracy over all classification tasks is on average almost the same when applying svm - rfe as a second step after t - test, the average number of selected features over all classification tasks is overall reduced by 33 % ( n f = 30 in the case of t - test and n f = 20 in the case of svm - rfe ). fig. 3 and fig. 4 ( 1 st row ) show the classification accuracy with increasing number of retained features. the plots illustrate that the fluctuations of accuracy around the optimal number of features are small and the method is not very sensitive to the exact number of selected features, except in the case of metastasis versus gbm where the plateau is quite narrow. the feature selection method in general eliminates the redundant features, reduces the noise and builds groupings that are both robust and accurate. accuracy is relatively high for all classification pairs except for grade ii versus grade iii glioma. these two types of tumor have common characteristics due to the mixed histology and are difficult to differentiate. on the other hand, the accuracy in classifying metastasis from primary glioma and low from high grade glioma is high as illustrated in fig. 4.",
+      "metadata": {
+        "section": "Results",
+        "section_path": [
+          "Results"
+        ],
+        "subsection_id": "paper_004_subsection_219c4a6c86a7",
+        "pages": [
+          10
+        ],
+        "paragraph_ids": [
+          "para_0043",
+          "para_0045"
+        ],
+        "coordinates": [
+          {
+            "page": 10,
+            "x": 150.0,
+            "y": 456.92891000000003,
+            "w": 372.2834399999999,
+            "h": 155.09909,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 10,
+            "x": 150.0,
+            "y": 398.92891000000003,
+            "w": 372.0585099999996,
+            "h": 47.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "7bc085587ac8ac90ebb81c23028dd31375e02d3c7fdb72e1f932fd549f1be758"
+    },
+    {
+      "segment_id": "paper_004_body_0032_40a1fe99::segment_0000",
+      "chunk_id": "paper_004_body_0032_40a1fe99",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 32,
+      "source_index": 32,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 141,
+      "token_count": 141,
+      "text": "in order to assess if the same features are selected as discriminant features for each leave - oneout experiment, we calculated the normalized entropy ( e ) and standard deviation ( s ) of the ranking scores for each feature. averaging of e and s across all selected features showed that the highest consistency was observed when distinguishing meningioma from gbm ( e = 0. 95, s = 0. 99, n f = 1 ), as well as from gliomas grade ii ( e = 0. 82, s = 0. 92, n f = 9 ) and metastasis ( e = 0. 71, s = 0. 92, n f = 6 ).",
+      "metadata": {
+        "section": "Consistency in feature selection during cross-validation",
+        "section_path": [
+          "Consistency in feature selection during cross-validation"
+        ],
+        "subsection_id": "paper_004_subsection_e559dfc5ba60",
+        "pages": [
+          10
+        ],
+        "paragraph_ids": [
+          "para_0046"
+        ],
+        "coordinates": [
+          {
+            "page": 10,
+            "x": 149.99999000000003,
+            "y": 297.18802,
+            "w": 372.0490599999994,
+            "h": 72.70812000000001,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "abb31031aa5e14c2395383c745680d753a6b57bf7af9dd6c133a3de99d4befd3"
+    },
+    {
+      "segment_id": "paper_004_body_0034_264b643b::segment_0000",
+      "chunk_id": "paper_004_body_0034_264b643b",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 34,
+      "source_index": 34,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 155,
+      "token_count": 155,
+      "text": "this paper presents a classification scheme for differentiating adult brain tumors using conventional mri and rcbv maps calculated from perfusion mri. shape characteristics, statistics on image intensities and rotation - invariant gabor texture features are extracted from the central and marginal tumoral, edematous and necrotic region. the scheme is fully automated and the help of an expert is not required except for tracing the rois. overall, we found that svm - based classification of texture patterns is a very promising approach to developing an objective and quantitative evaluation of brain tumors. however larger datasets need to be analyzed, which is expected to test the generalization ability of this approach, but also to further improve its performance, as such classification systems perform better if trained more extensively.",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [
+          11
+        ],
+        "paragraph_ids": [
+          "para_0048"
+        ],
+        "coordinates": [
+          {
+            "page": 11,
+            "x": 150.0,
+            "y": 590.48183,
+            "w": 372.1499999999995,
+            "h": 119.06000000000006,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "877ea98e8f88235676722a738d50589437d148591a10f9cafaadc392829347e6"
+    },
+    {
+      "segment_id": "paper_004_body_0035_0fcb29ee::segment_0000",
+      "chunk_id": "paper_004_body_0035_0fcb29ee",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 35,
+      "source_index": 35,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 316,
+      "token_count": 316,
+      "text": "generally the classification accuracy using the proposed method is comparable or higher than in other studies [ 6 ] not using spectroscopy or dti. the results in [ 21 ] using imaging intensities from standard mr alone cannot be immediately compared with ours, because ( i ) they were based on rois extracted from spectroscopy imaging, which we want to avoid in this study, and ( ii ) they reflected the number of voxels correctly classified rather than the number of subjects ( voxels from the same image were used as independent samples ). in [ 19 ], an svmbased classification system with radial basis function kernel achieved 74. 4 % overall accuracy in discriminating primary brain tumors from metastases utilizing the external cross - validation method, whereas an artificial neural network classifier performed better ( 80 % accuracy ). the features employed in that study were solely textural features from the t1ce mr images. our analysis, achieving 84. 7 % accuracy on the leave - one - out cross - validation error, also showed that gabor textural features from t1ce are important for this classification task combined with statistical parameters ( mean, variance, etc ) from other imaging sequences ( t2, rcbv ). moreover, our results in glioma grading ( low versus high grade ) are comparable with the ones reported in [ 20 ] ( the accuracy in [ 20 ] was assessed by cross - validation not being external to the feature - selection process ). this study was based on descriptive features estimated by domain experts whereas we applied features extracted in a semi - automatic way.",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [
+          11
+        ],
+        "paragraph_ids": [
+          "para_0050"
+        ],
+        "coordinates": [
+          {
+            "page": 11,
+            "x": 150.00001000000003,
+            "y": 150.48183000000006,
+            "w": 372.0593999999996,
+            "h": 203.06,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "8ff7c24758395d4c3d6a4f0ec878fa9adce88b4235f04eba3bb48e5c2daaa87e"
+    },
+    {
+      "segment_id": "paper_004_body_0036_5af7071c::segment_0000",
+      "chunk_id": "paper_004_body_0036_5af7071c",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 36,
+      "source_index": 36,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 320,
+      "token_count": 320,
+      "text": "the feature subset selection method shows that all mr sequences are important for classification, since different features are selected for different classification tasks ( table 2 ). the rcbv maps calculated from perfusion seem to be particularly important since parameters extracted from those are usually top - ranked in most classification pairs. also contrast enhanced t1 is a significant sequence ; the volume of enhancement as percentage of total tumor volume ( v enh ) is used as single feature for distinguishing between meningioma and gbm and is also part of the top - ranked features for other classification tasks. texture calculated on specific frequencies also contributes to tumor classification. textural parameters extracted from the edematous area in flair seem to be significant for glioma grading, whereas texture in the neoplastic area in t1ce is important for distinguishing metastatic from glial tumors. the features currently used for classification are extracted from the imaging profile and describe shape and texture. we have not incorporated features describing the deformation of the healthy structure due to tumor growth. it is known that different tumor types affect the surrounding healthy region differently and therefore studies have used the tumor mass effect as a descriptor for classifying gliomas according to their clinical grade [ 20 ] or as an independent predictor of survival [ 39 ]. for this purpose we recently proposed an automated method for quantifying the mass effect [ 40 ] by measuring how much the deformation in the tumor origin deviates from the range observed in a normal population. we plan to incorporate the indicator of mass effect as an additional parameter in our classification framework in the future.",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [
+          20
+        ],
+        "paragraph_ids": [
+          "para_0051"
+        ],
+        "coordinates": [
+          {
+            "page": 20,
+            "x": 55.97731,
+            "y": 407.4939,
+            "w": 10.052999999999997,
+            "h": 31.014000000000124,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1f98eef6ec6d84f15e1d0ef62675ac9fb9f8401936ef627a486e51514ed0bfa6"
+    },
+    {
+      "segment_id": "paper_004_body_0037_289f4c47::segment_0000",
+      "chunk_id": "paper_004_body_0037_289f4c47",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 37,
+      "source_index": 37,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 393,
+      "token_count": 393,
+      "text": "moreover, a limitation of this framework comes from the need for tracing rois which makes the current approach semi - automatic and subject to intra - and inter - observer variability. however it should be also noted that most of applied features are based on spatial averaging and therefore are not very sensitive to small differences in the delineation of rois. the most sensitive features are expected to be the ones calculated over the marginal area of the rois. we have investigated in the past the use of conventional and advanced mr imaging for automatic segmentation of neoplastic and healthy tissue [ 41 ]. we plan in the future to combine the two frameworks in order to automatically segment and classify brain neoplasms. the aim of this study is to assess the discrimination ability of standard mr imaging usually acquired in most clinical facilities. the use of imaging intensities from standard mr alone reaches lower performance than when combined with spectroscopy [ 21 ]. in the future we plan to incorporate also dti and spectroscopy in our analysis for assessing the increase in classification accuracy. other data based on microscopy imaging or histopathological exams could also be included to increase accuracy in predictions. for example nuclear features extracted from segmented nuclei [ 42 ] or blood vessel patterns [ 43 ] can assist brain astrocytomas malignancy grading, and the spatial organization of tumor vessels can be indicative for differentiation between medulloblastomas and supratentorial pnets [ 44 ]. voxel - wise histopathological parameters that reflect proliferation and protein synthesis or pet imaging could also be used, if available, in order to extend the current framework to output spatial maps of malignancy ( instead of a single grade ) providing more reliable differentiation of heterogenous neoplasms. examples of filters used to extract texture features. the 1 st row shows gabor filters for same frequency and different orientations and the 2 nd row the rotation - invariant filters. table 2",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [
+          20
+        ],
+        "paragraph_ids": [
+          "para_0052"
+        ],
+        "coordinates": [
+          {
+            "page": 20,
+            "x": 55.97731,
+            "y": 407.4939,
+            "w": 10.052999999999997,
+            "h": 31.014000000000124,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 12,
+            "x": 150.0,
+            "y": 280.47598000000005,
+            "w": 372.0623799999996,
+            "h": 239.05999999999995,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "59052242a367da4dedab15c9597dd95864989b81976780b367d162db30dc60d1"
+    },
+    {
+      "segment_id": "paper_004_body_0038_c2ef8de2::segment_0000",
+      "chunk_id": "paper_004_body_0038_c2ef8de2",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 38,
+      "source_index": 38,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 28,
+      "token_count": 28,
+      "text": "binary classification results obtained by leave - one - out cross - validation using svm for classification and svm - rfe for feature selection.",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [
+          20
+        ],
+        "paragraph_ids": [
+          "para_0053"
+        ],
+        "coordinates": [
+          {
+            "page": 20,
+            "x": 72.46402,
+            "y": 114.0,
+            "w": 11.060000000000002,
+            "h": 549.9199999999997,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "cd69bf16cc42420d17bb25301a49dc128a41cd8a3bd8273184bf6eeca463aaaa"
+    },
+    {
+      "segment_id": "paper_004_body_0039_7fa29de8::segment_0000",
+      "chunk_id": "paper_004_body_0039_7fa29de8",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 39,
+      "source_index": 39,
+      "segment_index": 0,
+      "segment_count": 2,
+      "token_start": 0,
+      "token_end": 510,
+      "token_count": 510,
+      "text": "binary classification n f overall top - ranked features ( maximum 8 features are shown ) sensitivity specificity acc auc met - men 6 var m 1 ( rcbv ), g 4 5 ( flair ), g 5 1 ( flair ), μ c 3 ( t 1ce ), μ c 3 ( t 1 ), var m 4 ( rcbv ) 75. 0 100 96. 4 97. 9 met - gl2 17 μ m 3 ( t 1ce ), μ m 2 ( t 1 ), μ c 3 ( t 1ce ), var c 4 ( flair ), var m 1 ( t 2 ), μ c 1 ( t 1ce ), var m 2 ( rcbv ), μ m 3 ( t 1 ) 95. 5 100 97. 8 97. 9 met - gl3 13 g 2 4 ( flair ), s 2, var c 4 ( flair ), μ c 2 ( t 2 ), var c 1 ( t 1ce ), var m 2 ( rcbv ), var m 4 ( flair ), μ m 1 ( t 1 ) 83. 3 91. 7 88. 1 87. 7 met - gl4 11 μ c 2 ( t 2 ), g 5 4 ( t 1ce ), var m 1 ( t 2 ), var c 2 ( t 2 ), v edm, μ c 2 ( t 1ce ), var c 4 ( rcbv ), μ c 4 ( flair ) 88. 2 70. 8 81. 0 81. 9 men - gl2 9 v enh, var c 1 ( rcbv ), var m 1 ( rcbv ), var m 1 ( t 1 ), μ c 2 ( t 1 ), μ m 2 ( t 1 ), var m 4 ( rcbv ), g 4 5 ( flair ) 100 75. 0 96. 2 100 men - gl3 15 v enh, var m 4 ( rcbv ), μ c 3 ( t 1 ), s 3, μ m 2 ( t 2 ), g 4 5 ( flair ), var m 1 ( rcbv ), var m 1 ( t 1 ) 94. 4 75. 0 90. 9 91. 7 men - gl4 1 v enh 100 75. 0 97. 4 79. 4 gl2 - gl3 43 μ c 1 ( t 1 ), μ m 1 ( t 1 )",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [],
+        "paragraph_ids": [
+          "para_0054"
+        ],
+        "coordinates": [],
+        "oversized": true
+      },
+      "text_sha256": "e12d7b57e026243e3c29d1382cc87fe5a2f9f0ce4b7704a8c71b27d35d5835b3"
+    },
+    {
+      "segment_id": "paper_004_body_0039_7fa29de8::segment_0001",
+      "chunk_id": "paper_004_body_0039_7fa29de8",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 39,
+      "source_index": 39,
+      "segment_index": 1,
+      "segment_count": 2,
+      "token_start": 446,
+      "token_end": 874,
+      "token_count": 428,
+      "text": "##v ), var m 1 ( t 1 ) 94. 4 75. 0 90. 9 91. 7 men - gl4 1 v enh 100 75. 0 97. 4 79. 4 gl2 - gl3 43 μ c 1 ( t 1 ), μ m 1 ( t 1 ), var c 4 ( rcbv ), s 4, μ c 4 ( flair ), μ c 1 ( t 1ce ), var c 1 ( t 1 ), μ m 2 ( t 1 ) 55. 6 90. 9 75. 0 71. 0 gl2 - gl4 7 μ c 3 ( t 1ce ), var m 1 ( rcbv ), var c 4 ( flair ), var c 4 ( rcbv ), g 1 5 ( flair ), v enh, g 5 5 ( flair ) 100 90. 9 96. 4 98. 9 f overall top - ranked features ( maximum 8 features are shown ) sensitivity specificity acc auc gl3 - gl4 76 μ c 3 ( t 1ce ), var c 2 ( rcbv ), age, var c 4 ( flair ), g 5 2 ( flair ), v enh, v nec, μ c 3 ( t 1 ) 100 72. 2 90. 4 98. 5 met - gl 16 v edm, μ c 2 ( t 2 ), var m 1 ( t 2 ), var c 2 ( t 2 ), g 5 4 ( t 1ce ), μ c 2 ( rcbv ), g 4 5 ( t 1ce ), var c 1 ( t 1 ) 86. 5 79. 2 84. 7 88. 2 low - high grade 24 var m 4 ( rcbv ), μ c 3 ( t 1ce ), μ c 1 ( t 1 ), g 1 5 ( flair ), μ c 4 ( flair ), μ c 1 ( t 2 ), var c 1 ( t 1 ), s 2 84. 6 95. 5 87. 8 89. 6",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [],
+        "paragraph_ids": [
+          "para_0054"
+        ],
+        "coordinates": [],
+        "oversized": true
+      },
+      "text_sha256": "7f7955ec6eb0907d8de94a6b73c66207f25f6b00853649ddb34ad1903182269e"
+    },
+    {
+      "segment_id": "paper_004_body_0040_279a38bf::segment_0000",
+      "chunk_id": "paper_004_body_0040_279a38bf",
+      "paper_id": "paper_004",
+      "chunk_type": "body",
+      "order_index": 40,
+      "source_index": 40,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 49,
+      "token_count": 49,
+      "text": "prediction, n f = 18 ( out of 50 ) gl2 gl3 gl4 met ground truth gl2 20 1 0 1 gl3 8 6 2 2 gl4 0 10 14 10 met 0 1 1 22",
+      "metadata": {
+        "section": "Discussion and Conclusions",
+        "section_path": [
+          "Discussion and Conclusions"
+        ],
+        "subsection_id": "paper_004_subsection_6f31e720e977",
+        "pages": [],
+        "paragraph_ids": [
+          "para_0057"
+        ],
+        "coordinates": []
+      },
+      "text_sha256": "bea8fda4ea0290db425b3f5082c5d2eeba9082123d63361242bb13b319770e69"
+    },
+    {
+      "segment_id": "paper_004_table_caption_0041_a069cc29::segment_0000",
+      "chunk_id": "paper_004_table_caption_0041_a069cc29",
+      "paper_id": "paper_004",
+      "chunk_type": "table_caption",
+      "order_index": 41,
+      "source_index": 41,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 48,
+      "token_count": 48,
+      "text": "binary classification accuracy ( acc ) and auc obtained by leave - one - out cross - validation using different classifiers ( lda, knn, svm ) and feature ranking methods ( t - test with bagging or clda )",
+      "metadata": {
+        "table_id": "table_001",
+        "label": "Table 1",
+        "structure_status": "detected_no_content",
+        "pages": [],
+        "source_refs": [
+          {
+            "parser": "grobid",
+            "kind": "table",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "43b9ca809f66e1ddf9588d640e94212ca82dc7319fdd412fbe6f7fc72d4d96ac"
+    },
+    {
+      "segment_id": "paper_004_table_caption_0042_4cad0741::segment_0000",
+      "chunk_id": "paper_004_table_caption_0042_4cad0741",
+      "paper_id": "paper_004",
+      "chunk_type": "table_caption",
+      "order_index": 42,
+      "source_index": 42,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 23,
+      "token_count": 23,
+      "text": "multi - class confusion matrix obtained with one - versus - all voting scheme using svm classifiers with rfe.",
+      "metadata": {
+        "table_id": "table_002",
+        "label": "Table",
+        "structure_status": "structured",
+        "pages": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 0
+          },
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 1
+          },
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 2
+          },
+          {
+            "parser": "docling",
+            "kind": "table",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "07991ea35b4301c1c3c85baa8b29a835b2a25cc86a3c6f5bd38c9c8d350f3bd3"
+    },
+    {
+      "segment_id": "paper_004_figure_caption_0043_288a8b2a::segment_0000",
+      "chunk_id": "paper_004_figure_caption_0043_288a8b2a",
+      "paper_id": "paper_004",
+      "chunk_type": "figure_caption",
+      "order_index": 43,
+      "source_index": 43,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 166,
+      "token_count": 166,
+      "text": "fig. 1illustrates in the first row the gabor filter for a single frequency across the first 5 ( out of 8 ) orientations and in the 2 nd row the rotation - invariant filters after fast fourier transform ( fft ) for the same frequency. fig. 2illustrates examples of brain tumor types and the corresponding texture images. the first row shows one axial slice of the t1ce image with the tumoral region of interest ( roi1 roi2 roi3 ) indicated by a red line. the 2 nd row shows the same slice in flair image zoomed around the tumor region. as an example of texture, one pattern extracted from flair is shown over the edematous area ( roi4 ). the illustration shows the voxel - wise texture without averaging over the area of interest.",
+      "metadata": {
+        "figure_id": "figure_001",
+        "label": "Figure 1illustrates",
+        "pages": [],
+        "source_refs": [
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "19945d13d120038248ab7c91be0b53928783996c040a419cc7353c96a6d97505"
+    }
+  ],
+  "execution": {
+    "elapsed_seconds": 8.193
+  }
+}
