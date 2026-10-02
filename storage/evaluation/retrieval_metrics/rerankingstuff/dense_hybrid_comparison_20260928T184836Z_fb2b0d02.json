@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "comparison_id": "dense_hybrid_comparison_20260928T184836Z_fb2b0d02",
+  "created_at": "2026-09-28T18:48:36.656007+00:00",
+  "benchmark_id": "brain_tumor_retrieval_v1",
+  "benchmark_status": "draft_needs_human_review",
+  "benchmark_sha256": "d703fac5157d86c0036ecb4d3bf6e185e25f7469a9b309866b2fe78e084d2b98",
+  "hybrid_config": {
+    "candidate_k_per_channel": 50,
+    "rrf_k": 60
+  },
+  "models": [
+    {
+      "alias": "bge",
+      "model_name": "BAAI/bge-small-en-v1.5",
+      "dense": {
+        "result_file": "retrieval_results_retrieval_evaluation_bge_20260928T184803Z_4a4d7fdb.json",
+        "metrics": {
+          "recall@5": 0.763889,
+          "recall@10": 0.820139,
+          "hit@5": 0.9,
+          "hit@10": 0.925,
+          "mrr@10": 0.708125,
+          "ndcg@10": 0.690376
+        }
+      },
+      "hybrid": {
+        "result_file": "retrieval_results_hybrid_retrieval_evaluation_bge_20260928T184804Z_bb47ebfc.json",
+        "metrics": {
+          "recall@5": 0.757639,
+          "recall@10": 0.868056,
+          "hit@5": 0.9,
+          "hit@10": 0.975,
+          "mrr@10": 0.697143,
+          "ndcg@10": 0.700954
+        }
+      },
+      "delta_hybrid_minus_dense": {
+        "recall@5": -0.00625,
+        "recall@10": 0.047917,
+        "hit@5": 0.0,
+        "hit@10": 0.05,
+        "mrr@10": -0.010982,
+        "ndcg@10": 0.010578
+      }
+    },
+    {
+      "alias": "minilm",
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "dense": {
+        "result_file": "retrieval_results_retrieval_evaluation_minilm_20260928T184809Z_af04db63.json",
+        "metrics": {
+          "recall@5": 0.693056,
+          "recall@10": 0.840972,
+          "hit@5": 0.825,
+          "hit@10": 0.925,
+          "mrr@10": 0.693988,
+          "ndcg@10": 0.689075
+        }
+      },
+      "hybrid": {
+        "result_file": "retrieval_results_hybrid_retrieval_evaluation_minilm_20260928T184809Z_91efe541.json",
+        "metrics": {
+          "recall@5": 0.738889,
+          "recall@10": 0.853472,
+          "hit@5": 0.85,
+          "hit@10": 0.975,
+          "mrr@10": 0.739643,
+          "ndcg@10": 0.740112
+        }
+      },
+      "delta_hybrid_minus_dense": {
+        "recall@5": 0.045833,
+        "recall@10": 0.0125,
+        "hit@5": 0.025,
+        "hit@10": 0.05,
+        "mrr@10": 0.045655,
+        "ndcg@10": 0.051037
+      }
+    },
+    {
+      "alias": "bge-base",
+      "model_name": "BAAI/bge-base-en-v1.5",
+      "dense": {
+        "result_file": "retrieval_results_retrieval_evaluation_bge-base_20260928T184815Z_fb706ad5.json",
+        "metrics": {
+          "recall@5": 0.782639,
+          "recall@10": 0.85625,
+          "hit@5": 0.925,
+          "hit@10": 0.95,
+          "mrr@10": 0.746875,
+          "ndcg@10": 0.721571
+        }
+      },
+      "hybrid": {
+        "result_file": "retrieval_results_hybrid_retrieval_evaluation_bge-base_20260928T184817Z_7853068d.json",
+        "metrics": {
+          "recall@5": 0.768056,
+          "recall@10": 0.895139,
+          "hit@5": 0.9,
+          "hit@10": 0.975,
+          "mrr@10": 0.743988,
+          "ndcg@10": 0.741346
+        }
+      },
+      "delta_hybrid_minus_dense": {
+        "recall@5": -0.014583,
+        "recall@10": 0.038889,
+        "hit@5": -0.025,
+        "hit@10": 0.025,
+        "mrr@10": -0.002887,
+        "ndcg@10": 0.019775
+      }
+    },
+    {
+      "alias": "bge-large",
+      "model_name": "BAAI/bge-large-en-v1.5",
+      "dense": {
+        "result_file": "retrieval_results_retrieval_evaluation_bge-large_20260928T184829Z_bcbf0db6.json",
+        "metrics": {
+          "recall@5": 0.751389,
+          "recall@10": 0.872917,
+          "hit@5": 0.9,
+          "hit@10": 0.975,
+          "mrr@10": 0.767917,
+          "ndcg@10": 0.736434
+        }
+      },
+      "hybrid": {
+        "result_file": "retrieval_results_hybrid_retrieval_evaluation_bge-large_20260928T184836Z_9360fe94.json",
+        "metrics": {
+          "recall@5": 0.755556,
+          "recall@10": 0.888889,
+          "hit@5": 0.9,
+          "hit@10": 0.975,
+          "mrr@10": 0.724028,
+          "ndcg@10": 0.727165
+        }
+      },
+      "delta_hybrid_minus_dense": {
+        "recall@5": 0.004167,
+        "recall@10": 0.015972,
+        "hit@5": 0.0,
+        "hit@10": 0.0,
+        "mrr@10": -0.043889,
+        "ndcg@10": -0.009269
+      }
+    }
+  ],
+  "note": "Dense and hybrid runs use the same ChromaDB collection and benchmark. Hybrid results fuse dense and BM25 parent-chunk ranks using RRF. Benchmark relevance judgments are draft and require human review."
+}

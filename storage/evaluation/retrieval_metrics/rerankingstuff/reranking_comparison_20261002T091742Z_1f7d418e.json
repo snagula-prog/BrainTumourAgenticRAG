@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "comparison_id": "reranking_comparison_20261002T091742Z_1f7d418e",
+  "created_at": "2026-10-02T09:17:42.093388+00:00",
+  "benchmark_id": "brain_tumor_retrieval_v1",
+  "benchmark_status": "draft_needs_human_review",
+  "benchmark_sha256": "d703fac5157d86c0036ecb4d3bf6e185e25f7469a9b309866b2fe78e084d2b98",
+  "candidate_k": 10,
+  "rrf_k": 60,
+  "runs": [
+    {
+      "embedding_alias": "bge-base",
+      "embedding_model": "BAAI/bge-base-en-v1.5",
+      "strategy": "dense",
+      "reranker_alias": "minilm-msmarco",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "result_file": "retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091724Z_ea9adde0.json",
+      "initial_metrics": {
+        "recall@5": 0.782639,
+        "recall@10": 0.85625,
+        "hit@5": 0.925,
+        "hit@10": 0.95,
+        "mrr@10": 0.746875,
+        "ndcg@10": 0.721571
+      },
+      "candidate_coverage": {
+        "candidate_recall@10": 0.85625,
+        "candidate_hit@10": 0.95
+      },
+      "reranked_metrics": {
+        "recall@5": 0.797222,
+        "recall@10": 0.85625,
+        "hit@5": 0.95,
+        "hit@10": 0.95,
+        "mrr@10": 0.762083,
+        "ndcg@10": 0.742211
+      },
+      "delta_reranked_minus_initial": {
+        "recall@5": 0.014583,
+        "recall@10": 0.0,
+        "hit@5": 0.025,
+        "hit@10": 0.0,
+        "mrr@10": 0.015208,
+        "ndcg@10": 0.02064
+      },
+      "timing": {
+        "query_encoding_total_seconds": 1.608199,
+        "retrieval_total_seconds": 0.198815,
+        "reranking_total_seconds": 13.536041,
+        "evaluation_total_seconds": 15.343055
+      }
+    },
+    {
+      "embedding_alias": "bge-base",
+      "embedding_model": "BAAI/bge-base-en-v1.5",
+      "strategy": "hybrid",
+      "reranker_alias": "minilm-msmarco",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "result_file": "retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T091741Z_4830c4a5.json",
+      "initial_metrics": {
+        "recall@5": 0.726389,
+        "recall@10": 0.905556,
+        "hit@5": 0.875,
+        "hit@10": 1.0,
+        "mrr@10": 0.74631,
+        "ndcg@10": 0.743245
+      },
+      "candidate_coverage": {
+        "candidate_recall@10": 0.905556,
+        "candidate_hit@10": 1.0
+      },
+      "reranked_metrics": {
+        "recall@5": 0.861806,
+        "recall@10": 0.905556,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 0.792083,
+        "ndcg@10": 0.772887
+      },
+      "delta_reranked_minus_initial": {
+        "recall@5": 0.135417,
+        "recall@10": 0.0,
+        "hit@5": 0.125,
+        "hit@10": 0.0,
+        "mrr@10": 0.045773,
+        "ndcg@10": 0.029642
+      },
+      "timing": {
+        "query_encoding_total_seconds": 1.676129,
+        "retrieval_total_seconds": 0.224794,
+        "reranking_total_seconds": 14.564254,
+        "evaluation_total_seconds": 16.465177
+      }
+    }
+  ],
+  "note": "Initial and reranked metrics are computed from the same candidate pool. Candidate coverage measures the maximum recall available to reranking. The relevance benchmark is draft and requires human review."
+}
