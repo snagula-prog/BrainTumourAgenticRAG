@@ -32,9 +32,9 @@
   },
   "diagnostics": {
     "orphan_paragraph_ratio": 0.0219,
+    "reference_integrity": 1.0,
     "abstract_integrity": 0.9613,
-    "coordinate_integrity": 1.0,
-    "reference_integrity": 1.0
+    "coordinate_integrity": 1.0
   },
   "parser_artifact_counts": {
     "figures": 36,

@@ -1,0 +1,294 @@
+|-- .vscode
+|   \-- settings.json
+|-- agent
+|   |-- models
+|   |   |-- __init__.py
+|   |   |-- base.py
+|   |   \-- openai_chat.py
+|   |-- tools
+|   |   |-- __init__.py
+|   |   \-- retrieval.py
+|   |-- __init__.py
+|   |-- orchestrator.py
+|   \-- tool_registry.py
+|-- chunking
+|   |-- __init__.py
+|   |-- pipeline.py
+|   \-- text_chunker.py
+|-- cleaning
+|   |-- __init__.py
+|   |-- normalizer.py
+|   \-- pipeline.py
+|-- config
+|   |-- __init__.py
+|   \-- settings.py
+|-- evaluation
+|   |-- artifact_metrics
+|   |   |-- __init__.py
+|   |   \-- canonical_artifact_integrity.py
+|   |-- chunking_metrics
+|   |   |-- __init__.py
+|   |   |-- chunking_metrics.py
+|   |   \-- run_chunking_evaluation.py
+|   |-- cleaning_metrics
+|   |   |-- __init__.py
+|   |   \-- cleaning_metrics.py
+|   |-- extraction
+|   |   |-- limitation_eval_cases.jsonl
+|   |   |-- README.md
+|   |   \-- run_limitation_eval.py
+|   |-- extraction_metrics
+|   |   |-- __init__.py
+|   |   |-- evaluation_config.py
+|   |   |-- extraction_benchmark.py
+|   |   |-- extraction_metric_variance.py
+|   |   \-- extraction_quality_metrics.py
+|   |-- retrieval_metrics
+|   |   |-- __init__.py
+|   |   |-- evaluator.py
+|   |   |-- hybrid_evaluator.py
+|   |   |-- prepare_benchmark.py
+|   |   \-- reranking_evaluator.py
+|   \-- __init__.py
+|-- extraction
+|   |-- __init__.py
+|   |-- artifact_reconstruction.py
+|   |-- canonical_builder.py
+|   |-- deduplication.py
+|   |-- docling_artifacts.py
+|   |-- docling_parser.py
+|   |-- grobid_parser.py
+|   |-- pdf_parser.py
+|   |-- pipeline.py
+|   |-- pymupdf_audit.py
+|   \-- table_fallback.py
+|-- llm
+|   |-- __init__.py
+|   |-- base.py
+|   |-- fake.py
+|   \-- ollama_chat.py
+|-- reranking
+|   |-- __init__.py
+|   |-- cross_encoder.py
+|   \-- metrics.py
+|-- retrieval
+|   |-- __init__.py
+|   |-- chroma_retriever.py
+|   |-- hybrid_retriever.py
+|   |-- indexing.py
+|   \-- research_retriever.py
+|-- storage
+|   |-- canonical
+|   |   |-- paper_001.json
+|   |   |-- paper_002.json
+|   |   |-- paper_003.json
+|   |   |-- paper_004.json
+|   |   |-- paper_005.json
+|   |   \-- paper_006.json
+|   |-- chunks
+|   |   |-- paper_001_chunks.json
+|   |   |-- paper_002_chunks.json
+|   |   |-- paper_003_chunks.json
+|   |   |-- paper_004_chunks.json
+|   |   |-- paper_005_chunks.json
+|   |   \-- paper_006_chunks.json
+|   |-- cleaned
+|   |   |-- paper_001_clean.json
+|   |   |-- paper_002_clean.json
+|   |   |-- paper_003_clean.json
+|   |   |-- paper_004_clean.json
+|   |   |-- paper_005_clean.json
+|   |   \-- paper_006_clean.json
+|   |-- evaluation
+|   |   |-- chunking_metrics
+|   |   |   |-- paper_001.json
+|   |   |   |-- paper_002.json
+|   |   |   |-- paper_003.json
+|   |   |   |-- paper_004.json
+|   |   |   |-- paper_005.json
+|   |   |   \-- paper_006.json
+|   |   |-- cleaning_metrics
+|   |   |   |-- paper_001_cleaning.json
+|   |   |   |-- paper_002_cleaning.json
+|   |   |   |-- paper_003_cleaning.json
+|   |   |   |-- paper_004_cleaning.json
+|   |   |   |-- paper_005_cleaning.json
+|   |   |   \-- paper_006_cleaning.json
+|   |   |-- extraction
+|   |   |   \-- limitation_eval_runs
+|   |   |-- extraction_metrics
+|   |   |   |-- paper_001_quality.json
+|   |   |   |-- paper_002_quality.json
+|   |   |   |-- paper_003_quality.json
+|   |   |   |-- paper_004_quality.json
+|   |   |   |-- paper_005_quality.json
+|   |   |   \-- paper_006_quality.json
+|   |   |-- retrieval_metrics
+|   |   |   |-- chunk_catalog.json
+|   |   |   |-- dense_hybrid_comparison_20260928T184836Z_fb2b0d02.json
+|   |   |   |-- reranking_comparison_20260928T190022Z_9d0a5448.json
+|   |   |   |-- reranking_comparison_20260928T191050Z_208ef829.json
+|   |   |   |-- reranking_comparison_20260928T200502Z_b96da29c.json
+|   |   |   |-- reranking_comparison_20261002T091742Z_1f7d418e.json
+|   |   |   |-- reranking_comparison_20261002T091900Z_448b1ea9.json
+|   |   |   |-- reranking_comparison_20261002T092031Z_0bfec485.json
+|   |   |   |-- reranking_comparison_20261002T092230Z_48cfc8c2.json
+|   |   |   |-- reranking_comparison_20261002T092635Z_0b88272c.json
+|   |   |   |-- retrieval_benchmark_v1.json
+|   |   |   |-- retrieval_comparison_20260928T171052Z_da676b6f.json
+|   |   |   |-- retrieval_comparison_20260928T175315Z_8b6709f5.json
+|   |   |   |-- retrieval_results_hybrid_retrieval_evaluation_bge_20260928T184804Z_bb47ebfc.json
+|   |   |   |-- retrieval_results_hybrid_retrieval_evaluation_bge-base_20260928T184817Z_7853068d.json
+|   |   |   |-- retrieval_results_hybrid_retrieval_evaluation_bge-large_20260928T184836Z_9360fe94.json
+|   |   |   |-- retrieval_results_hybrid_retrieval_evaluation_minilm_20260928T184809Z_91efe541.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge_dense_bge-reranker-base_20260928T191923Z_d379f7e0.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge_dense_minilm-msmarco_20260928T190352Z_62e33745.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge_hybrid_bge-reranker-base_20260928T192459Z_e030e74c.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge_hybrid_minilm-msmarco_20260928T190441Z_e8ec4699.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_bge-reranker-base_20260928T194506Z_0ff2eeaf.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20260928T185928Z_2c7ee817.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20260928T190741Z_721f159e.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091724Z_ea9adde0.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091828Z_f7736046.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091952Z_df9a298e.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T092137Z_afc768d9.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T092618Z_49820429.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_bge-reranker-base_20260928T195143Z_d0216824.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20260928T190022Z_7844607c.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20260928T190835Z_b2aac9ae.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T091741Z_4830c4a5.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T091900Z_03e02c46.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092031Z_06e08259.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092230Z_476b323c.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092634Z_5aaa5b1b.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-large_dense_bge-reranker-base_20260928T195832Z_c059e993.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-large_dense_minilm-msmarco_20260928T190944Z_aad5ccb0.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-large_hybrid_bge-reranker-base_20260928T200501Z_27a06562.json
+|   |   |   |-- retrieval_results_reranking_evaluation_bge-large_hybrid_minilm-msmarco_20260928T191050Z_b3be847b.json
+|   |   |   |-- retrieval_results_reranking_evaluation_minilm_dense_bge-reranker-base_20260928T193143Z_bc3b1f84.json
+|   |   |   |-- retrieval_results_reranking_evaluation_minilm_dense_minilm-msmarco_20260928T190544Z_72676d46.json
+|   |   |   |-- retrieval_results_reranking_evaluation_minilm_hybrid_bge-reranker-base_20260928T193826Z_073a1823.json
+|   |   |   |-- retrieval_results_reranking_evaluation_minilm_hybrid_minilm-msmarco_20260928T190644Z_d26de7af.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_20260928T150435Z_78329160.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge_20260928T171048Z_5d93e11b.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge_20260928T175227Z_431868f4.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge_20260928T184803Z_4a4d7fdb.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge-base_20260928T175237Z_ee9ed0c8.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge-base_20260928T184815Z_fb706ad5.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge-base_20261002T091643Z_041c1afe.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge-large_20260928T175248Z_c70ac712.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_bge-large_20260928T184829Z_bcbf0db6.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_gte-modernbert_20260928T175258Z_d6ca15fd.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_gte-modernbert_20260928T175551Z_5a07b6f0.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_gte-modernbert_20260928T180338Z_84422cda.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_gte-modernbert_20260928T180452Z_6f98559b.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_minilm_20260928T171052Z_6c7d8a28.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_minilm_20260928T175231Z_1872384a.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_minilm_20260928T184809Z_af04db63.json
+|   |   |   |-- retrieval_results_retrieval_evaluation_qwen3-0.6b_20260928T175315Z_976d4bb6.json
+|   |   |   \-- retrieval_results_retrieval_evaluation_qwen3-0.6b_20260928T175627Z_e095964f.json
+|   |   \-- runs
+|   |       |-- chroma_index_bge_20260928T170941Z_dca1615e.json
+|   |       |-- chroma_index_bge_20260928T174909Z_b67efb3d.json
+|   |       |-- chroma_index_bge-base_20260928T175104Z_49c63d96.json
+|   |       |-- chroma_index_bge-large_20260928T175126Z_a1e67fb9.json
+|   |       |-- chroma_index_gte-modernbert_20260928T175145Z_9def515d.json
+|   |       |-- chroma_index_gte-modernbert_20260928T180100Z_1f83e4f5.json
+|   |       |-- chroma_index_gte-modernbert_20260928T180138Z_635de165.json
+|   |       |-- chroma_index_gte-modernbert_20260928T180428Z_34f5950f.json
+|   |       |-- chroma_index_minilm_20260928T171019Z_684e8c70.json
+|   |       |-- chroma_index_minilm_20260928T174949Z_9347a3f0.json
+|   |       |-- chroma_index_qwen3-0.6b_20260928T175205Z_65c39e09.json
+|   |       |-- embedding_20260927T081016Z_9712848a.json
+|   |       |-- embedding_20260927T085738Z_c6186233.json
+|   |       |-- embedding_20260927T093916Z_284a8d27.json
+|   |       |-- embedding_20260927T094800Z_c85d42f1.json
+|   |       |-- embedding_20260927T100515Z_cbebac69.json
+|   |       |-- embedding_20260928T132114Z_b67953ed.json
+|   |       |-- embedding_20260928T132200Z_b1fe344a.json
+|   |       |-- embedding_20260928T140711Z_b0ac200b.json
+|   |       |-- embedding_bge_20260928T173333Z_40d33d63.json
+|   |       |-- embedding_bge-base_20260928T173447Z_e52e9bfe.json
+|   |       |-- embedding_bge-large_20260928T173812Z_8508e47e.json
+|   |       |-- embedding_gte-modernbert_20260928T174136Z_df01aab6.json
+|   |       |-- embedding_gte-modernbert_20260928T175951Z_499badd7.json
+|   |       |-- embedding_minilm_20260928T170859Z_228d278d.json
+|   |       |-- embedding_minilm_20260928T173349Z_21bf9918.json
+|   |       |-- embedding_qwen3-0.6b_20260928T174450Z_30194509.json
+|   |       |-- hybrid_retrieval_evaluation_bge_20260928T184804Z_bb47ebfc.json
+|   |       |-- hybrid_retrieval_evaluation_bge-base_20260928T184817Z_7853068d.json
+|   |       |-- hybrid_retrieval_evaluation_bge-large_20260928T184836Z_9360fe94.json
+|   |       |-- hybrid_retrieval_evaluation_minilm_20260928T184809Z_91efe541.json
+|   |       |-- reranking_evaluation_bge_dense_bge-reranker-base_20260928T191923Z_d379f7e0.json
+|   |       |-- reranking_evaluation_bge_dense_minilm-msmarco_20260928T190352Z_62e33745.json
+|   |       |-- reranking_evaluation_bge_hybrid_bge-reranker-base_20260928T192459Z_e030e74c.json
+|   |       |-- reranking_evaluation_bge_hybrid_minilm-msmarco_20260928T190441Z_e8ec4699.json
+|   |       |-- reranking_evaluation_bge-base_dense_bge-reranker-base_20260928T194506Z_0ff2eeaf.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20260928T185928Z_2c7ee817.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20260928T190741Z_721f159e.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091724Z_ea9adde0.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091828Z_f7736046.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T091952Z_df9a298e.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T092137Z_afc768d9.json
+|   |       |-- reranking_evaluation_bge-base_dense_minilm-msmarco_20261002T092618Z_49820429.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_bge-reranker-base_20260928T195143Z_d0216824.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20260928T190022Z_7844607c.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20260928T190835Z_b2aac9ae.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T091741Z_4830c4a5.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T091900Z_03e02c46.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092031Z_06e08259.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092230Z_476b323c.json
+|   |       |-- reranking_evaluation_bge-base_hybrid_minilm-msmarco_20261002T092634Z_5aaa5b1b.json
+|   |       |-- reranking_evaluation_bge-large_dense_bge-reranker-base_20260928T195832Z_c059e993.json
+|   |       |-- reranking_evaluation_bge-large_dense_minilm-msmarco_20260928T190944Z_aad5ccb0.json
+|   |       |-- reranking_evaluation_bge-large_hybrid_bge-reranker-base_20260928T200501Z_27a06562.json
+|   |       |-- reranking_evaluation_bge-large_hybrid_minilm-msmarco_20260928T191050Z_b3be847b.json
+|   |       |-- reranking_evaluation_minilm_dense_bge-reranker-base_20260928T193143Z_bc3b1f84.json
+|   |       |-- reranking_evaluation_minilm_dense_minilm-msmarco_20260928T190544Z_72676d46.json
+|   |       |-- reranking_evaluation_minilm_hybrid_bge-reranker-base_20260928T193826Z_073a1823.json
+|   |       |-- reranking_evaluation_minilm_hybrid_minilm-msmarco_20260928T190644Z_d26de7af.json
+|   |       |-- retrieval_evaluation_20260928T150313Z_de01291f.json
+|   |       |-- retrieval_evaluation_20260928T150435Z_78329160.json
+|   |       |-- retrieval_evaluation_bge_20260928T171048Z_5d93e11b.json
+|   |       |-- retrieval_evaluation_bge_20260928T175227Z_431868f4.json
+|   |       |-- retrieval_evaluation_bge_20260928T184803Z_4a4d7fdb.json
+|   |       |-- retrieval_evaluation_bge-base_20260928T175237Z_ee9ed0c8.json
+|   |       |-- retrieval_evaluation_bge-base_20260928T184815Z_fb706ad5.json
+|   |       |-- retrieval_evaluation_bge-base_20261002T091643Z_041c1afe.json
+|   |       |-- retrieval_evaluation_bge-large_20260928T175248Z_c70ac712.json
+|   |       |-- retrieval_evaluation_bge-large_20260928T184829Z_bcbf0db6.json
+|   |       |-- retrieval_evaluation_gte-modernbert_20260928T175258Z_d6ca15fd.json
+|   |       |-- retrieval_evaluation_gte-modernbert_20260928T175551Z_5a07b6f0.json
+|   |       |-- retrieval_evaluation_gte-modernbert_20260928T180338Z_84422cda.json
+|   |       |-- retrieval_evaluation_gte-modernbert_20260928T180452Z_6f98559b.json
+|   |       |-- retrieval_evaluation_minilm_20260928T171052Z_6c7d8a28.json
+|   |       |-- retrieval_evaluation_minilm_20260928T175231Z_1872384a.json
+|   |       |-- retrieval_evaluation_minilm_20260928T184809Z_af04db63.json
+|   |       |-- retrieval_evaluation_qwen3-0.6b_20260928T175315Z_976d4bb6.json
+|   |       \-- retrieval_evaluation_qwen3-0.6b_20260928T175627Z_e095964f.json
+|   \-- registry
+|       \-- papers.json
+|-- tests
+|   |-- __init__.py
+|   |-- test_agent_retrieval_tool.py
+|   |-- test_artifact_reconstruction.py
+|   |-- test_hybrid_retrieval.py
+|   |-- test_llm.py
+|   |-- test_phase10_retrieval.py
+|   |-- test_phase6.py
+|   |-- test_phase7_hardening.py
+|   |-- test_phase8_chunking.py
+|   |-- test_reranking.py
+|   \-- test_research_retriever.py
+|-- .env.example
+|-- .gitignore
+|-- app.py
+|-- limitation_extraction_eval.zip
+|-- query_audit_hybrid_k20.csv
+|-- requirements.txt
+|-- requirements-dev.txt
+|-- validate_chunks.py
+|-- validate_downstream.py
+|-- validate_pipeline.py
+|-- validate_reference_fixes.py
+\-- validate_references.py

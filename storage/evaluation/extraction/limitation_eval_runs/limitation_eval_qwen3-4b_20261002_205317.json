@@ -1,0 +1,54 @@
+{
+  "model": "qwen3:4b",
+  "host": "http://localhost:11434",
+  "settings": {
+    "temperature": 0,
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "timeout": 90.0
+  },
+  "case_count": 1,
+  "summary": {
+    "schema_valid_rate": 1.0,
+    "quote_fidelity_rate": 1.0,
+    "operations_exact_rate": 1.0,
+    "mean_latency_seconds": 4.205935799982399,
+    "median_latency_seconds": 4.205935799982399
+  },
+  "results": [
+    {
+      "id": "L01",
+      "source_paper": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+      "section": "Limitation",
+      "page": 7,
+      "excerpt": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "gold_limitation": "The dataset was classified without rotation and cropping; the authors identify this as the study's most important limitation.",
+      "gold_operations_not_applied": [
+        "rotation",
+        "cropping"
+      ],
+      "gold_concepts": [
+        "dataset classified without rotation",
+        "dataset classified without cropping"
+      ],
+      "prediction": {
+        "limitation": "the most important limitation of our study",
+        "operations_not_applied": [
+          "rotation",
+          "cropping"
+        ],
+        "supporting_quote": "which is the most important limitation of our study"
+      },
+      "raw_response": "{\n  \"limitation\": \"the most important limitation of our study\",\n  \"operations_not_applied\": [\n    \"rotation\",\n    \"cropping\"\n  ],\n  \"supporting_quote\": \"which is the most important limitation of our study\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 4.206,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    }
+  ]
+}

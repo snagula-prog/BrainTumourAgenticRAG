@@ -1,0 +1,2 @@
+﻿id,source_paper,section,page,gold_limitation,prediction,json_valid,schema_valid,quote_fidelity,operations_exact,latency_seconds,manual_limitation_correct,manual_unsupported_claims,review_notes,error
+L01,Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN,Limitation,7,The dataset was classified without rotation and cropping; the authors identify this as the study's most important limitation.,,False,False,False,False,92.031,,,,ReadTimeout: timed out

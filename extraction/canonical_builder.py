@@ -1243,13 +1243,240 @@ class CanonicalBuilder:
                 "page_paragraphs": len(all_indices),
                 "coverage": coverage,
             })
+            
+        moved_count = sum(
+            1 for index, item in enumerate(result[:len(paragraphs)])
+            if index < len(paragraphs)
+            and item is not paragraphs[index]
+        )
+        
+        # Merge unambiguous continuations across adjacent PDF pages.
+        # This preserves one logical paragraph across page breaks.
+
+        page_text_by_number = {}
+
+        for page_index, page in enumerate(pages, start=1):
+            if not isinstance(page, dict):
+                continue
+
+            page_number = (
+                numeric_page(page.get("page_number")) or page_index
+            )
+            page_tokens = tokens(page.get("text", ""))
+
+            if page_tokens:
+                page_text_by_number[page_number] = page_tokens
+
+        def contains_sequence(
+            haystack: list[str],
+            needle: list[str],
+        ) -> bool:
+            if not needle or len(needle) > len(haystack):
+                return False
+
+            size = len(needle)
+            return any(
+                haystack[i:i + size] == needle
+                for i in range(len(haystack) - size + 1)
+            )
+
+        def edge_match_size(
+            page_tokens: list[str],
+            paragraph_tokens: list[str],
+            *,
+            end: bool,
+        ) -> int:
+            # Use progressively shorter exact token matches to tolerate
+            # minor PDF hyphenation and text-extraction differences.
+            for size in range(
+                min(8, len(paragraph_tokens)), 4, -1
+            ):
+                needle = (
+                    paragraph_tokens[-size:]
+                    if end
+                    else paragraph_tokens[:size]
+                )
+                if contains_sequence(page_tokens, needle):
+                    return size
+
+            return 0
+
+        # Find fragments whose text and actual PDF page boundary
+        # support joining them.
+        boundary_pages_by_pair: dict[
+            tuple[int, int], set[int]
+        ] = {}
+
+        for left_index, left in enumerate(result):
+            if not isinstance(left, dict):
+                continue
+
+            left_text = cls._clean_text(left.get("text"))
+            left_tokens = tokens(left_text)
+
+            if (
+                not re.search(r"[,;:]\s*$", left_text)
+                or len(left_tokens) < 5
+            ):
+                continue
+
+            for right_index, right in enumerate(result):
+                if left_index == right_index or not isinstance(right, dict):
+                    continue
+
+                right_text = cls._clean_text(right.get("text"))
+                right_tokens = tokens(right_text)
+
+                if (
+                    not right_text
+                    or not right_text[0].islower()
+                    or len(right_tokens) < 5
+                ):
+                    continue
+
+                for page_number, current_tokens in page_text_by_number.items():
+                    next_tokens = page_text_by_number.get(
+                        page_number + 1
+                    )
+                    if not next_tokens:
+                        continue
+
+                    tail_match = edge_match_size(
+                        current_tokens[-120:],
+                        left_tokens,
+                        end=True,
+                    )
+                    head_match = edge_match_size(
+                        next_tokens[:120],
+                        right_tokens,
+                        end=False,
+                    )
+
+                    if tail_match >= 5 and head_match >= 5:
+                        boundary_pages_by_pair.setdefault(
+                            (left_index, right_index), set()
+                        ).add(page_number)
+
+        # Merge only mutually unambiguous pairs.
+        unique_pairs = {
+            pair: next(iter(boundary_pages))
+            for pair, boundary_pages in boundary_pages_by_pair.items()
+            if len(boundary_pages) == 1
+        }
+
+        left_counts = {}
+        right_counts = {}
+
+        for left_index, right_index in unique_pairs:
+            left_counts[left_index] = (
+                left_counts.get(left_index, 0) + 1
+            )
+            right_counts[right_index] = (
+                right_counts.get(right_index, 0) + 1
+            )
+
+        removed_indices = set()
+        used_indices = set()
+        continuation_merge_details = []
+
+        for (left_index, right_index), boundary_page in sorted(
+            unique_pairs.items()
+        ):
+            if (
+                left_counts[left_index] != 1
+                or right_counts[right_index] != 1
+                or left_index in used_indices
+                or right_index in used_indices
+            ):
+                continue
+
+            left = result[left_index]
+            right = result[right_index]
+
+            left["text"] = (
+                cls._clean_text(left.get("text"))
+                + " "
+                + cls._clean_text(right.get("text"))
+            )
+
+            # Preserve and join sentence data where available.
+            left_sentences = left.get("sentences")
+            right_sentences = right.get("sentences")
+
+            if (
+                isinstance(left_sentences, list)
+                and isinstance(right_sentences, list)
+            ):
+                if left_sentences and right_sentences:
+                    left_sentences[-1] = (
+                        cls._clean_text(left_sentences[-1])
+                        + " "
+                        + cls._clean_text(right_sentences[0])
+                    )
+                    left_sentences.extend(right_sentences[1:])
+                elif right_sentences:
+                    left["sentences"] = right_sentences.copy()
+
+            # Preserve provenance from both page fragments.
+            left_coords = left.get("coords", [])
+            right_coords = right.get("coords", [])
+
+            if not isinstance(left_coords, list):
+                left_coords = []
+            if not isinstance(right_coords, list):
+                right_coords = []
+
+            combined_coords = []
+            seen_coords = set()
+
+            for coord in left_coords + right_coords:
+                marker = json.dumps(
+                    coord,
+                    sort_keys=True,
+                    ensure_ascii=False,
+                )
+                if marker not in seen_coords:
+                    seen_coords.add(marker)
+                    combined_coords.append(coord)
+
+            left["coords"] = combined_coords
+
+            removed_indices.add(right_index)
+            used_indices.update((left_index, right_index))
+
+            continuation_merge_details.append({
+                "left_index": left_index,
+                "right_index": right_index,
+                "boundary_page": boundary_page,
+            })
+
+        if removed_indices:
+            result = [
+                paragraph
+                for index, paragraph in enumerate(result)
+                if index not in removed_indices
+            ]
+
+        continuation_merges = len(continuation_merge_details)
 
         report = {
-            "applied": bool(pages_reordered),
-            "reason": "reordered_page_local_layout" if pages_reordered else "already_in_layout_order",
+            "applied": bool(
+                pages_reordered or continuation_merges
+            ),
+            "reason": (
+                "reordered_and_merged"
+                if pages_reordered and continuation_merges
+                else "merged_cross_page_continuation"
+                if continuation_merges
+                else "reordered_page_local_layout"
+                if pages_reordered
+                else "already_in_layout_order"
+            ),
             "matched_paragraphs": candidate_page_count,
             "pages_reordered": pages_reordered,
             "paragraphs_reordered": moved_count,
+            "cross_page_continuations_merged": continuation_merges,
+            "continuation_merge_details": continuation_merge_details,
             "page_details": reordered_page_details,
         }
 

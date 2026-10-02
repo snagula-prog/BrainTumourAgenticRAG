@@ -22,13 +22,15 @@
   },
   "reading_order_repair": {
     "applied": true,
-    "reason": "reordered_page_local_layout",
+    "reason": "reordered_global_layout",
     "matched_paragraphs": 74,
     "pages_reordered": [
       9,
       12
     ],
-    "paragraphs_reordered": 11,
+    "paragraphs_reordered": 17,
+    "global_layout_used": true,
+    "cross_page_continuations_merged": 0,
     "page_details": [
       {
         "page": 9,
@@ -2468,7 +2470,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0044",
+      "paragraph_id": "para_0043",
       "text": "Based on the Stochastic Gradient Descent with Warm Restarts (SGDR) algorithm 35 , which combines the SGD optimizer with a warm restart mechanism, significant improvements have been achieved in multiple classification tasks.Taking inspiration from the above, this paper further improves the performance of the MCACNN-SVM model by applying cosine annealing and warm restart strateg to the training process.The core idea of the warm restart mechanism is to set a periodic cycle during training.once this cycle is completed, the learning rate is reset to its initial value and training continues.Moreover, after each restart, the model uses the parameters from the previous restart as its initial state.This mechanism essentially constitutes a method for dynamically adjusting the learning rate.",
       "sentences": [
         "Based on the Stochastic Gradient Descent with Warm Restarts (SGDR) algorithm 35 , which combines the SGD optimizer with a warm restart mechanism, significant improvements have been achieved in multiple classification tasks.",
@@ -2511,7 +2513,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0045",
+      "paragraph_id": "para_0044",
       "text": "The accuracy of the model varies with the number of iterations under different configurations of the optimizer and learning rate schedulers.Notably, the warm restart strategy combined with cosine annealing cyclically adjusts the learning rate, beginning from a low value, rising to a peak, and then decaying gradually following a cosine schedule.After each annealing cycle, the warm restart mechanism resets the learning rate to its initial value and begins a new annealing process.The purpose of this strategy is to prevent the model from being trapped in local optima by allowing the periodically increased learning rate to escape from local minima, thereby improving convergence performance.The learning rate update formula based on warm restarts mechanism for each iteration is shown in Eq. (17).",
       "sentences": [
         "The accuracy of the model varies with the number of iterations under different configurations of the optimizer and learning rate schedulers.",
@@ -2561,7 +2563,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0046",
+      "paragraph_id": "para_0045",
       "text": "Among these, i denotes the number of iterations, η i max and η i min represent the upper and lower bounds of the learning rate adjustment, espectively, Tcur indicates the number of epoch changes during the interval from the start to the end of each restart, and Ti stands for the restart cycle.The learning rate adaptively adjusts according to the number of iterations, as illustrated in Fig. 6.",
       "sentences": [
         "Among these, i denotes the number of iterations, η i max and η i min represent the upper and lower bounds of the learning rate adjustment, espectively, Tcur indicates the number of epoch changes during the interval from the start to the end of each restart, and Ti stands for the restart cycle.",
@@ -2592,7 +2594,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0047",
+      "paragraph_id": "para_0046",
       "text": "To facilitate rapid training of the MCACNN-SVM model based on the warm restart mechanism and further improve its performance, the initial cycle a is typically set to a relatively small value 36 .Therefore, the maximum initial learning rate for the cosine annealing with warm restart learning rate scheduler is set at η i max = 1e-2, and the minimum initial learning rate is set at η i min = 1e-5 in this paper.Before each subsequent restart, it is multiplied by a scaling factor b to adjust the restart cycle c.This dynamic adjustment of the restart cycle enables the model to explore different local minima, efficiently converge to the optimal solution, and reduce training costs.",
       "sentences": [
         "To facilitate rapid training of the MCACNN-SVM model based on the warm restart mechanism and further improve its performance, the initial cycle a is typically set to a relatively small value 36 .",
@@ -2657,7 +2659,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0048",
+      "paragraph_id": "para_0047",
       "text": "Different warm restarts mechanism parameter settings have a significant impact on the performance of the network model.Additionally, the number of epochs required for convergence varies depending on the configuration.To find the best configuration that promotes model convergence while minimizing training costs, an ablation study was conducted to analyze the effect of different warm restarts mechanism settings on model performance.",
       "sentences": [
         "Different warm restarts mechanism parameter settings have a significant impact on the performance of the network model.",
@@ -2689,7 +2691,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0050",
+      "paragraph_id": "para_0049",
       "text": "As shown in Table 3, although the training cost is the lowest under the configuration T0 = 20, T mult = 1, its classification error rate on the MRI image dataset is not the best.In contrast, with the T0 = 10, T mult = 2 parameter setting, the training cost increases by approximately 5 epochs, but the lowest test error rate of only 2.06% is achieved on the same dataset.Therefore, this configuration demonstrates a better balance between training cost and model performance.Based on this observation, all subsequent experiments in this study adopt the T0 = 10, T mult = 2 configuration for model training.",
       "sentences": [
         "As shown in Table 3, although the training cost is the lowest under the configuration T0 = 20, T mult = 1, its classification error rate on the MRI image dataset is not the best.",
@@ -2770,7 +2772,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0051",
+      "paragraph_id": "para_0050",
       "text": "Additionally, in this paper, the impact of five commonly used optimizers and learning rate combinations on model accuracy was evaluated, and the average results of five independent experiments are shown in Fig. 7.These configurations encompass: the classical stochastic gradient descent (SGD), famous Adam optimizer, SGD implemented with a cosine annealing learning rate scheduler incorporating warm restarts (SGDR), the Adam optimizer augmented with a warm restart learning rate scheduling mechanism, and the AdamW optimizer integrated with a similar warm restart learning rate adjustment protocol.Among them, the learning rates of SGD and Adam optimizers are fixed at 1e-3.AdamW adds weight decay on the basis of Adam, improving the problem of incompatibility between regularization and adaptive learning rates.",
       "sentences": [
         "Additionally, in this paper, the impact of five commonly used optimizers and learning rate combinations on model accuracy was evaluated, and the average results of five independent experiments are shown in Fig. 7.",
@@ -2819,7 +2821,7 @@
       "page": 9
     },
     {
-      "paragraph_id": "para_0052",
+      "paragraph_id": "para_0051",
       "text": "AdamW with Cosine Annealing Warm Restarts learning rate scheduler demonstrated high training and validation accuracy in this experiment, especially achieving an accuracy of 97.94% on the validation set.This indicates that AdamW with Cosine Annealing Warm Restarts mechanism performs well in preventing overfitting and accelerating model convergence.Considering that AdamW with Cosine Annealing Warm Restarts periodically increases the learning rate, warm restarts can help escape these mundane local optima and continue to search for better solutions, potentially achieving better performance and generalization ability.Although the Adam optimizer is adaptive and converges quickly, it occasionally settles into suboptimal local minima.Therefore, when facing complex image classification tasks, it is appropriate to choose AdamW optimizer with the Warm Restarts learning rate scheduler.",
       "sentences": [
         "AdamW with Cosine Annealing Warm Restarts learning rate scheduler demonstrated high training and validation accuracy in this experiment, especially achieving an accuracy of 97.94% on the validation set.",
@@ -2869,7 +2871,7 @@
       "page": 9
     },
     {
-      "paragraph_id": "para_0053",
+      "paragraph_id": "para_0052",
       "text": "To optimize the performance of the SVM classifier, this research employs GridSearchCV algorithm combined with 5-fold cross-validation to systematically adjust its key hyperparameters.Based on the theoretical foundation and practical experience of SVM, a search space for three core hyperparameters was established.Regularization parameter C: set values include 1, 10, 100, used to control model complexity and overfitting penalty strength.Kernel function parameter gamma: set values include 0.1, 0.01, 0.001, affecting the influence range of samples in the Radial Basis Function (RBF) kernel.Kernel function type: evaluating three commonly used kernel functions, including radial basis function (RBF), linear, and sigmoid, in order to adapt to diverse feature distribution characteristics.",
       "sentences": [
         "To optimize the performance of the SVM classifier, this research employs GridSearchCV algorithm combined with 5-fold cross-validation to systematically adjust its key hyperparameters.",
@@ -2919,7 +2921,7 @@
       "page": 9
     },
     {
-      "paragraph_id": "para_0054",
+      "paragraph_id": "para_0053",
       "text": "The SVM hyperparameter optimization process is as follows: Firstly, the trained MCACNN model is used to extract feature representations from the training set as inputs for SVM.After initializing the SVM classifier, the GridSearchCV algorithm is used to traverse all hyperparameter combinations, with a total of 27 configurations of 3 × 3 × 3. Use 5-fold cross validation to evaluate the performance of each set of parameters, with classification Parameter settings Parameter Epochs Test error T0 = 5, T mult = 2 1.8M 80 2.64 T0 = 10, T mult = 2 1.8M 70 2.06 T0 = 10, T mult = 1 1.8M 75 2.14 T0 = 20, T mult = 1 1.8M 65 2.23 accuracy as the evaluation metric, to ensure the robustness of parameter selection.The hyperparameter combination that performs the best on the validation set is ultimately selected to construct the final SVM model.After the above hyperparameter optimization verification experiments, the SVM parameters ultimately used in this study are: ['C'=1, 'gamma'=0.01,'kernel'=rbf].This study significantly improved the classification accuracy of the hybrid model on the test set, verifying the effectiveness of parameter optimization.Through the above systematic hyperparameter tuning, SVM can fully utilize the discriminative features extracted by CNN, achieving more accurate brain tumor MRI image classification, while avoiding the subjectivity of manual parameter selection.",
       "sentences": [
         "The SVM hyperparameter optimization process is as follows: Firstly, the trained MCACNN model is used to extract feature representations from the training set as inputs for SVM.",
@@ -3020,7 +3022,7 @@
       "page": 1
     },
     {
-      "paragraph_id": "para_0056",
+      "paragraph_id": "para_0055",
       "text": "Analysis of the model convergence process Batch normalization is integrated into the MCACNN-SVM model to accelerate the training process and enhance generalization capability.By normalizing the input data, batch normalization effectively enhances the training speed, stability, and generalization performance of the model.",
       "sentences": [
         "Analysis of the model convergence process Batch normalization is integrated into the MCACNN-SVM model to accelerate the training process and enhance generalization capability.",
@@ -3043,7 +3045,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0057",
+      "paragraph_id": "para_0056",
       "text": "To evaluate the convergence behavior of the model across both training and validation sets, a 100-epoch experiment was carried out to enhance performance and prevent underfitting or overfitting.Following several refinements, the convergence behavior of the MCACNN-SVM model is depicted in Figure 8.The results reveal a steady decline in loss values for both sets as iterations proceed.Around epoch 70, the training and validation loss values stabilize, suggesting successful convergence of both loss and accuracy curves.",
       "sentences": [
         "To evaluate the convergence behavior of the model across both training and validation sets, a 100-epoch experiment was carried out to enhance performance and prevent underfitting or overfitting.",
@@ -3100,7 +3102,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0058",
+      "paragraph_id": "para_0057",
       "text": "This paper applied t-SNE to visualize the training dynamics of the model.The technique projects highdimensional data into a two-dimensional space, offering an intuitive depiction of feature distribution.Figure 9 illustrates the evolution of feature representations before and after training.",
       "sentences": [
         "This paper applied t-SNE to visualize the training dynamics of the model.",
@@ -3132,7 +3134,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0059",
+      "paragraph_id": "para_0058",
       "text": "The initial feature distribution of the test set, illustrated in Fig. 9a, shows complete overlap among the four classes, indicating no separability at the input stage.After processing by the channel attention mechanism, the features exhibit reduced inter-class separation, as visible in Fig. 9b.Subsequent feature maps following the fusion layer, shown in Fig. 9c , reveal initial clustering tendencies, though with limited margin between classes.As the network deepens, the model progressively learns more discriminative feature representations, ultimately forming well-separated class boundaries in the output layer which is shown in Fig. 9d.Notably, the final features demonstrate large inter-class margins and compact intra-class clustering, confirming the ability of the MCACNN-SVM model to achieve effective and robust MRI image recognition.",
       "sentences": [
         "The initial feature distribution of the test set, illustrated in Fig. 9a, shows complete overlap among the four classes, indicating no separability at the input stage.",
@@ -3174,7 +3176,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0060",
+      "paragraph_id": "para_0059",
       "text": "Fig. 10 presents the confusion matrix for the four-class classification results of the MSCNN-SVM model on the test set.The numbers on the matrix diagonal represent the correctly classified samples, while those off the diagonal indicate the number of misclassified samples.As shown, the classifier used performs well in classifying the sample data.",
       "sentences": [
         "Fig. 10 presents the confusion matrix for the four-class classification results of the MSCNN-SVM model on the test set.",
@@ -14170,7 +14172,37 @@
   },
   "table_derived_paragraphs": [
     {
-      "paragraph_id": "para_0043",
+      "paragraph_id": "para_0048",
+      "text": "Table 3. Test error rate of models under different warm restarts mechanism parameter settings.",
+      "sentences": [
+        "Table 3. Test error rate of models under different warm restarts mechanism parameter settings."
+      ],
+      "section": "Support vector machine parameters",
+      "section_path": [
+        "Support vector machine parameters"
+      ],
+      "coords": [
+        {
+          "page": 9,
+          "x": 155.905502319,
+          "y": 647.5179961033367,
+          "w": 342.7252976809999,
+          "h": 7.991699696663318,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 549.046203613,
+          "y": 16.85494075630254,
+          "w": 5.1299999999999955,
+          "h": 8.1693592436975,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 9
+    },
+    {
+      "paragraph_id": "para_0060",
       "text": "Table 4.The Classification Performance of MCACNN-SVM Model.",
       "sentences": [
         "Table 4.",
@@ -14199,36 +14231,6 @@
         }
       ],
       "page": 12
-    },
-    {
-      "paragraph_id": "para_0049",
-      "text": "Table 3. Test error rate of models under different warm restarts mechanism parameter settings.",
-      "sentences": [
-        "Table 3. Test error rate of models under different warm restarts mechanism parameter settings."
-      ],
-      "section": "Support vector machine parameters",
-      "section_path": [
-        "Support vector machine parameters"
-      ],
-      "coords": [
-        {
-          "page": 9,
-          "x": 155.905502319,
-          "y": 647.5179961033367,
-          "w": 342.7252976809999,
-          "h": 7.991699696663318,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 549.046203613,
-          "y": 16.85494075630254,
-          "w": 5.1299999999999955,
-          "h": 8.1693592436975,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 9
     }
   ],
   "references": [
@@ -14613,9 +14615,9 @@
     },
     "diagnostics": {
       "orphan_paragraph_ratio": 0.0933,
-      "coordinate_integrity": 1.0,
       "reference_integrity": 1.0,
-      "abstract_integrity": 0.9613
+      "abstract_integrity": 0.9613,
+      "coordinate_integrity": 1.0
     },
     "parser_artifact_counts": {
       "figures": 13,

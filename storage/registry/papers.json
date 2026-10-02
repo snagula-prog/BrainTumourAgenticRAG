@@ -15,7 +15,7 @@
     "year": 2023,
     "num_pages": 17,
     "num_chunks": null,
-    "quality_score": 0.9264,
+    "quality_score": 0.9174,
     "quality_status": "healthy_with_warnings",
     "num_tables": 4,
     "num_figures": 3
@@ -118,7 +118,8 @@
     "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
     "authors": [
       "Mohammad Zafer Khaliki",
-      "Muhammet Sinan Başarslan"
+      "& Muhammet",
+      "Sinan Başarslan"
     ],
     "year": 2024,
     "num_pages": 10,

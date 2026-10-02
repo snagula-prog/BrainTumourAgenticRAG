@@ -7,10 +7,10 @@
     "artifact_provenance_coverage": 1.0
   },
   "counts": {
-    "original_paragraphs": 52,
-    "cleaned_paragraphs": 52,
-    "original_numeric_tokens": 1943,
-    "cleaned_numeric_tokens": 1943
+    "original_paragraphs": 49,
+    "cleaned_paragraphs": 49,
+    "original_numeric_tokens": 1917,
+    "cleaned_numeric_tokens": 1917
   },
   "notes": [
     "Cleaning integrity is not ground-truth extraction accuracy.",

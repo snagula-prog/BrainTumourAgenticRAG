@@ -40,6 +40,14 @@ class Settings(BaseSettings):
         "index_terms",
     ]
     chroma_persist_dir: str = "./storage/chroma"
+    
+    ollama_host: str = "http://localhost:11434"
+    ollama_model: str = "qwen3:4b-instruct"
+    ollama_timeout_seconds: float = 180.0
+    ollama_num_ctx: int = 4096
+    ollama_max_tokens: int = 512
+    ollama_temperature: float = 0.0
+    ollama_think: bool = False
 
 
     class Config:

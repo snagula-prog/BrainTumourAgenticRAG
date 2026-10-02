@@ -5,13 +5,47 @@
     "title": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
     "authors": [
       "Mohammad Zafer Khaliki",
-      "Muhammet Sinan Başarslan"
+      "& Muhammet",
+      "Sinan Başarslan"
     ],
     "year": 2024,
     "doi": "10.1038/s41598-024-52823-9",
     "keywords": []
   },
-  "abstract": "Health is very important for human life.In particular, the health of the brain, which is the executive of the vital resource, is very important.Diagnosis for human health is provided by magnetic resonance imaging (MRI) devices, which help health decision makers in critical organs such as brain health.Images from these devices are a source of big data for artificial intelligence.This big data enables high performance in image processing classification problems, which is a subfield of artificial intelligence.In this study, we aim to classify brain tumors such as glioma, meningioma, and pituitary tumor from brain MR images.Convolutional Neural Network (CNN) and CNN-based inception-V3, EfficientNetB4, VGG19, transfer learning methods were used for classification.F-score, recall, imprinting and accuracy were used to evaluate these models.The best accuracy result was obtained with VGG16 with 98%, while the F-score value of the same transfer learning model was 97%, the Area Under the Curve (AUC) value was 99%, the recall value was 98%, and the precision value was 98%.CNN architecture and CNN-based transfer learning models are very important for human health in early diagnosis and rapid treatment of such diseases.",
+  "reading_order_repair": {
+    "applied": true,
+    "reason": "reordered_global_layout",
+    "matched_paragraphs": 35,
+    "pages_reordered": [
+      2,
+      4,
+      8
+    ],
+    "paragraphs_reordered": 16,
+    "global_layout_used": true,
+    "cross_page_continuations_merged": 0,
+    "page_details": [
+      {
+        "page": 2,
+        "matched_paragraphs": 5,
+        "page_paragraphs": 5,
+        "coverage": 1.0
+      },
+      {
+        "page": 4,
+        "matched_paragraphs": 7,
+        "page_paragraphs": 7,
+        "coverage": 1.0
+      },
+      {
+        "page": 8,
+        "matched_paragraphs": 2,
+        "page_paragraphs": 2,
+        "coverage": 1.0
+      }
+    ]
+  },
+  "abstract": "Health is very important for human life.In particular, the health of the brain, which is the executive of the vital resource, is very important.Diagnosis for human health is provided by magnetic resonance imaging (MRI) devices, which help health decision makers in critical organs such as brain health.Images from these devices are a source of big data for artificial intelligence.This big data enables high performance in image processing classification problems, which is a subfield of artificial intelligence.In this study, we aim to classify brain tumors such as glioma, meningioma, and pituitary tumor from brain MR images.Convolutional Neural Network (CNN) and CNN-based inception-V3, EfficientNetB4, VGG19, transfer learning methods were used for classification.F-score, recall, imprinting and accuracy were used to evaluate these models.The best accuracy result was obtained with VGG16 with 98%, while the F-score value of the same transfer learning model was 97%, the Area Under the Curve (AUC) value was 99%, the recall value was 98%, and the precision value was 98%.CNN architecture and CNN-based transfer learning models are very important for human health in early diagnosis and rapid treatment of such diseases. The healthcare industry has been rapidly transformed by technological advances in recent years, and an important component of this transformation is artificial intelligence (AI) technology.AI is a computer system that simulates human-like intelligence and has many applications in medicine.One such area is the fight against brain tumors.Brain tumors are a major public health problem in the healthcare sector, and accurate diagnosis, treatment, and follow-up processes are critical.AI has become an important tool for improving these processes and has great potential for early diagnosis and treatment of brain tumors. Brain tumors affect human health due to their location 1 .AI is designed to help diagnose and treat complex diseases such as brain tumors by combining technologies such as big data analytics, machine learning, and deep learning.AI has the ability to detect and classify tumors by analyzing brain imaging techniques, such as Magnetic Resonance Imaging (MRI).AI algorithms can help determine the size, location, class, and aggressiveness of tumors.This helps physicians make a more accurate diagnosis and treatment plan, and helps patients better understand their health. AI can also be used to track a patient's progress through treatment.AI-based analytics can be used to assess treatment response and predict potential tumor recurrence.In this way, patients' treatment plans can be more effectively organized and individualized treatment approaches can be developed. In this study, difference detection was performed on brain images.Classification was performed with multilayer CNN and CNN-based transfer learning methods on 4 classes labeled by physicians. The contribution of the study is as follows. • We investigate the transfer learning method with the highest performance in the classification process of transfer learning methods on brain images. • We investigate the performance of CNN and transfer learning on brain images using CNN as a multi-layer without using transfer learning. • We investigate whether it is possible to achieve good results with a skewed and poor quality dataset. The flow diagram of the study is shown in Fig. 1.",
   "sections": [
     {
       "heading": "Material method",
@@ -302,9 +336,33 @@
       "paragraph_id": "para_0002",
       "text": "In a study of 3064 MRI images from 233 patients belonging to 4 different tumor classes (meningioma, glioma, pituitary, tumor) with support vector machine (SVM) on datasets generated after various preprocessing, an accuracy value between 94% was obtained 1 .Santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue.This system relied on a combination of thresholding and watershed segmentation techniques.Using SVM, the classification accuracy reached an impressive 85.32% across all categories 2 .Rafael et al. achieved an accuracy rate of 89.6% using SVM for brain tumor classification 3 .Similarly, Gupta and Sasidhar achieved 87% accuracy using SVM 4 .Gumaei et al. proposed a classification framework that harnesses the power of regularized extreme learning machine (RELM) for the purpose of distinguishing between benign and malignant brain tumors.Their study involved the collection and preprocessing of MRI data related to meningioma, glioma, and pituitary tumors.The feature selection process was performed using GIST, Normalized GIST (NGIST), and PCA-NGIST methods.Using a meticulous fivefold cross-validation procedure, the RELM technique yielded an impressive overall accuracy of 92.61% 5 .92% accuracy was achieved using SVM machine learning on a dataset of 90 normal and 154 tumor brain images 6 .3264 brain tumor images from Kaggle were classified using CNN, LSTM and CNN-LSTM hybrid.The results obtained; CNN 89%, LSTM 90.02%, CNN-LSTM 92% accuracy 7 .Srinivas and co-authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based CNN models pre-trained with VGG16, ResNet-50 and InceptionV3 architectures for brain tumor cell prediction.In particular, InceptionV3 had an accuracy of 78%, VGG16 had a high accuracy of 96%, and ResNet-50 had an accuracy of 95% 8 .In a CNN-based study of brain tumor images, Choudhury, Mahanty, Kumar, and Mishra achieved an accuracy of 96.08% 9 , while Martini and Oermann's CNN-based study achieved an accuracy of 93.9% 10 .Between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in China.In this study, 4-layer CNN was used.The accuracy was 91.3% 11 .In a study of 200 brain tumor images, the accuracy of image segmentation was 92.14% 12 .Classification studies on 102 brain tumor patients using SVM and KNN machine learning methods achieved 85% and 88% accuracy, respectively 13 .In a classification study of 233 brain tumor patients, SVM and KNN were used.In this study, the accuracy result was 91.28% 14 .In a classification study using CNN on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91.43% with fivefold cross-validation 15 .The author introduced a novel approach known as a Capsule Network (CapsNet), which effectively integrates brain MRI images and approximate tumor boundaries for the purpose of brain tumor classification.This study achieved an impressive accuracy of 90.89% in accurately classifying brain tumors 16 .In this study, as seen in the literature, CNN and CNN-based transfer learning methods will be used for brain tumor detection.",
       "sentences": [
-        "In a study of 3064 MRI images from 233 patients belonging to 4 different tumor classes (meningioma, glioma, pituitary, tumor) with support vector machine (SVM) on datasets generated after various preprocessing, an accuracy value between 94% was obtained 1 .Santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue.This system relied on a combination of thresholding and watershed segmentation techniques.Using SVM, the classification accuracy reached an impressive 85.32% across all categories 2 .Rafael et al.",
-        "achieved an accuracy rate of 89.6% using SVM for brain tumor classification 3 .Similarly, Gupta and Sasidhar achieved 87% accuracy using SVM 4 .Gumaei et al.",
-        "proposed a classification framework that harnesses the power of regularized extreme learning machine (RELM) for the purpose of distinguishing between benign and malignant brain tumors.Their study involved the collection and preprocessing of MRI data related to meningioma, glioma, and pituitary tumors.The feature selection process was performed using GIST, Normalized GIST (NGIST), and PCA-NGIST methods.Using a meticulous fivefold cross-validation procedure, the RELM technique yielded an impressive overall accuracy of 92.61% 5 .92% accuracy was achieved using SVM machine learning on a dataset of 90 normal and 154 tumor brain images 6 .3264 brain tumor images from Kaggle were classified using CNN, LSTM and CNN-LSTM hybrid.The results obtained; CNN 89%, LSTM 90.02%, CNN-LSTM 92% accuracy 7 .Srinivas and co-authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based CNN models pre-trained with VGG16, ResNet-50 and InceptionV3 architectures for brain tumor cell prediction.In particular, InceptionV3 had an accuracy of 78%, VGG16 had a high accuracy of 96%, and ResNet-50 had an accuracy of 95% 8 .In a CNN-based study of brain tumor images, Choudhury, Mahanty, Kumar, and Mishra achieved an accuracy of 96.08% 9 , while Martini and Oermann's CNN-based study achieved an accuracy of 93.9% 10 .Between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in China.In this study, 4-layer CNN was used.The accuracy was 91.3% 11 .In a study of 200 brain tumor images, the accuracy of image segmentation was 92.14% 12 .Classification studies on 102 brain tumor patients using SVM and KNN machine learning methods achieved 85% and 88% accuracy, respectively 13 .In a classification study of 233 brain tumor patients, SVM and KNN were used.In this study, the accuracy result was 91.28% 14 .In a classification study using CNN on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91.43% with fivefold cross-validation 15 .The author introduced a novel approach known as a Capsule Network (CapsNet), which effectively integrates brain MRI images and approximate tumor boundaries for the purpose of brain tumor classification.This study achieved an impressive accuracy of 90.89% in accurately classifying brain tumors 16 .In this study, as seen in the literature, CNN and CNN-based transfer learning methods will be used for brain tumor detection."
+        "In a study of 3064 MRI images from 233 patients belonging to 4 different tumor classes (meningioma, glioma, pituitary, tumor) with support vector machine (SVM) on datasets generated after various preprocessing, an accuracy value between 94% was obtained 1 .",
+        "Santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue.",
+        "This system relied on a combination of thresholding and watershed segmentation techniques.",
+        "Using SVM, the classification accuracy reached an impressive 85.32% across all categories 2 .",
+        "Rafael et al. achieved an accuracy rate of 89.6% using SVM for brain tumor classification 3 .",
+        "Similarly, Gupta and Sasidhar achieved 87% accuracy using SVM 4 .",
+        "Gumaei et al. proposed a classification framework that harnesses the power of regularized extreme learning machine (RELM) for the purpose of distinguishing between benign and malignant brain tumors.",
+        "Their study involved the collection and preprocessing of MRI data related to meningioma, glioma, and pituitary tumors.",
+        "The feature selection process was performed using GIST, Normalized GIST (NGIST), and PCA-NGIST methods.",
+        "Using a meticulous fivefold cross-validation procedure, the RELM technique yielded an impressive overall accuracy of 92.61% 5 .",
+        "92% accuracy was achieved using SVM machine learning on a dataset of 90 normal and 154 tumor brain images 6 .",
+        "3264 brain tumor images from Kaggle were classified using CNN, LSTM and CNN-LSTM hybrid.",
+        "The results obtained; CNN 89%, LSTM 90.02%, CNN-LSTM 92% accuracy 7 .",
+        "Srinivas and co-authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based CNN models pre-trained with VGG16, ResNet-50 and InceptionV3 architectures for brain tumor cell prediction.",
+        "In particular, InceptionV3 had an accuracy of 78%, VGG16 had a high accuracy of 96%, and ResNet-50 had an accuracy of 95% 8 .",
+        "In a CNN-based study of brain tumor images, Choudhury, Mahanty, Kumar, and Mishra achieved an accuracy of 96.08% 9 , while Martini and Oermann's CNN-based study achieved an accuracy of 93.9% 10 .",
+        "Between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in China.",
+        "In this study, 4-layer CNN was used.",
+        "The accuracy was 91.3% 11 .",
+        "In a study of 200 brain tumor images, the accuracy of image segmentation was 92.14% 12 .",
+        "Classification studies on 102 brain tumor patients using SVM and KNN machine learning methods achieved 85% and 88% accuracy, respectively 13 .",
+        "In a classification study of 233 brain tumor patients, SVM and KNN were used.",
+        "In this study, the accuracy result was 91.28% 14 .",
+        "In a classification study using CNN on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91.43% with fivefold cross-validation 15 .",
+        "The author introduced a novel approach known as a Capsule Network (CapsNet), which effectively integrates brain MRI images and approximate tumor boundaries for the purpose of brain tumor classification.",
+        "This study achieved an impressive accuracy of 90.89% in accurately classifying brain tumors 16 .",
+        "In this study, as seen in the literature, CNN and CNN-based transfer learning methods will be used for brain tumor detection."
       ],
       "section": null,
       "section_path": [],
@@ -408,134 +466,6 @@
     },
     {
       "paragraph_id": "para_0004",
-      "text": "The dataset consists of a total of 2870 human brain MRI images systematically classified into four different categories: glioma, meningioma, no tumor and pituitary.The distribution of labeled images into these four classes is shown in Table 1 for reference 17 .Glioma is the most common type of malignant brain tumor and typically occurs in glial cells in the brain and spinal cord.Meningioma is a benign type of brain tumor, but can become malignant without appropriate intervention.These classes are labeled by physicians.The size of the input images is 64 × 64.Table 1 shows the training, test and validation set discriminations by class.",
-      "sentences": [
-        "The dataset consists of a total of 2870 human brain MRI images systematically classified into four different categories: glioma, meningioma, no tumor and pituitary.The distribution of labeled images into these four classes is shown in Table 1 for reference 17 .Glioma is the most common type of malignant brain tumor and typically occurs in glial cells in the brain and spinal cord.Meningioma is a benign type of brain tumor, but can become malignant without appropriate intervention.These classes are labeled by physicians.The size of the input images is 64 × 64.Table 1 shows the training, test and validation set discriminations by class."
-      ],
-      "section": "Data source",
-      "section_path": [
-        "Data source"
-      ],
-      "coords": [
-        {
-          "page": 2,
-          "x": 155.905593872,
-          "y": 46.780401499336676,
-          "w": 400.41360006529345,
-          "h": 27.991699696663318,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.90850231899998,
-          "y": 593.9763183693367,
-          "w": 400.38390002062846,
-          "h": 37.98869969666339,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 2
-    },
-    {
-      "paragraph_id": "para_0005",
-      "text": "Deep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .In this study, a CNN architecture is employed.",
-      "sentences": [
-        "Deep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .In this study, a CNN architecture is employed."
-      ],
-      "section": "Deep learning",
-      "section_path": [
-        "Deep learning"
-      ],
-      "coords": [
-        {
-          "page": 3,
-          "x": 155.90348052999997,
-          "y": 521.9743183693367,
-          "w": 400.43902185255905,
-          "h": 47.99069969666334,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 572.4666588223025,
-          "w": 60.10000000000002,
-          "h": 8.1693592436975,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 3
-    },
-    {
-      "paragraph_id": "para_0006",
-      "text": "Convolutional neural networks represent a major breakthrough in deep learning and computer vision.These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 .",
-      "sentences": [
-        "Convolutional neural networks represent a major breakthrough in deep learning and computer vision.These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 ."
-      ],
-      "section": "Convolution neural network",
-      "section_path": [
-        "Convolution neural network"
-      ],
-      "coords": [
-        {
-          "page": 3,
-          "x": 155.90348052999997,
-          "y": 409.9732878513367,
-          "w": 400.47390004985033,
-          "h": 87.9977302146633,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 572.4666588223025,
-          "w": 60.10000000000002,
-          "h": 8.1693592436975,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 3
-    },
-    {
-      "paragraph_id": "para_0007",
-      "text": "Transfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.In the realm of neural networks, transfer learning manifests significant potency.It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] .",
-      "sentences": [
-        "Transfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.In the realm of neural networks, transfer learning manifests significant potency.It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] ."
-      ],
-      "section": "Transfer learning",
-      "section_path": [
-        "Transfer learning"
-      ],
-      "coords": [
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 337.9732878513367,
-          "w": 400.37940002750395,
-          "h": 47.99169969666326,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 572.4666588223025,
-          "w": 60.10000000000002,
-          "h": 8.1693592436975,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 3
-    },
-    {
-      "paragraph_id": "para_0008",
       "text": "In this study, transfer learning models InceptionV3, VGG16, VGG19, and EfficientNetB4 were used in the classification process.",
       "sentences": [
         "In this study, transfer learning models InceptionV3, VGG16, VGG19, and EfficientNetB4 were used in the classification process."
@@ -589,10 +519,122 @@
       "page": 3
     },
     {
+      "paragraph_id": "para_0006",
+      "text": "Deep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .In this study, a CNN architecture is employed.",
+      "sentences": [
+        "Deep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.",
+        "Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .",
+        "In this study, a CNN architecture is employed."
+      ],
+      "section": "Deep learning",
+      "section_path": [
+        "Deep learning"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 155.90348052999997,
+          "y": 521.9743183693367,
+          "w": 400.43902185255905,
+          "h": 47.99069969666334,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 572.4666588223025,
+          "w": 60.10000000000002,
+          "h": 8.1693592436975,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0007",
+      "text": "Convolutional neural networks represent a major breakthrough in deep learning and computer vision.These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 .",
+      "sentences": [
+        "Convolutional neural networks represent a major breakthrough in deep learning and computer vision.",
+        "These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.",
+        "The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.",
+        "Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.",
+        "The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.",
+        "CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 ."
+      ],
+      "section": "Convolution neural network",
+      "section_path": [
+        "Convolution neural network"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 155.90348052999997,
+          "y": 409.9732878513367,
+          "w": 400.47390004985033,
+          "h": 87.9977302146633,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 572.4666588223025,
+          "w": 60.10000000000002,
+          "h": 8.1693592436975,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0008",
+      "text": "Transfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.In the realm of neural networks, transfer learning manifests significant potency.It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] .",
+      "sentences": [
+        "Transfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.",
+        "In the realm of neural networks, transfer learning manifests significant potency.",
+        "It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] ."
+      ],
+      "section": "Transfer learning",
+      "section_path": [
+        "Transfer learning"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 337.9732878513367,
+          "w": 400.37940002750395,
+          "h": 47.99169969666326,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 572.4666588223025,
+          "w": 60.10000000000002,
+          "h": 8.1693592436975,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
       "paragraph_id": "para_0009",
       "text": "This architecture stands as a notable CNN model introduced by 24 , which builds upon its predecessor, the AlexNet model.It achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels.The model occupies approximately 528 MB of storage space and has achieved a documented top-5 accuracy of 90.1% on ImageNet data, encompassing approximately 138.4 million parameters.The ImageNet dataset comprises approximately 14 million images categorized across 1000 classes.The training of VGG16 was conducted on robust GPUs over the span of several weeks.This study used VGG16 and VGG19.",
       "sentences": [
-        "This architecture stands as a notable CNN model introduced by 24 , which builds upon its predecessor, the AlexNet model.It achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels.The model occupies approximately 528 MB of storage space and has achieved a documented top-5 accuracy of 90.1% on ImageNet data, encompassing approximately 138.4 million parameters.The ImageNet dataset comprises approximately 14 million images categorized across 1000 classes.The training of VGG16 was conducted on robust GPUs over the span of several weeks.This study used VGG16 and VGG19."
+        "This architecture stands as a notable CNN model introduced by 24 , which builds upon its predecessor, the AlexNet model.",
+        "It achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels.",
+        "The model occupies approximately 528 MB of storage space and has achieved a documented top-5 accuracy of 90.1% on ImageNet data, encompassing approximately 138.4 million parameters.",
+        "The ImageNet dataset comprises approximately 14 million images categorized across 1000 classes.",
+        "The training of VGG16 was conducted on robust GPUs over the span of several weeks.",
+        "This study used VGG16 and VGG19."
       ],
       "section": "VGG",
       "section_path": [
@@ -622,7 +664,10 @@
       "paragraph_id": "para_0010",
       "text": "EfficientNet is a family of scalable and efficient CNN models.The main goal of this series is to achieve better performance with fewer parameters.The term \"EfficientNet\" is a combination of the words \"efficiency\" and \"network\".The model series is mainly used in visual processing tasks such as image classification.",
       "sentences": [
-        "EfficientNet is a family of scalable and efficient CNN models.The main goal of this series is to achieve better performance with fewer parameters.The term \"EfficientNet\" is a combination of the words \"efficiency\" and \"network\".The model series is mainly used in visual processing tasks such as image classification."
+        "EfficientNet is a family of scalable and efficient CNN models.",
+        "The main goal of this series is to achieve better performance with fewer parameters.",
+        "The term \"EfficientNet\" is a combination of the words \"efficiency\" and \"network\".",
+        "The model series is mainly used in visual processing tasks such as image classification."
       ],
       "section": "EfficientNET",
       "section_path": [
@@ -652,7 +697,10 @@
       "paragraph_id": "para_0011",
       "text": "EfficientNet is a family of models that delivers competitive results in both performance and computational cost.It offers variations of different size and complexity at different scales.Higher numbered models are typically larger and more complex, but require more computing power.It was the top performing model in the ImageNet competition 24 .",
       "sentences": [
-        "EfficientNet is a family of models that delivers competitive results in both performance and computational cost.It offers variations of different size and complexity at different scales.Higher numbered models are typically larger and more complex, but require more computing power.It was the top performing model in the ImageNet competition 24 ."
+        "EfficientNet is a family of models that delivers competitive results in both performance and computational cost.",
+        "It offers variations of different size and complexity at different scales.",
+        "Higher numbered models are typically larger and more complex, but require more computing power.",
+        "It was the top performing model in the ImageNet competition 24 ."
       ],
       "section": "EfficientNET",
       "section_path": [
@@ -682,7 +730,11 @@
       "paragraph_id": "para_0012",
       "text": "The Inception architecture is an architecture used in the field of deep learning and CNN.It is designed to perform feature extraction and classification tasks more efficiently.First introduced in a paper titled \"Going Deeper with Convolutions\", the Inception architecture aims to provide better performance when processing complex visual datasets 25 .The Inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers.In this way, features of different sizes can be captured and processed simultaneously 25 .",
       "sentences": [
-        "The Inception architecture is an architecture used in the field of deep learning and CNN.It is designed to perform feature extraction and classification tasks more efficiently.First introduced in a paper titled \"Going Deeper with Convolutions\", the Inception architecture aims to provide better performance when processing complex visual datasets 25 .The Inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers.In this way, features of different sizes can be captured and processed simultaneously 25 ."
+        "The Inception architecture is an architecture used in the field of deep learning and CNN.",
+        "It is designed to perform feature extraction and classification tasks more efficiently.",
+        "First introduced in a paper titled \"Going Deeper with Convolutions\", the Inception architecture aims to provide better performance when processing complex visual datasets 25 .",
+        "The Inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers.",
+        "In this way, features of different sizes can be captured and processed simultaneously 25 ."
       ],
       "section": "Inception",
       "section_path": [
@@ -720,7 +772,9 @@
       "paragraph_id": "para_0013",
       "text": "Performance evaluation methods such as Accuracy, Precision, Recall, and F-score are used to evaluate models created for classification problems such as image processing.These methods are obtained from the confusion matrix.The confusion matrix is given in Table 2 26 .",
       "sentences": [
-        "Performance evaluation methods such as Accuracy, Precision, Recall, and F-score are used to evaluate models created for classification problems such as image processing.These methods are obtained from the confusion matrix.The confusion matrix is given in Table 2 26 ."
+        "Performance evaluation methods such as Accuracy, Precision, Recall, and F-score are used to evaluate models created for classification problems such as image processing.",
+        "These methods are obtained from the confusion matrix.",
+        "The confusion matrix is given in Table 2 26 ."
       ],
       "section": "Performance metric",
       "section_path": [
@@ -740,32 +794,13 @@
     },
     {
       "paragraph_id": "para_0014",
-      "text": "In Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.From Eqs. (1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively.",
-      "sentences": [
-        "In Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.From Eqs.",
-        "(1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively."
-      ],
-      "section": "Performance metric",
-      "section_path": [
-        "Performance metric"
-      ],
-      "coords": [
-        {
-          "page": 4,
-          "x": 155.908211181,
-          "y": 662.2958139743366,
-          "w": 400.34430002406583,
-          "h": 28.208751922127362,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 4
-    },
-    {
-      "paragraph_id": "para_0015",
       "text": "The ROC Curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios.It provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27 .The ROC curve is plotted with the false positive rate on the x-axis and the True Positive Rate (TPR) on the y-axis.An optimal classifier, characterized by a TPR of one and a false positive rate of zero, lies in the upper left corner of the graph.The curve takes shape around this point, illustrating the performance of the model across different thresholds 26 .",
       "sentences": [
-        "The ROC Curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios.It provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27 .The ROC curve is plotted with the false positive rate on the x-axis and the True Positive Rate (TPR) on the y-axis.An optimal classifier, characterized by a TPR of one and a false positive rate of zero, lies in the upper left corner of the graph.The curve takes shape around this point, illustrating the performance of the model across different thresholds 26 ."
+        "The ROC Curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios.",
+        "It provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27 .",
+        "The ROC curve is plotted with the false positive rate on the x-axis and the True Positive Rate (TPR) on the y-axis.",
+        "An optimal classifier, characterized by a TPR of one and a false positive rate of zero, lies in the upper left corner of the graph.",
+        "The curve takes shape around this point, illustrating the performance of the model across different thresholds 26 ."
       ],
       "section": "Receiver operating characteristic (ROC) curve",
       "section_path": [
@@ -784,10 +819,13 @@
       "page": 4
     },
     {
-      "paragraph_id": "para_0016",
+      "paragraph_id": "para_0015",
       "text": "In addition, the area under the receiver operating characteristic (ROC) curve, commonly referred to as the \"area under the curve\", succinctly summarizes the overall model performance in a single metric.The AUC value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26 .The ROC curve and AUC value serve as essential tools for comparing models and understanding classification model performance.A higher AUC value generally indicates superior model performance, while the curve illustrates the model's performance strengths and weaknesses at various thresholds 26 .",
       "sentences": [
-        "In addition, the area under the receiver operating characteristic (ROC) curve, commonly referred to as the \"area under the curve\", succinctly summarizes the overall model performance in a single metric.The AUC value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26 .The ROC curve and AUC value serve as essential tools for comparing models and understanding classification model performance.A higher AUC value generally indicates superior model performance, while the curve illustrates the model's performance strengths and weaknesses at various thresholds 26 ."
+        "In addition, the area under the receiver operating characteristic (ROC) curve, commonly referred to as the \"area under the curve\", succinctly summarizes the overall model performance in a single metric.",
+        "The AUC value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26 .",
+        "The ROC curve and AUC value serve as essential tools for comparing models and understanding classification model performance.",
+        "A higher AUC value generally indicates superior model performance, while the curve illustrates the model's performance strengths and weaknesses at various thresholds 26 ."
       ],
       "section": "Receiver operating characteristic (ROC) curve",
       "section_path": [
@@ -814,10 +852,11 @@
       "page": 4
     },
     {
-      "paragraph_id": "para_0017",
+      "paragraph_id": "para_0016",
       "text": "As the data is open source, there are no experiments on humans conducted by the authors.Open source has been studied on MRI images.",
       "sentences": [
-        "As the data is open source, there are no experiments on humans conducted by the authors.Open source has been studied on MRI images."
+        "As the data is open source, there are no experiments on humans conducted by the authors.",
+        "Open source has been studied on MRI images."
       ],
       "section": "Approval for participation",
       "section_path": [
@@ -844,10 +883,14 @@
       "page": 4
     },
     {
-      "paragraph_id": "para_0018",
+      "paragraph_id": "para_0017",
       "text": "This study addresses the problem of image classification using deep learning methods.The most important and widely studied of these problems is that of health images.In this context, five different models (InceptionV3, EfficientNetB4, VGG16, VGG19, Multi-Layer CNN) were selected for the classification of brain tumors and their performances were compared on the same dataset.10% of the dataset was used for testing, 15% for validation and 75% for training.All experimental setup and results were done at Google Colab.",
       "sentences": [
-        "This study addresses the problem of image classification using deep learning methods.The most important and widely studied of these problems is that of health images.In this context, five different models (InceptionV3, EfficientNetB4, VGG16, VGG19, Multi-Layer CNN) were selected for the classification of brain tumors and their performances were compared on the same dataset.10% of the dataset was used for testing, 15% for validation and 75% for training.All experimental setup and results were done at Google Colab."
+        "This study addresses the problem of image classification using deep learning methods.",
+        "The most important and widely studied of these problems is that of health images.",
+        "In this context, five different models (InceptionV3, EfficientNetB4, VGG16, VGG19, Multi-Layer CNN) were selected for the classification of brain tumors and their performances were compared on the same dataset.",
+        "10% of the dataset was used for testing, 15% for validation and 75% for training.",
+        "All experimental setup and results were done at Google Colab."
       ],
       "section": "Experimental settings and results",
       "section_path": [
@@ -906,12 +949,23 @@
       "page": 4
     },
     {
-      "paragraph_id": "para_0019",
+      "paragraph_id": "para_0018",
       "text": "First, we need to determine the architecture of our model.The input form of our data is 400 × 400 and has 3 channels.Since we have a total of 4 different classes, the number of output classes is set to 4. Our model has a structure that includes convolutional and pooling layers.First, there is a 3 × 3 convolutional layer with 32 filters.This is followed by a 2 × 2 max pooling layer.This reduces the size by emphasizing lower-level features.To deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2. The resulting feature map is transformed into a flat vector with a flattening layer.A hidden (dense) layer of 128 neurons is then added.This layer deepens the learned features and increases generalization.Finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function.To train our model, we need to determine the optimal function and metrics.In this paper, we use the Rectified Adam optimization algorithm.This algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently.Also, categorical cross-entropy is used as the loss function during training, as it is widely used in multiclass classification task.",
       "sentences": [
-        "First, we need to determine the architecture of our model.The input form of our data is 400 × 400 and has 3 channels.Since we have a total of 4 different classes, the number of output classes is set to 4.",
-        "Our model has a structure that includes convolutional and pooling layers.First, there is a 3 × 3 convolutional layer with 32 filters.This is followed by a 2 × 2 max pooling layer.This reduces the size by emphasizing lower-level features.To deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2.",
-        "The resulting feature map is transformed into a flat vector with a flattening layer.A hidden (dense) layer of 128 neurons is then added.This layer deepens the learned features and increases generalization.Finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function.To train our model, we need to determine the optimal function and metrics.In this paper, we use the Rectified Adam optimization algorithm.This algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently.Also, categorical cross-entropy is used as the loss function during training, as it is widely used in multiclass classification task."
+        "First, we need to determine the architecture of our model.",
+        "The input form of our data is 400 × 400 and has 3 channels.",
+        "Since we have a total of 4 different classes, the number of output classes is set to 4. Our model has a structure that includes convolutional and pooling layers.",
+        "First, there is a 3 × 3 convolutional layer with 32 filters.",
+        "This is followed by a 2 × 2 max pooling layer.",
+        "This reduces the size by emphasizing lower-level features.",
+        "To deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2. The resulting feature map is transformed into a flat vector with a flattening layer.",
+        "A hidden (dense) layer of 128 neurons is then added.",
+        "This layer deepens the learned features and increases generalization.",
+        "Finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function.",
+        "To train our model, we need to determine the optimal function and metrics.",
+        "In this paper, we use the Rectified Adam optimization algorithm.",
+        "This algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently.",
+        "Also, categorical cross-entropy is used as the loss function during training, as it is widely used in multiclass classification task."
       ],
       "section": "Multi-layer CNN",
       "section_path": [
@@ -930,10 +984,37 @@
       "page": 4
     },
     {
+      "paragraph_id": "para_0019",
+      "text": "In Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.From Eqs. (1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively.",
+      "sentences": [
+        "In Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.",
+        "From Eqs. (1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively."
+      ],
+      "section": "Performance metric",
+      "section_path": [
+        "Performance metric"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 155.908211181,
+          "y": 662.2958139743366,
+          "w": 400.34430002406583,
+          "h": 28.208751922127362,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
       "paragraph_id": "para_0020",
       "text": "The metrics tracked during training are accuracy, as well as precision and recall.These metrics are important for evaluating the classification performance of the model.In addition, a reduced learning rate recall (ReduceLROnPlateau) is used to dynamically adjust the learning rate.This recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training.The epoch is set to 14 and the batch size to 10.",
       "sentences": [
-        "The metrics tracked during training are accuracy, as well as precision and recall.These metrics are important for evaluating the classification performance of the model.In addition, a reduced learning rate recall (ReduceLROnPlateau) is used to dynamically adjust the learning rate.This recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training.The epoch is set to 14 and the batch size to 10."
+        "The metrics tracked during training are accuracy, as well as precision and recall.",
+        "These metrics are important for evaluating the classification performance of the model.",
+        "In addition, a reduced learning rate recall (ReduceLROnPlateau) is used to dynamically adjust the learning rate.",
+        "This recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training.",
+        "The epoch is set to 14 and the batch size to 10."
       ],
       "section": "Multi-layer CNN",
       "section_path": [
@@ -955,7 +1036,8 @@
       "paragraph_id": "para_0021",
       "text": "In transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead: the GlobalAveragePooling2D layer contains fewer parameters than the Flatten layer, which reduces the risk of overfitting and helps build a more efficient model.Also, while the Flatten layer is used to organize the data, the GlobalAveragePooling2D layer is used for feature extraction, making the network learning process more efficient.",
       "sentences": [
-        "In transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead: the GlobalAveragePooling2D layer contains fewer parameters than the Flatten layer, which reduces the risk of overfitting and helps build a more efficient model.Also, while the Flatten layer is used to organize the data, the GlobalAveragePooling2D layer is used for feature extraction, making the network learning process more efficient."
+        "In transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead: the GlobalAveragePooling2D layer contains fewer parameters than the Flatten layer, which reduces the risk of overfitting and helps build a more efficient model.",
+        "Also, while the Flatten layer is used to organize the data, the GlobalAveragePooling2D layer is used for feature extraction, making the network learning process more efficient."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -985,7 +1067,19 @@
       "paragraph_id": "para_0022",
       "text": "Due to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures.For all models, the dilution rate was set to 0.05.During the model training process, the designated optimizer was \"RectifiedAdam\", with the optimizer parameters configured as follows: learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, and epsilon = 1e-08.The loss function selected is categorical_crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy.This completes the pre-training of the model.The final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems.The activation function of this layer is \"softmax\".The softmax function makes the output values interpretable as probabilities between classes.Furthermore, the data type of this layer is \"float64\", which means that the output values are of a 64-bit double precision type.The layer also applies regularization using the \"kernel_regularizer\" property.The L2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights.The regularization coefficient of 0.1, denoted by \"regulars.l2 (0.1)\", controls the effectiveness of the regularization.",
       "sentences": [
-        "Due to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures.For all models, the dilution rate was set to 0.05.During the model training process, the designated optimizer was \"RectifiedAdam\", with the optimizer parameters configured as follows: learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, and epsilon = 1e-08.The loss function selected is categorical_crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy.This completes the pre-training of the model.The final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems.The activation function of this layer is \"softmax\".The softmax function makes the output values interpretable as probabilities between classes.Furthermore, the data type of this layer is \"float64\", which means that the output values are of a 64-bit double precision type.The layer also applies regularization using the \"kernel_regularizer\" property.The L2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights.The regularization coefficient of 0.1, denoted by \"regulars.l2 (0.1)\", controls the effectiveness of the regularization."
+        "Due to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures.",
+        "For all models, the dilution rate was set to 0.05.",
+        "During the model training process, the designated optimizer was \"RectifiedAdam\", with the optimizer parameters configured as follows: learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, and epsilon = 1e-08.",
+        "The loss function selected is categorical_crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy.",
+        "This completes the pre-training of the model.",
+        "The final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems.",
+        "The activation function of this layer is \"softmax\".",
+        "The softmax function makes the output values interpretable as probabilities between classes.",
+        "Furthermore, the data type of this layer is \"float64\", which means that the output values are of a 64-bit double precision type.",
+        "The layer also applies regularization using the \"kernel_regularizer\" property.",
+        "The L2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights.",
+        "The regularization coefficient of 0.1, denoted by \"regulars.",
+        "l2 (0.1)\", controls the effectiveness of the regularization."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1007,7 +1101,10 @@
       "paragraph_id": "para_0023",
       "text": "During the model training process, the \"ReduceLROnPlateau\" function of the Keras library was used as a backpropagation algorithm.This function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease.The parameters of the \"ReduceLROnPlateau\" function are as follows monitor: The metric monitored is usually \"val_loss\" (validation loss).This is the metric used to determine if the learning rate should be reduced:",
       "sentences": [
-        "During the model training process, the \"ReduceLROnPlateau\" function of the Keras library was used as a backpropagation algorithm.This function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease.The parameters of the \"ReduceLROnPlateau\" function are as follows monitor: The metric monitored is usually \"val_loss\" (validation loss).This is the metric used to determine if the learning rate should be reduced:"
+        "During the model training process, the \"ReduceLROnPlateau\" function of the Keras library was used as a backpropagation algorithm.",
+        "This function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease.",
+        "The parameters of the \"ReduceLROnPlateau\" function are as follows monitor: The metric monitored is usually \"val_loss\" (validation loss).",
+        "This is the metric used to determine if the learning rate should be reduced:"
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1029,8 +1126,7 @@
       "paragraph_id": "para_0024",
       "text": "• patience: The expected patience time for lowering the learning rate, i.e. how long the metric should not improve.",
       "sentences": [
-        "• patience: The expected patience time for lowering the learning rate, i.e.",
-        "how long the metric should not improve."
+        "• patience: The expected patience time for lowering the learning rate, i.e. how long the metric should not improve."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1052,7 +1148,8 @@
       "paragraph_id": "para_0025",
       "text": "• factor: The factor used to reduce the learning rate.For example, a value of 0.3 reduces the learning rate by 30%.",
       "sentences": [
-        "• factor: The factor used to reduce the learning rate.For example, a value of 0.3 reduces the learning rate by 30%."
+        "• factor: The factor used to reduce the learning rate.",
+        "For example, a value of 0.3 reduces the learning rate by 30%."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1074,7 +1171,8 @@
       "paragraph_id": "para_0026",
       "text": "• min_lr: Specifies the minimum achievable learning rate.This limits the learning rate without making it infinitesimal.",
       "sentences": [
-        "• min_lr: Specifies the minimum achievable learning rate.This limits the learning rate without making it infinitesimal."
+        "• min_lr: Specifies the minimum achievable learning rate.",
+        "This limits the learning rate without making it infinitesimal."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1096,8 +1194,9 @@
       "paragraph_id": "para_0027",
       "text": "Using this feature allows for more stable and efficient model training, streamlining the process of fine-tuning training parameters without the need to manually adjust the learning rate.The training program was run over 14 epochs with batches of size 10.Details of the multilayer CNN model used in the study are presented in Fig. 2, which outlines its architectural features.",
       "sentences": [
-        "Using this feature allows for more stable and efficient model training, streamlining the process of fine-tuning training parameters without the need to manually adjust the learning rate.The training program was run over 14 epochs with batches of size 10.Details of the multilayer CNN model used in the study are presented in Fig.",
-        "2, which outlines its architectural features."
+        "Using this feature allows for more stable and efficient model training, streamlining the process of fine-tuning training parameters without the need to manually adjust the learning rate.",
+        "The training program was run over 14 epochs with batches of size 10.",
+        "Details of the multilayer CNN model used in the study are presented in Fig. 2, which outlines its architectural features."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1119,8 +1218,7 @@
       "paragraph_id": "para_0028",
       "text": "The training and validation accuracy loss graphs of the models created with VGG19, EfficientNetB4, InceptionV3 transfer learning, and CNN are shown in Fig. 3.",
       "sentences": [
-        "The training and validation accuracy loss graphs of the models created with VGG19, EfficientNetB4, InceptionV3 transfer learning, and CNN are shown in Fig.",
-        "3."
+        "The training and validation accuracy loss graphs of the models created with VGG19, EfficientNetB4, InceptionV3 transfer learning, and CNN are shown in Fig. 3."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1171,51 +1269,11 @@
       "page": 5
     },
     {
-      "paragraph_id": "para_0029",
-      "text": "Table 3 shows the accuracy, F-score, Recall, Precision and AUC results of the models created in the study.According to Table 3, the best accuracy result was obtained by VGG16 with 97%.It is ahead of other methods with F-score value of 97%, AUC value of 99%, recall value of 98% and precision values of 98%.The ROC curves of the models created in the study are shown in Fig. 4.",
-      "sentences": [
-        "Table 3 shows the accuracy, F-score, Recall, Precision and AUC results of the models created in the study.According to Table 3, the best accuracy result was obtained by VGG16 with 97%.It is ahead of other methods with F-score value of 97%, AUC value of 99%, recall value of 98% and precision values of 98%.The ROC curves of the models created in the study are shown in Fig.",
-        "4."
-      ],
-      "section": "CNN-based transfer learning",
-      "section_path": [
-        "CNN-based transfer learning"
-      ],
-      "coords": [
-        {
-          "page": 3,
-          "x": 155.90740551700003,
-          "y": 296.00695760788017,
-          "w": 18.17999999999998,
-          "h": 7.964029940119758,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 5,
-          "x": 167.91660571399999,
-          "y": 216.19439917933664,
-          "w": 378.58410001034144,
-          "h": 7.991699696663318,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 6,
-          "x": 155.90850347999998,
-          "y": 240.5753855083367,
-          "w": 400.3353000068667,
-          "h": 27.98969969666325,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 3
-    },
-    {
       "paragraph_id": "para_0030",
       "text": "According to the AUC values in Fig. 4, the transfer learning models VGG, InceptionV3, and EfficientNetB4 and the models built with CNN have distinctive features.The confusion matrix of the study on the classification of glioma, meningioma, non-tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in Fig. 5.",
       "sentences": [
-        "According to the AUC values in Fig.",
-        "4, the transfer learning models VGG, InceptionV3, and EfficientNetB4 and the models built with CNN have distinctive features.The confusion matrix of the study on the classification of glioma, meningioma, non-tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in Fig.",
-        "5."
+        "According to the AUC values in Fig. 4, the transfer learning models VGG, InceptionV3, and EfficientNetB4 and the models built with CNN have distinctive features.",
+        "The confusion matrix of the study on the classification of glioma, meningioma, non-tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in Fig. 5."
       ],
       "section": "CNN-based transfer learning",
       "section_path": [
@@ -1267,46 +1325,51 @@
     },
     {
       "paragraph_id": "para_0031",
-      "text": "As shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model).",
+      "text": "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.",
       "sentences": [
-        "As shown in the confusion matrix in Fig.",
-        "5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model)."
+        "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.",
+        "AI in healthcare plays an important role in the management of complex diseases such as brain tumors.",
+        "AI enables faster, more accurate, and more effective diagnosis and treatment processes.",
+        "However, AI technology is not intended to completely replace doctors, but to support and enhance their work.",
+        "To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.",
+        "In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.",
+        "As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process."
       ],
-      "section": "CNN-based transfer learning",
+      "section": "Results and discussion",
       "section_path": [
-        "CNN-based transfer learning"
+        "Results and discussion"
       ],
       "coords": [
         {
           "page": 6,
-          "x": 155.91750512700003,
-          "y": 180.58138550833678,
-          "w": 400.2911999931247,
+          "x": 155.905489692,
+          "y": 68.58140030333675,
+          "w": 400.41090002059315,
+          "h": 57.98669969666321,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 175.78140149933677,
+          "w": 400.2984000206285,
           "h": 17.990699696663228,
           "coord_origin": "BOTTOMLEFT"
         },
         {
           "page": 3,
-          "x": 155.90740551700003,
-          "y": 296.00695760788017,
-          "w": 18.17999999999998,
-          "h": 7.964029940119758,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
           "coord_origin": "BOTTOMLEFT"
         },
         {
-          "page": 3,
-          "x": 155.9263139509999,
-          "y": 204.0109576078802,
-          "w": 45.52199999999999,
-          "h": 7.964029940119758,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.90309954399999,
-          "y": 112.00497286688028,
-          "w": 32.62500000000006,
-          "h": 7.964029940119758,
+          "page": 5,
+          "x": 155.905502319,
+          "y": 591.6807701503025,
+          "w": 123.05000000000007,
+          "h": 8.1693592436975,
           "coord_origin": "BOTTOMLEFT"
         }
       ],
@@ -1314,9 +1377,82 @@
     },
     {
       "paragraph_id": "para_0032",
+      "text": "Based on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.",
+      "sentences": [
+        "Based on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.",
+        "The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.",
+        "Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.",
+        "To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years."
+      ],
+      "section": "Results and discussion",
+      "section_path": [
+        "Results and discussion"
+      ],
+      "coords": [
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 125.78640149933676,
+          "w": 400.34070002406634,
+          "h": 47.9876996966633,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 7
+    },
+    {
+      "paragraph_id": "para_0033",
+      "text": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "sentences": [
+        "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study."
+      ],
+      "section": "Limitation",
+      "section_path": [
+        "Limitation"
+      ],
+      "coords": [
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 73.78240149933674,
+          "w": 400.32090001889105,
+          "h": 27.98969969666325,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 104.10980602793279,
+          "w": 49.709,
+          "h": 8.986295168067159,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 7
+    },
+    {
+      "paragraph_id": "para_0034",
       "text": "As part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.The best accuracy result was obtained with EfficientNetB4 with 95%.The comparison of the brain tumor studies with the literature is shown in Table 4.",
       "sentences": [
-        "As part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.The best accuracy result was obtained with EfficientNetB4 with 95%.The comparison of the brain tumor studies with the literature is shown in Table 4."
+        "As part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.",
+        "The best accuracy result was obtained with EfficientNetB4 with 95%.",
+        "The comparison of the brain tumor studies with the literature is shown in Table 4."
       ],
       "section": "Results and discussion",
       "section_path": [
@@ -1383,118 +1519,50 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0033",
-      "text": "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.",
+      "paragraph_id": "para_0035",
+      "text": "As shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model).",
       "sentences": [
-        "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process."
+        "As shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model)."
       ],
-      "section": "Results and discussion",
+      "section": "CNN-based transfer learning",
       "section_path": [
-        "Results and discussion"
+        "CNN-based transfer learning"
       ],
       "coords": [
         {
           "page": 6,
-          "x": 155.905489692,
-          "y": 68.58140030333675,
-          "w": 400.41090002059315,
-          "h": 57.98669969666321,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 175.78140149933677,
-          "w": 400.2984000206285,
+          "x": 155.91750512700003,
+          "y": 180.58138550833678,
+          "w": 400.2911999931247,
           "h": 17.990699696663228,
           "coord_origin": "BOTTOMLEFT"
         },
         {
           "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
+          "x": 155.90740551700003,
+          "y": 296.00695760788017,
+          "w": 18.17999999999998,
+          "h": 7.964029940119758,
           "coord_origin": "BOTTOMLEFT"
         },
         {
-          "page": 5,
-          "x": 155.905502319,
-          "y": 591.6807701503025,
-          "w": 123.05000000000007,
-          "h": 8.1693592436975,
+          "page": 3,
+          "x": 155.9263139509999,
+          "y": 204.0109576078802,
+          "w": 45.52199999999999,
+          "h": 7.964029940119758,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.90309954399999,
+          "y": 112.00497286688028,
+          "w": 32.62500000000006,
+          "h": 7.964029940119758,
           "coord_origin": "BOTTOMLEFT"
         }
       ],
       "page": 6
-    },
-    {
-      "paragraph_id": "para_0034",
-      "text": "Based on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.",
-      "sentences": [
-        "Based on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years."
-      ],
-      "section": "Results and discussion",
-      "section_path": [
-        "Results and discussion"
-      ],
-      "coords": [
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 125.78640149933676,
-          "w": 400.34070002406634,
-          "h": 47.9876996966633,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 7
-    },
-    {
-      "paragraph_id": "para_0035",
-      "text": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
-      "sentences": [
-        "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study."
-      ],
-      "section": "Limitation",
-      "section_path": [
-        "Limitation"
-      ],
-      "coords": [
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 73.78240149933674,
-          "w": 400.32090001889105,
-          "h": 27.98969969666325,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 104.10980602793279,
-          "w": 49.709,
-          "h": 8.986295168067159,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 7
     }
   ],
   "formulas": [],
@@ -9488,255 +9556,331 @@
     "raw_visual_regions": 7,
     "logical_figures": 5,
     "unclassified_visuals": 3,
-    "table_derived_paragraphs_removed": 0
+    "table_derived_paragraphs_removed": 2
   },
-  "table_derived_paragraphs": [],
-  "references": [
+  "table_derived_paragraphs": [
     {
-      "title": "Clever Hans effect found in a widely used brain tumour MRI dataset",
-      "authors": [
-        "DWallis",
-        "IBuvat"
+      "paragraph_id": "para_0005",
+      "text": "The dataset consists of a total of 2870 human brain MRI images systematically classified into four different categories: glioma, meningioma, no tumor and pituitary.The distribution of labeled images into these four classes is shown in Table 1 for reference 17 .Glioma is the most common type of malignant brain tumor and typically occurs in glial cells in the brain and spinal cord.Meningioma is a benign type of brain tumor, but can become malignant without appropriate intervention.These classes are labeled by physicians.The size of the input images is 64 × 64.Table 1 shows the training, test and validation set discriminations by class.",
+      "sentences": [
+        "The dataset consists of a total of 2870 human brain MRI images systematically classified into four different categories: glioma, meningioma, no tumor and pituitary.",
+        "The distribution of labeled images into these four classes is shown in Table 1 for reference 17 .",
+        "Glioma is the most common type of malignant brain tumor and typically occurs in glial cells in the brain and spinal cord.",
+        "Meningioma is a benign type of brain tumor, but can become malignant without appropriate intervention.",
+        "These classes are labeled by physicians.",
+        "The size of the input images is 64 × 64.",
+        "Table 1 shows the training, test and validation set discriminations by class."
       ],
-      "raw": "Wallis, D. & Buvat, I. Clever Hans effect found in a widely used brain tumour MRI dataset. Med. Image Anal. 77, 102368. https:// doi. org/ 10. 1016/j. media. 2022. 102368 (2022)."
+      "section": "Data source",
+      "section_path": [
+        "Data source"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 155.905593872,
+          "y": 46.780401499336676,
+          "w": 400.41360006529345,
+          "h": 27.991699696663318,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.90850231899998,
+          "y": 593.9763183693367,
+          "w": 400.38390002062846,
+          "h": 37.98869969666339,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
     },
     {
-      "title": "Threshold segmentation and watershed segmentation algorithm for brain tumor detection using support vector machine",
-      "authors": [
-        "SKHatcholli Seere",
-        "KKaribasappa"
+      "paragraph_id": "para_0029",
+      "text": "Table 3 shows the accuracy, F-score, Recall, Precision and AUC results of the models created in the study.According to Table 3, the best accuracy result was obtained by VGG16 with 97%.It is ahead of other methods with F-score value of 97%, AUC value of 99%, recall value of 98% and precision values of 98%.The ROC curves of the models created in the study are shown in Fig. 4.",
+      "sentences": [
+        "Table 3 shows the accuracy, F-score, Recall, Precision and AUC results of the models created in the study.",
+        "According to Table 3, the best accuracy result was obtained by VGG16 with 97%.",
+        "It is ahead of other methods with F-score value of 97%, AUC value of 99%, recall value of 98% and precision values of 98%.",
+        "The ROC curves of the models created in the study are shown in Fig. 4."
       ],
-      "raw": "Hatcholli Seere, S. K. & Karibasappa, K. Threshold segmentation and watershed segmentation algorithm for brain tumor detection using support vector machine. Eur. J. Eng. Technol. Res. 5(4), 516-519. https:// doi. org/ 10. 24018/ ejeng. 2020.5. 4. 1902 (2020)."
-    },
-    {
-      "title": "Glioblastomas and brain metastases differentiation following an MRI texture analysis-based radiomics approach",
-      "authors": [
-        "ROrtiz-Ramón",
-        "SRuiz-España",
-        "EMollá-Olmos",
-        "DMoratal"
+      "section": "CNN-based transfer learning",
+      "section_path": [
+        "CNN-based transfer learning"
       ],
-      "raw": "Ortiz-Ramón, R., Ruiz-España, S., Mollá-Olmos, E. & Moratal, D. Glioblastomas and brain metastases differentiation following an MRI texture analysis-based radiomics approach. Phys. Med. 76, 44-54. https:// doi. org/ 10. 1016/j. ejmp. 2020. 06. 016 (2020)."
-    },
-    {
-      "title": "Non-invasive brain tumor detection using magnetic resonance imaging based fractal texture features and shape measures",
-      "authors": [
-        "MGupta",
-        "KSasidhar"
+      "coords": [
+        {
+          "page": 3,
+          "x": 155.90740551700003,
+          "y": 296.00695760788017,
+          "w": 18.17999999999998,
+          "h": 7.964029940119758,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 167.91660571399999,
+          "y": 216.19439917933664,
+          "w": 378.58410001034144,
+          "h": 7.991699696663318,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 6,
+          "x": 155.90850347999998,
+          "y": 240.5753855083367,
+          "w": 400.3353000068667,
+          "h": 27.98969969666325,
+          "coord_origin": "BOTTOMLEFT"
+        }
       ],
-      "raw": "Gupta, M. & Sasidhar, K. Non-invasive brain tumor detection using magnetic resonance imaging based fractal texture features and shape measures. In 2020 3rd International Conference on Emerging Technologies in Computer Engineering: Machine Learning and Internet of Things (ICETCE), IEEE, 2020, 93-97. https:// doi. org/ 10. 1109/ ICETC E48199. 2020. 90917 56."
-    },
-    {
-      "title": "A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification",
-      "authors": [
-        "AGumaei",
-        "MMHassan",
-        "MRHassan",
-        "AAlelaiwi",
-        "GFortino"
-      ],
-      "raw": "Gumaei, A., Hassan, M. M., Hassan, M. R., Alelaiwi, A. & Fortino, G. A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification. IEEE Access 7, 36266-36273. https:// doi. org/ 10. 1109/ ACCESS. 2019. 29041 45 (2019)."
-    },
-    {
-      "title": "Features extraction for classification of brain tumor MRI images using support vector machine",
-      "authors": [
-        "MShahajad",
-        "DGambhir",
-        "RGandhi"
-      ],
-      "raw": "Shahajad, M., Gambhir, D. & Gandhi, R. Features extraction for classification of brain tumor MRI images using support vector machine. In 2021 11th International Conference on Cloud Computing, Data Science and Engineering (Confluence), IEEE, 2021, 767-772. https:// doi. org/ 10. 1109/ Confl uence 51648. 2021. 93771 11."
-    },
-    {
-      "title": "A brain tumor identification and classification using deep learning based on CNN-LSTM method",
-      "authors": [
-        "RVankdothu",
-        "MAHameed",
-        "HFatima"
-      ],
-      "raw": "Vankdothu, R., Hameed, M. A. & Fatima, H. A brain tumor identification and classification using deep learning based on CNN- LSTM method. Comput. Electr. Eng. 101, 107960. https:// doi. org/ 10. 1016/j. compe leceng. 2022. 107960 (2022)."
-    },
-    {
-      "title": "Deep transfer learning approaches in performance analysis of brain tumor classification using MRI images",
-      "authors": [
-        "CSrinivas"
-      ],
-      "raw": "Srinivas, C. et al. Deep transfer learning approaches in performance analysis of brain tumor classification using MRI images. J. Healthc. Eng. 2022, 1-17. https:// doi. org/ 10. 1155/ 2022/ 32643 67 (2022)."
-    },
-    {
-      "title": "Brain tumor detection and classification using convolutional neural network and deep neural network",
-      "authors": [
-        "CLChoudhury",
-        "CMahanty",
-        "RKumar",
-        "BKMishra"
-      ],
-      "raw": "Choudhury, C. L., Mahanty, C., Kumar, R. & Mishra, B. K. Brain tumor detection and classification using convolutional neural network and deep neural network. In 2020 International Conference on Computer Science, Engineering and Applications (ICCSEA), IEEE, 2020, 1-4. https:// doi. org/ 10. 1109/ ICCSE A49143. 2020. 91328 74."
-    },
-    {
-      "title": "Intraoperative brain tumour identification with deep learning",
-      "authors": [
-        "MLMartini",
-        "EKOermann"
-      ],
-      "raw": "Martini, M. L. & Oermann, E. K. Intraoperative brain tumour identification with deep learning. Nat. Rev. Clin. Oncol. 17(4), 200-201. https:// doi. org/ 10. 1038/ s41571-020-0343-9 (2020)."
-    },
-    {
-      "title": "A CNN based approach for the detection of brain tumor using MRI scans prediction of idiopathic pulmonary fibrosis (IPF) disease severity in lungs disease patients view project IoT based cyber physical system view project A CNN based approach for the detection of brain tumor using MRI scans",
-      "authors": [
-        "SSarkar",
-        "AKumar",
-        "SAich",
-        "SChakraborty",
-        "J.-SSim",
-        "H.-CKim"
-      ],
-      "raw": "Sarkar, S., Kumar, A., Aich, S., Chakraborty, S., Sim, J.-S., & Kim, H.-C. A CNN based approach for the detection of brain tumor using MRI scans prediction of idiopathic pulmonary fibrosis (IPF) disease severity in lungs disease patients view project IoT based cyber physical system view project A CNN based approach for the detection of brain tumor using MRI scans. 2020, [Online]. https:// www. resea rchga te. net/ publi cation/ 34204 8436."
-    },
-    {
-      "title": "Fully automatic model-based segmentation and classification approach for MRI brain tumor using artificial neural networks",
-      "authors": [
-        "NArunkumar"
-      ],
-      "raw": "Arunkumar, N. et al. Fully automatic model-based segmentation and classification approach for MRI brain tumor using artificial neural networks. Concurr. Comput. 32, 1. https:// doi. org/ 10. 1002/ cpe. 4962 (2020)."
-    },
-    {
-      "title": "Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme",
-      "authors": [
-        "EIZacharaki"
-      ],
-      "raw": "Zacharaki, E. I. et al. Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme. Magn. Reson. Med. 62(6), 1609-1618. https:// doi. org/ 10. 1002/ mrm. 22147 (2009)."
-    },
-    {
-      "title": "Enhanced performance of brain tumor classification via tumor region augmentation and partition",
-      "authors": [
-        "JCheng"
-      ],
-      "raw": "Cheng, J. et al. Enhanced performance of brain tumor classification via tumor region augmentation and partition. PLoS One 10(10), e0140381. https:// doi. org/ 10. 1371/ journ al. pone. 01403 81 (2015)."
-    },
-    {
-      "title": "Deep learning for brain tumor classification",
-      "authors": [
-        "JSPaul",
-        "AJPlassard",
-        "BALandman",
-        "DFabbri"
-      ],
-      "raw": "Paul, J. S., Plassard, A. J., Landman, B. A., & Fabbri, D. Deep learning for brain tumor classification. In (Krol, A. & Gimi, B., Eds.), 2017, 1013710. https:// doi. org/ 10. 1117/ 12. 22541 95."
-    },
-    {
-      "title": "Capsule networks for brain tumor classification based on MRI images and course tumor boundaries",
-      "authors": [
-        "PAfshar",
-        "KNPlataniotis",
-        "AMohammadi"
-      ],
-      "raw": "Afshar, P., Plataniotis, K. N., & Mohammadi, A. Capsule networks for brain tumor classification based on MRI images and course tumor boundaries, 2018."
-    },
-    {
-      "title": "Brain tumor classification (MRI)",
-      "authors": [
-        "BSartaj",
-        "KAnkita",
-        "BPrajakta",
-        "DSameer",
-        "KSwati"
-      ],
-      "raw": "Sartaj, B., Ankita, K., Prajakta, B., Sameer, D., & Swati, K. Brain tumor classification (MRI). Kaggle (2020). https:// doi. org/ 10. 34740/ kaggle/ dsv/ 11831 65."
-    },
-    {
-      "title": "Sentiment analysis with machine learning methods on social media",
-      "authors": [
-        "MSBasarslan",
-        "FKayaalp"
-      ],
-      "raw": "Basarslan, M. S. & Kayaalp, F. Sentiment analysis with machine learning methods on social media. Adv. Distrib. Comput. Artif. Intell. J. 9(3), 5-15. https:// doi. org/ 10. 14201/ ADCAI J2020 93515 (2020)."
-    },
-    {
-      "title": "Deep learning",
-      "authors": [
-        "YLecun",
-        "YBengio",
-        "GHinton"
-      ],
-      "raw": "LeCun, Y., Bengio, Y. & Hinton, G. Deep learning. Nature 521(7553), 436-444. https:// doi. org/ 10. 1038/ natur e14539 (2015)."
-    },
-    {
-      "title": "Font and Turkish letter recognition in images with deep learning",
-      "authors": [
-        "ASevik",
-        "PErdogmus",
-        "EYalein"
-      ],
-      "raw": "Sevik, A., Erdogmus, P., & Yalein, E. Font and Turkish letter recognition in images with deep learning. In 2018 International Congress on Big Data, Deep Learning and Fighting Cyber Terrorism (IBIGDELFT), IEEE, 2018, 61-64. https:// doi. org/ 10. 1109/ IBIGD ELFT. 2018. 86253 33."
-    },
-    {
-      "title": "A novel deep learning-based hybrid method for the determination of productivity of agricultural products: Apple case study",
-      "authors": [
-        "FBal",
-        "FKayaalp"
-      ],
-      "raw": "Bal, F. & Kayaalp, F. A novel deep learning-based hybrid method for the determination of productivity of agricultural products: Apple case study. IEEE Access 11, 7808-7821. https:// doi. org/ 10. 1109/ ACCESS. 2023. 32385 70 (2023)."
-    },
-    {
-      "title": "An experimental comparison of the widely used pre-trained deep neural networks for image classification tasks towards revealing the promise of transfer-learning",
-      "authors": [
-        "ATKabakus",
-        "PErdogmus"
-      ],
-      "raw": "Kabakus, A. T. & Erdogmus, P. An experimental comparison of the widely used pre-trained deep neural networks for image classification tasks towards revealing the promise of transfer-learning. Concurr. Comput. https:// doi. org/ 10. 1002/ cpe. 7216 (2022)."
-    },
-    {
-      "title": "MBi-GRUMCONV: A novel Multi Bi-GRU and Multi CNN-Based deep learning model for social media sentiment analysis",
-      "authors": [
-        "MSBaşarslan",
-        "FKayaalp"
-      ],
-      "raw": "Başarslan, M. S. & Kayaalp, F. MBi-GRUMCONV: A novel Multi Bi-GRU and Multi CNN-Based deep learning model for social media sentiment analysis. J. Cloud Comput. 12(1), 5. https:// doi. org/ 10. 1186/ s13677-022-00386-3 (2023)."
-    },
-    {
-      "title": "Very deep convolutional networks for large-scale image recognition",
-      "authors": [
-        "KSimonyan",
-        "AZisserman"
-      ],
-      "raw": "Simonyan, K. & Zisserman, A. Very deep convolutional networks for large-scale image recognition, 2014."
-    },
-    {
-      "title": "Xception: Deep learning with depthwise separable convolutions",
-      "authors": [
-        "FChollet"
-      ],
-      "raw": "Chollet, F. Xception: Deep learning with depthwise separable convolutions, 2016."
-    },
-    {
-      "title": "A novel correlation based attribute selection method and application on telecommunications churn analysis",
-      "authors": [
-        "FKayaalp",
-        "MSBasarslan",
-        "KPolat",
-        "Tscbas"
-      ],
-      "raw": "Kayaalp, F., Basarslan, M. S., & Polat, K. TSCBAS: A novel correlation based attribute selection method and application on telecommunications churn analysis. In 2018 International Conference on Artificial Intelligence and Data Processing (IDAP), IEEE, 2018, 1-5. https:// doi. org/ 10. 1109/ IDAP. 2018. 86209 35."
-    },
-    {
-      "title": "Analysis of the dynamic features on ransomware detection using deep learning-based methods",
-      "authors": [
-        "SGulmez",
-        "AGKakisim",
-        "ISogukpinar"
-      ],
-      "raw": "Gulmez, S., Kakisim, A. G., & Sogukpinar, I. Analysis of the dynamic features on ransomware detection using deep learning-based methods. In 2023 11th International Symposium on Digital Forensics and Security (ISDFS), Chattanooga, TN, USA, 2023, 1-6. https:// doi. org/ 10. 1109/ ISDFS 58141. 2023. 10131 862."
-    },
-    {
-      "title": "Enhanced performance of brain tumor classification via tumor region augmentation and partition",
-      "authors": [
-        "JCheng"
-      ],
-      "raw": "Cheng, J. et al. Enhanced performance of brain tumor classification via tumor region augmentation and partition. PLoS One 10(10), e0140381 (2015)."
+      "page": 3
     }
   ],
-  "author_biographies": [],
-  "canonical_text": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN\n\n## Abstract\n\nHealth is very important for human life.In particular, the health of the brain, which is the executive of the vital resource, is very important.Diagnosis for human health is provided by magnetic resonance imaging (MRI) devices, which help health decision makers in critical organs such as brain health.Images from these devices are a source of big data for artificial intelligence.This big data enables high performance in image processing classification problems, which is a subfield of artificial intelligence.In this study, we aim to classify brain tumors such as glioma, meningioma, and pituitary tumor from brain MR images.Convolutional Neural Network (CNN) and CNN-based inception-V3, EfficientNetB4, VGG19, transfer learning methods were used for classification.F-score, recall, imprinting and accuracy were used to evaluate these models.The best accuracy result was obtained with VGG16 with 98%, while the F-score value of the same transfer learning model was 97%, the Area Under the Curve (AUC) value was 99%, the recall value was 98%, and the precision value was 98%.CNN architecture and CNN-based transfer learning models are very important for human health in early diagnosis and rapid treatment of such diseases.\n\n## Material method\n\nThis section describes the dataset, the classification algorithm (CNN) used in the study, and the transfer learning architectures VGG19, VGG16, InceptionV3, EfficientNetB4 developed based on this algorithm.\n\n## Data source\n\nThe dataset consists of a total of 2870 human brain MRI images systematically classified into four different categories: glioma, meningioma, no tumor and pituitary.The distribution of labeled images into these four classes is shown in Table 1 for reference 17 .Glioma is the most common type of malignant brain tumor and typically occurs in glial cells in the brain and spinal cord.Meningioma is a benign type of brain tumor, but can become malignant without appropriate intervention.These classes are labeled by physicians.The size of the input images is 64 × 64.Table 1 shows the training, test and validation set discriminations by class.\n\n## Deep learning\n\nDeep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .In this study, a CNN architecture is employed.\n\n## Convolution neural network\n\nConvolutional neural networks represent a major breakthrough in deep learning and computer vision.These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 .\n\n## Transfer learning\n\nTransfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.In the realm of neural networks, transfer learning manifests significant potency.It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] .\n\nIn this study, transfer learning models InceptionV3, VGG16, VGG19, and EfficientNetB4 were used in the classification process.\n\n## VGG\n\nThis architecture stands as a notable CNN model introduced by 24 , which builds upon its predecessor, the AlexNet model.It achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels.The model occupies approximately 528 MB of storage space and has achieved a documented top-5 accuracy of 90.1% on ImageNet data, encompassing approximately 138.4 million parameters.The ImageNet dataset comprises approximately 14 million images categorized across 1000 classes.The training of VGG16 was conducted on robust GPUs over the span of several weeks.This study used VGG16 and VGG19.\n\n## EfficientNET\n\nEfficientNet is a family of scalable and efficient CNN models.The main goal of this series is to achieve better performance with fewer parameters.The term \"EfficientNet\" is a combination of the words \"efficiency\" and \"network\".The model series is mainly used in visual processing tasks such as image classification.\n\nEfficientNet is a family of models that delivers competitive results in both performance and computational cost.It offers variations of different size and complexity at different scales.Higher numbered models are typically larger and more complex, but require more computing power.It was the top performing model in the ImageNet competition 24 .\n\n## Inception\n\nThe Inception architecture is an architecture used in the field of deep learning and CNN.It is designed to perform feature extraction and classification tasks more efficiently.First introduced in a paper titled \"Going Deeper with Convolutions\", the Inception architecture aims to provide better performance when processing complex visual datasets 25 .The Inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers.In this way, features of different sizes can be captured and processed simultaneously 25 .\n\n## Performance metric\n\nPerformance evaluation methods such as Accuracy, Precision, Recall, and F-score are used to evaluate models created for classification problems such as image processing.These methods are obtained from the confusion matrix.The confusion matrix is given in Table 2 26 .\n\nIn Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.From Eqs. (1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively.\n\n## Receiver operating characteristic (ROC) curve\n\nThe ROC Curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios.It provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27 .The ROC curve is plotted with the false positive rate on the x-axis and the True Positive Rate (TPR) on the y-axis.An optimal classifier, characterized by a TPR of one and a false positive rate of zero, lies in the upper left corner of the graph.The curve takes shape around this point, illustrating the performance of the model across different thresholds 26 .\n\nIn addition, the area under the receiver operating characteristic (ROC) curve, commonly referred to as the \"area under the curve\", succinctly summarizes the overall model performance in a single metric.The AUC value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26 .The ROC curve and AUC value serve as essential tools for comparing models and understanding classification model performance.A higher AUC value generally indicates superior model performance, while the curve illustrates the model's performance strengths and weaknesses at various thresholds 26 .\n\n## Approval for participation\n\nAs the data is open source, there are no experiments on humans conducted by the authors.Open source has been studied on MRI images.\n\n## Experimental settings and results\n\nThis study addresses the problem of image classification using deep learning methods.The most important and widely studied of these problems is that of health images.In this context, five different models (InceptionV3, EfficientNetB4, VGG16, VGG19, Multi-Layer CNN) were selected for the classification of brain tumors and their performances were compared on the same dataset.10% of the dataset was used for testing, 15% for validation and 75% for training.All experimental setup and results were done at Google Colab.\n\n## Multi-layer CNN\n\nFirst, we need to determine the architecture of our model.The input form of our data is 400 × 400 and has 3 channels.Since we have a total of 4 different classes, the number of output classes is set to 4. Our model has a structure that includes convolutional and pooling layers.First, there is a 3 × 3 convolutional layer with 32 filters.This is followed by a 2 × 2 max pooling layer.This reduces the size by emphasizing lower-level features.To deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2. The resulting feature map is transformed into a flat vector with a flattening layer.A hidden (dense) layer of 128 neurons is then added.This layer deepens the learned features and increases generalization.Finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function.To train our model, we need to determine the optimal function and metrics.In this paper, we use the Rectified Adam optimization algorithm.This algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently.Also, categorical cross-entropy is used as the loss function during training, as it is widely used in multiclass classification task.\n\nThe metrics tracked during training are accuracy, as well as precision and recall.These metrics are important for evaluating the classification performance of the model.In addition, a reduced learning rate recall (ReduceLROnPlateau) is used to dynamically adjust the learning rate.This recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training.The epoch is set to 14 and the batch size to 10.\n\n## CNN-based transfer learning\n\nIn transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead: the GlobalAveragePooling2D layer contains fewer parameters than the Flatten layer, which reduces the risk of overfitting and helps build a more efficient model.Also, while the Flatten layer is used to organize the data, the GlobalAveragePooling2D layer is used for feature extraction, making the network learning process more efficient.\n\nDue to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures.For all models, the dilution rate was set to 0.05.During the model training process, the designated optimizer was \"RectifiedAdam\", with the optimizer parameters configured as follows: learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, and epsilon = 1e-08.The loss function selected is categorical_crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy.This completes the pre-training of the model.The final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems.The activation function of this layer is \"softmax\".The softmax function makes the output values interpretable as probabilities between classes.Furthermore, the data type of this layer is \"float64\", which means that the output values are of a 64-bit double precision type.The layer also applies regularization using the \"kernel_regularizer\" property.The L2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights.The regularization coefficient of 0.1, denoted by \"regulars.l2 (0.1)\", controls the effectiveness of the regularization.\n\nDuring the model training process, the \"ReduceLROnPlateau\" function of the Keras library was used as a backpropagation algorithm.This function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease.The parameters of the \"ReduceLROnPlateau\" function are as follows monitor: The metric monitored is usually \"val_loss\" (validation loss).This is the metric used to determine if the learning rate should be reduced:\n\n• patience: The expected patience time for lowering the learning rate, i.e. how long the metric should not improve.\n\n• factor: The factor used to reduce the learning rate.For example, a value of 0.3 reduces the learning rate by 30%.\n\n• min_lr: Specifies the minimum achievable learning rate.This limits the learning rate without making it infinitesimal.\n\nUsing this feature allows for more stable and efficient model training, streamlining the process of fine-tuning training parameters without the need to manually adjust the learning rate.The training program was run over 14 epochs with batches of size 10.Details of the multilayer CNN model used in the study are presented in Fig. 2, which outlines its architectural features.\n\nThe training and validation accuracy loss graphs of the models created with VGG19, EfficientNetB4, InceptionV3 transfer learning, and CNN are shown in Fig. 3.\n\nTable 3 shows the accuracy, F-score, Recall, Precision and AUC results of the models created in the study.According to Table 3, the best accuracy result was obtained by VGG16 with 97%.It is ahead of other methods with F-score value of 97%, AUC value of 99%, recall value of 98% and precision values of 98%.The ROC curves of the models created in the study are shown in Fig. 4.\n\nAccording to the AUC values in Fig. 4, the transfer learning models VGG, InceptionV3, and EfficientNetB4 and the models built with CNN have distinctive features.The confusion matrix of the study on the classification of glioma, meningioma, non-tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in Fig. 5.\n\nAs shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model).\n\n## Results and discussion\n\nAs part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.The best accuracy result was obtained with EfficientNetB4 with 95%.The comparison of the brain tumor studies with the literature is shown in Table 4.\n\nAs shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.\n\nBased on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.\n\n## Limitation\n\nWith our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.\n\n## Unsectioned\n\nStudies on brain tumors in the last 5 years will be scanned from indexes such as WOS and IEEE and the details of the related studies will be explained in this section.\n\nIn a study of 3064 MRI images from 233 patients belonging to 4 different tumor classes (meningioma, glioma, pituitary, tumor) with support vector machine (SVM) on datasets generated after various preprocessing, an accuracy value between 94% was obtained 1 .Santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue.This system relied on a combination of thresholding and watershed segmentation techniques.Using SVM, the classification accuracy reached an impressive 85.32% across all categories 2 .Rafael et al. achieved an accuracy rate of 89.6% using SVM for brain tumor classification 3 .Similarly, Gupta and Sasidhar achieved 87% accuracy using SVM 4 .Gumaei et al. proposed a classification framework that harnesses the power of regularized extreme learning machine (RELM) for the purpose of distinguishing between benign and malignant brain tumors.Their study involved the collection and preprocessing of MRI data related to meningioma, glioma, and pituitary tumors.The feature selection process was performed using GIST, Normalized GIST (NGIST), and PCA-NGIST methods.Using a meticulous fivefold cross-validation procedure, the RELM technique yielded an impressive overall accuracy of 92.61% 5 .92% accuracy was achieved using SVM machine learning on a dataset of 90 normal and 154 tumor brain images 6 .3264 brain tumor images from Kaggle were classified using CNN, LSTM and CNN-LSTM hybrid.The results obtained; CNN 89%, LSTM 90.02%, CNN-LSTM 92% accuracy 7 .Srinivas and co-authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based CNN models pre-trained with VGG16, ResNet-50 and InceptionV3 architectures for brain tumor cell prediction.In particular, InceptionV3 had an accuracy of 78%, VGG16 had a high accuracy of 96%, and ResNet-50 had an accuracy of 95% 8 .In a CNN-based study of brain tumor images, Choudhury, Mahanty, Kumar, and Mishra achieved an accuracy of 96.08% 9 , while Martini and Oermann's CNN-based study achieved an accuracy of 93.9% 10 .Between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in China.In this study, 4-layer CNN was used.The accuracy was 91.3% 11 .In a study of 200 brain tumor images, the accuracy of image segmentation was 92.14% 12 .Classification studies on 102 brain tumor patients using SVM and KNN machine learning methods achieved 85% and 88% accuracy, respectively 13 .In a classification study of 233 brain tumor patients, SVM and KNN were used.In this study, the accuracy result was 91.28% 14 .In a classification study using CNN on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91.43% with fivefold cross-validation 15 .The author introduced a novel approach known as a Capsule Network (CapsNet), which effectively integrates brain MRI images and approximate tumor boundaries for the purpose of brain tumor classification.This study achieved an impressive accuracy of 90.89% in accurately classifying brain tumors 16 .In this study, as seen in the literature, CNN and CNN-based transfer learning methods will be used for brain tumor detection.",
+  "references": [
+    {
+      "number": 1,
+      "title": "",
+      "authors": [],
+      "raw": "Wallis, D. & Buvat, I. Clever Hans effect found in a widely used brain tumour MRI dataset. Med. Image Anal. 77, 102368. https://​ doi.​org/​10.​1016/j.​media.​2022.​102368 (2022).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 2,
+      "title": "",
+      "authors": [],
+      "raw": "Hatcholli Seere, S. K. & Karibasappa, K. Threshold segmentation and watershed segmentation algorithm for brain tumor detection using support vector machine. Eur. J. Eng. Technol. Res. 5(4), 516–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 3,
+      "title": "",
+      "authors": [],
+      "raw": "Ortiz-Ramón, R., Ruiz-España, S., Mollá-Olmos, E. & Moratal, D. Glioblastomas and brain metastases differentiation following an MRI texture analysis-based radiomics approach. Phys. Med. 76, 44–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 4,
+      "title": "",
+      "authors": [],
+      "raw": "Gupta, M. & Sasidhar, K. Non-invasive brain tumor detection using magnetic resonance imaging based fractal texture features and shape measures. In 2020 3rd International Conference on Emerging Technologies in Computer Engineering: Machine Learning and Internet of Things (ICETCE), IEEE, 2020, 93–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 5,
+      "title": "",
+      "authors": [],
+      "raw": "Gumaei, A., Hassan, M. M., Hassan, M. R., Alelaiwi, A. & Fortino, G. A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification. IEEE Access 7, 36266–36273. https://​doi.​org/​10.​1109/​ACCESS.​2019.​29041​45 (2019).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 6,
+      "title": "",
+      "authors": [],
+      "raw": "Shahajad, M., Gambhir, D. & Gandhi, R. Features extraction for classification of brain tumor MRI images using support vector machine. In 2021 11th International Conference on Cloud Computing, Data Science and Engineering (Confluence), IEEE, 2021, 767–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 7,
+      "title": "",
+      "authors": [],
+      "raw": "Vankdothu, R., Hameed, M. A. & Fatima, H. A brain tumor identification and classification using deep learning based on CNN- LSTM method. Comput. Electr. Eng. 101, 107960. https://​doi.​org/​10.​1016/j.​compe​leceng.​2022.​107960 (2022).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 8,
+      "title": "",
+      "authors": [],
+      "raw": "Srinivas, C. et al. Deep transfer learning approaches in performance analysis of brain tumor classification using MRI images. J. Healthc. Eng. 2022, 1–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 9,
+      "title": "",
+      "authors": [],
+      "raw": "Choudhury, C. L., Mahanty, C., Kumar, R. & Mishra, B. K. Brain tumor detection and classification using convolutional neural network and deep neural network. In 2020 International Conference on Computer Science, Engineering and Applications (ICCSEA), IEEE, 2020, 1–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 10,
+      "title": "",
+      "authors": [],
+      "raw": "Martini, M. L. & Oermann, E. K. Intraoperative brain tumour identification with deep learning. Nat. Rev. Clin. Oncol. 17(4), 200–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 11,
+      "title": "",
+      "authors": [],
+      "raw": "Sarkar, S., Kumar, A., Aich, S., Chakraborty, S., Sim, J.-S., & Kim, H.-C. A CNN based approach for the detection of brain tumor using MRI scans prediction of idiopathic pulmonary fibrosis (IPF) disease severity in lungs disease patients view project IoT based cyber physical system view project A CNN based approach for the detection of brain tumor using MRI scans. 2020, [Online]. https://​www.​resea​rchga​te.​net/​publi​cation/​34204​8436.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 12,
+      "title": "",
+      "authors": [],
+      "raw": "Arunkumar, N. et al. Fully automatic model-based segmentation and classification approach for MRI brain tumor using artificial neural networks. Concurr. Comput. 32,",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 13,
+      "title": "",
+      "authors": [],
+      "raw": "Zacharaki, E. I. et al. Classification of brain tumor type and grade using MRI texture and shape in a machine learning scheme. Magn. Reson. Med. 62(6), 1609–1618. https://​doi.​org/​10.​1002/​mrm.​22147 (2009).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 14,
+      "title": "",
+      "authors": [],
+      "raw": "Cheng, J. et al. Enhanced performance of brain tumor classification via tumor region augmentation and partition. PLoS One 10(10), e0140381. https://​doi.​org/​10.​1371/​journ​al.​pone.​01403​81 (2015).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 15,
+      "title": "",
+      "authors": [],
+      "raw": "Paul, J. S., Plassard, A. J., Landman, B. A., & Fabbri, D. Deep learning for brain tumor classification. In (Krol, A. & Gimi, B., Eds.), 2017, 1013710. https://​doi.​org/​10.​1117/​12.​22541​95.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 16,
+      "title": "",
+      "authors": [],
+      "raw": "Afshar, P., Plataniotis, K. N., & Mohammadi, A. Capsule networks for brain tumor classification based on MRI images and course tumor boundaries, 2018.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 17,
+      "title": "",
+      "authors": [],
+      "raw": "Sartaj, B., Ankita, K., Prajakta, B., Sameer, D., & Swati, K. Brain tumor classification (MRI). Kaggle (2020). https://​doi.​org/​10.​ 34740/​kaggle/​dsv/​11831​65.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 18,
+      "title": "",
+      "authors": [],
+      "raw": "Basarslan, M. S. & Kayaalp, F. Sentiment analysis with machine learning methods on social media. Adv. Distrib. Comput. Artif. Intell. J. 9(3), 5–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 19,
+      "title": "",
+      "authors": [],
+      "raw": "LeCun, Y., Bengio, Y. & Hinton, G. Deep learning. Nature 521(7553), 436–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 20,
+      "title": "",
+      "authors": [],
+      "raw": "Sevik, A., Erdogmus, P., & Yalein, E. Font and Turkish letter recognition in images with deep learning. In 2018 International Congress on Big Data, Deep Learning and Fighting Cyber Terrorism (IBIGDELFT), IEEE, 2018, 61–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 21,
+      "title": "",
+      "authors": [],
+      "raw": "Bal, F. & Kayaalp, F. A novel deep learning-based hybrid method for the determination of productivity of agricultural products: Apple case study. IEEE Access 11, 7808–7821. https://​doi.​org/​10.​1109/​ACCESS.​2023.​32385​70 (2023).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 22,
+      "title": "",
+      "authors": [],
+      "raw": "Kabakus, A. T. & Erdogmus, P. An experimental comparison of the widely used pre-trained deep neural networks for image classification tasks towards revealing the promise of transfer-learning. Concurr. Comput. https://​doi.​org/​10.​1002/​cpe.​7216 (2022).",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 23,
+      "title": "",
+      "authors": [],
+      "raw": "Başarslan, M. S. & Kayaalp, F. MBi-GRUMCONV: A novel Multi Bi-GRU and Multi CNN-Based deep learning model for social media sentiment analysis. J. Cloud Comput. 12(1),",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 24,
+      "title": "",
+      "authors": [],
+      "raw": "Simonyan, K. & Zisserman, A. Very deep convolutional networks for large-scale image recognition, 2014.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 25,
+      "title": "",
+      "authors": [],
+      "raw": "Chollet, F. Xception: Deep learning with depthwise separable convolutions, 2016.",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 26,
+      "title": "",
+      "authors": [],
+      "raw": "Kayaalp, F., Basarslan, M. S., & Polat, K. TSCBAS: A novel correlation based attribute selection method and application on telecommunications churn analysis. In 2018 International Conference on Artificial Intelligence and Data Processing (IDAP), IEEE, 2018, 1–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 27,
+      "title": "",
+      "authors": [],
+      "raw": "Gulmez, S., Kakisim, A. G., & Sogukpinar, I. Analysis of the dynamic features on ransomware detection using deep learning-based methods. In 2023 11th International Symposium on Digital Forensics and Security (ISDFS), Chattanooga, TN, USA, 2023, 1–",
+      "source": "pymupdf_reference_section"
+    },
+    {
+      "number": 28,
+      "title": "",
+      "authors": [],
+      "raw": "Cheng, J. et al. Enhanced performance of brain tumor classification via tumor region augmentation and partition. PLoS One 10(10), e0140381 (2015).",
+      "source": "pymupdf_reference_section"
+    }
+  ],
+  "reference_recovery": {
+    "source": "pymupdf_reference_section",
+    "structured_reference_count": 28,
+    "recovered_numbered_records": 5,
+    "embedded_grobid_records": 5,
+    "paragraph_reference_numbers": [],
+    "pdf_reference_records": 28,
+    "pdf_max_reference_number": 28,
+    "pdf_contiguous_reference_count": 28,
+    "pdf_coverage_ratio": 1.0,
+    "backfilled_reference_numbers": [],
+    "missing_reference_numbers": [],
+    "final_reference_count": 28,
+    "final_reference_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "contamination_paragraphs_removed": 0
+  },
+  "canonical_text": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN\n\n## Abstract\n\nHealth is very important for human life.In particular, the health of the brain, which is the executive of the vital resource, is very important.Diagnosis for human health is provided by magnetic resonance imaging (MRI) devices, which help health decision makers in critical organs such as brain health.Images from these devices are a source of big data for artificial intelligence.This big data enables high performance in image processing classification problems, which is a subfield of artificial intelligence.In this study, we aim to classify brain tumors such as glioma, meningioma, and pituitary tumor from brain MR images.Convolutional Neural Network (CNN) and CNN-based inception-V3, EfficientNetB4, VGG19, transfer learning methods were used for classification.F-score, recall, imprinting and accuracy were used to evaluate these models.The best accuracy result was obtained with VGG16 with 98%, while the F-score value of the same transfer learning model was 97%, the Area Under the Curve (AUC) value was 99%, the recall value was 98%, and the precision value was 98%.CNN architecture and CNN-based transfer learning models are very important for human health in early diagnosis and rapid treatment of such diseases. The healthcare industry has been rapidly transformed by technological advances in recent years, and an important component of this transformation is artificial intelligence (AI) technology.AI is a computer system that simulates human-like intelligence and has many applications in medicine.One such area is the fight against brain tumors.Brain tumors are a major public health problem in the healthcare sector, and accurate diagnosis, treatment, and follow-up processes are critical.AI has become an important tool for improving these processes and has great potential for early diagnosis and treatment of brain tumors. Brain tumors affect human health due to their location 1 .AI is designed to help diagnose and treat complex diseases such as brain tumors by combining technologies such as big data analytics, machine learning, and deep learning.AI has the ability to detect and classify tumors by analyzing brain imaging techniques, such as Magnetic Resonance Imaging (MRI).AI algorithms can help determine the size, location, class, and aggressiveness of tumors.This helps physicians make a more accurate diagnosis and treatment plan, and helps patients better understand their health. AI can also be used to track a patient's progress through treatment.AI-based analytics can be used to assess treatment response and predict potential tumor recurrence.In this way, patients' treatment plans can be more effectively organized and individualized treatment approaches can be developed. In this study, difference detection was performed on brain images.Classification was performed with multilayer CNN and CNN-based transfer learning methods on 4 classes labeled by physicians. The contribution of the study is as follows. • We investigate the transfer learning method with the highest performance in the classification process of transfer learning methods on brain images. • We investigate the performance of CNN and transfer learning on brain images using CNN as a multi-layer without using transfer learning. • We investigate whether it is possible to achieve good results with a skewed and poor quality dataset. The flow diagram of the study is shown in Fig. 1.\n\n## Material method\n\nThis section describes the dataset, the classification algorithm (CNN) used in the study, and the transfer learning architectures VGG19, VGG16, InceptionV3, EfficientNetB4 developed based on this algorithm.\n\n## Data source\n\n## Deep learning\n\nDeep learning is a subset of machine learning that focuses on training artificial neural networks to perform complex tasks by learning patterns and representations directly from data.Unlike traditional machine learning approaches that require manual feature engineering, deep learning algorithms autonomously extract hierarchical features from data, leading to the creation of powerful and highly accurate models [18][19][20] .In this study, a CNN architecture is employed.\n\n## Convolution neural network\n\nConvolutional neural networks represent a major breakthrough in deep learning and computer vision.These architectures are specifically designed to extract meaningful features from complex visual data, such as images and video.The inherent structure of the CNN, consisting of convolutional layers, pooling layers, and fully connected layers, mimics the ability of the human visual system to recognize patterns and hierarchical features.Convolutional layers use convolutional operations to detect local features, which are then progressively abstracted by pooling layers that condense the information.The resulting hierarchical representations are then fed into fully connected layers for classification or regression tasks.CNN have redefined the landscape of image recognition, achieving remarkable success in diverse domains ranging from image classification and object detection to face recognition and medical image analysis 21 .\n\n## Transfer learning\n\nIn this study, transfer learning models InceptionV3, VGG16, VGG19, and EfficientNetB4 were used in the classification process.\n\nTransfer learning stands as a fundamental concept within both machine learning and deep learning, involving the utilization of knowledge garnered from training a model on a particular task and subsequently applying that knowledge to another related task.In the realm of neural networks, transfer learning manifests significant potency.It encompasses the process of employing a pre-trained model, typically trained on a comprehensive and varied dataset, and fine-tuning it on a fresh dataset or task [21][22][23] .\n\n## VGG\n\nThis architecture stands as a notable CNN model introduced by 24 , which builds upon its predecessor, the AlexNet model.It achieves this enhancement by replacing the initial 11 × 11 and 5 × 5 kernels in the first two convolutional layers with a series of consecutive 3 × 3 kernels.The model occupies approximately 528 MB of storage space and has achieved a documented top-5 accuracy of 90.1% on ImageNet data, encompassing approximately 138.4 million parameters.The ImageNet dataset comprises approximately 14 million images categorized across 1000 classes.The training of VGG16 was conducted on robust GPUs over the span of several weeks.This study used VGG16 and VGG19.\n\n## EfficientNET\n\nEfficientNet is a family of scalable and efficient CNN models.The main goal of this series is to achieve better performance with fewer parameters.The term \"EfficientNet\" is a combination of the words \"efficiency\" and \"network\".The model series is mainly used in visual processing tasks such as image classification.\n\nEfficientNet is a family of models that delivers competitive results in both performance and computational cost.It offers variations of different size and complexity at different scales.Higher numbered models are typically larger and more complex, but require more computing power.It was the top performing model in the ImageNet competition 24 .\n\n## Inception\n\nThe Inception architecture is an architecture used in the field of deep learning and CNN.It is designed to perform feature extraction and classification tasks more efficiently.First introduced in a paper titled \"Going Deeper with Convolutions\", the Inception architecture aims to provide better performance when processing complex visual datasets 25 .The Inception architecture has a structure that includes parallel convolution layers and combines the outputs of these layers.In this way, features of different sizes can be captured and processed simultaneously 25 .\n\n## Performance metric\n\nPerformance evaluation methods such as Accuracy, Precision, Recall, and F-score are used to evaluate models created for classification problems such as image processing.These methods are obtained from the confusion matrix.The confusion matrix is given in Table 2 26 .\n\nIn Table 2, the symbols T N , T P , F P , and F N correspond to the true negative, true positive, false positive, and false negative values, respectively.From Eqs. (1) to ( 4), Accuracy, Precision, Recall and F-score is given respectively.\n\n## Receiver operating characteristic (ROC) curve\n\nThe ROC Curve is a graphical tool used to evaluate the performance of a classification model, particularly in binary classification scenarios.It provides a visualization of the sensitivity and specificity of the model, showing their variation as thresholds are changed 27 .The ROC curve is plotted with the false positive rate on the x-axis and the True Positive Rate (TPR) on the y-axis.An optimal classifier, characterized by a TPR of one and a false positive rate of zero, lies in the upper left corner of the graph.The curve takes shape around this point, illustrating the performance of the model across different thresholds 26 .\n\nIn addition, the area under the receiver operating characteristic (ROC) curve, commonly referred to as the \"area under the curve\", succinctly summarizes the overall model performance in a single metric.The AUC value ranges from 0 to 1, with values closer to 1 indicating the increased discriminative ability of the model 26 .The ROC curve and AUC value serve as essential tools for comparing models and understanding classification model performance.A higher AUC value generally indicates superior model performance, while the curve illustrates the model's performance strengths and weaknesses at various thresholds 26 .\n\n## Approval for participation\n\nAs the data is open source, there are no experiments on humans conducted by the authors.Open source has been studied on MRI images.\n\n## Experimental settings and results\n\nThis study addresses the problem of image classification using deep learning methods.The most important and widely studied of these problems is that of health images.In this context, five different models (InceptionV3, EfficientNetB4, VGG16, VGG19, Multi-Layer CNN) were selected for the classification of brain tumors and their performances were compared on the same dataset.10% of the dataset was used for testing, 15% for validation and 75% for training.All experimental setup and results were done at Google Colab.\n\n## Multi-layer CNN\n\nFirst, we need to determine the architecture of our model.The input form of our data is 400 × 400 and has 3 channels.Since we have a total of 4 different classes, the number of output classes is set to 4. Our model has a structure that includes convolutional and pooling layers.First, there is a 3 × 3 convolutional layer with 32 filters.This is followed by a 2 × 2 max pooling layer.This reduces the size by emphasizing lower-level features.To deepen our model, this structure is repeated twice, adding convolutional layers with 64 and 128 filters, respectively, and maximum pooling layers of size 2 × 2. The resulting feature map is transformed into a flat vector with a flattening layer.A hidden (dense) layer of 128 neurons is then added.This layer deepens the learned features and increases generalization.Finally, the output layer has 4 neurons and calculates the probabilities between classes with the softmax activation function.To train our model, we need to determine the optimal function and metrics.In this paper, we use the Rectified Adam optimization algorithm.This algorithm dynamically adjusts the learning rate and helps to use gradients more efficiently.Also, categorical cross-entropy is used as the loss function during training, as it is widely used in multiclass classification task.\n\nThe metrics tracked during training are accuracy, as well as precision and recall.These metrics are important for evaluating the classification performance of the model.In addition, a reduced learning rate recall (ReduceLROnPlateau) is used to dynamically adjust the learning rate.This recall reduces the learning rate when the loss function flattens out during the training process, resulting in more stable training.The epoch is set to 14 and the batch size to 10.\n\n## CNN-based transfer learning\n\nIn transfer learning architectures, all parameters and layers outside the model are the same, but after the last 3 layers of transfer learning models are removed, layers unique to the dataset are added instead: the GlobalAveragePooling2D layer contains fewer parameters than the Flatten layer, which reduces the risk of overfitting and helps build a more efficient model.Also, while the Flatten layer is used to organize the data, the GlobalAveragePooling2D layer is used for feature extraction, making the network learning process more efficient.\n\nDue to the fact that the training data tends to learn very fast compared to the validation data, we modified the ratio of the dropout layers in the original architectures.For all models, the dilution rate was set to 0.05.During the model training process, the designated optimizer was \"RectifiedAdam\", with the optimizer parameters configured as follows: learning_rate = 0.0001, beta_1 = 0.9, beta_2 = 0.999, and epsilon = 1e-08.The loss function selected is categorical_crossentropy, while the metrics used include precision, recall, categorical accuracy, and accuracy.This completes the pre-training of the model.The final layer of the model is the dense layer, which contains 4 neurons, which is usually the number of output classes in classification problems.The activation function of this layer is \"softmax\".The softmax function makes the output values interpretable as probabilities between classes.Furthermore, the data type of this layer is \"float64\", which means that the output values are of a 64-bit double precision type.The layer also applies regularization using the \"kernel_regularizer\" property.The L2 regularization used here aims to reduce the risk of overfitting by limiting the size of the weights.The regularization coefficient of 0.1, denoted by \"regulars.l2 (0.1)\", controls the effectiveness of the regularization.\n\nDuring the model training process, the \"ReduceLROnPlateau\" function of the Keras library was used as a backpropagation algorithm.This function automatically reduced the learning rate when the model approached a local optimum or when the loss value did not decrease.The parameters of the \"ReduceLROnPlateau\" function are as follows monitor: The metric monitored is usually \"val_loss\" (validation loss).This is the metric used to determine if the learning rate should be reduced:\n\n• patience: The expected patience time for lowering the learning rate, i.e. how long the metric should not improve.\n\n• factor: The factor used to reduce the learning rate.For example, a value of 0.3 reduces the learning rate by 30%.\n\n• min_lr: Specifies the minimum achievable learning rate.This limits the learning rate without making it infinitesimal.\n\nUsing this feature allows for more stable and efficient model training, streamlining the process of fine-tuning training parameters without the need to manually adjust the learning rate.The training program was run over 14 epochs with batches of size 10.Details of the multilayer CNN model used in the study are presented in Fig. 2, which outlines its architectural features.\n\nThe training and validation accuracy loss graphs of the models created with VGG19, EfficientNetB4, InceptionV3 transfer learning, and CNN are shown in Fig. 3.\n\nAccording to the AUC values in Fig. 4, the transfer learning models VGG, InceptionV3, and EfficientNetB4 and the models built with CNN have distinctive features.The confusion matrix of the study on the classification of glioma, meningioma, non-tumor normal patients, pituitary tumor patients in the dataset by tumor type is shown in Fig. 5.\n\nAs shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model).\n\n## Results and discussion\n\nAs shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.\n\nBased on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.\n\nAs part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.The best accuracy result was obtained with EfficientNetB4 with 95%.The comparison of the brain tumor studies with the literature is shown in Table 4.\n\n## Limitation\n\nWith our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.\n\n## Unsectioned\n\nStudies on brain tumors in the last 5 years will be scanned from indexes such as WOS and IEEE and the details of the related studies will be explained in this section.\n\nIn a study of 3064 MRI images from 233 patients belonging to 4 different tumor classes (meningioma, glioma, pituitary, tumor) with support vector machine (SVM) on datasets generated after various preprocessing, an accuracy value between 94% was obtained 1 .Santhosh and colleagues presented a classification model aimed at distinguishing between normal and abnormal brain tissue.This system relied on a combination of thresholding and watershed segmentation techniques.Using SVM, the classification accuracy reached an impressive 85.32% across all categories 2 .Rafael et al. achieved an accuracy rate of 89.6% using SVM for brain tumor classification 3 .Similarly, Gupta and Sasidhar achieved 87% accuracy using SVM 4 .Gumaei et al. proposed a classification framework that harnesses the power of regularized extreme learning machine (RELM) for the purpose of distinguishing between benign and malignant brain tumors.Their study involved the collection and preprocessing of MRI data related to meningioma, glioma, and pituitary tumors.The feature selection process was performed using GIST, Normalized GIST (NGIST), and PCA-NGIST methods.Using a meticulous fivefold cross-validation procedure, the RELM technique yielded an impressive overall accuracy of 92.61% 5 .92% accuracy was achieved using SVM machine learning on a dataset of 90 normal and 154 tumor brain images 6 .3264 brain tumor images from Kaggle were classified using CNN, LSTM and CNN-LSTM hybrid.The results obtained; CNN 89%, LSTM 90.02%, CNN-LSTM 92% accuracy 7 .Srinivas and co-authors conducted a comprehensive study involving a comparative performance analysis of transfer learning based CNN models pre-trained with VGG16, ResNet-50 and InceptionV3 architectures for brain tumor cell prediction.In particular, InceptionV3 had an accuracy of 78%, VGG16 had a high accuracy of 96%, and ResNet-50 had an accuracy of 95% 8 .In a CNN-based study of brain tumor images, Choudhury, Mahanty, Kumar, and Mishra achieved an accuracy of 96.08% 9 , while Martini and Oermann's CNN-based study achieved an accuracy of 93.9% 10 .Between 2005 and 2010, a study was conducted to predict the classes of meningioma, glioma, and pituitary gland from brain images of 233 patients in China.In this study, 4-layer CNN was used.The accuracy was 91.3% 11 .In a study of 200 brain tumor images, the accuracy of image segmentation was 92.14% 12 .Classification studies on 102 brain tumor patients using SVM and KNN machine learning methods achieved 85% and 88% accuracy, respectively 13 .In a classification study of 233 brain tumor patients, SVM and KNN were used.In this study, the accuracy result was 91.28% 14 .In a classification study using CNN on 233 patient images with meningioma, glioma or pituitary tumor, the accuracy was 91.43% with fivefold cross-validation 15 .The author introduced a novel approach known as a Capsule Network (CapsNet), which effectively integrates brain MRI images and approximate tumor boundaries for the purpose of brain tumor classification.This study achieved an impressive accuracy of 90.89% in accurately classifying brain tumors 16 .In this study, as seen in the literature, CNN and CNN-based transfer learning methods will be used for brain tumor detection.",
   "quality": {
     "evaluation_type": "integrity",
     "integrity_score": 0.9352,

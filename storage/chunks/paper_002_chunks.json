@@ -410,10 +410,41 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0011_638d7b8e",
+    "chunk_id": "paper_002_body_0011_893bf431",
+    "paper_id": "paper_002",
+    "chunk_type": "body",
+    "order_index": 11,
+    "text": "Modern AI models for brain tumor classification predominantly fall into two categories: ML algorithms and DL architectures.Various Common ML techniques employed for brain tumor detection include Random Forest (RF) and Support Vector Machines (SVM), and k-Nearest Neighbors (KNN), while DL approaches employ CNNs, Residual Networks (ResNets), RNNs, and models based on transformers.",
+    "word_count": 52,
+    "metadata": {
+      "section": "Various DL and ML Models for Brain Tumors",
+      "section_path": [
+        "Various DL and ML Models for Brain Tumors"
+      ],
+      "subsection_id": "paper_002_subsection_809504d4f980",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0020"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 306.141693115,
+          "y": 80.91192341907686,
+          "w": 240.61700004577966,
+          "h": 108.57418070592314,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_002_heading_0012_638d7b8e",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 11,
+    "order_index": 12,
     "text": "Vision Transformers (ViTs)",
     "word_count": 3,
     "metadata": {
@@ -425,10 +456,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0012_649ea57f",
+    "chunk_id": "paper_002_body_0013_649ea57f",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 12,
+    "order_index": 13,
     "text": "Convolutional Neural Networks (CNNs) Several CNN variants are presented for brain tumor classification: 2-dimensional CNNs process brain MRI slices individually, making them computationally efficient but potentially missing inter-slice contextual information.Abiwinanda et al. [11] implemented a simple 2D CNN with three convolutional layers for classifying brain MRI images, achieving an accuracy of 84.19%.Deepak and Ameer [12] used a modified CNN architecture for classifying brain tumors, reporting an accuracy of 97.5% on a dataset containing four tumor types.\nChen et al. [13] designed a multi-scale 3D CNN incorporating residual connections, achieving 93.4% accuracy for glioma grading.Çiçek et al. [14] developed a 3D U-Net, extending the architecture to 3D volumes, which has been widely adapted for segmentation.Feng et al. [15] adapted the 3D ResNet architecture for brain tumor classification, achieving 94.9% accuracy for four-class classification.Originally designed for segmentation tasks, U-Net architectures have been adapted for classification purposes.Zhou et al. [16] presented a 3D U-Net variant for joint classification and segmentation of gliomas, achieving a classification accuracy of 91.7%.\nRecurrent Neural Networks (RNNs) process sequences and have been adapted for brain tumor classification.RNNs, particularly Gated Recurrent Unit (GRU) and Long Short Term Memory (LSTM) variants, have been used to capture sequential information in brain MRI slices.Chen et al. [17] combined bidirectional LSTMs with CNNs to model spatial dependencies between adjacent slices, improving segmentation accuracy compared to purely CNN-based approaches.\nHybrid Architectures, combining multiple models or integrating different methodologies, have presented promising results.Regarding multi-models, Nie et al. [18] presented a comparative study related to 2D with 3D CNN architectures, finding that 3D CNNs outperformed 2D counterparts by 3.8% in classification accuracy by better capturing volumetric tumor characteristics.However, 3D CNNs required 4.2 times more parameters and 5.7 times longer training times.",
     "word_count": 285,
     "metadata": {
@@ -441,10 +472,10 @@
         4
       ],
       "paragraph_ids": [
-        "para_0020",
         "para_0021",
         "para_0022",
-        "para_0023"
+        "para_0023",
+        "para_0024"
       ],
       "coordinates": [
         {
@@ -483,10 +514,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0013_a401cdad",
+    "chunk_id": "paper_002_body_0014_a401cdad",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 13,
+    "order_index": 14,
     "text": "dataset.Regarding hybrid CNN-RNN models, incorporating RNNs with CNNs allows for capturing temporal dependencies.Gao et al. [20] presented a CNN-LSTM for dynamic contrast-enhanced MRI analysis, improving classification accuracy by 4.5% compared to CNN-only approaches.Also, combining 2D and 3D CNNs to balance computational efficiency and contextual information.Wang et al. [21] proposed a 2.5D approach using orthogonal 2D patches from axial, sagittal, and coronal views, which were processed by separate CNNs and then fused for final prediction.",
     "word_count": 74,
     "metadata": {
@@ -499,7 +530,7 @@
         4
       ],
       "paragraph_ids": [
-        "para_0024"
+        "para_0025"
       ],
       "coordinates": [
         {
@@ -514,10 +545,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0014_95f4b687",
+    "chunk_id": "paper_002_heading_0015_95f4b687",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 14,
+    "order_index": 15,
     "text": "Generative Adversarial Networks (GANs)",
     "word_count": 4,
     "metadata": {
@@ -529,10 +560,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0015_70669236",
+    "chunk_id": "paper_002_body_0016_70669236",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 15,
+    "order_index": 16,
     "text": "have been employed for data augmentation and domain adaptation in brain tumor analysis.Shin et al. [22] used GANs to produce synthetic brain MRI images with tumors, addressing data scarcity issues in medical imaging.Their method improved segmentation performance by 1-5% across different metrics.\nHan et al. [23] proposed a two-stage GAN-based framework for unsupervised domain adaptation, enabling models trained on one dataset to generalize better to different scanners or protocols.used GANs to generate synthetic MRI images, expanding the training dataset and improving classification accuracy.Ghafoorian et al. [24] employed cycle-consistent GANs (CycleGAN) to adapt models across different scanners and institutions, reducing performance degradation by 68% when testing on external datasets.",
     "word_count": 108,
     "metadata": {
@@ -545,8 +576,8 @@
         4
       ],
       "paragraph_ids": [
-        "para_0025",
-        "para_0026"
+        "para_0026",
+        "para_0027"
       ],
       "coordinates": [
         {
@@ -569,10 +600,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0016_362cbef9",
+    "chunk_id": "paper_002_heading_0017_362cbef9",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 16,
+    "order_index": 17,
     "text": "Transfer Learning (TL):",
     "word_count": 3,
     "metadata": {
@@ -584,10 +615,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0017_5232f565",
+    "chunk_id": "paper_002_body_0018_5232f565",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 17,
+    "order_index": 18,
     "text": "More sophisticated approaches involve TL for brain tumor classification.Khawaldeh et al. [25] modified a VGG-16 for 3D operations, achieving 92.6% accuracy on a multi-institutional MRI dataset.Also, TL leveraging pre trained networks e.g., ResNet and Inception has been popular for classification.Transfer learning approaches have demonstrated superior performance, especially for small datasets, by leveraging pre-trained models.Sajjad et al. [26] fine-tuned a pre-trained VGG-19 network, achieving 94.58% accuracy on a multi-class tumor dataset.Cheng et al. [27] fine-tuned pre-trained VGG-16 on brain MRI, achieving 94.6% classification accuracy for threeclass classification.Ismael and Abdel-Qader [28] combined predictions from multiple architectures based on CNN: VGG-16, ResNet-50, and DenseNet-121, achieving 98.7% highest accuracy.",
     "word_count": 105,
     "metadata": {
@@ -600,7 +631,7 @@
         4
       ],
       "paragraph_ids": [
-        "para_0027"
+        "para_0028"
       ],
       "coordinates": [
         {
@@ -615,10 +646,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0018_3dec3bda",
+    "chunk_id": "paper_002_body_0019_3dec3bda",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 18,
+    "order_index": 19,
     "text": "Transformers, originally designed for natural language processing, have recently been adapted for medical image analysis.ViTs treat images as sequences of patches and employ self-attention mechanisms to capture global context [29].\nAttention Mechanisms enhance the models' focus on relevant regions.Wang et al. [22] implemented a spatial attention in the CNN architecture, allowing the model to concentrate on different tumor regions, improving accuracy by 2.7% over the baseline CNN.Hu et al. [30] incorporated Squeeze and Excitation (SE) blocks to recalibrate channel and CT scans.The advent of DL has significantly transformed brain tumor classification.DL models automatically learn representations of hierarchical features directly from the input data, eliminating the need for manual feature engineering.The efficiency of traditional ML approaches based on the quality of the extracted features.While these methods provide reasonable classification accuracy, they often struggle with the heterogeneity and complexity of brain tumors.So, there are several developments in AI models for brain tumor detection, which are discussed as follows.",
     "word_count": 156,
     "metadata": {
@@ -631,8 +662,8 @@
         4
       ],
       "paragraph_ids": [
-        "para_0028",
-        "para_0029"
+        "para_0029",
+        "para_0030"
       ],
       "coordinates": [
         {
@@ -647,10 +678,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0019_32ca40cd",
+    "chunk_id": "paper_002_body_0020_32ca40cd",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 19,
+    "order_index": 20,
     "text": "Dataset [38] is a MRI scans.This data is one of the most widely used resources for brain tumor segmentation research.Initiated in 2012 and updated annually, it provides multi-institutional pre-operative MRI scans of glioblastoma (GBM/HGG) and lower-grade glioma (LGG), with manual segmentations by expert neuroradiologists.The dataset includes four MRI sequences (T1, T1CE, T2, and FLAIR) for each case, with annotations for necrotic tumor core, enhancing tumor, and peritumoral edema.The BraTS 2020 data contains 369 training cases (293 HGG and 76 LGG) and 125 validation features adaptively, achieving 94.1% accuracy for threeclass tumor classification.Ramachandran et al. [31] applied self attention layers to extract long range texts in MRI volumes, achieving 95.3% accuracy for glioma grading.Support Vector Machines (SVMs) are used due to can deal with high dimensional data.Sachdeva et al. [32] employed a hierarchical SVM framework, first differentiating between benign and malignant tumors before further subclassification, improving overall accuracy by 2.5%.\nEnsemble Learning Methods combine multiple classifiers to enhance the efficiency of base ML models.These methods consistently yield better performance than single models, though at the cost of increased computational complexity.Reza et al. [33] applied AdaBoost with decision stumps as weak learners, achieving 91.3% accuracy.In this work, one of the important ensemble methods is Random Forest (RF), which offers robustness to overfitting and feature importance ranking.It is a classifier with texture and shape features, reporting an accuracy of 89.5% for distinguishing between low-grade and high-grade gliomas.Soltaninejad et al. [34] combined the RF with superpixel-based features, achieving 89.7% accuracy for tumor grading.",
     "word_count": 249,
     "metadata": {
@@ -663,8 +694,8 @@
         5
       ],
       "paragraph_ids": [
-        "para_0030",
-        "para_0031"
+        "para_0031",
+        "para_0032"
       ],
       "coordinates": [
         {
@@ -687,10 +718,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0020_260bc53d",
+    "chunk_id": "paper_002_heading_0021_260bc53d",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 20,
+    "order_index": 21,
     "text": "K-Nearest Neighbors (KNNs)",
     "word_count": 3,
     "metadata": {
@@ -702,10 +733,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0021_3b438283",
+    "chunk_id": "paper_002_body_0022_3b438283",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 21,
+    "order_index": 22,
     "text": "classify samples based on proximity to training instances.Cheng et al. [35] compared different distance metrics for a KNN model, finding that the Manhattan distance provided the best performance (85.2% accuracy) for their feature set.However, the KNN typically underperformed compared to SVM and RF.",
     "word_count": 43,
     "metadata": {
@@ -718,7 +749,7 @@
         5
       ],
       "paragraph_ids": [
-        "para_0032"
+        "para_0033"
       ],
       "coordinates": [
         {
@@ -733,10 +764,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0022_e1ccd623",
+    "chunk_id": "paper_002_body_0023_e1ccd623",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 22,
+    "order_index": 23,
     "text": "Rehman et al. [19] created an ensemble of three various CNN models, reaching an accuracy of 95.2% on the BRATS Decision trees (DTs) offer interpretable classification for data features.Padma and Sukanesh [36] implemented a decision tree classifier with wavelet-based features, achieving 85.6% accuracy for four-class tumor classification.\nNaive Bayes (NB) incorporates prior knowledge into classification.Sachdeva et al. [32] applied a Naive Bayes classifier to texture and intensity features, achieving 84.5% accuracy.Rajendran and Dhanasekaran [37] implemented a multivariate Bayesian classifier, achieving 88.9% accuracy for three-class tumor classification.Fig. 5 summarizes the common DL and ML models for brain tumors.Table 1 presents comparisons of DL and ML models and their architectures, with hyperparameters.",
     "word_count": 110,
     "metadata": {
@@ -749,8 +780,8 @@
         5
       ],
       "paragraph_ids": [
-        "para_0033",
-        "para_0034"
+        "para_0034",
+        "para_0035"
       ],
       "coordinates": [
         {
@@ -773,10 +804,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0023_7dff5d7f",
+    "chunk_id": "paper_002_heading_0024_7dff5d7f",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 23,
+    "order_index": 24,
     "text": "Datasets and Preprocessing Techniques for Brain Tumor",
     "word_count": 7,
     "metadata": {
@@ -788,10 +819,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0024_3838b4a7",
+    "chunk_id": "paper_002_body_0025_3838b4a7",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 24,
+    "order_index": 25,
     "text": "Several publicly available datasets that have facilitated research in DL-based brain tumor analysis, such as Brain Tumor Segmentation (BraTS), Figshare, and REM-BRANDT are frequently used for training and validating AI models.Preprocessing steps typically include skull stripping, normalization, intensity correction, resizing, and data augmentation (e.g., rotation, flipping, noise injection) to enhance model robustness and performance.",
     "word_count": 54,
     "metadata": {
@@ -804,7 +835,7 @@
         5
       ],
       "paragraph_ids": [
-        "para_0036"
+        "para_0037"
       ],
       "coordinates": [
         {
@@ -813,37 +844,6 @@
           "y": 405.9119157900769,
           "w": 240.62500030516975,
           "h": 96.0741730769231,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
-    "chunk_id": "paper_002_body_0025_893bf431",
-    "paper_id": "paper_002",
-    "chunk_type": "body",
-    "order_index": 25,
-    "text": "Modern AI models for brain tumor classification predominantly fall into two categories: ML algorithms and DL architectures.Various Common ML techniques employed for brain tumor detection include Random Forest (RF) and Support Vector Machines (SVM), and k-Nearest Neighbors (KNN), while DL approaches employ CNNs, Residual Networks (ResNets), RNNs, and models based on transformers.",
-    "word_count": 52,
-    "metadata": {
-      "section": "Various DL and ML Models for Brain Tumors",
-      "section_path": [
-        "Various DL and ML Models for Brain Tumors"
-      ],
-      "subsection_id": "paper_002_subsection_809504d4f980",
-      "pages": [
-        3
-      ],
-      "paragraph_ids": [
-        "para_0037"
-      ],
-      "coordinates": [
-        {
-          "page": 3,
-          "x": 306.141693115,
-          "y": 80.91192341907686,
-          "w": 240.61700004577966,
-          "h": 108.57418070592314,
           "coord_origin": "BOTTOMLEFT"
         }
       ]
@@ -896,10 +896,87 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0028_2a7658ce",
+    "chunk_id": "paper_002_body_0028_d7825ef4",
     "paper_id": "paper_002",
     "chunk_type": "body",
     "order_index": 28,
+    "text": "The performance of DL models in brain tumor detection largely depends on the availability of high quality, accurately labeled data.Numerous publicly available datasets now serve as standard benchmarks, enabling reproducible research and promoting collaboration within the scientific community.",
+    "word_count": 38,
+    "metadata": {
+      "section": "Datasets and Preprocessing Techniques for Brain Tumor",
+      "section_path": [
+        "Datasets and Preprocessing Techniques for Brain Tumor"
+      ],
+      "subsection_id": "paper_002_subsection_7dff5d7f6cfe",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0039"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 306.141693115,
+          "y": 330.9119157900769,
+          "w": 240.6275925442597,
+          "h": 71.0741730769231,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_002_heading_0029_e9faf7b7",
+    "paper_id": "paper_002",
+    "chunk_type": "heading",
+    "order_index": 29,
+    "text": "Datasets",
+    "word_count": 1,
+    "metadata": {
+      "section": "Datasets",
+      "section_path": [
+        "Datasets"
+      ],
+      "subsection_id": "paper_002_subsection_e9faf7b714ee"
+    }
+  },
+  {
+    "chunk_id": "paper_002_body_0030_90a4e8ba",
+    "paper_id": "paper_002",
+    "chunk_type": "body",
+    "order_index": 30,
+    "text": "Several datasets have significantly contributed to the advancement of AI-based brain tumor classification.The following datasets are mostly utilized in brain tumor detection:",
+    "word_count": 22,
+    "metadata": {
+      "section": "Datasets",
+      "section_path": [
+        "Datasets"
+      ],
+      "subsection_id": "paper_002_subsection_e9faf7b714ee",
+      "pages": [
+        5
+      ],
+      "paragraph_ids": [
+        "para_0040"
+      ],
+      "coordinates": [
+        {
+          "page": 5,
+          "x": 306.141693115,
+          "y": 243.4119310480769,
+          "w": 240.61799987789976,
+          "h": 46.074157818923084,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_002_body_0031_2a7658ce",
+    "paper_id": "paper_002",
+    "chunk_type": "body",
+    "order_index": 31,
     "text": "Fig. 5 AI models for brain tumors that provides GBM and LGG datasets, containing multiinstitutional MRI data with corresponding genomic information.Figure 7 shows a visual representation of samples for the TCGA-GBM dataset.\n3. Figshare Brain Tumor dataset This dataset [35] contains 3,064 T1-weighted contrast-enhanced MRI images from 233 patients with three tumor types: 708 meningioma, 1,426 glioma, and 930 pituitary.While smaller cases, with separate testing data for challenge evaluation.Figure 6 shows a visual representation of samples for the BraTS dataset.2. The Cancer Imaging Archive (TCIA) [39] hosts several collections relevant to brain tumor research, including TCGA-GBM and TCGA-LGG.The TCGA-",
     "word_count": 99,
     "metadata": {
@@ -913,8 +990,8 @@
         6
       ],
       "paragraph_ids": [
-        "para_0039",
-        "para_0040"
+        "para_0041",
+        "para_0042"
       ],
       "coordinates": [
         {
@@ -945,10 +1022,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0029_b6b78053",
+    "chunk_id": "paper_002_heading_0032_b6b78053",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 29,
+    "order_index": 32,
     "text": "Medical Segmentation Decathlon (MSD) Brain",
     "word_count": 5,
     "metadata": {
@@ -960,10 +1037,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0030_1adee294",
+    "chunk_id": "paper_002_body_0033_1adee294",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 30,
+    "order_index": 33,
     "text": "than BraTS, it offers a diverse collection for classification tasks.4. Repository for Molecular Brain Neoplasia Data (REMBRANDT) [40] includes MRI scans of gliomas with corresponding genomic and clinical data.The REMBRANDT includes 874 glioma patients with MRI, genomic, and clinical outcome data.Bakas et al. [41] utilized this dataset to develop radiogenomic signatures for glioma subtyping, achieving 84.6% accuracy.5. Brain Tumor MRI Images used for brain tumor detection are available on Kaggle [42].This dataset contains 253 images categorized into tumor (155) and healthy (98) classes, making it suitable for binary classification experiments.6. Reference Image Database to Evaluate Therapy Response (RIDER) Neuro MRI dataset [43] contains serial scans of 19 patients with recurrent glioblastoma, designed to assess reproducibility and response",
     "word_count": 117,
     "metadata": {
@@ -976,7 +1053,7 @@
         7
       ],
       "paragraph_ids": [
-        "para_0041"
+        "para_0043"
       ],
       "coordinates": [
         {
@@ -991,10 +1068,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0031_2bb5a519",
+    "chunk_id": "paper_002_body_0034_2bb5a519",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 31,
+    "order_index": 34,
     "text": "LGG contains MRI scans from The Cancer Genome Atlas (TCGA) glioblastoma multiforme (GBM) and LGG collections, linked to genomic data.The TCGA is genomic and imaging data, while the TCIA has TCGA with Hyperparameters assessment.Clark et al. [44] used this dataset to develop DL models for treatment response prediction, achieving 87.3% accuracy.Figure 8 shows a visual representation of samples for the RIDER Neuro MRI dataset.",
     "word_count": 64,
     "metadata": {
@@ -1007,7 +1084,7 @@
         7
       ],
       "paragraph_ids": [
-        "para_0042"
+        "para_0044"
       ],
       "coordinates": [
         {
@@ -1030,10 +1107,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0032_bf10b89c",
+    "chunk_id": "paper_002_body_0035_bf10b89c",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 32,
+    "order_index": 35,
     "text": "Tumor dataset [45] contains 750 multiparametric MRI scans with segmentation masks.Antonelli et al. [46] achieved 95.2% classification accuracy using an ensemble of 3D CNNs on this dataset.Table 2 presents a comprehensive comparison of publicly available datasets for brain tumor detection and classification.Fig. 9 illustrates different datasets related to brain tumors and processing techniques.\nEach of these datasets requires specific preprocessing steps, including scaling and normalization to maintain consistent intensity levels across scans, data augmentation to increase",
     "word_count": 76,
     "metadata": {
@@ -1046,8 +1123,8 @@
         7
       ],
       "paragraph_ids": [
-        "para_0043",
-        "para_0044"
+        "para_0045",
+        "para_0046"
       ],
       "coordinates": [
         {
@@ -1078,10 +1155,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0033_43eb7129",
+    "chunk_id": "paper_002_heading_0036_43eb7129",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 33,
+    "order_index": 36,
     "text": "Preprocessing Techniques",
     "word_count": 2,
     "metadata": {
@@ -1093,12 +1170,12 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0034_33bad23f",
+    "chunk_id": "paper_002_body_0037_e31e5baf",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 34,
-    "text": "1. Intensity Normalization: is a pre-processing step that adjusts the scale of data features to a uniform range, ensuring they are comparable with one another.MRI intensities lack a standardized scale, necessitating normalization to ensure consistent input to DL models.There are various intensity normalization techniques have been employed.Z-score Normalization: Standardizing intensity values to have zero mean and unit variance, as implemented by Isensee et al. [47].Shah et al. [48] normalized each MRI volume to zero mean and unit variance, improving classification accuracy by 2.8%.Min-max Scaling: rescaling intensities to a fixed range, typically [0,1], to improve models' training stability.Histogram Matching: aligning intensity distributions across different scans.Isensee et al. [49] data diversity and enhance model robustness, and data shuffling to avoid leakage and improve prediction.Therefore, applying appropriate preprocessing techniques is crucial for achieving high performance in AI models.Fig. 8 Representative sample images for the RIDER neuro MRI dataset\nThe preprocessing techniques play a crucial role in enhancing the performance of DL models for brain tumor classification.Preprocessing is critical for standardizing inputs and enhancing discriminative features.Common preprocessing steps include:",
-    "word_count": 175,
+    "order_index": 37,
+    "text": "1. Intensity Normalization: is a pre-processing step that adjusts the scale of data features to a uniform range, ensuring they are comparable with one another.MRI intensities lack a standardized scale, necessitating normalization to ensure consistent input to DL models.There are various intensity normalization techniques have been employed.Z-score Normalization: Standardizing intensity values to have zero mean and unit variance, as implemented by Isensee et al. [47].Shah et al. [48] normalized each MRI volume to zero mean and unit variance, improving classification accuracy by 2.8%.Min-max Scaling: rescaling intensities to a fixed range, typically [0,1], to improve models' training stability.Histogram Matching: aligning intensity distributions across different scans.Isensee et al. [49] data diversity and enhance model robustness, and data shuffling to avoid leakage and improve prediction.Therefore, applying appropriate preprocessing techniques is crucial for achieving high performance in AI models.Fig. 8 Representative sample images for the RIDER neuro MRI dataset",
+    "word_count": 145,
     "metadata": {
       "section": "Preprocessing Techniques",
       "section_path": [
@@ -1109,8 +1186,7 @@
         8
       ],
       "paragraph_ids": [
-        "para_0045",
-        "para_0046"
+        "para_0047"
       ],
       "coordinates": [
         {
@@ -1120,51 +1196,28 @@
           "w": 242.78529953100002,
           "h": 7.390047115384618,
           "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 8,
-          "x": 306.141693115,
-          "y": 280.9119157900769,
-          "w": 240.6199999999996,
-          "h": 58.5741730769231,
-          "coord_origin": "BOTTOMLEFT"
         }
       ]
     }
   },
   {
-    "chunk_id": "paper_002_heading_0035_b73810b5",
-    "paper_id": "paper_002",
-    "chunk_type": "heading",
-    "order_index": 35,
-    "text": "Recent Studies in Brain Tumor Detection",
-    "word_count": 6,
-    "metadata": {
-      "section": "Recent Studies in Brain Tumor Detection",
-      "section_path": [
-        "Recent Studies in Brain Tumor Detection"
-      ],
-      "subsection_id": "paper_002_subsection_b73810b59c87"
-    }
-  },
-  {
-    "chunk_id": "paper_002_body_0036_8b0a5f3e",
+    "chunk_id": "paper_002_body_0038_d5dad0c1",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 36,
-    "text": "found that z-score normalization performed well for brain tumor segmentation when applied independently to each MRI sequence.Adjusting the histogram of each image to match a reference histogram, as used by Bakas et al. [41].Nyúl et al. [50] applied landmark-based histogram matching to standardize intensity distributions across different scanners.Bias Field Correction: correcting intensity non-uniformities caused by magnetic field inhomogeneities, as applied by Kamnitsas et al. [51].Tustison et al. [52] applied the N4ITK algorithm to correct for intensity inhomogeneities, improving segmentation accuracy by 3.2%.2. Data Augmentation: is a technique used to artificially expand training datasets by employing different transformations to the existing data.Given the limited size of most brain tumor datasets, data augmentation is crucial to prevent overfitting and improve generalization.To address limited sample sizes, various data augmentation techniques have been employed.Geometric Transformations: rotation, scaling, flipping, elastic deformations.Including rotation, flipping, scaling, and elastic deformations [53] to increase the dataset size.Intensity Transformations: Such as brightness/contrast adjustments, gamma correction, and Gaussian noise addition [54].",
-    "word_count": 160,
+    "order_index": 38,
+    "text": "The preprocessing techniques play a crucial role in enhancing the performance of DL models for brain tumor classification.Preprocessing is critical for standardizing inputs and enhancing discriminative features.Common preprocessing steps include: found that z-score normalization performed well for brain tumor segmentation when applied independently to each MRI sequence.Adjusting the histogram of each image to match a reference histogram, as used by Bakas et al. [41].Nyúl et al. [50] applied landmark-based histogram matching to standardize intensity distributions across different scanners.Bias Field Correction: correcting intensity non-uniformities caused by magnetic field inhomogeneities, as applied by Kamnitsas et al. [51].Tustison et al. [52] applied the N4ITK algorithm to correct for intensity inhomogeneities, improving segmentation accuracy by 3.2%.2. Data Augmentation: is a technique used to artificially expand training datasets by employing different transformations to the existing data.Given the limited size of most brain tumor datasets, data augmentation is crucial to prevent overfitting and improve generalization.To address limited sample sizes, various data augmentation techniques have been employed.Geometric Transformations: rotation, scaling, flipping, elastic deformations.Including rotation, flipping, scaling, and elastic deformations [53] to increase the dataset size.Intensity Transformations: Such as brightness/contrast adjustments, gamma correction, and Gaussian noise addition [54].",
+    "word_count": 190,
     "metadata": {
-      "section": "Recent Studies in Brain Tumor Detection",
+      "section": "Preprocessing Techniques",
       "section_path": [
-        "Recent Studies in Brain Tumor Detection"
+        "Preprocessing Techniques"
       ],
-      "subsection_id": "paper_002_subsection_b73810b59c87",
+      "subsection_id": "paper_002_subsection_43eb7129581e",
       "pages": [
         9
       ],
       "paragraph_ids": [
-        "para_0047"
+        "para_0048"
       ],
       "coordinates": [
         {
@@ -1179,41 +1232,25 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0037_d7825ef4",
+    "chunk_id": "paper_002_heading_0039_b73810b5",
     "paper_id": "paper_002",
-    "chunk_type": "body",
-    "order_index": 37,
-    "text": "The performance of DL models in brain tumor detection largely depends on the availability of high quality, accurately labeled data.Numerous publicly available datasets now serve as standard benchmarks, enabling reproducible research and promoting collaboration within the scientific community.",
-    "word_count": 38,
+    "chunk_type": "heading",
+    "order_index": 39,
+    "text": "Recent Studies in Brain Tumor Detection",
+    "word_count": 6,
     "metadata": {
-      "section": "Datasets and Preprocessing Techniques for Brain Tumor",
+      "section": "Recent Studies in Brain Tumor Detection",
       "section_path": [
-        "Datasets and Preprocessing Techniques for Brain Tumor"
+        "Recent Studies in Brain Tumor Detection"
       ],
-      "subsection_id": "paper_002_subsection_7dff5d7f6cfe",
-      "pages": [
-        5
-      ],
-      "paragraph_ids": [
-        "para_0048"
-      ],
-      "coordinates": [
-        {
-          "page": 5,
-          "x": 306.141693115,
-          "y": 330.9119157900769,
-          "w": 240.6275925442597,
-          "h": 71.0741730769231,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
+      "subsection_id": "paper_002_subsection_b73810b59c87"
     }
   },
   {
-    "chunk_id": "paper_002_body_0038_bb0c1b92",
+    "chunk_id": "paper_002_body_0040_bb0c1b92",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 38,
+    "order_index": 40,
     "text": "• Mixup: creating synthetic examples by linearly combining pairs of images and their labels.a data augmentation was employed through rotation, scaling, and elastic deformations, reporting improved segmentation performance, especially for minority classes like enhancing tumor.\n• Synthetic Data Generation: using GANs to create realistic synthetic tumor images, as demonstrated by Han et al. [55].GANs can generate synthetic brain tumor images to increase the dataset size.\n• Noise Injection: Hosseini et al. [56] added Gaussian and Rician noise to improve model robustness.",
     "word_count": 81,
     "metadata": {
@@ -1259,10 +1296,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0039_caf12f2f",
+    "chunk_id": "paper_002_body_0041_caf12f2f",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 39,
+    "order_index": 41,
     "text": "interpretation.Removing non-brain tissue (skull, scalp, etc.) helps focus the analysis on brain parenchyma and reduces irrelevant variations.Popular skull stripping methods include the Brain Extraction Tool (BET) from FSL and HD-BET, which employs deep learning for robust brain extraction.Havaei et al. [57] found that skull stripping improved the performance of their CNNbased brain tumor segmentation approach.BET: widely used for removing non-brain tissues from MRI images [58].Chaddad et al. [59] applied BET from the FSL package for skull stripping prior to feature extraction.Robust Brain Extraction (ROBEX): combining generative and discriminative models for improved skull stripping [60].DL-based Approaches: recent methods like HD-BET have demonstrated superior performance in challenging cases [61].Kleesiek et al. [62] developed a 3D CNN for skull stripping, outperforming traditional methods like BET and BrainSuite.4. Bias Field Correction (BFC): MRI scans often exhibit intensity inhomogeneities due to B0 field variations.The N4ITK algorithm [52] is commonly used to correct these inhomogeneities, improving segmentation accuracy.Kamnitsas et al. [51] incorporated a BFC as a preprocessing step for DeepMedic, reporting improved performance on brain lesion segmentation tasks. 5. Registration and Alignment: Aligning different MRI sequences to a common space ensures spatial correspondence.Rigid registration is typically sufficient for aligning sequences from the same patient, while deformable registration may be necessary for interpatient alignment.The Advanced Normalization Tools (ANTs) package [63] is widely used for medical image registration.Rigid Registration: aligning images based on rotation and translation, commonly used for intrasubject multi-modal alignment [64].Non-rigid Registration: accounting for deformations, essential for accurate inter-subject comparisons [65].Atlas-based Registration: aligning images to a standardized atlas for consistent spatial referencing [66].Linear Registration: Menze et al. [67] employed affine registration to align multimodal MRI sequences.Deformable Registration: Gholipour et al. [68] used deformable registration to align pediatric brain MRI to age-appropriate templates.",
     "word_count": 286,
     "metadata": {
@@ -1290,10 +1327,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0040_a28d396a",
+    "chunk_id": "paper_002_body_0042_a28d396a",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 40,
+    "order_index": 42,
     "text": "There are recent studies in the field of brain tumor presented.In [69], ensemble learning approaches generally outperform single models, as demonstrated by McKinley et",
     "word_count": 24,
     "metadata": {
@@ -1329,10 +1366,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0041_096fb52f",
+    "chunk_id": "paper_002_heading_0043_096fb52f",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 41,
+    "order_index": 43,
     "text": "Medical Modalities Used for Brain Tumor Detection",
     "word_count": 7,
     "metadata": {
@@ -1344,10 +1381,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0042_a2103b7d",
+    "chunk_id": "paper_002_body_0044_a2103b7d",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 42,
+    "order_index": 44,
     "text": "al., who combined multiple CNN variants to achieve robust segmentation across different scanners and protocols.Multimodal integration also consistently improves performance, with models that effectively combine information from T1, T1CE, T2, and FLAIR sequences showing superior results compared to single-sequence approaches [70].\nSimilarly, Swati et al. [71] used a block-wise fine-tuning approach with pre-trained VGG-16, ResNet-50, and Inception-v3 models, with the best performance (94.82% accuracy) achieved by the VGG-16 model.3-dimensional CNNs process volumetric data directly, capturing spatial context across slices and allows for better utilization of volumetric information.\nIsensee et al. [49] introduced a nnU-Net framework, which adapts to various segmentation problems.Their approach achieved state-of-the-art performance in multiple biomedical image segmentation challenges, including brain tumor segmentation.\nHatamizadeh et al. [72] proposed UNETR, a transformer-based architecture for volumetric medical image segmentation, demonstrating competitive performance on brain tumor segmentation tasks.Chen et al. [73] introduced TransBTS, a transformer-based brain tumor segmentation framework that combines CNNs for local feature extraction with transformers for capturing global context, achieving state-of-the-art results on the BraTS 2019 dataset.\nFor tumor classification tasks, transfer learning approaches using pre-trained CNNs like VGG-16, ResNet, and DenseNet [74] have demonstrated high accuracy ( > 90%) on datasets like Figshare.Custom architectures designed specifically for brain tumor classification, such as the hierarchical CNN proposed by Wang et al. [75], have pushed accuracy even higher ( > 98%).\nNovel architectures like capsule networks (CapsNets) [76] have also shown promise, offering improved interpretability compared to traditional CNNs.However, their performance advantages remain marginal, and they often require more careful hyperparameter tuning.",
     "word_count": 253,
     "metadata": {
@@ -1429,10 +1466,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0043_5e2c614c",
+    "chunk_id": "paper_002_heading_0045_5e2c614c",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 43,
+    "order_index": 45,
     "text": "Model",
     "word_count": 1,
     "metadata": {
@@ -1444,10 +1481,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0044_a96a9b33",
+    "chunk_id": "paper_002_body_0046_a96a9b33",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 44,
+    "order_index": 46,
     "text": "Task Dataset Contribution [49] nnU-Net Dice: 88 Segmentation BraTS 2020 Self-configuring framework [72] UNETR (Transformer) Dice: 90 Segmentation BraTS 2021 Transformer-based volumetric [73] TransBTS Dice: 89 Segmentation BraTS 2019 Hybrid of CNN and Transformer [75] Hierarchical CNN Accuracy: 98.3 Classification Figshare CNN with multi-scale feature extraction [74] VGG-16 (Transfer learning) Accuracy: 94.8 Classification Figshare VGG with Black-wise fine-tuning [77] Cascaded 2D-3D CNNs Dice: 88 Segmentation BraTS 2018 Hybrid models with low training time [78] ConvLSTM Dice: 82 Segmentation BraTS 2015 Inter-slice context [79] Conditional GAN Dice: 85 Segmentation BraTS 2020 GAN with different modalities",
     "word_count": 94,
     "metadata": {
@@ -1464,10 +1501,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0045_3c1e913d",
+    "chunk_id": "paper_002_heading_0047_3c1e913d",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 45,
+    "order_index": 47,
     "text": "Skull Stripping:",
     "word_count": 2,
     "metadata": {
@@ -1479,10 +1516,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0046_611e9d97",
+    "chunk_id": "paper_002_body_0048_611e9d97",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 46,
+    "order_index": 48,
     "text": "It is a crucial preprocessing step in medical imaging, especially for MRI scans, aimed at standardizing image data for consistent analysis and Zhou et al. [77] introduced a cascaded framework where a 2D CNN first identifies regions of interest (ROIs), followed by a 3D CNN that processes these ROIs for detailed segmentation, reducing computational demands while maintaining performance.\nGao et al. [78] proposed a recurrent neural network with convolutional long short-term memory (ConvLSTM) for brain tumor segmentation, treating axial slices as a sequence and leveraging inter-slice correlations.Their approach achieved a Dice similarity coefficient of 0.82 on the BRATS 2015 dataset.This work processes sequential MRI slices, achieving 91.3% accuracy for glioma grading, capturing inter-slice dependencies effectively.\nRezaei et al. [79] introduced a conditional GAN for brain tumor segmentation, where the generator segmented tumors while the discriminator distinguished between manual and automated segmentations.Regarding brain tumor segmentation, it is clear that the state-of-the-art studies consistently achieve Dice similarity coefficients above 0.85 for whole tumor, with slightly lower performance for tumor core and enhancing tumor regions due to their smaller size and heterogeneous appearance.Transformer-based models (UNETR, TransBTS) have recently emerged as top performers, closely followed by optimized CNN architectures like nnU-Net.",
     "word_count": 197,
     "metadata": {
@@ -1528,10 +1565,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0047_fc8ef8ba",
+    "chunk_id": "paper_002_body_0049_fc8ef8ba",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 47,
+    "order_index": 49,
     "text": "Performance (%)",
     "word_count": 2,
     "metadata": {
@@ -1542,16 +1579,16 @@
       "subsection_id": "paper_002_subsection_5e2c614c23f0",
       "pages": [],
       "paragraph_ids": [
-        "para_0065"
+        "para_0064"
       ],
       "coordinates": []
     }
   },
   {
-    "chunk_id": "paper_002_body_0048_12507959",
+    "chunk_id": "paper_002_body_0050_12507959",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 48,
+    "order_index": 50,
     "text": "In this Section, various imaging modalities are presented for brain tumor detection [80].The most common imaging modality is fMRI due to its superior soft-tissue contrast.",
     "word_count": 25,
     "metadata": {
@@ -1579,10 +1616,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0049_9e73ced4",
+    "chunk_id": "paper_002_heading_0051_9e73ced4",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 49,
+    "order_index": 51,
     "text": "Performance Evaluation Metrics Utilized in Brain Tumor Detection",
     "word_count": 8,
     "metadata": {
@@ -1594,10 +1631,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0050_0d22fd78",
+    "chunk_id": "paper_002_body_0052_0d22fd78",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 50,
+    "order_index": 52,
     "text": "In the field of brain tumor classification, it's vital to evaluate DL models carefully to ensure they are both accurate and applicable in a clinical context.Various metrics are used to Variants include T1, T2, FLAIR, and contrast-enhanced images.CT scans, PET scans, and histopathological slides have also been used for multimodal classification tasks, enhancing diagnostic accuracy through data fusion.\nComputed Tomography (CT) is an advanced medical imaging method that uses X-ray technology to generate cross-sectional images of the body's internal structure.During the procedure, the patient lies inside a rotating scanner, where X-rays collect data from multiple angles.This data is then processed by a computer to create 2D images for diagnostic purposes.The CT offers rapid acquisition and good visualization of bone, calcification, and hemorrhage.CT scans are widely utilized to identify tumors and internal bleeding, making them especially valuable in emergency situations because of their rapid imaging capabilities.They provide high-resolution images of both bone and soft tissues; however, they expose patients to ionizing radiation and generally offer less detailed soft tissue contrast compared to MRI scans [81].\nStructural Magnetic Resonance Imaging (sMRI) is a non-invasive imaging method that uses powerful magnetic fields to generate high-resolution images of internal body structures.It is especially effective to visualize brain anatomy and detect abnormalities such as tissue atrophy.sMRI is crucial for examining structural changes in neurodegenerative conditions like brain tumors.It offers exceptional soft tissue contrast without the risks of ionizing radiation.However, the procedure can be time-consuming, costly, and is not suitable for patients with metal implants or severe claustrophobia [82].",
     "word_count": 253,
     "metadata": {
@@ -1651,10 +1688,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0051_cf82c7e2",
+    "chunk_id": "paper_002_heading_0053_cf82c7e2",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 51,
+    "order_index": 53,
     "text": "Positron Emission Tomography (PET)",
     "word_count": 4,
     "metadata": {
@@ -1666,10 +1703,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0052_37f2edba",
+    "chunk_id": "paper_002_body_0054_37f2edba",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 52,
+    "order_index": 54,
     "text": "is a functional imaging method that highlights metabolic or biochemical activity within tissues.It involves injecting a radioactive tracer into the body, which emits gamma rays as it decays; these emissions are detected by the PET scanner to create images.PET scans offer crucial metabolic and functional insights and are commonly utilized to detect cancer, monitor concern.The formula for the precision is presented in Eq. (2) [91].P recision = T P T P + F P (2)",
     "word_count": 75,
     "metadata": {
@@ -1705,10 +1742,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0053_e135c20d",
+    "chunk_id": "paper_002_body_0055_e135c20d",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 53,
+    "order_index": 55,
     "text": "Table 4 Several recent studies of DL for brain tumor classification and segmentation 1 3 its progression, and evaluate the activity of brain in conditions such as brain tumors.They are also useful for assessing heart function.Although PET gives valuable information about cellular activity and function, it exposes patients to radioactive substances [83].",
     "word_count": 52,
     "metadata": {
@@ -1888,10 +1925,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0054_7b3a8e42",
+    "chunk_id": "paper_002_heading_0056_7b3a8e42",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 54,
+    "order_index": 56,
     "text": "Diffusion Tensor Imaging (DTI)",
     "word_count": 4,
     "metadata": {
@@ -1903,10 +1940,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0055_c68c6763",
+    "chunk_id": "paper_002_body_0057_c68c6763",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 55,
+    "order_index": 57,
     "text": "is a specialized type of MRI that tracks the movement of water molecules within tissues, mainly to map neural pathways in the brain.By analyzing the direction of water diffusion, DTI visualizes white matter tracts and brain connectivity.This technique is especially valuable for diagnosing conditions such brain stroke, and for studying neural disorders.The DTI is a non invasive method that effectively assesses the integrity of white matter, though it is very sensitive to a motion artifact and involves complex data processing [84].\nFunctional Magnetic Resonance Imaging (fMRI) assesses brain activity by tracking blood flow changes that occur in response to neural activation [85].Functional MRI (fMRI) leverages the Blood Oxygen Level-Dependent signal to identify regions of active brain within a particular problem.It is a crucial tool in cognitive neuroscience for mapping functions such as sensory regions, and plays an important role in pre surgical planning to remove brain tumor.Although fMRI is non-invasive and provides high spatial resolution, it measures neuronal activity indirectly through changes in blood flow and is highly susceptible to motion artifacts.MRI provides excellent soft tissue contrast and is available in multiple sequences.These MRI sequences commonly used in brain tumor imaging include: T1-weighted: Provides good anatomical detail; tumors typically appear hypointense (darker).T1-weighted with Contrast Enhancement (T1CE): After gadolinium injection, areas with compromised blood-brain barrier (e.g., active tumor regions) appear hyperintense (brighter).T2-weighted: Shows edema well; tumors and surrounding edema typically appear hyperintense.Fluid Attenuated Inversion Recovery (FLAIR): Suppresses cerebrospinal fluid signal, highlighting edema associated with tumors.Other Imaging Modalities like diffusion-weighted imaging (DWI), which measures water molecule diffusion, perfusion imaging, and magnetic resonance spectroscopy (MRS), which provide additional functional and metabolic information.Figure 10 depicts the utilization percentages of various imaging modalities in brain tumors.",
     "word_count": 281,
     "metadata": {
@@ -1943,10 +1980,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0056_ac991dd3",
+    "chunk_id": "paper_002_heading_0058_ac991dd3",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 56,
+    "order_index": 58,
     "text": "Accuracy",
     "word_count": 1,
     "metadata": {
@@ -1958,10 +1995,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0057_2c3a8b24",
+    "chunk_id": "paper_002_body_0059_2c3a8b24",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 57,
+    "order_index": 59,
     "text": "Accuracy is one of the fundamental and widely used metrics in classification problems.It measures the proportion of total correct predictions (including both positive and negative classes) out of all instances.In the context of brain tumor classification, accuracy tells us how often the model correctly identifies both brain tumor patients and healthy subjects.Eq. ( 1) illustrates the formula for calculating accuracy [90].\nHere, TP stands for True Positives (brain tumor cases correctly identified), TN refers to True Negatives (healthy cases correctly classified), FP denotes False Positives (healthy cases incorrectly predicted as brain tumor), and FN indicates False Negatives (brain tumor cases incorrectly predicted as healthy).Although accuracy is a useful measure, it can sometimes provide a distorted picture, especially when the dataset is imbalanced and contains significantly more healthy individuals than brain tumor patients.",
     "word_count": 132,
     "metadata": {
@@ -1998,10 +2035,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0058_b5d65f0a",
+    "chunk_id": "paper_002_heading_0060_b5d65f0a",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 58,
+    "order_index": 60,
     "text": "Precision",
     "word_count": 1,
     "metadata": {
@@ -2013,10 +2050,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0059_81921038",
+    "chunk_id": "paper_002_body_0061_81921038",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 59,
+    "order_index": 61,
     "text": "In medical classification tasks such as brain tumor detection, where the impact of false positives (FPs) and false negatives (FNs) can be critical, metrics like precision, recall, and the F1-score are often favored over simple accuracy.Precision, also known as positive predictive value (PPV), measures the proportion of true positive cases among all cases that the model predicted as positive.This is particularly important when false positives (where healthy individuals are incorrectly diagnosed as having a brain tumor) are a significant DSC = 2 × T P (2 × T P ) + (F P + F N) (8)",
     "word_count": 97,
     "metadata": {
@@ -2052,10 +2089,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0060_71e2046e",
+    "chunk_id": "paper_002_heading_0062_71e2046e",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 60,
+    "order_index": 62,
     "text": "Recall",
     "word_count": 1,
     "metadata": {
@@ -2067,10 +2104,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0061_6cf51e35",
+    "chunk_id": "paper_002_body_0063_6cf51e35",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 61,
+    "order_index": 63,
     "text": "Recall, also referred to as sensitivity, measures the proportion of actual positive cases that a model correctly identifies.This metric is especially crucial in situations where missing true positive cases (false negatives) can have serious consequences, such as failing to detect brain tumor patients.Eq.\n(3) demonstrates how recall is calculated [92].",
     "word_count": 50,
     "metadata": {
@@ -2099,10 +2136,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0062_d8142f7d",
+    "chunk_id": "paper_002_heading_0064_d8142f7d",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 62,
+    "order_index": 64,
     "text": "F1-Score",
     "word_count": 1,
     "metadata": {
@@ -2114,10 +2151,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0063_a0508054",
+    "chunk_id": "paper_002_body_0065_a0508054",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 63,
+    "order_index": 65,
     "text": "The F1-score represents the harmonic mean of precision and recall, balancing the two metrics to provide a comprehensive measure of the model's performance.This score is particularly valuable in cases of unbalanced datasets, offering a more balanced evaluation of a model's effectiveness than relying on accuracy alone.In brain tumor detection studies, the F1-score is often prioritized because missing true positive cases (false negatives) poses a greater risk than misclassifying healthy individuals.The F1-score is calculated using Eq. ( 4) [93].",
     "word_count": 78,
     "metadata": {
@@ -2145,10 +2182,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0064_fa6e6a12",
+    "chunk_id": "paper_002_heading_0066_fa6e6a12",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 64,
+    "order_index": 66,
     "text": "Area Under the Receiver Operating Characteristic Curve (auc-Roc)",
     "word_count": 8,
     "metadata": {
@@ -2160,10 +2197,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0065_210e6e6e",
+    "chunk_id": "paper_002_body_0067_210e6e6e",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 65,
+    "order_index": 67,
     "text": "Another widely used metric, especially in binary classification problems like brain tumor detection, is the ROC curve.This curve plots the True Positive Rate (Recall) against the False Positive Rate (FPR), which is defined by Eq. ( 5) [94].\nThe area under the curve (AUC) measures how well the model can differentiate between the two classes (brain tumor versus healthy).A perfect model would have an AUC of 1, while an AUC of 0.5 suggests that the model's performance is equivalent to random chance.AUC-ROC is especially useful for comparing models with different decision thresholds, with higher AUC values indicating better assess how well a model can distinguish between healthy individuals and those with brain tumors, each shedding light on a different aspect of the model's performance.Common metrics include Precision, Recall, Accuracy, and F1-Scorethese helps gauge how well the model classifies each case.The Matthews Correlation Coefficient (MCC) and Receiver Operating Characteristic-Area Under Curve (ROC-AUC) are also crucial, providing a more nuanced understanding of the model's ability to separate the two classes.Furthermore, loss metrics during training help determine how well the model converges to an optimal solution.Each of these metrics is tailored to different scenarios based on the utilized data, the specific classification challenge, and the implications of model losses.Below are some of the most widely used metrics, along with their respective Equations [86-89].",
     "word_count": 220,
     "metadata": {
@@ -2209,10 +2246,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0066_10f6a562",
+    "chunk_id": "paper_002_heading_0068_10f6a562",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 66,
+    "order_index": 68,
     "text": "Error Analysis in DL Models for Misclassification Patterns",
     "word_count": 8,
     "metadata": {
@@ -2224,10 +2261,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0067_36e1e25b",
+    "chunk_id": "paper_002_body_0069_36e1e25b",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 67,
+    "order_index": 69,
     "text": "discrimination between healthy individuals and brain tumor patients.Eq. ( 6) provides the calculation for the AUC-ROC [95].",
     "word_count": 17,
     "metadata": {
@@ -2263,10 +2300,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0068_7953b328",
+    "chunk_id": "paper_002_heading_0070_7953b328",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 68,
+    "order_index": 70,
     "text": "Matthews Correlation Coefficient (MCC)",
     "word_count": 4,
     "metadata": {
@@ -2278,10 +2315,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0069_ac781c77",
+    "chunk_id": "paper_002_body_0071_ac781c77",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 69,
+    "order_index": 71,
     "text": "The Matthews Correlation Coefficient (MCC) is another valuable metric to assess binary classification models, particularly when working with unbalanced data.Unlike accuracy, which can be misleading in such situations, MCC incorporates all four elements of the confusion matrix (TP, TN, FP, FN) to provide a comprehensive, balanced measure of model performance.MCC ranges from -1 (completely incorrect predictions) to + 1 (perfect predictions), with a score of 0 indicating no better than random guessing.It's especially relevant when both classes hold similar importance.Eq. ( 7) presents the formula for the MCC [96].",
     "word_count": 89,
     "metadata": {
@@ -2309,10 +2346,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0070_50775456",
+    "chunk_id": "paper_002_heading_0072_50775456",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 70,
+    "order_index": 72,
     "text": "Confusion Matrix (CM)",
     "word_count": 3,
     "metadata": {
@@ -2324,10 +2361,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0071_0a182e5e",
+    "chunk_id": "paper_002_body_0073_0a182e5e",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 71,
+    "order_index": 73,
     "text": "Although not a standalone metric, the confusion matrix is an essential tool to visualize a model's performance.It shows the number of true positives, true negatives, false positives, and false negatives in a tabular form, making it easy to calculate various other metrics such as accuracy, recall, recall, and F1-score.Table 5 presents the confusion matrix values.This matrix is particularly useful for understanding how well the model distinguishes between the two classes and for pinpointing where it may be making mistakes.Such insights are crucial in medical applications, where errors in prediction can have serious consequences.",
     "word_count": 93,
     "metadata": {
@@ -2355,10 +2392,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0072_e3f19768",
+    "chunk_id": "paper_002_heading_0074_e3f19768",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 72,
+    "order_index": 74,
     "text": "Dice Score",
     "word_count": 2,
     "metadata": {
@@ -2370,10 +2407,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0073_4b99fe10",
+    "chunk_id": "paper_002_body_0075_4b99fe10",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 73,
+    "order_index": 75,
     "text": "The Dice Score Coefficient (DSC) is a widely used evaluation metric that measures the degree of overlap between the predicted segmentation and the actual ground truth.It assesses similarity by comparing the number of true positives relative to the average size of the predicted and actual regions.Mathematically, it is expressed in Eq. ( 8) [97].",
     "word_count": 54,
     "metadata": {
@@ -2401,10 +2438,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0074_df292782",
+    "chunk_id": "paper_002_heading_0076_df292782",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 74,
+    "order_index": 76,
     "text": "Loss",
     "word_count": 1,
     "metadata": {
@@ -2416,10 +2453,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0075_e1848208",
+    "chunk_id": "paper_002_body_0077_e1848208",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 75,
+    "order_index": 77,
     "text": "Loss is commonly used to evaluate classification models that produce probability estimates instead of fixed class labels.This metric measures how well the predicted probabilities align with the actual outcomes, imposing a greater penalty when the model confidently makes incorrect predictions.The formula for log loss is demonstrated in Eq. ( 9) [98].\nHere, y i represents the true label of the i th instance either (0 or 1), ŷi denotes the predicted probability for the same instance, and N is the total number of instances in the dataset.Lower loss values indicate better model performance, with a perfect prediction achieving a log loss of zero.Each of these evaluation metrics offers unique benefits depending on the specific challenges of brain tumor classification.\nWhile accuracy gives a broad overview of how well the model performs, metrics such as precision and MCC provide a more nuanced evaluation, especially when dealing with imbalanced datasets.Additionally, confusion matrices and log loss deepen the analysis by revealing the types of errors the model makes.A thorough understanding of these metrics is essential for developing DL models that are not only accurate but also dependable and safe for clinical use.",
     "word_count": 189,
     "metadata": {
@@ -2457,10 +2494,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0076_2ef35ee9",
+    "chunk_id": "paper_002_body_0078_2ef35ee9",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 76,
+    "order_index": 78,
     "text": "Error analysis plays a vital role in assessing AI models, particularly in critical domains like healthcare.By examining common patterns of misclassification, researchers and clinicians can refine model accuracy, improve transparency, and reduce risks in clinical decision-making.The errors often arise due to issues such as data imbalance, overlapping features, poor data quality, insufficient training samples, and biases within the training data.In healthcare, misclassification can have serious repercussions-false positives may lead to unnecessary treatments, false negatives can result in missed diagnoses, and both undermine trust in AI systems, raising ethical and legal concerns.",
     "word_count": 91,
     "metadata": {
@@ -2488,10 +2525,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0077_a417fd01",
+    "chunk_id": "paper_002_heading_0079_a417fd01",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 77,
+    "order_index": 79,
     "text": "Challenges and Limitations of ML and DL Models",
     "word_count": 8,
     "metadata": {
@@ -2503,10 +2540,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0078_d0b5bc02",
+    "chunk_id": "paper_002_body_0080_d0b5bc02",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 78,
+    "order_index": 80,
     "text": "Despite significant progress, several challenges and limitations persist in the application of DL to brain tumor analysis.DL models face challenges, such as the requirement for large labeled datasets, computational complexity, and limited interpretability.Compared to ML, the DL requires more resources, but typically offers better performance.Hybrid approaches combining ML and DL can potentially balance interpretability and accuracy.",
     "word_count": 56,
     "metadata": {
@@ -2534,10 +2571,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0079_06aa6f57",
+    "chunk_id": "paper_002_heading_0081_06aa6f57",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 79,
+    "order_index": 81,
     "text": "Data-Related Challenges",
     "word_count": 2,
     "metadata": {
@@ -2549,10 +2586,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0080_1911cf28",
+    "chunk_id": "paper_002_body_0082_1911cf28",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 80,
+    "order_index": 82,
     "text": "There are several factors and challenges that limit the utility of brain tumor imaging datasets:\n• Limited Data Availability: many studies rely on small datasets, leading to potential overfitting and limited generalizability [99].Medical imaging datasets are typically smaller than those in general computer vision due to privacy concerns, acquisition costs, and the need for expert annotations.This limitation is particularly pronounced for rare tumor types.While data augmentation and transfer learning partially address this issue, they cannot fully compensate for the diversity of real-world cases.Regarding the limited size e.g., most public datasets contain fewer than 1,000 cases, insufficient for optimal DL performance.So, in many domains-especially medical imaging-datasets are small due to privacy issues, high acquisition costs, limited patient populations, and difficulties in sharing across institutions.\n• Data Heterogeneity: Data collected from different institutions, scanners, imaging protocols, or patient populations vary significantly.For example, MRI scans may differ in intensity distribution, contrast, and orientation.Scanner and protocol variations produce significant data heterogeneity.variations in acquisition protocols, differences in scanners, image quality, and institutional practices introduce significant heterogeneity [100].\n• Class Imbalance: Some classes (e.g., healthy controls) dominate the dataset, while others (rare diseases, earlystage conditions) are underrepresented.Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes [101].Limited availability of annotated brain tumor imaging data remains a primary challenge.Rare tumor types are often underrepresented, leading to class imbalance issues.Brain tumors exhibit significant class imbalance, both in terms of tumor types (with some being much rarer than others) and segmentation regions (with enhancing tumor typically occupying a small fraction of the brain volume).",
     "word_count": 260,
     "metadata": {
@@ -2607,10 +2644,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0081_16a86ae2",
+    "chunk_id": "paper_002_heading_0083_16a86ae2",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 81,
+    "order_index": 83,
     "text": "Clinical Implementation Challenges",
     "word_count": 3,
     "metadata": {
@@ -2622,10 +2659,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0082_00714633",
+    "chunk_id": "paper_002_body_0084_00714633",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 82,
+    "order_index": 84,
     "text": "• Integration with Clinical Workflow: Integrating AI models into clinical workflows presents logistical and technical challenges.Deployment of DL models requires seamless integration with existing clinical workflows and Picture Archiving and Communication Systems (PACS).Technical barriers include compatibility issues, computational requirements, the need for real-time processing, and alert fatigue from automated findings.There are several successful integration",
     "word_count": 54,
     "metadata": {
@@ -2653,10 +2690,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0083_ab3f3da5",
+    "chunk_id": "paper_002_heading_0085_ab3f3da5",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 83,
+    "order_index": 85,
     "text": "Interpretability and Explainability",
     "word_count": 3,
     "metadata": {
@@ -2668,10 +2705,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0084_3063bf5e",
+    "chunk_id": "paper_002_body_0086_3063bf5e",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 84,
+    "order_index": 86,
     "text": "include: containerization, edge computing, and hybrid cloud-edge architectures.Embedding AI systems into existing clinical workflows without disrupting efficiency remains challenging [105].• Regulatory Approval: AI-based medical devices require regulatory approval (e.g., FDA clearance), involving extensive validation and documentation.The dynamic nature of deep learning models, which may be continuously updated with new data, poses challenges for traditional regulatory frameworks.Regulatory approval pathways for AI in neuroimaging remain evolving and complex.There are challenges of regulatory considerations include: Clinical validation requirements, Software-as-a-Medical-Device (SaMD) classification, Continuous learning system regulation, and Responsibility allocation for AI-assisted decisions.Obtaining necessary regulatory clearances for clinical deployment is a complex and time-consuming process [106].• Clinician Acceptance: building trust among clinicians requires transparent and explainable AI systems [107].• Real-time Processing: clinical decision-making often requires real-time or near-real-time processing capabilities [108].• Prospective Validation: Most DL models for brain tumor analysis have been evaluated retrospectively on curated datasets.Prospective validation in clinical settings, with diverse patient populations and real-world scenarios, is essential but still limited in the literature.",
     "word_count": 161,
     "metadata": {
@@ -2699,10 +2736,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0085_3bc177a6",
+    "chunk_id": "paper_002_heading_0087_3bc177a6",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 85,
+    "order_index": 87,
     "text": "Model-Related Challenges",
     "word_count": 2,
     "metadata": {
@@ -2714,10 +2751,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0086_89de3530",
+    "chunk_id": "paper_002_body_0088_89de3530",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 86,
+    "order_index": 88,
     "text": "• Model Complexity vs. Interpretability: More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings [109].\n• Overfitting: Especially problematic with small datasets, limiting the model's generalization ability [110].\n• Computational Requirements: Advanced 3D models and multi-modal approaches demand substantial computational resources [111].\n• Domain Shift: Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols [112].",
     "word_count": 79,
     "metadata": {
@@ -2772,10 +2809,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0087_1bceb562",
+    "chunk_id": "paper_002_body_0089_1bceb562",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 87,
+    "order_index": 89,
     "text": "• Limited Representation Capacity: Hand-crafted features may not capture the full complexity and heterogeneity of brain tumors [114].\n• Curse of Dimensionality: High-dimensional feature spaces with limited samples lead to statistical challenges [115].",
     "word_count": 33,
     "metadata": {
@@ -2812,10 +2849,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0088_32c9829b",
+    "chunk_id": "paper_002_heading_0090_32c9829b",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 88,
+    "order_index": 90,
     "text": "Deep Learning Limitations",
     "word_count": 3,
     "metadata": {
@@ -2827,10 +2864,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0089_3884ee50",
+    "chunk_id": "paper_002_body_0091_3884ee50",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 89,
+    "order_index": 91,
     "text": "• Black-box Nature: Limited interpretability hampers clinical acceptance and validation [116].• Data Dependency: Performance heavily relies on the quality and quantity of training data [117].• Generalization Issues: Models often struggle to generalize across different scanners, protocols, and patient populations [118].• Uncertainty Quantification: Many DL approaches lack reliable methods for uncertainty estimation, which is crucial for clinical decision-making [119].",
     "word_count": 58,
     "metadata": {
@@ -2847,10 +2884,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0090_a6336350",
+    "chunk_id": "paper_002_heading_0092_a6336350",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 90,
+    "order_index": 92,
     "text": "Demographic and Geographic Biases",
     "word_count": 4,
     "metadata": {
@@ -2862,10 +2899,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0091_120bf6fe",
+    "chunk_id": "paper_002_body_0093_120bf6fe",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 91,
+    "order_index": 93,
     "text": "Most publicly available datasets suffer from demographic and geographic biases:\n• Age distribution: Many datasets, such as BraTS, are skewed toward older patients, underrepresenting pediatric brain tumors with different characteristics.\n• Ethnic representation: Limited diversity in patient populations, with most datasets collected in North America and Europe.\n• Socioeconomic factors: Datasets predominantly from well-resourced medical centers, potentially biasing models toward high-quality imaging available in such settings.",
     "word_count": 66,
     "metadata": {
@@ -2920,10 +2957,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0092_a25ca245",
+    "chunk_id": "paper_002_heading_0094_a25ca245",
     "paper_id": "paper_002",
     "chunk_type": "heading",
-    "order_index": 92,
+    "order_index": 94,
     "text": "Domain Adaptation",
     "word_count": 2,
     "metadata": {
@@ -2935,10 +2972,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0093_fac5bc82",
+    "chunk_id": "paper_002_body_0095_fac5bc82",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 93,
+    "order_index": 95,
     "text": "DL Models trained on one dataset often generalize poorly to images acquired with different scanners, field strengths, or protocols.This domain shift is a major barrier to clinical translation.Approaches like GAN-based domain adaptation and domain-adversarial training [120] have shown promise but are still evolving.",
     "word_count": 43,
     "metadata": {
@@ -2966,10 +3003,10 @@
     }
   },
   {
-    "chunk_id": "paper_002_body_0094_f97808fd",
+    "chunk_id": "paper_002_body_0096_f97808fd",
     "paper_id": "paper_002",
     "chunk_type": "body",
-    "order_index": 94,
+    "order_index": 96,
     "text": "DL models, especially the CNNs, often function as \"black boxes,\" making their decisions difficult to interpret and limiting clinical trust and adoption.In clinical settings, interpretability is essential to build trust and facilitate adoption.",
     "word_count": 33,
     "metadata": {
@@ -2997,52 +3034,6 @@
     }
   },
   {
-    "chunk_id": "paper_002_heading_0095_e9faf7b7",
-    "paper_id": "paper_002",
-    "chunk_type": "heading",
-    "order_index": 95,
-    "text": "Datasets",
-    "word_count": 1,
-    "metadata": {
-      "section": "Datasets",
-      "section_path": [
-        "Datasets"
-      ],
-      "subsection_id": "paper_002_subsection_e9faf7b714ee"
-    }
-  },
-  {
-    "chunk_id": "paper_002_body_0096_90a4e8ba",
-    "paper_id": "paper_002",
-    "chunk_type": "body",
-    "order_index": 96,
-    "text": "Several datasets have significantly contributed to the advancement of AI-based brain tumor classification.The following datasets are mostly utilized in brain tumor detection:",
-    "word_count": 22,
-    "metadata": {
-      "section": "Datasets",
-      "section_path": [
-        "Datasets"
-      ],
-      "subsection_id": "paper_002_subsection_e9faf7b714ee",
-      "pages": [
-        5
-      ],
-      "paragraph_ids": [
-        "para_0111"
-      ],
-      "coordinates": [
-        {
-          "page": 5,
-          "x": 306.141693115,
-          "y": 243.4119310480769,
-          "w": 240.61799987789976,
-          "h": 46.074157818923084,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
     "chunk_id": "paper_002_body_0097_d7ae5ad9",
     "paper_id": "paper_002",
     "chunk_type": "body",
@@ -3057,7 +3048,7 @@
       "subsection_id": "paper_002_subsection_07e3ceeb5554",
       "pages": [],
       "paragraph_ids": [
-        "para_0112"
+        "para_0111"
       ],
       "coordinates": []
     }
@@ -3079,7 +3070,7 @@
         18
       ],
       "paragraph_ids": [
-        "para_0113"
+        "para_0112"
       ],
       "coordinates": [
         {
@@ -3125,8 +3116,8 @@
         19
       ],
       "paragraph_ids": [
-        "para_0114",
-        "para_0115"
+        "para_0113",
+        "para_0114"
       ],
       "coordinates": [
         {
@@ -3172,8 +3163,8 @@
         19
       ],
       "paragraph_ids": [
-        "para_0116",
-        "para_0117"
+        "para_0115",
+        "para_0116"
       ],
       "coordinates": [
         {
@@ -3227,7 +3218,7 @@
         19
       ],
       "paragraph_ids": [
-        "para_0118"
+        "para_0117"
       ],
       "coordinates": [
         {
@@ -3273,7 +3264,7 @@
         19
       ],
       "paragraph_ids": [
-        "para_0119"
+        "para_0118"
       ],
       "coordinates": [
         {
@@ -3319,7 +3310,7 @@
         19
       ],
       "paragraph_ids": [
-        "para_0120"
+        "para_0119"
       ],
       "coordinates": [
         {
@@ -3365,7 +3356,7 @@
         20
       ],
       "paragraph_ids": [
-        "para_0121"
+        "para_0120"
       ],
       "coordinates": [
         {
@@ -3411,8 +3402,8 @@
         20
       ],
       "paragraph_ids": [
-        "para_0122",
-        "para_0123"
+        "para_0121",
+        "para_0122"
       ],
       "coordinates": [
         {
@@ -3451,7 +3442,7 @@
         19
       ],
       "paragraph_ids": [
-        "para_0124"
+        "para_0123"
       ],
       "coordinates": [
         {
@@ -3497,7 +3488,7 @@
         1
       ],
       "paragraph_ids": [
-        "para_0125"
+        "para_0124"
       ],
       "coordinates": [
         {
@@ -3559,11 +3550,11 @@
         21
       ],
       "paragraph_ids": [
+        "para_0125",
         "para_0126",
         "para_0127",
         "para_0128",
-        "para_0129",
-        "para_0130"
+        "para_0129"
       ],
       "coordinates": [
         {
@@ -3635,9 +3626,9 @@
         21
       ],
       "paragraph_ids": [
+        "para_0130",
         "para_0131",
-        "para_0132",
-        "para_0133"
+        "para_0132"
       ],
       "coordinates": [
         {

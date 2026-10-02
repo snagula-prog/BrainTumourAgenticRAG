@@ -1,0 +1,589 @@
+{
+  "model": "qwen3:4b",
+  "host": "http://localhost:11434",
+  "settings": {
+    "temperature": 0,
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "timeout": 90.0
+  },
+  "case_count": 20,
+  "summary": {
+    "schema_valid_rate": 1.0,
+    "quote_fidelity_rate": 0.7,
+    "operations_exact_rate": 1.0,
+    "mean_latency_seconds": 1.85637007500045,
+    "median_latency_seconds": 1.8773697499418631
+  },
+  "results": [
+    {
+      "id": "L01",
+      "source_paper": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+      "section": "Limitation",
+      "page": 7,
+      "excerpt": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "gold_limitation": "The dataset was classified without rotation and cropping; the authors identify this as the study's most important limitation.",
+      "gold_operations_not_applied": [
+        "rotation",
+        "cropping"
+      ],
+      "gold_concepts": [
+        "dataset classified without rotation",
+        "dataset classified without cropping"
+      ],
+      "prediction": {
+        "limitation": "the most important limitation of our study",
+        "operations_not_applied": [
+          "rotation",
+          "cropping"
+        ],
+        "supporting_quote": "which is the most important limitation of our study"
+      },
+      "raw_response": "{\n  \"limitation\": \"the most important limitation of our study\",\n  \"operations_not_applied\": [\n    \"rotation\",\n    \"cropping\"\n  ],\n  \"supporting_quote\": \"which is the most important limitation of our study\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 3.974,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L02",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Many studies rely on small datasets, leading to potential overfitting and limited generalizability.",
+      "gold_limitation": "Small datasets can cause overfitting and limit generalizability.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "small datasets",
+        "overfitting",
+        "limited generalizability"
+      ],
+      "prediction": {
+        "limitation": "potential overfitting and limited generalizability",
+        "operations_not_applied": [],
+        "supporting_quote": "Many studies rely on small datasets, leading to potential overfitting and limited generalizability."
+      },
+      "raw_response": "{\n  \"limitation\": \"potential overfitting and limited generalizability\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Many studies rely on small datasets, leading to potential overfitting and limited generalizability.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 1.859,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L03",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Data collected from different institutions, scanners, imaging protocols, or patient populations vary significantly. For example, MRI scans may differ in intensity distribution, contrast, and orientation.",
+      "gold_limitation": "Data heterogeneity across institutions, scanners, protocols, and patient populations complicates model development or generalization.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "data heterogeneity",
+        "institution/scanner/protocol/patient variation"
+      ],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.889,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L04",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes.",
+      "gold_limitation": "Class imbalance can bias models toward more prevalent tumor classes.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "uneven class distribution",
+        "bias toward prevalent classes"
+      ],
+      "prediction": {
+        "limitation": "Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes.",
+        "operations_not_applied": [],
+        "supporting_quote": "Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes."
+      },
+      "raw_response": "{\n  \"limitation\": \"Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Uneven distribution of tumor types in datasets can bias model training towards more prevalent classes.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.066,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L05",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Human experts (radiologists, clinicians) may disagree on annotations due to subjectivity, varying expertise, or ambiguous cases.",
+      "gold_limitation": "Inter-observer disagreement can make annotations inconsistent due to subjectivity, differences in expertise, or ambiguous cases.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "annotator disagreement",
+        "subjectivity/expertise/ambiguous cases"
+      ],
+      "prediction": {
+        "limitation": "Human experts (radiologists, clinicians) may disagree on annotations due to subjectivity, varying expertise, or ambiguous cases.",
+        "operations_not_applied": [],
+        "supporting_quote": "Human experts (radiologists, clinicians) may disagree on annotations due to subjectivity, varying expertise, or ambiguous cases."
+      },
+      "raw_response": "{\n  \"limitation\": \"Human experts (radiologists, clinicians) may disagree on annotations due to subjectivity, varying expertise, or ambiguous cases.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Human experts (radiologists, clinicians) may disagree on annotations due to subjectivity, varying expertise, or ambiguous cases.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.556,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L06",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Variable image resolution and slice thickness across datasets complicate model development.",
+      "gold_limitation": "Variations in image resolution and slice thickness complicate model development.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "variable image resolution",
+        "variable slice thickness"
+      ],
+      "prediction": {
+        "limitation": "Variable image resolution and slice thickness across datasets complicate model development.",
+        "operations_not_applied": [],
+        "supporting_quote": "Variable image resolution and slice thickness across datasets complicate model development."
+      },
+      "raw_response": "{\n  \"limitation\": \"Variable image resolution and slice thickness across datasets complicate model development.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Variable image resolution and slice thickness across datasets complicate model development.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 1.811,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L07",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Different preprocessing pipelines make direct dataset comparisons difficult. Preprocessing steps (e.g., skull stripping, intensity normalization, registration) often differ across studies or datasets.",
+      "gold_limitation": "Inconsistent preprocessing pipelines make comparisons across studies or datasets difficult.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "different preprocessing pipelines",
+        "difficult direct comparisons"
+      ],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.891,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L08",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "Many datasets lack information on prior treatments, which can alter tumor appearance.",
+      "gold_limitation": "Missing prior-treatment information is a limitation because treatment can alter tumor appearance.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "missing prior treatment information",
+        "treatment alters tumor appearance"
+      ],
+      "prediction": {
+        "limitation": "Many datasets lack information on prior treatments, which can alter tumor appearance.",
+        "operations_not_applied": [],
+        "supporting_quote": "Many datasets lack information on prior treatments, which can alter tumor appearance."
+      },
+      "raw_response": "{\n  \"limitation\": \"Many datasets lack information on prior treatments, which can alter tumor appearance.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Many datasets lack information on prior treatments, which can alter tumor appearance.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 1.879,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L09",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.1 Data-Related Challenges",
+      "page": 14,
+      "excerpt": "However, datasets often provide only static, single timepoint images.",
+      "gold_limitation": "The availability of only single-timepoint images limits longitudinal analysis.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "single timepoint images",
+        "limits longitudinal analysis"
+      ],
+      "prediction": {
+        "limitation": "datasets often provide only static, single timepoint images",
+        "operations_not_applied": [],
+        "supporting_quote": "However, datasets often provide only static, single timepoint images."
+      },
+      "raw_response": "{\n  \"limitation\": \"datasets often provide only static, single timepoint images\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"However, datasets often provide only static, single timepoint images.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 1.714,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L10",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.2 Clinical Implementation Challenges",
+      "page": 15,
+      "excerpt": "Most DL models for brain tumor analysis have been evaluated retrospectively on curated datasets. Prospective validation in clinical settings, with diverse patient populations and real-world scenarios, is essential but still limited in the literature.",
+      "gold_limitation": "Most models have only retrospective evaluation; prospective validation with diverse populations and real-world scenarios remains limited.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "retrospective evaluation",
+        "limited prospective clinical validation"
+      ],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.896,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L11",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.3 Model-Related Challenges",
+      "page": 15,
+      "excerpt": "More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings.",
+      "gold_limitation": "Increasing model complexity can reduce interpretability, which matters for clinical use.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "model complexity",
+        "reduced interpretability"
+      ],
+      "prediction": {
+        "limitation": "More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings.",
+        "operations_not_applied": [],
+        "supporting_quote": "More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings."
+      },
+      "raw_response": "{\n  \"limitation\": \"More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"More complex models often achieve higher accuracy but at the expense of interpretability, which is crucial in clinical settings.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.373,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L12",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.3 Model-Related Challenges",
+      "page": 15,
+      "excerpt": "Overfitting is especially problematic with small datasets, limiting the model's generalization ability.",
+      "gold_limitation": "Overfitting on small datasets limits generalization.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "overfitting",
+        "small datasets",
+        "limited generalization"
+      ],
+      "prediction": {
+        "limitation": "Overfitting is especially problematic with small datasets, limiting the model's generalization ability.",
+        "operations_not_applied": [],
+        "supporting_quote": "Overfitting is especially problematic with small datasets, limiting the model's generalization ability."
+      },
+      "raw_response": "{\n  \"limitation\": \"Overfitting is especially problematic with small datasets, limiting the model's generalization ability.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Overfitting is especially problematic with small datasets, limiting the model's generalization ability.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.223,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L13",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.3 Model-Related Challenges",
+      "page": 15,
+      "excerpt": "Advanced 3D models and multi-modal approaches demand substantial computational resources.",
+      "gold_limitation": "Advanced 3D and multimodal models require substantial computational resources.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "advanced 3D models",
+        "multimodal approaches",
+        "high compute requirements"
+      ],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.969,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L14",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.3 Model-Related Challenges",
+      "page": 15,
+      "excerpt": "Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols.",
+      "gold_limitation": "Models may generalize poorly across institutions because imaging protocols vary.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "poor cross-institution generalization",
+        "protocol variation"
+      ],
+      "prediction": {
+        "limitation": "Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols.",
+        "operations_not_applied": [],
+        "supporting_quote": "Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols."
+      },
+      "raw_response": "{\n  \"limitation\": \"Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"Models trained on data from one institution often perform poorly when applied to data from different institutions due to variations in imaging protocols.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.652,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L15",
+      "source_paper": "Deep Learning and Machine Learning for Brain Tumor Detection: A Review, Challenges, and Future Directions",
+      "section": "7.4 Traditional Machine Learning Limitations",
+      "page": 15,
+      "excerpt": "The manual selection of features introduces subjectivity and potential bias.",
+      "gold_limitation": "Manual feature selection introduces subjectivity and potential bias.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "manual feature selection",
+        "subjectivity",
+        "potential bias"
+      ],
+      "prediction": {
+        "limitation": "The manual selection of features introduces subjectivity and potential bias.",
+        "operations_not_applied": [],
+        "supporting_quote": "The manual selection of features introduces subjectivity and potential bias."
+      },
+      "raw_response": "{\n  \"limitation\": \"The manual selection of features introduces subjectivity and potential bias.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"The manual selection of features introduces subjectivity and potential bias.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 1.876,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L16",
+      "source_paper": "Brain Tumor Detection and Classification Using Intelligence Techniques: An Overview",
+      "section": "E. LIMITATIONS OF ML OVER DL APPROACHES",
+      "page": 12,
+      "excerpt": "The glioma tumor and the stroke tumor do not contrast very well with one another. It is made up of tentacles and scattered components, both of which make the segmentation and categorization procedures far more difficult.",
+      "gold_limitation": "Low contrast and tentacle-like or scattered tumor features make segmentation and categorization difficult.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "low contrast",
+        "tentacle-like/scattered features",
+        "difficult segmentation/categorization"
+      ],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.91,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L17",
+      "source_paper": "Brain Tumor Detection and Classification Using Intelligence Techniques: An Overview",
+      "section": "E. LIMITATIONS OF ML OVER DL APPROACHES",
+      "page": 12,
+      "excerpt": "The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area.",
+      "gold_limitation": "Small tumor regions may be missed or mistaken for normal tissue.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "tiny tumor volume",
+        "may be identified as normal"
+      ],
+      "prediction": {
+        "limitation": "The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area.",
+        "operations_not_applied": [],
+        "supporting_quote": "The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area."
+      },
+      "raw_response": "{\n  \"limitation\": \"The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"The identification of a tiny volume of the tumor remains difficult since it is possible for it to be recognized as a normal area.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.597,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L18",
+      "source_paper": "A novel approach for the detection of brain tumor and its classification via independent component analysis",
+      "section": "Ahmed et al.17 study summary",
+      "page": null,
+      "excerpt": "The study's limitations include the use of a single dataset, potentially limiting generalizability. Further validation on diverse datasets with varying image quality and tumor subtypes is necessary.",
+      "gold_limitation": "Using a single dataset may limit generalizability; validation on diverse datasets is needed.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "single dataset",
+        "limited generalizability",
+        "needs diverse validation"
+      ],
+      "prediction": {
+        "limitation": "The study's limitations include the use of a single dataset, potentially limiting generalizability.",
+        "operations_not_applied": [],
+        "supporting_quote": "The study's limitations include the use of a single dataset, potentially limiting generalizability."
+      },
+      "raw_response": "{\n  \"limitation\": \"The study's limitations include the use of a single dataset, potentially limiting generalizability.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"The study's limitations include the use of a single dataset, potentially limiting generalizability.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.055,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L19",
+      "source_paper": "A novel approach for the detection of brain tumor and its classification via independent component analysis",
+      "section": "Ahmed et al.17 study summary",
+      "page": null,
+      "excerpt": "The computational demands of ViT models may pose challenges for real-time clinical application.",
+      "gold_limitation": "ViT computational demands may hinder real-time clinical application.",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [
+        "ViT computational demands",
+        "real-time clinical application"
+      ],
+      "prediction": {
+        "limitation": "The computational demands of ViT models may pose challenges for real-time clinical application.",
+        "operations_not_applied": [],
+        "supporting_quote": "The computational demands of ViT models may pose challenges for real-time clinical application."
+      },
+      "raw_response": "{\n  \"limitation\": \"The computational demands of ViT models may pose challenges for real-time clinical application.\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"The computational demands of ViT models may pose challenges for real-time clinical application.\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": true,
+      "operations_exact": true,
+      "latency_seconds": 2.017,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    },
+    {
+      "id": "L20",
+      "source_paper": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+      "section": "Abstract (negative control)",
+      "page": 1,
+      "excerpt": "The best accuracy result was obtained with VGG16 with 98%, while the F-score value of the same transfer learning model was 97%, the Area Under the Curve (AUC) value was 99%, the recall value was 98%, and the precision value was 98%.",
+      "gold_limitation": "NO_EXPLICIT_LIMITATION",
+      "gold_operations_not_applied": [],
+      "gold_concepts": [],
+      "prediction": {
+        "limitation": "",
+        "operations_not_applied": [],
+        "supporting_quote": ""
+      },
+      "raw_response": "{\n  \"limitation\": \"\",\n  \"operations_not_applied\": [],\n  \"supporting_quote\": \"\"\n}",
+      "json_valid": true,
+      "schema_valid": true,
+      "quote_fidelity": false,
+      "operations_exact": true,
+      "latency_seconds": 0.917,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": ""
+    }
+  ]
+}

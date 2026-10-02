@@ -1,0 +1,47 @@
+{
+  "model": "qwen3:4b",
+  "host": "http://localhost:11434",
+  "settings": {
+    "temperature": 0,
+    "num_ctx": 4096,
+    "num_predict": 2048,
+    "timeout": 90.0
+  },
+  "case_count": 1,
+  "summary": {
+    "schema_valid_rate": 0.0,
+    "quote_fidelity_rate": 0.0,
+    "operations_exact_rate": 0.0,
+    "mean_latency_seconds": 92.03121310006827,
+    "median_latency_seconds": 92.03121310006827
+  },
+  "results": [
+    {
+      "id": "L01",
+      "source_paper": "Brain tumor detection from images and comparison with transfer learning methods and 3-layer CNN",
+      "section": "Limitation",
+      "page": 7,
+      "excerpt": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "gold_limitation": "The dataset was classified without rotation and cropping; the authors identify this as the study's most important limitation.",
+      "gold_operations_not_applied": [
+        "rotation",
+        "cropping"
+      ],
+      "gold_concepts": [
+        "dataset classified without rotation",
+        "dataset classified without cropping"
+      ],
+      "prediction": null,
+      "raw_response": "",
+      "json_valid": false,
+      "schema_valid": false,
+      "quote_fidelity": false,
+      "operations_exact": false,
+      "latency_seconds": 92.031,
+      "manual_limitation_correct": null,
+      "manual_unsupported_claims": null,
+      "review_notes": "",
+      "error": "ReadTimeout: timed out"
+    }
+  ]
+}
