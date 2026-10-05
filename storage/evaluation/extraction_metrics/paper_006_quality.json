@@ -1,6 +1,6 @@
 {
   "evaluation_type": "integrity",
-  "integrity_score": 0.9352,
+  "integrity_score": 0.9409,
   "status": "healthy",
   "scoring": {
     "primary_metrics": {
@@ -24,7 +24,7 @@
     "structure_integrity": 0.9771,
     "duplication_integrity": 1.0,
     "reference_integrity": 1.0,
-    "truncation_integrity": 0.9143,
+    "truncation_integrity": 0.9429,
     "numeric_consistency": 0.9286,
     "cross_parser_consistency": 0.7363,
     "contamination_integrity": 1.0,
@@ -32,9 +32,9 @@
   },
   "diagnostics": {
     "orphan_paragraph_ratio": 0.0571,
-    "reference_integrity": 1.0,
     "abstract_integrity": 0.9642,
-    "coordinate_integrity": 1.0
+    "coordinate_integrity": 1.0,
+    "reference_integrity": 1.0
   },
   "parser_artifact_counts": {
     "figures": 7,

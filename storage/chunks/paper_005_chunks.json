@@ -403,11 +403,11 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0015_6c0e42d3",
+    "chunk_id": "paper_005_body_0015_7613b5a0",
     "paper_id": "paper_005",
     "chunk_type": "body",
     "order_index": 15,
-    "text": "The Swin Transformer block was introduced in previous studies [14,40], and it is illustrated in Figure 2a.It contains two cascading layers.The first layer calculates the self-attention in a small window (W-MSA) of the input 3D patches, and the second layer calculates the self-attention in the shifted window (SW-MSA) of the outputs of the previous layer.\nAssume that the input 3D image is X ∈ R D×H×W×K, where D × H × W is the spatial size and K is the number of channels of the 3D data.The input X is fed into a Conv block with a kernel size P × P × P, stride P, and number of channels C. The Conv block splits X into small patches with a patch size of P × P × P.There are S = D P × H P × W P patches in total.The output of the Conv block can be denoted as Z ∈ R D P × H P × W P ×C.Because each pixel in Z corresponds to a patch-embedding vector, we resize the feature map Z into a 2D matrix Z ∈ R S×C, in which each row represents a patch-embedding vector.For simplicity, we still use Z to represent Z in the following.\nAfter patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a): where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.",
+    "text": "The Swin Transformer block was introduced in previous studies [14,40], and it is illustrated in Figure 2a.It contains two cascading layers.The first layer calculates the self-attention in a small window (W-MSA) of the input 3D patches, and the second layer calculates the self-attention in the shifted window (SW-MSA) of the outputs of the previous layer.\nAssume that the input 3D image is X ∈ R D×H×W×K, where D × H × W is the spatial size and K is the number of channels of the 3D data.The input X is fed into a Conv block with a kernel size P × P × P, stride P, and number of channels C. The Conv block splits X into small patches with a patch size of P × P × P.There are S = D P × H P × W P patches in total.The output of the Conv block can be denoted as Z ∈ R D P × H P × W P ×C.Because each pixel in Z corresponds to a patch-embedding vector, we resize the feature map Z into a 2D matrix Z ∈ R S×C, in which each row represents a patch-embedding vector.For simplicity, we still use Z to represent Z in the following.\nAfter patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a):\nwhere the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.",
     "word_count": 280,
     "metadata": {
       "section": "Swin Transformer Block",
@@ -422,7 +422,8 @@
       "paragraph_ids": [
         "para_0013",
         "para_0014",
-        "para_0015"
+        "para_0015",
+        "para_0016"
       ],
       "coordinates": [
         {
@@ -442,19 +443,19 @@
           "coord_origin": "BOTTOMLEFT"
         },
         {
-          "page": 5,
-          "x": 165.975,
-          "y": 709.2938042234637,
-          "w": 393.30431980800006,
-          "h": 34.54876377653636,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
           "page": 4,
           "x": 166.085,
           "y": 181.31580422346372,
           "w": 393.19253943599995,
           "h": 34.54876377653625,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 165.975,
+          "y": 709.2938042234637,
+          "w": 393.30431980800006,
+          "h": 34.54876377653636,
           "coord_origin": "BOTTOMLEFT"
         }
       ]
@@ -492,8 +493,8 @@
         5
       ],
       "paragraph_ids": [
-        "para_0016",
-        "para_0017"
+        "para_0017",
+        "para_0018"
       ],
       "coordinates": [
         {
@@ -531,12 +532,12 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0019_70d594be",
+    "chunk_id": "paper_005_body_0019_1192a4ea",
     "paper_id": "paper_005",
     "chunk_type": "body",
     "order_index": 19,
-    "text": "The multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.Figure 2b shows the MRFF block following the fourth stage, which aggregates the features of four different resolutions.\nThe fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.\nExcept for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.The corresponding architectures are denoted as HRSTNet-2 and HRSTNet-3, respectively.The architecture shown in Figure 1 is denoted as HRSTNet-4.",
-    "word_count": 171,
+    "text": "The multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.Figure 2b shows the MRFF block following the fourth stage, which aggregates the features of four different resolutions.\nThe fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of",
+    "word_count": 65,
     "metadata": {
       "section": "Multi-Resolution Feature Fusion",
       "section_path": [
@@ -544,13 +545,11 @@
       ],
       "subsection_id": "paper_005_subsection_49d3672071d6",
       "pages": [
-        5,
-        6
+        5
       ],
       "paragraph_ids": [
-        "para_0018",
         "para_0019",
-        "para_0021"
+        "para_0020"
       ],
       "coordinates": [
         {
@@ -576,6 +575,84 @@
           "w": 394.42546300000004,
           "h": 125.34591701787701,
           "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_005_heading_0020_e8018892",
+    "paper_id": "paper_005",
+    "chunk_type": "heading",
+    "order_index": 20,
+    "text": "Implementation Details",
+    "word_count": 2,
+    "metadata": {
+      "section": "Implementation Details",
+      "section_path": [
+        "Implementation Details"
+      ],
+      "subsection_id": "paper_005_subsection_e801889242ee"
+    }
+  },
+  {
+    "chunk_id": "paper_005_body_0021_11d1a400",
+    "paper_id": "paper_005",
+    "chunk_type": "body",
+    "order_index": 21,
+    "text": "The CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].",
+    "word_count": 73,
+    "metadata": {
+      "section": "Implementation Details",
+      "section_path": [
+        "Implementation Details"
+      ],
+      "subsection_id": "paper_005_subsection_e801889242ee",
+      "pages": [
+        7
+      ],
+      "paragraph_ids": [
+        "para_0021"
+      ],
+      "coordinates": [
+        {
+          "page": 7,
+          "x": 165.975,
+          "y": 684.1878042234637,
+          "w": 394.5454564713999,
+          "h": 59.9704870765363,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_005_body_0022_c608a700",
+    "paper_id": "paper_005",
+    "chunk_type": "body",
+    "order_index": 22,
+    "text": "The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.\nExcept for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.The corresponding architectures are denoted as HRSTNet-2 and HRSTNet-3, respectively.The architecture shown in Figure 1 is denoted as HRSTNet-4.",
+    "word_count": 106,
+    "metadata": {
+      "section": "Multi-Resolution Feature Fusion",
+      "section_path": [
+        "Multi-Resolution Feature Fusion"
+      ],
+      "subsection_id": "paper_005_subsection_49d3672071d6",
+      "pages": [
+        6
+      ],
+      "paragraph_ids": [
+        "para_0022",
+        "para_0023"
+      ],
+      "coordinates": [
+        {
+          "page": 6,
+          "x": 166.394,
+          "y": 571.2108042234637,
+          "w": 392.879796736,
+          "h": 47.10176377653636,
+          "coord_origin": "BOTTOMLEFT"
         },
         {
           "page": 6,
@@ -589,10 +666,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_heading_0020_1a88557d",
+    "chunk_id": "paper_005_heading_0023_1a88557d",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 20,
+    "order_index": 23,
     "text": "Experiments and Results",
     "word_count": 3,
     "metadata": {
@@ -604,12 +681,12 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0021_3e9d8290",
+    "chunk_id": "paper_005_body_0024_ab5a7ba7",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 21,
-    "text": "In this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].All the experiments were implemented with Pytorch [41] on two NVIDIA GeForce RTX 3090 graphic cards.We utilized MONAI (https://monai.io/,accessed on 16 April 2022), a healthcare imaging processing framework, for network training and data preprocessing.The 3D Slicer [42,43] software was employed to visualize the experimental results.The code of HRSTNet is publicly available at https://github.com/auroua/HRSTNet.",
-    "word_count": 80,
+    "order_index": 24,
+    "text": "In this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].All the experiments were implemented with Pytorch [41] on two NVIDIA GeForce RTX 3090 graphic cards.We utilized MONAI (https://monai.io/,accessed on 16 April 2022), a healthcare imaging processing framework, for network training and data preprocessing.The 3D Slicer [42,43] software was employed to visualize the experimental results.The code of HRSTNet is publicly available at https://github.com/auroua/HRSTNet.\nNote: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.",
+    "word_count": 129,
     "metadata": {
       "section": "Experiments and Results",
       "section_path": [
@@ -617,10 +694,12 @@
       ],
       "subsection_id": "paper_005_subsection_1a88557de50e",
       "pages": [
-        6
+        6,
+        11
       ],
       "paragraph_ids": [
-        "para_0022"
+        "para_0024",
+        "para_0025"
       ],
       "coordinates": [
         {
@@ -630,30 +709,23 @@
           "w": 395.0168910684001,
           "h": 84.7607637765363,
           "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 166.398,
+          "y": 532.0574380223463,
+          "w": 393.8743718999997,
+          "h": 31.464229977653645,
+          "coord_origin": "BOTTOMLEFT"
         }
       ]
     }
   },
   {
-    "chunk_id": "paper_005_heading_0022_e8018892",
-    "paper_id": "paper_005",
-    "chunk_type": "heading",
-    "order_index": 22,
-    "text": "Implementation Details",
-    "word_count": 2,
-    "metadata": {
-      "section": "Implementation Details",
-      "section_path": [
-        "Implementation Details"
-      ],
-      "subsection_id": "paper_005_subsection_e801889242ee"
-    }
-  },
-  {
-    "chunk_id": "paper_005_body_0023_b25a282a",
+    "chunk_id": "paper_005_body_0025_b25a282a",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 23,
+    "order_index": 25,
     "text": "The BraTS 2021 dataset contains 1251 magnetic resonance imaging (MRI) scans in the shape of 240 × 240 × 155.Following the VT-UNet [9], the 1251 scans were split into groups of 834, 208, and 209 for training, validation, and testing, respectively.The task was to segment three semantically meaningful tumor classes, namely the enhanced tumor (ET), tumor core (TC) region, and whole tumor (WT) region.The MSD liver dataset contains 131 computed tomography (CT) volumes, which were split into groups of 87, 22, and 22 for training, validation, and testing, respectively.The task for the liver dataset was tumor segmentation.The BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] contains 50 clinical CT volumes, and the task of this dataset was to automatically segment 13 abdominal organs (adrenal, aorta, esophagus, gallbladder, kidney, liver, pancreas, spleen and portal vein, spleen, stomach, and vena cava).The 50 CT volumes were split into 2 parts for training and testing, and the 2 parts contained 30 and 20 CT volumes, respectively.We selected 24 CT volumes from the training dataset to train the segmentation algorithm, and the remaining 6 CT volumes were used to evaluate the performance of the algorithms.",
     "word_count": 187,
     "metadata": {
@@ -666,7 +738,7 @@
         6
       ],
       "paragraph_ids": [
-        "para_0023"
+        "para_0026"
       ],
       "coordinates": [
         {
@@ -681,12 +753,12 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0024_d6f08b3f",
+    "chunk_id": "paper_005_body_0026_6719e82c",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 24,
-    "text": "The depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4, D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.The AdamW optimizer was used to optimize the parameters of the HRSTNet, and the initial learning rate was 1 × 10 -4.The cosine decay learning rate scheduler [44] with a linear warm-up was used to adjust the value of the learning rate, and the warm-up epoch was 50.The sum of the dice loss with the cross-entropy loss was adopted as the loss function.\nThe MRI data from BraTS 2021 were cropped to 128 × 128 × 128.Three Transformerbased architectures (UNETR [8], Swin UNETR [10], and VT-UNet-B [9]) and two CNNbased architectures (optimized UNet [34] and extending nnUNet [35]) were compared on this dataset.\nThe CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].",
-    "word_count": 239,
+    "order_index": 26,
+    "text": "The depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4, D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.The AdamW optimizer was used to optimize the parameters of the HRSTNet, and the initial learning rate was 1 × 10 -4.The cosine decay learning rate scheduler [44] with a linear warm-up was used to adjust the value of the learning rate, and the warm-up epoch was 50.The sum of the dice loss with the cross-entropy loss was adopted as the loss function.\nThe MRI data from BraTS 2021 were cropped to 128 × 128 × 128.Three Transformerbased architectures (UNETR [8], Swin UNETR [10], and VT-UNet-B [9]) and two CNNbased architectures (optimized UNet [34] and extending nnUNet [35]) were compared on this dataset.\nThe CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.We retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1.The learning rate of the HRSTNet trained on the BTCV dataset was set to 1 × 10 -3.",
+    "word_count": 230,
     "metadata": {
       "section": "Implementation Details",
       "section_path": [
@@ -698,9 +770,9 @@
         7
       ],
       "paragraph_ids": [
-        "para_0024",
-        "para_0025",
-        "para_0026"
+        "para_0027",
+        "para_0028",
+        "para_0029"
       ],
       "coordinates": [
         {
@@ -721,37 +793,6 @@
         },
         {
           "page": 7,
-          "x": 165.975,
-          "y": 684.1878042234637,
-          "w": 394.5454564713999,
-          "h": 59.9704870765363,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
-    "chunk_id": "paper_005_body_0025_46b9890e",
-    "paper_id": "paper_005",
-    "chunk_type": "body",
-    "order_index": 25,
-    "text": "The CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.We retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1.The learning rate of the HRSTNet trained on the BTCV dataset was set to 1 × 10 -3.",
-    "word_count": 64,
-    "metadata": {
-      "section": "Implementation Details",
-      "section_path": [
-        "Implementation Details"
-      ],
-      "subsection_id": "paper_005_subsection_e801889242ee",
-      "pages": [
-        7
-      ],
-      "paragraph_ids": [
-        "para_0027"
-      ],
-      "coordinates": [
-        {
-          "page": 7,
           "x": 165.895,
           "y": 633.9758042234637,
           "w": 395.1281929152,
@@ -762,10 +803,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_heading_0026_f4b7ee9c",
+    "chunk_id": "paper_005_heading_0027_f4b7ee9c",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 26,
+    "order_index": 27,
     "text": "Evaluation Metrics",
     "word_count": 2,
     "metadata": {
@@ -777,10 +818,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0027_90d58d52",
+    "chunk_id": "paper_005_body_0028_90d58d52",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 27,
+    "order_index": 28,
     "text": "The Dice similarity coefficient (DCS) and 95% Hausdorff distance (HD95) are used to evaluate the performance of different algorithms on the BraTS 2021 dataset, while the DCS is used to compare algorithms on the MSD liver dataset and BTCV multi-organ segmentation dataset.\nThe DCS is a commonly used evaluation metric in medical image segmentation which measures the overlap between the predicted segmentation mask and the ground truth segmentation mask.It can be formulated as follows:\nwhere P is the predicted binary segmentation mask, G is the ground truth binary segmentation mask, and the symbol | | is used to sum the nonzero region.HD95 is always utilized to measure the distance between the boundary of the predicted binary segmentation mask and the boundary of the ground truth binary segmentation mask.The Hausdorff distance (HD) can be formulated as follows:\nwhere p b is a pixel in the boundary of the predicted segmentation mask and g b is a pixel in the boundary of the ground truth segmentation mask.The HD reflects the distance between the boundaries of the two segmentation masks.To reduce the effect of outlier pixels, the 95th percentile of the Hausdorff distance (HD) is used in medical image segmentation to measure the distance between boundaries, a value known as HD95.\nDuring training, the model with the best Dice similarity coefficient (DSC) on the validation dataset was saved for the final evaluation, and model evaluation tricks, such as model ensembles, were not used in this paper.",
     "word_count": 243,
     "metadata": {
@@ -793,11 +834,11 @@
         7
       ],
       "paragraph_ids": [
-        "para_0028",
-        "para_0029",
         "para_0030",
         "para_0031",
-        "para_0032"
+        "para_0032",
+        "para_0033",
+        "para_0034"
       ],
       "coordinates": [
         {
@@ -844,10 +885,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_heading_0028_7cbb30ec",
+    "chunk_id": "paper_005_heading_0029_7cbb30ec",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 28,
+    "order_index": 29,
     "text": "Ablation Study of the MRFF Block",
     "word_count": 6,
     "metadata": {
@@ -859,10 +900,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0029_6b64c9c0",
+    "chunk_id": "paper_005_body_0030_6b64c9c0",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 29,
+    "order_index": 30,
     "text": "Because the MRFF block utilizes several feature maps of different resolutions to generate the final segmentation mask, experiments were conducted to determine which combination of feature maps resulted in the best HRSTNet performance.We compared the MRFF block when utilizing a single feature map (\nD 16 × H 16 × W 16 ), two feature maps ( D 16 × H 16 × W 16 and D 32 × H 32 × W 32 ), three feature maps ( D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32 ), and four feature maps ( D 4 × H 4 × W 4, D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32 ), and the experimental results are illustrated in Table 1.The experimental results show that the performance of HRSTNet-4 improved as the MRFF block combined more feature maps.The experimental results show that utilizing more feature maps with different resolutions could provide diverse information and hence enhance the final performance.Because HRSTNet-4 with the MRFF block utilizing four different feature maps achieved the best performance, the experiment conducted in the following subsection uses an MRFF block with four different resolutions.",
     "word_count": 220,
     "metadata": {
@@ -875,8 +916,8 @@
         7
       ],
       "paragraph_ids": [
-        "para_0033",
-        "para_0034"
+        "para_0035",
+        "para_0036"
       ],
       "coordinates": [
         {
@@ -891,10 +932,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0030_9f9773c1",
+    "chunk_id": "paper_005_body_0031_9f9773c1",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 30,
+    "order_index": 31,
     "text": "D 4 × H 4 × W 4, D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32.The feature maps are referred to as f 4, f 8, f 16, and f 32, respectively.Each of the four feature maps is down-or upsampled to the other three resolutions.Taking f 4 as an example, it sequentially passes through three patch-merging layers to generate three new feature maps with resolutions of D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32.The resultant feature maps are denoted as f 4_8, f 4_16, and f 4_32, respectively.The feature maps generated by f 8, f 16, and f 32 can be easily inferred and are denoted as { f 8_4, f 8_16, f 8_32 }, { f 16_4, f 16_8, f 16_32 }, and { f 32_4, f 32_8, f 32_16 }, respectively.We then concatenate the feature maps with the same resolution (e.g., [ f 4, f 8_4, f 16_4, f 32_4 ], where the symbol [ ] indicates feature concatenation).The concatenated feature maps are fed into a residual block to produce the output of the MRFF block, resulting in four feature maps with resolutions of D 4 × H 4 × W 4, D 8 × H 8 × W 8, D 16 × H 16 × W 16, and D 32 × H 32 × W 32.",
     "word_count": 253,
     "metadata": {
@@ -907,7 +948,7 @@
         5
       ],
       "paragraph_ids": [
-        "para_0035"
+        "para_0037"
       ],
       "coordinates": [
         {
@@ -930,10 +971,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_heading_0031_90e00628",
+    "chunk_id": "paper_005_heading_0032_90e00628",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 31,
+    "order_index": 32,
     "text": "Experimental Results on BraTS 2021",
     "word_count": 5,
     "metadata": {
@@ -945,11 +986,11 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0032_c9da6717",
+    "chunk_id": "paper_005_body_0033_679f82bb",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 32,
-    "text": "The DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.We utilized the method (https://github.com/MIC-DKFZ/nnUNet/ blob/5c18fa32f2b31575aae59d889d196e4c4ba8b844/nnunet/dataset_conversion/Task082_ BraTS_2020.py#L330, accessed on 1 July 2022) provided by the nnU-Net [39] to calculate the Hausdorff distance.The FLOPs were calculated by using MMCV [45], and the size of the input tensor was set to (4, 128, 128, 128) when calculating the FLOPs.\nFigure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.\nWe emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.Extensive ablation studies on different tricks to enhance the performance of the HRSTNet are left for further investigation.",
+    "order_index": 33,
+    "text": "The DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.We utilized the method (https://github.com/MIC-DKFZ/nnUNet/ blob/5c18fa32f2b31575aae59d889d196e4c4ba8b844/nnunet/dataset_conversion/Task082_ BraTS_2020.py#L330, accessed on 1 July 2022) provided by the nnU-Net [39] to calculate the Hausdorff distance.The FLOPs were calculated by using MMCV [45], and the size of the input tensor was set to (4, 128, 128, 128) when calculating the FLOPs.\nWe emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.Extensive ablation studies on different tricks to enhance the performance of the HRSTNet are left for further investigation.\nFigure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.",
     "word_count": 283,
     "metadata": {
       "section": "Experimental Results on BraTS 2021",
@@ -962,9 +1003,9 @@
         9
       ],
       "paragraph_ids": [
-        "para_0036",
         "para_0038",
-        "para_0039"
+        "para_0040",
+        "para_0041"
       ],
       "coordinates": [
         {
@@ -973,14 +1014,6 @@
           "y": 531.8928042234637,
           "w": 394.6931062480004,
           "h": 72.20776377653635,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 9,
-          "x": 165.975,
-          "y": 558.6578042234637,
-          "w": 394.54892047000044,
-          "h": 160.07876377653633,
           "coord_origin": "BOTTOMLEFT"
         },
         {
@@ -998,15 +1031,23 @@
           "w": 393.0824327808002,
           "h": 21.995763776536364,
           "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 165.975,
+          "y": 558.6578042234637,
+          "w": 394.54892047000044,
+          "h": 160.07876377653633,
+          "coord_origin": "BOTTOMLEFT"
         }
       ]
     }
   },
   {
-    "chunk_id": "paper_005_heading_0033_2c61ab6f",
+    "chunk_id": "paper_005_heading_0034_2c61ab6f",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 33,
+    "order_index": 34,
     "text": "Experimental Results on the MSD Liver Dataset",
     "word_count": 7,
     "metadata": {
@@ -1018,10 +1059,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0034_44717926",
+    "chunk_id": "paper_005_body_0035_44717926",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 34,
+    "order_index": 35,
     "text": "The Dice score was used to evaluate the segmentation results on the MSD liver dataset for liver tumor segmentation.Table 3 shows that the HRSTNet architectures (HRSTNet-2, HRSTNet-3, and HRSTNet-4) performed better than other algorithms on tumor segmentation, and HRSTNet-3 surpassed the existing methods by a large margin of +9.54 in tumor Dice score.In the series of HRSTNet architectures, HRSTNet-3 performed better than HRSTNet-2 and HRSTNet-4, and HRSTNet-4 performed better than HRSTNet-2.Compared with BraTS 2021, the MSD liver dataset is relatively small, and we argue that HRSTNet-4 suffered from overfitting, thus resulting in slightly worse performance.The results show that, except for MRI segmentation, the HRSTNet was also excellent in CT volume segmentation.Again, we would like to clarify that no model ensemble was used in the experiments conducted in this section.\nBecause the segmentation of liver tumors was much better than in the comparative methods, and the tumors were smaller compared with the organs, this suggests that maintaining a high-resolution feature map helps to improve the performance of smalltarget segmentation.We also conjecture that the continuous exchange of information from feature maps of different resolutions can improve the contextual information of feature maps, which is also critical for enhancing the segmentation performance of small targets.Further studies of the mechanisms of high-resolution feature map maintenance and the continuous exchange of information from feature maps with different resolutions is needed to provide guidelines for the design of a HRNet-like Transformer-based architecture for medical image segmentation.",
     "word_count": 240,
     "metadata": {
@@ -1034,8 +1075,8 @@
         9
       ],
       "paragraph_ids": [
-        "para_0040",
-        "para_0041"
+        "para_0042",
+        "para_0043"
       ],
       "coordinates": [
         {
@@ -1066,10 +1107,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0035_13ffd475",
+    "chunk_id": "paper_005_body_0036_13ffd475",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 35,
+    "order_index": 36,
     "text": "For the organ segmentation, HRSTNet-2, HRSTNet-3, and HRSTNet-4 all performed worse than the other compared algorithms.We presume that this was caused by the inconsistent fusing of feature maps with different resolutions, and this issue is left open for further study.The visualization of the segmentation results of HRSTNet-4 and VT-Unet on the MSD liver dataset is shown in Figure 4, which shows that HRSTNet-4 can segment the liver and tumor more accurately.",
     "word_count": 71,
     "metadata": {
@@ -1082,7 +1123,7 @@
         10
       ],
       "paragraph_ids": [
-        "para_0042"
+        "para_0044"
       ],
       "coordinates": [
         {
@@ -1097,10 +1138,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_heading_0036_14cb2922",
+    "chunk_id": "paper_005_heading_0037_14cb2922",
     "paper_id": "paper_005",
     "chunk_type": "heading",
-    "order_index": 36,
+    "order_index": 37,
     "text": "Experimental Results on the BTCV Multi-Organ Segmentation Dataset",
     "word_count": 8,
     "metadata": {
@@ -1112,10 +1153,10 @@
     }
   },
   {
-    "chunk_id": "paper_005_body_0037_6476b002",
+    "chunk_id": "paper_005_body_0038_6476b002",
     "paper_id": "paper_005",
     "chunk_type": "body",
-    "order_index": 37,
+    "order_index": 38,
     "text": "The performance of the HRSTNet compared with other Transformer-based architectures on the BTCV multi-organ segmentation validation dataset is shown in Table 4.As with the MSD liver dataset, the Dice score was used to compare the performance of different algorithms.HRSTNet-4 performed better than UNETR and slightly worse than Swin UN-ETR and VT-UNet-B, and the performances of Swin UNETR and VT-UNet-B were nearly identical.Because the architectures' validation performances were compared, and Swin UNETR had the largest quantity of FLOPs, Swin UNETR achieved the best average DICE score.HRSTNet-4 achieved the best performance for stomach and pancreas segmentation, while VT-UNet-B achieved the best performance in gallbladder and liver segmentation.",
     "word_count": 105,
     "metadata": {
@@ -1128,7 +1169,7 @@
         10
       ],
       "paragraph_ids": [
-        "para_0043"
+        "para_0045"
       ],
       "coordinates": [
         {
@@ -1145,37 +1186,6 @@
           "y": 671.6348042234637,
           "w": 394.9578851999996,
           "h": 72.20776377653635,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
-    "chunk_id": "paper_005_body_0038_5006486d",
-    "paper_id": "paper_005",
-    "chunk_type": "body",
-    "order_index": 38,
-    "text": "Note: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.",
-    "word_count": 49,
-    "metadata": {
-      "section": "Experiments and Results",
-      "section_path": [
-        "Experiments and Results"
-      ],
-      "subsection_id": "paper_005_subsection_1a88557de50e",
-      "pages": [
-        11
-      ],
-      "paragraph_ids": [
-        "para_0044"
-      ],
-      "coordinates": [
-        {
-          "page": 11,
-          "x": 166.398,
-          "y": 532.0574380223463,
-          "w": 393.8743718999997,
-          "h": 31.464229977653645,
           "coord_origin": "BOTTOMLEFT"
         }
       ]
@@ -1214,8 +1224,8 @@
         12
       ],
       "paragraph_ids": [
-        "para_0045",
-        "para_0047"
+        "para_0046",
+        "para_0048"
       ],
       "coordinates": [
         {
@@ -1269,7 +1279,7 @@
         12
       ],
       "paragraph_ids": [
-        "para_0049"
+        "para_0050"
       ],
       "coordinates": [
         {
@@ -1316,8 +1326,8 @@
         13
       ],
       "paragraph_ids": [
-        "para_0050",
-        "para_0051"
+        "para_0051",
+        "para_0052"
       ],
       "coordinates": [
         {

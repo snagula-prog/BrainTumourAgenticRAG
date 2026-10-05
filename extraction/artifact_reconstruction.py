@@ -15,12 +15,15 @@ class LogicalArtifactReconstructor:
     keeps source references back to the parser-level records.
     """
 
+    # Caption labels in real PDFs commonly appear as ``Fig. 7:`` or
+    # ``Figure 7.``.  A word-boundary after ``Fig.`` is incorrect because
+    # both the period and following whitespace are non-word characters.
     TABLE_LABEL_RE = re.compile(
-        r"^\s*(?:table|tab\.?)\b\s*([A-Za-z0-9IVXivx]+)\b",
+        r"^\s*(?:table|tab\.?)\s*[:.\-–—]?\s*([0-9IVXivx]+)\b",
         re.IGNORECASE,
     )
     FIGURE_LABEL_RE = re.compile(
-        r"^\s*(?:figure|fig\.?)\b\s*([A-Za-z0-9IVXivx]+)\b",
+        r"^\s*(?:figure|fig\.?)\s*[:.\-–—]?\s*([0-9IVXivx]+)\b",
         re.IGNORECASE,
     )
     CONTINUED_RE = re.compile(r"\b(?:continued|continu(?:ed)?|cont\.?)\b", re.IGNORECASE)
@@ -567,14 +570,16 @@ class LogicalArtifactReconstructor:
 
         label_key = self._figure_label_key(label)
 
-        # Docling commonly labels visual regions as ``picture``. The scientific
-        # figure identity is usually present in the associated caption.
-        if not label_key and caption:
+        # The caption is the strongest document-level identity signal.  In
+        # practice GROBID can assign a nearby/incorrect numeric label while
+        # preserving the actual printed caption.  Prefer an explicit caption
+        # label whenever one is available, including when it conflicts with
+        # the parser label.
+        if caption:
             caption_label_key = self._figure_label_key(caption)
             if caption_label_key:
                 label_key = caption_label_key
-                if not label or self._normalize_generic_label(label, kind="figure"):
-                    label = self._extract_label(caption, kind="figure")
+                label = self._extract_label(caption, kind="figure")
 
         nearby_caption = ""
         if not caption and coords:
@@ -585,9 +590,9 @@ class LogicalArtifactReconstructor:
             )
             if nearby_caption:
                 caption = nearby_caption
-                if not label_key:
-                    label_key = self._figure_label_key(caption)
-                if not label:
+                caption_label_key = self._figure_label_key(caption)
+                if caption_label_key:
+                    label_key = caption_label_key
                     label = self._extract_label(caption, kind="figure")
 
         return {
@@ -692,9 +697,12 @@ class LogicalArtifactReconstructor:
                 "figure_label"
             )
 
-        # A caption explicitly beginning with Figure N is strong evidence.
+        # A caption explicitly beginning with Figure N is strong evidence,
+        # even when the visual parser only calls the region a generic
+        # ``picture``. This is important for vector figures where GROBID may
+        # miss the figure element entirely.
         if has_caption_identity:
-            score += 0.20
+            score += 0.55
             signals.append(
                 "figure_caption_identity"
             )
@@ -800,6 +808,9 @@ class LogicalArtifactReconstructor:
             text = cls._clean_text(block.get("text"))
             if not text or not label_re.search(text):
                 continue
+
+            block_label = cls._clean_text(block.get("label")).lower()
+            is_explicit_caption = block_label in {"caption", "figure_caption", "table_caption"}
             block_coords = cls._normalize_coords(block.get("coords"))
             for candidate in block_coords:
                 if candidate.get("page") != page:
@@ -808,8 +819,11 @@ class LogicalArtifactReconstructor:
                 distance = cls._vertical_gap(region, candidate)
                 if x_overlap <= 0.0:
                     continue
-                # Nearby captions are preferable to distant matching labels.
-                score = x_overlap * 2.0 - min(distance / 100.0, 2.0)
+                # Prefer blocks explicitly classified as captions, then use
+                # spatial proximity. Body prose such as ``Figure 1 shows...``
+                # should not beat an actual caption merely because it contains
+                # the same label.
+                score = (4.0 if is_explicit_caption else 2.0) * x_overlap - min(distance / 100.0, 3.0)
                 if best is None or score > best[0]:
                     best = (score, text)
 
@@ -1085,8 +1099,15 @@ class LogicalArtifactReconstructor:
             if figure_match:
                 return f"Figure {figure_match.group(1)}"
 
+        # Ignore parser-generic labels such as ``picture``/``figure``/``table``
+        # after all explicit Figure N / Table N identities have been checked.
+        # The previous implementation tested every label as a table label, so
+        # ``picture`` could incorrectly survive as the canonical figure label.
         for label in labels:
-            if not cls._normalize_generic_label(label, kind="table"):
+            if (
+                not cls._normalize_generic_label(label, kind="table")
+                and not cls._normalize_generic_label(label, kind="figure")
+            ):
                 return label
 
         return ""
@@ -1096,7 +1117,30 @@ class LogicalArtifactReconstructor:
         unique = cls._unique_preserve_order(captions)
         if not unique:
             return ""
-        return max(unique, key=len)
+        preferred = max(unique, key=len)
+
+        # Detect repeated whole-caption fragments such as
+        # ``Figure 2. text Figure 2. text Figure 2. text``.
+        matches = list(re.finditer(
+            r"(?i)\b(?:figure|fig\.?|table|tab\.?)\s*[0-9ivx]+\b",
+            preferred,
+        ))
+        if len(matches) >= 2:
+            segments = []
+            for idx, match in enumerate(matches):
+                end = matches[idx + 1].start() if idx + 1 < len(matches) else len(preferred)
+                segment = preferred[match.start():end].strip()
+                if segment:
+                    segments.append(segment)
+
+            if len(segments) >= 2:
+                if all(
+                    cls._text_similarity(segments[0], segment) >= 0.96
+                    for segment in segments[1:]
+                ):
+                    return segments[0]
+
+        return preferred
 
     @staticmethod
     def _unique_preserve_order(values: Iterable[str]) -> list[str]:

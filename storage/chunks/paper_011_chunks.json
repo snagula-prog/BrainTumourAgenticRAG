@@ -1,0 +1,1973 @@
+[
+  {
+    "chunk_id": "paper_011_abstract_0000_35bce2e8",
+    "paper_id": "paper_011",
+    "chunk_type": "abstract",
+    "order_index": 0,
+    "text": "We propose an optimized U-Net architecture for a brain tumor segmentation task in the BraTS21 challenge.To find the optimal model architecture and the learning schedule, we have run an extensive ablation study to test: deep supervision loss, Focal loss, decoder attention, drop block, and residual connections.Additionally, we have searched for the optimal depth of the U-Net encoder, number of convolutional channels and post-processing strategy.Our method won the validation phase and took third place in the test phase.We have open-sourced the code to reproduce our BraTS21 submission at the NVIDIA Deep Learning Examples GitHub Repository 1.",
+    "word_count": 95,
+    "metadata": {
+      "section": "Abstract",
+      "title": "Optimized U-Net for Brain Tumor Segmentation",
+      "authors": [
+        "Micha L Futrega",
+        "Alexandre Milesi",
+        "Micha L Marcinkiewicz",
+        "Pablo Ribalta"
+      ],
+      "index_terms": [
+        "U-Net",
+        "Brain Tumor Segmentation",
+        "Deep Learning",
+        "MRI"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_index_terms_0001_f63617b1",
+    "paper_id": "paper_011",
+    "chunk_type": "index_terms",
+    "order_index": 1,
+    "text": "[Index Terms] U-Net, Brain Tumor Segmentation, Deep Learning, MRI",
+    "word_count": 9,
+    "metadata": {
+      "section": "Index Terms",
+      "terms": [
+        "U-Net",
+        "Brain Tumor Segmentation",
+        "Deep Learning",
+        "MRI"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0002_b605350b",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 2,
+    "text": "Introduction",
+    "word_count": 1,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0003_8ea3fb51",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 3,
+    "text": "One of the most challenging problems in medical image processing is automatic brain tumor segmentation.Obtaining a computational model capable of surpassing a trained human-level performance would provide valuable assistance to clinicians and would enable a more precise, reliable, and standardized approach to disease detection, treatment planning and monitoring.Gliomas are the most common type of brain tumors in humans [1].Their accurate segmentation is a challenging medical image analysis task due to their variable shape and appearance in multi-modal magnetic resonance imaging (MRI).Manual segmentation of such brain tumors requires a great deal of medical expertise, is time-consuming, and prone to human error.Moreover, the manual process lacks consistency and reproducibility, which negatively affects the results and can ultimately lead to incorrect prognosis and treatment.",
+    "word_count": 121,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0001"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 134.76500000000004,
+          "y": 251.9048898772337,
+          "w": 345.82974128000006,
+          "h": 140.21356592276646,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0004_ae5b8a4c",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 4,
+    "text": "Inference",
+    "word_count": 1,
+    "metadata": {
+      "section": "Inference",
+      "section_path": [
+        "Inference"
+      ],
+      "subsection_id": "paper_011_subsection_ae5b8a4c6ac9"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0005_44de1eca",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 5,
+    "text": "Furthermore, we applied the following post-processing strategy: find ET connected components, for components smaller than 16 voxels with mean probability smaller than 0.9, replace their class to NCR (such that voxels are still considered part of the tumor core), next if there is overall less than 73 voxels with ET and their mean probability is smaller than 0.9 replace all ET voxels to NCR.With such post-processing we avoided the edge case where the model predicted a few voxels with enhancing tumor, but there were not any in the ground truth.Such post-processing was beneficial to the final score as if there were no enhancing tumor voxels in the label, then the Dice score for zero false positive prediction was 1, and 0 otherwise.",
+    "word_count": 122,
+    "metadata": {
+      "section": "Inference",
+      "section_path": [
+        "Inference"
+      ],
+      "subsection_id": "paper_011_subsection_ae5b8a4c6ac9",
+      "pages": [
+        9
+      ],
+      "paragraph_ids": [
+        "para_0002"
+      ],
+      "coordinates": [
+        {
+          "page": 9,
+          "x": 134.76499999999984,
+          "y": 145.42288987723362,
+          "w": 345.83073753999975,
+          "h": 116.30356592276655,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0006_e9e28ad8",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 6,
+    "text": "Loss function",
+    "word_count": 2,
+    "metadata": {
+      "section": "Loss function",
+      "section_path": [
+        "Loss function"
+      ],
+      "subsection_id": "paper_011_subsection_e9e28ad8aaf2"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0007_7c1dc2ce",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 7,
+    "text": "Deep supervision [20] is a technique that helps with a better gradient flow by computing loss function on different decoder levels.In this work, we added two additional output heads, marked by green bars on Fig. 2. To compute the deep supervision loss, labels were first downsampled using nearest neighbor interpolation to the (64, 64, 64) and (32,32,32) spatial shapes such that they match the shapes of additional outputs.For labels y i and predictions p i for i = 1, 2, 3, where i = 1 corresponds to the last output head, i = 2 is the output head on the penultimate decoder level and i = 3 is before the penultimate, final loss function is computed as follows:",
+    "word_count": 118,
+    "metadata": {
+      "section": "Loss function",
+      "section_path": [
+        "Loss function"
+      ],
+      "subsection_id": "paper_011_subsection_e9e28ad8aaf2",
+      "pages": [
+        9
+      ],
+      "paragraph_ids": [
+        "para_0003"
+      ],
+      "coordinates": [
+        {
+          "page": 9,
+          "x": 134.765,
+          "y": 568.6578898772332,
+          "w": 345.8307375400002,
+          "h": 104.37845372276684,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0008_ce6c73d3",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 8,
+    "text": "Model architecture",
+    "word_count": 2,
+    "metadata": {
+      "section": "Model architecture",
+      "section_path": [
+        "Model architecture"
+      ],
+      "subsection_id": "paper_011_subsection_ce6c73d3bd20"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0009_a62e3841",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 9,
+    "text": "After the spatial dimensions of the feature map are transformed to the size of 2x2x2, then the decoder part starts.The decoder also has a modular structure, but its goal is to increase the spatial dimensions by reducing the encoder feature map.The block in the decoder is built from three smaller blocks.The first one is transposed convolution with kernels 2x2x2 and stride 2x2x2, which is increasing the spatial dimensions of the feature map by a factor of two.Then upsampled feature map is concatenated with encoder feature map from the equivalent spatial level and then transformed by two identical blocks with convolutional layer with kernels 3x3x3 and stride 1x1x1, instance normalization and Leaky ReLU activation with negative slope if 0.01 are applied (light blue).Additionally, deepsupervision (Subsection 2.4) can be used, which is computing loss functions for outputs from lower decoder levels.SegResNetVAE [10] is a residual U-Net with autoencoder (shown in the Fig. 3) regularization that has won the BraTS 2018 challenge and modifies U-Net by designing new architecture for encoder blocks and by adding a variational autoencoder (VAE) [23] branch in the decoder, which reconstructs the input and has a regularization effect.",
+    "word_count": 190,
+    "metadata": {
+      "section": "Model architecture",
+      "section_path": [
+        "Model architecture"
+      ],
+      "subsection_id": "paper_011_subsection_ce6c73d3bd20",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0004"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 134.765,
+          "y": 400.50688987723316,
+          "w": 345.8307375400002,
+          "h": 140.2125659227665,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0010_ea05dbcd",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 10,
+    "text": "The fact that datasets for medical image segmentation are small (usually around 100 examples), and there is no common benchmark for measuring improvements of different architecture tweaks, often makes such comparisons unreliable.However, the dataset released for BraTS21 provides 2,040 examples (respectively 1251, 219, 570 examples in the training, validation, and test set), which makes it the largest dataset for medical image segmentation at the moment, and a perfect candidate to measure performance improvements for different U-Net variants.",
+    "word_count": 77,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0005"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 134.76500000000001,
+          "y": 245.8688898772332,
+          "w": 345.83173379999994,
+          "h": 92.39256592276655,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0011_716b52c4",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 11,
+    "text": "Experiments",
+    "word_count": 1,
+    "metadata": {
+      "section": "Experiments",
+      "section_path": [
+        "Experiments"
+      ],
+      "subsection_id": "paper_011_subsection_716b52c42e95"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0012_9e1dc9c2",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 12,
+    "text": "In the next phase of experiments we tested various U-Net architecture tweaks: decoder attention [14], deep supervision [20], residual connections [15] and drop block [21].Additionally, we have experimented with the modified loss function with Focal loss [26] instead of cross-entropy, so that the loss function was Focal+Dice.",
+    "word_count": 47,
+    "metadata": {
+      "section": "Experiments",
+      "section_path": [
+        "Experiments"
+      ],
+      "subsection_id": "paper_011_subsection_716b52c42e95",
+      "pages": [
+        11
+      ],
+      "paragraph_ids": [
+        "para_0006"
+      ],
+      "coordinates": [
+        {
+          "page": 11,
+          "x": 134.765,
+          "y": 397.8548898772336,
+          "w": 345.82784875999977,
+          "h": 56.52656592276651,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0013_cec3a9b8",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 13,
+    "text": "Data",
+    "word_count": 1,
+    "metadata": {
+      "section": "Data",
+      "section_path": [
+        "Data"
+      ],
+      "subsection_id": "paper_011_subsection_cec3a9b89b2e"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0014_dd7f0ae1",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 14,
+    "text": "The training dataset provided for the BraTS21 challenge [4,5,6,7,8] consists of 1, 251 brain MRI scans along with segmentation annotations of tumorous regions.The 3D volumes were skull-stripped and resampled to 1 mm 3 isotropic resolution, with dimensions of (240, 240, 155) voxels.For each example, four modalities were given: native (T1), post-contrast T1-weighted (T1Gd), T2-weighted (T2), and T2 Fluid Attenuated Inversion Recovery (T2-FLAIR).Example images of each modality are presented on Fig. 1.Segmentation labels were annotated manually by one to four experts.Annotations consist of four classes: enhancing tumor (ET), peritumoral edematous tissue (ED), necrotic tumor core (NCR), and background (voxels that are not part of the tumor).",
+    "word_count": 105,
+    "metadata": {
+      "section": "Data",
+      "section_path": [
+        "Data"
+      ],
+      "subsection_id": "paper_011_subsection_cec3a9b89b2e",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0007"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 134.765,
+          "y": 217.00488987723338,
+          "w": 345.8307375399998,
+          "h": 116.30256592276663,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0015_30f5761c",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 15,
+    "text": "Data Preprocessing and Augmentations",
+    "word_count": 4,
+    "metadata": {
+      "section": "Data Preprocessing and Augmentations",
+      "section_path": [
+        "Data Preprocessing and Augmentations"
+      ],
+      "subsection_id": "paper_011_subsection_30f5761c8326"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0016_8377f29c",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 16,
+    "text": "Each example of the BraTS21 dataset consists of four NIfTI [22] files with different MRI modalities.As a first step of data pre-processing, all four modalities were stacked such that each example has a shape of (4, 240, 240, 155) (input tensor is in the (C, H, W, D) layout, where C-channels, H-height, W-width and D-depth).Then redundant background voxels (with voxel value zero) on the borders of each volume were cropped, as they do not provide any useful information and can be ignored by the neural network.Subsequently, for each example, the mean and the standard deviation were computed within the non-zero region for each channel separately.All volumes were normalized by first subtracting the mean and then divided by the standard deviation.The background voxels were not normalized so that their value remained at zero.To distinguish between background voxels and normalized voxels which have values close to zero, an additional input channel was created with one-hot encoding for foreground voxels and stacked with the input data.\nData augmentation is a technique that alleviates the overfitting problem by artificially extending a dataset during the training phase.To make our method more robust, the following data augmentations were used during training phase:",
+    "word_count": 196,
+    "metadata": {
+      "section": "Data Preprocessing and Augmentations",
+      "section_path": [
+        "Data Preprocessing and Augmentations"
+      ],
+      "subsection_id": "paper_011_subsection_30f5761c8326",
+      "pages": [
+        3,
+        4
+      ],
+      "paragraph_ids": [
+        "para_0008",
+        "para_0009"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 134.76500000000001,
+          "y": 127.17588987723343,
+          "w": 345.82874502000027,
+          "h": 44.57156592276658,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 134.765,
+          "y": 556.7028898772331,
+          "w": 345.82974128,
+          "h": 116.3035659227669,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 134.765,
+          "y": 520.837889877233,
+          "w": 345.8288450200001,
+          "h": 32.616565922766654,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0017_72adc985",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 17,
+    "text": "1. Biased crop: From the input volume, a patch of dimensions (5, 128, 128, 128) was randomly cropped.Additionally, with probability of 0.4 the patch selected via random biased crop is guaranteed that some foreground voxels (with positive class in the ground truth) are present in the cropped region.2. Zoom: With probability of 0.15, a random value is sampled uniformly from (1.0, 1.4) and image size is resized to its original size times the sampled value with the cubic interpolation, while the ground truth with the nearest neighbour interpolation.3. Flips: With probability of 0.5, for each x, y, z axis independently, volume was flipped along that axis.4. Gaussian Noise: With probability of 0.15, random Gaussian noise with mean zero and standard deviation sampled uniformly from (0, 0.33) is sampled for each voxel and added to the input volume.5. Gaussian Blur: With probability of 0.15, Gaussian blurring with standard deviation of the Gaussian Kernel sampled uniformly from (0.5, 1.5) is applied to the input volume.6. Brightness: With probability of 0.15, a random value is sampled uniformly from (0.7, 1.3) and then input volume voxels are multiplied by it.7. Contrast: With probability of 0.15, a random value is sampled uniformly from (0.65, 1.5) and then input volume voxels are multiplied by it and clipped to their original value range.",
+    "word_count": 216,
+    "metadata": {
+      "section": "Data Preprocessing and Augmentations",
+      "section_path": [
+        "Data Preprocessing and Augmentations"
+      ],
+      "subsection_id": "paper_011_subsection_30f5761c8326",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0010"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0018_59428cf7",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 18,
+    "text": "In order to select the most optimal neural network architecture, we have run ablation studies for the following models: U-Net [9], Attention U-Net [14], Residual U-Net [15], SegResNetVAE [10] and UNETR [19].Below, we present a short description of each model.\nU-Net [9] architecture (shown in the Fig. 2) is characterised by a symmetric U-shape, and can be divided into two parts, i.e., encoder and decoder.The first part is the contracting path (encoder) which is transforming the input volume into lower dimensional space.The encoder has a modular structure consisting of repeating convolution blocks.Each block has two smaller blocks of transformations (dark and light blue blocks on the Fig. 2).The first smaller block is reducing the spatial dimensions of the input feature map by a factor of two via convolutional layer with kernels 3x3x3 and stride 2x2x2, then instance normalization and Leaky ReLU activation with negative slope if 0.01 are applied (dark blue block).Next feature map is transformed with almost the same set of operations except that the convolutional layer has stride 1x1x1 (light blue).\nThe encoder part uses ResNet like blocks, where each block consists of two convolutions with group normalization and ReLU activation, followed by additive identity skip connection.The decoder structure is similar to the encoder, but only with a single block per each spatial level.Each decoder block begins with reducing the number of channels by a factor of 2 (with 1x1x1 convolution) and doubling the spatial dimension (using 3D bilinear), followed by an addition with encoder feature map from the equivalent spatial level.",
+    "word_count": 254,
+    "metadata": {
+      "section": "Model architecture",
+      "section_path": [
+        "Model architecture"
+      ],
+      "subsection_id": "paper_011_subsection_ce6c73d3bd20",
+      "pages": [
+        4,
+        5,
+        6
+      ],
+      "paragraph_ids": [
+        "para_0011",
+        "para_0012",
+        "para_0014"
+      ],
+      "coordinates": [
+        {
+          "page": 4,
+          "x": 134.76499999999973,
+          "y": 157.12988987723293,
+          "w": 345.82874501999993,
+          "h": 44.571565922766695,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 134.765,
+          "y": 544.7478898772331,
+          "w": 345.8307375400002,
+          "h": 128.28845372276692,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 6,
+          "x": 134.765,
+          "y": 531.8188898772331,
+          "w": 345.82974127999995,
+          "h": 80.4375659227668,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0019_ab67f8d8",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 19,
+    "text": "In the VAE branch in the decoder, first the feature map from the bottleneck is reduced into a low dimensional space of 256 (128 to represent mean, and 128 to represent std).Then, a sample is drawn from the Gaussian distribution with the given mean and std, and reconstructed into the input image dimensions following the same architecture as the decoder.UNETR [19] architecture (shown in the Fig. 4) is a generalization of Vision Transformer (ViT) [24] to the 3D convolutions-it replaces the 3D convolutions in the encoder with multi-head self-attention [25].To convert a 3D input volume into an input for a multi-head self-attention it is divided into a sequence of uniform non-overlapping patches (with 16x16x16 shape) and projected into an embedding space (with 768 dimensions) using a linear layer, and added with a positional embedding.Such input is then transformed by a multi-head selfattention encoder.Attention U-Net [14] is extending base U-Net by adding an attention gate (shown in the Fig. 5) in the decoder part.Attention gate is transforming the feature map from the encoder before the concatenation in the decoder block.It learns which regions of the encoder feature map are the most important, considering the context of the feature map from the previous decoder block.This is achieved by multiplication of the encoder feature map with the weights computed by the attention gate.The weight values are in the (0, 1) range and represent the attention level that the neural network is paying to a given pixel.Residual U-Net [15] is inspired by a ResNet model [15] where residual connections were proposed.Adding residual connections is helping with training a deep neural network due to better gradient flow.The only difference between basic U-Net and Residual U-Net is the computation within a convolutional block, which is shown in the Fig. 6.Based on our experiments (the detailed results are shown in subsection 3.3), a basic U-Net achieves the best results, and was selected for further exploration.The next optimization was adjusting the encoder depth and optimal selection of the convolution channels.As a baseline, a default U-Net architecture from the nnU-Net framework was used, i.e., the depth of the network was 6, and the convolution channels at each encoder level were: 32, 64, 128, 256, 320, 320.Our experiments have demonstrated that increasing the depth of the encoder to 7, and modifying the number of channels to: 64, 96, 128, 192, 256, 384, 512, further improves the baseline score.",
+    "word_count": 398,
+    "metadata": {
+      "section": "Model architecture",
+      "section_path": [
+        "Model architecture"
+      ],
+      "subsection_id": "paper_011_subsection_ce6c73d3bd20",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0015"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "oversized": true
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0020_7c777c00",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 20,
+    "text": "Based on the nnU-Net for Brain Tumor Segmentation [13] paper, the classes present in the label were converted to the three partially overlapping regions: whole tumor (WT) representing classes 1, 2, 4; tumor core (TC) representing classes 1, 4; and enhancing tumor (ET) representing the class 4. The contest leaderboard is computed based on those overlapping regions instead of classes present in the labels.It is beneficial to construct the loss function based on classes used for ranking calculation, thus we designed the output feature map to have three channels (one per class) which at the very end are transformed via the sigmoid activation.\nEach region was optimized separately with a sum of binary cross-entropy or Focal loss [26] (with gamma parameter set to 2) with the Dice loss [27].For Dice loss, its batched variant was used, i.e., Dice loss was computed over all samples in the batch instead of averaging the Dice loss over each sample separately.",
+    "word_count": 157,
+    "metadata": {
+      "section": "Loss function",
+      "section_path": [
+        "Loss function"
+      ],
+      "subsection_id": "paper_011_subsection_e9e28ad8aaf2",
+      "pages": [
+        8
+      ],
+      "paragraph_ids": [
+        "para_0016",
+        "para_0017"
+      ],
+      "coordinates": [
+        {
+          "page": 8,
+          "x": 134.76500000000016,
+          "y": 174.99588987723337,
+          "w": 345.82874502000004,
+          "h": 104.34856592276674,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 8,
+          "x": 134.76500000000016,
+          "y": 127.17588987723343,
+          "w": 345.82874501999976,
+          "h": 44.57156592276658,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0021_539264af",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 21,
+    "text": "During inference, the input volume can have arbitrary size, instead of the fixed patch size (128, 128, 128) as during the training phase.Thus, we used a sliding window inferencefoot_1, where the window has the same size as the training patch, i.e., (128, 128, 128) and adjacent windows overlap by half the size of a patch.The predictions on the overlapping regions are then averaged with Gaussian importance weighting, such that the weights of the center voxels have higher importance, as in the original nnU-Net paper [12].\nOne of the known ways to improve robustness of predictions is to apply test time augmentations.During inference, we have created eight versions of the input volume, such that each version corresponds to one of eight possible flips along the x, y, z axis combination.Then we run inference for each version of the input volume and transform the predictions back to the original input volume orientation by applying the same flips to predictions as were used for the input volume.Finally, the probabilities from all predictions were averaged.\nBy optimizing the three overlapping regions (ET, TC, WT) we had to convert them back to the original classes (NCR, ED, ET).The strategy for transforming classes back to the original one is the following: if the WT probability for a given voxel is less than 0.45 then its class is set to 0 (background), otherwise if the probability for TC is less than 0.4 the voxel class is 2 (ED), and finally if probability for ET is less than 0.45 voxel has class 1 (NCR), or otherwise 4 (ET).",
+    "word_count": 260,
+    "metadata": {
+      "section": "Inference",
+      "section_path": [
+        "Inference"
+      ],
+      "subsection_id": "paper_011_subsection_ae5b8a4c6ac9",
+      "pages": [
+        9
+      ],
+      "paragraph_ids": [
+        "para_0018",
+        "para_0019",
+        "para_0020"
+      ],
+      "coordinates": [
+        {
+          "page": 9,
+          "x": 134.7649999999999,
+          "y": 420.39188987723355,
+          "w": 345.8291981399999,
+          "h": 80.43756592276651,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 134.7649999999999,
+          "y": 336.70588987723363,
+          "w": 345.8298109399998,
+          "h": 80.43756592276651,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 134.76499999999987,
+          "y": 264.97488987723364,
+          "w": 345.83052545999993,
+          "h": 68.48256592276658,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0022_97d5e0af",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 22,
+    "text": "The state-of-the-art models in brain tumor segmentation are based on the encoder-decoder architectures, with U-Net [9] being the most popular for medical image segmentation, based on the citations number.In recent years, U-Net-like architectures were among top submissions to the BraTS challenge.For instance, in 2018, Myronenko et al., modified a U-Net model by adding a variational autoencoder branch for regularization [10].In 2019, Jiang et al., employed a twostage U-Net pipeline to segment the substructures of brain tumors from coarse to fine [11].In 2020, Isensee et al., applied the nnU-Net framework [12] with specific BraTS designed modifications regarding data post-processing, regionbased training, data augmentation, and minor modifications to the nnU-Net pipeline [13].",
+    "word_count": 110,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0021"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 134.765,
+          "y": 508.881889877233,
+          "w": 345.82984128,
+          "h": 128.25856592276693,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 13,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0023_5a942cf0",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 23,
+    "text": "Model baseline",
+    "word_count": 2,
+    "metadata": {
+      "section": "Model baseline",
+      "section_path": [
+        "Model baseline"
+      ],
+      "subsection_id": "paper_011_subsection_5a942cf018dc"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0024_623d856e",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 24,
+    "text": "Finally, we experimented with a post-processing strategy.It is known from previous BraTS editions that removing small regions with enhanced tumor can be beneficial to the final score.It is so because if there is no enhancing tumor in the label, then the Dice score for zero false positive prediction is 1, and 0 otherwise.The best strategy we found for our 5-fold cross-validation is the following: find ET connected components, for components smaller than 16 voxels with mean probability smaller than 0.9, replace their class to NCR, next if there is overall less than 73 voxels with ET and their mean probability is smaller than 0.9 replace all ET voxels to NCR.The best model, i.e., deeper U-Net with deep supervision, modified number of channels and additional input one-hot encoding channel for foreground voxels was the winner of the challenge validation phase.The detailed scores are shown in the Table 5.",
+    "word_count": 147,
+    "metadata": {
+      "section": "Model baseline",
+      "section_path": [
+        "Model baseline"
+      ],
+      "subsection_id": "paper_011_subsection_5a942cf018dc",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0022"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.76499999999996,
+          "y": 380.76488987723366,
+          "w": 345.8298412800001,
+          "h": 104.34756592276648,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0025_d8932f3d",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 25,
+    "text": "That methodology was tested on the validations sets from the 5-fold crossvalidation.Hyperparameters were selected to yield the highest score combined on all the folds.The threshold value was selected via a grid search method with a step of 0.05 in the range (0.3, 0.7).Similarly, the number of voxels was searched in the range (0, 100) and selected by maximizing score on the 5-fold cross-validation.",
+    "word_count": 63,
+    "metadata": {
+      "section": "Inference",
+      "section_path": [
+        "Inference"
+      ],
+      "subsection_id": "paper_011_subsection_ae5b8a4c6ac9",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0023"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 134.765,
+          "y": 604.5238898772333,
+          "w": 345.82784875999994,
+          "h": 68.48256592276675,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0026_1cff7713",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 26,
+    "text": "Implementation",
+    "word_count": 1,
+    "metadata": {
+      "section": "Implementation",
+      "section_path": [
+        "Implementation"
+      ],
+      "subsection_id": "paper_011_subsection_1cff7713912f"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0027_ed423749",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 27,
+    "text": "Our solution is written in PyTorch [28] and extends NVIDIA's implementation of the nnU-Net.The code is publicly available on the NVIDIA Deep Learning Examples GitHub repository 3.Proposed solution is using the NVIDIA NGC Py-Torch 21.07 Docker containerfoot_3 which allows for the full encapsulation of dependencies, reproducible runs, as well as easy deployment on any system.All training and inference runs were performed with use of Mixed Precision [29], which speeds-up the model and reduces the GPU memory consumption.Experiments were run on NVIDIA DGX A100 (8×A100 80 GB) system.5",
+    "word_count": 87,
+    "metadata": {
+      "section": "Implementation",
+      "section_path": [
+        "Implementation"
+      ],
+      "subsection_id": "paper_011_subsection_1cff7713912f",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0024"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 134.76499999999996,
+          "y": 444.2490053999998,
+          "w": 345.8267525,
+          "h": 93.68845040000002,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0028_1f61437f",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 28,
+    "text": "Training schedule",
+    "word_count": 2,
+    "metadata": {
+      "section": "Training schedule",
+      "section_path": [
+        "Training schedule"
+      ],
+      "subsection_id": "paper_011_subsection_1f61437f1345"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0029_222c60a4",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 29,
+    "text": "Each experiment was trained for 1, 000 epochs using the Adam optimizer [30] with three different learning rates: 0.0005, 0.0007, 0.0009 and a weight decay equal to 0.0001.Additionally, during the first 1000 steps, we used a linear warmup of the learning rate, starting from 0 and increasing it to the target value, and then it was decreased with a cosine annealing scheduler [31].The weights for 3D convolutions were initialized with Kaiming initialization [32].\nFor model evaluation, we used 5-fold cross validation and compared the average of the highest Dice score reached on each of the 5-folds.The evaluation on the validation set was run after every epoch.For each fold, we have stored the two checkpoints with the highest mean Dice score on the validation set reached during the training phase.Then during the inference phase, we ensembled the predictions from stored checkpoints by averaging the probabilities.",
+    "word_count": 144,
+    "metadata": {
+      "section": "Training schedule",
+      "section_path": [
+        "Training schedule"
+      ],
+      "subsection_id": "paper_011_subsection_1f61437f1345",
+      "pages": [
+        10
+      ],
+      "paragraph_ids": [
+        "para_0025",
+        "para_0026"
+      ],
+      "coordinates": [
+        {
+          "page": 10,
+          "x": 134.76499999999976,
+          "y": 336.23788987723333,
+          "w": 345.82815580000005,
+          "h": 68.48256592276653,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 10,
+          "x": 134.76499999999976,
+          "y": 264.50688987723333,
+          "w": 345.83073754,
+          "h": 68.48256592276658,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0030_af88b88b",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 30,
+    "text": "To select the model architecture, we experimented with three U-Net variants: baseline U-Net [9] which architecture follows the nnU-Net [12] architecture heuristic, UNETR [19] which replaces the U-Net encoder with a Vision Transformer (ViT) [24] generalization for the 3D convolutions, and U-Net with autoencoder regularization (SegResNetVAE) which extends U-Net architecture with variational autoencoder (VAE) [23] branch for input reconstruction in the decoder.Presented results in the Table 1 have shown that baseline U-Net achieves the highest score.Although the score of SegResNetVAE is similar to the plain U-Net, the training time is three times longer compared to U-Net, because of the additional VAE branch.Thus, we decided to select U-Net architecture for further exploration.",
+    "word_count": 111,
+    "metadata": {
+      "section": "Experiments",
+      "section_path": [
+        "Experiments"
+      ],
+      "subsection_id": "paper_011_subsection_716b52c42e95",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0027"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 10,
+          "x": 134.76499999999976,
+          "y": 179.1098898772334,
+          "w": 348.16597098,
+          "h": 44.57256592276656,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 11,
+          "x": 134.765,
+          "y": 652.3448898772334,
+          "w": 345.8267525,
+          "h": 20.661565922766613,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 12,
+          "x": 134.765,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0031_c2d302c5",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 31,
+    "text": "Those achievements prove that well-designed U-Net based architectures have the ability to perform very well on tasks such as brain tumor segmentation.In order to design a competitive solution for challenges like BraTS21, both optimal neural network architecture and training schedule has to be selected.However, there exists a plethora of U-Net variants, for example: Attention U-Net [14], Residual U-Net [15], Dense U-Net [16], Inception U-Net [17], U-Net++ [18], SegResNetVAE [10] or UNETR [19], just to name a few.A wide range of U-Net architectures makes the selection of the optimal one a difficult task.Furthermore, once the neural network architecture is selected, designing a proper training schedule is critical for getting optimal performance.Designing a training schedule is associated with selecting optimal components, such as a loss function, data augmentation strategy, learning rate and its schedule, number of epochs to train, and many more.Also, it is not trivial to decide which model extensions to add, for example, deep-supervision [20] or drop-block [21].\nIn this paper, we have run extensive ablation studies to select both an optimal U-Net variant and training schedule for the BraTS21 challenge.We have tested U-Net [9], Attention U-Net [14], Residual U-Net [15], SegResNetVAE [10] and UNETR [19] for U-Net variants, and experimented with Deep Supervision [20], Drop-Block [21], and different loss functions (combinations of Cross Entropy, Focal, and Dice).Furthermore, we have optimized our model further by increasing the encoder depth, adding one-hot-encoding channel for the foreground voxels to the input data, and increasing the number of convolutional filters.",
+    "word_count": 247,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0028",
+        "para_0029"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 134.76500000000001,
+          "y": 341.50988987723315,
+          "w": 345.8297412800001,
+          "h": 164.12356592276643,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 134.76500000000001,
+          "y": 150.22688987723313,
+          "w": 345.82774875999974,
+          "h": 92.39256592276661,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0032_de08fc49",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 32,
+    "text": "The rapid progress in development of deep learning (DL) algorithms shows great potential for application of deep neural networks (DNNs) in computeraided automatic or semi-automatic methods for medical data analysis.The drastic improvements of convolutional neural networks (CNNs) resulted in models being able to approach or surpass the human level performance in plethora of applications, such as image classification [2] or microscope image segmentation [3], among many others.DL-based models are great candidates for brain tumor segmentation, as long as sufficient amount of training data is supplied.The Brain Tumor Segmentation Challenge (BraTS) provides a large, high-quality dataset consisting of multi-modal MRI brain scans with corresponding segmentation masks [4,5,6,7,8].",
+    "word_count": 106,
+    "metadata": {
+      "section": "Introduction",
+      "section_path": [
+        "Introduction"
+      ],
+      "subsection_id": "paper_011_subsection_b605350bc002",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0030"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 134.76500000000004,
+          "y": 156.26388987723362,
+          "w": 345.82784876,
+          "h": 92.39256592276661,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 134.765,
+          "y": 640.3888898772334,
+          "w": 345.83073753999986,
+          "h": 32.61756592276663,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_heading_0033_26201645",
+    "paper_id": "paper_011",
+    "chunk_type": "heading",
+    "order_index": 33,
+    "text": "Conclusions",
+    "word_count": 1,
+    "metadata": {
+      "section": "Conclusions",
+      "section_path": [
+        "Conclusions"
+      ],
+      "subsection_id": "paper_011_subsection_26201645fb14"
+    }
+  },
+  {
+    "chunk_id": "paper_011_body_0034_60f2613a",
+    "paper_id": "paper_011",
+    "chunk_type": "body",
+    "order_index": 34,
+    "text": "We have experimented with various U-Net variants (basic U-Net [9], UNETR [19], SegResNetVAE [10], Residual U-Net [15], and Attention U-Net [14]), architecture modifications and training schedule tweaks like: deep supervision [20], drop block [21], and Focal loss [26].Based on our experiments, U-Net with deep supervision yields the best results which can be further improved by adding an additional input channel with one-hot encoding for foreground, increasing encoder depth together with a number of convolutional channels and designing a post-processing strategy.",
+    "word_count": 80,
+    "metadata": {
+      "section": "Conclusions",
+      "section_path": [
+        "Conclusions"
+      ],
+      "subsection_id": "paper_011_subsection_26201645fb14",
+      "pages": [
+        13
+      ],
+      "paragraph_ids": [
+        "para_0031"
+      ],
+      "coordinates": [
+        {
+          "page": 13,
+          "x": 134.765,
+          "y": 244.59988987723352,
+          "w": 348.3911257399997,
+          "h": 92.39256592276655,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 9,
+          "x": 475.9880377600002,
+          "y": 690.3930894340058,
+          "w": 4.607832959999996,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 15,
+          "x": 471.3793081600002,
+          "y": 690.3930894340058,
+          "w": 9.215665919999992,
+          "h": 7.835961765994284,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_table_caption_0035_5d04b909",
+    "paper_id": "paper_011",
+    "chunk_type": "table_caption",
+    "order_index": 35,
+    "text": "Table 1. Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the baseline U-Net, UNETR, SegResNetVAE models.",
+    "word_count": 20,
+    "metadata": {
+      "table_id": "table_001",
+      "label": "Table 1",
+      "structure_status": "structured",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 0
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_table_caption_0036_881c4794",
+    "paper_id": "paper_011",
+    "chunk_type": "table_caption",
+    "order_index": 36,
+    "text": "Table 2. Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the decoder attention (Attention), deep supervision (DS), residual connections (Residual), drop block (DB) and Focal loss (Focal).",
+    "word_count": 31,
+    "metadata": {
+      "table_id": "table_002",
+      "label": "Table 2",
+      "structure_status": "structured",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 1
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 1
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_table_caption_0037_3902a79b",
+    "paper_id": "paper_011",
+    "chunk_type": "table_caption",
+    "order_index": 37,
+    "text": "Table 3. Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the deep supervision (DS), deeper U-Net encoder, modified number of convolution channels, additional input channel with one-hot encoding for foreground voxels, and all modification applied together (D+C+O) i.e., deeper U-Net with changed number of convolution channels and one-hot encoding channel for foreground voxels.",
+    "word_count": 57,
+    "metadata": {
+      "table_id": "table_003",
+      "label": "Table 3",
+      "structure_status": "structured",
+      "pages": [
+        12
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_table_caption_0038_ce24623e",
+    "paper_id": "paper_011",
+    "chunk_type": "table_caption",
+    "order_index": 38,
+    "text": "Table 4. Averaged Dice scores of ET, TC, WT classes for each 5-folds without and with post-processing.",
+    "word_count": 17,
+    "metadata": {
+      "table_id": "table_004",
+      "label": "Table 4",
+      "structure_status": "structured",
+      "pages": [
+        12
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 3
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 3
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_table_caption_0039_38f75495",
+    "paper_id": "paper_011",
+    "chunk_type": "table_caption",
+    "order_index": 39,
+    "text": "Table 5. Top 9 normalized statistical ranking scores for BraTS21 validation phase.",
+    "word_count": 12,
+    "metadata": {
+      "table_id": "table_005",
+      "label": "Table 5",
+      "structure_status": "structured",
+      "pages": [
+        12
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "table",
+          "index": 4
+        },
+        {
+          "parser": "grobid",
+          "kind": "table",
+          "index": 4
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0040_6129bb4b",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 40,
+    "text": "Fig. 1. Example with ID 00000 from the BraTS21 training dataset. Each subplot presents a different modality. From top left to bottom right: FLAIR, T1, T1Gd T2.",
+    "word_count": 27,
+    "metadata": {
+      "figure_id": "figure_001",
+      "label": "Figure 1",
+      "pages": [
+        3
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 0
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0041_77c56531",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 41,
+    "text": "Fig. 2. U-Net architecture. The encoder is transforming the input by reducing its spatial dimensions, and then the decoder is upsampling it back to the original input shape. Additional two output heads are used for deep supervision loss (green bars).",
+    "word_count": 40,
+    "metadata": {
+      "figure_id": "figure_002",
+      "label": "Figure 2",
+      "pages": [
+        5
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 1
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 1
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0042_e109d7aa",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 42,
+    "text": "Fig. 3. SegResNetVAE architecture. Each green block is a ResNet-like block with the group normalization. The VAE branch reconstructs the input image into itself, and is used only during training to regularize the shared encoder. Image from [10].",
+    "word_count": 38,
+    "metadata": {
+      "figure_id": "figure_003",
+      "label": "Figure 3",
+      "pages": [
+        6
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0043_c73b8f86",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 43,
+    "text": "Fig. 4. UNETR architecture. Instead of using 3D convolution in the encoder, UNETR is transforming the input volume via multi-head self-attention blocks known from the Transformer model. Image from [19].",
+    "word_count": 30,
+    "metadata": {
+      "figure_id": "figure_004",
+      "label": "Figure 4",
+      "pages": [
+        7
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 3
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 3
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0044_db579eb6",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 44,
+    "text": "Fig. 5. The architecture of the attention gate. Input features ( x l ) are multiplied by attention weights ( α ). To compute α, input features ( x l ), and feature map from corresponding encoder level are first transformed by 1x1x1 convolution, and the summed. Next, ReLU activation and another 1x1x1 convolution are applied. Finally, attention weights are upsampled with trilinear interpolation. Image from [14].",
+    "word_count": 67,
+    "metadata": {
+      "figure_id": "figure_005",
+      "label": "Figure 5",
+      "pages": [
+        7
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 4
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 4
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0045_bd394410",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 45,
+    "text": "Fig. 6. Difference between blocks in basic U-Net (a) and Residual U-Net (b). Conv block (orange) corresponds to a convolutional layer with 3x3x3 kernels, IN (green) is instance normalization and ReLU (blue) is a Rectified Linear Unit activation.",
+    "word_count": 38,
+    "metadata": {
+      "figure_id": "figure_006",
+      "label": "Figure 6",
+      "pages": [
+        8
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 5
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 5
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_figure_caption_0046_d3ad35f6",
+    "paper_id": "paper_011",
+    "chunk_type": "figure_caption",
+    "order_index": 46,
+    "text": "Fig. 7. Predictions on the challenge validation dataset. On the left column FLAIR modality is visualized while on the right model predictions where the meaning of colors is the following: purple - background, blue - NCR, turquoise - ED, yellow - ET.",
+    "word_count": 42,
+    "metadata": {
+      "figure_id": "figure_007",
+      "label": "Figure 7",
+      "pages": [
+        13
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 6
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 6
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_011_reference_0047_1e99efbc",
+    "paper_id": "paper_011",
+    "chunk_type": "reference",
+    "order_index": 47,
+    "text": "[References [1]-[9]]\n[1] Goodenberger, M.L., Jenkins, R.B.: Genetics of adult glioma. Cancer Genetics 205 (12 2012). https://doi.org/10.1016/j.cancergen.2012.10.009\n[2] Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z., Karpathy, A., Khosla, A., Bernstein, M., Berg, A.C., Fei-Fei, L.: ImageNet Large Scale Visual Recognition Challenge. International Journal of Computer Vision 115 (12 2015). https://doi.org/10.1007/s11263-015-0816-y\n[3] Zeng, T., Wu, B., Ji, S.: DeepEM3D: approaching human-level performance on 3D anisotropic EM image segmentation. Bioinformatics 33(16), 2555-2562 (03 2017). https://doi.org/10.1093/bioinformatics/btx188, https://doi.org/10. 1093/bioinformatics/btx188\n[4] Baid, U., et al: The RSNA-ASNR-MICCAI BraTS 2021 Benchmark on Brain Tu- mor Segmentation and Radiogenomic Classification (2021)\n[5] Menze, B.H., Jakab, A., Bauer, S., Kalpathy-Cramer, J., Farahani, K., Kirby, J., et al.: The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS). IEEE Transactions on Medical Imaging 34(10), 1993-2024 (2015). https://doi.org/10.1109/TMI.2014.2377694\n[6] Bakas, S., Akbari, H., Sotiras, A., Bilello, M., Rozycki, M., Kirby, J., et al.: Advancing The Cancer Genome Atlas glioma MRI collections with ex- pert segmentation labels and radiomic features. Scientific Data 4 (09 2017). https://doi.org/10.1038/sdata.2017.117\n[7] Bakas, S., Akbari, H., Sotiras, A., Bilello, M., Rozycki, M., Kirby, J., et al.: Seg- mentation Labels and Radiomic Features for the Pre-operative Scans of the TCGA- GBM collection (07 2017). https://doi.org/10.7937/K9/TCIA.2017.KLXWJJ1Q\n[8] Bakas, S., Akbari, H., Sotiras, A., Bilello, M., Rozycki, M., Kirby, J., et al.: Seg- mentation Labels and Radiomic Features for the Pre-operative Scans of the TCGA- GBM collection (07 2017). https://doi.org/10.7937/K9/TCIA.2017.GJQ7R0EF\n[9] Ronneberger, O., Fischer, P., Brox, T.: U-Net: Convolutional Networks for Biomed- ical Image Segmentation. In: Navab, N., Hornegger, J., Wells, W.M., Frangi, A.F. (eds.) Medical Image Computing and Computer-Assisted Intervention -MICCAI 2015. pp. 234-241. Springer International Publishing, Cham (2015)",
+    "word_count": 276,
+    "metadata": {
+      "section": "References",
+      "start_ref": 1,
+      "end_ref": 9,
+      "reference_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_reference_0048_d0f74abd",
+    "paper_id": "paper_011",
+    "chunk_type": "reference",
+    "order_index": 48,
+    "text": "[References [10]-[20]]\n[10] Myronenko, A.: 3D MRI Brain Tumor Segmentation Using Autoencoder Regular- ization. In: Crimi, A., Bakas, S., Kuijf, H., Keyvan, F., Reyes, M., van Walsum, T. (eds.) Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain In- juries. pp. 311-320. Springer International Publishing, Cham (2019)\n[11] Jiang, Z., Ding, C., Liu, M., Tao, D.: Two-Stage Cascaded U-Net: 1st Place Solu- tion to BraTS Challenge 2019 Segmentation Task. In: Crimi, A., Bakas, S. (eds.) Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain Injuries. pp. 231-241. Springer International Publishing, Cham (2020)\n[12] Isensee, F., Jäger, P.F., Kohl, S.A., Petersen, J., Maier-Hein, K.H.: nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. pp. 1-9. Nature Methods (2020)\n[13] Isensee, F., Jäger, P.F., Full, P.M., Vollmuth, P., Maier-Hein, K.H.: nnU-Net for Brain Tumor Segmentation. In: Crimi, A., Bakas, S. (eds.) Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain Injuries. pp. 118-132. Springer International Publishing, Cham (2021)\n[14] Oktay, O., Schlemper, J., Folgoc, L.L., Lee, M., Heinrich, M., Misawa, K., Mori, K., McDonagh, S., Hammerla, N.Y., Kainz, B., Glocker, B., Rueckert, D.: Attention u-net: Learning where to look for the pancreas (2018)\n[15] He, K., Zhang, X., Ren, S., Sun, J.: Deep residual learning for image recognition (2015)\n[16] Huang, G., Liu, Z., van der Maaten, L., Weinberger, K.Q.: Densely connected convolutional networks (2016)\n[17] Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S.E., Anguelov, D., Erhan, D., Vanhoucke, V., Rabinovich, A.: Deep residual learning for image recognition (2014)\n[18] Zhou, Z., Siddiquee, M.M.R., Tajbakhsh, N., Liang, J.: Unet++: A nested u-net architecture for medical image segmentation (2018)\n[19] Hatamizadeh, A., Yang, D., Roth, H., Xu, D.: UNETR: Transformers for 3D Med- ical Image Segmentation (2021)\n[20] Zhu, Q., Du, B., Turkbey, B., Choyke, P.L.., Yan, P.: Deeply-supervised cnn for prostate segmentation (2017)",
+    "word_count": 301,
+    "metadata": {
+      "section": "References",
+      "start_ref": 10,
+      "end_ref": 20,
+      "reference_numbers": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_reference_0049_ec536c72",
+    "paper_id": "paper_011",
+    "chunk_type": "reference",
+    "order_index": 49,
+    "text": "[References [21]-[31]]\n[21] Ghiasi, G., Lin, T.Y., Le, Q.V.: Dropblock: A regularization method for convolu- tional networks (2018)\n[22] Cox, R., Ashburner, J., Breman, H., Fissell, K., Haselgrove, C., Holmes, C., Lan- caster, J., Rex, D., Smith, S., Woodward, J., Strother, S.: A (sort of) new image data format standard: NiFTI-1. vol. 22 (01 2004)\n[23] Kingma, D.P., Welling, M.: Auto-encoding variational bayes (2014)\n[24] Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., Houlsby, N.: An image is worth 16x16 words: Transformers for image recognition at scale (2021)\n[25] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., Polosukhin, I.: Attention is all you need (2017)\n[26] Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, Piotr Dollár: Focal Loss for Dense Object Detection. International Conference on Computer Vision (ICCV) (2017)\n[27] Fausto Milletari, Nassir Navab, Seyed-Ahmad Ahmadi: V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation. International Con- ference on 3D Vision (3DV) (2016)\n[28] Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killeen, T., Lin, Z., Gimelshein, N., Antiga, L., Desmaison, A., Kopf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L., Bai, J., Chintala, S.: Pytorch: An imperative style, high-performance deep learning library. In: Wallach, H., Larochelle, H., Beygelzimer, A., d'Alché-Buc, F., Fox, E., Garnett, R. (eds.) Advances in Neural Information Processing Systems 32, pp. 8024-8035.\n[29] Curran Associates, Inc. (2019), http://papers.neurips.cc/paper/ 9015-pytorch-an-imperative-style-high-performance-deep-learning-library. pdf\n[30] Micikevicius, P., Narang, S., Alben, J., Diamos, G., Elsen, E., Garcia, D., Ginsburg, B., Houston, M., Kuchaiev, O., Venkatesh, G., Wu, H.: Mixed precision training (2018)\n[31] Kingma, D.P., Ba, J.: Adam: A method for stochastic optimization (2017)",
+    "word_count": 295,
+    "metadata": {
+      "section": "References",
+      "start_ref": 21,
+      "end_ref": 31,
+      "reference_numbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_011_reference_0050_62daf251",
+    "paper_id": "paper_011",
+    "chunk_type": "reference",
+    "order_index": 50,
+    "text": "[References [32]-[320]]\n[32] Loshchilov, I., Hutter, F.: Sgdr: Stochastic gradient descent with warm restarts (2017)\n[33] He, K., Zhang, X., Ren, S., Sun, J.: Delving deep into rectifiers: Surpassing human- level performance on imagenet classification (2015)\n[34] Antonelli, M., Reinke, A., Bakas, S., Farahani, K., AnnetteKopp-Schneider, Land- man, B.A., Litjens, G., Menze, B., Ronneberger, O., Summers, R.M., van Gin- neken, B., Bilello, M., Bilic, P., Christ, P.F., Do, R.K.G., Gollub, M.J., Heckers, S.H., Huisman, H., Jarnagin, W.R., McHugo, M.K., Napel, S., Pernicka, J.S.G., Rhode, K., Tobon-Gomez, C., Vorontsov, E., Huisman, H., Meakin, J.A., Ourselin, S., Wiesenfarth, M., Arbelaez, P., Bae, B., Chen, S., Daza, L., Feng, J., He, B., Isensee, F., Ji, Y., Jia, F., Kim, N., Kim, I., Merhof, D., Pai, A., Park, B., Perslev, M., Rezaiifar, R., Rippel, O., Sarasua, I., Shen, W., Son, J., Wachinger, C., Wang, L., Wang, Y., Xia, Y., Xu, D., Xu, Z., Zheng, Y., Simpson, A.L., Maier-Hein, L., Cardoso, M.J.: The Medical Segmentation Decathlon (2021)\n[35] NVIDIA nnU-Net implementation. https://github.com/NVIDIA/ DeepLearningExamples/tree/master/PyTorch/Segmentation/nnUNet, accessed: 2021-09-30\n[132] Springer International Publishing, Cham (2021)\n[241] Springer International Publishing, Cham (2015)\n[320] Springer International Publishing, Cham (2019)",
+    "word_count": 188,
+    "metadata": {
+      "section": "References",
+      "start_ref": 32,
+      "end_ref": 320,
+      "reference_numbers": [
+        32,
+        33,
+        34,
+        35,
+        132,
+        241,
+        320
+      ]
+    }
+  }
+]

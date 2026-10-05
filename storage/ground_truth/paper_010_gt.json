@@ -1,0 +1,49 @@
+{
+  "paper_id": "paper_010",
+  "filename": "segmentation.pdf",
+  "metadata": {
+    "title": "Threshold Segmentation and Watershed Segmentation Algorithm for Brain Tumor Detection using Support Vector Machine",
+    "authors": ["Santhosh Kumar H S", "K. Karibasappa"],
+    "year": 2020,
+    "doi": null
+  },
+
+  "abstract": "Brain Tumor is a dangerous disease. The chance of the death is more in case of the brain tumor. The method of detection and classification of brain tumor is by human intervention with use of medical resonant brain images. MR Images may contain noise or blur caused by MRI operator performance which can lead to difficult in classification. We can apply effective segmentation techniques to partition the image and apply the classification technique. Support Vector machine is the best classification tool we identified as part of this work. The use Support Vector Machine show great potential in this field. SVM is a binary Classifier based on supervised learning which gives better result than other classifiers. SVM classifies between two classes by constructing hyper plane in high-dimensional feature space which can be used for classification.",
+
+  "figures": [
+    {
+      "label": "Figure 1",
+      "caption": " Proposed Model",
+      "page": 2
+    },
+    {
+      "label": "Figure 2",
+      "caption": "MRI input Image",
+      "page": 3
+    },
+    {
+      "label": "Figure 3",
+      "caption": "Threshold Segmentation",
+      "page": 3
+    },
+    {
+      "label": "Figure 4",
+      "caption": "Watershed Segmentation",
+      "page": 3
+    }
+  ],
+
+  "tables": [],
+
+  "counts": {
+    "numbered_figures": 4,
+    "numbered_tables": 0
+  },
+
+  "source_exceptions": [
+    {
+      "type": "",
+      "details": ""
+    }
+  ]
+}

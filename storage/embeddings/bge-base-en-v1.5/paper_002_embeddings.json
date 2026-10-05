@@ -2,12 +2,12 @@
   "schema_version": 2,
   "model_alias": "bge-base",
   "paper_id": "paper_002",
-  "created_at": "2026-09-28T17:35:11.547640+00:00",
-  "input_fingerprint": "e5dd233c6d5c3e8a6090faa34cd5af083dde3c3bdcf4de711eedcd5d5249372f",
+  "created_at": "2026-10-05T14:58:29.425338+00:00",
+  "input_fingerprint": "9533074f1b2a7642ae8ee763a8527419a3660f6ee83f01fd5b1a100cd1a067c0",
   "source": {
     "file": "storage\\chunks\\paper_002_chunks.json",
-    "sha256": "70d34edbc0673036c348c1a3f96b40a3a8713a457cb8a7502fe4e8aa205ceb8e",
-    "chunk_count": 144
+    "sha256": "eff146c6d5c0dcddd553e4b7bd2d776af6164e88b9049a9f7df1dc7290269fe1",
+    "chunk_count": 150
   },
   "embedding": {
     "model_name": "BAAI/bge-base-en-v1.5",
@@ -39,8 +39,8 @@
       "index_terms",
       "table_caption"
     ],
-    "selected_chunk_count": 84,
-    "embedded_segment_count": 84,
+    "selected_chunk_count": 90,
+    "embedded_segment_count": 90,
     "oversized_chunk_count": 0,
     "excluded_counts": {
       "heading": 46,
@@ -49,10 +49,10 @@
   },
   "vectors": {
     "file": "paper_002_embeddings.npz",
-    "sha256": "dd9b5c6730a09f6c645e4fd4f73a196f51b902c4e37326fa937055618a2722c0",
+    "sha256": "361eb733c196cf33ecc18db62fbd69a4d8d93970ca852b105e047cf60aab678e",
     "dtype": "float32",
     "shape": [
-      84,
+      90,
       768
     ],
     "normalized": true
@@ -480,50 +480,12 @@
       "text_sha256": "0ea9c9f5a369ebcfcaa719a38a5e9936ca64ba73fc8e4ca0da30fc84c457bc00"
     },
     {
-      "segment_id": "paper_002_body_0011_893bf431::segment_0000",
-      "chunk_id": "paper_002_body_0011_893bf431",
+      "segment_id": "paper_002_body_0012_649ea57f::segment_0000",
+      "chunk_id": "paper_002_body_0012_649ea57f",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 11,
-      "source_index": 11,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 77,
-      "token_count": 77,
-      "text": "modern ai models for brain tumor classification predominantly fall into two categories : ml algorithms and dl architectures. various common ml techniques employed for brain tumor detection include random forest ( rf ) and support vector machines ( svm ), and k - nearest neighbors ( knn ), while dl approaches employ cnns, residual networks ( resnets ), rnns, and models based on transformers.",
-      "metadata": {
-        "section": "Various DL and ML Models for Brain Tumors",
-        "section_path": [
-          "Various DL and ML Models for Brain Tumors"
-        ],
-        "subsection_id": "paper_002_subsection_809504d4f980",
-        "pages": [
-          3
-        ],
-        "paragraph_ids": [
-          "para_0020"
-        ],
-        "coordinates": [
-          {
-            "page": 3,
-            "x": 306.141693115,
-            "y": 80.91192341907686,
-            "w": 240.61700004577966,
-            "h": 108.57418070592314,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "3193d80f8a96c547359023ab4b16711068f4118b64d7158e90404f02bfa3d127"
-    },
-    {
-      "segment_id": "paper_002_body_0013_649ea57f::segment_0000",
-      "chunk_id": "paper_002_body_0013_649ea57f",
-      "paper_id": "paper_002",
-      "chunk_type": "body",
-      "order_index": 13,
-      "source_index": 13,
+      "order_index": 12,
+      "source_index": 12,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -540,10 +502,10 @@
           4
         ],
         "paragraph_ids": [
+          "para_0020",
           "para_0021",
           "para_0022",
-          "para_0023",
-          "para_0024"
+          "para_0023"
         ],
         "coordinates": [
           {
@@ -583,12 +545,12 @@
       "text_sha256": "b85a2d829b274d2f94bc585debf40bac73a6af4c6fb5396efd609b15e46523da"
     },
     {
-      "segment_id": "paper_002_body_0014_a401cdad::segment_0000",
-      "chunk_id": "paper_002_body_0014_a401cdad",
+      "segment_id": "paper_002_body_0013_a401cdad::segment_0000",
+      "chunk_id": "paper_002_body_0013_a401cdad",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 14,
-      "source_index": 14,
+      "order_index": 13,
+      "source_index": 13,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -605,7 +567,7 @@
           4
         ],
         "paragraph_ids": [
-          "para_0025"
+          "para_0024"
         ],
         "coordinates": [
           {
@@ -621,12 +583,12 @@
       "text_sha256": "7eddcb69636567895f2cea20aed610f0721810b42f37f12508a3cec12529ecc2"
     },
     {
-      "segment_id": "paper_002_body_0016_70669236::segment_0000",
-      "chunk_id": "paper_002_body_0016_70669236",
+      "segment_id": "paper_002_body_0015_70669236::segment_0000",
+      "chunk_id": "paper_002_body_0015_70669236",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 16,
-      "source_index": 16,
+      "order_index": 15,
+      "source_index": 15,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -643,8 +605,8 @@
           4
         ],
         "paragraph_ids": [
-          "para_0026",
-          "para_0027"
+          "para_0025",
+          "para_0026"
         ],
         "coordinates": [
           {
@@ -668,12 +630,12 @@
       "text_sha256": "6f93e50fea5508adcb7f5d7b30a49aa516472cf05661fb842519f9aa89acdbbd"
     },
     {
-      "segment_id": "paper_002_body_0018_5232f565::segment_0000",
-      "chunk_id": "paper_002_body_0018_5232f565",
+      "segment_id": "paper_002_body_0017_5232f565::segment_0000",
+      "chunk_id": "paper_002_body_0017_5232f565",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 18,
-      "source_index": 18,
+      "order_index": 17,
+      "source_index": 17,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -690,7 +652,7 @@
           4
         ],
         "paragraph_ids": [
-          "para_0028"
+          "para_0027"
         ],
         "coordinates": [
           {
@@ -706,12 +668,12 @@
       "text_sha256": "dc47e4f87cff1ac405c8b228b4f99c9ad55d01cc7fbc1ddea49d2c0b64868853"
     },
     {
-      "segment_id": "paper_002_body_0019_3dec3bda::segment_0000",
-      "chunk_id": "paper_002_body_0019_3dec3bda",
+      "segment_id": "paper_002_body_0018_3dec3bda::segment_0000",
+      "chunk_id": "paper_002_body_0018_3dec3bda",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 19,
-      "source_index": 19,
+      "order_index": 18,
+      "source_index": 18,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -728,8 +690,8 @@
           4
         ],
         "paragraph_ids": [
-          "para_0029",
-          "para_0030"
+          "para_0028",
+          "para_0029"
         ],
         "coordinates": [
           {
@@ -745,12 +707,12 @@
       "text_sha256": "c57a84b342c5f7c96437302933b2d24af48cb4fbe8ebf6b02d536fb3bab7ee1a"
     },
     {
-      "segment_id": "paper_002_body_0020_32ca40cd::segment_0000",
-      "chunk_id": "paper_002_body_0020_32ca40cd",
+      "segment_id": "paper_002_body_0019_32ca40cd::segment_0000",
+      "chunk_id": "paper_002_body_0019_32ca40cd",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 20,
-      "source_index": 20,
+      "order_index": 19,
+      "source_index": 19,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -767,8 +729,8 @@
           5
         ],
         "paragraph_ids": [
-          "para_0031",
-          "para_0032"
+          "para_0030",
+          "para_0031"
         ],
         "coordinates": [
           {
@@ -792,12 +754,12 @@
       "text_sha256": "41a2ebaf6ac7606375b6dd1d6677d7321ced910d882c4086614c4a74dd7bff74"
     },
     {
-      "segment_id": "paper_002_body_0022_3b438283::segment_0000",
-      "chunk_id": "paper_002_body_0022_3b438283",
+      "segment_id": "paper_002_body_0021_3b438283::segment_0000",
+      "chunk_id": "paper_002_body_0021_3b438283",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 22,
-      "source_index": 22,
+      "order_index": 21,
+      "source_index": 21,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -814,7 +776,7 @@
           5
         ],
         "paragraph_ids": [
-          "para_0033"
+          "para_0032"
         ],
         "coordinates": [
           {
@@ -830,12 +792,12 @@
       "text_sha256": "f4129923d5fd74e70bdbe167533e34be9e4fac1ce0ca73dc52fede021cd60b53"
     },
     {
-      "segment_id": "paper_002_body_0023_e1ccd623::segment_0000",
-      "chunk_id": "paper_002_body_0023_e1ccd623",
+      "segment_id": "paper_002_body_0022_e1ccd623::segment_0000",
+      "chunk_id": "paper_002_body_0022_e1ccd623",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 23,
-      "source_index": 23,
+      "order_index": 22,
+      "source_index": 22,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -852,8 +814,8 @@
           5
         ],
         "paragraph_ids": [
-          "para_0034",
-          "para_0035"
+          "para_0033",
+          "para_0034"
         ],
         "coordinates": [
           {
@@ -877,12 +839,12 @@
       "text_sha256": "ea4305c318ebc9bc91865e61f1eda3612ce12e07408440fcfb564884b83cfdeb"
     },
     {
-      "segment_id": "paper_002_body_0025_3838b4a7::segment_0000",
-      "chunk_id": "paper_002_body_0025_3838b4a7",
+      "segment_id": "paper_002_body_0024_3838b4a7::segment_0000",
+      "chunk_id": "paper_002_body_0024_3838b4a7",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 25,
-      "source_index": 25,
+      "order_index": 24,
+      "source_index": 24,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -899,7 +861,7 @@
           5
         ],
         "paragraph_ids": [
-          "para_0037"
+          "para_0036"
         ],
         "coordinates": [
           {
@@ -913,6 +875,44 @@
         ]
       },
       "text_sha256": "1f6e951719e58b0bed5a51256252ffbf7bd2d880d0f0dd3c64dbea81e620eb4a"
+    },
+    {
+      "segment_id": "paper_002_body_0025_893bf431::segment_0000",
+      "chunk_id": "paper_002_body_0025_893bf431",
+      "paper_id": "paper_002",
+      "chunk_type": "body",
+      "order_index": 25,
+      "source_index": 25,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 77,
+      "token_count": 77,
+      "text": "modern ai models for brain tumor classification predominantly fall into two categories : ml algorithms and dl architectures. various common ml techniques employed for brain tumor detection include random forest ( rf ) and support vector machines ( svm ), and k - nearest neighbors ( knn ), while dl approaches employ cnns, residual networks ( resnets ), rnns, and models based on transformers.",
+      "metadata": {
+        "section": "Various DL and ML Models for Brain Tumors",
+        "section_path": [
+          "Various DL and ML Models for Brain Tumors"
+        ],
+        "subsection_id": "paper_002_subsection_809504d4f980",
+        "pages": [
+          3
+        ],
+        "paragraph_ids": [
+          "para_0037"
+        ],
+        "coordinates": [
+          {
+            "page": 3,
+            "x": 306.141693115,
+            "y": 80.91192341907686,
+            "w": 240.61700004577966,
+            "h": 108.57418070592314,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "3193d80f8a96c547359023ab4b16711068f4118b64d7158e90404f02bfa3d127"
     },
     {
       "segment_id": "paper_002_body_0027_0253fb96::segment_0000",
@@ -953,88 +953,12 @@
       "text_sha256": "72a54b81d6d5a8ba40f2faf9a789c9e087db73ec8c5b3bbeca9183a32826df53"
     },
     {
-      "segment_id": "paper_002_body_0028_d7825ef4::segment_0000",
-      "chunk_id": "paper_002_body_0028_d7825ef4",
+      "segment_id": "paper_002_body_0028_2a7658ce::segment_0000",
+      "chunk_id": "paper_002_body_0028_2a7658ce",
       "paper_id": "paper_002",
       "chunk_type": "body",
       "order_index": 28,
       "source_index": 28,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 48,
-      "token_count": 48,
-      "text": "the performance of dl models in brain tumor detection largely depends on the availability of high quality, accurately labeled data. numerous publicly available datasets now serve as standard benchmarks, enabling reproducible research and promoting collaboration within the scientific community.",
-      "metadata": {
-        "section": "Datasets and Preprocessing Techniques for Brain Tumor",
-        "section_path": [
-          "Datasets and Preprocessing Techniques for Brain Tumor"
-        ],
-        "subsection_id": "paper_002_subsection_7dff5d7f6cfe",
-        "pages": [
-          5
-        ],
-        "paragraph_ids": [
-          "para_0039"
-        ],
-        "coordinates": [
-          {
-            "page": 5,
-            "x": 306.141693115,
-            "y": 330.9119157900769,
-            "w": 240.6275925442597,
-            "h": 71.0741730769231,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "6ac034752a7407502dbb567d9df6ff9a588e197363d2988468a79af175cd866d"
-    },
-    {
-      "segment_id": "paper_002_body_0030_90a4e8ba::segment_0000",
-      "chunk_id": "paper_002_body_0030_90a4e8ba",
-      "paper_id": "paper_002",
-      "chunk_type": "body",
-      "order_index": 30,
-      "source_index": 30,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 31,
-      "token_count": 31,
-      "text": "several datasets have significantly contributed to the advancement of ai - based brain tumor classification. the following datasets are mostly utilized in brain tumor detection :",
-      "metadata": {
-        "section": "Datasets",
-        "section_path": [
-          "Datasets"
-        ],
-        "subsection_id": "paper_002_subsection_e9faf7b714ee",
-        "pages": [
-          5
-        ],
-        "paragraph_ids": [
-          "para_0040"
-        ],
-        "coordinates": [
-          {
-            "page": 5,
-            "x": 306.141693115,
-            "y": 243.4119310480769,
-            "w": 240.61799987789976,
-            "h": 46.074157818923084,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "1e2608680236de6c791bb91b2fb4c027ff492d7b16b9d843f3c9c46fa85b07b1"
-    },
-    {
-      "segment_id": "paper_002_body_0031_2a7658ce::segment_0000",
-      "chunk_id": "paper_002_body_0031_2a7658ce",
-      "paper_id": "paper_002",
-      "chunk_type": "body",
-      "order_index": 31,
-      "source_index": 31,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1052,8 +976,8 @@
           6
         ],
         "paragraph_ids": [
-          "para_0041",
-          "para_0042"
+          "para_0039",
+          "para_0040"
         ],
         "coordinates": [
           {
@@ -1085,12 +1009,12 @@
       "text_sha256": "3e7dd08da56e63ed8a72f56ffa76f9a657295a1d2b20d570f1c3bee9daadcc75"
     },
     {
-      "segment_id": "paper_002_body_0033_1adee294::segment_0000",
-      "chunk_id": "paper_002_body_0033_1adee294",
+      "segment_id": "paper_002_body_0030_1adee294::segment_0000",
+      "chunk_id": "paper_002_body_0030_1adee294",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 33,
-      "source_index": 33,
+      "order_index": 30,
+      "source_index": 30,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1107,7 +1031,7 @@
           7
         ],
         "paragraph_ids": [
-          "para_0043"
+          "para_0041"
         ],
         "coordinates": [
           {
@@ -1123,12 +1047,12 @@
       "text_sha256": "3b0d988ab5225c9055434518179166743fbbcd44d5a41486db9435d926c43af9"
     },
     {
-      "segment_id": "paper_002_body_0034_2bb5a519::segment_0000",
-      "chunk_id": "paper_002_body_0034_2bb5a519",
+      "segment_id": "paper_002_body_0031_2bb5a519::segment_0000",
+      "chunk_id": "paper_002_body_0031_2bb5a519",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 34,
-      "source_index": 34,
+      "order_index": 31,
+      "source_index": 31,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1145,7 +1069,7 @@
           7
         ],
         "paragraph_ids": [
-          "para_0044"
+          "para_0042"
         ],
         "coordinates": [
           {
@@ -1169,12 +1093,12 @@
       "text_sha256": "2b46290a742e3064be4fa459c9d6985855e17a9ca53521acace47a67d127d6ca"
     },
     {
-      "segment_id": "paper_002_body_0035_bf10b89c::segment_0000",
-      "chunk_id": "paper_002_body_0035_bf10b89c",
+      "segment_id": "paper_002_body_0032_bf10b89c::segment_0000",
+      "chunk_id": "paper_002_body_0032_bf10b89c",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 35,
-      "source_index": 35,
+      "order_index": 32,
+      "source_index": 32,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1191,8 +1115,8 @@
           7
         ],
         "paragraph_ids": [
-          "para_0045",
-          "para_0046"
+          "para_0043",
+          "para_0044"
         ],
         "coordinates": [
           {
@@ -1224,18 +1148,18 @@
       "text_sha256": "9769b422a8e1fc0afe01a166dfd741d6f95325ae7043fb8729149d32b06778b3"
     },
     {
-      "segment_id": "paper_002_body_0037_e31e5baf::segment_0000",
-      "chunk_id": "paper_002_body_0037_e31e5baf",
+      "segment_id": "paper_002_body_0034_33bad23f::segment_0000",
+      "chunk_id": "paper_002_body_0034_33bad23f",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 37,
-      "source_index": 37,
+      "order_index": 34,
+      "source_index": 34,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 229,
-      "token_count": 229,
-      "text": "1. intensity normalization : is a pre - processing step that adjusts the scale of data features to a uniform range, ensuring they are comparable with one another. mri intensities lack a standardized scale, necessitating normalization to ensure consistent input to dl models. there are various intensity normalization techniques have been employed. z - score normalization : standardizing intensity values to have zero mean and unit variance, as implemented by isensee et al. [ 47 ]. shah et al. [ 48 ] normalized each mri volume to zero mean and unit variance, improving classification accuracy by 2. 8 %. min - max scaling : rescaling intensities to a fixed range, typically [ 0, 1 ], to improve models ' training stability. histogram matching : aligning intensity distributions across different scans. isensee et al. [ 49 ] data diversity and enhance model robustness, and data shuffling to avoid leakage and improve prediction. therefore, applying appropriate preprocessing techniques is crucial for achieving high performance in ai models. fig. 8 representative sample images for the rider neuro mri dataset",
+      "token_end": 277,
+      "token_count": 277,
+      "text": "1. intensity normalization : is a pre - processing step that adjusts the scale of data features to a uniform range, ensuring they are comparable with one another. mri intensities lack a standardized scale, necessitating normalization to ensure consistent input to dl models. there are various intensity normalization techniques have been employed. z - score normalization : standardizing intensity values to have zero mean and unit variance, as implemented by isensee et al. [ 47 ]. shah et al. [ 48 ] normalized each mri volume to zero mean and unit variance, improving classification accuracy by 2. 8 %. min - max scaling : rescaling intensities to a fixed range, typically [ 0, 1 ], to improve models ' training stability. histogram matching : aligning intensity distributions across different scans. isensee et al. [ 49 ] data diversity and enhance model robustness, and data shuffling to avoid leakage and improve prediction. therefore, applying appropriate preprocessing techniques is crucial for achieving high performance in ai models. fig. 8 representative sample images for the rider neuro mri dataset the preprocessing techniques play a crucial role in enhancing the performance of dl models for brain tumor classification. preprocessing is critical for standardizing inputs and enhancing discriminative features. common preprocessing steps include :",
       "metadata": {
         "section": "Preprocessing Techniques",
         "section_path": [
@@ -1246,7 +1170,8 @@
           8
         ],
         "paragraph_ids": [
-          "para_0047"
+          "para_0045",
+          "para_0046"
         ],
         "coordinates": [
           {
@@ -1256,35 +1181,43 @@
             "w": 242.78529953100002,
             "h": 7.390047115384618,
             "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 8,
+            "x": 306.141693115,
+            "y": 280.9119157900769,
+            "w": 240.6199999999996,
+            "h": 58.5741730769231,
+            "coord_origin": "BOTTOMLEFT"
           }
         ]
       },
-      "text_sha256": "e191ebe5c419c93de1900019b177b9ce0bc23a41ff4b3d8baab5b31acf8043a3"
+      "text_sha256": "6eab9d65ebaa5ef2cf3ace1caee7c8a699b4c604e988ffe4836fc7b7f8198aec"
     },
     {
-      "segment_id": "paper_002_body_0038_d5dad0c1::segment_0000",
-      "chunk_id": "paper_002_body_0038_d5dad0c1",
+      "segment_id": "paper_002_body_0036_8b0a5f3e::segment_0000",
+      "chunk_id": "paper_002_body_0036_8b0a5f3e",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 38,
-      "source_index": 38,
+      "order_index": 36,
+      "source_index": 36,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 324,
-      "token_count": 324,
-      "text": "the preprocessing techniques play a crucial role in enhancing the performance of dl models for brain tumor classification. preprocessing is critical for standardizing inputs and enhancing discriminative features. common preprocessing steps include : found that z - score normalization performed well for brain tumor segmentation when applied independently to each mri sequence. adjusting the histogram of each image to match a reference histogram, as used by bakas et al. [ 41 ]. nyul et al. [ 50 ] applied landmark - based histogram matching to standardize intensity distributions across different scanners. bias field correction : correcting intensity non - uniformities caused by magnetic field inhomogeneities, as applied by kamnitsas et al. [ 51 ]. tustison et al. [ 52 ] applied the n4itk algorithm to correct for intensity inhomogeneities, improving segmentation accuracy by 3. 2 %. 2. data augmentation : is a technique used to artificially expand training datasets by employing different transformations to the existing data. given the limited size of most brain tumor datasets, data augmentation is crucial to prevent overfitting and improve generalization. to address limited sample sizes, various data augmentation techniques have been employed. geometric transformations : rotation, scaling, flipping, elastic deformations. including rotation, flipping, scaling, and elastic deformations [ 53 ] to increase the dataset size. intensity transformations : such as brightness / contrast adjustments, gamma correction, and gaussian noise addition [ 54 ].",
+      "token_end": 276,
+      "token_count": 276,
+      "text": "found that z - score normalization performed well for brain tumor segmentation when applied independently to each mri sequence. adjusting the histogram of each image to match a reference histogram, as used by bakas et al. [ 41 ]. nyul et al. [ 50 ] applied landmark - based histogram matching to standardize intensity distributions across different scanners. bias field correction : correcting intensity non - uniformities caused by magnetic field inhomogeneities, as applied by kamnitsas et al. [ 51 ]. tustison et al. [ 52 ] applied the n4itk algorithm to correct for intensity inhomogeneities, improving segmentation accuracy by 3. 2 %. 2. data augmentation : is a technique used to artificially expand training datasets by employing different transformations to the existing data. given the limited size of most brain tumor datasets, data augmentation is crucial to prevent overfitting and improve generalization. to address limited sample sizes, various data augmentation techniques have been employed. geometric transformations : rotation, scaling, flipping, elastic deformations. including rotation, flipping, scaling, and elastic deformations [ 53 ] to increase the dataset size. intensity transformations : such as brightness / contrast adjustments, gamma correction, and gaussian noise addition [ 54 ].",
       "metadata": {
-        "section": "Preprocessing Techniques",
+        "section": "Recent Studies in Brain Tumor Detection",
         "section_path": [
-          "Preprocessing Techniques"
+          "Recent Studies in Brain Tumor Detection"
         ],
-        "subsection_id": "paper_002_subsection_43eb7129581e",
+        "subsection_id": "paper_002_subsection_b73810b59c87",
         "pages": [
           9
         ],
         "paragraph_ids": [
-          "para_0048"
+          "para_0047"
         ],
         "coordinates": [
           {
@@ -1297,15 +1230,53 @@
           }
         ]
       },
-      "text_sha256": "d529d6fb91cb1d572f36c08a18bbf21f88e9c500d6ebe5919fd9a7ca5004fdde"
+      "text_sha256": "c176a4d8957f89136aaf79d171acae554fa105ef5f2e92b40ab4ba196c76d074"
     },
     {
-      "segment_id": "paper_002_body_0040_bb0c1b92::segment_0000",
-      "chunk_id": "paper_002_body_0040_bb0c1b92",
+      "segment_id": "paper_002_body_0037_d7825ef4::segment_0000",
+      "chunk_id": "paper_002_body_0037_d7825ef4",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 40,
-      "source_index": 40,
+      "order_index": 37,
+      "source_index": 37,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 48,
+      "token_count": 48,
+      "text": "the performance of dl models in brain tumor detection largely depends on the availability of high quality, accurately labeled data. numerous publicly available datasets now serve as standard benchmarks, enabling reproducible research and promoting collaboration within the scientific community.",
+      "metadata": {
+        "section": "Datasets and Preprocessing Techniques for Brain Tumor",
+        "section_path": [
+          "Datasets and Preprocessing Techniques for Brain Tumor"
+        ],
+        "subsection_id": "paper_002_subsection_7dff5d7f6cfe",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0048"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 306.141693115,
+            "y": 330.9119157900769,
+            "w": 240.6275925442597,
+            "h": 71.0741730769231,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "6ac034752a7407502dbb567d9df6ff9a588e197363d2988468a79af175cd866d"
+    },
+    {
+      "segment_id": "paper_002_body_0038_bb0c1b92::segment_0000",
+      "chunk_id": "paper_002_body_0038_bb0c1b92",
+      "paper_id": "paper_002",
+      "chunk_type": "body",
+      "order_index": 38,
+      "source_index": 38,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1356,12 +1327,12 @@
       "text_sha256": "1630eaa66db5addb3fdeb483bec11d329e7b7d6a48bc4a7c7ab4cf39e4de690f"
     },
     {
-      "segment_id": "paper_002_body_0041_caf12f2f::segment_0000",
-      "chunk_id": "paper_002_body_0041_caf12f2f",
+      "segment_id": "paper_002_body_0039_caf12f2f::segment_0000",
+      "chunk_id": "paper_002_body_0039_caf12f2f",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 41,
-      "source_index": 41,
+      "order_index": 39,
+      "source_index": 39,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1394,12 +1365,12 @@
       "text_sha256": "95c8eb0aecce75207f6c0009837160a268bd75340694c9e40e278b9fe0351c77"
     },
     {
-      "segment_id": "paper_002_body_0042_a28d396a::segment_0000",
-      "chunk_id": "paper_002_body_0042_a28d396a",
+      "segment_id": "paper_002_body_0040_a28d396a::segment_0000",
+      "chunk_id": "paper_002_body_0040_a28d396a",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 42,
-      "source_index": 42,
+      "order_index": 40,
+      "source_index": 40,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1440,12 +1411,12 @@
       "text_sha256": "e3e39e2bc6004be1fc1761f8ac892ef3b6574831b2565052599b6677ba6ac8e5"
     },
     {
-      "segment_id": "paper_002_body_0044_a2103b7d::segment_0000",
-      "chunk_id": "paper_002_body_0044_a2103b7d",
+      "segment_id": "paper_002_body_0042_a2103b7d::segment_0000",
+      "chunk_id": "paper_002_body_0042_a2103b7d",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 44,
-      "source_index": 44,
+      "order_index": 42,
+      "source_index": 42,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1532,12 +1503,12 @@
       "text_sha256": "aef63d41e46f122a143d84582513c65e9baf99502fa43b367eb8f3e6cc734638"
     },
     {
-      "segment_id": "paper_002_body_0046_a96a9b33::segment_0000",
-      "chunk_id": "paper_002_body_0046_a96a9b33",
+      "segment_id": "paper_002_body_0044_a96a9b33::segment_0000",
+      "chunk_id": "paper_002_body_0044_a96a9b33",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 46,
-      "source_index": 46,
+      "order_index": 44,
+      "source_index": 44,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1559,12 +1530,12 @@
       "text_sha256": "d2f5e6ea962c89f189e8daebb4cbdcea3f192f3b0301d8f17e43ab8b9287dd89"
     },
     {
-      "segment_id": "paper_002_body_0048_611e9d97::segment_0000",
-      "chunk_id": "paper_002_body_0048_611e9d97",
+      "segment_id": "paper_002_body_0046_611e9d97::segment_0000",
+      "chunk_id": "paper_002_body_0046_611e9d97",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 48,
-      "source_index": 48,
+      "order_index": 46,
+      "source_index": 46,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1615,12 +1586,12 @@
       "text_sha256": "e802d0c7ea31ea855de9add24b88ab80eaa16af72af308bc69e05858e4add9fd"
     },
     {
-      "segment_id": "paper_002_body_0049_fc8ef8ba::segment_0000",
-      "chunk_id": "paper_002_body_0049_fc8ef8ba",
+      "segment_id": "paper_002_body_0047_fc8ef8ba::segment_0000",
+      "chunk_id": "paper_002_body_0047_fc8ef8ba",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 49,
-      "source_index": 49,
+      "order_index": 47,
+      "source_index": 47,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1635,19 +1606,19 @@
         "subsection_id": "paper_002_subsection_5e2c614c23f0",
         "pages": [],
         "paragraph_ids": [
-          "para_0064"
+          "para_0065"
         ],
         "coordinates": []
       },
       "text_sha256": "46375dee434a50e22a3093981b0834e868e3a7623721897dd79c012f3ba6927c"
     },
     {
-      "segment_id": "paper_002_body_0050_12507959::segment_0000",
-      "chunk_id": "paper_002_body_0050_12507959",
+      "segment_id": "paper_002_body_0048_12507959::segment_0000",
+      "chunk_id": "paper_002_body_0048_12507959",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 50,
-      "source_index": 50,
+      "order_index": 48,
+      "source_index": 48,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1680,12 +1651,12 @@
       "text_sha256": "542a6ba82ef69d268ae37bdd5e353e16385262942aa84aed6b412f0b325737fb"
     },
     {
-      "segment_id": "paper_002_body_0052_0d22fd78::segment_0000",
-      "chunk_id": "paper_002_body_0052_0d22fd78",
+      "segment_id": "paper_002_body_0050_0d22fd78::segment_0000",
+      "chunk_id": "paper_002_body_0050_0d22fd78",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 52,
-      "source_index": 52,
+      "order_index": 50,
+      "source_index": 50,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1744,12 +1715,12 @@
       "text_sha256": "7d03c2aaa211f71be4ae4df38d4c7571533817d2f6dcb48f0b3b735dd5b8076a"
     },
     {
-      "segment_id": "paper_002_body_0054_37f2edba::segment_0000",
-      "chunk_id": "paper_002_body_0054_37f2edba",
+      "segment_id": "paper_002_body_0052_37f2edba::segment_0000",
+      "chunk_id": "paper_002_body_0052_37f2edba",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 54,
-      "source_index": 54,
+      "order_index": 52,
+      "source_index": 52,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1790,12 +1761,12 @@
       "text_sha256": "c1e81537bd20be15513716d63014dd99097da210664afbec1a2066d0b1be20b0"
     },
     {
-      "segment_id": "paper_002_body_0055_e135c20d::segment_0000",
-      "chunk_id": "paper_002_body_0055_e135c20d",
+      "segment_id": "paper_002_body_0053_e135c20d::segment_0000",
+      "chunk_id": "paper_002_body_0053_e135c20d",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 55,
-      "source_index": 55,
+      "order_index": 53,
+      "source_index": 53,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1980,12 +1951,12 @@
       "text_sha256": "24e7bb1b033f040733c102026e8610e78eb89bd72fd14b2174bc175ccc1eec45"
     },
     {
-      "segment_id": "paper_002_body_0057_c68c6763::segment_0000",
-      "chunk_id": "paper_002_body_0057_c68c6763",
+      "segment_id": "paper_002_body_0055_c68c6763::segment_0000",
+      "chunk_id": "paper_002_body_0055_c68c6763",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 57,
-      "source_index": 57,
+      "order_index": 55,
+      "source_index": 55,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2027,12 +1998,12 @@
       "text_sha256": "c178272aad211458fa501e8c068a8d299245e3b9e3545a46cc6d9a5e79074ed3"
     },
     {
-      "segment_id": "paper_002_body_0059_2c3a8b24::segment_0000",
-      "chunk_id": "paper_002_body_0059_2c3a8b24",
+      "segment_id": "paper_002_body_0057_2c3a8b24::segment_0000",
+      "chunk_id": "paper_002_body_0057_2c3a8b24",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 59,
-      "source_index": 59,
+      "order_index": 57,
+      "source_index": 57,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2074,12 +2045,12 @@
       "text_sha256": "20d2c967a417b333f99e4a02ea07fd2b4f1836c28a6fcc3aa917f416bc83457d"
     },
     {
-      "segment_id": "paper_002_body_0061_81921038::segment_0000",
-      "chunk_id": "paper_002_body_0061_81921038",
+      "segment_id": "paper_002_body_0059_81921038::segment_0000",
+      "chunk_id": "paper_002_body_0059_81921038",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 61,
-      "source_index": 61,
+      "order_index": 59,
+      "source_index": 59,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2120,12 +2091,12 @@
       "text_sha256": "f3b356f00f5b8953acbcdfd3a63e981cfbe03015da431bc69879c09992d1bb79"
     },
     {
-      "segment_id": "paper_002_body_0063_6cf51e35::segment_0000",
-      "chunk_id": "paper_002_body_0063_6cf51e35",
+      "segment_id": "paper_002_body_0061_6cf51e35::segment_0000",
+      "chunk_id": "paper_002_body_0061_6cf51e35",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 63,
-      "source_index": 63,
+      "order_index": 61,
+      "source_index": 61,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2159,12 +2130,12 @@
       "text_sha256": "e10f839cf1e631621955854759eacb1f39e55b87f630f42600d864683714d762"
     },
     {
-      "segment_id": "paper_002_body_0065_a0508054::segment_0000",
-      "chunk_id": "paper_002_body_0065_a0508054",
+      "segment_id": "paper_002_body_0063_a0508054::segment_0000",
+      "chunk_id": "paper_002_body_0063_a0508054",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 65,
-      "source_index": 65,
+      "order_index": 63,
+      "source_index": 63,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2197,12 +2168,12 @@
       "text_sha256": "d76b3e5534406a22708317d9ea1f36041acb61d91955a293026d64ba62788572"
     },
     {
-      "segment_id": "paper_002_body_0067_210e6e6e::segment_0000",
-      "chunk_id": "paper_002_body_0067_210e6e6e",
+      "segment_id": "paper_002_body_0065_210e6e6e::segment_0000",
+      "chunk_id": "paper_002_body_0065_210e6e6e",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 67,
-      "source_index": 67,
+      "order_index": 65,
+      "source_index": 65,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2253,12 +2224,12 @@
       "text_sha256": "3792be82144b8c072094cf23ebcd2cd2a221099e6c912b67ad97df78161828f7"
     },
     {
-      "segment_id": "paper_002_body_0069_36e1e25b::segment_0000",
-      "chunk_id": "paper_002_body_0069_36e1e25b",
+      "segment_id": "paper_002_body_0067_36e1e25b::segment_0000",
+      "chunk_id": "paper_002_body_0067_36e1e25b",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 69,
-      "source_index": 69,
+      "order_index": 67,
+      "source_index": 67,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2299,12 +2270,12 @@
       "text_sha256": "abfd4a6bd495294e890c18f8e0f94aa8046da74b8099cab41c822d9d0506b3bc"
     },
     {
-      "segment_id": "paper_002_body_0071_ac781c77::segment_0000",
-      "chunk_id": "paper_002_body_0071_ac781c77",
+      "segment_id": "paper_002_body_0069_ac781c77::segment_0000",
+      "chunk_id": "paper_002_body_0069_ac781c77",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 71,
-      "source_index": 71,
+      "order_index": 69,
+      "source_index": 69,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2337,12 +2308,12 @@
       "text_sha256": "c2ca18efcd3f2897180924a7cfe2e316353cfb31ce9576efb09beefa5d0f8574"
     },
     {
-      "segment_id": "paper_002_body_0073_0a182e5e::segment_0000",
-      "chunk_id": "paper_002_body_0073_0a182e5e",
+      "segment_id": "paper_002_body_0071_0a182e5e::segment_0000",
+      "chunk_id": "paper_002_body_0071_0a182e5e",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 73,
-      "source_index": 73,
+      "order_index": 71,
+      "source_index": 71,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2375,12 +2346,12 @@
       "text_sha256": "32e62d89eac036cbf6de93d9b02a0e8319d19a82a81fdfcf85a0ec164a0f9ea0"
     },
     {
-      "segment_id": "paper_002_body_0075_4b99fe10::segment_0000",
-      "chunk_id": "paper_002_body_0075_4b99fe10",
+      "segment_id": "paper_002_body_0073_4b99fe10::segment_0000",
+      "chunk_id": "paper_002_body_0073_4b99fe10",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 75,
-      "source_index": 75,
+      "order_index": 73,
+      "source_index": 73,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2413,12 +2384,12 @@
       "text_sha256": "45c169717493945e56951b5633cb5ef335049e0d14422bc34849d01f2c78ceed"
     },
     {
-      "segment_id": "paper_002_body_0077_e1848208::segment_0000",
-      "chunk_id": "paper_002_body_0077_e1848208",
+      "segment_id": "paper_002_body_0075_e1848208::segment_0000",
+      "chunk_id": "paper_002_body_0075_e1848208",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 77,
-      "source_index": 77,
+      "order_index": 75,
+      "source_index": 75,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2461,12 +2432,12 @@
       "text_sha256": "69adaba0a2acf5cc0d2996405d9d2d1eafd4dbd6f5e9e9d6c7712acce6c96c09"
     },
     {
-      "segment_id": "paper_002_body_0078_2ef35ee9::segment_0000",
-      "chunk_id": "paper_002_body_0078_2ef35ee9",
+      "segment_id": "paper_002_body_0076_2ef35ee9::segment_0000",
+      "chunk_id": "paper_002_body_0076_2ef35ee9",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 78,
-      "source_index": 78,
+      "order_index": 76,
+      "source_index": 76,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2499,12 +2470,12 @@
       "text_sha256": "d5ff669ae24e376ef61e6a7cd2dfe05f274862ef450ddc9ea0c7d76e093ce01f"
     },
     {
-      "segment_id": "paper_002_body_0080_d0b5bc02::segment_0000",
-      "chunk_id": "paper_002_body_0080_d0b5bc02",
+      "segment_id": "paper_002_body_0078_d0b5bc02::segment_0000",
+      "chunk_id": "paper_002_body_0078_d0b5bc02",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 80,
-      "source_index": 80,
+      "order_index": 78,
+      "source_index": 78,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2537,12 +2508,12 @@
       "text_sha256": "5dfe7a65ddab6c1bc9c6d6196b6e01277f5826fdb1815e0b3f08f049b0d1a91a"
     },
     {
-      "segment_id": "paper_002_body_0082_1911cf28::segment_0000",
-      "chunk_id": "paper_002_body_0082_1911cf28",
+      "segment_id": "paper_002_body_0080_1911cf28::segment_0000",
+      "chunk_id": "paper_002_body_0080_1911cf28",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 82,
-      "source_index": 82,
+      "order_index": 80,
+      "source_index": 80,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2602,12 +2573,12 @@
       "text_sha256": "f8b59d7ccb693b09553e753dc3a09c467c372081ed05fb91d53366e9c629c3af"
     },
     {
-      "segment_id": "paper_002_body_0084_00714633::segment_0000",
-      "chunk_id": "paper_002_body_0084_00714633",
+      "segment_id": "paper_002_body_0082_00714633::segment_0000",
+      "chunk_id": "paper_002_body_0082_00714633",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 84,
-      "source_index": 84,
+      "order_index": 82,
+      "source_index": 82,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2640,12 +2611,12 @@
       "text_sha256": "ff604cf67cb4e90fcbad996256159fca82baa27bf52b9bea75cd8aea36060e87"
     },
     {
-      "segment_id": "paper_002_body_0086_3063bf5e::segment_0000",
-      "chunk_id": "paper_002_body_0086_3063bf5e",
+      "segment_id": "paper_002_body_0084_3063bf5e::segment_0000",
+      "chunk_id": "paper_002_body_0084_3063bf5e",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 86,
-      "source_index": 86,
+      "order_index": 84,
+      "source_index": 84,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2678,12 +2649,12 @@
       "text_sha256": "438c6722819c324a2baefbd59d251b63b8d8fe476e629645186395feb70ef41a"
     },
     {
-      "segment_id": "paper_002_body_0088_89de3530::segment_0000",
-      "chunk_id": "paper_002_body_0088_89de3530",
+      "segment_id": "paper_002_body_0086_89de3530::segment_0000",
+      "chunk_id": "paper_002_body_0086_89de3530",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 88,
-      "source_index": 88,
+      "order_index": 86,
+      "source_index": 86,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2743,12 +2714,12 @@
       "text_sha256": "2311e0b5820c2597ca30d88434cc7b5f3ac41f9ed83a1bd121444ab281fddf30"
     },
     {
-      "segment_id": "paper_002_body_0089_1bceb562::segment_0000",
-      "chunk_id": "paper_002_body_0089_1bceb562",
+      "segment_id": "paper_002_body_0087_1bceb562::segment_0000",
+      "chunk_id": "paper_002_body_0087_1bceb562",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 89,
-      "source_index": 89,
+      "order_index": 87,
+      "source_index": 87,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2790,12 +2761,12 @@
       "text_sha256": "deaf7ee7677d8c3993c08f5387c3aff4d1e6998bebe3c1dab33e599b74240c4c"
     },
     {
-      "segment_id": "paper_002_body_0091_3884ee50::segment_0000",
-      "chunk_id": "paper_002_body_0091_3884ee50",
+      "segment_id": "paper_002_body_0089_3884ee50::segment_0000",
+      "chunk_id": "paper_002_body_0089_3884ee50",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 91,
-      "source_index": 91,
+      "order_index": 89,
+      "source_index": 89,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2817,12 +2788,12 @@
       "text_sha256": "845834da140401abba41fe96ec3ccbfe3bf9d1fab9daf8b56d1921b7fb5603e0"
     },
     {
-      "segment_id": "paper_002_body_0093_120bf6fe::segment_0000",
-      "chunk_id": "paper_002_body_0093_120bf6fe",
+      "segment_id": "paper_002_body_0091_120bf6fe::segment_0000",
+      "chunk_id": "paper_002_body_0091_120bf6fe",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 93,
-      "source_index": 93,
+      "order_index": 91,
+      "source_index": 91,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2882,12 +2853,12 @@
       "text_sha256": "e1fd18757db5adf898c7d28d06a9a03fb01a50e46e700acc2baded26f2bf7f6e"
     },
     {
-      "segment_id": "paper_002_body_0095_fac5bc82::segment_0000",
-      "chunk_id": "paper_002_body_0095_fac5bc82",
+      "segment_id": "paper_002_body_0093_fac5bc82::segment_0000",
+      "chunk_id": "paper_002_body_0093_fac5bc82",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 95,
-      "source_index": 95,
+      "order_index": 93,
+      "source_index": 93,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2920,12 +2891,12 @@
       "text_sha256": "ec68cadab4c4a1792e4289ec6e20f9b67c7dba47712a6ca948add67791dba70b"
     },
     {
-      "segment_id": "paper_002_body_0096_f97808fd::segment_0000",
-      "chunk_id": "paper_002_body_0096_f97808fd",
+      "segment_id": "paper_002_body_0094_f97808fd::segment_0000",
+      "chunk_id": "paper_002_body_0094_f97808fd",
       "paper_id": "paper_002",
       "chunk_type": "body",
-      "order_index": 96,
-      "source_index": 96,
+      "order_index": 94,
+      "source_index": 94,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -2958,6 +2929,44 @@
       "text_sha256": "116328905e336c0a0c10d95f0462c4daa408cbb8cbef75786b8df5048b61d284"
     },
     {
+      "segment_id": "paper_002_body_0096_90a4e8ba::segment_0000",
+      "chunk_id": "paper_002_body_0096_90a4e8ba",
+      "paper_id": "paper_002",
+      "chunk_type": "body",
+      "order_index": 96,
+      "source_index": 96,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 31,
+      "token_count": 31,
+      "text": "several datasets have significantly contributed to the advancement of ai - based brain tumor classification. the following datasets are mostly utilized in brain tumor detection :",
+      "metadata": {
+        "section": "Datasets",
+        "section_path": [
+          "Datasets"
+        ],
+        "subsection_id": "paper_002_subsection_e9faf7b714ee",
+        "pages": [
+          5
+        ],
+        "paragraph_ids": [
+          "para_0111"
+        ],
+        "coordinates": [
+          {
+            "page": 5,
+            "x": 306.141693115,
+            "y": 243.4119310480769,
+            "w": 240.61799987789976,
+            "h": 46.074157818923084,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "1e2608680236de6c791bb91b2fb4c027ff492d7b16b9d843f3c9c46fa85b07b1"
+    },
+    {
       "segment_id": "paper_002_body_0097_d7ae5ad9::segment_0000",
       "chunk_id": "paper_002_body_0097_d7ae5ad9",
       "paper_id": "paper_002",
@@ -2978,7 +2987,7 @@
         "subsection_id": "paper_002_subsection_07e3ceeb5554",
         "pages": [],
         "paragraph_ids": [
-          "para_0111"
+          "para_0112"
         ],
         "coordinates": []
       },
@@ -3007,7 +3016,7 @@
           18
         ],
         "paragraph_ids": [
-          "para_0112"
+          "para_0113"
         ],
         "coordinates": [
           {
@@ -3045,8 +3054,8 @@
           19
         ],
         "paragraph_ids": [
-          "para_0113",
-          "para_0114"
+          "para_0114",
+          "para_0115"
         ],
         "coordinates": [
           {
@@ -3084,8 +3093,8 @@
           19
         ],
         "paragraph_ids": [
-          "para_0115",
-          "para_0116"
+          "para_0116",
+          "para_0117"
         ],
         "coordinates": [
           {
@@ -3131,7 +3140,7 @@
           19
         ],
         "paragraph_ids": [
-          "para_0117"
+          "para_0118"
         ],
         "coordinates": [
           {
@@ -3169,7 +3178,7 @@
           19
         ],
         "paragraph_ids": [
-          "para_0118"
+          "para_0119"
         ],
         "coordinates": [
           {
@@ -3207,7 +3216,7 @@
           19
         ],
         "paragraph_ids": [
-          "para_0119"
+          "para_0120"
         ],
         "coordinates": [
           {
@@ -3245,7 +3254,7 @@
           20
         ],
         "paragraph_ids": [
-          "para_0120"
+          "para_0121"
         ],
         "coordinates": [
           {
@@ -3283,8 +3292,8 @@
           20
         ],
         "paragraph_ids": [
-          "para_0121",
-          "para_0122"
+          "para_0122",
+          "para_0123"
         ],
         "coordinates": [
           {
@@ -3330,7 +3339,7 @@
           19
         ],
         "paragraph_ids": [
-          "para_0123"
+          "para_0124"
         ],
         "coordinates": [
           {
@@ -3368,7 +3377,7 @@
           1
         ],
         "paragraph_ids": [
-          "para_0124"
+          "para_0125"
         ],
         "coordinates": [
           {
@@ -3422,11 +3431,11 @@
           21
         ],
         "paragraph_ids": [
-          "para_0125",
           "para_0126",
           "para_0127",
           "para_0128",
-          "para_0129"
+          "para_0129",
+          "para_0130"
         ],
         "coordinates": [
           {
@@ -3505,9 +3514,9 @@
           21
         ],
         "paragraph_ids": [
-          "para_0130",
           "para_0131",
-          "para_0132"
+          "para_0132",
+          "para_0133"
         ],
         "coordinates": [
           {
@@ -3833,8 +3842,8 @@
       "text_sha256": "0b26e4d433db93ed64f51ba92be8bde9e440b6139cec47b74930ec51a6d95986"
     },
     {
-      "segment_id": "paper_002_figure_caption_0127_be8975c4::segment_0000",
-      "chunk_id": "paper_002_figure_caption_0127_be8975c4",
+      "segment_id": "paper_002_figure_caption_0127_bfa36167::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0127_bfa36167",
       "paper_id": "paper_002",
       "chunk_type": "figure_caption",
       "order_index": 127,
@@ -3842,34 +3851,39 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 15,
-      "token_count": 15,
-      "text": "fig. 7 representative sample images for the tcga - gbm dataset",
+      "token_end": 8,
+      "token_count": 8,
+      "text": "fig. 2 different types of brain tumors",
       "metadata": {
         "figure_id": "figure_001",
-        "label": "Figure 7Representative",
+        "label": "Figure 2",
         "pages": [
-          7
+          2
         ],
         "source_refs": [
           {
-            "parser": "grobid",
+            "parser": "docling",
             "kind": "figure",
             "index": 3
           },
           {
             "parser": "docling",
             "kind": "figure",
-            "index": 12
+            "index": 4
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 0
           }
         ],
         "subsection_id": null
       },
-      "text_sha256": "2f48fad324bcf600c1e7718aef4366b7dead94d623cc332652bfa95fb17270f1"
+      "text_sha256": "023a69f7df591cd255e7b5240214e489b717dc99682bed5ae41bc0de1bed6605"
     },
     {
-      "segment_id": "paper_002_figure_caption_0128_148d37c8::segment_0000",
-      "chunk_id": "paper_002_figure_caption_0128_148d37c8",
+      "segment_id": "paper_002_figure_caption_0128_e28c40bc::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0128_e28c40bc",
       "paper_id": "paper_002",
       "chunk_type": "figure_caption",
       "order_index": 128,
@@ -3877,34 +3891,34 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 14,
-      "token_count": 14,
-      "text": "fig. 9 different datasets related to brain tumors and processing techniques",
+      "token_end": 26,
+      "token_count": 26,
+      "text": "fig. 4 mri brain tumor : ( a ) flair image ; ( b ) t1 image ; ( c ) t2 image",
       "metadata": {
         "figure_id": "figure_002",
-        "label": "Figure 9Different",
+        "label": "Figure 4",
         "pages": [
-          8
+          3
         ],
         "source_refs": [
           {
-            "parser": "grobid",
-            "kind": "figure",
-            "index": 4
-          },
-          {
             "parser": "docling",
             "kind": "figure",
-            "index": 15
+            "index": 5
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 1
           }
         ],
         "subsection_id": null
       },
-      "text_sha256": "64104f577fdeea1fa0743a718eb22b45d164f16e20c9af4160977fac6aad3222"
+      "text_sha256": "6e309395a14968e04c13f97c9925ae11fd23fa8103453be5747b149fc476162f"
     },
     {
-      "segment_id": "paper_002_figure_caption_0129_a1690462::segment_0000",
-      "chunk_id": "paper_002_figure_caption_0129_a1690462",
+      "segment_id": "paper_002_figure_caption_0129_9c46975a::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0129_9c46975a",
       "paper_id": "paper_002",
       "chunk_type": "figure_caption",
       "order_index": 129,
@@ -3912,33 +3926,248 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
+      "token_end": 12,
+      "token_count": 12,
+      "text": "fig. 6 representative sample images for the brats dataset",
+      "metadata": {
+        "figure_id": "figure_003",
+        "label": "Figure 6",
+        "pages": [
+          6
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 10
+          },
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 11
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "11793d7f4a9e19c26e64de9f29c5184dfab4e7413e83a73a9268f468e2c5ea5f"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0130_a1690462::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0130_a1690462",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 130,
+      "source_index": 130,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
       "token_end": 14,
       "token_count": 14,
       "text": "fig. 10 utilization percentage of various imaging modalities in brain tumors",
       "metadata": {
-        "figure_id": "figure_003",
+        "figure_id": "figure_004",
         "label": "Figure 10",
         "pages": [
           11
         ],
         "source_refs": [
           {
-            "parser": "grobid",
-            "kind": "figure",
-            "index": 5
-          },
-          {
             "parser": "docling",
             "kind": "figure",
             "index": 19
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 5
           }
         ],
         "subsection_id": null
       },
       "text_sha256": "19ac0066b08af79643938a9b6ee3c0bc6033ba44054f7df6ebf2446fc89e7cda"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0131_9e631914::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0131_9e631914",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 131,
+      "source_index": 131,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 8,
+      "token_count": 8,
+      "text": "fig. 11 ai applications for brain tumors",
+      "metadata": {
+        "figure_id": "figure_005",
+        "label": "Figure 11",
+        "pages": [
+          20
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 29
+          },
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 30
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 6
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "d356ba08e7abee40d249dfae50e20e81b94bef8cb2a8610fba965234f22a79e6"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0132_4da61567::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0132_4da61567",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 132,
+      "source_index": 132,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 8,
+      "token_count": 8,
+      "text": "fig. 5 ai models for brain tumors",
+      "metadata": {
+        "figure_id": "figure_006",
+        "label": "Figure 5",
+        "pages": [
+          5
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 8
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "34aaee6fee2f79f0f6cd5d4d7d91c77c648fbf4ff36bef4e0e36568f5853c040"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0133_be8975c4::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0133_be8975c4",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 133,
+      "source_index": 133,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 15,
+      "token_count": 15,
+      "text": "fig. 7 representative sample images for the tcga - gbm dataset",
+      "metadata": {
+        "figure_id": "figure_007",
+        "label": "Figure 7",
+        "pages": [
+          7
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 12
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "2f48fad324bcf600c1e7718aef4366b7dead94d623cc332652bfa95fb17270f1"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0134_1152268e::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0134_1152268e",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 134,
+      "source_index": 134,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 14,
+      "token_count": 14,
+      "text": "fig. 8 representative sample images for the rider neuro mri dataset",
+      "metadata": {
+        "figure_id": "figure_008",
+        "label": "Figure 8",
+        "pages": [
+          8
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 14
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "ff2266ac5657ae8ca50645f92241e65c904ed9aafdf3d007672878a6b668fd33"
+    },
+    {
+      "segment_id": "paper_002_figure_caption_0135_148d37c8::segment_0000",
+      "chunk_id": "paper_002_figure_caption_0135_148d37c8",
+      "paper_id": "paper_002",
+      "chunk_type": "figure_caption",
+      "order_index": 135,
+      "source_index": 135,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 14,
+      "token_count": 14,
+      "text": "fig. 9 different datasets related to brain tumors and processing techniques",
+      "metadata": {
+        "figure_id": "figure_009",
+        "label": "Figure 9",
+        "pages": [
+          8
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 15
+          },
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 16
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 4
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "64104f577fdeea1fa0743a718eb22b45d164f16e20c9af4160977fac6aad3222"
     }
   ],
   "execution": {
-    "elapsed_seconds": 16.113
+    "elapsed_seconds": 14.727
   }
 }

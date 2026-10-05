@@ -15,7 +15,7 @@
     "year": 2023,
     "num_pages": 17,
     "num_chunks": null,
-    "quality_score": 0.9174,
+    "quality_score": 0.9287,
     "quality_status": "healthy_with_warnings",
     "num_tables": 4,
     "num_figures": 3
@@ -35,10 +35,10 @@
     "year": 2026,
     "num_pages": 25,
     "num_chunks": null,
-    "quality_score": 0.9359,
+    "quality_score": 0.9478,
     "quality_status": "healthy",
     "num_tables": 8,
-    "num_figures": 3
+    "num_figures": 9
   },
   "paper_003": {
     "paper_id": "paper_003",
@@ -58,10 +58,10 @@
     "year": 2026,
     "num_pages": 17,
     "num_chunks": null,
-    "quality_score": 0.9388,
+    "quality_score": 0.9444,
     "quality_status": "healthy",
     "num_tables": 6,
-    "num_figures": 1
+    "num_figures": 12
   },
   "paper_004": {
     "paper_id": "paper_004",
@@ -82,10 +82,10 @@
     "year": 2010,
     "num_pages": 22,
     "num_chunks": null,
-    "quality_score": 0.9406,
+    "quality_score": 0.962,
     "quality_status": "healthy",
     "num_tables": 2,
-    "num_figures": 1
+    "num_figures": 4
   },
   "paper_005": {
     "paper_id": "paper_005",
@@ -104,8 +104,8 @@
     "year": 2023,
     "num_pages": 15,
     "num_chunks": null,
-    "quality_score": 0.9283,
-    "quality_status": "healthy_with_warnings",
+    "quality_score": 0.944,
+    "quality_status": "healthy",
     "num_tables": 5,
     "num_figures": 6
   },
@@ -124,9 +124,127 @@
     "year": 2024,
     "num_pages": 10,
     "num_chunks": null,
-    "quality_score": 0.9352,
+    "quality_score": 0.9409,
     "quality_status": "healthy",
     "num_tables": 4,
     "num_figures": 5
+  },
+  "paper_007": {
+    "paper_id": "paper_007",
+    "filename": "Brain_Tumor_Classification_and_Segmentation3.pdf",
+    "file_hash": "bf78778db64c06adebe7336ae26ad7d82a3aea1ad69d6be7ca67ef26ee7e4f35",
+    "ingestion_date": "2026-10-02T17:26:43.715162+00:00",
+    "status": "extracted",
+    "title": "Brain Tumor Classification using Convolutional Neural Network from MRI images *",
+    "authors": [
+      "Farsheed Rahman",
+      "S M Arif Mahmud"
+    ],
+    "year": 2024,
+    "num_pages": 5,
+    "num_chunks": null,
+    "quality_score": 0.9297,
+    "quality_status": "healthy",
+    "num_tables": 0,
+    "num_figures": 9
+  },
+  "paper_008": {
+    "paper_id": "paper_008",
+    "filename": "efficientnet.pdf",
+    "file_hash": "f82da3f7dfb827fe701fae2088f3653e17cb3216ef61111be1167f01dcc92137",
+    "ingestion_date": "2026-10-02T17:41:24.893262+00:00",
+    "status": "extracted",
+    "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+    "authors": [
+      "Mingxing Tan",
+      "Quoc V Le"
+    ],
+    "year": 2019,
+    "num_pages": 10,
+    "num_chunks": null,
+    "quality_score": 0.9015,
+    "quality_status": "healthy",
+    "num_tables": 6,
+    "num_figures": 8
+  },
+  "paper_009": {
+    "paper_id": "paper_009",
+    "filename": "lightweightnn.pdf",
+    "file_hash": "19cad65eb63e8bdf0ff3432caa6ead43263f38689a11863750c63c6d5ac3d92b",
+    "ingestion_date": "2026-10-02T17:41:24.998273+00:00",
+    "status": "extracted",
+    "title": "A Novel Fault Diagnosis of a Rolling Bearing Method Based on Variational Mode Decomposition and an Artificial Neural Network",
+    "authors": [
+      "Xiaobei Liang",
+      "Jinyong Yao",
+      "Weifang Zhang",
+      "Yanrong Wang"
+    ],
+    "year": 2023,
+    "num_pages": 16,
+    "num_chunks": null,
+    "quality_score": 0.9489,
+    "quality_status": "healthy",
+    "num_tables": 5,
+    "num_figures": 16
+  },
+  "paper_010": {
+    "paper_id": "paper_010",
+    "filename": "segmentation.pdf",
+    "file_hash": "c154fa4e6b0f1cd3537a79e329132f507ae3fa4721fc2af566bba49d1c6d6be7",
+    "ingestion_date": "2026-10-02T17:43:25.107037+00:00",
+    "status": "extracted",
+    "title": "Threshold Segmentation and Watershed Segmentation Algorithm for Brain Tumor Detection using Support Vector Machine",
+    "authors": [
+      "Santhosh Kumar H S",
+      "K. Karibasappa"
+    ],
+    "year": 2020,
+    "num_pages": 4,
+    "num_chunks": null,
+    "quality_score": 0.8747,
+    "quality_status": "healthy_with_warnings",
+    "num_tables": 0,
+    "num_figures": 4
+  },
+  "paper_011": {
+    "paper_id": "paper_011",
+    "filename": "unet.pdf",
+    "file_hash": "d785cdf05160c45c29326265451ae423f62a3a8d0e12fc105e920c696779f21d",
+    "ingestion_date": "2026-10-02T17:44:08.882975+00:00",
+    "status": "extracted",
+    "title": "Optimized U-Net for Brain Tumor Segmentation",
+    "authors": [
+      "Micha L Futrega",
+      "Alexandre Milesi",
+      "Micha L Marcinkiewicz",
+      "Pablo Ribalta"
+    ],
+    "year": 2021,
+    "num_pages": 15,
+    "num_chunks": null,
+    "quality_score": 0.9238,
+    "quality_status": "healthy",
+    "num_tables": 5,
+    "num_figures": 7
+  },
+  "paper_012": {
+    "paper_id": "paper_012",
+    "filename": "verydeeplearning.pdf",
+    "file_hash": "83728f9efc21081792902b4c17a4657022d1e4a92ec81655c2427f4ef0755e50",
+    "ingestion_date": "2026-10-02T17:44:45.853600+00:00",
+    "status": "extracted",
+    "title": "VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE-SCALE IMAGE RECOGNITION",
+    "authors": [
+      "Karen Simonyan",
+      "Andrew Zisserman"
+    ],
+    "year": 2015,
+    "num_pages": 14,
+    "num_chunks": null,
+    "quality_score": 0.9143,
+    "quality_status": "healthy",
+    "num_tables": 12,
+    "num_figures": 0
   }
 }

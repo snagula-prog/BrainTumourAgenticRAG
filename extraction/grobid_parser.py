@@ -332,6 +332,10 @@ def parse_grobid_tei(
                         "y": y,
                         "w": w,
                         "h": h,
+                        # GROBID TEI coordinates use a top-left origin.
+                        # Preserve this provenance so downstream PDF crop
+                        # conversion does not incorrectly assume bottom-left.
+                        "coord_origin": "TOPLEFT",
                     }
                 )
 

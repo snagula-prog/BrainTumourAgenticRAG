@@ -217,7 +217,26 @@ def evaluate_model(
     retriever: DenseChromaRetriever | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     profile = get_model_profile(model_alias)
-    retriever = retriever or DenseChromaRetriever(model_alias=model_alias)
+    retriever_was_injected = retriever is not None
+
+    # Reuse an already initialized dense retriever when the caller supplies one
+    # (e.g. the dense+hybrid comparison evaluator). Validate its profile when
+    # that information is exposed so a retriever for the wrong embedding model
+    # cannot silently contaminate the evaluation.
+    if retriever is None:
+        retriever = DenseChromaRetriever(model_alias=model_alias)
+    else:
+        injected_alias = getattr(
+            getattr(retriever, "profile", None),
+            "alias",
+            None,
+        )
+        if injected_alias is not None and injected_alias != profile.alias:
+            raise ValueError(
+                "Injected retriever/model mismatch: "
+                f"requested {profile.alias!r}, got {injected_alias!r}"
+            )
+
     inventory = get_chunk_inventory(retriever)
     scoped_papers = {
         query["scope_paper_id"]
@@ -301,6 +320,9 @@ def evaluate_model(
             "query_instruction": profile.query_instruction,
             "resolved_revision": retriever.encoder.model_revision,
             "dimension": retriever.encoder.dimension,
+        },
+        "evaluation_runtime": {
+            "retriever_reused": retriever_was_injected,
         },
         "corpus": {
             "paper_ids": retriever.paper_ids,

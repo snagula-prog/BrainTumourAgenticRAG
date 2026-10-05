@@ -1,0 +1,292 @@
+{
+  "evaluation_type": "targeted_ground_truth_accuracy",
+  "papers_evaluated": 4,
+  "papers_failed": 0,
+  "reports": [
+    {
+      "paper_id": "paper_008",
+      "ground_truth": "storage\\ground_truth\\paper_008_gt.json",
+      "canonical": "storage\\canonical\\paper_008.json",
+      "result": {
+        "evaluation_type": "ground_truth_accuracy",
+        "accuracy_score": 0.9535,
+        "scoring": {
+          "weights": {
+            "metadata": 0.15,
+            "abstract_similarity": 0.1,
+            "table_count_score": 0.1,
+            "figure_count_score": 0.1
+          },
+          "evaluated_dimensions": [
+            "metadata",
+            "abstract",
+            "tables",
+            "figures"
+          ],
+          "note": "Only GT fields explicitly supplied are scored."
+        },
+        "metrics": {
+          "metadata": {
+            "title_similarity": 1.0,
+            "year_accuracy": 1.0,
+            "doi_accuracy": null,
+            "author_f1": 1.0,
+            "score": 1.0,
+            "evaluated_fields": [
+              "title",
+              "year",
+              "authors"
+            ]
+          },
+          "abstract_similarity": 0.9971,
+          "tables": {
+            "artifact_type": "table",
+            "score": 0.8992,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.4962,
+            "page_accuracy": 1.0,
+            "actual_count": 6,
+            "expected_count": 6,
+            "matched": 6,
+            "missing_labels": [],
+            "unexpected_labels": []
+          },
+          "figures": {
+            "artifact_type": "figure",
+            "score": 0.8943,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.4715,
+            "page_accuracy": 1.0,
+            "actual_count": 8,
+            "expected_count": 8,
+            "matched": 8,
+            "missing_labels": [],
+            "unexpected_labels": []
+          }
+        },
+        "source_exceptions": [
+          {
+            "type": "",
+            "details": ""
+          }
+        ]
+      }
+    },
+    {
+      "paper_id": "paper_010",
+      "ground_truth": "storage\\ground_truth\\paper_010_gt.json",
+      "canonical": "storage\\canonical\\paper_010.json",
+      "result": {
+        "evaluation_type": "ground_truth_accuracy",
+        "accuracy_score": 0.9909,
+        "scoring": {
+          "weights": {
+            "metadata": 0.15,
+            "abstract_similarity": 0.1,
+            "table_count_score": 0.1,
+            "figure_count_score": 0.1
+          },
+          "evaluated_dimensions": [
+            "metadata",
+            "abstract",
+            "tables",
+            "figures"
+          ],
+          "note": "Only GT fields explicitly supplied are scored."
+        },
+        "metrics": {
+          "metadata": {
+            "title_similarity": 1.0,
+            "year_accuracy": 1.0,
+            "doi_accuracy": null,
+            "author_f1": 1.0,
+            "score": 1.0,
+            "evaluated_fields": [
+              "title",
+              "year",
+              "authors"
+            ]
+          },
+          "abstract_similarity": 0.9953,
+          "tables": {
+            "artifact_type": "table",
+            "score": 1.0,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 1.0,
+            "page_accuracy": 1.0,
+            "actual_count": 0,
+            "expected_count": 0,
+            "matched": 0,
+            "missing_labels": [],
+            "unexpected_labels": []
+          },
+          "figures": {
+            "artifact_type": "figure",
+            "score": 0.964,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.8202,
+            "page_accuracy": 1.0,
+            "actual_count": 4,
+            "expected_count": 4,
+            "matched": 4,
+            "missing_labels": [],
+            "unexpected_labels": []
+          }
+        },
+        "source_exceptions": [
+          {
+            "type": "",
+            "details": ""
+          }
+        ]
+      }
+    },
+    {
+      "paper_id": "paper_011",
+      "ground_truth": "storage\\ground_truth\\paper_011_gt.json",
+      "canonical": "storage\\canonical\\paper_011.json",
+      "result": {
+        "evaluation_type": "ground_truth_accuracy",
+        "accuracy_score": 0.9816,
+        "scoring": {
+          "weights": {
+            "metadata": 0.15,
+            "abstract_similarity": 0.1,
+            "table_count_score": 0.1,
+            "figure_count_score": 0.1
+          },
+          "evaluated_dimensions": [
+            "metadata",
+            "abstract",
+            "tables",
+            "figures"
+          ],
+          "note": "Only GT fields explicitly supplied are scored."
+        },
+        "metrics": {
+          "metadata": {
+            "title_similarity": 1.0,
+            "year_accuracy": 1.0,
+            "doi_accuracy": null,
+            "author_f1": 1.0,
+            "score": 1.0,
+            "evaluated_fields": [
+              "title",
+              "year",
+              "authors"
+            ]
+          },
+          "abstract_similarity": 0.9954,
+          "tables": {
+            "artifact_type": "table",
+            "score": 0.9593,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.7964,
+            "page_accuracy": 1.0,
+            "actual_count": 5,
+            "expected_count": 5,
+            "matched": 5,
+            "missing_labels": [],
+            "unexpected_labels": []
+          },
+          "figures": {
+            "artifact_type": "figure",
+            "score": 0.9627,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.8133,
+            "page_accuracy": 1.0,
+            "actual_count": 7,
+            "expected_count": 7,
+            "matched": 7,
+            "missing_labels": [],
+            "unexpected_labels": []
+          }
+        },
+        "source_exceptions": [
+          {
+            "type": "",
+            "details": ""
+          }
+        ]
+      }
+    },
+    {
+      "paper_id": "paper_012",
+      "ground_truth": "storage\\ground_truth\\paper_012_gt.json",
+      "canonical": "storage\\canonical\\paper_012.json",
+      "result": {
+        "evaluation_type": "ground_truth_accuracy",
+        "accuracy_score": 0.9956,
+        "scoring": {
+          "weights": {
+            "metadata": 0.15,
+            "abstract_similarity": 0.1,
+            "table_count_score": 0.1,
+            "figure_count_score": 0.1
+          },
+          "evaluated_dimensions": [
+            "metadata",
+            "abstract",
+            "tables",
+            "figures"
+          ],
+          "note": "Only GT fields explicitly supplied are scored."
+        },
+        "metrics": {
+          "metadata": {
+            "title_similarity": 1.0,
+            "year_accuracy": 1.0,
+            "doi_accuracy": null,
+            "author_f1": 1.0,
+            "score": 1.0,
+            "evaluated_fields": [
+              "title",
+              "year",
+              "authors"
+            ]
+          },
+          "abstract_similarity": 0.996,
+          "tables": {
+            "artifact_type": "table",
+            "score": 0.9843,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 0.9215,
+            "page_accuracy": 1.0,
+            "actual_count": 12,
+            "expected_count": 12,
+            "matched": 12,
+            "missing_labels": [],
+            "unexpected_labels": []
+          },
+          "figures": {
+            "artifact_type": "figure",
+            "score": 1.0,
+            "count_score": 1.0,
+            "label_f1": 1.0,
+            "caption_similarity": 1.0,
+            "page_accuracy": 1.0,
+            "actual_count": 0,
+            "expected_count": 0,
+            "matched": 0,
+            "missing_labels": [],
+            "unexpected_labels": []
+          }
+        },
+        "source_exceptions": [
+          {
+            "type": "",
+            "details": ""
+          }
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

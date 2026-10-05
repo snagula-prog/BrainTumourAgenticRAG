@@ -2,11 +2,11 @@
   "schema_version": 2,
   "model_alias": "bge-base",
   "paper_id": "paper_006",
-  "created_at": "2026-09-28T17:35:42.396002+00:00",
-  "input_fingerprint": "35818c0f19f7ee5c35a9d430cc29cfa0ecb440740d9fd9c85236482375266214",
+  "created_at": "2026-10-05T15:00:25.054507+00:00",
+  "input_fingerprint": "e10935d7bdc2700b32bd189623cf3ff85e52082719afec4200a24d41fad723a8",
   "source": {
     "file": "storage\\chunks\\paper_006_chunks.json",
-    "sha256": "cc83c00d0a1bde552b3848b7854b6fcac20b8c272cb075092557b1c9ed96d047",
+    "sha256": "4a8516e5dc3065822f28cef70b6e4017a037867e3ed8d87aa324022912084dd7",
     "chunk_count": 51
   },
   "embedding": {
@@ -49,7 +49,7 @@
   },
   "vectors": {
     "file": "paper_006_embeddings.npz",
-    "sha256": "2f75db4684cb46f8d3b30177ed2809b0f0ac5e9afc728a92fd220e6b4a5f2eaf",
+    "sha256": "30e1f5878ed7c8dca3ab811e39e8ac6af6542932efefacea236c990b52410607",
     "dtype": "float32",
     "shape": [
       35,
@@ -445,7 +445,7 @@
           3
         ],
         "paragraph_ids": [
-          "para_0006"
+          "para_0005"
         ],
         "coordinates": [
           {
@@ -491,7 +491,7 @@
           3
         ],
         "paragraph_ids": [
-          "para_0007"
+          "para_0006"
         ],
         "coordinates": [
           {
@@ -537,7 +537,7 @@
           3
         ],
         "paragraph_ids": [
-          "para_0008"
+          "para_0007"
         ],
         "coordinates": [
           {
@@ -1235,138 +1235,12 @@
       "text_sha256": "c4b7f741990e66cb7d8cfcec5478bd386feee9ac8968c76d7124a1b9fa01e32f"
     },
     {
-      "segment_id": "paper_006_body_0034_b558d0f9::segment_0000",
-      "chunk_id": "paper_006_body_0034_b558d0f9",
+      "segment_id": "paper_006_body_0034_1df745cf::segment_0000",
+      "chunk_id": "paper_006_body_0034_1df745cf",
       "paper_id": "paper_006",
       "chunk_type": "body",
       "order_index": 34,
       "source_index": 34,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 254,
-      "token_count": 254,
-      "text": "as shown in table 4, the cnn - based transfer learning models used in the study performed better. ai in healthcare plays an important role in the management of complex diseases such as brain tumors. ai enables faster, more accurate, and more effective diagnosis and treatment processes. however, ai technology is not intended to completely replace doctors, but to support and enhance their work. to realize the full potential of ai, it is important to consider issues such as ethics, security and privacy. in the future, ai - based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients. as seen in this study, ai - based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process. based on the results of this study, transfer learning methods should be preferred especially in image processing - based applications to support health decision makers. the data obtained from mri or ct can be used as an early warning system to help health decision makers make quick and accurate decisions. therefore, in addition to empirical analysis, ai - based applications should take a more active role as soon as possible. to this end, the diagnosis of diseases from instant ct or mr images will be investigated in the coming years.",
-      "metadata": {
-        "section": "Results and discussion",
-        "section_path": [
-          "Results and discussion"
-        ],
-        "subsection_id": "paper_006_subsection_34d6de4d0f92",
-        "pages": [
-          6,
-          7
-        ],
-        "paragraph_ids": [
-          "para_0031",
-          "para_0032"
-        ],
-        "coordinates": [
-          {
-            "page": 6,
-            "x": 155.905489692,
-            "y": 68.58140030333675,
-            "w": 400.41090002059315,
-            "h": 57.98669969666321,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 7,
-            "x": 155.905502319,
-            "y": 175.78140149933677,
-            "w": 400.2984000206285,
-            "h": 17.990699696663228,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 3,
-            "x": 155.905502319,
-            "y": 388.4666283043025,
-            "w": 72.86800000000005,
-            "h": 8.169359243697443,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 5,
-            "x": 155.905502319,
-            "y": 591.6807701503025,
-            "w": 123.05000000000007,
-            "h": 8.1693592436975,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 7,
-            "x": 155.905502319,
-            "y": 125.78640149933676,
-            "w": 400.34070002406634,
-            "h": 47.9876996966633,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "4144caf0a876021931d4ffac9cd7f1918a5139a716f74d76e8e44665210199a6"
-    },
-    {
-      "segment_id": "paper_006_body_0036_81bed54b::segment_0000",
-      "chunk_id": "paper_006_body_0036_81bed54b",
-      "paper_id": "paper_006",
-      "chunk_type": "body",
-      "order_index": 36,
-      "source_index": 36,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 48,
-      "token_count": 48,
-      "text": "with our motivation to investigate how it will work in single cnn and multilayer cnn based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
-      "metadata": {
-        "section": "Limitation",
-        "section_path": [
-          "Limitation"
-        ],
-        "subsection_id": "paper_006_subsection_9c8e8a7df0ee",
-        "pages": [
-          7
-        ],
-        "paragraph_ids": [
-          "para_0033"
-        ],
-        "coordinates": [
-          {
-            "page": 7,
-            "x": 155.905502319,
-            "y": 73.78240149933674,
-            "w": 400.32090001889105,
-            "h": 27.98969969666325,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 3,
-            "x": 155.905502319,
-            "y": 388.4666283043025,
-            "w": 72.86800000000005,
-            "h": 8.169359243697443,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 7,
-            "x": 155.905502319,
-            "y": 104.10980602793279,
-            "w": 49.709,
-            "h": 8.986295168067159,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "831ba61f0217c1dd3a11b9283f7f9807d11a0c0c70f87622129888ed52796db3"
-    },
-    {
-      "segment_id": "paper_006_body_0037_1df745cf::segment_0000",
-      "chunk_id": "paper_006_body_0037_1df745cf",
-      "paper_id": "paper_006",
-      "chunk_type": "body",
-      "order_index": 37,
-      "source_index": 37,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1383,7 +1257,7 @@
           6
         ],
         "paragraph_ids": [
-          "para_0034"
+          "para_0031"
         ],
         "coordinates": [
           {
@@ -1447,12 +1321,12 @@
       "text_sha256": "2b0f4930d85d713f8169f4328b7bf8e82efeda256cfdd79bee5bd9f848f73ae3"
     },
     {
-      "segment_id": "paper_006_body_0038_748c4ef6::segment_0000",
-      "chunk_id": "paper_006_body_0038_748c4ef6",
+      "segment_id": "paper_006_body_0035_748c4ef6::segment_0000",
+      "chunk_id": "paper_006_body_0035_748c4ef6",
       "paper_id": "paper_006",
       "chunk_type": "body",
-      "order_index": 38,
-      "source_index": 38,
+      "order_index": 35,
+      "source_index": 35,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1469,7 +1343,7 @@
           6
         ],
         "paragraph_ids": [
-          "para_0035"
+          "para_0032"
         ],
         "coordinates": [
           {
@@ -1507,6 +1381,132 @@
         ]
       },
       "text_sha256": "0cd010143d9c29aa3b0cc87fcae0fd8f58a07402ba3d13e8aefbb195d24ba8c7"
+    },
+    {
+      "segment_id": "paper_006_body_0036_b558d0f9::segment_0000",
+      "chunk_id": "paper_006_body_0036_b558d0f9",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 36,
+      "source_index": 36,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 254,
+      "token_count": 254,
+      "text": "as shown in table 4, the cnn - based transfer learning models used in the study performed better. ai in healthcare plays an important role in the management of complex diseases such as brain tumors. ai enables faster, more accurate, and more effective diagnosis and treatment processes. however, ai technology is not intended to completely replace doctors, but to support and enhance their work. to realize the full potential of ai, it is important to consider issues such as ethics, security and privacy. in the future, ai - based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients. as seen in this study, ai - based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process. based on the results of this study, transfer learning methods should be preferred especially in image processing - based applications to support health decision makers. the data obtained from mri or ct can be used as an early warning system to help health decision makers make quick and accurate decisions. therefore, in addition to empirical analysis, ai - based applications should take a more active role as soon as possible. to this end, the diagnosis of diseases from instant ct or mr images will be investigated in the coming years.",
+      "metadata": {
+        "section": "Results and discussion",
+        "section_path": [
+          "Results and discussion"
+        ],
+        "subsection_id": "paper_006_subsection_34d6de4d0f92",
+        "pages": [
+          6,
+          7
+        ],
+        "paragraph_ids": [
+          "para_0033",
+          "para_0034"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 155.905489692,
+            "y": 68.58140030333675,
+            "w": 400.41090002059315,
+            "h": 57.98669969666321,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 175.78140149933677,
+            "w": 400.2984000206285,
+            "h": 17.990699696663228,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 155.905502319,
+            "y": 591.6807701503025,
+            "w": 123.05000000000007,
+            "h": 8.1693592436975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 125.78640149933676,
+            "w": 400.34070002406634,
+            "h": 47.9876996966633,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4144caf0a876021931d4ffac9cd7f1918a5139a716f74d76e8e44665210199a6"
+    },
+    {
+      "segment_id": "paper_006_body_0038_81bed54b::segment_0000",
+      "chunk_id": "paper_006_body_0038_81bed54b",
+      "paper_id": "paper_006",
+      "chunk_type": "body",
+      "order_index": 38,
+      "source_index": 38,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 48,
+      "token_count": 48,
+      "text": "with our motivation to investigate how it will work in single cnn and multilayer cnn based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+      "metadata": {
+        "section": "Limitation",
+        "section_path": [
+          "Limitation"
+        ],
+        "subsection_id": "paper_006_subsection_9c8e8a7df0ee",
+        "pages": [
+          7
+        ],
+        "paragraph_ids": [
+          "para_0035"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 73.78240149933674,
+            "w": 400.32090001889105,
+            "h": 27.98969969666325,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 3,
+            "x": 155.905502319,
+            "y": 388.4666283043025,
+            "w": 72.86800000000005,
+            "h": 8.169359243697443,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 7,
+            "x": 155.905502319,
+            "y": 104.10980602793279,
+            "w": 49.709,
+            "h": 8.986295168067159,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "831ba61f0217c1dd3a11b9283f7f9807d11a0c0c70f87622129888ed52796db3"
     },
     {
       "segment_id": "paper_006_table_caption_0039_70e38d61::segment_0000",
@@ -1829,6 +1829,6 @@
     }
   ],
   "execution": {
-    "elapsed_seconds": 5.859
+    "elapsed_seconds": 6.35
   }
 }

@@ -1,0 +1,91 @@
+{
+  "paper_id": "paper_011",
+  "filename": "unet.pdf",
+
+  "metadata": {
+    "title": "Optimized U-Net for Brain Tumor Segmentation",
+    "authors": ["Micha l Futrega", "Alexandre Milesi", "Micha l Marcinkiewicz", "Pablo Ribalta"],
+    "year": 2021,
+    "doi": null
+  },
+
+  "abstract": "We propose an optimized U-Net architecture for a brain tumor segmentation task in the BraTS21 challenge. To find the optimal model architecture and the learning schedule, we have run an extensive ablation study to test: deep supervision loss, Focal loss, decoder attention, drop block, and residual connections. Additionally, we have searched for the optimal depth of the U-Net encoder, number of convolutional channels and post-processing strategy. Our method won the validation phase and took third place in the test phase. We have open-sourced the code to reproduce our BraTS21 submmission at the NVIDIA Deep Learning Examples GitHub Repository 1.",
+
+  "figures": [
+    {
+      "label": "Figure 1",
+      "caption": "Example with ID 00000 from the BraTS21 training dataset. Each subplot presents a different modality. From top left to bottom right: FLAIR, T1, T1Gd T2.",
+      "page": 3
+    },
+    {
+      "label": "Figure 2",
+      "caption": "U-Net architecture. The encoder is transforming the input by reducing its spatial dimensions, and then the decoder is upsampling it back to the original input shape. Additional two output heads are used for deep supervision loss (green bars).",
+      "page": 5
+    },
+    {
+      "label": "Figure 3",
+      "caption": "SegResNetVAE architecture. Each green block is a ResNet-like block with the group normalization. The VAE branch reconstructs the input image into itself, and is used only during training to regularize the shared encoder.",
+      "page": 6
+    },
+    {
+      "label": "Figure 4",
+      "caption": "UNETR architecture. Instead of using 3D convolution in the encoder, UNETR is transforming the input volume via multi-head self-attention blocks known from the Transformer model.",
+      "page": 7
+    },
+    {
+      "label": "Figure 5",
+      "caption": "The architecture of the attention gate. Input features (x^l) are multiplied by attention weights (α). To compute α, input features (x^l), and feature map from corresponding encoder level are first transformed by 1x1x1 convolution, and the summed. Next, ReLU activation and another 1x1x1 convolution are applied. Finally, attention weights are upsampled with trilinear interpolation. ",
+      "page": 7
+    },
+    {
+      "label": "Figure 6",
+      "caption": "Difference between blocks in basic U-Net (a) and Residual U-Net (b). Conv block (orange) corresponds to a convolutional layer with 3x3x3 kernels, IN (green) is instance normalization and ReLU (blue) is a Rectified Linear Unit activation.",
+      "page": 8
+    },
+    {
+      "label": "Figure 7",
+      "caption": "Predictions on the challenge validation dataset. On the left column FLAIR modality is visualized while on the right model predictions where the meaning of colors is the following: purple - background, blue - NCR, turquoise - ED, yellow - ET.",
+      "page": 13
+    }
+  ],
+
+  "tables": [
+    {
+      "label": "Table 1",
+      "caption": "Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the baseline U-Net, UNETR, SegResNetVAE models.",
+      "page": 11
+    },
+    {
+      "label": "Table 2",
+      "caption": "Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the decoder attention (Attention), deep supervision (DS), residual connections (Residual), drop block (DB) and Focal loss (Focal).",
+      "page": 11
+    },
+    {
+      "label": "Table 3",
+      "caption": "Averaged Dice scores of ET, TC, WT classes for each 5-folds comparing the deep supervision (DS), deeper U-Net encoder, modified number of convolution channels, additional input channel with one-hot encoding for foreground voxels, and all modification applied together (D+C+O) i.e., deeper U-Net with changed number of convolution channels and one-hot encoding channel for foreground voxels.",
+      "page": 12
+    },
+    {
+      "label": "Table 4",
+      "caption": "Averaged Dice scores of ET, TC, WT classes for each 5-folds without and with post-processing.",
+      "page": 12
+    },
+    {
+      "label": "Table 5",
+      "caption": "Top 9 normalized statistical ranking scores for BraTS21 validation phase",
+      "page": 12
+    }
+  ],
+
+  "counts": {
+    "numbered_figures": 7,
+    "numbered_tables": 5
+  },
+
+  "source_exceptions": [
+    {
+      "type": "",
+      "details": ""
+    }
+  ]
+}

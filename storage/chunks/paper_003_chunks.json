@@ -1986,8 +1986,8 @@
         8
       ],
       "paragraph_ids": [
-        "para_0043",
-        "para_0044"
+        "para_0044",
+        "para_0045"
       ],
       "coordinates": [
         {
@@ -2066,9 +2066,9 @@
         8
       ],
       "paragraph_ids": [
-        "para_0045",
         "para_0046",
-        "para_0047"
+        "para_0047",
+        "para_0048"
       ],
       "coordinates": [
         {
@@ -2164,8 +2164,8 @@
         9
       ],
       "paragraph_ids": [
-        "para_0049",
-        "para_0050"
+        "para_0050",
+        "para_0051"
       ],
       "coordinates": [
         {
@@ -2268,7 +2268,7 @@
         9
       ],
       "paragraph_ids": [
-        "para_0051"
+        "para_0052"
       ],
       "coordinates": [
         {
@@ -2338,7 +2338,7 @@
         9
       ],
       "paragraph_ids": [
-        "para_0052"
+        "para_0053"
       ],
       "coordinates": [
         {
@@ -2393,7 +2393,7 @@
         1
       ],
       "paragraph_ids": [
-        "para_0053"
+        "para_0054"
       ],
       "coordinates": [
         {
@@ -2511,8 +2511,8 @@
         10
       ],
       "paragraph_ids": [
-        "para_0055",
-        "para_0056"
+        "para_0056",
+        "para_0057"
       ],
       "coordinates": [
         {
@@ -2598,8 +2598,8 @@
         10
       ],
       "paragraph_ids": [
-        "para_0057",
-        "para_0058"
+        "para_0058",
+        "para_0059"
       ],
       "coordinates": [
         {
@@ -2670,7 +2670,7 @@
         10
       ],
       "paragraph_ids": [
-        "para_0059",
+        "para_0060",
         "para_0061"
       ],
       "coordinates": [
@@ -3705,31 +3705,351 @@
     }
   },
   {
-    "chunk_id": "paper_003_figure_caption_0063_ab5947d9",
+    "chunk_id": "paper_003_figure_caption_0063_fd8f5f93",
     "paper_id": "paper_003",
     "chunk_type": "figure_caption",
     "order_index": 63,
-    "text": "Figure 11 illustrates the ROC curves for the four-class classification task, where the model demonstrates outstanding ROC-AUC performance.The AUC values for all categories exceed 0.99, with no tumor, pituitary, as well as the micro-and macro-averages achieving an AUC of 1.00, indicating virtually no errors in distinguishing these classes.The ROC curves are almost adjacent to the top-left corner of the figure, suggesting that the model possesses very strong classification capability.Although there is a slight decline in recall for the specific class of meningioma, the model generally performs at a high level across most categories, with particularly excellent performance in classifying no tumor and pituitary.Both the macro-average and micro-average AUC values reach 1.0, demonstrating that the model achieves an ideal balance between overall and class-specific performance.The ROC curves further confirm that the MCACNN-SVM model exhibits exceptional performance in the classification of brain tumor MRI images.Although the slight class imbalance present in the dataset, the model maintains robust performance across most categories.This resilience can be attributed to two key factors: first, the incorporation of the channel attention mechanism (SENet) enables the model to adaptively focus on the most discriminative features for each class, effectively mitigating the bias towards majority classes; second, the adoption of macro-averaged evaluation metrics such as Macro F1-score and AUC ensures that each class contributes equally to the overall performance assessment, providing a more balanced view of the model's capability.",
-    "word_count": 230,
+    "text": "Fig. 1. Schematic diagram of SENet.",
+    "word_count": 6,
     "metadata": {
       "figure_id": "figure_001",
-      "label": "Figure 11",
-      "pages": [],
+      "label": "Figure 1",
+      "pages": [
+        3
+      ],
       "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 1
+        },
         {
           "parser": "grobid",
           "kind": "figure",
-          "index": 10
+          "index": 0
         }
       ],
       "subsection_id": null
     }
   },
   {
-    "chunk_id": "paper_003_reference_0064_0d0eb60c",
+    "chunk_id": "paper_003_figure_caption_0064_da9a24c2",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 64,
+    "text": "Fig. 3. The framework of MCACNN-SVM for image classification.",
+    "word_count": 9,
+    "metadata": {
+      "figure_id": "figure_002",
+      "label": "Figure 3",
+      "pages": [
+        4
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 3
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 1
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0065_38327870",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 65,
+    "text": "Fig. 2. Schematic diagram of support vector machine.",
+    "word_count": 8,
+    "metadata": {
+      "figure_id": "figure_003",
+      "label": "Figure 2",
+      "pages": [
+        4
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0066_1a4876a4",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 66,
+    "text": "Fig. 4. MCACNN-SVM model image classification process.",
+    "word_count": 7,
+    "metadata": {
+      "figure_id": "figure_004",
+      "label": "Figure 4",
+      "pages": [
+        6
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 4
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 3
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0067_e1a9463e",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 67,
+    "text": "Fig. 5. MRI images of four types of brain tumors. ( a ) Glioma, ( b ) Meningioma, ( c ) Pituitary, ( d ) No tumor.",
+    "word_count": 27,
+    "metadata": {
+      "figure_id": "figure_005",
+      "label": "Figure 5",
+      "pages": [
+        7
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 5
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 4
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0068_20c02ef8",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 68,
+    "text": "Fig. 6. The learning rate variation curve of Cosineannealing with WarmRestart mechanism.",
+    "word_count": 12,
+    "metadata": {
+      "figure_id": "figure_006",
+      "label": "Figure 6",
+      "pages": [
+        8
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 6
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 5
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0069_dab42e1c",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 69,
+    "text": "Fig. 7. The impact curve of different optimizer and learning rate scheduler combinations on model performance.",
+    "word_count": 16,
+    "metadata": {
+      "figure_id": "figure_007",
+      "label": "Figure 7",
+      "pages": [
+        9
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 7
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 6
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0070_cc2b671d",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 70,
+    "text": "Fig. 8. Model convergence process. ( a ) Accuracy curve, ( b ) Loss curve.",
+    "word_count": 15,
+    "metadata": {
+      "figure_id": "figure_008",
+      "label": "Figure 8",
+      "pages": [
+        10
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 8
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 7
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0071_7c7621ff",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 71,
+    "text": "Fig. 10. Confusion matrix for MRI image classification.",
+    "word_count": 8,
+    "metadata": {
+      "figure_id": "figure_009",
+      "label": "Figure 10",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 10
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 8
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0072_c00efb0c",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 72,
+    "text": "Fig. 9. Visualization of the Model Training Process. ( a ) Original data feature distribution, ( b ) Channel attention layer feature distribution, ( c ) Fusion layer feature distribution, ( d ) Output layer feature distribution.",
+    "word_count": 37,
+    "metadata": {
+      "figure_id": "figure_010",
+      "label": "Figure 9",
+      "pages": [
+        11
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 9
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 9
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0073_ab5947d9",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 73,
+    "text": "Figure 11 illustrates the ROC curves for the four-class classification task, where the model demonstrates outstanding ROC-AUC performance.The AUC values for all categories exceed 0.99, with no tumor, pituitary, as well as the micro-and macro-averages achieving an AUC of 1.00, indicating virtually no errors in distinguishing these classes.The ROC curves are almost adjacent to the top-left corner of the figure, suggesting that the model possesses very strong classification capability.Although there is a slight decline in recall for the specific class of meningioma, the model generally performs at a high level across most categories, with particularly excellent performance in classifying no tumor and pituitary.Both the macro-average and micro-average AUC values reach 1.0, demonstrating that the model achieves an ideal balance between overall and class-specific performance.The ROC curves further confirm that the MCACNN-SVM model exhibits exceptional performance in the classification of brain tumor MRI images.Although the slight class imbalance present in the dataset, the model maintains robust performance across most categories.This resilience can be attributed to two key factors: first, the incorporation of the channel attention mechanism (SENet) enables the model to adaptively focus on the most discriminative features for each class, effectively mitigating the bias towards majority classes; second, the adoption of macro-averaged evaluation metrics such as Macro F1-score and AUC ensures that each class contributes equally to the overall performance assessment, providing a more balanced view of the model's capability.",
+    "word_count": 230,
+    "metadata": {
+      "figure_id": "figure_011",
+      "label": "Figure 11",
+      "pages": [
+        12
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 11
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 10
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 11
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_figure_caption_0074_be25fffd",
+    "paper_id": "paper_003",
+    "chunk_type": "figure_caption",
+    "order_index": 74,
+    "text": "Fig. 12. The performance metrics distribution diagram of different comparison models. ( a ) Accuracy distribution diagram, ( b ) Precision distribution diagram, ( c ) Recall distribution diagram, ( d ) F1 value distribution diagram.",
+    "word_count": 36,
+    "metadata": {
+      "figure_id": "figure_012",
+      "label": "Figure 12",
+      "pages": [
+        14
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 12
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 12
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_003_reference_0075_0d0eb60c",
     "paper_id": "paper_003",
     "chunk_type": "reference",
-    "order_index": 64,
+    "order_index": 75,
     "text": "[References [1]-[10]]\n[1] Sultan, H. H., Salem, N. M. & Al-Atabany, W. Multi-stage brain tumor classification using MRI based on deep convolutional neural networks. Appl. Sci.13, 4161 (2023).\n[2] Lilhore, U. K. et al. AG-MS3D-CNN multiscale attention guided 3D convolutional neural network for robust brain tumor segmentation across MRI protocols. Sci Rep15, 24306 (2025).\n[3] Rehman, A., Saba, T., Rahman, S. I. U., Al-Turjman, F. & Alabrah, A. Brain tumor classification from MRI images using a convolutional neural network with a modified ReLU activation function. Diagnostics12, 532 (2022).\n[4] Zhong, W., Huang, Z. Z. & Tang, X. A study of brain MRI characteristics and clinical features in 76 cases of Wilson’s disease. J. Clin. Neurosci.59, 167–174 (2018).\n[5] Latif, G., Brahim, G. B., Iskandar, D. A., Bashar, A. & Alghazo, J. M. Glioma tumors’ classification using deep-neural-network- based features with SVM classifier. Diagnostics12, 1018 (2022).\n[6] Ranjbarzadeh, R. et al. Brain tumor segmentation based on deep learning and an attention mechanism using MRI multi-modalities brain images. Sci. Rep.11, 10930 (2021).\n[7] Helen, R. & Kamaraj, N. CAD scheme to detect brain tumour in MR images using active contour models and tree classifiers. J. Electr. Eng. Technol.10, 670–675 (2015).\n[8] Soltaninejad, M. et al. Supervised learning based multimodal MRI brain tumour segmentation using texture features from supervoxels. Comput. Methods Progr Biomed.157, 69–84 (2018).\n[9] Sachdeva, J., Kumar, V., Gupta, I., Khandelwal, N. & Ahuja, C. K. Segmentation, feature extraction, and multiclass brain tumor classification. J. Digit. Imaging26, 1141–1150 (2013).\n[10] Dandıl, E., Çakıroğlu, M. & Ekşi, Z. Computer-aided diagnosis of malign and benign brain tumors on MR images. In Proceedings of the International Conference on ICT Innovations, 157-166 (Springer, Berlin/Heidelberg, 2014).",
     "word_count": 280,
     "metadata": {
@@ -3751,10 +4071,10 @@
     }
   },
   {
-    "chunk_id": "paper_003_reference_0065_e8de8d31",
+    "chunk_id": "paper_003_reference_0076_e8de8d31",
     "paper_id": "paper_003",
     "chunk_type": "reference",
-    "order_index": 65,
+    "order_index": 76,
     "text": "[References [11]-[21]]\n[11] Gumaei, A., Hassan, M. M., Hassan, M. R., Alelaiwi, A. & Fortino, G. A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification. IEEE Access7, 36266–36273 (2019).\n[12] Paul, J. S., Plassard, A. J., Landman, B. A. & Fabbri, D. Deep learning for brain tumor classification. In Proceedings of the Medical Imaging 2017: Biomedical Applications in Molecular, Structural, and Functional Imaging (SPIE), 253-268 (Orlando, FL, USA, 2017).\n[13] Hamamci, A., Kucuk, N., Karaman, K., Engin, K. & Unal, G. Tumor-cut: Segmentation of brain tumors on contrast enhanced MR images for radiosurgery applications. IEEE Trans. Med. Imaging31, 790–804 (2011).\n[14] Havaei, M., Larochelle, H., Poulin, P. & Jodoin, P. M. Within-brain classification for brain tumor segmentation. Int. J. Comput. Assist. Radiol. Surg.11, 777–788 (2016).\n[15] Yang, K. et al. SiamCorners: Siamese corner networks for visual tracking. IEEE Trans. Multimed.24, 1956–1967 (2022).\n[16] Díaz-Pernas, F. J., Martínez-Zarzuela, M., Antón-Rodríguez, M. & González-Ortega, D. A deep learning approach for brain tumor classification and segmentation using a multiscale convolutional neural network. Healthcare9, 153 (2021).\n[17] Ayadi, W., Elhamzi, W., Charfi, I. & Atri, M. Deep CNN for brain tumor classification. Neural Process. Lett.53, 671–700 (2021).\n[18] Deepak, S. & Ameer, P. M. Brain tumor classification using deep CNN features via transfer learning. Computers10, 18 (2021).\n[19] Swati, Z. N. K. et al. Brain tumor classification for MR images using transfer learning and fine-tuning. Comput. Med. Imaging Graph.75, 34–46 (2019).\n[20] Díaz-Pernas, F. J., Martínez-Zarzuela, M., Antón-Rodríguez, M. & González-Ortega, D. A deep learning approach for brain tumor classification and segmentation using a multiscale convolutional neural network. Healthcare9, 153 (2021).\n[21] Yang, Y., Gao, S., Ke, L. & Liu, X. Attention-edge-assisted neural HDRI based on registered extreme-exposure-ratio images. Symmetry17, 1381 (2025).",
     "word_count": 293,
     "metadata": {
@@ -3777,10 +4097,10 @@
     }
   },
   {
-    "chunk_id": "paper_003_reference_0066_119fbba5",
+    "chunk_id": "paper_003_reference_0077_119fbba5",
     "paper_id": "paper_003",
     "chunk_type": "reference",
-    "order_index": 66,
+    "order_index": 77,
     "text": "[References [22]-[33]]\n[22] Ke, L., Liu, Y. & Yang, Y. Compound fault diagnosis method of modular multilevel converter based on improved capsule network. IEEE Access10, 41201–41214 (2022).\n[23] Yang, K. et al. DeforT: Deformable transformer for visual tracking. Neural Netw.24, 106380 (2024).\n[24] Wu, Z., Li, C., Li, H., Li, C. & Liu, Y. Intelligent fault diagnosis of rolling bearings using a SVM-based deep stacking network. Sensors22, 1943 (2022).\n[25] Wang, L., Lin, Z. Q. & Wong, A. COVID-Net: A tailored deep convolutional neural network design for detection of COVID-19 cases from chest X-ray images. Sci Rep10, 19549 (2020).\n[26] Wang, Z. et al. Meta-learning based prototype-relation network for few-shot image classification. Neurocomputing560, 126809 (2023).\n[27] Too, E. C., Yujian, L., Njuki, S. & Yingchun, L. A comparative study of fine-tuning deep learning models for plant disease identification. Comput. Electron. Agric.161, 105272 (2021).\n[28] Ke, L., Hu, G., Yang, Y. & Liu, Y. Fault diagnosis for modular multilevel converter switching devices via multimodal attention fusion. IEEE Access11, 135035–135048 (2023).\n[29] Hu, J., Li, S., Samuel, A. & Sun, G. Squeeze-and-excitation networks. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 7132-7141 (Salt Lake City, UT, USA, 2018).\n[30] Wang, Y. et al. A novel fault diagnosis method of rolling bearings based on lightweight neural network and support vector machine. Adv. Eng. Inform.62, 102448 (2024).\n[31] Chen, X. et al. Fusing vision transformer and support vector machine for few-shot brain tumor classification. Comput. Biol. Med.165, 107234 (2023).\n[32] Cheng, J. et al. Enhanced performance of brain tumor classification via tumor region augmentation and partition. PLoS ONE10, e0140381 (2015).\n[33] Saba, T., Mohamed, A. S., El-Affendi, M. A., Amin, J. & Sharif, M. Brain tumor detection using fusion of hand crafted and deep learning features. Cogn. Syst. Res.59, 221–230 (2020).",
     "word_count": 302,
     "metadata": {
@@ -3804,10 +4124,10 @@
     }
   },
   {
-    "chunk_id": "paper_003_reference_0067_409cdbcf",
+    "chunk_id": "paper_003_reference_0078_409cdbcf",
     "paper_id": "paper_003",
     "chunk_type": "reference",
-    "order_index": 67,
+    "order_index": 78,
     "text": "[References [34]-[41]]\n[34] Anilkumar, B. & Kumar, P. R. Tumor classification using block wise fine tuning and transfer learning of deep neural network and KNN classifier on MR brain images. Int. J. Emerg. Trends Eng. Res.8, 574–583 (2020).\n[35] Loshchilov, I. & Hutter, F. SGDR: stochastic gradient descent with warm restarts. In Proceedings of the International Conference on Learning Representations (ICLR 2017), (Toulon, France, 2017).\n[36] Donti, P., Amos, B. & Kolter, J. Z. Task-based end-to-end model learning in stochastic optimization. In Advances in Neural Information Processing Systems, 5484-5494 (Long Beach, CA, USA, 2017).\n[37] Ke, L., Zhang, Y., Yang, B., Luo, Z. & Liu, Z. Fault diagnosis with synchrosqueezing transform and optimized deep convolutional neural network: An application in modular multilevel converters. Neurocomputing430, 24–33 (2021).\n[38] Simonyan, K. & Zisserman, A. Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556 (2015).\n[39] He, K., Zhang, X., Ren, S. & Sun, J. Deep residual learning for image recognition. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 770–778 (2016).\n[40] Huang, G., Liu, Z., van der Maaten, L. & Weinberger, K. Q. Densely connected convolutional networks. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 4700–4708 (2017).\n[41] Tan, M. & Le, Q. V. EfficientNet: Rethinking model scaling for convolutional neural networks. Proceedings of the 36th International Conference on Machine Learning (ICML) 6105–6114 (2019).",
     "word_count": 232,
     "metadata": {

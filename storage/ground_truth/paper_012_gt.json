@@ -1,0 +1,90 @@
+{
+  "paper_id": "paper_012",
+  "filename": "verydeeplearning.pdf",
+
+  "metadata": {
+    "title": "VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE-SCALE IMAGE RECOGNITION",
+    "authors": ["Karen Simonyan", "Andrew Zisserman"],
+    "year": 2015,
+    "doi": null
+  },
+
+  "abstract": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small ( 3 × 3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16–19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our team secured the first and the second places in the localisation and classification tracks respectively. We also show that our representations generalise well to other datasets, where they achieve state-of-the-art results. We have made our two best-performing ConvNet models publicly available to facilitate further research on the use of deep visual representations in computer vision.",
+
+  "figures": [],
+
+  "tables": [
+    {
+      "label": "Table 1",
+      "caption": " ConvNet configurations (shown in columns). The depth of the configurations increases from the left (A) to the right (E), as more layers are added (the added layers are shown in bold). The convolutional layer parameters are denoted as “convhreceptive field sizei-hnumber of channelsi”. The ReLU activation function is not shown for brevity.",
+      "page": 3
+    },
+    {
+      "label": "Table 2",
+      "caption": "Number of parameters (in millions).",
+      "page": 3
+    },
+    {
+      "label": "Table 3",
+      "caption": " ConvNet performance at a single test scale.",
+      "page": 6
+    },
+    {
+      "label": "Table 4",
+      "caption": "ConvNet performance at multiple test scales.",
+      "page": 7
+    },
+    {
+      "label": "Table 5",
+      "caption": "ConvNet evaluation techniques comparison. In all experiments the training scale S was sampled from [256; 512], and three test scales Q were considered: {256, 384, 512}.",
+      "page": 7
+    },
+    {
+      "label": "Table 6",
+      "caption": "Multiple ConvNet fusion results.",
+      "page": 8
+    },
+    {
+      "label": "Table 7",
+      "caption": "Comparison with the state of the art in ILSVRC classification. Our method is denoted as “VGG”. Only the results obtained without outside training data are reported.",
+      "page": 8
+    },
+    {
+      "label": "Table 8",
+      "caption": "Localisation error for different modifications with the simplified testing protocol: the bounding box is predicted from a single central image crop, and the ground-truth class is used. All ConvNet layers (except for the last one) have the configuration D (Table 1), while the last layer performs either single-class regression (SCR) or per-class regression (PCR).",
+      "page": 11
+    },
+    {
+      "label": "Table 9",
+      "caption": "Localisation error",
+      "page": 11
+    },
+    {
+      "label": "Table 10",
+      "caption": "Comparison with the state of the art in ILSVRC localisation. Our method is denotedas “VGG”.",
+      "page": 12
+    },
+    {
+      "label": "Table 11",
+      "caption": "Comparison with the state of the art in image classification on VOC-2007, VOC-2012, Caltech-101, and Caltech-256. Our models are denoted as “VGG”. Results marked with * were achieved using ConvNets pre-trained on the extended ILSVRC dataset (2000 classes).",
+      "page": 12
+    },
+    {
+      "label": "Table 12",
+      "caption": "Comparison with the state of the art in single-image action classification on VOC2012. Our models are denoted as “VGG”. Results marked with * were achieved using ConvNets pre-trained on the extended ILSVRC dataset (1512 classes).",
+      "page": 14
+    }
+  ],
+
+  "counts": {
+    "numbered_figures": 0,
+    "numbered_tables": 12
+  },
+
+  "source_exceptions": [
+    {
+      "type": "",
+      "details": ""
+    }
+  ]
+}

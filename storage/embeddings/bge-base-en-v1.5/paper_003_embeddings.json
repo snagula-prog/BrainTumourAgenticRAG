@@ -2,12 +2,12 @@
   "schema_version": 2,
   "model_alias": "bge-base",
   "paper_id": "paper_003",
-  "created_at": "2026-09-28T17:35:20.209759+00:00",
-  "input_fingerprint": "f2428b486326bada0f57148948fde8f13686a668e04b37448f8c3cf7f096c4cf",
+  "created_at": "2026-10-05T15:00:01.450802+00:00",
+  "input_fingerprint": "14ce2696a47569437a9d7213d7486aabf70db84a5cf24c026d08abb73351f068",
   "source": {
     "file": "storage\\chunks\\paper_003_chunks.json",
-    "sha256": "9cac52070e77846df2b35abac57f03aca4e87192d3b9a087fda074d8a33bf400",
-    "chunk_count": 68
+    "sha256": "120ae3b6f77a15c32d4eb52c103b8990eb9889a23c608b7c7ef08addee1b3442",
+    "chunk_count": 79
   },
   "embedding": {
     "model_name": "BAAI/bge-base-en-v1.5",
@@ -39,8 +39,8 @@
       "index_terms",
       "table_caption"
     ],
-    "selected_chunk_count": 46,
-    "embedded_segment_count": 46,
+    "selected_chunk_count": 57,
+    "embedded_segment_count": 57,
     "oversized_chunk_count": 0,
     "excluded_counts": {
       "heading": 18,
@@ -49,10 +49,10 @@
   },
   "vectors": {
     "file": "paper_003_embeddings.npz",
-    "sha256": "51338eb3fb495f7efc23515967283c6393628fd1449e492b94671b7bc5080982",
+    "sha256": "c442b33cf32476fac5cc2a37d4d0eca266db70a52b17bf3ef8f512a3816d057d",
     "dtype": "float32",
     "shape": [
-      46,
+      57,
       768
     ],
     "normalized": true
@@ -2033,8 +2033,8 @@
           8
         ],
         "paragraph_ids": [
-          "para_0043",
-          "para_0044"
+          "para_0044",
+          "para_0045"
         ],
         "coordinates": [
           {
@@ -2120,9 +2120,9 @@
           8
         ],
         "paragraph_ids": [
-          "para_0045",
           "para_0046",
-          "para_0047"
+          "para_0047",
+          "para_0048"
         ],
         "coordinates": [
           {
@@ -2225,8 +2225,8 @@
           9
         ],
         "paragraph_ids": [
-          "para_0049",
-          "para_0050"
+          "para_0050",
+          "para_0051"
         ],
         "coordinates": [
           {
@@ -2336,7 +2336,7 @@
           9
         ],
         "paragraph_ids": [
-          "para_0051"
+          "para_0052"
         ],
         "coordinates": [
           {
@@ -2398,7 +2398,7 @@
           9
         ],
         "paragraph_ids": [
-          "para_0052"
+          "para_0053"
         ],
         "coordinates": [
           {
@@ -2460,7 +2460,7 @@
           1
         ],
         "paragraph_ids": [
-          "para_0053"
+          "para_0054"
         ],
         "coordinates": [
           {
@@ -2570,8 +2570,8 @@
           10
         ],
         "paragraph_ids": [
-          "para_0055",
-          "para_0056"
+          "para_0056",
+          "para_0057"
         ],
         "coordinates": [
           {
@@ -2649,8 +2649,8 @@
           10
         ],
         "paragraph_ids": [
-          "para_0057",
-          "para_0058"
+          "para_0058",
+          "para_0059"
         ],
         "coordinates": [
           {
@@ -2713,7 +2713,7 @@
           10
         ],
         "paragraph_ids": [
-          "para_0059",
+          "para_0060",
           "para_0061"
         ],
         "coordinates": [
@@ -3809,8 +3809,8 @@
       "text_sha256": "28c1f0188e39e7f0571f65e4c42058703d582394dbb6fccbc3761d84caf8ce3b"
     },
     {
-      "segment_id": "paper_003_figure_caption_0063_ab5947d9::segment_0000",
-      "chunk_id": "paper_003_figure_caption_0063_ab5947d9",
+      "segment_id": "paper_003_figure_caption_0063_fd8f5f93::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0063_fd8f5f93",
       "paper_id": "paper_003",
       "chunk_type": "figure_caption",
       "order_index": 63,
@@ -3818,26 +3818,423 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
+      "token_end": 12,
+      "token_count": 12,
+      "text": "fig. 1. schematic diagram of senet.",
+      "metadata": {
+        "figure_id": "figure_001",
+        "label": "Figure 1",
+        "pages": [
+          3
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 1
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 0
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "6acba21b4a62d01b6084a0b54d75a2eacd515c944a059b92488751e48d28bf5f"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0064_da9a24c2::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0064_da9a24c2",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 64,
+      "source_index": 64,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 17,
+      "token_count": 17,
+      "text": "fig. 3. the framework of mcacnn - svm for image classification.",
+      "metadata": {
+        "figure_id": "figure_002",
+        "label": "Figure 3",
+        "pages": [
+          4
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 3
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 1
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "f2e9887c4e93afac4e50cea6f1f682b9f9d2d6748c27f4662ab6a7ebcb73fe0e"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0065_38327870::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0065_38327870",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 65,
+      "source_index": 65,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 13,
+      "token_count": 13,
+      "text": "fig. 2. schematic diagram of support vector machine.",
+      "metadata": {
+        "figure_id": "figure_003",
+        "label": "Figure 2",
+        "pages": [
+          4
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 2
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "5920812bda949d3822765e9f953c060aca0508b87d9c44e18013280b3052a368"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0066_1a4876a4::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0066_1a4876a4",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 66,
+      "source_index": 66,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 15,
+      "token_count": 15,
+      "text": "fig. 4. mcacnn - svm model image classification process.",
+      "metadata": {
+        "figure_id": "figure_004",
+        "label": "Figure 4",
+        "pages": [
+          6
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 4
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "3d2b889c71d0d38ad92859a9cb13f289864927013e2620d33e69d534f8a47ec0"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0067_e1a9463e::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0067_e1a9463e",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 67,
+      "source_index": 67,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 41,
+      "token_count": 41,
+      "text": "fig. 5. mri images of four types of brain tumors. ( a ) glioma, ( b ) meningioma, ( c ) pituitary, ( d ) no tumor.",
+      "metadata": {
+        "figure_id": "figure_005",
+        "label": "Figure 5",
+        "pages": [
+          7
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 5
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 4
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "22774da0721038c924ad7b41a21dad6bb6f448f24b547ee1c83b133134dd9287"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0068_20c02ef8::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0068_20c02ef8",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 68,
+      "source_index": 68,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 21,
+      "token_count": 21,
+      "text": "fig. 6. the learning rate variation curve of cosineannealing with warmrestart mechanism.",
+      "metadata": {
+        "figure_id": "figure_006",
+        "label": "Figure 6",
+        "pages": [
+          8
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 6
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 5
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "275cb497c7e1f56de8cba0f07c98eaeb738a97be81e83473521ead1dcec0b7df"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0069_dab42e1c::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0069_dab42e1c",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 69,
+      "source_index": 69,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 22,
+      "token_count": 22,
+      "text": "fig. 7. the impact curve of different optimizer and learning rate scheduler combinations on model performance.",
+      "metadata": {
+        "figure_id": "figure_007",
+        "label": "Figure 7",
+        "pages": [
+          9
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 7
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 6
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "b5075e4dad76c4efde5a980c450a0192f05804c5e753c04056c9322a2ce0f1e6"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0070_cc2b671d::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0070_cc2b671d",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 70,
+      "source_index": 70,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 20,
+      "token_count": 20,
+      "text": "fig. 8. model convergence process. ( a ) accuracy curve, ( b ) loss curve.",
+      "metadata": {
+        "figure_id": "figure_008",
+        "label": "Figure 8",
+        "pages": [
+          10
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 8
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 7
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "bed852bb83a2c66dcff1b6f151162aae6a8643a53adbcc5597592aca9c30d44e"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0071_7c7621ff::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0071_7c7621ff",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 71,
+      "source_index": 71,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 11,
+      "token_count": 11,
+      "text": "fig. 10. confusion matrix for mri image classification.",
+      "metadata": {
+        "figure_id": "figure_009",
+        "label": "Figure 10",
+        "pages": [
+          11
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 10
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 8
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "c9d3638528047f3f8f04468853acce0af3472fe06d7484f54d314f24c1c6a3ea"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0072_c00efb0c::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0072_c00efb0c",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 72,
+      "source_index": 72,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 45,
+      "token_count": 45,
+      "text": "fig. 9. visualization of the model training process. ( a ) original data feature distribution, ( b ) channel attention layer feature distribution, ( c ) fusion layer feature distribution, ( d ) output layer feature distribution.",
+      "metadata": {
+        "figure_id": "figure_010",
+        "label": "Figure 9",
+        "pages": [
+          11
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 9
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 9
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "a3de339882223db478f40e826071620a3fb65df03ccbdea474000340bf3f3e2f"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0073_ab5947d9::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0073_ab5947d9",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 73,
+      "source_index": 73,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
       "token_end": 322,
       "token_count": 322,
       "text": "figure 11 illustrates the roc curves for the four - class classification task, where the model demonstrates outstanding roc - auc performance. the auc values for all categories exceed 0. 99, with no tumor, pituitary, as well as the micro - and macro - averages achieving an auc of 1. 00, indicating virtually no errors in distinguishing these classes. the roc curves are almost adjacent to the top - left corner of the figure, suggesting that the model possesses very strong classification capability. although there is a slight decline in recall for the specific class of meningioma, the model generally performs at a high level across most categories, with particularly excellent performance in classifying no tumor and pituitary. both the macro - average and micro - average auc values reach 1. 0, demonstrating that the model achieves an ideal balance between overall and class - specific performance. the roc curves further confirm that the mcacnn - svm model exhibits exceptional performance in the classification of brain tumor mri images. although the slight class imbalance present in the dataset, the model maintains robust performance across most categories. this resilience can be attributed to two key factors : first, the incorporation of the channel attention mechanism ( senet ) enables the model to adaptively focus on the most discriminative features for each class, effectively mitigating the bias towards majority classes ; second, the adoption of macro - averaged evaluation metrics such as macro f1 - score and auc ensures that each class contributes equally to the overall performance assessment, providing a more balanced view of the model ' s capability.",
       "metadata": {
-        "figure_id": "figure_001",
+        "figure_id": "figure_011",
         "label": "Figure 11",
-        "pages": [],
+        "pages": [
+          12
+        ],
         "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 11
+          },
           {
             "parser": "grobid",
             "kind": "figure",
             "index": 10
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 11
           }
         ],
         "subsection_id": null
       },
       "text_sha256": "d6cb127df236974524d2b757108f4038142b1f3993a36d0234e059e815e84119"
+    },
+    {
+      "segment_id": "paper_003_figure_caption_0074_be25fffd::segment_0000",
+      "chunk_id": "paper_003_figure_caption_0074_be25fffd",
+      "paper_id": "paper_003",
+      "chunk_type": "figure_caption",
+      "order_index": 74,
+      "source_index": 74,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 44,
+      "token_count": 44,
+      "text": "fig. 12. the performance metrics distribution diagram of different comparison models. ( a ) accuracy distribution diagram, ( b ) precision distribution diagram, ( c ) recall distribution diagram, ( d ) f1 value distribution diagram.",
+      "metadata": {
+        "figure_id": "figure_012",
+        "label": "Figure 12",
+        "pages": [
+          14
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 12
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 12
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "c06a734f2a57765e3573bb9b24969458cd51d9f293e26d29010dcf3b5813aa30"
     }
   ],
   "execution": {
-    "elapsed_seconds": 8.655
+    "elapsed_seconds": 9.66
   }
 }

@@ -9,8 +9,8 @@
   "counts": {
     "original_paragraphs": 70,
     "cleaned_paragraphs": 70,
-    "original_numeric_tokens": 1466,
-    "cleaned_numeric_tokens": 1466
+    "original_numeric_tokens": 1488,
+    "cleaned_numeric_tokens": 1488
   },
   "notes": [
     "Cleaning integrity is not ground-truth extraction accuracy.",

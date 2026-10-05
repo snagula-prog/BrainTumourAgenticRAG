@@ -1,0 +1,1505 @@
+{
+  "paper_id": "paper_007",
+  "filename": "Brain_Tumor_Classification_and_Segmentation3.pdf",
+  "metadata": {
+    "title": "Brain Tumor Classification using Convolutional Neural Network from MRI images *",
+    "authors": [
+      "Farsheed Rahman",
+      "S M Arif Mahmud"
+    ],
+    "year": 2024,
+    "doi": null,
+    "keywords": [
+      "brain tumor",
+      "CNN"
+    ]
+  },
+  "reading_order_repair": {
+    "applied": true,
+    "reason": "reordered_page_local_layout",
+    "matched_paragraphs": 26,
+    "pages_reordered": [
+      1
+    ],
+    "paragraphs_reordered": 9,
+    "cross_page_continuations_merged": 0,
+    "continuation_merge_details": [],
+    "page_details": [
+      {
+        "page": 1,
+        "matched_paragraphs": 9,
+        "page_paragraphs": 9,
+        "coverage": 1.0
+      }
+    ]
+  },
+  "abstract": "Brain tumors are one of the most aggressive disease.They are caused when abnormal cells are formed and spread from uncontrolled cell division.They can be identified and classified using convolutional neural networks for medical image analysis.The study emphasizes the importance of accurate diagnosis and treatment planning in brain tumor management, facilitated by imaging techniques such as Magnetic Resonance Imaging (MRI).Using the power of CNNs, The research focuses on classifying and segmenting brain tumors from raw MRI images, employing sophisticated algorithms and techniques.The methodology involves utilizing U-Net architecture, known for its effectiveness in segmentation, to outline brain tumors precisely.The study uses two distinct datasets comprising a total of 3455 MRI images sourced from Kaggle and curated by domain experts.Through rigorous expert-imitation and training, the CNN model demonstrates promising results in accurately identifying and classifying brain tumor.The training process involves dataset preprocessing, division into training, validation and testing sets, and optimization using the Adam optimizer.Evaluation metrics such as accuracy, loss curves, confusion matrices and Receiver Operating Characteristics (ROC) curve validates the effectiveness of the model without overfitting.The findings contribute to the growing body of knowledge in medical image processing, offering a viable approach to enhance brain tumor detection and therapy.",
+  "sections": [
+    {
+      "heading": "I. INTRODUCTION",
+      "level": 1,
+      "path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 135.6190000000001,
+          "y": 288.0847743929204,
+          "w": 77.75283979999983,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "II. METHODOLOGY",
+      "level": 1,
+      "path": [
+        "II. METHODOLOGY"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 395.3750000000001,
+          "y": 196.89577439292043,
+          "w": 84.2704842,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "B. Network Architecture",
+      "level": 1,
+      "path": [
+        "B. Network Architecture"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 48.964,
+          "y": 372.6892182000001,
+          "w": 99.72562600000006,
+          "h": 8.587761199999989,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "4) Flatten Layer:",
+      "level": 1,
+      "path": [
+        "4) Flatten Layer:"
+      ],
+      "coords": []
+    },
+    {
+      "heading": "C. Training Strategy",
+      "level": 1,
+      "path": [
+        "C. Training Strategy"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.97799999999984,
+          "y": 148.87721819999945,
+          "w": 84.44299759999979,
+          "h": 8.587761200000045,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    },
+    {
+      "heading": "III. RESULTS AND ANALYSIS",
+      "level": 1,
+      "path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 111.306,
+          "y": 438.3117743929198,
+          "w": 126.38073569999996,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  ],
+  "paragraphs": [
+    {
+      "paragraph_id": "para_0001",
+      "text": "This research emphasizes the crucial relevance of modern machine learning approaches of medical imaging analysis, based on a thorough investigation of brain tumor classification and segmentation using Convolutional Neural Networks(CNNs).We have shown that a model can effectively identify and classify brain tumours from MRI images by developing and optimizing the model.",
+      "sentences": [
+        "This research emphasizes the crucial relevance of modern machine learning approaches of medical imaging analysis, based on a thorough investigation of brain tumor classification and segmentation using Convolutional Neural Networks(CNNs).",
+        "We have shown that a model can effectively identify and classify brain tumours from MRI images by developing and optimizing the model."
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 48.96400000000002,
+          "y": 644.3037743929201,
+          "w": 251.05792000000017,
+          "h": 80.28287820707988,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 5
+    },
+    {
+      "paragraph_id": "para_0002",
+      "text": "Brain is one of the vital organs in the human body, which consists of billions of cells.The abnormal group of cell is formed from the uncontrolled division of cells, which is also called as tumor [1].Brain tumor are divided into two types such low grade (grade1 and grade2) and high grade (grade3 and grade4) tumor.Low grade brain tumor is called as benign.",
+      "sentences": [
+        "Brain is one of the vital organs in the human body, which consists of billions of cells.",
+        "The abnormal group of cell is formed from the uncontrolled division of cells, which is also called as tumor [1].",
+        "Brain tumor are divided into two types such low grade (grade1 and grade2) and high grade (grade3 and grade4) tumor.",
+        "Low grade brain tumor is called as benign."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 48.96400000000011,
+          "y": 139.55277439292036,
+          "w": 251.05752000000007,
+          "h": 140.05887820707972,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0003",
+      "text": "Similarly, the high grade tumor is also called as malignant.Benign tumor is not cancerous tumor.Hence it does not spread other parts of the brains [2].However the malignant tumor is a cancerous tumor.So it spreads rapidly with indefinite boundaries to other region of the body easily.It leads to immediate death.",
+      "sentences": [
+        "Similarly, the high grade tumor is also called as malignant.",
+        "Benign tumor is not cancerous tumor.",
+        "Hence it does not spread other parts of the brains [2].",
+        "However the malignant tumor is a cancerous tumor.",
+        "So it spreads rapidly with indefinite boundaries to other region of the body easily.",
+        "It leads to immediate death."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 48.96400000000011,
+          "y": 139.55277439292036,
+          "w": 251.05752000000007,
+          "h": 140.05887820707972,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0004",
+      "text": "Imaging analysis is used for diagnosis, treatment planning, and the monitoring of patients.Magnetic Resonance Imaging (MRI) is a powerful non-invasive imaging technique for brain tumor assessment, providing high-resolution images with precise and minute anatomical details and tissue characterization [3].",
+      "sentences": [
+        "Imaging analysis is used for diagnosis, treatment planning, and the monitoring of patients.",
+        "Magnetic Resonance Imaging (MRI) is a powerful non-invasive imaging technique for brain tumor assessment, providing high-resolution images with precise and minute anatomical details and tissue characterization [3]."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 48.96400000000011,
+          "y": 103.36577439292046,
+          "w": 251.05752000000007,
+          "h": 32.46187820707962,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 321.43300000000005,
+          "y": 597.8957743929205,
+          "w": 207.2519677999996,
+          "h": 45.71720500707954,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 311.9780000000001,
+          "y": 527.7857743929203,
+          "w": 251.05751999999967,
+          "h": 32.461878207079735,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0005",
+      "text": "Over the past decades, significant discoveries have been made in the field of medical image analysis, particularly in the development of sophisticated algorithms and techniques for brain tumor classification and segmentation [4].These advancements have been primarily driven by the increasing availability of large-scale datasets, improvements in computational resources and advancements in machine learning and deep learning methodologies [5].",
+      "sentences": [
+        "Over the past decades, significant discoveries have been made in the field of medical image analysis, particularly in the development of sophisticated algorithms and techniques for brain tumor classification and segmentation [4].",
+        "These advancements have been primarily driven by the increasing availability of large-scale datasets, improvements in computational resources and advancements in machine learning and deep learning methodologies [5]."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 311.9780000000001,
+          "y": 432.02477439292034,
+          "w": 251.05751999999978,
+          "h": 92.23787820707958,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0006",
+      "text": "The classification and segmentation of brain tumors involve several interconnected tasks, including image processing, feature extraction, and classification or segmentation [6].Traditional machine learning techniques like support vector machines (SVMs) and random forests have been used for classification and segmentation [7].However, recently the convolutional neural networks (CNNs) have emerged as the main way for automatic future learning and classification or segmentation from medical imaging applications.CNN models were successfully demonstrated on several medical imaging applications from segmenting biomarkers to classifying disease from the images [8,9,10,11,12,13,14].",
+      "sentences": [
+        "The classification and segmentation of brain tumors involve several interconnected tasks, including image processing, feature extraction, and classification or segmentation [6].",
+        "Traditional machine learning techniques like support vector machines (SVMs) and random forests have been used for classification and segmentation [7].",
+        "However, recently the convolutional neural networks (CNNs) have emerged as the main way for automatic future learning and classification or segmentation from medical imaging applications.",
+        "CNN models were successfully demonstrated on several medical imaging applications from segmenting biomarkers to classifying disease from the images [8,9,10,11,12,13,14]."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 311.9780000000001,
+          "y": 288.44277439292046,
+          "w": 251.05751999999978,
+          "h": 140.05887820707954,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0007",
+      "text": "This paper aims to use Convolutational Neural Network (CNN) to classify and segment brain tumors from MRI images.The dataset that have been used contains a total of 3264 MRI images to work from.The CNN will be trained to identify if there is a tumor or not and also classify and segment which type of tumor it is.",
+      "sentences": [
+        "This paper aims to use Convolutational Neural Network (CNN) to classify and segment brain tumors from MRI images.The dataset that have been used contains a total of 3264 MRI images to work from.The CNN will be trained to identify if there is a tumor or not and also classify and segment which type of tumor it is."
+      ],
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "coords": [
+        {
+          "page": 1,
+          "x": 311.9780000000001,
+          "y": 216.59277439292043,
+          "w": 251.05751999999978,
+          "h": 68.32687820707969,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 1
+    },
+    {
+      "paragraph_id": "para_0008",
+      "text": "The input layer works as the entry point for data that goes into the network.Its primary function is to receive the input data and pass it on to the other layers for further processing.For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.The convolutional layer detects and extracts features from the input data that are important for classification.After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions.",
+      "sentences": [
+        "The input layer works as the entry point for data that goes into the network.",
+        "Its primary function is to receive the input data and pass it on to the other layers for further processing.",
+        "For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.",
+        "The convolutional layer detects and extracts features from the input data that are important for classification.",
+        "After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.",
+        "This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions."
+      ],
+      "section": "II. METHODOLOGY",
+      "section_path": [
+        "II. METHODOLOGY"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 48.964,
+          "y": 304.69577439292044,
+          "w": 251.05792000000008,
+          "h": 140.05887820707954,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 48.964,
+          "y": 73.48877439292039,
+          "w": 251.05791999999997,
+          "h": 223.7448782070797,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 311.978,
+          "y": 428.30677439292043,
+          "w": 251.05751999999978,
+          "h": 44.416878207079606,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "paragraph_id": "para_0009",
+      "text": "The human brain is modeled by using design and implementation of neural network.The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.Neural network is divided into three types based on their interconnections.In the normal neural network, image cannot be scalable.But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution Fig. 1: Brain Tumor Classification According to AANS layer, Rectified Linear Unit layer, pooling layer and fully connected layer [15].",
+      "sentences": [
+        "The human brain is modeled by using design and implementation of neural network.",
+        "The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.",
+        "Neural network is divided into three types based on their interconnections.",
+        "In the normal neural network, image cannot be scalable.",
+        "But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.",
+        "The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution Fig. 1: Brain Tumor Classification According to AANS layer, Rectified Linear Unit layer, pooling layer and fully connected layer [15]."
+      ],
+      "section": "II. METHODOLOGY",
+      "section_path": [
+        "II. METHODOLOGY"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 192.043,
+          "y": 498.2447743929203,
+          "w": 227.91440019999965,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 1,
+          "x": 311.9780000000001,
+          "y": 73.48877439292039,
+          "w": 251.05751999999978,
+          "h": 116.14887820707975,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 48.964,
+          "y": 452.21677439292034,
+          "w": 251.05752,
+          "h": 20.506878207079637,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 48.964,
+          "y": 73.48877439292039,
+          "w": 251.05791999999997,
+          "h": 223.7448782070797,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 311.978,
+          "y": 428.30677439292043,
+          "w": 251.05751999999978,
+          "h": 44.416878207079606,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "paragraph_id": "para_0010",
+      "text": "In some cases, after applying convolution, the pooling layer comes into play.This layer performs spatial downsampling by partitioning the input feature map into non-overlapping regions and then reducing each region to a single value.This effectively decreases the spatial resolution of the feature map while still having the most important information.There are different types of pooling layers, with max-pooling and average-pooling being the most common.Then the flatter layer prepares the data for input into the fully connected layer.The fully connected layer combines the extracted features to make a final decision about the presence of a brain tumor.Dropout regularization is applied to reduce overfitting by randomly dropping out connections during training.A. Dataset Two datasets are used for the identification,classification and segmentation.The dataset that is used for identification contains brain images collected through MRI scans.The datasets contains 3264 MRI divided into four subfolders.They Fig. 4: Pituitary Tumor are lso divided into two subsubfolders that are training and testing They are divide into glionoma tumor, meningioma tumor, no tumor, and pituitary tumor.The glionoma tumor folder contains 826(Train) + 100(Test) images, the meningioma tumor contains 822(Training) + 115(Testing), the no tumor contains 395(Training) + 105(Testing) and the pituitary tumor contains 827(Training) + 74(Testing).The dataset is obtained from Kaggle and is made by Shivam Agarwal, a student at AICTE.",
+      "sentences": [
+        "In some cases, after applying convolution, the pooling layer comes into play.",
+        "This layer performs spatial downsampling by partitioning the input feature map into non-overlapping regions and then reducing each region to a single value.",
+        "This effectively decreases the spatial resolution of the feature map while still having the most important information.",
+        "There are different types of pooling layers, with max-pooling and average-pooling being the most common.",
+        "Then the flatter layer prepares the data for input into the fully connected layer.",
+        "The fully connected layer combines the extracted features to make a final decision about the presence of a brain tumor.",
+        "Dropout regularization is applied to reduce overfitting by randomly dropping out connections during training.",
+        "A. Dataset Two datasets are used for the identification,classification and segmentation.",
+        "The dataset that is used for identification contains brain images collected through MRI scans.",
+        "The datasets contains 3264 MRI divided into four subfolders.They Fig. 4: Pituitary Tumor are lso divided into two subsubfolders that are training and testing They are divide into glionoma tumor, meningioma tumor, no tumor, and pituitary tumor.",
+        "The glionoma tumor folder contains 826(Train) + 100(Test) images, the meningioma tumor contains 822(Training) + 115(Testing), the no tumor contains 395(Training) + 105(Testing) and the pituitary tumor contains 827(Training) + 74(Testing).",
+        "The dataset is obtained from Kaggle and is made by Shivam Agarwal, a student at AICTE."
+      ],
+      "section": "II. METHODOLOGY",
+      "section_path": [
+        "II. METHODOLOGY"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 311.978,
+          "y": 125.17221819999997,
+          "w": 44.55274719999983,
+          "h": 8.587761200000045,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 127.002,
+          "y": 522.8347743929203,
+          "w": 94.98342840000002,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "paragraph_id": "para_0011",
+      "text": "The network architecture that is used for the brain tumor classification is U-Net.This architecture has proven effective for semantic segmentation because its ability to precise localization and delineation of tumor regions which are crucial for segmentation.The architecture contains layers through which the input goes through for precise segmentation and classification.The layers and their working are in the following 1) Input Layer: This is the layer where the inputs are entered and they are then subsequently passed onto the other layers form further processing.For this model, the inputs are MRI images, totaling 3264, that are obtained from the two datasets.The data that is received, in this case, images contains pixels which are arranged in a grid-like structure.The inputs of the images are (150,150,3).These represent the height and Fig. 5: No Tumor width of the images.The 3 is the color channels.Preprocessing steps are also undertaken in this layer.The images are resized to enhanced performance and suitability for further usage by the network.Once the data is shaped and preprocessed, it is passed on to the next layer in the network.",
+      "sentences": [
+        "The network architecture that is used for the brain tumor classification is U-Net.",
+        "This architecture has proven effective for semantic segmentation because its ability to precise localization and delineation of tumor regions which are crucial for segmentation.",
+        "The architecture contains layers through which the input goes through for precise segmentation and classification.",
+        "The layers and their working are in the following 1) Input Layer: This is the layer where the inputs are entered and they are then subsequently passed onto the other layers form further processing.",
+        "For this model, the inputs are MRI images, totaling 3264, that are obtained from the two datasets.",
+        "The data that is received, in this case, images contains pixels which are arranged in a grid-like structure.",
+        "The inputs of the images are (150,150,3).",
+        "These represent the height and Fig. 5: No Tumor width of the images.",
+        "The 3 is the color channels.",
+        "Preprocessing steps are also undertaken in this layer.",
+        "The images are resized to enhanced performance and suitability for further usage by the network.",
+        "Once the data is shaped and preprocessed, it is passed on to the next layer in the network."
+      ],
+      "section": "B. Network Architecture",
+      "section_path": [
+        "B. Network Architecture"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 138.075,
+          "y": 77.07577439292038,
+          "w": 72.83656860000002,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0012",
+      "text": "2) Convolutional Layer: This layer is a fundamental building block of the Convolutional Neural Networks(CNNs) and is the layer where feature extraction is done.They normally detect features such as edges, textures, pattern and other visual elements in the case of image data.Then convolution operation are applied to the input data using filters and kernels.Filters are small, square-shaped matrices that slide across the input data, calculating dot products at each position.This helps in detecting pattern and features.The 2D convolutional layer contains 32 filters each with a kernel size of (3,3), with a stride of 1, and a Rectified Linear Unit, which is activation function, which is applied so that it can learn non-linearity.This helps it to learn complex relationships between input features and output predictions.Another 2D convolutional layer is added with 64 filters and a 3x3 kernel size.",
+      "sentences": [
+        "2) Convolutional Layer: This layer is a fundamental building block of the Convolutional Neural Networks(CNNs) and is the layer where feature extraction is done.",
+        "They normally detect features such as edges, textures, pattern and other visual elements in the case of image data.",
+        "Then convolution operation are applied to the input data using filters and kernels.",
+        "Filters are small, square-shaped matrices that slide across the input data, calculating dot products at each position.",
+        "This helps in detecting pattern and features.",
+        "The 2D convolutional layer contains 32 filters each with a kernel size of (3,3), with a stride of 1, and a Rectified Linear Unit, which is activation function, which is applied so that it can learn non-linearity.This helps it to learn complex relationships between input features and output predictions.",
+        "Another 2D convolutional layer is added with 64 filters and a 3x3 kernel size."
+      ],
+      "section": "B. Network Architecture",
+      "section_path": [
+        "B. Network Architecture"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.97799999999995,
+          "y": 503.7137743929196,
+          "w": 251.06163159999994,
+          "h": 176.10420500708017,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0013",
+      "text": "3) Pooling Layer : This layer is mainly used to reduce the spatial dimensions of the feature maps therefore reducing the computational complexity of the network and controlling overfitting.Max-Pooling is used for the data that is provided.The default pool size is (2,2), which downsamples the input by taking the maximun value over a 2x2 window.The stride is 1.The same patter of adding convolutional and max pooling layers is repeated twice more, gradually increasing the number of filters to 32 and then reducing back to 16.A dropout layer is add with a rate of 0.3 to prevent overfitting.",
+      "sentences": [
+        "3) Pooling Layer : This layer is mainly used to reduce the spatial dimensions of the feature maps therefore reducing the computational complexity of the network and controlling overfitting.",
+        "Max-Pooling is used for the data that is provided.",
+        "The default pool size is (2,2), which downsamples the input by taking the maximun value over a 2x2 window.",
+        "The stride is 1.",
+        "The same patter of adding convolutional and max pooling layers is repeated twice more, gradually increasing the number of filters to 32 and then reducing back to 16.",
+        "A dropout layer is add with a rate of 0.3 to prevent overfitting."
+      ],
+      "section": "B. Network Architecture",
+      "section_path": [
+        "B. Network Architecture"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.97799999999995,
+          "y": 384.00177439291974,
+          "w": 251.05751999999973,
+          "h": 116.32720500707956,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0014",
+      "text": "This layer serves a critical role as it transforms the multi-dimensional output into one-dimensional array.This is necessary as the fully connected layers only requires one-dimensional outputs.",
+      "sentences": [
+        "This layer serves a critical role as it transforms the multi-dimensional output into one-dimensional array.",
+        "This is necessary as the fully connected layers only requires one-dimensional outputs."
+      ],
+      "section": "4) Flatten Layer:",
+      "section_path": [
+        "4) Flatten Layer:"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.9779999999999,
+          "y": 336.01977439291977,
+          "w": 251.06197219999996,
+          "h": 44.59720500707965,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0015",
+      "text": "5) Dense Layer: Dense layer or the fully connected layer is a fundamental component where neurons are added.Here, every neuron is connected to every layer in the previous layer.Acticvation function are also utilized.Here, at first, 512 neurons and ReLU are added .Another dropout layer is added to prevent overfitting.Then another dense layer is added with a single neuron and sigmold activation function is added as output layer for binary classification task.",
+      "sentences": [
+        "5) Dense Layer: Dense layer or the fully connected layer is a fundamental component where neurons are added.",
+        "Here, every neuron is connected to every layer in the previous layer.",
+        "Acticvation function are also utilized.",
+        "Here, at first, 512 neurons and ReLU are added .Another dropout layer is added to prevent overfitting.",
+        "Then another dense layer is added with a single neuron and sigmold activation function is added as output layer for binary classification task."
+      ],
+      "section": "4) Flatten Layer:",
+      "section_path": [
+        "4) Flatten Layer:"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.9779999999999,
+          "y": 240.21777439291986,
+          "w": 251.0575199999999,
+          "h": 92.41720500707959,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0016",
+      "text": "6) Output Layer: This is the final layer that is responsible for producing the outputs based on the features extracted from the input data.The neurons in the output layers matches the classes in the dataset so 4 neurons are added with a softmax activation function.The activation function outputs probabilities representing the likelihood of each class.",
+      "sentences": [
+        "6) Output Layer: This is the final layer that is responsible for producing the outputs based on the features extracted from the input data.",
+        "The neurons in the output layers matches the classes in the dataset so 4 neurons are added with a softmax activation function.",
+        "The activation function outputs probabilities representing the likelihood of each class."
+      ],
+      "section": "4) Flatten Layer:",
+      "section_path": [
+        "4) Flatten Layer:"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.97799999999984,
+          "y": 168.3257743929198,
+          "w": 251.06228199999975,
+          "h": 68.50720500707962,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0017",
+      "text": "Training in the context of neural networks, refers to the process of adjusting the parameters of the model using a training dataset to minimize the loss function.Its objective is to teach the model to make accurate predictions or classifications based on the input data.For a model to train some procedures must be followed.At first, the dataset that is used must loaded must be used.Some preprocessing is done so that can be used suitably in the network.",
+      "sentences": [
+        "Training in the context of neural networks, refers to the process of adjusting the parameters of the model using a training dataset to minimize the loss function.",
+        "Its objective is to teach the model to make accurate predictions or classifications based on the input data.",
+        "For a model to train some procedures must be followed.",
+        "At first, the dataset that is used must loaded must be used.",
+        "Some preprocessing is done so that can be used suitably in the network."
+      ],
+      "section": "C. Training Strategy",
+      "section_path": [
+        "C. Training Strategy"
+      ],
+      "coords": [
+        {
+          "page": 3,
+          "x": 311.97799999999984,
+          "y": 73.48877439291982,
+          "w": 251.05751999999973,
+          "h": 68.3278782070796,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 48.964,
+          "y": 719.0677743929203,
+          "w": 251.05752,
+          "h": 20.50787820707967,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 3
+    },
+    {
+      "paragraph_id": "para_0018",
+      "text": "Then the datasets are split into three subsets: training, validation and testing sets.The training set is used to train the model, the validation set is used to adjust the hyperparameters and monitor the model's performance during training, and the testing set is used to evaluate the final performance of the trained model.For the two datasets that are used in the model, they have been split into three subsections.The training set contains 70 percent of the images, the validation set contains 20 percent of the images and the testing set contains 10 percent of the images.Both of the datasets are divided in this format.",
+      "sentences": [
+        "Then the datasets are split into three subsets: training, validation and testing sets.",
+        "The training set is used to train the model, the validation set is used to adjust the hyperparameters and monitor the model's performance during training, and the testing set is used to evaluate the final performance of the trained model.",
+        "For the two datasets that are used in the model, they have been split into three subsections.",
+        "The training set contains 70 percent of the images, the validation set contains 20 percent of the images and the testing set contains 10 percent of the images.",
+        "Both of the datasets are divided in this format."
+      ],
+      "section": "C. Training Strategy",
+      "section_path": [
+        "C. Training Strategy"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 48.964,
+          "y": 599.62077439292,
+          "w": 251.05791999999997,
+          "h": 116.14887820707997,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0019",
+      "text": "After going through the layers of the CNN model, it is compiled using the Adam optimizer.This is used to minimize the loss function during training.Here the evaluation metrics such accuracy, loss and the confusion matrix, that are going to be calculated are stated.Then the compiled model is trained.The model is trained for 20 epochs.For each epoch, it went through approximately 83 steps per epoch with each step processing a batch of data of 32.",
+      "sentences": [
+        "After going through the layers of the CNN model, it is compiled using the Adam optimizer.",
+        "This is used to minimize the loss function during training.",
+        "Here the evaluation metrics such accuracy, loss and the confusion matrix, that are going to be calculated are stated.",
+        "Then the compiled model is trained.",
+        "The model is trained for 20 epochs.",
+        "For each epoch, it went through approximately 83 steps per epoch with each step processing a batch of data of 32."
+      ],
+      "section": "C. Training Strategy",
+      "section_path": [
+        "C. Training Strategy"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 48.964,
+          "y": 504.0837743929198,
+          "w": 251.05792000000002,
+          "h": 92.23787820707986,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0020",
+      "text": "After the training, the testing dataset is used to evaluate the trained model.Based on the evaluations, the accuracy curve, loss curve and the confusion metrics are calculated.This metrics helps to assess its effectiveness of its given task.",
+      "sentences": [
+        "After the training, the testing dataset is used to evaluate the trained model.",
+        "Based on the evaluations, the accuracy curve, loss curve and the confusion metrics are calculated.",
+        "This metrics helps to assess its effectiveness of its given task."
+      ],
+      "section": "C. Training Strategy",
+      "section_path": [
+        "C. Training Strategy"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 48.964,
+          "y": 456.3667743929198,
+          "w": 251.05792000000008,
+          "h": 44.41787820707964,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0021",
+      "text": "After developing and training the CNN model its is optimized using the Adam optimizer.This is used to minimize the loss of the loss function.Then the accuracy and the loss data are calculated.Fig 2 and 3 shows the loss curve.The training loss curve for both the datasets are decreasing which confirms that the model is training to make better predictions.The validation loss curve must decrease simultaneously with the training and it is doing so.This shows that the model is not overfitting and is likely generalizing with the validation set.The accuracy curve is shown in Fig 4 and 5 .It also shows that the training accuracy is increasing and the validation loss is increasing simultaneously which indicated the the model is getting better at predicting and also not overfitting.",
+      "sentences": [
+        "After developing and training the CNN model its is optimized using the Adam optimizer.",
+        "This is used to minimize the loss of the loss function.",
+        "Then the accuracy and the loss data are calculated.",
+        "Fig 2 and 3 shows the loss curve.",
+        "The training loss curve for both the datasets are decreasing which confirms that the model is training to make better predictions.",
+        "The validation loss curve must decrease simultaneously with the training and it is doing so.",
+        "This shows that the model is not overfitting and is likely generalizing with the validation set.The accuracy curve is shown in Fig 4 and 5 .",
+        "It also shows that the training accuracy is increasing and the validation loss is increasing simultaneously which indicated the the model is getting better at predicting and also not overfitting."
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 48.96400000000002,
+          "y": 279.8607743929199,
+          "w": 251.05791999999988,
+          "h": 152.01387820707959,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0022",
+      "text": "Fig. 6: Accuracy Curve For Classification Fig 6 shows the confusion matrix.This provides a comprehensive summary of the performance of a classification model Fig. 7: Loss Curve For Classification Fig. 8: Confusion Matrix for Classification by presenting the counts of true positive, true negative, false negative and false positive predictions for each class in the dataset.By analyzing the confusion matrix, it is confirmed that the model is accurate.A ROC curve was also calculated from the data.As the curve hugs the top left hand corner, it means that the model is performing well as it achieves higher true positive rates(TPRs) with lower False Positive Rate(FPRs).The Area under the Curve (AUC)) is nearer to 1 for all of the class, so it indicates a better performance of the model.IV.DISCUSSION",
+      "sentences": [
+        "Fig. 6: Accuracy Curve For Classification Fig 6 shows the confusion matrix.",
+        "This provides a comprehensive summary of the performance of a classification model Fig. 7: Loss Curve For Classification Fig. 8: Confusion Matrix for Classification by presenting the counts of true positive, true negative, false negative and false positive predictions for each class in the dataset.",
+        "By analyzing the confusion matrix, it is confirmed that the model is accurate.",
+        "A ROC curve was also calculated from the data.As the curve hugs the top left hand corner, it means that the model is performing well as it achieves higher true positive rates(TPRs) with lower False Positive Rate(FPRs).",
+        "The Area under the Curve (AUC)) is nearer to 1 for all of the class, so it indicates a better performance of the model.",
+        "IV.",
+        "DISCUSSION"
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 88.935,
+          "y": 108.4357743929204,
+          "w": 171.11761760000007,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 361.547,
+          "y": 583.3067743929204,
+          "w": 151.91968739999982,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 349.777,
+          "y": 402.30777439292035,
+          "w": 175.46131119999978,
+          "h": 8.551878207079653,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 48.964000000000006,
+          "y": 73.48877439292039,
+          "w": 251.05792000000014,
+          "h": 20.507878207079557,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 311.978,
+          "y": 265.01077439292044,
+          "w": 251.05751999999967,
+          "h": 104.19387820707959,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0023",
+      "text": "The human brain is modeled by using design and implementation of neural network.The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.Neural network is divided into three types based on their interconnections.In the normal neural network, image cannot be scalable.But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution layer, Rectified Linear Unit layer, pooling layer and fully connected layer.The input layer works as the entry point for data that goes into the network.Its primary function is to receive the input data and pass it on to the other layers for further processing.For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.The convolutional layer detects and extracts features from the input data that are important for classification.After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions.",
+      "sentences": [
+        "The human brain is modeled by using design and implementation of neural network.",
+        "The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.",
+        "Neural network is divided into three types based on their interconnections.",
+        "In the normal neural network, image cannot be scalable.",
+        "But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.",
+        "The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution layer, Rectified Linear Unit layer, pooling layer and fully connected layer.",
+        "The input layer works as the entry point for data that goes into the network.",
+        "Its primary function is to receive the input data and pass it on to the other layers for further processing.",
+        "For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.",
+        "The convolutional layer detects and extracts features from the input data that are important for classification.",
+        "After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.",
+        "This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions."
+      ],
+      "section": "II. METHODOLOGY",
+      "section_path": [
+        "II. METHODOLOGY"
+      ],
+      "coords": [
+        {
+          "page": 2,
+          "x": 48.964,
+          "y": 73.48877439292039,
+          "w": 251.05791999999997,
+          "h": 223.7448782070797,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 311.978,
+          "y": 428.30677439292043,
+          "w": 251.05751999999978,
+          "h": 44.416878207079606,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 2
+    },
+    {
+      "paragraph_id": "para_0024",
+      "text": "Our approach makes use of CNNs, which are highly effective in deriving intricate patterns and features from unprocessed picture data.By utilizing multiple layers including convolutional, pooling and fully connected layers, our model effectively extracted meaningful features from MRI images and made predictions with high accuracy.",
+      "sentences": [
+        "Our approach makes use of CNNs, which are highly effective in deriving intricate patterns and features from unprocessed picture data.",
+        "By utilizing multiple layers including convolutional, pooling and fully connected layers, our model effectively extracted meaningful features from MRI images and made predictions with high accuracy."
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 48.96400000000002,
+          "y": 572.6767743929199,
+          "w": 251.05792,
+          "h": 68.32787820707983,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 5
+    },
+    {
+      "paragraph_id": "para_0025",
+      "text": "The results and analysis demonstrate the successful training and validation of the CNN model, showcasing decreasing loss curves and increasing accuracy curves, indicating the model's ability to generalize well to unseen data without overfitting.Additionally, the confusion matrix provides a comprehensive overview of the model's performance, confirming its accuracy in classifying brain tumors.",
+      "sentences": [
+        "The results and analysis demonstrate the successful training and validation of the CNN model, showcasing decreasing loss curves and increasing accuracy curves, indicating the model's ability to generalize well to unseen data without overfitting.",
+        "Additionally, the confusion matrix provides a comprehensive overview of the model's performance, confirming its accuracy in classifying brain tumors."
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 48.96400000000002,
+          "y": 489.0957743929198,
+          "w": 251.05792,
+          "h": 80.28287820707976,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 5
+    },
+    {
+      "paragraph_id": "para_0026",
+      "text": "All things considered, this study adds to the expanding body of knowledge in medical image processing and offers a viable method for improving brain tumor detection and therapy.In the future, patients and medical professionals alike may benefit from increased performance and wider application of CNN models in clinical settings as a result of additional improvements and validations of these models.",
+      "sentences": [
+        "All things considered, this study adds to the expanding body of knowledge in medical image processing and offers a viable method for improving brain tumor detection and therapy.",
+        "In the future, patients and medical professionals alike may benefit from increased performance and wider application of CNN models in clinical settings as a result of additional improvements and validations of these models."
+      ],
+      "section": "III. RESULTS AND ANALYSIS",
+      "section_path": [
+        "III. RESULTS AND ANALYSIS"
+      ],
+      "coords": [
+        {
+          "page": 5,
+          "x": 48.96400000000002,
+          "y": 405.51377439291986,
+          "w": 251.05791999999994,
+          "h": 80.28287820707959,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 5
+    }
+  ],
+  "formulas": [],
+  "figures": [
+    {
+      "figure_id": "figure_001",
+      "label": "Figure 2",
+      "caption": "Fig. 2: Glioma Tumor",
+      "pages": [
+        2
+      ],
+      "regions": [
+        {
+          "page": 2,
+          "x": 385.2525939941406,
+          "y": 173.0181884765625,
+          "w": 103.99050903320312,
+          "h": 86.28253173828125,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 1
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "confidence": 1.0,
+      "signals": [
+        "grobid_figure_with_identity",
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_002",
+      "label": "Figure 3",
+      "caption": "Fig. 3: Meningioma Tumor",
+      "pages": [
+        3
+      ],
+      "regions": [
+        {
+          "page": 3,
+          "x": 121.95940399169922,
+          "y": 656.3998718261719,
+          "w": 104.43453216552734,
+          "h": 86.2360954284668,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 1
+        }
+      ],
+      "confidence": 1.0,
+      "signals": [
+        "grobid_figure_with_identity",
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_003",
+      "label": "Figure 9",
+      "caption": "Fig. 9: ROC Curve for Classification",
+      "pages": [
+        4
+      ],
+      "regions": [
+        {
+          "page": 4,
+          "x": 310.4598693847656,
+          "y": 95.680908203125,
+          "w": 252.16152954101562,
+          "h": 138.55548095703125,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 8
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "confidence": 1.0,
+      "signals": [
+        "grobid_figure_with_identity",
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_004",
+      "label": "Figure 1",
+      "caption": "Fig. 1: Brain Tumor Classification According to AANS",
+      "pages": [
+        2
+      ],
+      "regions": [
+        {
+          "page": 2,
+          "x": 134.6709442138672,
+          "y": 514.1487121582031,
+          "w": 341.7111358642578,
+          "h": 229.27634048461914,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_005",
+      "label": "Figure 4",
+      "caption": "Fig. 4: Pituitary Tumor",
+      "pages": [
+        3
+      ],
+      "regions": [
+        {
+          "page": 3,
+          "x": 122.10309600830078,
+          "y": 538.7933044433594,
+          "w": 104.17206573486328,
+          "h": 86.55928039550781,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 3
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_006",
+      "label": "Figure 5",
+      "caption": "Fig. 5: No Tumor",
+      "pages": [
+        3
+      ],
+      "regions": [
+        {
+          "page": 3,
+          "x": 122.11781311035156,
+          "y": 93.303955078125,
+          "w": 103.99533081054688,
+          "h": 86.267578125,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 4
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_007",
+      "label": "Figure 6",
+      "caption": "Fig. 6: Accuracy Curve For Classification",
+      "pages": [
+        4
+      ],
+      "regions": [
+        {
+          "page": 4,
+          "x": 46.82564163208008,
+          "y": 125.708251953125,
+          "w": 254.5356559753418,
+          "h": 139.620361328125,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 5
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_008",
+      "label": "Figure 7",
+      "caption": "Fig. 7: Loss Curve For Classification",
+      "pages": [
+        4
+      ],
+      "regions": [
+        {
+          "page": 4,
+          "x": 309.1846008300781,
+          "y": 600.6588897705078,
+          "w": 255.52774047851562,
+          "h": 139.7347869873047,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 6
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    },
+    {
+      "figure_id": "figure_009",
+      "label": "Figure 8",
+      "caption": "Fig. 8: Confusion Matrix for Classification",
+      "pages": [
+        4
+      ],
+      "regions": [
+        {
+          "page": 4,
+          "x": 311.29058837890625,
+          "y": 421.04254150390625,
+          "w": 252.214599609375,
+          "h": 138.37086486816406,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "caption_status": "available",
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 7
+        }
+      ],
+      "confidence": 0.9,
+      "signals": [
+        "figure_label",
+        "figure_caption_identity",
+        "docling_caption"
+      ],
+      "artifact_type": "figure"
+    }
+  ],
+  "tables": [],
+  "visual_artifacts": [],
+  "unclassified_visuals": [],
+  "artifact_reconstruction": {
+    "raw_table_regions": 0,
+    "logical_tables": 0,
+    "raw_visual_regions": 9,
+    "logical_figures": 9,
+    "unclassified_visuals": 0,
+    "table_derived_paragraphs_removed": 0
+  },
+  "table_derived_paragraphs": [],
+  "references": [
+    {
+      "number": null,
+      "title": "Brain tumor classification using convolutional neural networks",
+      "authors": [
+        "JSeetha",
+        "SSelvakumarRaja"
+      ],
+      "raw": "J. Seetha and S. Selvakumar Raja, \"Brain tumor classifi- cation using convolutional neural networks,\" Biomedical and Pharmacology Journal, vol. 11, no. 3, p. 1457, 2018."
+    },
+    {
+      "number": null,
+      "title": "Brain tumor classification using convolutional neural network",
+      "authors": [
+        "NAbiwinanda"
+      ],
+      "raw": "N. Abiwinanda et al., \"Brain tumor classification using convolutional neural network,\" vol. 1, 2019."
+    },
+    {
+      "number": null,
+      "title": "Brain tumor classification using convolutional neural network",
+      "authors": [
+        "SDas",
+        "ORRahman Aranya",
+        "NNLabiba"
+      ],
+      "raw": "S. Das, O. R. Rahman Aranya, and N. N. Labiba, \"Brain tumor classification using convolutional neural network,\" 2019."
+    },
+    {
+      "number": null,
+      "title": "A framework for brain tumor segmentation and classification using deep learning algorithm",
+      "authors": [
+        "SMKulkarni",
+        "GSundari"
+      ],
+      "raw": "S. M. Kulkarni and G. Sundari, \"A framework for brain tumor segmentation and classification using deep learning algorithm,\" International Journal of Advanced Computer Science and Applications, vol. 11, no. 8, 2020."
+    },
+    {
+      "number": null,
+      "title": "Review of mribased brain tumor image segmentation using deep learning methods",
+      "authors": [
+        "Aİs ¸ın",
+        "CDirekoglu",
+        "MS¸ah"
+      ],
+      "raw": "A. İs ¸ın, C. Direkoglu, and M. S ¸ah, \"Review of mri- based brain tumor image segmentation using deep learn- ing methods,\" Procedia Computer Science, vol. 102, pp. 317-324, 2016."
+    },
+    {
+      "number": null,
+      "title": "Brain tumor segmentation using convolutional neural networks in mri images",
+      "authors": [
+        "SPereira"
+      ],
+      "raw": "S. Pereira et al., \"Brain tumor segmentation using convo- lutional neural networks in mri images,\" IEEE transac- tions on medical imaging, vol. 35, no. 5, pp. 1240-1251, 2016."
+    },
+    {
+      "number": null,
+      "title": "Brain tumor detection using anisotropic filtering, svm classifier and morphological operation from mr images",
+      "authors": [
+        "MH ORashid"
+      ],
+      "raw": "M. H. O. Rashid et al., \"Brain tumor detection using anisotropic filtering, svm classifier and morphological operation from mr images,\" 2018."
+    },
+    {
+      "number": null,
+      "title": "Detection of parkinson's disease from t2-weighted magnetic resonance imaging scans using efficientnet-v2",
+      "authors": [
+        "MMHasan",
+        "NAlfaz",
+        "MA MAlam",
+        "ARahman",
+        "HMShakhawat",
+        "SRahman"
+      ],
+      "raw": "M. M. Hasan, N. Alfaz, M. A. M. Alam, A. Rah- man, H. M. Shakhawat, and S. Rahman, \"Detection of parkinson's disease from t2-weighted magnetic resonance imaging scans using efficientnet-v2,\" in 2023 26th In- ternational Conference on Computer and Information Technology (ICCIT), pp. 1-6, IEEE, 2023."
+    },
+    {
+      "number": null,
+      "title": "Automatic quantification of her2 gene amplification in invasive breast cancer from chromogenic in situ hybridization whole slide images",
+      "authors": [
+        "MSHossain",
+        "MGHanna",
+        "NUraoka",
+        "TNakamura",
+        "MEdelweiss",
+        "EBrogi",
+        "MRHameed",
+        "MYamaguchi",
+        "DSRoss",
+        "YYagi"
+      ],
+      "raw": "M. S. Hossain, M. G. Hanna, N. Uraoka, T. Nakamura, M. Edelweiss, E. Brogi, M. R. Hameed, M. Yamaguchi, D. S. Ross, and Y. Yagi, \"Automatic quantification of her2 gene amplification in invasive breast cancer from chromogenic in situ hybridization whole slide images,\" Journal of Medical Imaging, vol. 6, no. 4, pp. 047501- 047501, 2019."
+    },
+    {
+      "number": null,
+      "title": "Deeppoly: deep learning based polyps segmentation and classification for autonomous colonoscopy examination",
+      "authors": [
+        "MSHossain",
+        "MMRahman",
+        "MMSyeed",
+        "MFUddin",
+        "MHasan",
+        "MAHossain",
+        "AKsibi",
+        "MMJamjoom",
+        "ZUllah",
+        "MASamad"
+      ],
+      "raw": "M. S. Hossain, M. M. Rahman, M. M. Syeed, M. F. Uddin, M. Hasan, M. A. Hossain, A. Ksibi, M. M. Jamjoom, Z. Ullah, and M. A. Samad, \"Deeppoly: deep learning based polyps segmentation and classification for autonomous colonoscopy examination,\" IEEE Access, 2023."
+    },
+    {
+      "number": null,
+      "title": "Review of artifact detection methods for automated analysis and diagnosis in digital pathology",
+      "authors": [
+        "HShakhawat",
+        "SHossain",
+        "AKabir",
+        "SHMahmud",
+        "MMIslam",
+        "FTariq"
+      ],
+      "raw": "H. Shakhawat, S. Hossain, A. Kabir, S. H. Mahmud, M. M. Islam, and F. Tariq, \"Review of artifact detection methods for automated analysis and diagnosis in digital pathology,\" in Artificial Intelligence For Disease Diag- nosis And Prognosis In Smart Healthcare, pp. 177-202, CRC Press, 2023."
+    },
+    {
+      "number": null,
+      "title": "Singular nuclei segmentation for automatic her2 quantification using cish whole slide images",
+      "authors": [
+        "MSHossain",
+        "MMSyeed",
+        "KFatema",
+        "MSHossain",
+        "MFUddin"
+      ],
+      "raw": "M. S. Hossain, M. M. Syeed, K. Fatema, M. S. Hossain, and M. F. Uddin, \"Singular nuclei segmentation for auto- matic her2 quantification using cish whole slide images,\" Sensors, vol. 22, no. 19, p. 7361, 2022."
+    },
+    {
+      "number": null,
+      "title": "Region of interest (roi) selection using vision transformer for automatic analysis using whole slide images",
+      "authors": [
+        "MSHossain",
+        "GMShahriar",
+        "MMSyeed",
+        "MFUddin",
+        "MHasan",
+        "SShivam",
+        "SAdvani"
+      ],
+      "raw": "M. S. Hossain, G. M. Shahriar, M. M. Syeed, M. F. Uddin, M. Hasan, S. Shivam, and S. Advani, \"Region of interest (roi) selection using vision transformer for automatic analysis using whole slide images,\" Scientific Reports, vol. 13, no. 1, p. 11314, 2023."
+    },
+    {
+      "number": null,
+      "title": "Cavit: Early stage dental caries detection from smartphone-image using vision transformer",
+      "authors": [
+        "MSHossain",
+        "MMRahman",
+        "MMSyeed",
+        "UHHannan",
+        "MFUddin",
+        "SBMumu"
+      ],
+      "raw": "M. S. Hossain, M. M. Rahman, M. M. Syeed, U. H. Han- nan, M. F. Uddin, and S. B. Mumu, \"Cavit: Early stage dental caries detection from smartphone-image using vision transformer,\" in 2023 4th International Conference on Artificial Intelligence, Robotics and Control (AIRC), pp. 9-14, IEEE, 2023."
+    },
+    {
+      "number": null,
+      "title": "Implementation of training convolutional neural networks",
+      "authors": [
+        "TLiu"
+      ],
+      "raw": "T. Liu et al., \"Implementation of training convolutional neural networks,\" arXiv preprint arXiv:1506.01195, 2015."
+    }
+  ],
+  "reference_recovery": {
+    "source": "grobid_embedded_or_body",
+    "structured_reference_count": 15,
+    "recovered_numbered_records": 0,
+    "embedded_grobid_records": 0,
+    "paragraph_reference_numbers": [],
+    "pdf_reference_records": 0,
+    "pdf_max_reference_number": 0,
+    "pdf_contiguous_reference_count": 0,
+    "pdf_coverage_ratio": 0.0,
+    "backfilled_reference_numbers": [],
+    "missing_reference_numbers": [],
+    "final_reference_count": 15,
+    "final_reference_numbers": [],
+    "contamination_paragraphs_removed": 0
+  },
+  "canonical_text": "Brain Tumor Classification using Convolutional Neural Network from MRI images *\n\n## Abstract\n\nBrain tumors are one of the most aggressive disease.They are caused when abnormal cells are formed and spread from uncontrolled cell division.They can be identified and classified using convolutional neural networks for medical image analysis.The study emphasizes the importance of accurate diagnosis and treatment planning in brain tumor management, facilitated by imaging techniques such as Magnetic Resonance Imaging (MRI).Using the power of CNNs, The research focuses on classifying and segmenting brain tumors from raw MRI images, employing sophisticated algorithms and techniques.The methodology involves utilizing U-Net architecture, known for its effectiveness in segmentation, to outline brain tumors precisely.The study uses two distinct datasets comprising a total of 3455 MRI images sourced from Kaggle and curated by domain experts.Through rigorous expert-imitation and training, the CNN model demonstrates promising results in accurately identifying and classifying brain tumor.The training process involves dataset preprocessing, division into training, validation and testing sets, and optimization using the Adam optimizer.Evaluation metrics such as accuracy, loss curves, confusion matrices and Receiver Operating Characteristics (ROC) curve validates the effectiveness of the model without overfitting.The findings contribute to the growing body of knowledge in medical image processing, offering a viable approach to enhance brain tumor detection and therapy.\n\n## I. INTRODUCTION\n\nBrain is one of the vital organs in the human body, which consists of billions of cells.The abnormal group of cell is formed from the uncontrolled division of cells, which is also called as tumor [1].Brain tumor are divided into two types such low grade (grade1 and grade2) and high grade (grade3 and grade4) tumor.Low grade brain tumor is called as benign.\n\nSimilarly, the high grade tumor is also called as malignant.Benign tumor is not cancerous tumor.Hence it does not spread other parts of the brains [2].However the malignant tumor is a cancerous tumor.So it spreads rapidly with indefinite boundaries to other region of the body easily.It leads to immediate death.\n\nImaging analysis is used for diagnosis, treatment planning, and the monitoring of patients.Magnetic Resonance Imaging (MRI) is a powerful non-invasive imaging technique for brain tumor assessment, providing high-resolution images with precise and minute anatomical details and tissue characterization [3].\n\nOver the past decades, significant discoveries have been made in the field of medical image analysis, particularly in the development of sophisticated algorithms and techniques for brain tumor classification and segmentation [4].These advancements have been primarily driven by the increasing availability of large-scale datasets, improvements in computational resources and advancements in machine learning and deep learning methodologies [5].\n\nThe classification and segmentation of brain tumors involve several interconnected tasks, including image processing, feature extraction, and classification or segmentation [6].Traditional machine learning techniques like support vector machines (SVMs) and random forests have been used for classification and segmentation [7].However, recently the convolutional neural networks (CNNs) have emerged as the main way for automatic future learning and classification or segmentation from medical imaging applications.CNN models were successfully demonstrated on several medical imaging applications from segmenting biomarkers to classifying disease from the images [8,9,10,11,12,13,14].\n\nThis paper aims to use Convolutational Neural Network (CNN) to classify and segment brain tumors from MRI images.The dataset that have been used contains a total of 3264 MRI images to work from.The CNN will be trained to identify if there is a tumor or not and also classify and segment which type of tumor it is.\n\n## II. METHODOLOGY\n\nThe input layer works as the entry point for data that goes into the network.Its primary function is to receive the input data and pass it on to the other layers for further processing.For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.The convolutional layer detects and extracts features from the input data that are important for classification.After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions.\n\nThe human brain is modeled by using design and implementation of neural network.The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.Neural network is divided into three types based on their interconnections.In the normal neural network, image cannot be scalable.But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution Fig. 1: Brain Tumor Classification According to AANS layer, Rectified Linear Unit layer, pooling layer and fully connected layer [15].\n\nIn some cases, after applying convolution, the pooling layer comes into play.This layer performs spatial downsampling by partitioning the input feature map into non-overlapping regions and then reducing each region to a single value.This effectively decreases the spatial resolution of the feature map while still having the most important information.There are different types of pooling layers, with max-pooling and average-pooling being the most common.Then the flatter layer prepares the data for input into the fully connected layer.The fully connected layer combines the extracted features to make a final decision about the presence of a brain tumor.Dropout regularization is applied to reduce overfitting by randomly dropping out connections during training.A. Dataset Two datasets are used for the identification,classification and segmentation.The dataset that is used for identification contains brain images collected through MRI scans.The datasets contains 3264 MRI divided into four subfolders.They Fig. 4: Pituitary Tumor are lso divided into two subsubfolders that are training and testing They are divide into glionoma tumor, meningioma tumor, no tumor, and pituitary tumor.The glionoma tumor folder contains 826(Train) + 100(Test) images, the meningioma tumor contains 822(Training) + 115(Testing), the no tumor contains 395(Training) + 105(Testing) and the pituitary tumor contains 827(Training) + 74(Testing).The dataset is obtained from Kaggle and is made by Shivam Agarwal, a student at AICTE.\n\nThe human brain is modeled by using design and implementation of neural network.The neural network is mainly used for vector quantization, approximation, data clustering, pattern matching, optimization functions classification techniques.Neural network is divided into three types based on their interconnections.In the normal neural network, image cannot be scalable.But in convolution neural network, image can be scalable, that means that it can take 3D input volume to 3D output volume.The Convolution Neural Network(CNN) is a multilayer network that consists of input layer, convolution layer, Rectified Linear Unit layer, pooling layer and fully connected layer.The input layer works as the entry point for data that goes into the network.Its primary function is to receive the input data and pass it on to the other layers for further processing.For Convolutional Neural Networks for brain tumor classification, the input layer accepts the raw image data and prepares it for feature extraction and classification.The convolutional layer detects and extracts features from the input data that are important for classification.After the operation is performed, an activation function, like a Rectified Linear Unit is applied to the output of the convolution operation.This gives non-linearity to the network, allowing it to learn complex relationships between input features and output predictions.\n\n## B. Network Architecture\n\nThe network architecture that is used for the brain tumor classification is U-Net.This architecture has proven effective for semantic segmentation because its ability to precise localization and delineation of tumor regions which are crucial for segmentation.The architecture contains layers through which the input goes through for precise segmentation and classification.The layers and their working are in the following 1) Input Layer: This is the layer where the inputs are entered and they are then subsequently passed onto the other layers form further processing.For this model, the inputs are MRI images, totaling 3264, that are obtained from the two datasets.The data that is received, in this case, images contains pixels which are arranged in a grid-like structure.The inputs of the images are (150,150,3).These represent the height and Fig. 5: No Tumor width of the images.The 3 is the color channels.Preprocessing steps are also undertaken in this layer.The images are resized to enhanced performance and suitability for further usage by the network.Once the data is shaped and preprocessed, it is passed on to the next layer in the network.\n\n2) Convolutional Layer: This layer is a fundamental building block of the Convolutional Neural Networks(CNNs) and is the layer where feature extraction is done.They normally detect features such as edges, textures, pattern and other visual elements in the case of image data.Then convolution operation are applied to the input data using filters and kernels.Filters are small, square-shaped matrices that slide across the input data, calculating dot products at each position.This helps in detecting pattern and features.The 2D convolutional layer contains 32 filters each with a kernel size of (3,3), with a stride of 1, and a Rectified Linear Unit, which is activation function, which is applied so that it can learn non-linearity.This helps it to learn complex relationships between input features and output predictions.Another 2D convolutional layer is added with 64 filters and a 3x3 kernel size.\n\n3) Pooling Layer : This layer is mainly used to reduce the spatial dimensions of the feature maps therefore reducing the computational complexity of the network and controlling overfitting.Max-Pooling is used for the data that is provided.The default pool size is (2,2), which downsamples the input by taking the maximun value over a 2x2 window.The stride is 1.The same patter of adding convolutional and max pooling layers is repeated twice more, gradually increasing the number of filters to 32 and then reducing back to 16.A dropout layer is add with a rate of 0.3 to prevent overfitting.\n\n## 4) Flatten Layer:\n\nThis layer serves a critical role as it transforms the multi-dimensional output into one-dimensional array.This is necessary as the fully connected layers only requires one-dimensional outputs.\n\n5) Dense Layer: Dense layer or the fully connected layer is a fundamental component where neurons are added.Here, every neuron is connected to every layer in the previous layer.Acticvation function are also utilized.Here, at first, 512 neurons and ReLU are added .Another dropout layer is added to prevent overfitting.Then another dense layer is added with a single neuron and sigmold activation function is added as output layer for binary classification task.\n\n6) Output Layer: This is the final layer that is responsible for producing the outputs based on the features extracted from the input data.The neurons in the output layers matches the classes in the dataset so 4 neurons are added with a softmax activation function.The activation function outputs probabilities representing the likelihood of each class.\n\n## C. Training Strategy\n\nTraining in the context of neural networks, refers to the process of adjusting the parameters of the model using a training dataset to minimize the loss function.Its objective is to teach the model to make accurate predictions or classifications based on the input data.For a model to train some procedures must be followed.At first, the dataset that is used must loaded must be used.Some preprocessing is done so that can be used suitably in the network.\n\nThen the datasets are split into three subsets: training, validation and testing sets.The training set is used to train the model, the validation set is used to adjust the hyperparameters and monitor the model's performance during training, and the testing set is used to evaluate the final performance of the trained model.For the two datasets that are used in the model, they have been split into three subsections.The training set contains 70 percent of the images, the validation set contains 20 percent of the images and the testing set contains 10 percent of the images.Both of the datasets are divided in this format.\n\nAfter going through the layers of the CNN model, it is compiled using the Adam optimizer.This is used to minimize the loss function during training.Here the evaluation metrics such accuracy, loss and the confusion matrix, that are going to be calculated are stated.Then the compiled model is trained.The model is trained for 20 epochs.For each epoch, it went through approximately 83 steps per epoch with each step processing a batch of data of 32.\n\nAfter the training, the testing dataset is used to evaluate the trained model.Based on the evaluations, the accuracy curve, loss curve and the confusion metrics are calculated.This metrics helps to assess its effectiveness of its given task.\n\n## III. RESULTS AND ANALYSIS\n\nThis research emphasizes the crucial relevance of modern machine learning approaches of medical imaging analysis, based on a thorough investigation of brain tumor classification and segmentation using Convolutional Neural Networks(CNNs).We have shown that a model can effectively identify and classify brain tumours from MRI images by developing and optimizing the model.\n\nAfter developing and training the CNN model its is optimized using the Adam optimizer.This is used to minimize the loss of the loss function.Then the accuracy and the loss data are calculated.Fig 2 and 3 shows the loss curve.The training loss curve for both the datasets are decreasing which confirms that the model is training to make better predictions.The validation loss curve must decrease simultaneously with the training and it is doing so.This shows that the model is not overfitting and is likely generalizing with the validation set.The accuracy curve is shown in Fig 4 and 5 .It also shows that the training accuracy is increasing and the validation loss is increasing simultaneously which indicated the the model is getting better at predicting and also not overfitting.\n\nFig. 6: Accuracy Curve For Classification Fig 6 shows the confusion matrix.This provides a comprehensive summary of the performance of a classification model Fig. 7: Loss Curve For Classification Fig. 8: Confusion Matrix for Classification by presenting the counts of true positive, true negative, false negative and false positive predictions for each class in the dataset.By analyzing the confusion matrix, it is confirmed that the model is accurate.A ROC curve was also calculated from the data.As the curve hugs the top left hand corner, it means that the model is performing well as it achieves higher true positive rates(TPRs) with lower False Positive Rate(FPRs).The Area under the Curve (AUC)) is nearer to 1 for all of the class, so it indicates a better performance of the model.IV.DISCUSSION\n\nOur approach makes use of CNNs, which are highly effective in deriving intricate patterns and features from unprocessed picture data.By utilizing multiple layers including convolutional, pooling and fully connected layers, our model effectively extracted meaningful features from MRI images and made predictions with high accuracy.\n\nThe results and analysis demonstrate the successful training and validation of the CNN model, showcasing decreasing loss curves and increasing accuracy curves, indicating the model's ability to generalize well to unseen data without overfitting.Additionally, the confusion matrix provides a comprehensive overview of the model's performance, confirming its accuracy in classifying brain tumors.\n\nAll things considered, this study adds to the expanding body of knowledge in medical image processing and offers a viable method for improving brain tumor detection and therapy.In the future, patients and medical professionals alike may benefit from increased performance and wider application of CNN models in clinical settings as a result of additional improvements and validations of these models.",
+  "quality": {
+    "evaluation_type": "integrity",
+    "integrity_score": 0.9297,
+    "status": "healthy",
+    "scoring": {
+      "primary_metrics": {
+        "metadata_integrity": 0.15,
+        "structure_integrity": 0.2,
+        "truncation_integrity": 0.2,
+        "cross_parser_consistency": 0.15,
+        "contamination_integrity": 0.15,
+        "duplication_integrity": 0.1,
+        "numeric_consistency": 0.05
+      },
+      "diagnostic_metrics": [
+        "abstract_integrity",
+        "coordinate_integrity",
+        "reference_integrity"
+      ]
+    },
+    "metrics": {
+      "metadata_integrity": 0.75,
+      "abstract_integrity": 0.9545,
+      "structure_integrity": 1.0,
+      "duplication_integrity": 1.0,
+      "reference_integrity": 1.0,
+      "truncation_integrity": 0.9615,
+      "numeric_consistency": 1.0,
+      "cross_parser_consistency": 0.8327,
+      "contamination_integrity": 1.0,
+      "coordinate_integrity": 1.0
+    },
+    "diagnostics": {
+      "orphan_paragraph_ratio": 0.0,
+      "coordinate_integrity": 1.0,
+      "abstract_integrity": 0.9545,
+      "reference_integrity": 1.0
+    },
+    "parser_artifact_counts": {
+      "figures": 9,
+      "tables": 0,
+      "formulas": 0,
+      "text_blocks": 69
+    },
+    "raw_extraction_counts": {
+      "sections": 6,
+      "paragraphs": 26,
+      "references": 15,
+      "figures": 3,
+      "tables": 0,
+      "formulas": 0
+    },
+    "ground_truth_available": false,
+    "issues": []
+  }
+}

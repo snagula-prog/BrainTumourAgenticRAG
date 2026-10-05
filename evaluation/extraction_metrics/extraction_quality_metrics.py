@@ -256,6 +256,20 @@ class QualityMetrics:
             )
         )
 
+        # Some publisher layouts cause GROBID to leave <abstract> empty while
+        # still emitting the full abstract as the first body paragraph, often
+        # prefixed by ``Abstract-`` or ``Abstract—``. Use that parser evidence
+        # before declaring the abstract missing.
+        if not abstract:
+            for paragraph in grobid.get("paragraphs", []) if isinstance(grobid, dict) else []:
+                if not isinstance(paragraph, dict):
+                    continue
+                text = cls._normalize(str(paragraph.get("text") or ""))
+                marker = re.match(r"^abstract\s*[-–—:]?\s*(.*)$", text, re.IGNORECASE)
+                if marker and marker.group(1).strip():
+                    abstract = cls._normalize(marker.group(1))
+                    break
+
         if not abstract:
             return 0.0
 
@@ -542,15 +556,12 @@ class QualityMetrics:
                 suspicious += 1
                 continue
 
-            if text.endswith(
-                (
-                    ",",
-                    ":",
-                    ";",
-                    "-",
-                    "(",
-                )
-            ):
+            # Do not treat ``:`` or ``;`` as truncation by themselves.
+            # Scientific papers routinely end a text block that way before a
+            # displayed equation, list, or continuation in another layout
+            # region. Likewise, commas can occur in legitimate short blocks.
+            # Keep only stronger unmatched-delimiter evidence here.
+            if text.endswith(("(", "[", "{")):
                 suspicious += 1
 
         if checked == 0:

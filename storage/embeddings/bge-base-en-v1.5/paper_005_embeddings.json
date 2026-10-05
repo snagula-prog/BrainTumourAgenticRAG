@@ -2,11 +2,11 @@
   "schema_version": 2,
   "model_alias": "bge-base",
   "paper_id": "paper_005",
-  "created_at": "2026-09-28T17:35:36.537116+00:00",
-  "input_fingerprint": "c5b6e45022dd7404dcb3ac04c5e35466b418538fefa1e6ee238ff7f6385f9923",
+  "created_at": "2026-10-05T15:00:18.702408+00:00",
+  "input_fingerprint": "4be1d6ced2fe8e9a3de1ae7b0761162f5509e5460f44588fee30d29983512f11",
   "source": {
     "file": "storage\\chunks\\paper_005_chunks.json",
-    "sha256": "3115c87912ec76aad68bd601cc992a820974d48c0ecf53f5264cd6b7b286e8de",
+    "sha256": "6c8ba549a5a5ea40aed6484aef4a38c7a647184e16f39db763152cb5c8ffb4a1",
     "chunk_count": 62
   },
   "embedding": {
@@ -49,7 +49,7 @@
   },
   "vectors": {
     "file": "paper_005_embeddings.npz",
-    "sha256": "75f8258e61e459585ee4ec049362ce940bd00019915a37817d8b918e69631b0b",
+    "sha256": "afce8b96fa3ce9970496cd5f274c8b7cdffa5e1c8d377035856881c291301a88",
     "dtype": "float32",
     "shape": [
       39,
@@ -474,8 +474,8 @@
       "text_sha256": "7b1a0df458b59457b55ff8cea5f707e7fda5406ce923376d425935c06a6cfbe0"
     },
     {
-      "segment_id": "paper_005_body_0015_6c0e42d3::segment_0000",
-      "chunk_id": "paper_005_body_0015_6c0e42d3",
+      "segment_id": "paper_005_body_0015_7613b5a0::segment_0000",
+      "chunk_id": "paper_005_body_0015_7613b5a0",
       "paper_id": "paper_005",
       "chunk_type": "body",
       "order_index": 15,
@@ -499,7 +499,8 @@
         "paragraph_ids": [
           "para_0013",
           "para_0014",
-          "para_0015"
+          "para_0015",
+          "para_0016"
         ],
         "coordinates": [
           {
@@ -519,19 +520,19 @@
             "coord_origin": "BOTTOMLEFT"
           },
           {
-            "page": 5,
-            "x": 165.975,
-            "y": 709.2938042234637,
-            "w": 393.30431980800006,
-            "h": 34.54876377653636,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
             "page": 4,
             "x": 166.085,
             "y": 181.31580422346372,
             "w": 393.19253943599995,
             "h": 34.54876377653625,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 5,
+            "x": 165.975,
+            "y": 709.2938042234637,
+            "w": 393.30431980800006,
+            "h": 34.54876377653636,
             "coord_origin": "BOTTOMLEFT"
           }
         ]
@@ -561,8 +562,8 @@
           5
         ],
         "paragraph_ids": [
-          "para_0016",
-          "para_0017"
+          "para_0017",
+          "para_0018"
         ],
         "coordinates": [
           {
@@ -586,8 +587,8 @@
       "text_sha256": "6914611df88eb8046ec97edd6d4c5481132fb56bed3c2f38f89157405f9bd465"
     },
     {
-      "segment_id": "paper_005_body_0019_70d594be::segment_0000",
-      "chunk_id": "paper_005_body_0019_70d594be",
+      "segment_id": "paper_005_body_0019_1192a4ea::segment_0000",
+      "chunk_id": "paper_005_body_0019_1192a4ea",
       "paper_id": "paper_005",
       "chunk_type": "body",
       "order_index": 19,
@@ -595,9 +596,9 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 224,
-      "token_count": 224,
-      "text": "the multi - resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer. figure 2b shows the mrff block following the fourth stage, which aggregates the features of four different resolutions. the fourth stage of the hrstnet contains four swin transformer blocks, which generate four feature maps with resolutions of the outputs of the mrff blocks after the second and third stages are derived in a similar manner to that described above. the outputs of the last mrff block with the resolution lower than d 4 × h 4 × w 4 are upsampled ( compare with figure 1 ) and concatenated to generate the output segmentation mask. except for using the last mrff block ( shown in figure 1 ), we can also use the outputs of the mrff block after the second or the third stage to generate the segmentation mask. the corresponding architectures are denoted as hrstnet - 2 and hrstnet - 3, respectively. the architecture shown in figure 1 is denoted as hrstnet - 4.",
+      "token_end": 81,
+      "token_count": 81,
+      "text": "the multi - resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer. figure 2b shows the mrff block following the fourth stage, which aggregates the features of four different resolutions. the fourth stage of the hrstnet contains four swin transformer blocks, which generate four feature maps with resolutions of",
       "metadata": {
         "section": "Multi-Resolution Feature Fusion",
         "section_path": [
@@ -605,13 +606,11 @@
         ],
         "subsection_id": "paper_005_subsection_49d3672071d6",
         "pages": [
-          5,
-          6
+          5
         ],
         "paragraph_ids": [
-          "para_0018",
           "para_0019",
-          "para_0021"
+          "para_0020"
         ],
         "coordinates": [
           {
@@ -637,6 +636,83 @@
             "w": 394.42546300000004,
             "h": 125.34591701787701,
             "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "c26f41d4cfaf11ec7e2206ce444c01d3d104e7fcc445b97df10f05ba39d7c6d8"
+    },
+    {
+      "segment_id": "paper_005_body_0021_11d1a400::segment_0000",
+      "chunk_id": "paper_005_body_0021_11d1a400",
+      "paper_id": "paper_005",
+      "chunk_type": "body",
+      "order_index": 21,
+      "source_index": 21,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 111,
+      "token_count": 111,
+      "text": "the ct volumes from the liver dataset were cropped to 96 × 96 × 96. the other training details were the same as those of the brats 2021 dataset. because the splitting method for the liver dataset used in this experiment was the same as the one for vt - unet, we compared the hrstnet with the methods listed in the vt - net, including 3d unet [ 11 ], nnformer [ 12 ], and vt - unet [ 9 ]. we obtained their experiment results from [ 9 ].",
+      "metadata": {
+        "section": "Implementation Details",
+        "section_path": [
+          "Implementation Details"
+        ],
+        "subsection_id": "paper_005_subsection_e801889242ee",
+        "pages": [
+          7
+        ],
+        "paragraph_ids": [
+          "para_0021"
+        ],
+        "coordinates": [
+          {
+            "page": 7,
+            "x": 165.975,
+            "y": 684.1878042234637,
+            "w": 394.5454564713999,
+            "h": 59.9704870765363,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        ]
+      },
+      "text_sha256": "4e342a535efaeca5cc8b071379c815af460f2cb7ff20ec0db64f90f93b1ad719"
+    },
+    {
+      "segment_id": "paper_005_body_0022_c608a700::segment_0000",
+      "chunk_id": "paper_005_body_0022_c608a700",
+      "paper_id": "paper_005",
+      "chunk_type": "body",
+      "order_index": 22,
+      "source_index": 22,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 143,
+      "token_count": 143,
+      "text": "the outputs of the mrff blocks after the second and third stages are derived in a similar manner to that described above. the outputs of the last mrff block with the resolution lower than d 4 × h 4 × w 4 are upsampled ( compare with figure 1 ) and concatenated to generate the output segmentation mask. except for using the last mrff block ( shown in figure 1 ), we can also use the outputs of the mrff block after the second or the third stage to generate the segmentation mask. the corresponding architectures are denoted as hrstnet - 2 and hrstnet - 3, respectively. the architecture shown in figure 1 is denoted as hrstnet - 4.",
+      "metadata": {
+        "section": "Multi-Resolution Feature Fusion",
+        "section_path": [
+          "Multi-Resolution Feature Fusion"
+        ],
+        "subsection_id": "paper_005_subsection_49d3672071d6",
+        "pages": [
+          6
+        ],
+        "paragraph_ids": [
+          "para_0022",
+          "para_0023"
+        ],
+        "coordinates": [
+          {
+            "page": 6,
+            "x": 166.394,
+            "y": 571.2108042234637,
+            "w": 392.879796736,
+            "h": 47.10176377653636,
+            "coord_origin": "BOTTOMLEFT"
           },
           {
             "page": 6,
@@ -648,21 +724,21 @@
           }
         ]
       },
-      "text_sha256": "d8bc25ddb512ad9d86ef444f95a6a12f9b43b78b7865c5d9f40ce8cb3a6de2bc"
+      "text_sha256": "6226375915ab25aad120afa9985714a1dd175728ca3ee8e713a1f42d0599341a"
     },
     {
-      "segment_id": "paper_005_body_0021_3e9d8290::segment_0000",
-      "chunk_id": "paper_005_body_0021_3e9d8290",
+      "segment_id": "paper_005_body_0024_ab5a7ba7::segment_0000",
+      "chunk_id": "paper_005_body_0024_ab5a7ba7",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 21,
-      "source_index": 21,
+      "order_index": 24,
+      "source_index": 24,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 194,
-      "token_count": 194,
-      "text": "in this section, we evaluate the performance of the hrstnet on the brats 2021 dataset [ 15 ] [ 16 ] [ 17 ] [ 18 ] [ 19 ], the msd liver dataset [ 20, 21 ], and the btcv multi - organ segmentation challenge [ 22 ] [ 23 ] [ 24 ] [ 25 ] [ 26 ] [ 27 ] [ 28 ]. all the experiments were implemented with pytorch [ 41 ] on two nvidia geforce rtx 3090 graphic cards. we utilized monai ( https : / / monai. io /, accessed on 16 april 2022 ), a healthcare imaging processing framework, for network training and data preprocessing. the 3d slicer [ 42, 43 ] software was employed to visualize the experimental results. the code of hrstnet is publicly available at https : / / github. com / auroua / hrstnet.",
+      "token_end": 280,
+      "token_count": 280,
+      "text": "in this section, we evaluate the performance of the hrstnet on the brats 2021 dataset [ 15 ] [ 16 ] [ 17 ] [ 18 ] [ 19 ], the msd liver dataset [ 20, 21 ], and the btcv multi - organ segmentation challenge [ 22 ] [ 23 ] [ 24 ] [ 25 ] [ 26 ] [ 27 ] [ 28 ]. all the experiments were implemented with pytorch [ 41 ] on two nvidia geforce rtx 3090 graphic cards. we utilized monai ( https : / / monai. io /, accessed on 16 april 2022 ), a healthcare imaging processing framework, for network training and data preprocessing. the 3d slicer [ 42, 43 ] software was employed to visualize the experimental results. the code of hrstnet is publicly available at https : / / github. com / auroua / hrstnet. note : spl = spleen, rkid = right kidney, lkid = left kidney, gall = gallbladder, eso = esophagus, liv = liver, sto = stomach, aor = aorta, ivc = inferior vena cava, veins = portal and splenic veins, pan = pancreas, and ag = left and right adrenal glands.",
       "metadata": {
         "section": "Experiments and Results",
         "section_path": [
@@ -670,10 +746,12 @@
         ],
         "subsection_id": "paper_005_subsection_1a88557de50e",
         "pages": [
-          6
+          6,
+          11
         ],
         "paragraph_ids": [
-          "para_0022"
+          "para_0024",
+          "para_0025"
         ],
         "coordinates": [
           {
@@ -683,18 +761,26 @@
             "w": 395.0168910684001,
             "h": 84.7607637765363,
             "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 11,
+            "x": 166.398,
+            "y": 532.0574380223463,
+            "w": 393.8743718999997,
+            "h": 31.464229977653645,
+            "coord_origin": "BOTTOMLEFT"
           }
         ]
       },
-      "text_sha256": "4735b24dbb6f3bfedc2ddf4bbc0e6ccf329d5d2f1e62c61a18f07004c52d7fec"
+      "text_sha256": "33c38846d486e2bfb68ffd4198ade629790f9f495c7e702c88a2cecea28f7922"
     },
     {
-      "segment_id": "paper_005_body_0023_b25a282a::segment_0000",
-      "chunk_id": "paper_005_body_0023_b25a282a",
+      "segment_id": "paper_005_body_0025_b25a282a::segment_0000",
+      "chunk_id": "paper_005_body_0025_b25a282a",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 23,
-      "source_index": 23,
+      "order_index": 25,
+      "source_index": 25,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -711,7 +797,7 @@
           6
         ],
         "paragraph_ids": [
-          "para_0023"
+          "para_0026"
         ],
         "coordinates": [
           {
@@ -727,18 +813,18 @@
       "text_sha256": "fed31ac4f047db4d080a5c4f5a9344f523d05bebff09819d76c5a8be7ab40a0a"
     },
     {
-      "segment_id": "paper_005_body_0024_d6f08b3f::segment_0000",
-      "chunk_id": "paper_005_body_0024_d6f08b3f",
+      "segment_id": "paper_005_body_0026_6719e82c::segment_0000",
+      "chunk_id": "paper_005_body_0026_6719e82c",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 24,
-      "source_index": 24,
+      "order_index": 26,
+      "source_index": 26,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 359,
-      "token_count": 359,
-      "text": "the depth of the swin transformer blocks in all the stages was 2, and the heads of the swin transformer blocks for resolutions of d 4 × h 4 × w 4, d 8 × h 8 × w 8, d 16 × h 16 × w 16, and d 32 × h 32 × w 32 were 3, 6, 12, and 24, respectively. the adamw optimizer was used to optimize the parameters of the hrstnet, and the initial learning rate was 1 × 10 - 4. the cosine decay learning rate scheduler [ 44 ] with a linear warm - up was used to adjust the value of the learning rate, and the warm - up epoch was 50. the sum of the dice loss with the cross - entropy loss was adopted as the loss function. the mri data from brats 2021 were cropped to 128 × 128 × 128. three transformerbased architectures ( unetr [ 8 ], swin unetr [ 10 ], and vt - unet - b [ 9 ] ) and two cnnbased architectures ( optimized unet [ 34 ] and extending nnunet [ 35 ] ) were compared on this dataset. the ct volumes from the liver dataset were cropped to 96 × 96 × 96. the other training details were the same as those of the brats 2021 dataset. because the splitting method for the liver dataset used in this experiment was the same as the one for vt - unet, we compared the hrstnet with the methods listed in the vt - net, including 3d unet [ 11 ], nnformer [ 12 ], and vt - unet [ 9 ]. we obtained their experiment results from [ 9 ].",
+      "token_end": 346,
+      "token_count": 346,
+      "text": "the depth of the swin transformer blocks in all the stages was 2, and the heads of the swin transformer blocks for resolutions of d 4 × h 4 × w 4, d 8 × h 8 × w 8, d 16 × h 16 × w 16, and d 32 × h 32 × w 32 were 3, 6, 12, and 24, respectively. the adamw optimizer was used to optimize the parameters of the hrstnet, and the initial learning rate was 1 × 10 - 4. the cosine decay learning rate scheduler [ 44 ] with a linear warm - up was used to adjust the value of the learning rate, and the warm - up epoch was 50. the sum of the dice loss with the cross - entropy loss was adopted as the loss function. the mri data from brats 2021 were cropped to 128 × 128 × 128. three transformerbased architectures ( unetr [ 8 ], swin unetr [ 10 ], and vt - unet - b [ 9 ] ) and two cnnbased architectures ( optimized unet [ 34 ] and extending nnunet [ 35 ] ) were compared on this dataset. the ct volumes from the btcv multi - organ segmentation dataset were also cropped to 96 × 96 × 96, and the hrstnet was compared with unetr, vt - unet, and swin unetr. we retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1. the learning rate of the hrstnet trained on the btcv dataset was set to 1 × 10 - 3.",
       "metadata": {
         "section": "Implementation Details",
         "section_path": [
@@ -750,9 +836,9 @@
           7
         ],
         "paragraph_ids": [
-          "para_0024",
-          "para_0025",
-          "para_0026"
+          "para_0027",
+          "para_0028",
+          "para_0029"
         ],
         "coordinates": [
           {
@@ -773,44 +859,6 @@
           },
           {
             "page": 7,
-            "x": 165.975,
-            "y": 684.1878042234637,
-            "w": 394.5454564713999,
-            "h": 59.9704870765363,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "0ce4f102f881985ef777a406e4dfb0c5eaeaf4fefc31b32cbb1d0161272a74a8"
-    },
-    {
-      "segment_id": "paper_005_body_0025_46b9890e::segment_0000",
-      "chunk_id": "paper_005_body_0025_46b9890e",
-      "paper_id": "paper_005",
-      "chunk_type": "body",
-      "order_index": 25,
-      "source_index": 25,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 98,
-      "token_count": 98,
-      "text": "the ct volumes from the btcv multi - organ segmentation dataset were also cropped to 96 × 96 × 96, and the hrstnet was compared with unetr, vt - unet, and swin unetr. we retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1. the learning rate of the hrstnet trained on the btcv dataset was set to 1 × 10 - 3.",
-      "metadata": {
-        "section": "Implementation Details",
-        "section_path": [
-          "Implementation Details"
-        ],
-        "subsection_id": "paper_005_subsection_e801889242ee",
-        "pages": [
-          7
-        ],
-        "paragraph_ids": [
-          "para_0027"
-        ],
-        "coordinates": [
-          {
-            "page": 7,
             "x": 165.895,
             "y": 633.9758042234637,
             "w": 395.1281929152,
@@ -819,15 +867,15 @@
           }
         ]
       },
-      "text_sha256": "a85276342360b0c1c749429c13b8b483d805b77e7e5932f5d9ed14b6b1ac82ec"
+      "text_sha256": "28e111aaab24b76d363b7987980d666156e7488eac669a43b99647f156404f30"
     },
     {
-      "segment_id": "paper_005_body_0027_90d58d52::segment_0000",
-      "chunk_id": "paper_005_body_0027_90d58d52",
+      "segment_id": "paper_005_body_0028_90d58d52::segment_0000",
+      "chunk_id": "paper_005_body_0028_90d58d52",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 27,
-      "source_index": 27,
+      "order_index": 28,
+      "source_index": 28,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -844,11 +892,11 @@
           7
         ],
         "paragraph_ids": [
-          "para_0028",
-          "para_0029",
           "para_0030",
           "para_0031",
-          "para_0032"
+          "para_0032",
+          "para_0033",
+          "para_0034"
         ],
         "coordinates": [
           {
@@ -896,12 +944,12 @@
       "text_sha256": "0930d7f21278f07ea12ab176d8a53908fd3645af65acd0392cab80fbef504e69"
     },
     {
-      "segment_id": "paper_005_body_0029_6b64c9c0::segment_0000",
-      "chunk_id": "paper_005_body_0029_6b64c9c0",
+      "segment_id": "paper_005_body_0030_6b64c9c0::segment_0000",
+      "chunk_id": "paper_005_body_0030_6b64c9c0",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 29,
-      "source_index": 29,
+      "order_index": 30,
+      "source_index": 30,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -918,8 +966,8 @@
           7
         ],
         "paragraph_ids": [
-          "para_0033",
-          "para_0034"
+          "para_0035",
+          "para_0036"
         ],
         "coordinates": [
           {
@@ -935,12 +983,12 @@
       "text_sha256": "5185cc8387196d48fdd1fb6c2a3c9e46794b85860b7c9b97ce8e070e4e5791fc"
     },
     {
-      "segment_id": "paper_005_body_0030_9f9773c1::segment_0000",
-      "chunk_id": "paper_005_body_0030_9f9773c1",
+      "segment_id": "paper_005_body_0031_9f9773c1::segment_0000",
+      "chunk_id": "paper_005_body_0031_9f9773c1",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 30,
-      "source_index": 30,
+      "order_index": 31,
+      "source_index": 31,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -957,7 +1005,7 @@
           5
         ],
         "paragraph_ids": [
-          "para_0035"
+          "para_0037"
         ],
         "coordinates": [
           {
@@ -981,18 +1029,18 @@
       "text_sha256": "b85fc9a13b4c03125fc4c37f4d3bed8b481d7a876f03ef151883a53c5ad977f2"
     },
     {
-      "segment_id": "paper_005_body_0032_c9da6717::segment_0000",
-      "chunk_id": "paper_005_body_0032_c9da6717",
+      "segment_id": "paper_005_body_0033_679f82bb::segment_0000",
+      "chunk_id": "paper_005_body_0033_679f82bb",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 32,
-      "source_index": 32,
+      "order_index": 33,
+      "source_index": 33,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
       "token_end": 495,
       "token_count": 495,
-      "text": "the dcs and hd95 were used to quantitatively evaluate the segmentation results on the brats 2021 dataset. we utilized the method ( https : / / github. com / mic - dkfz / nnunet / blob / 5c18fa32f2b31575aae59d889d196e4c4ba8b844 / nnunet / dataset _ conversion / task082 _ brats _ 2020. py # l330, accessed on 1 july 2022 ) provided by the nnu - net [ 39 ] to calculate the hausdorff distance. the flops were calculated by using mmcv [ 45 ], and the size of the input tensor was set to ( 4, 128, 128, 128 ) when calculating the flops. figure 3 shows the visualization of the segmentation results on brats 2021. as shown in the last column of figure 3, unetr performed well when segmenting the et ( brown ) and ed ( yellow ), but when segmenting the ncr ( green ), as shown by the black hole inside the brown area, unetr failed to segment ncr correctly. from the sagittal view of the swin - unetr segmentation results, we can find a large black hole within the brown area, which means that swin - unetr failed to successfully segment all the pixels belonging to the ncr. as shown in the axial view of the vt _ unet - b segmentation results, the upper part of the segmented ed ( yellow ) region was significantly smaller compared with the ground truth. from the axial and sagittal views of the segmentation results of vt _ unet - b, we can also find that the segmentation mask of the ncr failed to include all the parts of ground truth ncr area. in summary, from figure 3, we can visually find that the segmentation results of hrstnet - 4 were better than those of the other transformer - based u - net - like architectures. we emphasize that this study aims to provide a new transformer - based medical image segmentation architecture which is different from existing u - net - like transformerbased architectures and to verify the effectiveness of the designed architecture. extensive ablation studies on different tricks to enhance the performance of the hrstnet are left for further investigation.",
+      "text": "the dcs and hd95 were used to quantitatively evaluate the segmentation results on the brats 2021 dataset. we utilized the method ( https : / / github. com / mic - dkfz / nnunet / blob / 5c18fa32f2b31575aae59d889d196e4c4ba8b844 / nnunet / dataset _ conversion / task082 _ brats _ 2020. py # l330, accessed on 1 july 2022 ) provided by the nnu - net [ 39 ] to calculate the hausdorff distance. the flops were calculated by using mmcv [ 45 ], and the size of the input tensor was set to ( 4, 128, 128, 128 ) when calculating the flops. we emphasize that this study aims to provide a new transformer - based medical image segmentation architecture which is different from existing u - net - like transformerbased architectures and to verify the effectiveness of the designed architecture. extensive ablation studies on different tricks to enhance the performance of the hrstnet are left for further investigation. figure 3 shows the visualization of the segmentation results on brats 2021. as shown in the last column of figure 3, unetr performed well when segmenting the et ( brown ) and ed ( yellow ), but when segmenting the ncr ( green ), as shown by the black hole inside the brown area, unetr failed to segment ncr correctly. from the sagittal view of the swin - unetr segmentation results, we can find a large black hole within the brown area, which means that swin - unetr failed to successfully segment all the pixels belonging to the ncr. as shown in the axial view of the vt _ unet - b segmentation results, the upper part of the segmented ed ( yellow ) region was significantly smaller compared with the ground truth. from the axial and sagittal views of the segmentation results of vt _ unet - b, we can also find that the segmentation mask of the ncr failed to include all the parts of ground truth ncr area. in summary, from figure 3, we can visually find that the segmentation results of hrstnet - 4 were better than those of the other transformer - based u - net - like architectures.",
       "metadata": {
         "section": "Experimental Results on BraTS 2021",
         "section_path": [
@@ -1004,9 +1052,9 @@
           9
         ],
         "paragraph_ids": [
-          "para_0036",
           "para_0038",
-          "para_0039"
+          "para_0040",
+          "para_0041"
         ],
         "coordinates": [
           {
@@ -1015,14 +1063,6 @@
             "y": 531.8928042234637,
             "w": 394.6931062480004,
             "h": 72.20776377653635,
-            "coord_origin": "BOTTOMLEFT"
-          },
-          {
-            "page": 9,
-            "x": 165.975,
-            "y": 558.6578042234637,
-            "w": 394.54892047000044,
-            "h": 160.07876377653633,
             "coord_origin": "BOTTOMLEFT"
           },
           {
@@ -1040,18 +1080,26 @@
             "w": 393.0824327808002,
             "h": 21.995763776536364,
             "coord_origin": "BOTTOMLEFT"
+          },
+          {
+            "page": 9,
+            "x": 165.975,
+            "y": 558.6578042234637,
+            "w": 394.54892047000044,
+            "h": 160.07876377653633,
+            "coord_origin": "BOTTOMLEFT"
           }
         ]
       },
-      "text_sha256": "95fb4245de86c272885eec6d763c36567f9b21394a93c6a7a1eb9eea6b8a8e08"
+      "text_sha256": "e272be30d26cd46f8138fe4d4b13e4fd4903977906ff89ad01e8c4ce85a43244"
     },
     {
-      "segment_id": "paper_005_body_0034_44717926::segment_0000",
-      "chunk_id": "paper_005_body_0034_44717926",
+      "segment_id": "paper_005_body_0035_44717926::segment_0000",
+      "chunk_id": "paper_005_body_0035_44717926",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 34,
-      "source_index": 34,
+      "order_index": 35,
+      "source_index": 35,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1068,8 +1116,8 @@
           9
         ],
         "paragraph_ids": [
-          "para_0040",
-          "para_0041"
+          "para_0042",
+          "para_0043"
         ],
         "coordinates": [
           {
@@ -1101,12 +1149,12 @@
       "text_sha256": "15ae024a641dffd8eb5f45ab466ef7e2cbd052ee26188db9513f22f4637ffb5a"
     },
     {
-      "segment_id": "paper_005_body_0035_13ffd475::segment_0000",
-      "chunk_id": "paper_005_body_0035_13ffd475",
+      "segment_id": "paper_005_body_0036_13ffd475::segment_0000",
+      "chunk_id": "paper_005_body_0036_13ffd475",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 35,
-      "source_index": 35,
+      "order_index": 36,
+      "source_index": 36,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1123,7 +1171,7 @@
           10
         ],
         "paragraph_ids": [
-          "para_0042"
+          "para_0044"
         ],
         "coordinates": [
           {
@@ -1139,12 +1187,12 @@
       "text_sha256": "007c52a9cb36ce0743a240c297b1fd2eb6d8105f9a3fbdfd949a6a405a86e29e"
     },
     {
-      "segment_id": "paper_005_body_0037_6476b002::segment_0000",
-      "chunk_id": "paper_005_body_0037_6476b002",
+      "segment_id": "paper_005_body_0038_6476b002::segment_0000",
+      "chunk_id": "paper_005_body_0038_6476b002",
       "paper_id": "paper_005",
       "chunk_type": "body",
-      "order_index": 37,
-      "source_index": 37,
+      "order_index": 38,
+      "source_index": 38,
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
@@ -1161,7 +1209,7 @@
           10
         ],
         "paragraph_ids": [
-          "para_0043"
+          "para_0045"
         ],
         "coordinates": [
           {
@@ -1183,44 +1231,6 @@
         ]
       },
       "text_sha256": "bbc188a0d8dd9ae675a2587f5a55f09416d4ef8990670037cc6df3c4d380a2a8"
-    },
-    {
-      "segment_id": "paper_005_body_0038_5006486d::segment_0000",
-      "chunk_id": "paper_005_body_0038_5006486d",
-      "paper_id": "paper_005",
-      "chunk_type": "body",
-      "order_index": 38,
-      "source_index": 38,
-      "segment_index": 0,
-      "segment_count": 1,
-      "token_start": 0,
-      "token_end": 86,
-      "token_count": 86,
-      "text": "note : spl = spleen, rkid = right kidney, lkid = left kidney, gall = gallbladder, eso = esophagus, liv = liver, sto = stomach, aor = aorta, ivc = inferior vena cava, veins = portal and splenic veins, pan = pancreas, and ag = left and right adrenal glands.",
-      "metadata": {
-        "section": "Experiments and Results",
-        "section_path": [
-          "Experiments and Results"
-        ],
-        "subsection_id": "paper_005_subsection_1a88557de50e",
-        "pages": [
-          11
-        ],
-        "paragraph_ids": [
-          "para_0044"
-        ],
-        "coordinates": [
-          {
-            "page": 11,
-            "x": 166.398,
-            "y": 532.0574380223463,
-            "w": 393.8743718999997,
-            "h": 31.464229977653645,
-            "coord_origin": "BOTTOMLEFT"
-          }
-        ]
-      },
-      "text_sha256": "a211bdb539281e3f750eb5ee94af385f05b87fdc0ba51ba77ef6c5407cd97e12"
     },
     {
       "segment_id": "paper_005_body_0040_c4eb8839::segment_0000",
@@ -1246,8 +1256,8 @@
           12
         ],
         "paragraph_ids": [
-          "para_0045",
-          "para_0047"
+          "para_0046",
+          "para_0048"
         ],
         "coordinates": [
           {
@@ -1293,7 +1303,7 @@
           12
         ],
         "paragraph_ids": [
-          "para_0049"
+          "para_0050"
         ],
         "coordinates": [
           {
@@ -1332,8 +1342,8 @@
           13
         ],
         "paragraph_ids": [
-          "para_0050",
-          "para_0051"
+          "para_0051",
+          "para_0052"
         ],
         "coordinates": [
           {
@@ -1749,6 +1759,6 @@
     }
   ],
   "execution": {
-    "elapsed_seconds": 8.119
+    "elapsed_seconds": 8.337
   }
 }

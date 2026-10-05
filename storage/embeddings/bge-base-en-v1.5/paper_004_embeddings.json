@@ -2,12 +2,12 @@
   "schema_version": 2,
   "model_alias": "bge-base",
   "paper_id": "paper_004",
-  "created_at": "2026-09-28T17:35:28.412226+00:00",
-  "input_fingerprint": "8704262d118206f1482f0184928e3775d8a8ab4cbead64641e08f56c2c260254",
+  "created_at": "2026-10-05T15:00:10.360159+00:00",
+  "input_fingerprint": "66d3180a0daa7f4e5e81ecc662a80dcb967fca97bc3dfc7deaa5c9f3134b8889",
   "source": {
     "file": "storage\\chunks\\paper_004_chunks.json",
-    "sha256": "7079f593ad677e3faa70eebdf14fc5de559fc67cd063765c5809096d2b31040d",
-    "chunk_count": 51
+    "sha256": "f2ad20c8195227f99bf68b9160eaf839607c5a8a3c8fac7b5714974f552e5c0c",
+    "chunk_count": 54
   },
   "embedding": {
     "model_name": "BAAI/bge-base-en-v1.5",
@@ -39,8 +39,8 @@
       "index_terms",
       "table_caption"
     ],
-    "selected_chunk_count": 34,
-    "embedded_segment_count": 35,
+    "selected_chunk_count": 37,
+    "embedded_segment_count": 38,
     "oversized_chunk_count": 1,
     "excluded_counts": {
       "heading": 10,
@@ -49,10 +49,10 @@
   },
   "vectors": {
     "file": "paper_004_embeddings.npz",
-    "sha256": "7193769c43615a6e447dc17e9121c29d369a6577cea93659c2e68b892d72292f",
+    "sha256": "e0ebb8382a174afc45aaabfe9d1b7c5168f2ca6591e57062597e58da1d82f3f6",
     "dtype": "float32",
     "shape": [
-      35,
+      38,
       768
     ],
     "normalized": true
@@ -1465,7 +1465,7 @@
         "subsection_id": "paper_004_subsection_6f31e720e977",
         "pages": [],
         "paragraph_ids": [
-          "para_0057"
+          "para_0058"
         ],
         "coordinates": []
       },
@@ -1550,8 +1550,8 @@
       "text_sha256": "07991ea35b4301c1c3c85baa8b29a835b2a25cc86a3c6f5bd38c9c8d350f3bd3"
     },
     {
-      "segment_id": "paper_004_figure_caption_0043_288a8b2a::segment_0000",
-      "chunk_id": "paper_004_figure_caption_0043_288a8b2a",
+      "segment_id": "paper_004_figure_caption_0043_487447d4::segment_0000",
+      "chunk_id": "paper_004_figure_caption_0043_487447d4",
       "paper_id": "paper_004",
       "chunk_type": "figure_caption",
       "order_index": 43,
@@ -1559,26 +1559,138 @@
       "segment_index": 0,
       "segment_count": 1,
       "token_start": 0,
-      "token_end": 166,
-      "token_count": 166,
-      "text": "fig. 1illustrates in the first row the gabor filter for a single frequency across the first 5 ( out of 8 ) orientations and in the 2 nd row the rotation - invariant filters after fast fourier transform ( fft ) for the same frequency. fig. 2illustrates examples of brain tumor types and the corresponding texture images. the first row shows one axial slice of the t1ce image with the tumoral region of interest ( roi1 roi2 roi3 ) indicated by a red line. the 2 nd row shows the same slice in flair image zoomed around the tumor region. as an example of texture, one pattern extracted from flair is shown over the edematous area ( roi4 ). the illustration shows the voxel - wise texture without averaging over the area of interest.",
+      "token_end": 40,
+      "token_count": 40,
+      "text": "fig. 1. examples of filters used to extract texture features. the 1 st row shows gabor filters for same frequency and different orientations and the 2 nd row the rotation - invariant filters.",
       "metadata": {
         "figure_id": "figure_001",
-        "label": "Figure 1illustrates",
-        "pages": [],
+        "label": "Figure 1",
+        "pages": [
+          15
+        ],
         "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 1
+          },
           {
             "parser": "grobid",
             "kind": "figure",
-            "index": 0
+            "index": 1
           }
         ],
         "subsection_id": null
       },
-      "text_sha256": "19945d13d120038248ab7c91be0b53928783996c040a419cc7353c96a6d97505"
+      "text_sha256": "fcde79ea9f1805ed8c4c1712d4d97e8ceff15fbf27f545b74b82fd76fb44d0ee"
+    },
+    {
+      "segment_id": "paper_004_figure_caption_0044_bc76a757::segment_0000",
+      "chunk_id": "paper_004_figure_caption_0044_bc76a757",
+      "paper_id": "paper_004",
+      "chunk_type": "figure_caption",
+      "order_index": 44,
+      "source_index": 44,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 146,
+      "token_count": 146,
+      "text": "fig. 2. mr images of different of brain tumor types and an example of texture images extracted from the edematous area. from left to right : meningioma, glioma grade ii, grade iii, grade iv and metastasis. 1 st row : t1ce image with the tumoral region of interest. 2 nd row : flair image ( zoomed in the tumor region ) overlaid with one of the textural patterns ( λ = 8 ). this pattern is shown here as voxel - wise texture for illustration purposes and is not equivalent to our calculations. the average texture values ( calculated before fft ) ( feature ) proved to be significant in discrimination of meningiomas.",
+      "metadata": {
+        "figure_id": "figure_002",
+        "label": "Figure 2",
+        "pages": [
+          16
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 2
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 2
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "650afa8e8a60247992978344aa3b4c9d663df2942687e7064b51a0f6ffacbfdf"
+    },
+    {
+      "segment_id": "paper_004_figure_caption_0045_7472a4ed::segment_0000",
+      "chunk_id": "paper_004_figure_caption_0045_7472a4ed",
+      "paper_id": "paper_004",
+      "chunk_type": "figure_caption",
+      "order_index": 45,
+      "source_index": 45,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 53,
+      "token_count": 53,
+      "text": "fig. 3. classification accuracy ( with svm - rfe ) versus number of retained features for classification of metastasis versus gliomas grade ii, iii, or iv ( 1 st row ) and glioma grading ( 2 nd row ).",
+      "metadata": {
+        "figure_id": "figure_003",
+        "label": "Figure 3",
+        "pages": [
+          17
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 3
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 3
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "ab37cb24cceee6eb6a1977adaf51cb05ba8b617847be8d5725635ffb3e7e0fc3"
+    },
+    {
+      "segment_id": "paper_004_figure_caption_0046_7b08c375::segment_0000",
+      "chunk_id": "paper_004_figure_caption_0046_7b08c375",
+      "paper_id": "paper_004",
+      "chunk_type": "figure_caption",
+      "order_index": 46,
+      "source_index": 46,
+      "segment_index": 0,
+      "segment_count": 1,
+      "token_start": 0,
+      "token_end": 85,
+      "token_count": 85,
+      "text": "fig. 4. classification accuracy ( with svm - rfe ) versus number of retained features ( 1 st row ) and roc analysis ( 2 nd row ) for two main classification problems : metastases versus primary gliomas ( grade ii, iii, iv ) shown in the 1 st column and low versus high grade gliomas ( grade ii versus iii and iv ) shown in the 2 nd column.",
+      "metadata": {
+        "figure_id": "figure_004",
+        "label": "Figure 4",
+        "pages": [
+          18
+        ],
+        "source_refs": [
+          {
+            "parser": "docling",
+            "kind": "figure",
+            "index": 4
+          },
+          {
+            "parser": "grobid",
+            "kind": "figure",
+            "index": 4
+          }
+        ],
+        "subsection_id": null
+      },
+      "text_sha256": "7eff48aba78161aaae0e364790bd5a4b16ff8b3dbbde650c5e677f5e3d66ed5e"
     }
   ],
   "execution": {
-    "elapsed_seconds": 8.193
+    "elapsed_seconds": 8.898
   }
 }

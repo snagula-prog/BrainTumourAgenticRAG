@@ -40,7 +40,7 @@ def main() -> None:
         )
         return
 
-    per_metric: dict[str, list[float]] = {
+    per_metric: dict[str, list[tuple[str, float]]] = {
         name: [] for name in PRIMARY_INTEGRITY_WEIGHTS
     }
 
@@ -69,9 +69,8 @@ def main() -> None:
         for name in PRIMARY_INTEGRITY_WEIGHTS:
 
             if name in metrics:
-
                 per_metric[name].append(
-                    metrics[name]
+                    (paper_ids[-1], float(metrics[name]))
                 )
 
     n = len(files)
@@ -102,11 +101,12 @@ def main() -> None:
         key=lambda item: item[1],
     ):
 
-        values = per_metric[name]
+        entries = per_metric[name]
 
-        if not values:
+        if not entries:
             continue
 
+        values = [value for _, value in entries]
         mean = statistics.mean(values)
         std = (
             statistics.pstdev(values)
@@ -114,9 +114,7 @@ def main() -> None:
             else 0.0
         )
 
-        min_value = min(values)
-        min_index = values.index(min_value)
-        worst_paper = paper_ids[min_index]
+        worst_paper, min_value = min(entries, key=lambda item: item[1])
 
         flag = ""
 

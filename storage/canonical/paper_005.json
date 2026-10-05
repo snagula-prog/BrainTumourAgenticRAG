@@ -21,14 +21,14 @@
   },
   "reading_order_repair": {
     "applied": true,
-    "reason": "reordered_global_layout",
+    "reason": "reordered_page_local_layout",
     "matched_paragraphs": 50,
     "pages_reordered": [
       7
     ],
-    "paragraphs_reordered": 36,
-    "global_layout_used": true,
-    "cross_page_continuations_merged": 1,
+    "paragraphs_reordered": 10,
+    "cross_page_continuations_merged": 0,
+    "continuation_merge_details": [],
     "page_details": [
       {
         "page": 7,
@@ -717,10 +717,32 @@
     },
     {
       "paragraph_id": "para_0015",
-      "text": "After patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a): where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.",
+      "text": "After patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a):",
       "sentences": [
         "After patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).",
-        "The output of the Swin Transformer block is calculated as follows (compare with Figure 2a): where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].",
+        "The output of the Swin Transformer block is calculated as follows (compare with Figure 2a):"
+      ],
+      "section": "Swin Transformer Block",
+      "section_path": [
+        "Swin Transformer Block"
+      ],
+      "coords": [
+        {
+          "page": 4,
+          "x": 166.085,
+          "y": 181.31580422346372,
+          "w": 393.19253943599995,
+          "h": 34.54876377653625,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 4
+    },
+    {
+      "paragraph_id": "para_0016",
+      "text": "where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.",
+      "sentences": [
+        "where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].",
         "The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage."
       ],
       "section": "Swin Transformer Block",
@@ -735,20 +757,12 @@
           "w": 393.30431980800006,
           "h": 34.54876377653636,
           "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 4,
-          "x": 166.085,
-          "y": 181.31580422346372,
-          "w": 393.19253943599995,
-          "h": 34.54876377653625,
-          "coord_origin": "BOTTOMLEFT"
         }
       ],
       "page": 5
     },
     {
-      "paragraph_id": "para_0016",
+      "paragraph_id": "para_0017",
       "text": "The HRSTNet contains multiple stages that generate multi-resolution feature maps.Except for the last stage, the n-th stage contains n Swin Transformer blocks and n patchmerging blocks, while the last stage contains n -1 patch-merging blocks.In the n-th stage, the n parallel Swin Transformer blocks process n different resolution feature maps, respectively.Each Swin Transformer block is followed by a patch merge, which is used to downsample the output feature map of the Swin Transformer block.",
       "sentences": [
         "The HRSTNet contains multiple stages that generate multi-resolution feature maps.",
@@ -773,7 +787,7 @@
       "page": 5
     },
     {
-      "paragraph_id": "para_0017",
+      "paragraph_id": "para_0018",
       "text": "Taking the third stage (Stage 3, compare with Figure 1) as an example, three feature maps with a resolution of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , and D 16 × H 16 × W 16 are input into this stage.Three Swin Transformer blocks process the input feature maps independently and output feature maps with the same resolution as their input.The outputs of the Swin Transformers are further downsampled by the patch-merging layers separately, resulting in three feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature map with a resolution of D 32 × H 32 × W 32 is directly fed into the fourth stage (Stage 4), while the outputs of other patch-merging layers and the outputs of the Swin Transformer blocks are fed into an MRFF block.",
       "sentences": [
         "Taking the third stage (Stage 3, compare with Figure 1) as an example, three feature maps with a resolution of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , and D 16 × H 16 × W 16 are input into this stage.",
@@ -798,7 +812,7 @@
       "page": 5
     },
     {
-      "paragraph_id": "para_0018",
+      "paragraph_id": "para_0019",
       "text": "The multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.Figure 2b shows the MRFF block following the fourth stage, which aggregates the features of four different resolutions.",
       "sentences": [
         "The multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.",
@@ -821,12 +835,10 @@
       "page": 5
     },
     {
-      "paragraph_id": "para_0019",
-      "text": "The fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.",
+      "paragraph_id": "para_0020",
+      "text": "The fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of",
       "sentences": [
-        "The fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of",
-        "The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.",
-        "The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask."
+        "The fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of"
       ],
       "section": "Multi-Resolution Feature Fusion",
       "section_path": [
@@ -854,6 +866,54 @@
     },
     {
       "paragraph_id": "para_0021",
+      "text": "The CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].",
+      "sentences": [
+        "The CT volumes from the liver dataset were cropped to 96 × 96 × 96.",
+        "The other training details were the same as those of the BraTS 2021 dataset.",
+        "Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].",
+        "We obtained their experiment results from [9]."
+      ],
+      "section": "Implementation Details",
+      "section_path": [
+        "Implementation Details"
+      ],
+      "coords": [
+        {
+          "page": 7,
+          "x": 165.975,
+          "y": 684.1878042234637,
+          "w": 394.5454564713999,
+          "h": 59.9704870765363,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 7
+    },
+    {
+      "paragraph_id": "para_0022",
+      "text": "The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.",
+      "sentences": [
+        "The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.",
+        "The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask."
+      ],
+      "section": "Multi-Resolution Feature Fusion",
+      "section_path": [
+        "Multi-Resolution Feature Fusion"
+      ],
+      "coords": [
+        {
+          "page": 6,
+          "x": 166.394,
+          "y": 571.2108042234637,
+          "w": 392.879796736,
+          "h": 47.10176377653636,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 6
+    },
+    {
+      "paragraph_id": "para_0023",
       "text": "Except for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.The corresponding architectures are denoted as HRSTNet-2 and HRSTNet-3, respectively.The architecture shown in Figure 1 is denoted as HRSTNet-4.",
       "sentences": [
         "Except for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.",
@@ -877,7 +937,7 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0022",
+      "paragraph_id": "para_0024",
       "text": "In this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].All the experiments were implemented with Pytorch [41] on two NVIDIA GeForce RTX 3090 graphic cards.We utilized MONAI (https://monai.io/,accessed on 16 April 2022), a healthcare imaging processing framework, for network training and data preprocessing.The 3D Slicer [42,43] software was employed to visualize the experimental results.The code of HRSTNet is publicly available at https://github.com/auroua/HRSTNet.",
       "sentences": [
         "In this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].",
@@ -904,7 +964,29 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0023",
+      "paragraph_id": "para_0025",
+      "text": "Note: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.",
+      "sentences": [
+        "Note: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands."
+      ],
+      "section": "Experiments and Results",
+      "section_path": [
+        "Experiments and Results"
+      ],
+      "coords": [
+        {
+          "page": 11,
+          "x": 166.398,
+          "y": 532.0574380223463,
+          "w": 393.8743718999997,
+          "h": 31.464229977653645,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 11
+    },
+    {
+      "paragraph_id": "para_0026",
       "text": "The BraTS 2021 dataset contains 1251 magnetic resonance imaging (MRI) scans in the shape of 240 × 240 × 155.Following the VT-UNet [9], the 1251 scans were split into groups of 834, 208, and 209 for training, validation, and testing, respectively.The task was to segment three semantically meaningful tumor classes, namely the enhanced tumor (ET), tumor core (TC) region, and whole tumor (WT) region.The MSD liver dataset contains 131 computed tomography (CT) volumes, which were split into groups of 87, 22, and 22 for training, validation, and testing, respectively.The task for the liver dataset was tumor segmentation.The BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] contains 50 clinical CT volumes, and the task of this dataset was to automatically segment 13 abdominal organs (adrenal, aorta, esophagus, gallbladder, kidney, liver, pancreas, spleen and portal vein, spleen, stomach, and vena cava).The 50 CT volumes were split into 2 parts for training and testing, and the 2 parts contained 30 and 20 CT volumes, respectively.We selected 24 CT volumes from the training dataset to train the segmentation algorithm, and the remaining 6 CT volumes were used to evaluate the performance of the algorithms.",
       "sentences": [
         "The BraTS 2021 dataset contains 1251 magnetic resonance imaging (MRI) scans in the shape of 240 × 240 × 155.",
@@ -933,7 +1015,7 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0024",
+      "paragraph_id": "para_0027",
       "text": "The depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.The AdamW optimizer was used to optimize the parameters of the HRSTNet, and the initial learning rate was 1 × 10 -4 .The cosine decay learning rate scheduler [44] with a linear warm-up was used to adjust the value of the learning rate, and the warm-up epoch was 50.The sum of the dice loss with the cross-entropy loss was adopted as the loss function.",
       "sentences": [
         "The depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.",
@@ -958,7 +1040,7 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0025",
+      "paragraph_id": "para_0028",
       "text": "The MRI data from BraTS 2021 were cropped to 128 × 128 × 128.Three Transformerbased architectures (UNETR [8], Swin UNETR [10], and VT-UNet-B [9]) and two CNNbased architectures (optimized UNet [34] and extending nnUNet [35]) were compared on this dataset.",
       "sentences": [
         "The MRI data from BraTS 2021 were cropped to 128 × 128 × 128.",
@@ -981,32 +1063,7 @@
       "page": 6
     },
     {
-      "paragraph_id": "para_0026",
-      "text": "The CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].",
-      "sentences": [
-        "The CT volumes from the liver dataset were cropped to 96 × 96 × 96.",
-        "The other training details were the same as those of the BraTS 2021 dataset.",
-        "Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].",
-        "We obtained their experiment results from [9]."
-      ],
-      "section": "Implementation Details",
-      "section_path": [
-        "Implementation Details"
-      ],
-      "coords": [
-        {
-          "page": 7,
-          "x": 165.975,
-          "y": 684.1878042234637,
-          "w": 394.5454564713999,
-          "h": 59.9704870765363,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 7
-    },
-    {
-      "paragraph_id": "para_0027",
+      "paragraph_id": "para_0029",
       "text": "The CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.We retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1.The learning rate of the HRSTNet trained on the BTCV dataset was set to 1 × 10 -3 .",
       "sentences": [
         "The CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.",
@@ -1030,7 +1087,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0028",
+      "paragraph_id": "para_0030",
       "text": "The Dice similarity coefficient (DCS) and 95% Hausdorff distance (HD95) are used to evaluate the performance of different algorithms on the BraTS 2021 dataset, while the DCS is used to compare algorithms on the MSD liver dataset and BTCV multi-organ segmentation dataset.",
       "sentences": [
         "The Dice similarity coefficient (DCS) and 95% Hausdorff distance (HD95) are used to evaluate the performance of different algorithms on the BraTS 2021 dataset, while the DCS is used to compare algorithms on the MSD liver dataset and BTCV multi-organ segmentation dataset."
@@ -1052,7 +1109,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0029",
+      "paragraph_id": "para_0031",
       "text": "The DCS is a commonly used evaluation metric in medical image segmentation which measures the overlap between the predicted segmentation mask and the ground truth segmentation mask.It can be formulated as follows:",
       "sentences": [
         "The DCS is a commonly used evaluation metric in medical image segmentation which measures the overlap between the predicted segmentation mask and the ground truth segmentation mask.",
@@ -1075,7 +1132,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0030",
+      "paragraph_id": "para_0032",
       "text": "where P is the predicted binary segmentation mask, G is the ground truth binary segmentation mask, and the symbol | | is used to sum the nonzero region.HD95 is always utilized to measure the distance between the boundary of the predicted binary segmentation mask and the boundary of the ground truth binary segmentation mask.The Hausdorff distance (HD) can be formulated as follows:",
       "sentences": [
         "where P is the predicted binary segmentation mask, G is the ground truth binary segmentation mask, and the symbol | | is used to sum the nonzero region.",
@@ -1099,7 +1156,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0031",
+      "paragraph_id": "para_0033",
       "text": "where p b is a pixel in the boundary of the predicted segmentation mask and g b is a pixel in the boundary of the ground truth segmentation mask.The HD reflects the distance between the boundaries of the two segmentation masks.To reduce the effect of outlier pixels, the 95th percentile of the Hausdorff distance (HD) is used in medical image segmentation to measure the distance between boundaries, a value known as HD95.",
       "sentences": [
         "where p b is a pixel in the boundary of the predicted segmentation mask and g b is a pixel in the boundary of the ground truth segmentation mask.",
@@ -1123,7 +1180,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0032",
+      "paragraph_id": "para_0034",
       "text": "During training, the model with the best Dice similarity coefficient (DSC) on the validation dataset was saved for the final evaluation, and model evaluation tricks, such as model ensembles, were not used in this paper.",
       "sentences": [
         "During training, the model with the best Dice similarity coefficient (DSC) on the validation dataset was saved for the final evaluation, and model evaluation tricks, such as model ensembles, were not used in this paper."
@@ -1145,7 +1202,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0033",
+      "paragraph_id": "para_0035",
       "text": "Because the MRFF block utilizes several feature maps of different resolutions to generate the final segmentation mask, experiments were conducted to determine which combination of feature maps resulted in the best HRSTNet performance.We compared the MRFF block when utilizing a single feature map (",
       "sentences": [
         "Because the MRFF block utilizes several feature maps of different resolutions to generate the final segmentation mask, experiments were conducted to determine which combination of feature maps resulted in the best HRSTNet performance.",
@@ -1168,7 +1225,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0034",
+      "paragraph_id": "para_0036",
       "text": "D 16 × H 16 × W 16 ), two feature maps ( D 16 × H 16 × W 16 and D 32 × H 32 × W 32 ), three feature maps ( D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and four feature maps ( D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and the experimental results are illustrated in Table 1.The experimental results show that the performance of HRSTNet-4 improved as the MRFF block combined more feature maps.The experimental results show that utilizing more feature maps with different resolutions could provide diverse information and hence enhance the final performance.Because HRSTNet-4 with the MRFF block utilizing four different feature maps achieved the best performance, the experiment conducted in the following subsection uses an MRFF block with four different resolutions.",
       "sentences": [
         "D 16 × H 16 × W 16 ), two feature maps ( D 16 × H 16 × W 16 and D 32 × H 32 × W 32 ), three feature maps ( D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and four feature maps ( D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and the experimental results are illustrated in Table 1.",
@@ -1193,7 +1250,7 @@
       "page": 7
     },
     {
-      "paragraph_id": "para_0035",
+      "paragraph_id": "para_0037",
       "text": "D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature maps are referred to as f 4 , f 8 , f 16 , and f 32 , respectively.Each of the four feature maps is down-or upsampled to the other three resolutions.Taking f 4 as an example, it sequentially passes through three patch-merging layers to generate three new feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The resultant feature maps are denoted as f 4_8 , f 4_16 , and f 4_32 , respectively.The feature maps generated by f 8 , f 16 , and f 32 can be easily inferred and are denoted as { f 8_4 , f 8_16 , f 8_32 }, { f 16_4 , f 16_8 , f 16_32 }, and { f 32_4 , f 32_8 , f 32_16 }, respectively.We then concatenate the feature maps with the same resolution (e.g., [ f 4 , f 8_4 , f 16_4 , f 32_4 ], where the symbol [ ] indicates feature concatenation).The concatenated feature maps are fed into a residual block to produce the output of the MRFF block, resulting in four feature maps with resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .",
       "sentences": [
         "D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .",
@@ -1230,7 +1287,7 @@
       "page": 5
     },
     {
-      "paragraph_id": "para_0036",
+      "paragraph_id": "para_0038",
       "text": "The DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.We utilized the method (https://github.com/MIC-DKFZ/nnUNet/ blob/5c18fa32f2b31575aae59d889d196e4c4ba8b844/nnunet/dataset_conversion/Task082_ BraTS_2020.py#L330, accessed on 1 July 2022) provided by the nnU-Net [39] to calculate the Hausdorff distance.The FLOPs were calculated by using MMCV [45], and the size of the input tensor was set to (4, 128, 128, 128) when calculating the FLOPs.",
       "sentences": [
         "The DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.",
@@ -1254,34 +1311,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0038",
-      "text": "Figure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.",
-      "sentences": [
-        "Figure 3 shows the visualization of the segmentation results on BraTS 2021.",
-        "As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.",
-        "From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.",
-        "As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.",
-        "From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.",
-        "In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures."
-      ],
-      "section": "Experimental Results on BraTS 2021",
-      "section_path": [
-        "Experimental Results on BraTS 2021"
-      ],
-      "coords": [
-        {
-          "page": 9,
-          "x": 165.975,
-          "y": 558.6578042234637,
-          "w": 394.54892047000044,
-          "h": 160.07876377653633,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 9
-    },
-    {
-      "paragraph_id": "para_0039",
+      "paragraph_id": "para_0040",
       "text": "We emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.Extensive ablation studies on different tricks to enhance the performance of the HRSTNet are left for further investigation.",
       "sentences": [
         "We emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.",
@@ -1312,7 +1342,34 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0040",
+      "paragraph_id": "para_0041",
+      "text": "Figure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.",
+      "sentences": [
+        "Figure 3 shows the visualization of the segmentation results on BraTS 2021.",
+        "As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.",
+        "From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.",
+        "As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.",
+        "From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.",
+        "In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures."
+      ],
+      "section": "Experimental Results on BraTS 2021",
+      "section_path": [
+        "Experimental Results on BraTS 2021"
+      ],
+      "coords": [
+        {
+          "page": 9,
+          "x": 165.975,
+          "y": 558.6578042234637,
+          "w": 394.54892047000044,
+          "h": 160.07876377653633,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ],
+      "page": 9
+    },
+    {
+      "paragraph_id": "para_0042",
       "text": "The Dice score was used to evaluate the segmentation results on the MSD liver dataset for liver tumor segmentation.Table 3 shows that the HRSTNet architectures (HRSTNet-2, HRSTNet-3, and HRSTNet-4) performed better than other algorithms on tumor segmentation, and HRSTNet-3 surpassed the existing methods by a large margin of +9.54 in tumor Dice score.In the series of HRSTNet architectures, HRSTNet-3 performed better than HRSTNet-2 and HRSTNet-4, and HRSTNet-4 performed better than HRSTNet-2.Compared with BraTS 2021, the MSD liver dataset is relatively small, and we argue that HRSTNet-4 suffered from overfitting, thus resulting in slightly worse performance.The results show that, except for MRI segmentation, the HRSTNet was also excellent in CT volume segmentation.Again, we would like to clarify that no model ensemble was used in the experiments conducted in this section.",
       "sentences": [
         "The Dice score was used to evaluate the segmentation results on the MSD liver dataset for liver tumor segmentation.",
@@ -1339,7 +1396,7 @@
       "page": 9
     },
     {
-      "paragraph_id": "para_0041",
+      "paragraph_id": "para_0043",
       "text": "Because the segmentation of liver tumors was much better than in the comparative methods, and the tumors were smaller compared with the organs, this suggests that maintaining a high-resolution feature map helps to improve the performance of smalltarget segmentation.We also conjecture that the continuous exchange of information from feature maps of different resolutions can improve the contextual information of feature maps, which is also critical for enhancing the segmentation performance of small targets.Further studies of the mechanisms of high-resolution feature map maintenance and the continuous exchange of information from feature maps with different resolutions is needed to provide guidelines for the design of a HRNet-like Transformer-based architecture for medical image segmentation.",
       "sentences": [
         "Because the segmentation of liver tumors was much better than in the comparative methods, and the tumors were smaller compared with the organs, this suggests that maintaining a high-resolution feature map helps to improve the performance of smalltarget segmentation.",
@@ -1371,7 +1428,7 @@
       "page": 9
     },
     {
-      "paragraph_id": "para_0042",
+      "paragraph_id": "para_0044",
       "text": "For the organ segmentation, HRSTNet-2, HRSTNet-3, and HRSTNet-4 all performed worse than the other compared algorithms.We presume that this was caused by the inconsistent fusing of feature maps with different resolutions, and this issue is left open for further study.The visualization of the segmentation results of HRSTNet-4 and VT-Unet on the MSD liver dataset is shown in Figure 4, which shows that HRSTNet-4 can segment the liver and tumor more accurately.",
       "sentences": [
         "For the organ segmentation, HRSTNet-2, HRSTNet-3, and HRSTNet-4 all performed worse than the other compared algorithms.",
@@ -1395,7 +1452,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0043",
+      "paragraph_id": "para_0045",
       "text": "The performance of the HRSTNet compared with other Transformer-based architectures on the BTCV multi-organ segmentation validation dataset is shown in Table 4.As with the MSD liver dataset, the Dice score was used to compare the performance of different algorithms.HRSTNet-4 performed better than UNETR and slightly worse than Swin UN-ETR and VT-UNet-B, and the performances of Swin UNETR and VT-UNet-B were nearly identical.Because the architectures' validation performances were compared, and Swin UNETR had the largest quantity of FLOPs, Swin UNETR achieved the best average DICE score.HRSTNet-4 achieved the best performance for stomach and pancreas segmentation, while VT-UNet-B achieved the best performance in gallbladder and liver segmentation.",
       "sentences": [
         "The performance of the HRSTNet compared with other Transformer-based architectures on the BTCV multi-organ segmentation validation dataset is shown in Table 4.",
@@ -1429,29 +1486,7 @@
       "page": 10
     },
     {
-      "paragraph_id": "para_0044",
-      "text": "Note: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.",
-      "sentences": [
-        "Note: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands."
-      ],
-      "section": "Experiments and Results",
-      "section_path": [
-        "Experiments and Results"
-      ],
-      "coords": [
-        {
-          "page": 11,
-          "x": 166.398,
-          "y": 532.0574380223463,
-          "w": 393.8743718999997,
-          "h": 31.464229977653645,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ],
-      "page": 11
-    },
-    {
-      "paragraph_id": "para_0045",
+      "paragraph_id": "para_0046",
       "text": "This subsection discusses the efficiency of the HRSTNet in terms of the training convergence rate, training time, and FLOPs.The data used to analyze the above aspects were collected from experiments conducted on the BraTS 2021 dataset.",
       "sentences": [
         "This subsection discusses the efficiency of the HRSTNet in terms of the training convergence rate, training time, and FLOPs.",
@@ -1474,7 +1509,7 @@
       "page": 11
     },
     {
-      "paragraph_id": "para_0047",
+      "paragraph_id": "para_0048",
       "text": "The above analysis verifies that the HRSTNet had the same training efficiency as the CNN-based architecture.Since the FLOPs of the HRSTNet were lower than for the CNN-based architecture, the HRSTNet may have a faster inference speed than the CNNbased architecture.",
       "sentences": [
         "The above analysis verifies that the HRSTNet had the same training efficiency as the CNN-based architecture.",
@@ -1497,7 +1532,7 @@
       "page": 12
     },
     {
-      "paragraph_id": "para_0049",
+      "paragraph_id": "para_0050",
       "text": "412.82 443.85 389.45 S is the abbreviation for seconds.",
       "sentences": [
         "412.82 443.85 389.45 S is the abbreviation for seconds."
@@ -1519,7 +1554,7 @@
       "page": 12
     },
     {
-      "paragraph_id": "para_0050",
+      "paragraph_id": "para_0051",
       "text": "In conclusion, we proposed an HRNet-like architecture, the HRSTNet, for medical image segmentation and validated its superior performance through experiments.We conjecture that maintaining the high-resolution feature map and continuously exchanging information from different feature maps of different resolutions can improve its performance.Maintaining a high-resolution feature map can provide more precise spatial details for generating segmentation masks, while the continuous exchange of information from different feature maps can provide more contextual information.The experimental results for the BraTS 2021 dataset show that the HRSTNet surpassed the existing Transformerbased methods by a margin of +1.8 for the average HD95 score, indicating that HRSTNetgenerated masks were more tightly aligned with the ground truth.The experimental results for the MSD liver dataset illustrate that the HRSTNet achieved far better results than the existing methods for tumor segmentation.The experimental results for the BTCV multi-organ segmentation dataset demonstrate that the HRSTNet achieved a performance comparable to those of existing Transformer-based architectures.",
       "sentences": [
         "In conclusion, we proposed an HRNet-like architecture, the HRSTNet, for medical image segmentation and validated its superior performance through experiments.",
@@ -1546,7 +1581,7 @@
       "page": 12
     },
     {
-      "paragraph_id": "para_0051",
+      "paragraph_id": "para_0052",
       "text": "Despite the benefits of the HRSTNet, more experiments are necessary to thoroughly verify its performance.To verify the generality, we will conduct experiments on more diverse datasets.To enhance the performance of the HRSTNet, pretraining strategies, such as self-supervised and masked image modeling, can be utilized to allow the model to learn meaningful knowledge for the downstream tasks.Tricks such as deep supervision loss, focal loss, decoder attention, and the combination of different kinds of attention strategies can be investigated to improve the performance of the HRSTNet further.Because this study has shown that the HRNet-like architecture is applicable to medical image segmentation, and there are many different HRNet-like architectures that can be designed, to effectively design Transformer-based HRNet-like architectures, we can design a search space and utilize the neural architecture search strategies to find the HRNet-like architecture with optimal performance.",
       "sentences": [
         "Despite the benefits of the HRSTNet, more experiments are necessary to thoroughly verify its performance.",
@@ -15568,7 +15603,7 @@
       "page": 1
     },
     {
-      "paragraph_id": "para_0037",
+      "paragraph_id": "para_0039",
       "text": "The experimental results on the BraTS 2021 dataset are presented in Table 2. Since the CNN-based UNet has been thoroughly studied for several years, and many tricks have been proposed to improve the performance of CNN-based UNet architectures, the CNN-based extending nnUNet achieved the highest performance.The extending nnUNet had the highest FLOP count, which means the inference speed of this model may be slower than the other compared models.Among the Transformer-based architectures, our proposed HRSTNet-4 achieved the best average Dice score, while HRSTNet-3 obtained the smallest average Hausdorff distance.Even the HRSTNet-2 method, which had the lowest FLOP count among the series of HRSTNets, had a better average Hausdorff distance compared with the other three Transformer-based methods, and its average Dice score was comparable to that of VT-UNet.For enhancing tumor segmentation, VT-UNet-B performed best in terms of Dice score among the Transformer-based architectures, but its Hausdorff distance was the largest among all the other Transformer-based models.Swin UNETR had a comparable Dice score with UNETR, but its Hausdorff score is better than that of UNETR.Considering that the difference between these two networks is the encoder, we conjecture that it was the Transformer's ability to construct long-term dependencies that led to the improvement.Overall, the experimental results illustrated in Table 2 indicate that among the Transformer-based architectures, the HRNet-like network can achieve better performance than the U-Netlike architectures, which implies that HRNet-like network design is a valuable future research direction.",
       "sentences": [
         "The experimental results on the BraTS 2021 dataset are presented in Table 2. Since the CNN-based UNet has been thoroughly studied for several years, and many tricks have been proposed to improve the performance of CNN-based UNet architectures, the CNN-based extending nnUNet achieved the highest performance.",
@@ -15597,7 +15632,7 @@
       "page": 8
     },
     {
-      "paragraph_id": "para_0046",
+      "paragraph_id": "para_0047",
       "text": "Figures 5 and 6 demonstrate the training loss and validation accuracy curves, respectively.Figure 5 shows that the convergence rate of the HRSTNet and other Transformerbased architectures was approximately the same as those of the CNN-based architectures, except for the slower convergence rate of UNETR. Figure 6 shows that all the models compared shared the same trend (i.e., the validation accuracy of the models progressively improved as the loss in the training process gradually decreased).As shown in Table 2, the model size of HRSTNet-4 was larger than that of the CNNbased architecture, but the computational cost of HRSTNet-4 was lower than that of the CNN-based architecture.The comparison of the training time of one epoch for different models is shown in Table 5, and it shows that training HRSTNet-4 was more efficient than training the two CNN-based architectures.",
       "sentences": [
         "Figures 5 and 6 demonstrate the training loss and validation accuracy curves, respectively.",
@@ -15630,7 +15665,7 @@
       "page": 11
     },
     {
-      "paragraph_id": "para_0048",
+      "paragraph_id": "para_0049",
       "text": "Table 5.Comparison of training time of one epoch for different models.",
       "sentences": [
         "Table 5.",
@@ -16294,11 +16329,11 @@
     "final_reference_numbers": [],
     "contamination_paragraphs_removed": 0
   },
-  "canonical_text": "High-Resolution Swin Transformer for Automatic Medical Image Segmentation\n\n## Abstract\n\nThe resolution of feature maps is a critical factor for accurate medical image segmentation.Most of the existing Transformer-based networks for medical image segmentation adopt a U-Netlike architecture, which contains an encoder that converts the high-resolution input image into low-resolution feature maps using a sequence of Transformer blocks and a decoder that gradually generates high-resolution representations from low-resolution feature maps.However, the procedure of recovering high-resolution representations from low-resolution representations may harm the spatial precision of the generated segmentation masks.Unlike previous studies, in this study, we utilized the high-resolution network (HRNet) design style by replacing the convolutional layers with Transformer blocks, continuously exchanging feature map information with different resolutions generated by the Transformer blocks.The proposed Transformer-based network is named the highresolution Swin Transformer network (HRSTNet).Extensive experiments demonstrated that the HRSTNet can achieve performance comparable with that of the state-of-the-art Transformer-based U-Net-like architecture on the 2021 Brain Tumor Segmentation dataset, the Medical Segmentation Decathlon's liver dataset, and the BTCV multi-organ segmentation dataset.\n\n## Introduction\n\nAlthough convolutional neural networks (CNNs) have been widely applied to different computer vision (CV) tasks, CNN drawbacks still exist, such as the locality properties of convolutional kernels preventing CNNs from providing a richer representation of contextual information for pixels.The performance of CV tasks may be compromised by the induction bias of CNNs, especially for dense prediction tasks.Transformer, which has been successfully used in natural language processing [1,2], excels at establishing the long-range dependencies of different words in a sentence.The strengths of Transformer have attracted the attention of CV researchers.In recent years, a collection of studies has emerged that utilizes Transformer to improve the performance of image classification [3,4], object detection [5], semantic segmentation [6], representation learning [7], and medical image segmentation [8][9][10][11][12].\n\nBecause of the large number of medical images generated every day, there is an urgent need for automated medical image segmentation to help doctors diagnose diseases.Existing medical image segmentation models [8][9][10][11][12] usually adopt a U-Net-like architecture to generate semantically meaningful representations for segmentation by gathering the local and global information for each pixel in the medical image.The U-Net-like architecture consists of an encoder and a decoder.A medical image is passed through the encoder, which gradually generates spatially reduced and semantically richer low-resolution representations containing global contextual information, while the decoder takes the low-resolution representations as input and generates high-resolution representations for segmentation.\n\nTo further improve the global contextual representation information, some recent works replaced the CNN layers in the U-Net-like architecture with Transformer, with the new Transformer-based architectures [9,10,12] achieving state-of-the-art performance on several medical image benchmarks.\n\nEven though a U-Net-like architecture can provide rich contextual information, the procedure of recovering high-resolution representations from low-resolution representations may harm the spatial precision of the generated segmentation masks.The HRNet [13] maintains the high-resolution representations and connects the high-and low-resolution representations in parallel, which can remove the necessity to recover high-resolution representations from low-resolution representations and hence generate more precise spatial representations.Unlike existing Transformer-based methods for medical image segmentation, which all adopt U-Net-like architectures, in this paper, we propose a high-resolution Swin Transformer network (HRSTNet) that combines Transformer with the HRNet architecture for volumetric medical image segmentation.We employ the Swin Transformer block [14] to generate parallel feature representations, utilize patch-merging and expanding blocks to downsample and upsample feature representations, and design a multi-resolution feature fusion block to fuse features of different resolutions.\n\nThe main contributions of this paper are threefold:\n\n1) We propose a new network, the HRSTNet, that combines the HRNet with Swin Transformer blocks for medical image segmentation.The Swin Transformer blocks generate parallel features of different resolutions, and the high-resolution features are maintained throughout the network to provide more precise spatial information.(2) A multi-resolution feature fusion block is designed to generate contextual informationaugmented representations, utilizing a patch-merging block to downsample feature maps and a patch-expanding block to upsample feature maps.(3) We conduct extensive experiments on the 2021 Brain Tumor Segmentation (BraTS 2021) dataset [15][16][17][18][19], Medical Segmentation Decathlon (MSD)'s liver dataset [20,21], and the BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] to demonstrate that the HRST-Net can achieve comparable or even better performance than the recently proposed medical image segmentation methods.Based on the outcomes of the experimental results, our manuscript proposed a new effective Transformer-based medical image segmentation architecture.\n\n## Related Work\n\n## Vision Transformers\n\nInspired by the success of Transformer in natural language processing tasks, ViT [3] splits the input image into 16 × 16 patches and converts the patches into tokens.Then, an additional learnable classification token, together with the image tokens, is passed through the Transformer encoder.The feature of the classification token is used to perform the classification task.Through pretraining on a large dataset containing 303 million high-resolution images and fine-tuning to a smaller dataset, ViT can achieve comparable performance with CNNs.DeiT [4] designs a distillation method and a collection of training strategies that enable ViT to achieve comparable performance with CNNs without the need for pretraining on large datasets.The Swin Transformer [14] divides the patches into non-overlapping windows and restricts the self-attention calculation in the small or shifted windows, which introduces locality inductive bias.It also utilizes patch-merging layers to generate hierarchical representations that can benefit the downstream tasks, such as object detection or semantic segmentation.HRFormer [29] and HRViT [30] borrow the network architecture from the HRNet [13] and design a Transformer-based architecture that maintains the high-resolution features and exchanges information from different resolutions.HRFormer utilizes local window self-attention to generate features of different resolutions.However, the features may lack contextual information from other windows.HRViT proposes an HRViTAttn block to generate different resolution features and a MixCFN block to exchange information from features of different resolutions.Unlike HRFormer and HRViT, which are designed for two-dimensional (2D) image segmentation tasks, we utilize the Swin Transformer block to create an HRNet-like architecture and apply it to volumetric medical image segmentation tasks.\n\n## Medical Image Segmentation\n\nPrior to deep learning, the organ atlas, intensity properties, radial projection, or wavelet transform are utilized to implement medical image segmentation.Prastawa et al. [31] converted brain tumor segmentation to outlier detection and used brain atlases to detect abnormal areas.You et al. [32] adopted radial projection and a modified steerable complex wavelet to implement retinal blood vessel segmentation.\n\nDue to the excellent performance of the U-Net architecture [33] for medical image segmentation, lots of the CNN-based [34,35] and almost all recently proposed Transformerbased medical image segmentation methods [8][9][10]12,[36][37][38] adopted U-Net-like architectures to capture the global and local contextual information for each pixel.Futrega et al. [34] carried out extensive ablation studies on several tricks to improve the performance of the U-Net architecture.By combining the selected effective tricks, their optimized U-Net architecture took third place in the test phase of the BraTS 2021 [15][16][17][18][19] segmentation competition.Luu et al. [35] experimented with several modifications of the nn-UNet [39], and the modified nn-UNet won first place in the test phase of the BraTS 2021 segmentation competition.UNETR [8] uses ViT as the encoder and converts the features from four different stages of ViT to build hierarchical feature maps, which are fed into the decoder to generate the segmentation mask.The nnFormer [12] consists of a Transformer-based encoder, a Transformer-based decoder, and a bottleneck block.The encoder and decoder focus on extracting local information by using the local self-attention layers, while the bottleneck block is in charge of gathering the global contextual information.TransBTS [37], CoTr [36], and U-Transformer [38] use a transformer to enhance the global contextual information of the features generated by a CNN.Among them, TransBTS and U-Transformer utilize the standard transformer layer, while CoTr designs a DeTrans layer that pays attention to a small set of key positions to reduce the computational cost.VT-UNet [9] adopts the Swin Transformer block to generate hierarchical representation features and proposes a decoder block to merge the features from the encoder and decoder.Similar to UNETR, Swin UN-ETR [10] designs an architecture but utilizes the Swin Transformer as an encoder.Moreover, similar to VT-UNet and Swin UNETR, we adopt the Swin Transformer block to extract features.However, in contrast to the recently proposed Transformer-based medical image segmentation methods, we follow the HRNet architecture and maintain the high-resolution features to provide precise spatial information.\n\n## Methods Section\n\nInspired by the HRNet, the proposed HRSTNet maintains a high-resolution representation and continually exchanges information from different resolution features.We delve into the details of the more spatially precise and contextually informative HRSTNet in this section.\n\n## Architecture Overview\n\nThe HRSTNet architecture, exemplified by a four-stage structure, is illustrated in Figure 1.It contains multiple sequentially connected stages with a multi-resolution feature fusion module inserted after each stage, except for the first stage.The nth stage contains n parallel Swin Transformer blocks that produce n parallel semantically richer low-resolution features.The features with the highest resolution are maintained in all the stages.By using a 3D convolutional block (Conv block), the input 3D image is split into small 3D patches, with each represented as a vector in the feature space.The feature vectors are passed from stage to stage, with the outputs of the last stage being aggregated by the last multi-resolution feature fusion block (MRFF).The outputs of the last feature fusion block are concatenated after the low-resolution features have been upsampled.The final segmentation mask is generated by passing the concatenated feature through a residual block, a patch-expanding block, and a Conv block.The patch-merging block and patch-expanding block are used for down-and upsampling the feature maps, respectively.The definition of the patch-merging block is the same as the Swin Transformer [14], while the patch-expanding block is the same as VT-Unet [9].The detailed structures of the Swin Transformer block, the HRSTNet stage, and the MRFF block are introduced in the following subsections.\n\n## Swin Transformer Block\n\nThe Swin Transformer block was introduced in previous studies [14,40], and it is illustrated in Figure 2a.It contains two cascading layers.The first layer calculates the self-attention in a small window (W-MSA) of the input 3D patches, and the second layer calculates the self-attention in the shifted window (SW-MSA) of the outputs of the previous layer.\n\nAssume that the input 3D image is X ∈ R D×H×W×K , where D × H × W is the spatial size and K is the number of channels of the 3D data.The input X is fed into a Conv block with a kernel size P × P × P, stride P, and number of channels C. The Conv block splits X into small patches with a patch size of P × P × P.There are S = D P × H P × W P patches in total.The output of the Conv block can be denoted as Z ∈ R D P × H P × W P ×C .Because each pixel in Z corresponds to a patch-embedding vector, we resize the feature map Z into a 2D matrix Z ∈ R S×C , in which each row represents a patch-embedding vector.For simplicity, we still use Z to represent Z in the following.\n\nAfter patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a): where the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.\n\n## HRSTNet Stage\n\nThe HRSTNet contains multiple stages that generate multi-resolution feature maps.Except for the last stage, the n-th stage contains n Swin Transformer blocks and n patchmerging blocks, while the last stage contains n -1 patch-merging blocks.In the n-th stage, the n parallel Swin Transformer blocks process n different resolution feature maps, respectively.Each Swin Transformer block is followed by a patch merge, which is used to downsample the output feature map of the Swin Transformer block.\n\nTaking the third stage (Stage 3, compare with Figure 1) as an example, three feature maps with a resolution of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , and D 16 × H 16 × W 16 are input into this stage.Three Swin Transformer blocks process the input feature maps independently and output feature maps with the same resolution as their input.The outputs of the Swin Transformers are further downsampled by the patch-merging layers separately, resulting in three feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature map with a resolution of D 32 × H 32 × W 32 is directly fed into the fourth stage (Stage 4), while the outputs of other patch-merging layers and the outputs of the Swin Transformer blocks are fed into an MRFF block.\n\n## Multi-Resolution Feature Fusion\n\nThe multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.Figure 2b shows the MRFF block following the fourth stage, which aggregates the features of four different resolutions.\n\nThe fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of The outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.\n\nExcept for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.The corresponding architectures are denoted as HRSTNet-2 and HRSTNet-3, respectively.The architecture shown in Figure 1 is denoted as HRSTNet-4.\n\nD 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature maps are referred to as f 4 , f 8 , f 16 , and f 32 , respectively.Each of the four feature maps is down-or upsampled to the other three resolutions.Taking f 4 as an example, it sequentially passes through three patch-merging layers to generate three new feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The resultant feature maps are denoted as f 4_8 , f 4_16 , and f 4_32 , respectively.The feature maps generated by f 8 , f 16 , and f 32 can be easily inferred and are denoted as { f 8_4 , f 8_16 , f 8_32 }, { f 16_4 , f 16_8 , f 16_32 }, and { f 32_4 , f 32_8 , f 32_16 }, respectively.We then concatenate the feature maps with the same resolution (e.g., [ f 4 , f 8_4 , f 16_4 , f 32_4 ], where the symbol [ ] indicates feature concatenation).The concatenated feature maps are fed into a residual block to produce the output of the MRFF block, resulting in four feature maps with resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .\n\n## Experiments and Results\n\nIn this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].All the experiments were implemented with Pytorch [41] on two NVIDIA GeForce RTX 3090 graphic cards.We utilized MONAI (https://monai.io/,accessed on 16 April 2022), a healthcare imaging processing framework, for network training and data preprocessing.The 3D Slicer [42,43] software was employed to visualize the experimental results.The code of HRSTNet is publicly available at https://github.com/auroua/HRSTNet.\n\nNote: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.\n\n## Implementation Details\n\nThe BraTS 2021 dataset contains 1251 magnetic resonance imaging (MRI) scans in the shape of 240 × 240 × 155.Following the VT-UNet [9], the 1251 scans were split into groups of 834, 208, and 209 for training, validation, and testing, respectively.The task was to segment three semantically meaningful tumor classes, namely the enhanced tumor (ET), tumor core (TC) region, and whole tumor (WT) region.The MSD liver dataset contains 131 computed tomography (CT) volumes, which were split into groups of 87, 22, and 22 for training, validation, and testing, respectively.The task for the liver dataset was tumor segmentation.The BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] contains 50 clinical CT volumes, and the task of this dataset was to automatically segment 13 abdominal organs (adrenal, aorta, esophagus, gallbladder, kidney, liver, pancreas, spleen and portal vein, spleen, stomach, and vena cava).The 50 CT volumes were split into 2 parts for training and testing, and the 2 parts contained 30 and 20 CT volumes, respectively.We selected 24 CT volumes from the training dataset to train the segmentation algorithm, and the remaining 6 CT volumes were used to evaluate the performance of the algorithms.\n\nThe depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.The AdamW optimizer was used to optimize the parameters of the HRSTNet, and the initial learning rate was 1 × 10 -4 .The cosine decay learning rate scheduler [44] with a linear warm-up was used to adjust the value of the learning rate, and the warm-up epoch was 50.The sum of the dice loss with the cross-entropy loss was adopted as the loss function.\n\nThe MRI data from BraTS 2021 were cropped to 128 × 128 × 128.Three Transformerbased architectures (UNETR [8], Swin UNETR [10], and VT-UNet-B [9]) and two CNNbased architectures (optimized UNet [34] and extending nnUNet [35]) were compared on this dataset.\n\nThe CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].\n\nThe CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.We retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1.The learning rate of the HRSTNet trained on the BTCV dataset was set to 1 × 10 -3 .\n\n## Evaluation Metrics\n\nThe Dice similarity coefficient (DCS) and 95% Hausdorff distance (HD95) are used to evaluate the performance of different algorithms on the BraTS 2021 dataset, while the DCS is used to compare algorithms on the MSD liver dataset and BTCV multi-organ segmentation dataset.\n\nThe DCS is a commonly used evaluation metric in medical image segmentation which measures the overlap between the predicted segmentation mask and the ground truth segmentation mask.It can be formulated as follows:\n\nwhere P is the predicted binary segmentation mask, G is the ground truth binary segmentation mask, and the symbol | | is used to sum the nonzero region.HD95 is always utilized to measure the distance between the boundary of the predicted binary segmentation mask and the boundary of the ground truth binary segmentation mask.The Hausdorff distance (HD) can be formulated as follows:\n\nwhere p b is a pixel in the boundary of the predicted segmentation mask and g b is a pixel in the boundary of the ground truth segmentation mask.The HD reflects the distance between the boundaries of the two segmentation masks.To reduce the effect of outlier pixels, the 95th percentile of the Hausdorff distance (HD) is used in medical image segmentation to measure the distance between boundaries, a value known as HD95.\n\nDuring training, the model with the best Dice similarity coefficient (DSC) on the validation dataset was saved for the final evaluation, and model evaluation tricks, such as model ensembles, were not used in this paper.\n\n## Ablation Study of the MRFF Block\n\nBecause the MRFF block utilizes several feature maps of different resolutions to generate the final segmentation mask, experiments were conducted to determine which combination of feature maps resulted in the best HRSTNet performance.We compared the MRFF block when utilizing a single feature map (\n\nD 16 × H 16 × W 16 ), two feature maps ( D 16 × H 16 × W 16 and D 32 × H 32 × W 32 ), three feature maps ( D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and four feature maps ( D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and the experimental results are illustrated in Table 1.The experimental results show that the performance of HRSTNet-4 improved as the MRFF block combined more feature maps.The experimental results show that utilizing more feature maps with different resolutions could provide diverse information and hence enhance the final performance.Because HRSTNet-4 with the MRFF block utilizing four different feature maps achieved the best performance, the experiment conducted in the following subsection uses an MRFF block with four different resolutions.\n\n## Experimental Results on BraTS 2021\n\nThe DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.We utilized the method (https://github.com/MIC-DKFZ/nnUNet/ blob/5c18fa32f2b31575aae59d889d196e4c4ba8b844/nnunet/dataset_conversion/Task082_ BraTS_2020.py#L330, accessed on 1 July 2022) provided by the nnU-Net [39] to calculate the Hausdorff distance.The FLOPs were calculated by using MMCV [45], and the size of the input tensor was set to (4, 128, 128, 128) when calculating the FLOPs.\n\nFigure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.\n\nWe emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.Extensive ablation studies on different tricks to enhance the performance of the HRSTNet are left for further investigation.\n\n## Experimental Results on the MSD Liver Dataset\n\nThe Dice score was used to evaluate the segmentation results on the MSD liver dataset for liver tumor segmentation.Table 3 shows that the HRSTNet architectures (HRSTNet-2, HRSTNet-3, and HRSTNet-4) performed better than other algorithms on tumor segmentation, and HRSTNet-3 surpassed the existing methods by a large margin of +9.54 in tumor Dice score.In the series of HRSTNet architectures, HRSTNet-3 performed better than HRSTNet-2 and HRSTNet-4, and HRSTNet-4 performed better than HRSTNet-2.Compared with BraTS 2021, the MSD liver dataset is relatively small, and we argue that HRSTNet-4 suffered from overfitting, thus resulting in slightly worse performance.The results show that, except for MRI segmentation, the HRSTNet was also excellent in CT volume segmentation.Again, we would like to clarify that no model ensemble was used in the experiments conducted in this section.\n\nBecause the segmentation of liver tumors was much better than in the comparative methods, and the tumors were smaller compared with the organs, this suggests that maintaining a high-resolution feature map helps to improve the performance of smalltarget segmentation.We also conjecture that the continuous exchange of information from feature maps of different resolutions can improve the contextual information of feature maps, which is also critical for enhancing the segmentation performance of small targets.Further studies of the mechanisms of high-resolution feature map maintenance and the continuous exchange of information from feature maps with different resolutions is needed to provide guidelines for the design of a HRNet-like Transformer-based architecture for medical image segmentation.\n\nFor the organ segmentation, HRSTNet-2, HRSTNet-3, and HRSTNet-4 all performed worse than the other compared algorithms.We presume that this was caused by the inconsistent fusing of feature maps with different resolutions, and this issue is left open for further study.The visualization of the segmentation results of HRSTNet-4 and VT-Unet on the MSD liver dataset is shown in Figure 4, which shows that HRSTNet-4 can segment the liver and tumor more accurately.\n\n## Experimental Results on the BTCV Multi-Organ Segmentation Dataset\n\nThe performance of the HRSTNet compared with other Transformer-based architectures on the BTCV multi-organ segmentation validation dataset is shown in Table 4.As with the MSD liver dataset, the Dice score was used to compare the performance of different algorithms.HRSTNet-4 performed better than UNETR and slightly worse than Swin UN-ETR and VT-UNet-B, and the performances of Swin UNETR and VT-UNet-B were nearly identical.Because the architectures' validation performances were compared, and Swin UNETR had the largest quantity of FLOPs, Swin UNETR achieved the best average DICE score.HRSTNet-4 achieved the best performance for stomach and pancreas segmentation, while VT-UNet-B achieved the best performance in gallbladder and liver segmentation.\n\n## Model Efficiency Analysis\n\nThis subsection discusses the efficiency of the HRSTNet in terms of the training convergence rate, training time, and FLOPs.The data used to analyze the above aspects were collected from experiments conducted on the BraTS 2021 dataset.\n\nThe above analysis verifies that the HRSTNet had the same training efficiency as the CNN-based architecture.Since the FLOPs of the HRSTNet were lower than for the CNN-based architecture, the HRSTNet may have a faster inference speed than the CNNbased architecture.\n\n## Optimized UNet (S) Extending nnUNet (S) HRSTNet-4 (S)\n\n412.82 443.85 389.45 S is the abbreviation for seconds.\n\n## Conclusions\n\nIn conclusion, we proposed an HRNet-like architecture, the HRSTNet, for medical image segmentation and validated its superior performance through experiments.We conjecture that maintaining the high-resolution feature map and continuously exchanging information from different feature maps of different resolutions can improve its performance.Maintaining a high-resolution feature map can provide more precise spatial details for generating segmentation masks, while the continuous exchange of information from different feature maps can provide more contextual information.The experimental results for the BraTS 2021 dataset show that the HRSTNet surpassed the existing Transformerbased methods by a margin of +1.8 for the average HD95 score, indicating that HRSTNetgenerated masks were more tightly aligned with the ground truth.The experimental results for the MSD liver dataset illustrate that the HRSTNet achieved far better results than the existing methods for tumor segmentation.The experimental results for the BTCV multi-organ segmentation dataset demonstrate that the HRSTNet achieved a performance comparable to those of existing Transformer-based architectures.\n\nDespite the benefits of the HRSTNet, more experiments are necessary to thoroughly verify its performance.To verify the generality, we will conduct experiments on more diverse datasets.To enhance the performance of the HRSTNet, pretraining strategies, such as self-supervised and masked image modeling, can be utilized to allow the model to learn meaningful knowledge for the downstream tasks.Tricks such as deep supervision loss, focal loss, decoder attention, and the combination of different kinds of attention strategies can be investigated to improve the performance of the HRSTNet further.Because this study has shown that the HRNet-like architecture is applicable to medical image segmentation, and there are many different HRNet-like architectures that can be designed, to effectively design Transformer-based HRNet-like architectures, we can design a search space and utilize the neural architecture search strategies to find the HRNet-like architecture with optimal performance.",
+  "canonical_text": "High-Resolution Swin Transformer for Automatic Medical Image Segmentation\n\n## Abstract\n\nThe resolution of feature maps is a critical factor for accurate medical image segmentation.Most of the existing Transformer-based networks for medical image segmentation adopt a U-Netlike architecture, which contains an encoder that converts the high-resolution input image into low-resolution feature maps using a sequence of Transformer blocks and a decoder that gradually generates high-resolution representations from low-resolution feature maps.However, the procedure of recovering high-resolution representations from low-resolution representations may harm the spatial precision of the generated segmentation masks.Unlike previous studies, in this study, we utilized the high-resolution network (HRNet) design style by replacing the convolutional layers with Transformer blocks, continuously exchanging feature map information with different resolutions generated by the Transformer blocks.The proposed Transformer-based network is named the highresolution Swin Transformer network (HRSTNet).Extensive experiments demonstrated that the HRSTNet can achieve performance comparable with that of the state-of-the-art Transformer-based U-Net-like architecture on the 2021 Brain Tumor Segmentation dataset, the Medical Segmentation Decathlon's liver dataset, and the BTCV multi-organ segmentation dataset.\n\n## Introduction\n\nAlthough convolutional neural networks (CNNs) have been widely applied to different computer vision (CV) tasks, CNN drawbacks still exist, such as the locality properties of convolutional kernels preventing CNNs from providing a richer representation of contextual information for pixels.The performance of CV tasks may be compromised by the induction bias of CNNs, especially for dense prediction tasks.Transformer, which has been successfully used in natural language processing [1,2], excels at establishing the long-range dependencies of different words in a sentence.The strengths of Transformer have attracted the attention of CV researchers.In recent years, a collection of studies has emerged that utilizes Transformer to improve the performance of image classification [3,4], object detection [5], semantic segmentation [6], representation learning [7], and medical image segmentation [8][9][10][11][12].\n\nBecause of the large number of medical images generated every day, there is an urgent need for automated medical image segmentation to help doctors diagnose diseases.Existing medical image segmentation models [8][9][10][11][12] usually adopt a U-Net-like architecture to generate semantically meaningful representations for segmentation by gathering the local and global information for each pixel in the medical image.The U-Net-like architecture consists of an encoder and a decoder.A medical image is passed through the encoder, which gradually generates spatially reduced and semantically richer low-resolution representations containing global contextual information, while the decoder takes the low-resolution representations as input and generates high-resolution representations for segmentation.\n\nTo further improve the global contextual representation information, some recent works replaced the CNN layers in the U-Net-like architecture with Transformer, with the new Transformer-based architectures [9,10,12] achieving state-of-the-art performance on several medical image benchmarks.\n\nEven though a U-Net-like architecture can provide rich contextual information, the procedure of recovering high-resolution representations from low-resolution representations may harm the spatial precision of the generated segmentation masks.The HRNet [13] maintains the high-resolution representations and connects the high-and low-resolution representations in parallel, which can remove the necessity to recover high-resolution representations from low-resolution representations and hence generate more precise spatial representations.Unlike existing Transformer-based methods for medical image segmentation, which all adopt U-Net-like architectures, in this paper, we propose a high-resolution Swin Transformer network (HRSTNet) that combines Transformer with the HRNet architecture for volumetric medical image segmentation.We employ the Swin Transformer block [14] to generate parallel feature representations, utilize patch-merging and expanding blocks to downsample and upsample feature representations, and design a multi-resolution feature fusion block to fuse features of different resolutions.\n\nThe main contributions of this paper are threefold:\n\n1) We propose a new network, the HRSTNet, that combines the HRNet with Swin Transformer blocks for medical image segmentation.The Swin Transformer blocks generate parallel features of different resolutions, and the high-resolution features are maintained throughout the network to provide more precise spatial information.(2) A multi-resolution feature fusion block is designed to generate contextual informationaugmented representations, utilizing a patch-merging block to downsample feature maps and a patch-expanding block to upsample feature maps.(3) We conduct extensive experiments on the 2021 Brain Tumor Segmentation (BraTS 2021) dataset [15][16][17][18][19], Medical Segmentation Decathlon (MSD)'s liver dataset [20,21], and the BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] to demonstrate that the HRST-Net can achieve comparable or even better performance than the recently proposed medical image segmentation methods.Based on the outcomes of the experimental results, our manuscript proposed a new effective Transformer-based medical image segmentation architecture.\n\n## Related Work\n\n## Vision Transformers\n\nInspired by the success of Transformer in natural language processing tasks, ViT [3] splits the input image into 16 × 16 patches and converts the patches into tokens.Then, an additional learnable classification token, together with the image tokens, is passed through the Transformer encoder.The feature of the classification token is used to perform the classification task.Through pretraining on a large dataset containing 303 million high-resolution images and fine-tuning to a smaller dataset, ViT can achieve comparable performance with CNNs.DeiT [4] designs a distillation method and a collection of training strategies that enable ViT to achieve comparable performance with CNNs without the need for pretraining on large datasets.The Swin Transformer [14] divides the patches into non-overlapping windows and restricts the self-attention calculation in the small or shifted windows, which introduces locality inductive bias.It also utilizes patch-merging layers to generate hierarchical representations that can benefit the downstream tasks, such as object detection or semantic segmentation.HRFormer [29] and HRViT [30] borrow the network architecture from the HRNet [13] and design a Transformer-based architecture that maintains the high-resolution features and exchanges information from different resolutions.HRFormer utilizes local window self-attention to generate features of different resolutions.However, the features may lack contextual information from other windows.HRViT proposes an HRViTAttn block to generate different resolution features and a MixCFN block to exchange information from features of different resolutions.Unlike HRFormer and HRViT, which are designed for two-dimensional (2D) image segmentation tasks, we utilize the Swin Transformer block to create an HRNet-like architecture and apply it to volumetric medical image segmentation tasks.\n\n## Medical Image Segmentation\n\nPrior to deep learning, the organ atlas, intensity properties, radial projection, or wavelet transform are utilized to implement medical image segmentation.Prastawa et al. [31] converted brain tumor segmentation to outlier detection and used brain atlases to detect abnormal areas.You et al. [32] adopted radial projection and a modified steerable complex wavelet to implement retinal blood vessel segmentation.\n\nDue to the excellent performance of the U-Net architecture [33] for medical image segmentation, lots of the CNN-based [34,35] and almost all recently proposed Transformerbased medical image segmentation methods [8][9][10]12,[36][37][38] adopted U-Net-like architectures to capture the global and local contextual information for each pixel.Futrega et al. [34] carried out extensive ablation studies on several tricks to improve the performance of the U-Net architecture.By combining the selected effective tricks, their optimized U-Net architecture took third place in the test phase of the BraTS 2021 [15][16][17][18][19] segmentation competition.Luu et al. [35] experimented with several modifications of the nn-UNet [39], and the modified nn-UNet won first place in the test phase of the BraTS 2021 segmentation competition.UNETR [8] uses ViT as the encoder and converts the features from four different stages of ViT to build hierarchical feature maps, which are fed into the decoder to generate the segmentation mask.The nnFormer [12] consists of a Transformer-based encoder, a Transformer-based decoder, and a bottleneck block.The encoder and decoder focus on extracting local information by using the local self-attention layers, while the bottleneck block is in charge of gathering the global contextual information.TransBTS [37], CoTr [36], and U-Transformer [38] use a transformer to enhance the global contextual information of the features generated by a CNN.Among them, TransBTS and U-Transformer utilize the standard transformer layer, while CoTr designs a DeTrans layer that pays attention to a small set of key positions to reduce the computational cost.VT-UNet [9] adopts the Swin Transformer block to generate hierarchical representation features and proposes a decoder block to merge the features from the encoder and decoder.Similar to UNETR, Swin UN-ETR [10] designs an architecture but utilizes the Swin Transformer as an encoder.Moreover, similar to VT-UNet and Swin UNETR, we adopt the Swin Transformer block to extract features.However, in contrast to the recently proposed Transformer-based medical image segmentation methods, we follow the HRNet architecture and maintain the high-resolution features to provide precise spatial information.\n\n## Methods Section\n\nInspired by the HRNet, the proposed HRSTNet maintains a high-resolution representation and continually exchanges information from different resolution features.We delve into the details of the more spatially precise and contextually informative HRSTNet in this section.\n\n## Architecture Overview\n\nThe HRSTNet architecture, exemplified by a four-stage structure, is illustrated in Figure 1.It contains multiple sequentially connected stages with a multi-resolution feature fusion module inserted after each stage, except for the first stage.The nth stage contains n parallel Swin Transformer blocks that produce n parallel semantically richer low-resolution features.The features with the highest resolution are maintained in all the stages.By using a 3D convolutional block (Conv block), the input 3D image is split into small 3D patches, with each represented as a vector in the feature space.The feature vectors are passed from stage to stage, with the outputs of the last stage being aggregated by the last multi-resolution feature fusion block (MRFF).The outputs of the last feature fusion block are concatenated after the low-resolution features have been upsampled.The final segmentation mask is generated by passing the concatenated feature through a residual block, a patch-expanding block, and a Conv block.The patch-merging block and patch-expanding block are used for down-and upsampling the feature maps, respectively.The definition of the patch-merging block is the same as the Swin Transformer [14], while the patch-expanding block is the same as VT-Unet [9].The detailed structures of the Swin Transformer block, the HRSTNet stage, and the MRFF block are introduced in the following subsections.\n\n## Swin Transformer Block\n\nThe Swin Transformer block was introduced in previous studies [14,40], and it is illustrated in Figure 2a.It contains two cascading layers.The first layer calculates the self-attention in a small window (W-MSA) of the input 3D patches, and the second layer calculates the self-attention in the shifted window (SW-MSA) of the outputs of the previous layer.\n\nAssume that the input 3D image is X ∈ R D×H×W×K , where D × H × W is the spatial size and K is the number of channels of the 3D data.The input X is fed into a Conv block with a kernel size P × P × P, stride P, and number of channels C. The Conv block splits X into small patches with a patch size of P × P × P.There are S = D P × H P × W P patches in total.The output of the Conv block can be denoted as Z ∈ R D P × H P × W P ×C .Because each pixel in Z corresponds to a patch-embedding vector, we resize the feature map Z into a 2D matrix Z ∈ R S×C , in which each row represents a patch-embedding vector.For simplicity, we still use Z to represent Z in the following.\n\nAfter patch embedding, the set of patch-embedding vectors is fed into the Swin Transformer block of the first stage (compare with Figure 1).The output of the Swin Transformer block is calculated as follows (compare with Figure 2a):\n\nwhere the definitions of W-MSA, SW-MSA, LN, and MLP are the same as in the Swin Transformer [14].The Swin Transformer blocks of other stages work similarly, except that their input is the output of the former stage.\n\n## HRSTNet Stage\n\nThe HRSTNet contains multiple stages that generate multi-resolution feature maps.Except for the last stage, the n-th stage contains n Swin Transformer blocks and n patchmerging blocks, while the last stage contains n -1 patch-merging blocks.In the n-th stage, the n parallel Swin Transformer blocks process n different resolution feature maps, respectively.Each Swin Transformer block is followed by a patch merge, which is used to downsample the output feature map of the Swin Transformer block.\n\nTaking the third stage (Stage 3, compare with Figure 1) as an example, three feature maps with a resolution of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , and D 16 × H 16 × W 16 are input into this stage.Three Swin Transformer blocks process the input feature maps independently and output feature maps with the same resolution as their input.The outputs of the Swin Transformers are further downsampled by the patch-merging layers separately, resulting in three feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature map with a resolution of D 32 × H 32 × W 32 is directly fed into the fourth stage (Stage 4), while the outputs of other patch-merging layers and the outputs of the Swin Transformer blocks are fed into an MRFF block.\n\n## Multi-Resolution Feature Fusion\n\nThe multi-resolution feature fusion block is used to exchange information from feature maps with different resolutions and produce new feature maps that are spatially more precise and semantically richer.Figure 2b shows the MRFF block following the fourth stage, which aggregates the features of four different resolutions.\n\nThe fourth stage of the HRSTNet contains four Swin Transformer blocks, which generate four feature maps with resolutions of\n\nThe outputs of the MRFF blocks after the second and third stages are derived in a similar manner to that described above.The outputs of the last MRFF block with the resolution lower than D 4 × H 4 × W 4 are upsampled (compare with Figure 1) and concatenated to generate the output segmentation mask.\n\nExcept for using the last MRFF block (shown in Figure 1), we can also use the outputs of the MRFF block after the second or the third stage to generate the segmentation mask.The corresponding architectures are denoted as HRSTNet-2 and HRSTNet-3, respectively.The architecture shown in Figure 1 is denoted as HRSTNet-4.\n\nD 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The feature maps are referred to as f 4 , f 8 , f 16 , and f 32 , respectively.Each of the four feature maps is down-or upsampled to the other three resolutions.Taking f 4 as an example, it sequentially passes through three patch-merging layers to generate three new feature maps with resolutions of D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .The resultant feature maps are denoted as f 4_8 , f 4_16 , and f 4_32 , respectively.The feature maps generated by f 8 , f 16 , and f 32 can be easily inferred and are denoted as { f 8_4 , f 8_16 , f 8_32 }, { f 16_4 , f 16_8 , f 16_32 }, and { f 32_4 , f 32_8 , f 32_16 }, respectively.We then concatenate the feature maps with the same resolution (e.g., [ f 4 , f 8_4 , f 16_4 , f 32_4 ], where the symbol [ ] indicates feature concatenation).The concatenated feature maps are fed into a residual block to produce the output of the MRFF block, resulting in four feature maps with resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 .\n\n## Experiments and Results\n\nIn this section, we evaluate the performance of the HRSTNet on the BraTS 2021 dataset [15][16][17][18][19], the MSD liver dataset [20,21], and the BTCV multi-organ segmentation challenge [22][23][24][25][26][27][28].All the experiments were implemented with Pytorch [41] on two NVIDIA GeForce RTX 3090 graphic cards.We utilized MONAI (https://monai.io/,accessed on 16 April 2022), a healthcare imaging processing framework, for network training and data preprocessing.The 3D Slicer [42,43] software was employed to visualize the experimental results.The code of HRSTNet is publicly available at https://github.com/auroua/HRSTNet.\n\nNote: Spl = spleen, RKid = right kidney, LKid = left kidney, Gall = gallbladder, Eso = esophagus, Liv = liver, Sto = stomach, Aor = aorta, IVC = inferior vena cava, Veins = portal and splenic veins, Pan = pancreas, and AG = left and right adrenal glands.\n\n## Implementation Details\n\nThe CT volumes from the liver dataset were cropped to 96 × 96 × 96.The other training details were the same as those of the BraTS 2021 dataset.Because the splitting method for the liver dataset used in this experiment was the same as the one for VT-UNet, we compared the HRSTNet with the methods listed in the VT-Net, including 3D UNet [11], nnFormer [12], and VT-UNet [9].We obtained their experiment results from [9].\n\nThe BraTS 2021 dataset contains 1251 magnetic resonance imaging (MRI) scans in the shape of 240 × 240 × 155.Following the VT-UNet [9], the 1251 scans were split into groups of 834, 208, and 209 for training, validation, and testing, respectively.The task was to segment three semantically meaningful tumor classes, namely the enhanced tumor (ET), tumor core (TC) region, and whole tumor (WT) region.The MSD liver dataset contains 131 computed tomography (CT) volumes, which were split into groups of 87, 22, and 22 for training, validation, and testing, respectively.The task for the liver dataset was tumor segmentation.The BTCV multi-organ segmentation dataset [22][23][24][25][26][27][28] contains 50 clinical CT volumes, and the task of this dataset was to automatically segment 13 abdominal organs (adrenal, aorta, esophagus, gallbladder, kidney, liver, pancreas, spleen and portal vein, spleen, stomach, and vena cava).The 50 CT volumes were split into 2 parts for training and testing, and the 2 parts contained 30 and 20 CT volumes, respectively.We selected 24 CT volumes from the training dataset to train the segmentation algorithm, and the remaining 6 CT volumes were used to evaluate the performance of the algorithms.\n\nThe depth of the Swin Transformer blocks in all the stages was 2, and the heads of the Swin Transformer blocks for resolutions of D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 were 3, 6, 12, and 24, respectively.The AdamW optimizer was used to optimize the parameters of the HRSTNet, and the initial learning rate was 1 × 10 -4 .The cosine decay learning rate scheduler [44] with a linear warm-up was used to adjust the value of the learning rate, and the warm-up epoch was 50.The sum of the dice loss with the cross-entropy loss was adopted as the loss function.\n\nThe MRI data from BraTS 2021 were cropped to 128 × 128 × 128.Three Transformerbased architectures (UNETR [8], Swin UNETR [10], and VT-UNet-B [9]) and two CNNbased architectures (optimized UNet [34] and extending nnUNet [35]) were compared on this dataset.\n\nThe CT volumes from the BTCV multi-organ segmentation dataset were also cropped to 96 × 96 × 96, and the HRSTNet was compared with UNETR, VT-UNet, and Swin UNETR.We retrained all the models for 1000 epochs on this dataset, and the batch size was set to 1.The learning rate of the HRSTNet trained on the BTCV dataset was set to 1 × 10 -3 .\n\n## Evaluation Metrics\n\nThe Dice similarity coefficient (DCS) and 95% Hausdorff distance (HD95) are used to evaluate the performance of different algorithms on the BraTS 2021 dataset, while the DCS is used to compare algorithms on the MSD liver dataset and BTCV multi-organ segmentation dataset.\n\nThe DCS is a commonly used evaluation metric in medical image segmentation which measures the overlap between the predicted segmentation mask and the ground truth segmentation mask.It can be formulated as follows:\n\nwhere P is the predicted binary segmentation mask, G is the ground truth binary segmentation mask, and the symbol | | is used to sum the nonzero region.HD95 is always utilized to measure the distance between the boundary of the predicted binary segmentation mask and the boundary of the ground truth binary segmentation mask.The Hausdorff distance (HD) can be formulated as follows:\n\nwhere p b is a pixel in the boundary of the predicted segmentation mask and g b is a pixel in the boundary of the ground truth segmentation mask.The HD reflects the distance between the boundaries of the two segmentation masks.To reduce the effect of outlier pixels, the 95th percentile of the Hausdorff distance (HD) is used in medical image segmentation to measure the distance between boundaries, a value known as HD95.\n\nDuring training, the model with the best Dice similarity coefficient (DSC) on the validation dataset was saved for the final evaluation, and model evaluation tricks, such as model ensembles, were not used in this paper.\n\n## Ablation Study of the MRFF Block\n\nBecause the MRFF block utilizes several feature maps of different resolutions to generate the final segmentation mask, experiments were conducted to determine which combination of feature maps resulted in the best HRSTNet performance.We compared the MRFF block when utilizing a single feature map (\n\nD 16 × H 16 × W 16 ), two feature maps ( D 16 × H 16 × W 16 and D 32 × H 32 × W 32 ), three feature maps ( D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and four feature maps ( D 4 × H 4 × W 4 , D 8 × H 8 × W 8 , D 16 × H 16 × W 16 , and D 32 × H 32 × W 32 ), and the experimental results are illustrated in Table 1.The experimental results show that the performance of HRSTNet-4 improved as the MRFF block combined more feature maps.The experimental results show that utilizing more feature maps with different resolutions could provide diverse information and hence enhance the final performance.Because HRSTNet-4 with the MRFF block utilizing four different feature maps achieved the best performance, the experiment conducted in the following subsection uses an MRFF block with four different resolutions.\n\n## Experimental Results on BraTS 2021\n\nThe DCS and HD95 were used to quantitatively evaluate the segmentation results on the BraTS 2021 dataset.We utilized the method (https://github.com/MIC-DKFZ/nnUNet/ blob/5c18fa32f2b31575aae59d889d196e4c4ba8b844/nnunet/dataset_conversion/Task082_ BraTS_2020.py#L330, accessed on 1 July 2022) provided by the nnU-Net [39] to calculate the Hausdorff distance.The FLOPs were calculated by using MMCV [45], and the size of the input tensor was set to (4, 128, 128, 128) when calculating the FLOPs.\n\nWe emphasize that this study aims to provide a new Transformer-based medical image segmentation architecture which is different from existing U-Net-like Transformerbased architectures and to verify the effectiveness of the designed architecture.Extensive ablation studies on different tricks to enhance the performance of the HRSTNet are left for further investigation.\n\nFigure 3 shows the visualization of the segmentation results on BraTS 2021.As shown in the last column of Figure 3, UNETR performed well when segmenting the ET (brown) and ED (yellow), but when segmenting the NCR (green), as shown by the black hole inside the brown area, UNETR failed to segment NCR correctly.From the sagittal view of the Swin-UNETR segmentation results, we can find a large black hole within the brown area, which means that Swin-UNETR failed to successfully segment all the pixels belonging to the NCR.As shown in the axial view of the VT_UNET-B segmentation results, the upper part of the segmented ED (yellow) region was significantly smaller compared with the ground truth.From the axial and sagittal views of the segmentation results of VT_UNET-B, we can also find that the segmentation mask of the NCR failed to include all the parts of ground truth NCR area.In summary, from Figure 3, we can visually find that the segmentation results of HRSTNet-4 were better than those of the other Transformer-based U-Net-like architectures.\n\n## Experimental Results on the MSD Liver Dataset\n\nThe Dice score was used to evaluate the segmentation results on the MSD liver dataset for liver tumor segmentation.Table 3 shows that the HRSTNet architectures (HRSTNet-2, HRSTNet-3, and HRSTNet-4) performed better than other algorithms on tumor segmentation, and HRSTNet-3 surpassed the existing methods by a large margin of +9.54 in tumor Dice score.In the series of HRSTNet architectures, HRSTNet-3 performed better than HRSTNet-2 and HRSTNet-4, and HRSTNet-4 performed better than HRSTNet-2.Compared with BraTS 2021, the MSD liver dataset is relatively small, and we argue that HRSTNet-4 suffered from overfitting, thus resulting in slightly worse performance.The results show that, except for MRI segmentation, the HRSTNet was also excellent in CT volume segmentation.Again, we would like to clarify that no model ensemble was used in the experiments conducted in this section.\n\nBecause the segmentation of liver tumors was much better than in the comparative methods, and the tumors were smaller compared with the organs, this suggests that maintaining a high-resolution feature map helps to improve the performance of smalltarget segmentation.We also conjecture that the continuous exchange of information from feature maps of different resolutions can improve the contextual information of feature maps, which is also critical for enhancing the segmentation performance of small targets.Further studies of the mechanisms of high-resolution feature map maintenance and the continuous exchange of information from feature maps with different resolutions is needed to provide guidelines for the design of a HRNet-like Transformer-based architecture for medical image segmentation.\n\nFor the organ segmentation, HRSTNet-2, HRSTNet-3, and HRSTNet-4 all performed worse than the other compared algorithms.We presume that this was caused by the inconsistent fusing of feature maps with different resolutions, and this issue is left open for further study.The visualization of the segmentation results of HRSTNet-4 and VT-Unet on the MSD liver dataset is shown in Figure 4, which shows that HRSTNet-4 can segment the liver and tumor more accurately.\n\n## Experimental Results on the BTCV Multi-Organ Segmentation Dataset\n\nThe performance of the HRSTNet compared with other Transformer-based architectures on the BTCV multi-organ segmentation validation dataset is shown in Table 4.As with the MSD liver dataset, the Dice score was used to compare the performance of different algorithms.HRSTNet-4 performed better than UNETR and slightly worse than Swin UN-ETR and VT-UNet-B, and the performances of Swin UNETR and VT-UNet-B were nearly identical.Because the architectures' validation performances were compared, and Swin UNETR had the largest quantity of FLOPs, Swin UNETR achieved the best average DICE score.HRSTNet-4 achieved the best performance for stomach and pancreas segmentation, while VT-UNet-B achieved the best performance in gallbladder and liver segmentation.\n\n## Model Efficiency Analysis\n\nThis subsection discusses the efficiency of the HRSTNet in terms of the training convergence rate, training time, and FLOPs.The data used to analyze the above aspects were collected from experiments conducted on the BraTS 2021 dataset.\n\nThe above analysis verifies that the HRSTNet had the same training efficiency as the CNN-based architecture.Since the FLOPs of the HRSTNet were lower than for the CNN-based architecture, the HRSTNet may have a faster inference speed than the CNNbased architecture.\n\n## Optimized UNet (S) Extending nnUNet (S) HRSTNet-4 (S)\n\n412.82 443.85 389.45 S is the abbreviation for seconds.\n\n## Conclusions\n\nIn conclusion, we proposed an HRNet-like architecture, the HRSTNet, for medical image segmentation and validated its superior performance through experiments.We conjecture that maintaining the high-resolution feature map and continuously exchanging information from different feature maps of different resolutions can improve its performance.Maintaining a high-resolution feature map can provide more precise spatial details for generating segmentation masks, while the continuous exchange of information from different feature maps can provide more contextual information.The experimental results for the BraTS 2021 dataset show that the HRSTNet surpassed the existing Transformerbased methods by a margin of +1.8 for the average HD95 score, indicating that HRSTNetgenerated masks were more tightly aligned with the ground truth.The experimental results for the MSD liver dataset illustrate that the HRSTNet achieved far better results than the existing methods for tumor segmentation.The experimental results for the BTCV multi-organ segmentation dataset demonstrate that the HRSTNet achieved a performance comparable to those of existing Transformer-based architectures.\n\nDespite the benefits of the HRSTNet, more experiments are necessary to thoroughly verify its performance.To verify the generality, we will conduct experiments on more diverse datasets.To enhance the performance of the HRSTNet, pretraining strategies, such as self-supervised and masked image modeling, can be utilized to allow the model to learn meaningful knowledge for the downstream tasks.Tricks such as deep supervision loss, focal loss, decoder attention, and the combination of different kinds of attention strategies can be investigated to improve the performance of the HRSTNet further.Because this study has shown that the HRNet-like architecture is applicable to medical image segmentation, and there are many different HRNet-like architectures that can be designed, to effectively design Transformer-based HRNet-like architectures, we can design a search space and utilize the neural architecture search strategies to find the HRNet-like architecture with optimal performance.",
   "quality": {
     "evaluation_type": "integrity",
-    "integrity_score": 0.9283,
-    "status": "healthy_with_warnings",
+    "integrity_score": 0.944,
+    "status": "healthy",
     "scoring": {
       "primary_metrics": {
         "metadata_integrity": 0.15,
@@ -16321,7 +16356,7 @@
       "structure_integrity": 1.0,
       "duplication_integrity": 1.0,
       "reference_integrity": 1.0,
-      "truncation_integrity": 0.8431,
+      "truncation_integrity": 0.9216,
       "numeric_consistency": 0.9944,
       "cross_parser_consistency": 0.7329,
       "contamination_integrity": 1.0,
@@ -16329,9 +16364,9 @@
     },
     "diagnostics": {
       "orphan_paragraph_ratio": 0.0,
-      "reference_integrity": 1.0,
       "abstract_integrity": 0.9627,
-      "coordinate_integrity": 1.0
+      "coordinate_integrity": 1.0,
+      "reference_integrity": 1.0
     },
     "parser_artifact_counts": {
       "figures": 13,
@@ -16348,8 +16383,6 @@
       "formulas": 0
     },
     "ground_truth_available": false,
-    "issues": [
-      "possible_truncation"
-    ]
+    "issues": []
   }
 }

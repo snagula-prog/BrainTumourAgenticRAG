@@ -1,0 +1,1190 @@
+[
+  {
+    "chunk_id": "paper_010_abstract_0000_d9027408",
+    "paper_id": "paper_010",
+    "chunk_type": "abstract",
+    "order_index": 0,
+    "text": "Brain Tumor is a dangerous disease.The chance of the death is more in case of the brain tumor.The method of detection and classification of brain tumor is by human intervention with use of medical resonant brain images.MR Images may contain noise or blur caused by MRI operator performance which can lead to difficult in classification.We can apply effective segmentation techniques to partition the image and apply the classification technique.Support Vector machine is the best classification tool we identified as part of this work.The use Support Vector Machine show great potential in this field.SVM is a binary Classifier based on supervised learning which gives better result than other classifiers.SVM classifies between two classes by constructing hyper plane in high-dimensional feature space which can be used for classification.",
+    "word_count": 126,
+    "metadata": {
+      "section": "Abstract",
+      "title": "Threshold Segmentation and Watershed Segmentation Algorithm for Brain Tumor Detection using Support Vector Machine",
+      "authors": [
+        "Santhosh Kumar H S",
+        "K. Karibasappa"
+      ],
+      "index_terms": [
+        "Segmentation",
+        "MRI Image",
+        "SVM",
+        "Brain Tumor Thresholding algorithm techniques to get use full information or exact tumor size from the MR Images"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_index_terms_0001_83f7ecfc",
+    "paper_id": "paper_010",
+    "chunk_type": "index_terms",
+    "order_index": 1,
+    "text": "[Index Terms] Segmentation, MRI Image, SVM, Brain Tumor Thresholding algorithm techniques to get use full information or exact tumor size from the MR Images",
+    "word_count": 24,
+    "metadata": {
+      "section": "Index Terms",
+      "terms": [
+        "Segmentation",
+        "MRI Image",
+        "SVM",
+        "Brain Tumor Thresholding algorithm techniques to get use full information or exact tumor size from the MR Images"
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0002_6179002d",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 2,
+    "text": "",
+    "word_count": 1,
+    "metadata": {
+      "section": "",
+      "section_path": [
+        ""
+      ],
+      "subsection_id": "paper_010_subsection_6179002dcbdd"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0003_e4050e79",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 3,
+    "text": "Abstract-Brain Tumor is a dangerous disease.The chance of the death is more in case of the brain tumor.The method of detection and classification of brain tumor is by human intervention with use of medical resonant brain images.MR Images may contain noise or blur caused by MRI operator performance which can lead to difficult in classification.We can apply effective segmentation techniques to partition the image and apply the classification technique.Support Vector machine is the best classification tool we identified as part of this work.The use Support Vector Machine show great potential in this field.SVM is a binary Classifier based on supervised learning which gives better result than other classifiers.SVM classifies between two classes by constructing hyper plane in high-dimensional feature space which can be used for classification.",
+    "word_count": 126,
+    "metadata": {
+      "section": "",
+      "section_path": [
+        ""
+      ],
+      "subsection_id": "paper_010_subsection_6179002dcbdd",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0001"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 46.8,
+          "y": 484.47290909090907,
+          "w": 245.87899999999996,
+          "h": 152.56009090909095,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0004_511b20a4",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 4,
+    "text": "I. INTRODUCTION",
+    "word_count": 2,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_010_subsection_511b20a4e6b0"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0005_7551fb97",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 5,
+    "text": "A brain tumor is accumulation of anomalous cells in the brain.This can be classified in to two types of tumors: fatal tumors and benevolent tumors.Fatal tumors can start within the brain and those Fatal Tumor scatter from one part of the brain to other parts of the brain known as second level of tumors.The brain tumors may yield indications that may be different depending on the different parts of the brain.These indications may include continuous pain in head, convulsion, and issue with eyesight, Vomit, and changes in the cerebral.The continuous pain in head worst in the beginning of the day and went away.They are associated problems like very difficult in afoot, talking, losing the balance etc. Brain tumor Surgery can be done to remove the tumor parts.Sometime surgery in the brain requires the removal of the part of skull.Before we go for the removal of the tumor parts from the brain, we need to identify the tumor size, location and clear picture of the tumor.Once we get a scanned Brian tumor image, need to apply the preprocessing step to remove the unwanted portion from the image and to increase the image quality.The main objective of the segmentation is to decompose the image into number of parts based on the similar features or characteristics for the further analysis and identify the size and shape of the tumor.As part of this research work, we are mainly concentrating Threshold and Watershed segmentation to achieve desired results.After extracting the features from segmented parts of the brain image and later submitted to support vector machine classifier to determine the tumor.In this work, we propose an",
+    "word_count": 270,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_010_subsection_511b20a4e6b0",
+      "pages": [
+        1
+      ],
+      "paragraph_ids": [
+        "para_0002"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 46.8,
+          "y": 119.66672000000005,
+          "w": 246.16204,
+          "h": 303.58556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.78,
+          "y": 696.66928,
+          "w": 46.91999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 113.42,
+          "y": 488.67927999999995,
+          "w": 113.75999999999998,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 328.25672,
+          "w": 158.036,
+          "h": 8.575560000000053,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0006_68a3ecd6",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 6,
+    "text": "Published on April 27, 2020.Santhosh Kumar H. S. is with the NTT DATA Canada, Halifax, NS, Canada.(e-mail: santhosh043 gmail.com)Dr. K. Karibasappa is with the Dayananda Sagar Academy of Technology and Management, Bangalore, India.(e-mail: karibasappably@gmail.com) effective classification classifier to recognize normal and abnormal of the tumor.SVM will give the finer results when compared to the other classifiers.II.RELATED WORK Ramteke, and KhachaneMonali [1] describes an automatic medical image classification technique.KNN classifier is used to divide the medical image into normal and abnormal image.KNN is the simple and reliable method which is cost effective.\nThakare and Chilke [2] explained about the segmentation mechanism.The Watershed and thresholding algorithm are mainly used for the brain tumor segmentation.Image segmentation is mainly divide image in to number of parts.Basically we can concentrate on watershed and Thresholding algorithm techniques to get use full information or exact tumor size from the MR Images Gaikwad and Rokade [3] described about the MRI brain Image dataset.MRI image given as input and features are extracted from that image based on Rough Set Theory.The selected features are given to the Feed Forward Neural Network classifier as input.This Feed Forward Neural Network classifier is used to perform differentiates between abnormal and normal as well as to classify that the type of abnormality is malignant or benign.",
+    "word_count": 212,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_010_subsection_511b20a4e6b0",
+      "pages": [
+        1,
+        2
+      ],
+      "paragraph_ids": [
+        "para_0003",
+        "para_0004"
+      ],
+      "coordinates": [
+        {
+          "page": 1,
+          "x": 57.024,
+          "y": 96.95328000000006,
+          "w": 94.40599999999998,
+          "h": 6.922439999999938,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0007_de9337c4",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 7,
+    "text": "Ghotekar, and Mahajan [4] described about the Brain Tumor detection and Support Vector Machine (SVM) classification.Support vector machine is the linear learning algorithm.It is a supervised algorithm.The Process of classification forward through training and testing.SVM classifier will classify the Tumor is a normal or abnormal.ShwetaJain [5] explains the type of tumor using Artificial Neural Network (ANN) in MRI images of patients.The taking of essential features from the detected tumor achieved with help of Gray Level Co-occurrence Matrix.An artificial neural network (ANN), commonly known as neural network, is a computing Systems that deals with structure of neural networks.A neural network is an interconnection group of neurons.Back Propagation learning algorithm is a supervised learning algorithm.This learning algorithm is applied to multilayer feed-forward networks contains the processing elements with continuous differentiable activation functions.",
+    "word_count": 130,
+    "metadata": {
+      "section": "I. INTRODUCTION",
+      "section_path": [
+        "I. INTRODUCTION"
+      ],
+      "subsection_id": "paper_010_subsection_511b20a4e6b0",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0005"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0008_954ff306",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 8,
+    "text": "D. Feature Extraction",
+    "word_count": 3,
+    "metadata": {
+      "section": "D. Feature Extraction",
+      "section_path": [
+        "D. Feature Extraction"
+      ],
+      "subsection_id": "paper_010_subsection_954ff306e9e8"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0009_2f847419",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 9,
+    "text": "MRI Image Preprocessing Threshold Frequency Segmentation and Watershed Segmentation Feature Extraction Support Vector Machine Classifier Display Output ∑ P ab 1 + (a -b) 2 n-1 a,b=0",
+    "word_count": 27,
+    "metadata": {
+      "section": "D. Feature Extraction",
+      "section_path": [
+        "D. Feature Extraction"
+      ],
+      "subsection_id": "paper_010_subsection_954ff306e9e8",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0006"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.78,
+          "y": 696.66928,
+          "w": 46.91999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 86.904,
+          "y": 629.22928,
+          "w": 165.89736000000022,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 139.58,
+          "y": 554.4392799999999,
+          "w": 61.319999999999965,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 113.42,
+          "y": 488.67927999999995,
+          "w": 113.75999999999998,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 144.74,
+          "y": 432.99928,
+          "w": 51.119999999999976,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 328.25672,
+          "w": 158.036,
+          "h": 8.575560000000053,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0010_2bccf17d",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 10,
+    "text": "A. MRI Image",
+    "word_count": 3,
+    "metadata": {
+      "section": "A. MRI Image",
+      "section_path": [
+        "A. MRI Image"
+      ],
+      "subsection_id": "paper_010_subsection_2bccf17d9967"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0011_b62dfb09",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 11,
+    "text": "Fig. 1.Proposed Model The proposed model having the following modules: A. MRI Image B. Preprocessing of the Image C. Threshold and watershed segmentation for image D. Feature Extraction from the image E. Support Vector Machine classifier\nThe MRI image sample will collect from the various brain hospitals like Jayadeva Hospital, Narayan cancer hospitals.These images will be verified by the efficient and expert doctors.We can use approximately 100 images for the testing work.",
+    "word_count": 72,
+    "metadata": {
+      "section": "A. MRI Image",
+      "section_path": [
+        "A. MRI Image"
+      ],
+      "subsection_id": "paper_010_subsection_2bccf17d9967",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0007",
+        "para_0008"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.78,
+          "y": 696.66928,
+          "w": 46.91999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 139.58,
+          "y": 554.4392799999999,
+          "w": 61.319999999999965,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 113.42,
+          "y": 488.67927999999995,
+          "w": 113.75999999999998,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 57.024,
+          "y": 388.61672000000004,
+          "w": 209.63600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 364.49672000000004,
+          "w": 132.116,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 352.37672000000003,
+          "w": 217.93600000000004,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 340.37672000000003,
+          "w": 158.156,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 328.25672,
+          "w": 158.036,
+          "h": 8.575560000000053,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 54.024,
+          "y": 310.1343054545455,
+          "w": 63.56599999999999,
+          "h": 8.58793454545446,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 54.024,
+          "y": 229.22430545454552,
+          "w": 128.636,
+          "h": 8.58793454545446,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 312.07,
+          "y": 255.53430545454546,
+          "w": 95.75999999999999,
+          "h": 8.587934545454573,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 54.024,
+          "y": 620.1443054545455,
+          "w": 116.636,
+          "h": 8.587934545454573,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 46.8,
+          "y": 247.37671999999998,
+          "w": 245.9274000000001,
+          "h": 56.93556000000001,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0012_a37a47d9",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 12,
+    "text": "B. Preprocessing of the Image",
+    "word_count": 5,
+    "metadata": {
+      "section": "B. Preprocessing of the Image",
+      "section_path": [
+        "B. Preprocessing of the Image"
+      ],
+      "subsection_id": "paper_010_subsection_a37a47d9ab5e"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0013_e72f5928",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 13,
+    "text": "Kumar H S is currently working as Assistant Project Manager at NTT DATA Canada, Halifax, Nova Scotia, Canada.More than 10 years of experience in software development and area of research interest is image processing, Big data and Sensor networks.Pursuing PhD from Visvesvaraya Technological University, Belgaum.Studied M.Tech from Dr.Ambedkar Institute of Technology, Bangalore.Studied Bachelor of Engineering from vijayanagar engineering college, Bellary.Dr K Karibasappa is currently working as Professor at Dayananda Sagar Academy of Technology and Management, Bangalore.Experienced Principal with a demonstrated history of working in the higher education industry.Skilled in Research, Management, C, Teaching, and Team Management.Strong education professional with a Doctor of Philosophy (Ph.D.) focused in Machine Learning and Perception Using Cognitive Methods from Sambalpur, University, University of Engineering, Burla, Orissa, India.\nPreprocessing describes the removing the noise or unwanted portion from the image.Even though need of applying contrast enhancement technique to increases the image quality.Image preprocessing will enhance the image quality and we need to identify the suitable algorithm to apply for the preprocessing technique.MRI images can be enhanced by using combined techniques of contrast mechanism [4], median filter mechanism and Stationary wavelet mechanism.",
+    "word_count": 185,
+    "metadata": {
+      "section": "B. Preprocessing of the Image",
+      "section_path": [
+        "B. Preprocessing of the Image"
+      ],
+      "subsection_id": "paper_010_subsection_a37a47d9ab5e",
+      "pages": [
+        2,
+        4
+      ],
+      "paragraph_ids": [
+        "para_0009",
+        "para_0010"
+      ],
+      "coordinates": [
+        {
+          "page": 4,
+          "x": 117.74,
+          "y": 659.7092799999999,
+          "w": 174.59520000000003,
+          "h": 25.282440000000065,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 117.74,
+          "y": 641.34928,
+          "w": 174.56447999999978,
+          "h": 16.042440000000056,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 117.74,
+          "y": 622.86928,
+          "w": 174.51624000000015,
+          "h": 16.16244000000006,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 304.87,
+          "y": 773.72928,
+          "w": 245.65616,
+          "h": 16.16244000000006,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 381.07,
+          "y": 672.54928,
+          "w": 164.18,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 4,
+          "x": 310.27,
+          "y": 663.30928,
+          "w": 192.01999999999998,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 46.8,
+          "y": 118.22672,
+          "w": 245.89752,
+          "h": 105.17556000000002,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.78,
+          "y": 696.66928,
+          "w": 46.91999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0014_7818151e",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 14,
+    "text": "C. Threshold Segmentation and Watershed Segmentation",
+    "word_count": 6,
+    "metadata": {
+      "section": "C. Threshold Segmentation and Watershed Segmentation",
+      "section_path": [
+        "C. Threshold Segmentation and Watershed Segmentation"
+      ],
+      "subsection_id": "paper_010_subsection_7818151e531e"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0015_3d9517dd",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 15,
+    "text": "Threshold Segmentation is an effective segmentation method, where we can select a suitable threshold value T, where gray scale image is converted in to a binary image.\nThresholding can be a Global thresholding, variable thresholding and multiple thresholding.Always input to the thresholding is a grayscale image or color image.Once we implement this, the output will be binary image formats which will represent the segmentation.Black pixels represent background and white pixels represents foreground.The segmentation is decided with single threshold value known as intensity threshold value or just a threshold value, where each pixel from the image should be compared with this threshold value, if the pixel intensity is larger than the threshold, then the pixel said to be a white in the output.If the pixel intensity is less than threshold, then it said to be a black.",
+    "word_count": 136,
+    "metadata": {
+      "section": "C. Threshold Segmentation and Watershed Segmentation",
+      "section_path": [
+        "C. Threshold Segmentation and Watershed Segmentation"
+      ],
+      "subsection_id": "paper_010_subsection_7818151e531e",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0011",
+        "para_0012"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 46.8,
+          "y": 61.47072000000003,
+          "w": 245.91744,
+          "h": 32.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 304.87,
+          "y": 623.86672,
+          "w": 246.09728000000007,
+          "h": 165.55556,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0016_9f8a4406",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 16,
+    "text": "For this work, we can propose below Thresholding Algorithm.Step 1: Find the Threshold value of the Image T. Step 2: Perform the Image Segmentation by applying the Threshold Value T.This will produce a group of pixels Group G1 contains all the pixels with gray level values > T and Group G2 contains the pixels values <T.Step 3: Calculate the Average gray level values mean M1 and mean M2 for the Pixels from Group G1 and Group G2.Step 4: Calculate the new intensity threshold value by using as below: Tnew= (1/2) (M1+M2) Step 5: Repeat the steps from step 2 to Step4 until get the difference in Tnew in iterations is smaller value when compared to the predefined intensity Threshold Value T. Watershed Segmentation: This is one of the best methods to arrange or grouping the pixels based on their intensities.Pixels which will falling under the same group, need to group together.Algorithm Steps as given below.Step 1: Reading the color image and convert this in to Grayscale image.Step 2: Compute the segmentation Function using the Gradient Magnitude.Step 3: Specify the foreground objects clearly.Step 4: Calculate the Background Objects.Step 5: Repeat the step 2 to Step 4. Step 6: Display the results.",
+    "word_count": 200,
+    "metadata": {
+      "section": "C. Threshold Segmentation and Watershed Segmentation",
+      "section_path": [
+        "C. Threshold Segmentation and Watershed Segmentation"
+      ],
+      "subsection_id": "paper_010_subsection_7818151e531e",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0013"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 611.74672,
+          "w": 199.94,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 551.35672,
+          "w": 235.74504000000064,
+          "h": 56.84555999999998,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 515.11672,
+          "w": 235.88148000000018,
+          "h": 32.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 490.99672000000004,
+          "w": 235.7034000000006,
+          "h": 20.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 304.87,
+          "y": 418.51672,
+          "w": 245.98536000000047,
+          "h": 32.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 346.01672,
+          "w": 235.67352000000056,
+          "h": 20.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 321.8967200000001,
+          "w": 240.68340000000063,
+          "h": 20.695559999999944,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 309.8967200000001,
+          "w": 188.3,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 297.77671999999995,
+          "w": 172.44,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 285.65672000000006,
+          "w": 142.2,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 315.07,
+          "y": 273.65672000000006,
+          "w": 110.04000000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0017_060da728",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 17,
+    "text": "It is the process in which collecting the only important information of an image like shape, color and size.This will also help to finding brain tumor location exactly and it will help to forecast next stage.The process of converting the input data in to some set of features.We can extract some features by using the below:\nContrast is defined as the partition between dark and bright area and given by ∑ p a,b n-1 a,b=0 (a -b) 2 Homogeneity is the quality of being same or all is of the same kind and given by\nEnergy provides the sum of the square of the elements in an image and is as below Shape is used to refer the measurable properties of the any object.Intensity is a power of color.E. Support Vector Machine Support Vector Machine is a supervised machine learning algorithm which is used to classification.This algorithm each date element treated as a point in an N-dimensional space with value of each feature should be the value of the particular coordinate.We can perform a classification based on the hyperplane that will differentiate the two classes very well.In this work, SVM will classify the normal and abnormal tumor.Support Vector machine can be used a classification tool to classify the normal and abnormal tumor.One we get the Normal and Abnormal size; we can show them via plotting the graph.The liner function of the SVM is given by G(x) = w t x + a Where 'w' is an m-dimensional vector and 'a' is a scalar.The hyper plane satisfies the y i (w t x i + a) ≥ 1 For i=1... M IV.",
+    "word_count": 271,
+    "metadata": {
+      "section": "D. Feature Extraction",
+      "section_path": [
+        "D. Feature Extraction"
+      ],
+      "subsection_id": "paper_010_subsection_954ff306e9e8",
+      "pages": [
+        2,
+        3
+      ],
+      "paragraph_ids": [
+        "para_0014",
+        "para_0015",
+        "para_0016"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 304.87,
+          "y": 180.62671999999998,
+          "w": 245.85264000000052,
+          "h": 68.96555999999998,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 304.87,
+          "y": 156.50671999999997,
+          "w": 245.85360000000082,
+          "h": 20.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 304.87,
+          "y": 85.23072000000002,
+          "w": 246.02519999999993,
+          "h": 20.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 46.8,
+          "y": 721.54672,
+          "w": 245.82780000000008,
+          "h": 20.69556,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0018_4c99d079",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 18,
+    "text": "IMPLEMENTATION",
+    "word_count": 1,
+    "metadata": {
+      "section": "IMPLEMENTATION",
+      "section_path": [
+        "IMPLEMENTATION"
+      ],
+      "subsection_id": "paper_010_subsection_4c99d079eb9b"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0019_db9e1ef8",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 19,
+    "text": "The mainly input image is always a brain MRI image obtained from hospitals.The above explained Threshold, watershed algorithms and Support vector machine implemented by using the MATLAB.",
+    "word_count": 27,
+    "metadata": {
+      "section": "IMPLEMENTATION",
+      "section_path": [
+        "IMPLEMENTATION"
+      ],
+      "subsection_id": "paper_010_subsection_4c99d079eb9b",
+      "pages": [
+        3
+      ],
+      "paragraph_ids": [
+        "para_0018"
+      ],
+      "coordinates": [
+        {
+          "page": 3,
+          "x": 46.8,
+          "y": 299.93672000000004,
+          "w": 246.10184000000004,
+          "h": 44.815560000000005,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_heading_0020_55e096e7",
+    "paper_id": "paper_010",
+    "chunk_type": "heading",
+    "order_index": 20,
+    "text": "V. RESULTS AND DISCUSSIONS",
+    "word_count": 4,
+    "metadata": {
+      "section": "V. RESULTS AND DISCUSSIONS",
+      "section_path": [
+        "V. RESULTS AND DISCUSSIONS"
+      ],
+      "subsection_id": "paper_010_subsection_55e096e79772"
+    }
+  },
+  {
+    "chunk_id": "paper_010_body_0021_6af2008c",
+    "paper_id": "paper_010",
+    "chunk_type": "body",
+    "order_index": 21,
+    "text": "The input image is shown in Fig 2 is MRI image which is having the Brian tumor.Once we apply the Threshold segmentation and the result which is shown in Fig 3 below.The Fig3 shows the intensity values higher the threshold frequency value.This shows the tumor location.Once we get the threshold segmented image, we need to apply the watershed segmentation.The result of this will be always a small size of the tumor when we compare to the MRI input image and threshold segmentation.The result image as below in Fig 4. The Support Vector Machine shows the better performances in the case of the Sensitivity, Specificity and Accuracy.\nSensitivity is 93.55 Specificity is 69.79 Accuracy is 85.32 VI.CONCLUSION They are several image segmentation methods exists.Among those, we implemented above algorithms.The Threshold and watershed segmentation is one of the effective techniques, where we can get the proper tumor size and shape after segmentation.After obtaining segmented images by using above algorithms, we applied the Support Vector machine and get the accurate results of the normal and abnormal size of the image.Support vector machine is better than the other classifier.",
+    "word_count": 185,
+    "metadata": {
+      "section": "V. RESULTS AND DISCUSSIONS",
+      "section_path": [
+        "V. RESULTS AND DISCUSSIONS"
+      ],
+      "subsection_id": "paper_010_subsection_55e096e79772",
+      "pages": [
+        2
+      ],
+      "paragraph_ids": [
+        "para_0019",
+        "para_0020"
+      ],
+      "coordinates": [
+        {
+          "page": 2,
+          "x": 148.7,
+          "y": 768.92928,
+          "w": 43.19999999999999,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 146.9,
+          "y": 619.74928,
+          "w": 46.079999999999984,
+          "h": 6.922440000000051,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 2,
+          "x": 75.024,
+          "y": 376.49672000000004,
+          "w": 69.32600000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 304.87,
+          "y": 384.41672,
+          "w": 245.88348000000042,
+          "h": 32.69556,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 315.07,
+          "y": 372.29672000000005,
+          "w": 79.44,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 315.07,
+          "y": 360.29672000000005,
+          "w": 80.04000000000002,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 315.07,
+          "y": 348.17672000000005,
+          "w": 75.0,
+          "h": 8.575559999999996,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_010_figure_caption_0022_5713c406",
+    "paper_id": "paper_010",
+    "chunk_type": "figure_caption",
+    "order_index": 22,
+    "text": "Fig. 2.MRI input Image",
+    "word_count": 4,
+    "metadata": {
+      "figure_id": "figure_001",
+      "label": "Figure 2",
+      "pages": [
+        3
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 1
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_010_figure_caption_0023_b5ee4143",
+    "paper_id": "paper_010",
+    "chunk_type": "figure_caption",
+    "order_index": 23,
+    "text": "Fig. 3. Threshold Segmentation",
+    "word_count": 4,
+    "metadata": {
+      "figure_id": "figure_002",
+      "label": "Figure 3",
+      "pages": [
+        3
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 1
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_010_figure_caption_0024_fae7a64b",
+    "paper_id": "paper_010",
+    "chunk_type": "figure_caption",
+    "order_index": 24,
+    "text": "Fig. 4. Watershed Segmentation",
+    "word_count": 4,
+    "metadata": {
+      "figure_id": "figure_003",
+      "label": "Figure 4",
+      "pages": [
+        3
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 3
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_010_figure_caption_0025_49f9e97e",
+    "paper_id": "paper_010",
+    "chunk_type": "figure_caption",
+    "order_index": 25,
+    "text": "Fig. 1. Proposed Model",
+    "word_count": 4,
+    "metadata": {
+      "figure_id": "figure_004",
+      "label": "Figure 1",
+      "pages": [
+        2
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 0
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_010_reference_0026_ac417f6d",
+    "paper_id": "paper_010",
+    "chunk_type": "reference",
+    "order_index": 26,
+    "text": "[References [1]-[5]]\n[1] Dr. R. J. Ramteke, KhachaneMonali Y, \"Automatic Medical Image Classification and Abnormality Detection Using KNearest Neighbour\", International Journal of Advanced Computer Research (ISSN (print): 2249-7277 ISSN (online): 2277-7970), Volume-2 Number-4 Issue-6 December-2012.\n[2] Roshan G. Selkar, Prof. M. N. Thakare, Prof. B. J. Chilke, \"Segmentation and Detection of Brain Tumor using watershed and thresholding Algorithm\" IJRAE in April 2014.\n[3] Vijay S.Gaikwad1, Prof.S.M.Rokade,\"Survey on Brain Tumor Detection Techniques Using Magnetic Resonance Images, Volume3 Issue10, Oct2014 in IJSR.\n[4] D. Anithadevi, K. Perumal, (2014) \"Brain tumor extraction based on segmentation\", International journal on Recent and Innovation Trends in Computing and Communications, Vol.2, No. 9, pp: 2682-2689.\n[5] Shweta Jain, \"Brain Cancer Classification Using GLCM Based Feature Extraction in Artificial Neural Network\", International Journal of Computer Science & Engineering Technology (IJCSET), ISSN: 2229-3345, Vol. 4 No. 07 Jul 2013",
+    "word_count": 140,
+    "metadata": {
+      "section": "References",
+      "start_ref": 1,
+      "end_ref": 5,
+      "reference_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  }
+]

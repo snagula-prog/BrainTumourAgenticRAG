@@ -1,0 +1,55 @@
+{
+  "evaluation_type": "integrity",
+  "integrity_score": 0.9015,
+  "status": "healthy",
+  "scoring": {
+    "primary_metrics": {
+      "metadata_integrity": 0.15,
+      "structure_integrity": 0.2,
+      "truncation_integrity": 0.2,
+      "cross_parser_consistency": 0.15,
+      "contamination_integrity": 0.15,
+      "duplication_integrity": 0.1,
+      "numeric_consistency": 0.05
+    },
+    "diagnostic_metrics": [
+      "abstract_integrity",
+      "coordinate_integrity",
+      "reference_integrity"
+    ]
+  },
+  "metrics": {
+    "metadata_integrity": 0.75,
+    "abstract_integrity": 0.9422,
+    "structure_integrity": 1.0,
+    "duplication_integrity": 1.0,
+    "reference_integrity": 1.0,
+    "truncation_integrity": 0.9464,
+    "numeric_consistency": 0.9617,
+    "cross_parser_consistency": 0.7289,
+    "contamination_integrity": 0.9483,
+    "coordinate_integrity": 1.0
+  },
+  "diagnostics": {
+    "orphan_paragraph_ratio": 0.0,
+    "reference_integrity": 1.0,
+    "coordinate_integrity": 1.0,
+    "abstract_integrity": 0.9422
+  },
+  "parser_artifact_counts": {
+    "figures": 8,
+    "tables": 6,
+    "formulas": 0,
+    "text_blocks": 598
+  },
+  "raw_extraction_counts": {
+    "sections": 14,
+    "paragraphs": 58,
+    "references": 51,
+    "figures": 6,
+    "tables": 6,
+    "formulas": 0
+  },
+  "ground_truth_available": false,
+  "issues": []
+}

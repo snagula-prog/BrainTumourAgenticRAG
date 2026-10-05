@@ -296,7 +296,7 @@
         3
       ],
       "paragraph_ids": [
-        "para_0006"
+        "para_0005"
       ],
       "coordinates": [
         {
@@ -350,7 +350,7 @@
         3
       ],
       "paragraph_ids": [
-        "para_0007"
+        "para_0006"
       ],
       "coordinates": [
         {
@@ -389,7 +389,7 @@
         3
       ],
       "paragraph_ids": [
-        "para_0008"
+        "para_0007"
       ],
       "coordinates": [
         {
@@ -1152,137 +1152,10 @@
     }
   },
   {
-    "chunk_id": "paper_006_body_0034_b558d0f9",
+    "chunk_id": "paper_006_body_0034_1df745cf",
     "paper_id": "paper_006",
     "chunk_type": "body",
     "order_index": 34,
-    "text": "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.\nBased on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.",
-    "word_count": 209,
-    "metadata": {
-      "section": "Results and discussion",
-      "section_path": [
-        "Results and discussion"
-      ],
-      "subsection_id": "paper_006_subsection_34d6de4d0f92",
-      "pages": [
-        6,
-        7
-      ],
-      "paragraph_ids": [
-        "para_0031",
-        "para_0032"
-      ],
-      "coordinates": [
-        {
-          "page": 6,
-          "x": 155.905489692,
-          "y": 68.58140030333675,
-          "w": 400.41090002059315,
-          "h": 57.98669969666321,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 175.78140149933677,
-          "w": 400.2984000206285,
-          "h": 17.990699696663228,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 5,
-          "x": 155.905502319,
-          "y": 591.6807701503025,
-          "w": 123.05000000000007,
-          "h": 8.1693592436975,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 125.78640149933676,
-          "w": 400.34070002406634,
-          "h": 47.9876996966633,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
-    "chunk_id": "paper_006_heading_0035_9c8e8a7d",
-    "paper_id": "paper_006",
-    "chunk_type": "heading",
-    "order_index": 35,
-    "text": "Limitation",
-    "word_count": 1,
-    "metadata": {
-      "section": "Limitation",
-      "section_path": [
-        "Limitation"
-      ],
-      "subsection_id": "paper_006_subsection_9c8e8a7df0ee"
-    }
-  },
-  {
-    "chunk_id": "paper_006_body_0036_81bed54b",
-    "paper_id": "paper_006",
-    "chunk_type": "body",
-    "order_index": 36,
-    "text": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
-    "word_count": 42,
-    "metadata": {
-      "section": "Limitation",
-      "section_path": [
-        "Limitation"
-      ],
-      "subsection_id": "paper_006_subsection_9c8e8a7df0ee",
-      "pages": [
-        7
-      ],
-      "paragraph_ids": [
-        "para_0033"
-      ],
-      "coordinates": [
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 73.78240149933674,
-          "w": 400.32090001889105,
-          "h": 27.98969969666325,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 3,
-          "x": 155.905502319,
-          "y": 388.4666283043025,
-          "w": 72.86800000000005,
-          "h": 8.169359243697443,
-          "coord_origin": "BOTTOMLEFT"
-        },
-        {
-          "page": 7,
-          "x": 155.905502319,
-          "y": 104.10980602793279,
-          "w": 49.709,
-          "h": 8.986295168067159,
-          "coord_origin": "BOTTOMLEFT"
-        }
-      ]
-    }
-  },
-  {
-    "chunk_id": "paper_006_body_0037_1df745cf",
-    "paper_id": "paper_006",
-    "chunk_type": "body",
-    "order_index": 37,
     "text": "As part of the study, CNN and CNN-based transfer learning models such as InceptionV3, EfficientNetB4, VGG19 were trained on open-source shared brain tumor patients.The best accuracy result was obtained with EfficientNetB4 with 95%.The comparison of the brain tumor studies with the literature is shown in Table 4.",
     "word_count": 47,
     "metadata": {
@@ -1295,7 +1168,7 @@
         6
       ],
       "paragraph_ids": [
-        "para_0034"
+        "para_0031"
       ],
       "coordinates": [
         {
@@ -1358,10 +1231,10 @@
     }
   },
   {
-    "chunk_id": "paper_006_body_0038_748c4ef6",
+    "chunk_id": "paper_006_body_0035_748c4ef6",
     "paper_id": "paper_006",
     "chunk_type": "body",
-    "order_index": 38,
+    "order_index": 35,
     "text": "As shown in the confusion matrix in Fig. 5, the classification performance is high for all four models (VGG16 and VGG19 models, CNN model, EfficientNetB4 model, InceptionV3 model).",
     "word_count": 28,
     "metadata": {
@@ -1374,7 +1247,7 @@
         6
       ],
       "paragraph_ids": [
-        "para_0035"
+        "para_0032"
       ],
       "coordinates": [
         {
@@ -1407,6 +1280,133 @@
           "y": 112.00497286688028,
           "w": 32.62500000000006,
           "h": 7.964029940119758,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_006_body_0036_b558d0f9",
+    "paper_id": "paper_006",
+    "chunk_type": "body",
+    "order_index": 36,
+    "text": "As shown in Table 4, the CNN-based transfer learning models used in the study performed better.AI in healthcare plays an important role in the management of complex diseases such as brain tumors.AI enables faster, more accurate, and more effective diagnosis and treatment processes.However, AI technology is not intended to completely replace doctors, but to support and enhance their work.To realize the full potential of AI, it is important to consider issues such as ethics, security and privacy.In the future, AI-based solutions will continue to contribute to better management of brain tumors and other health problems, and improve the quality of life for patients.As seen in this study, AI-based studies will increase their importance to human health, from early diagnosis to positive progress in the treatment process.\nBased on the results of this study, transfer learning methods should be preferred especially in image processing-based applications to support health decision makers.The data obtained from MRI or CT can be used as an early warning system to help health decision makers make quick and accurate decisions.Therefore, in addition to empirical analysis, AI-based applications should take a more active role as soon as possible.To this end, the diagnosis of diseases from instant CT or MR images will be investigated in the coming years.",
+    "word_count": 209,
+    "metadata": {
+      "section": "Results and discussion",
+      "section_path": [
+        "Results and discussion"
+      ],
+      "subsection_id": "paper_006_subsection_34d6de4d0f92",
+      "pages": [
+        6,
+        7
+      ],
+      "paragraph_ids": [
+        "para_0033",
+        "para_0034"
+      ],
+      "coordinates": [
+        {
+          "page": 6,
+          "x": 155.905489692,
+          "y": 68.58140030333675,
+          "w": 400.41090002059315,
+          "h": 57.98669969666321,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 175.78140149933677,
+          "w": 400.2984000206285,
+          "h": 17.990699696663228,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 5,
+          "x": 155.905502319,
+          "y": 591.6807701503025,
+          "w": 123.05000000000007,
+          "h": 8.1693592436975,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 125.78640149933676,
+          "w": 400.34070002406634,
+          "h": 47.9876996966633,
+          "coord_origin": "BOTTOMLEFT"
+        }
+      ]
+    }
+  },
+  {
+    "chunk_id": "paper_006_heading_0037_9c8e8a7d",
+    "paper_id": "paper_006",
+    "chunk_type": "heading",
+    "order_index": 37,
+    "text": "Limitation",
+    "word_count": 1,
+    "metadata": {
+      "section": "Limitation",
+      "section_path": [
+        "Limitation"
+      ],
+      "subsection_id": "paper_006_subsection_9c8e8a7df0ee"
+    }
+  },
+  {
+    "chunk_id": "paper_006_body_0038_81bed54b",
+    "paper_id": "paper_006",
+    "chunk_type": "body",
+    "order_index": 38,
+    "text": "With our motivation to investigate how it will work in single CNN and multilayer CNN based transfer learning models, we subjected the dataset to classification as it is without rotation and cropping operations, which is the most important limitation of our study.",
+    "word_count": 42,
+    "metadata": {
+      "section": "Limitation",
+      "section_path": [
+        "Limitation"
+      ],
+      "subsection_id": "paper_006_subsection_9c8e8a7df0ee",
+      "pages": [
+        7
+      ],
+      "paragraph_ids": [
+        "para_0035"
+      ],
+      "coordinates": [
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 73.78240149933674,
+          "w": 400.32090001889105,
+          "h": 27.98969969666325,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 3,
+          "x": 155.905502319,
+          "y": 388.4666283043025,
+          "w": 72.86800000000005,
+          "h": 8.169359243697443,
+          "coord_origin": "BOTTOMLEFT"
+        },
+        {
+          "page": 7,
+          "x": 155.905502319,
+          "y": 104.10980602793279,
+          "w": 49.709,
+          "h": 8.986295168067159,
           "coord_origin": "BOTTOMLEFT"
         }
       ]

@@ -1312,7 +1312,7 @@
       "subsection_id": "paper_004_subsection_6f31e720e977",
       "pages": [],
       "paragraph_ids": [
-        "para_0057"
+        "para_0058"
       ],
       "coordinates": []
     }
@@ -1382,31 +1382,122 @@
     }
   },
   {
-    "chunk_id": "paper_004_figure_caption_0043_288a8b2a",
+    "chunk_id": "paper_004_figure_caption_0043_487447d4",
     "paper_id": "paper_004",
     "chunk_type": "figure_caption",
     "order_index": 43,
-    "text": "Fig.1illustrates in the first row the Gabor filter for a single frequency across the first 5 (out of 8) orientations and in the 2 nd row the rotation-invariant filters after Fast Fourier Transform (FFT) for the same frequency.Fig.2illustrates examples of brain tumor types and the corresponding texture images.The first row shows one axial slice of the T1ce image with the tumoral region of interest (ROI1 ROI2 ROI3) indicated by a red line.The 2 nd row shows the same slice in FLAIR image zoomed around the tumor region.As an example of texture, one pattern extracted from FLAIR is shown over the edematous area (ROI4).The illustration shows the voxel-wise texture without averaging over the area of interest.",
-    "word_count": 115,
+    "text": "Fig. 1. Examples of filters used to extract texture features. The 1 st row shows Gabor filters for same frequency and different orientations and the 2 nd row the rotation-invariant filters.",
+    "word_count": 31,
     "metadata": {
       "figure_id": "figure_001",
-      "label": "Figure 1illustrates",
-      "pages": [],
+      "label": "Figure 1",
+      "pages": [
+        15
+      ],
       "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 1
+        },
         {
           "parser": "grobid",
           "kind": "figure",
-          "index": 0
+          "index": 1
         }
       ],
       "subsection_id": null
     }
   },
   {
-    "chunk_id": "paper_004_reference_0044_ae683e82",
+    "chunk_id": "paper_004_figure_caption_0044_bc76a757",
+    "paper_id": "paper_004",
+    "chunk_type": "figure_caption",
+    "order_index": 44,
+    "text": "Fig. 2. MR images of different of brain tumor types and an example of texture images extracted from the edematous area. From left to right: meningioma, glioma grade II, grade III, grade IV and metastasis. 1 st row: T1ce image with the tumoral region of interest. 2 nd row: FLAIR image (zoomed in the tumor region) overlaid with one of the textural patterns ( λ = 8). This pattern is shown here as voxel-wise texture for illustration purposes and is not equivalent to our calculations. The average texture values (calculated before FFT) (feature ) proved to be significant in discrimination of meningiomas.",
+    "word_count": 102,
+    "metadata": {
+      "figure_id": "figure_002",
+      "label": "Figure 2",
+      "pages": [
+        16
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 2
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 2
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_004_figure_caption_0045_7472a4ed",
+    "paper_id": "paper_004",
+    "chunk_type": "figure_caption",
+    "order_index": 45,
+    "text": "Fig. 3. Classification accuracy (with SVM-RFE) versus number of retained features for classification of metastasis versus gliomas grade II, III, or IV (1 st row) and glioma grading (2 nd row).",
+    "word_count": 31,
+    "metadata": {
+      "figure_id": "figure_003",
+      "label": "Figure 3",
+      "pages": [
+        17
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 3
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 3
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_004_figure_caption_0046_7b08c375",
+    "paper_id": "paper_004",
+    "chunk_type": "figure_caption",
+    "order_index": 46,
+    "text": "Fig. 4. Classification accuracy (with SVM-RFE) versus number of retained features (1 st row) and ROC analysis (2 nd row) for two main classification problems: metastases versus primary gliomas (grade II, III, IV) shown in the 1 st column and low versus high grade gliomas (grade II versus III and IV) shown in the 2 nd column.",
+    "word_count": 57,
+    "metadata": {
+      "figure_id": "figure_004",
+      "label": "Figure 4",
+      "pages": [
+        18
+      ],
+      "source_refs": [
+        {
+          "parser": "docling",
+          "kind": "figure",
+          "index": 4
+        },
+        {
+          "parser": "grobid",
+          "kind": "figure",
+          "index": 4
+        }
+      ],
+      "subsection_id": null
+    }
+  },
+  {
+    "chunk_id": "paper_004_reference_0047_ae683e82",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 44,
+    "order_index": 47,
     "text": "[References [1]-[3]]\n[1] Examples of filters used to extract texture features. The 1st row shows Gabor filters for same frequency and different orientations and the 2nd row the rotation-invariant filters. Fig.\n[2] MR images of different of brain tumor types and an example of texture images extracted from the edematous area. From left to right: meningioma, glioma grade II, grade III, grade IV and metastasis. 1st row: T1ce image with the tumoral region of interest. 2nd row: FLAIR image (zoomed in the tumor region) overlaid with one of the textural patterns (λ = 8). This pattern is shown here as voxel-wise texture for illustration purposes and is not equivalent to our calculations. The average texture values (calculated before FFT) (feature ) proved to be significant in discrimination of meningiomas. Fig.\n[3] Classification accuracy (with SVM-RFE) versus number of retained features for classification of metastasis versus gliomas grade II, III, or IV (1st row) and glioma grading (2nd row). Fig.",
     "word_count": 159,
     "metadata": {
@@ -1421,10 +1512,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0045_15eb48ca",
+    "chunk_id": "paper_004_reference_0048_15eb48ca",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 45,
+    "order_index": 48,
     "text": "[References [4]-[4]]\n[4] Classification accuracy (with SVM-RFE) versus number of retained features (1st row) and ROC analysis (2nd row) for two main classification problems: metastases versus primary gliomas (grade II, III, IV) shown in the 1st column and low versus high grade gliomas (grade II versus III and IV) shown in the 2nd column. Binary classification accuracy (Acc) and AUC obtained by leave-one-out cross-validation using different classifiers (LDA, kNN, SVM) and feature ranking methods (t-test with bagging or CLDA) NF Acc AUC NF Acc AUC NF Acc AUC NF Acc AUC NF Acc AUC NF Acc AUC MET-MEN 12 92.9 96.9 27 85.7 75.0 11 96.4 99.0 32 89.3 76.6 5 96.4 97.9 1 85.7 83.3 MET-GL2 79 95.7 95.5 8 84.8 87.7 2 97.8 97.4 55 97.8 97.3 2 97.8 97.7 3 95.7 98.9 feature ranking t-test CLDA t-test CLDA t-test CLDA classifier LDA k-NN (k=3) SVM Table 1 MET-GL3 1 81.0 89.1 12 83.3 85.4 70 90.5 88.0 152 88.1 89.9 8 88.1 88.4 10 88.1 87.5 MEN-GL2 1 100 100 1 100 100 1 96.2 100 2 96.2 87.5 1 96.2 95.5 12 96.2 98.9 MEN-GL3 3 81.8 56.9 5 95.5 95.8 15 95.5 85.4 2 90.9 81.9 9 86.4 90.3 4 90.9 91.7 MEN-GL4 4 86.8 80.9 11 100 100 12 97.4 87.5 4 97.4 86.8 10 97.4 99.3 36 94.7 94.9 GL2-GL3 74 70.0 58.6 101 77.5 66.4 9 67.5 68.3 1 72.5 75.1 51 72.5 69.2 1 75.0 77.3 GL2-GL4 11 76.8 76.1 19 78.6 74.5 33 98.2 97.6 38 98.2 97.6 18 98.2 98.0 12 98.2 98.5 GL3-GL4 5 67.3 61.8 35 69.2 45.4 154 84.6 73.2 141 84.6 71.2 104 94.2 100 78 92.3 89.9 mean 19.2 81.1 77.5 31.4 85.2 80.7 31.6 89.8 86.8 44.3 89.4 84.2 29.9 91.2 93.6 30.7 90.6 92.1 MET-GL4 2 58.6 59.4 95 77.6 76.5 9 74.1 71.9 16 79.3 78.1 91 84.5 100 150 89.7 100 Binary classification results obtained by leave-one-out cross-validation using SVM for classification and SVM-RFE for feature selection. 75.0 100 96.4 97.9 95.5 100 97.8 97.9 83.3 91.7 88.1 87.7 Binary classification NF Overall top-ranked features (maximum 8 features are shown) Sensitivity Specificity Acc AUC Table 2 g2 4(FLAIR), s2, varc 4(FLAIR), μc 2(T 2), varc 1(T 1ce), varm 1(rCBV), g4 5(FLAIR), g5 1(FLAIR), μc 3(T 1ce), μm 3(T 1ce), μm 2(T 1), μc 3(T 1ce), varc 4(FLAIR), varm 1(T 2), μc 1(T 1ce), varm 2(rCBV), μm 3(T 1) μc 2(T 2), g5 4(T 1ce), varm 1(T 2), varc 2(T 2), varm 2(rCBV), varm 4(FLAIR), μm 1(T 1) μc 3(T 1), varm 4(rCBV) MET-GL2 17 MET-GL3 13 MET-MEN 6 88.2 70.8 81.0 81.9 100 75.0 96.2 100 94.4 75.0 90.9 91.7 MEN-GL4 1 venh 100 75.0 97.4 79.4 55.6 90.9 75.0 71.0 100 90.9 96.4 98.9 μc 3(T 1ce), varm 1(rCBV), varc 4(FLAIR), varc 4(rCBV), venh, varc 1(rCBV), varm 1(rCBV), varm 1(T 1), μc 2(T 1), s3, μm 2(T 2), g4 5(FLAIR), varm 1(rCBV), varm 1(T 1) vedm, μc 2(T 1ce), varc 4(rCBV), μc 4(FLAIR) μc 4(FLAIR), μc 1(T 1ce), varc 1(T 1), μm 2(T 1) μc 1(T 1), μm 1(T 1), varc 4(rCBV), s4, μm 2(T 1), varm 4(rCBV), g4 5(FLAIR) g1 5(FLAIR), venh, g5 5(FLAIR) venh, varm 4(rCBV), μc 3(T 1), MET-GL4 11 MEN-GL3 15 GL2-GL3 43 MEN-GL2 9 GL2-GL4 7 100 72.2 90.4 98.5 Binary classification NF Overall top-ranked features (maximum 8 features are shown) Sensitivity Specificity Acc AUC μc 3(T 1ce), varc 2(rCBV), age, varc 4(FLAIR), g5 2(FLAIR), venh, vnec, μc 3(T 1) GL3-GL4 76 86.5 79.2 84.7 88.2 84.6 95.5 87.8 89.6 vedm, μc 2(T 2), varm 1(T 2), varc 2(T 2), g5 4(T 1ce), varm 4(rCBV), μc 3(T 1ce), μc 1(T 1), g1 5(FLAIR), μc 4(FLAIR), μc 1(T 2), varc 1(T 1), s2 μc 2(rCBV), g4 5(T 1ce), varc 1(T 1) MET-GL 16 LOW-HIGH GRADE 24 Multi-class confusion matrix obtained with one-versus-all voting scheme using SVM classifiers with RFE. Table 3 PREDICTION, NF =18 (out of 50) GL2 GL3 GL4 MET GL4 0 10 14 10 MET 0 1 1 22 GL2 20 1 0 1 GL3 8 6 2 2 GROUND TRUTH",
     "word_count": 688,
     "metadata": {
@@ -1437,10 +1528,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0046_50b3c1af",
+    "chunk_id": "paper_004_reference_0049_50b3c1af",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 46,
+    "order_index": 49,
     "text": "[References [5]-[12]]\n[5] Young RJ, Knopp EA. Brain MRI: Tumor Evaluation, Journal of Magnetic Resonance Imaging 2006;24:709–724.\n[6] Lev MH, Ozsunar Y, Henson JW, Rasheed AA, Barest GD, Harsh GR, Fitzek MM, Chiocca EA, Rabinov JD, Csavoy AN, Rosen BR, Hochberg FH, Schaefer PW, Gonzalez RG. Glial Tumor Grading and Outcome Prediction Using Dynamic Spin-Echo MR Susceptibility Mapping Compared with Conventional Contrast-Enhanced MR: Confounding Effect of Elevated rCBV of Oligodendroglimoas. Am J Neuroradiol 2004;25:214–221. [PubMed: 14970020]\n[7] Kremer S, Grand S, Remy C, Esteve F, Lefournier V, Pasquier B, Hoffmann D, Benabid AL, Le Bas JF. Cerebral blood volume mapping by MR imaging in the initial evaluation of brain tumors. Journal of Neuroradiology 2002;29:105–113.\n[8] Provenzale JM, Mukundan S, Baroriak DP. Diffusion-weighted and Perfusion MR Imaging for Brain Tumor Characterization and Assessment of Treatment Response. Radiology 2006;239:632–649. [PubMed: 16714455]\n[9] Wang Q, Liacouras EK, Miranda E, Kanamala US, Megalooikonomou V. Classification of brain tumors using MRI and MRS. Proceedings of the SPIE Conference on Medical Imaging. 2007\n[10] Weber MA, Zoubaa S, Schlieter M, Jüttler E, Huttner HB, Geletneky K, Ittrich C, Lichy MP, Kroll A, Debus J, Giesel FL, Hartmann M, Essig M. Diagnostic performance of spectroscopic and perfusion MRI for distinction of brain tumors. Neurology 2006;66:1899–1906. [PubMed: 16801657]\n[11] Cho YD, Choi GH, Lee SP, Kim JK. 1H-MRS metabolic patterns for distinguishing between meningiomas and other brain tumors. Magn Reson Imaging 2003;21:663–672. [PubMed: 12915198]\n[12] Higano S, Yun X, Kumabe T, Watanabe M, Mugikura S, Umetsu A, Sato A, Yamada T, Takahashi S. Malignant astrocytic tumors: clinical importance of apparent diffusion coefficient in prediction of grade and prognosis. Radiology 2006;241:839–846. [PubMed: 17032910]",
     "word_count": 274,
     "metadata": {
@@ -1460,10 +1551,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0047_e19d739f",
+    "chunk_id": "paper_004_reference_0050_e19d739f",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 47,
+    "order_index": 50,
     "text": "[References [13]-[20]]\n[13] Al-Okaili RN, Krejza J, Woo JH, Wolf RL, O'Rourke DM, Judy KD, Poptani H, Melhem ER. Intraaxial Brain Masses: MR Imaging–based Diagnostic Strategy—Initial Experience. Radiology 2007;243:539–550. [PubMed: 17456876]\n[14] Tate AR, Majós C, Moreno A, Howe FA, Griffiths JR, Arús C. Automated classification of short echo time in in vivo 1H brain tumor spectra: a multicenter study. Magn Reson Med 2003;49:29–36. [PubMed: 12509817]\n[15] Majós C, Julià-Sapé M, Alonso J, Serrallonga M, Aguilera C, Acebes JJ, Arús C, Gili J. Brain tumor classification by proton MR spectroscopy: comparison of diagnostic accuracy at short and long TE. Am J Neuroradiol 2004;25:1696–1704. [PubMed: 15569733]\n[16] Huang Y, Lisboa PJG, El-Deredy W. Tumour grading from magnetic resonance spectroscopy: a comparison of feature extraction with variable selection. Statist Med 2003;22:147–164.\n[17] Emblem KE, Zoellner FG, Tennoe B, Nedregaard B, Nome T, Due-Tonnessen P, Hald JK, Scheie D, Bjornerud A. Predictive Modeling in Glioma Grading From MR Perfusion Images Using Support Vector Machines. Magnetic Resonance in Medicine 2008;60:945–952. [PubMed: 18816815]\n[18] Lu C, Devos A, Suykens JAK, Arus C, Van Huffel S. Bagging linear sparse Bayesian learning models for variable selection in cancer diagnosis. IEEE Transactions on Information Technology in Medicine 2007;11:338–346.\n[19] Georgiadis P, Cavouras D, Kalatzis I, Daskalakis A, Kagadis GC, Sifaki K, Malamas M, Nikiforidis G, Solomou E. Improving brain tumor characterization on MRI by probabilistic neural networks and non-linear transformation of textural features. Computer Methods and Programs in Biomedicine 2008;89:24–32. [PubMed: 18053610]\n[20] Li G, Yang J, Ye C, Geng D. Degree prediction of malignancy in brain glioma using support vector machines. Computers in Biology and Medicine 2006;36:313–325. [PubMed: 16446164]",
     "word_count": 272,
     "metadata": {
@@ -1483,10 +1574,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0048_ee896013",
+    "chunk_id": "paper_004_reference_0051_ee896013",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 48,
+    "order_index": 51,
     "text": "[References [21]-[31]]\n[21] Devos A, Simonetti AW, van der Graaf M, Lukas L, Suykens JA, Vanhamme L, Buydens LM, Heerschap A, Van Huffel S. The use of multivariate MR imaging intensities versus metabolic data from MR spectroscopic imaging for brain tumour classification. J Magn Reson 2005;173:218–228. [PubMed: 15780914]\n[22] Tan TN. Rotation invariant texture features and their use in automatic script identification. IEEE Trans PAMI 1998;20:751–756.\n[23] Smith SM, Jenkinson M, Woolrich MW, Beckmann CF, Behrens TE, Johansen-Berg H, Bannister PR, De Luca M, Drobnjak I, Flitney DE, Niazy RK, Saunders J, Vickers J, Zhang Y, De Stefano N, Brady JM, Matthews PM. Advances in functional and structural MR image analysis and implementation as FSL. Neuroimage 2004;23:S208–219. [PubMed: 15501092]\n[24] Jenkinson M, Smith S. A global optimisation method for robust affine registration of brain images. Medical Image Analysis 2001;5:143–156. [PubMed: 11516708]\n[25] Smith SM. BET: Brain Extraction Tool. FMRIB technical report TR00SMS26.\n[26] Daugman JG. Uncertainty relations for resolution in space, spatial frequency, and orientation optimized by two-dimensional visual cortical filters. Journal of the Optical Society of America 1985;A2:1160–1169. [PubMed: 4020513]\n[27] Kruizinga P, Petkov N. Non-linear operator for oriented texture. IEEE Trans on Image Processing 1999;8:1395–1407.\n[28] Mayerhoefer ME, Szomolanyi P, Jirak D, Materka A, Trattnig S. Effects of MRI acquisition parameter variations and protocol heterogeneity on the results of texture analysis and pattern discrimination: an application-oriented study. Med Phys 2009;36:1236–43. [PubMed: 19472631]\n[29] Guyon I, Elisseeff A. An introduction to variable and feature selection. J Mach Learn Res 2003;3:1157–1182.\n[30] Press, WH.; Teukolsky, SA.; Vetterling, WT.; Flannery, BP. Numerical Recipes in C: The Art of Scientific Computing. Cambridge University Press; 1992. p. 616\n[31] Breiman L. Bagging predictors, Machine Learning 1996;24:123–140.",
     "word_count": 283,
     "metadata": {
@@ -1509,10 +1600,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0049_acc281b7",
+    "chunk_id": "paper_004_reference_0052_acc281b7",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 49,
+    "order_index": 52,
     "text": "[References [32]-[42]]\n[32] Guyon I, Weston J, Barnhill S, Vapnik V. Gene selection for cancer classification using support vector machines. Mach Learn 2002;46:389–422.\n[33] Rakotomamonjy A. Variable selection using SVM-based criteria. J Mach Learn Res 2003;3:1357– 1370.\n[34] Zifeng C, Baowen X, Weifeng Z, Dawei J, Junling X. CLDA: Feature Selection for Text Categorization Based on Constrained LDA. International Conference on Semantic Computing Sept 17-19;2007:702–712.\n[35] Ambroise C, McLachlan GJ. Selection bias in gene extraction on the basis of microarray gene- expression data. Proc Natl Acad Sci USA 2002;99:6562–6566. [PubMed: 11983868]\n[36] Lachenbruch, PA. Discriminant Analysis. Hafner Press; 1975.\n[37] Dasarathy, BV., editor. Nearest Neighbor (NN) Norms: NN Pattern Classification Techniques. 1991.\n[38] Huang YM, Du SX. Weighted support vector machine for classification with uneven training class sizes. Proceedings of 2005 International Conference on Machine Learning and Cybernetics 2005;7:4365–4369.\n[39] Lacroix M, Abi-Said D, Fourney DR, Gokaslan ZL, Shi W, DeMonte F, Lang FF, McCutcheon IE, Hassenbusch SJ, Holland E, Hess K, Michael C, Miller D, Sawaya R. A multivariate analysis of 416 patients with glioblastoma multiforme: prognosis, extent of resection, and survival. J Neurosurg 2001;95:190–198. [PubMed: 11780887]\n[40] Zacharaki EI, Hogea CS, Shen D, Biros G, Davatzikos C. Non-diffeomorphic registration of brain tumor images by simulating tissue loss and tumor growth. Neuroimage 2009;46:762–774. [PubMed: 19408350]\n[41] Verma R, Zacharaki EI, Ou Y, Cai H, Chawla S, Wolf R, Lee SK, Melhem ER, Davatzikos C. Multi- parametric tissue characterization of brain neoplasms and their recurrence using pattern classification of MR images. Academic Radiology 2008;15:966–977. [PubMed: 18620117]\n[42] Glotsos D, Tohka J, Ravazoula P, Cavouras D, Nikiforidis G. Automated diagnosis of brain tumours astrocytomas using probabilistic neural network clustering and support vector machines. International Journal of Neural Systems 2005;15:1–11. [PubMed: 15912578]",
     "word_count": 290,
     "metadata": {
@@ -1535,10 +1626,10 @@
     }
   },
   {
-    "chunk_id": "paper_004_reference_0050_9f312e10",
+    "chunk_id": "paper_004_reference_0053_9f312e10",
     "paper_id": "paper_004",
     "chunk_type": "reference",
-    "order_index": 50,
+    "order_index": 53,
     "text": "[References [43]-[44]]\n[43] Selby DM, Woodard CA, Lakshman-Henry M, Bernstein JJ. Are endothelial cell patterns of astrocytomas indicative of grade? in Vivo 1997;11:371–375. [PubMed: 9427037]\n[44] Goldbrunner RH, Pietsch T, Vince GH, Bernstein JJ, Wagner S, Hageman H, Selby DM, Krauss J, Soerensen N, Tonn JC. Different vascular patterns of medulloblastoma and supratentorial primitive neuroectodermal tumors. Int J Dev Neurosci 1999;17:593–599. [PubMed: 10571420] Fig.",
     "word_count": 64,
     "metadata": {

@@ -1,0 +1,55 @@
+{
+  "evaluation_type": "integrity",
+  "integrity_score": 0.9238,
+  "status": "healthy",
+  "scoring": {
+    "primary_metrics": {
+      "metadata_integrity": 0.15,
+      "structure_integrity": 0.2,
+      "truncation_integrity": 0.2,
+      "cross_parser_consistency": 0.15,
+      "contamination_integrity": 0.15,
+      "duplication_integrity": 0.1,
+      "numeric_consistency": 0.05
+    },
+    "diagnostic_metrics": [
+      "abstract_integrity",
+      "coordinate_integrity",
+      "reference_integrity"
+    ]
+  },
+  "metrics": {
+    "metadata_integrity": 0.75,
+    "abstract_integrity": 0.9474,
+    "structure_integrity": 1.0,
+    "duplication_integrity": 1.0,
+    "reference_integrity": 1.0,
+    "truncation_integrity": 1.0,
+    "numeric_consistency": 1.0,
+    "cross_parser_consistency": 0.7418,
+    "contamination_integrity": 1.0,
+    "coordinate_integrity": 1.0
+  },
+  "diagnostics": {
+    "orphan_paragraph_ratio": 0.0,
+    "abstract_integrity": 0.9474,
+    "reference_integrity": 1.0,
+    "coordinate_integrity": 1.0
+  },
+  "parser_artifact_counts": {
+    "figures": 7,
+    "tables": 5,
+    "formulas": 0,
+    "text_blocks": 139
+  },
+  "raw_extraction_counts": {
+    "sections": 13,
+    "paragraphs": 31,
+    "references": 35,
+    "figures": 7,
+    "tables": 5,
+    "formulas": 0
+  },
+  "ground_truth_available": false,
+  "issues": []
+}

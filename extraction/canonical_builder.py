@@ -46,20 +46,37 @@ class CanonicalBuilder:
         source_file_hash: str | None = None,
     ) -> dict[str, Any]:
 
+        text_blocks = artifacts.get(
+            "text_blocks",
+            [],
+        )
+
         title = self._clean_text(
             grobid.get("title")
         )
-
         authors = self._clean_authors(
             grobid.get(
                 "authors",
                 [],
             )
         )
-
         year = self._clean_year(
             grobid.get("year")
         )
+
+        # GROBID can fail completely on publisher/title-page layouts. Recover
+        # only missing metadata from the already extracted Docling/PDF evidence
+        # rather than overriding successful scholarly metadata.
+        recovered_meta = self._recover_missing_metadata(
+            title=title,
+            authors=authors,
+            year=year,
+            pymupdf=pymupdf,
+            text_blocks=text_blocks,
+        )
+        title = recovered_meta["title"]
+        authors = recovered_meta["authors"]
+        year = recovered_meta["year"]
 
         doi = self._clean_text(
             grobid.get("doi")
@@ -73,11 +90,6 @@ class CanonicalBuilder:
         abstract = self._extract_abstract(
             grobid=grobid,
             pymupdf=pymupdf,
-        )
-
-        text_blocks = artifacts.get(
-            "text_blocks",
-            [],
         )
 
         sections = self._build_sections(
@@ -264,6 +276,112 @@ class CanonicalBuilder:
         }
 
     # =========================================================
+    # METADATA RECOVERY
+    # =========================================================
+
+    @classmethod
+    def _recover_missing_metadata(
+        cls,
+        *,
+        title: str,
+        authors: list[str],
+        year: int | None,
+        pymupdf: dict[str, Any],
+        text_blocks: list[dict[str, Any]],
+    ) -> dict[str, Any]:
+        """Recover only metadata fields that GROBID left empty.
+
+        This is intentionally conservative and document-generic.  It uses
+        first-page Docling text blocks for title/author recovery and explicit
+        publication-date phrases for the year.
+        """
+        recovered_title = title
+        recovered_authors = list(authors)
+        recovered_year = year
+
+        page_one_blocks: list[dict[str, Any]] = []
+        for block in text_blocks if isinstance(text_blocks, list) else []:
+            if not isinstance(block, dict):
+                continue
+            coords = block.get("coords") or []
+            if any(isinstance(c, dict) and c.get("page") == 1 for c in coords):
+                page_one_blocks.append(block)
+
+        def block_y(block: dict[str, Any]) -> float:
+            coords = block.get("coords") or []
+            for coord in coords:
+                if isinstance(coord, dict) and coord.get("page") == 1:
+                    try:
+                        return float(coord.get("y", 0.0)) + float(coord.get("h", 0.0))
+                    except (TypeError, ValueError):
+                        return 0.0
+            return 0.0
+
+        if not recovered_title:
+            title_candidates: list[tuple[float, str]] = []
+            for block in page_one_blocks:
+                text = cls._clean_text(block.get("text"))
+                label = cls._clean_text(block.get("label")).lower()
+                if len(text.split()) < 4 or len(text) > 220:
+                    continue
+                if label not in {"section_header", "title", "heading"}:
+                    continue
+                lower = text.casefold()
+                if re.search(r"\b(?:abstract|index terms|keywords|doi|volume|vol\.|published on)\b", lower):
+                    continue
+                if re.match(r"^(?:[ivxlcdm]+\.|\d+(?:\.\d+)*\.)\s*\S", text, re.IGNORECASE):
+                    continue
+                score = min(len(text.split()), 30) + min(block_y(block) / 100.0, 8.0)
+                title_candidates.append((score, text))
+            if title_candidates:
+                recovered_title = max(title_candidates, key=lambda item: item[0])[1]
+
+        if not recovered_authors and recovered_title:
+            title_y = 0.0
+            for block in page_one_blocks:
+                if cls._clean_text(block.get("text")) == recovered_title:
+                    title_y = block_y(block)
+                    break
+
+            author_candidates: list[tuple[float, str]] = []
+            for block in page_one_blocks:
+                text = cls._clean_text(block.get("text"))
+                y = block_y(block)
+                if y >= title_y or not text or len(text.split()) < 2 or len(text.split()) > 18:
+                    continue
+                label = cls._clean_text(block.get("label")).lower()
+                if label not in {"text", "author", "authors"}:
+                    continue
+                lower = text.casefold()
+                if any(term in lower for term in ("department", "university", "journal", "email", "e-mail", "doi", "published", "volume")):
+                    continue
+                if re.search(r"@|\bhttps?://|\b(?:school|faculty|institute)\b", lower):
+                    continue
+                if " and " in lower or re.search(r"\b[A-Z]\.\s*[A-Z]\w+", text):
+                    author_candidates.append((abs(title_y - y), text))
+            if author_candidates:
+                best = min(author_candidates, key=lambda item: item[0])[1]
+                recovered_authors = cls._clean_authors(
+                    [part.strip() for part in re.split(r"\s+and\s+|\s*,\s*", best) if part.strip()]
+                )
+
+        if recovered_year is None:
+            pdf_text = str(pymupdf.get("text") or "") if isinstance(pymupdf, dict) else ""
+            published_match = re.search(
+                r"\bpublished\s+(?:on|:)?\s*[^\n]{0,80}?(20\d{2})\b",
+                pdf_text,
+                re.IGNORECASE,
+            )
+            if published_match:
+                recovered_year = int(published_match.group(1))
+
+        return {
+            "title": recovered_title,
+            "authors": recovered_authors,
+            "year": recovered_year,
+        }
+
+    # =========================================================
     # ABSTRACT
     # =========================================================
 
@@ -291,6 +409,7 @@ class CanonicalBuilder:
 
         abstract_parts: list[str] = []
         abstract_started = False
+        abstract_start_section = ""
 
         for paragraph in paragraphs:
 
@@ -308,8 +427,26 @@ class CanonicalBuilder:
                 )
             )
 
+            # Some GROBID outputs fail to classify the abstract and instead
+            # leave it as the first body paragraph, e.g.
+            # ``Abstract-Brain Tumor ...``.  Recognize that document-local
+            # marker before relying on the PDF fallback.
+            abstract_marker = re.match(
+                r"^abstract\s*[-–—:]?\s*(.*)$",
+                text,
+                flags=re.IGNORECASE,
+            )
+            if abstract_marker:
+                body = cls._clean_text(abstract_marker.group(1))
+                if body:
+                    abstract_started = True
+                    abstract_start_section = section
+                    abstract_parts.append(body)
+                    continue
+
             if section == "abstract":
                 abstract_started = True
+                abstract_start_section = section
                 abstract_parts.append(
                     text
                 )
@@ -317,8 +454,24 @@ class CanonicalBuilder:
 
             if abstract_started:
 
+                # Do not let the index-terms line become part of the abstract.
+                if section.startswith("index terms") or section.startswith("keywords"):
+                    break
+
                 if cls._is_major_section(
                     section
+                ):
+                    break
+
+                # GROBID may place an unclassified abstract paragraph in a
+                # synthetic/garbage section, followed immediately by the real
+                # first section such as ``I. INTRODUCTION``. Stop at that
+                # transition rather than swallowing the entire body.
+                if (
+                    abstract_start_section
+                    and section
+                    and section != abstract_start_section
+                    and re.match(r"^(?:[ivxlcdm]+\.|\d+(?:\.\d+)*\.)\s*\S", section, re.IGNORECASE)
                 ):
                     break
 
@@ -408,9 +561,15 @@ class CanonicalBuilder:
             if not pdf_text and "pages" in pymupdf and pymupdf["pages"]:
                 pdf_text = pymupdf["pages"][0].get("text", "")
 
-        m = re.search(r"\b(?:INDEX\s+TERMS|KEYWORDS?)\b[:\s]+([^\n\.]+)", pdf_text, re.IGNORECASE)
+        m = re.search(
+            r"\b(?:INDEX\s+TERMS|KEYWORDS?)\b\s*[-–—:]?\s*"
+            r"(?P<body>.*?)"
+            r"(?=\n\s*(?:[IVXLCDM]+(?:\.[IVXLCDM]+)*\.|\d+(?:\.\d+)*\.)\s+[A-Z]|$)",
+            pdf_text,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
         if m:
-            extracted = m.group(1).strip()
+            extracted = m.group("body").strip()
             parts = [cls._clean_text(p) for p in re.split(r"[,;]", extracted) if cls._clean_text(p)]
             if parts:
                 return parts
@@ -671,21 +830,31 @@ class CanonicalBuilder:
             if not heading:
                 continue
 
+            normalized_heading = cls._normalize(heading)
+
+            # Index-term/keyword lines belong to metadata, not the section
+            # hierarchy. Garbage-only headings are also excluded before they
+            # can affect section lookup.
+            if normalized_heading.startswith(("index terms", "index term", "keywords")):
+                continue
+
             if cls._is_garbage_heading(
                 heading
             ):
                 continue
 
-            key = cls._normalize(
-                heading
-            )
+            raw_path = section.get("path")
+            path_key = tuple(
+                cls._normalize(item)
+                for item in raw_path
+                if cls._clean_text(item)
+            ) if isinstance(raw_path, list) else (normalized_heading,)
+            key = (path_key, int(section.get("level", 1) or 1))
 
             if key in seen:
                 continue
 
-            seen.add(
-                key
-            )
+            seen.add(key)
 
             coords = section.get(
                 "coords",
@@ -2473,6 +2642,41 @@ class CanonicalBuilder:
         ) else {}
 
     @classmethod
+    def _dedupe_repeated_caption(cls, caption: str) -> str:
+        """Remove an exact/near-exact duplicate caption prefix.
+
+        GROBID can duplicate a caption when a figure description and body
+        fragment are both serialized into the same record.  Only collapse the
+        string when the two halves are highly similar, so legitimate mentions
+        of another figure/table are preserved.
+        """
+        text = cls._clean_text(caption)
+        if not text:
+            return text
+
+        matches = list(re.finditer(
+            r"(?i)\b(?:figure|fig\.?|table|tab\.?)\s*[0-9ivx]+\b",
+            text,
+        ))
+        if len(matches) < 2:
+            return text
+
+        first = text[:matches[1].start()].strip()
+        second = text[matches[1].start():].strip()
+        if not first or not second:
+            return text
+
+        similarity = SequenceMatcher(
+            None,
+            cls._normalize(first),
+            cls._normalize(second),
+        ).ratio()
+        if similarity >= 0.96:
+            return first
+
+        return text
+
+    @classmethod
     def _clean_artifacts(
         cls,
         items: list[dict[str, Any]],
@@ -2501,6 +2705,10 @@ class CanonicalBuilder:
                             cleaned[key]
                         )
                     )
+                    if key == "caption":
+                        cleaned[key] = cls._dedupe_repeated_caption(
+                            cleaned[key]
+                        )
 
             if artifact_type:
                 cleaned["artifact_type"] = (

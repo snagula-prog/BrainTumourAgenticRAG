@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "brain_tumor_retrieval_v1_v2_reanchored",
+  "status": "draft_needs_human_review",
+  "created_at": "2026-09-28T14:22:50.723349+00:00",
+  "source_catalog": "chunk_catalog.json",
+  "metric_notes": {
+    "relevance_scale": {
+      "0": "Irrelevant; omit from relevant_chunks",
+      "1": "Marginally relevant context",
+      "2": "Useful supporting evidence",
+      "3": "Directly answers or is essential evidence"
+    },
+    "scope_paper_id": "When non-null, evaluate retrieval only among chunks from that paper. Null means corpus-wide retrieval.",
+    "segment_aggregation": "For segmented chunks, aggregate segment scores to the original chunk_id using the maximum score before ranking."
+  },
+  "summary": {
+    "query_count": 40,
+    "paper_scoped_query_count": 36,
+    "corpus_wide_query_count": 4,
+    "query_categories": {
+      "preprocessing": 3,
+      "feature_extraction": 2,
+      "classification_methods": 2,
+      "limitations": 2,
+      "future_directions": 1,
+      "reported_results": 5,
+      "datasets": 3,
+      "modalities": 1,
+      "evaluation_metrics": 2,
+      "generalization": 1,
+      "architecture": 4,
+      "attention": 1,
+      "optimization": 3,
+      "hyperparameters": 1,
+      "imaging_protocol": 1,
+      "feature_selection": 1,
+      "ablation": 1,
+      "experimental_setup": 1,
+      "transfer_learning": 1,
+      "cross_paper_architecture": 1,
+      "cross_paper_optimization": 1,
+      "cross_paper_generalization": 1,
+      "cross_paper_evaluation": 1
+    }
+  },
+  "queries": [
+    {
+      "id": "q001",
+      "scope_paper_id": "paper_001",
+      "category": "preprocessing",
+      "query": "Which MRI preprocessing techniques does the overview mention for reducing noise and preserving image characteristics?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0018_481c3a94",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_001_body_0026_ec79cf12",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_001_body_0047_93bc1e13",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q002",
+      "scope_paper_id": "paper_001",
+      "category": "feature_extraction",
+      "query": "Which handcrafted and learned feature extraction methods are discussed for brain MRI?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0020_23f261d9",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q003",
+      "scope_paper_id": "paper_001",
+      "category": "classification_methods",
+      "query": "Which supervised and unsupervised classification methods does the overview identify for brain tumor categorization?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0032_ec6d3785",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q004",
+      "scope_paper_id": "paper_001",
+      "category": "limitations",
+      "query": "What limitations make brain tumor segmentation and comparison of machine-learning approaches difficult?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0039_116d78bf",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_001_body_0041_03612550",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q005",
+      "scope_paper_id": "paper_001",
+      "category": "future_directions",
+      "query": "What feature combination does the overview suggest could improve brain tumor classification?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0041_03612550",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q006",
+      "scope_paper_id": "paper_001",
+      "category": "reported_results",
+      "query": "For the Bada and Barjaktarovic CNN experiment summarized in the overview, which optimizer and batch size were reported?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0034_3479447d",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q007",
+      "scope_paper_id": "paper_002",
+      "category": "datasets",
+      "query": "What information does the REMBRANDT dataset contain, and how many glioma patients does it include?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0030_1adee294",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q008",
+      "scope_paper_id": "paper_002",
+      "category": "preprocessing",
+      "query": "Which preprocessing approaches are discussed for standardizing brain MRI images and improving model generalization?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0034_33bad23f",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0036_8b0a5f3e",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_002_body_0039_caf12f2f",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q009",
+      "scope_paper_id": "paper_002",
+      "category": "modalities",
+      "query": "Which imaging modalities beyond conventional structural MRI are described for brain tumor assessment?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0042_a2103b7d",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_002_body_0048_12507959",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0052_37f2edba",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0055_c68c6763",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q010",
+      "scope_paper_id": "paper_002",
+      "category": "evaluation_metrics",
+      "query": "How is recall, also called sensitivity, defined for brain tumor detection?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0061_6cf51e35",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q011",
+      "scope_paper_id": "paper_002",
+      "category": "evaluation_metrics",
+      "query": "What does the Matthews correlation coefficient measure, and what are its possible values?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0069_ac781c77",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q012",
+      "scope_paper_id": "paper_002",
+      "category": "generalization",
+      "query": "What data-related and model-related factors can prevent brain tumor models from generalizing to new settings?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_002_body_0080_1911cf28",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0086_89de3530",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0089_3884ee50",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_002_body_0093_fac5bc82",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q013",
+      "scope_paper_id": "paper_003",
+      "category": "datasets",
+      "query": "Which dataset was used to evaluate MCACNN-SVM, how many MRI slices does it contain, and how many classes are used?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0025_18bc968d",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q014",
+      "scope_paper_id": "paper_003",
+      "category": "architecture",
+      "query": "How does the MCACNN architecture use parallel convolutional paths and multiscale feature fusion?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0017_89c84650",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_003_body_0018_7629a7c4",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_003_body_0019_204535bb",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q015",
+      "scope_paper_id": "paper_003",
+      "category": "attention",
+      "query": "How does the SENet channel-attention mechanism adjust the feature maps in MCACNN-SVM?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0010_6f78b79f",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_003_body_0011_291b7afa",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q016",
+      "scope_paper_id": "paper_003",
+      "category": "optimization",
+      "query": "Which optimizer and learning-rate schedule produced 97.94% validation accuracy in the MCACNN-SVM experiments?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0035_f012bae5",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q017",
+      "scope_paper_id": "paper_003",
+      "category": "hyperparameters",
+      "query": "Which SVM kernel and hyperparameter values were selected after GridSearchCV?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0038_2b2db294",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q018",
+      "scope_paper_id": "paper_003",
+      "category": "reported_results",
+      "query": "What test accuracy did MCACNN-SVM report, and which tumor category had lower recall?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0044_bd9a91ca",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q019",
+      "scope_paper_id": "paper_004",
+      "category": "imaging_protocol",
+      "query": "Which MRI sequences were acquired for the tumor classification study, and was DTI used in the reported experiments?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0012_f673288b",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q020",
+      "scope_paper_id": "paper_004",
+      "category": "preprocessing",
+      "query": "How were the MRI sequences registered, intensity-normalized, and skull-stripped before feature extraction?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0014_d170313c",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q021",
+      "scope_paper_id": "paper_004",
+      "category": "feature_extraction",
+      "query": "What kinds of shape, intensity, statistical, and Gabor texture features were extracted?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0016_c13a2a7c",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_004_body_0017_73448ec9",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_004_body_0018_b1507280",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q022",
+      "scope_paper_id": "paper_004",
+      "category": "feature_selection",
+      "query": "How does SVM recursive feature elimination select a subset of features?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0022_02088b9a",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q023",
+      "scope_paper_id": "paper_004",
+      "category": "classification_methods",
+      "query": "Which classifiers were compared, and which cross-validation strategy was used to assess predictive ability?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0025_14d9ae57",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_004_body_0027_fb5cea0a",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q024",
+      "scope_paper_id": "paper_004",
+      "category": "reported_results",
+      "query": "What evidence does the study report for the importance of perfusion rCBV and contrast-enhanced T1 in tumor classification?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_004_body_0029_8f27d993",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_004_body_0036_5af7071c",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q025",
+      "scope_paper_id": "paper_005",
+      "category": "architecture",
+      "query": "How does HRSTNet maintain high-resolution representations while aggregating multiresolution features?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0013_bf310f55",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q026",
+      "scope_paper_id": "paper_005",
+      "category": "architecture",
+      "query": "What are the two attention operations inside a Swin Transformer block?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0015_7613b5a0",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q027",
+      "scope_paper_id": "paper_005",
+      "category": "datasets",
+      "query": "Which datasets were used to evaluate HRSTNet, including the MRI and CT segmentation tasks?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0024_ab5a7ba7",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q028",
+      "scope_paper_id": "paper_005",
+      "category": "optimization",
+      "query": "Which optimizer, initial learning rate, learning-rate scheduler, and loss function were used to train HRSTNet?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0021_11d1a400",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q029",
+      "scope_paper_id": "paper_005",
+      "category": "ablation",
+      "query": "What did the MRFF ablation study find when combining feature maps from more resolution levels?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0030_6b64c9c0",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q030",
+      "scope_paper_id": "paper_005",
+      "category": "reported_results",
+      "query": "How did HRSTNet variants perform on the MSD liver tumor segmentation dataset, and what issue was suggested for HRSTNet-4?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_005_body_0035_44717926",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_005_body_0036_13ffd475",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q031",
+      "scope_paper_id": "paper_006",
+      "category": "experimental_setup",
+      "query": "Which five models were compared for brain tumor image classification, and how was the dataset split?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0025_71fded49",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q032",
+      "scope_paper_id": "paper_006",
+      "category": "architecture",
+      "query": "What input dimensions, channel count, and output class count were used for the multilayer CNN?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0027_1bdaa0d8",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q033",
+      "scope_paper_id": "paper_006",
+      "category": "transfer_learning",
+      "query": "How were the transfer-learning architectures adapted for the brain tumor classification task, and why was GlobalAveragePooling2D used?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0031_b6751fcc",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q034",
+      "scope_paper_id": "paper_006",
+      "category": "optimization",
+      "query": "How does ReduceLROnPlateau adjust the learning rate, and which parameters control its behavior?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0032_61c70189",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q035",
+      "scope_paper_id": "paper_006",
+      "category": "reported_results",
+      "query": "Which model achieved the best reported accuracy in the study, and what was that accuracy?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0034_1df745cf",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q036",
+      "scope_paper_id": "paper_006",
+      "category": "limitations",
+      "query": "What important preprocessing limitation did the authors identify in their experiments?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_006_body_0038_81bed54b",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q037",
+      "scope_paper_id": null,
+      "category": "cross_paper_architecture",
+      "query": "How do MCACNN-SVM and HRSTNet use multiscale feature processing or fusion?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0018_7629a7c4",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_003_body_0019_204535bb",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_005_body_0013_bf310f55",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_005_body_0022_c608a700",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q038",
+      "scope_paper_id": null,
+      "category": "cross_paper_optimization",
+      "query": "Which studies use AdamW, and what learning-rate strategy is paired with it?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0035_f012bae5",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_005_body_0021_11d1a400",
+          "relevance": 3
+        }
+      ]
+    },
+    {
+      "id": "q039",
+      "scope_paper_id": null,
+      "category": "cross_paper_generalization",
+      "query": "Which studies discuss limitations involving dataset size, overfitting, or generalization across imaging conditions?",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_001_body_0039_116d78bf",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_001_body_0041_03612550",
+          "relevance": 1
+        },
+        {
+          "chunk_id": "paper_002_body_0080_1911cf28",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0086_89de3530",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_002_body_0093_fac5bc82",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_004_body_0037_289f4c47",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_005_body_0035_44717926",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_005_body_0036_13ffd475",
+          "relevance": 2
+        },
+        {
+          "chunk_id": "paper_006_body_0038_81bed54b",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "q040",
+      "scope_paper_id": null,
+      "category": "cross_paper_evaluation",
+      "query": "Compare the evaluation measures used in the MCACNN-SVM classification study, the MRI texture and shape classification study, and the HRSTNet segmentation study.",
+      "relevant_chunks": [
+        {
+          "chunk_id": "paper_003_body_0027_191c20db",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_004_body_0029_8f27d993",
+          "relevance": 3
+        },
+        {
+          "chunk_id": "paper_005_body_0028_90d58d52",
+          "relevance": 3
+        }
+      ]
+    }
+  ],
+  "reanchored_from": "retrieval_benchmark_v1",
+  "reanchor_review_file": "retrieval_benchmark_reanchor_review.json"
+}

@@ -1,0 +1,101 @@
+{
+  "paper_id": "paper_008",
+  "filename": "efficientnet.pdf",
+
+  "metadata": {
+    "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+    "authors": ["Mingxing Tan", "Quoc V. Le"],
+    "year": 2019,
+    "doi": null
+  },
+
+  "abstract": "Convolutional Neural Networks (ConvNets) are commonly developed at a fixed resource budget, and then scaled up for better accuracy if more resources are available. In this paper, we systematically study model scaling and identify that carefully balancing network depth, width, and resolution can lead to better performance. Based on this observation, we propose a new scaling method that uniformly scales all dimensions of depth/width/resolution using a simple yet highly effective compound coefficient. We demonstrate the effectiveness of this method on scaling up MobileNets and ResNet. To go even further, we use neural architecture search to design a new baseline network and scale it up to obtain a family of models, called EfficientNets, which achieve much better accuracy and efficiency than previous ConvNets. In particular, our EfficientNet-B7 achieves state-of-the-art 84.4% top-1 / 97.1% top-5 accuracy on ImageNet, while being 8.4x smaller and 6.1x faster on inference than the best existing ConvNet. Our EfficientNets also transfer well and achieve state-of-the-art accuracy on CIFAR-100 (91.7%), Flowers (98.8%), and 3 other transfer learning datasets, with an order of magnitude fewer parameters.",
+
+  "figures": [
+    {
+      "label": "Figure 1",
+      "caption": "Model Size vs. ImageNet Accuracy",
+      "page": 1
+    },
+    {
+      "label": "Figure 2",
+      "caption": "Model Scaling",
+      "page": 2
+    },
+    {
+      "label": "Figure 3",
+      "caption": "Scaling Up a Baseline Model with Different Network Width (w), Depth (d), and Resolution (r) Coefficients",
+      "page": 4
+    },
+    {
+      "label": "Figure 4",
+      "caption": "Scaling Network Width for Different Baseline Networks",
+      "page": 4
+    },
+    {
+      "label": "Figure 5",
+      "caption": "FLOPS vs. ImageNet Accuracy",
+      "page": 6
+    },
+    {
+      "label": "Figure 6",
+      "caption": "Model Parameters vs. Transfer Learning Accuracy",
+      "page": 7
+    },
+    {
+      "label": "Figure 7",
+      "caption": "Class Activation Map (CAM) (Zhou et al., 2016) for Models with different scaling methods",
+      "page": 8
+    },
+    {
+      "label": "Figure 8",
+      "caption": "Scaling Up EfficientNet-B0 with Different Methods",
+      "page": 8
+    }
+  ],
+
+  "tables": [
+    {
+      "label": "Table 1",
+      "caption": "EfficientNet-B0 baseline network",
+      "page": 5
+    },
+    {
+      "label": "Table 2",
+      "caption": "EfficientNet Performance Results on ImageNet",
+      "page": 6
+    },
+    {
+      "label": "Table 3",
+      "caption": "Scaling Up MobileNets and ResNet",
+      "page": 6
+    },
+    {
+      "label": "Table 4",
+      "caption": "Inference Latency Comparison",
+      "page": 6
+    },
+    {
+      "label": "Table 5",
+      "caption": "EfficientNet Performance Results on Transfer Learning Datasets",
+      "page": 7
+    },
+    {
+      "label": "Table 6",
+      "caption": "Transfer Learning Datasets",
+      "page": 8
+    }
+  ],
+
+  "counts": {
+    "numbered_figures": 8,
+    "numbered_tables": 6
+  },
+
+  "source_exceptions": [
+    {
+      "type": "",
+      "details": ""
+    }
+  ]
+}
