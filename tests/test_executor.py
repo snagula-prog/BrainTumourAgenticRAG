@@ -47,6 +47,13 @@ def make_comparison_handlers(calls):
         # Empty result is valid: gap_fill must still execute.
         return {"facts": [], "facts_diagnostics": {}}
 
+    def check_document_metrics(ctx):
+        calls.append("check_document_metrics")
+        return {
+            "document_metric_availability": {"status": "not_checked", "paper_results": []},
+            "evidence": list(ctx.get_artifact("evidence", [])),
+        }
+
     def gap_fill(ctx):
         calls.append("gap_fill")
         # Gap fill deliberately runs before fact extraction and must accept absent facts.
@@ -78,6 +85,7 @@ def make_comparison_handlers(calls):
         "resolve_entities": resolve_entities,
         "lookup_facts": lookup_facts,
         "gap_fill": gap_fill,
+        "check_document_metrics": check_document_metrics,
         "normalize_facts": normalize_facts,
         "compare": compare,
         "validate_derived_values": validate_derived_values,
@@ -110,7 +118,9 @@ class ExecutorTests(unittest.TestCase):
         self.assertTrue(result.succeeded, result.error)
         self.assertEqual(calls.count("gap_fill"), 1)
         self.assertIn("evidence", result.artifacts)
-        self.assertEqual(result.retrieval_calls_used, 2)
+        # The unresolved cells trigger the conditional indexed-text scan after
+        # ordinary retrieval, gap fill, and fact extraction.
+        self.assertEqual(result.retrieval_calls_used, 3)
         self.assertEqual(result.llm_calls_used, 2)
 
     def test_gap_fill_can_run_when_facts_artifact_is_absent(self):

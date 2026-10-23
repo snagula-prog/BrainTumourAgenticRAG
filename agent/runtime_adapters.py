@@ -448,10 +448,41 @@ def _compact_synthesis_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
     for key in ("comparison", "aggregate", "ranking", "table_artifact"):
         if key in compact and compact[key] is not None:
             compact[key] = str(compact[key])[:1200]
+    availability = payload.get("document_metric_availability")
+    if isinstance(availability, Mapping):
+        compact["document_metric_availability"] = {
+            "status": availability.get("status"),
+            "scope": availability.get("scope"),
+            "paper_results": [
+                {
+                    "paper_id": paper.get("paper_id"),
+                    "fields": {
+                        str(name): {
+                            key: result.get(key)
+                            for key in ("availability_id", "status", "coverage_status")
+                        }
+                        for name, result in list(paper.get("fields", {}).items())[:8]
+                        if isinstance(result, Mapping)
+                    },
+                }
+                for paper in list(availability.get("paper_results", []))[:8]
+                if isinstance(paper, Mapping)
+            ],
+        }
     return compact
 
 
-def _deterministic_answer_draft(facts: Any, availability: Any, error: Exception) -> dict[str, Any]:
+def _generation_metadata(response: Any) -> dict[str, Any]:
+    """Return the bounded generation data useful for diagnosing structured output."""
+    return {
+        key: getattr(response, key, None)
+        for key in ("model", "elapsed_seconds", "prompt_tokens", "output_tokens", "total_duration_ns", "termination_reason")
+    }
+
+
+def _deterministic_answer_draft(
+    facts: Any, derived_values: Any, error: Exception, *, synthesis_diagnostics: Mapping[str, Any]
+) -> dict[str, Any]:
     """Produce a bounded, support-linked draft when structured synthesis fails."""
     claims: list[dict[str, Any]] = []
     for fact in facts if isinstance(facts, list) else []:
@@ -471,10 +502,38 @@ def _deterministic_answer_draft(facts: Any, availability: Any, error: Exception)
         })
         if len(claims) == 8:
             break
-    caveats = ["Structured synthesis was unavailable; this response was assembled directly from validated extracted facts."]
+    # A completed comparison is still useful when presentation through the LLM
+    # fails. Its values were independently recalculated and will be checked by
+    # ``verify`` using the derived-value ID.
+    if len(claims) < 8:
+        for derived in derived_values if isinstance(derived_values, list) else []:
+            if not isinstance(derived, Mapping) or not derived.get("derived_value_id"):
+                continue
+            field = str(derived.get("field") or "requested metric")
+            left = str(derived.get("left_paper_id") or "the first paper")
+            right = str(derived.get("right_paper_id") or "the second paper")
+            value = derived.get("value")
+            if value is None:
+                continue
+            unit = f" {derived['unit']}" if derived.get("unit") else ""
+            claims.append({
+                "text": f"The {field} difference ({left} minus {right}) is {value}{unit}.",
+                "evidence_ids": [],
+                "derived_value_ids": [str(derived["derived_value_id"])],
+                "availability_ids": [],
+            })
+            if len(claims) == 8:
+                break
+    caveats = ["Structured synthesis was unavailable; this response was assembled directly from validated facts and comparison calculations."]
     if not claims:
         caveats.append("No validated extracted fact was available to state a supported result.")
-    return {"claims": claims, "caveats": caveats, "model": "deterministic_fallback", "synthesis_error": f"{type(error).__name__}: {str(error)[:240]}"}
+    return {
+        "claims": claims,
+        "caveats": caveats,
+        "model": "deterministic_fallback",
+        "synthesis_error": f"{type(error).__name__}: {str(error)[:240]}",
+        "synthesis_diagnostics": dict(synthesis_diagnostics),
+    }
 
 
 def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, Any]:
@@ -1040,6 +1099,7 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             + json.dumps(payload, ensure_ascii=False, default=str)
         )
         last_error: Exception | None = None
+        attempts: list[dict[str, Any]] = []
         # A single retry handles Qwen's occasional truncated/malformed constrained
         # JSON without turning a recoverable presentation failure into a failed run.
         for attempt in range(2):
@@ -1056,10 +1116,39 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                     "claims": claims,
                     "caveats": [str(item)[:280] for item in output.caveats[:6]],
                     "model": getattr(response, "model", "unknown"),
+                    "synthesis_diagnostics": {
+                        "input": {
+                            "facts": len(payload.get("facts", [])),
+                            "evidence": len(payload.get("evidence", [])),
+                            "derived_values": len(payload.get("validated_derived_values", [])),
+                        },
+                        "attempts": attempts + [{"attempt": attempt + 1, "status": "success", **_generation_metadata(response)}],
+                        "fallback_used": False,
+                    },
                 }}
             except Exception as exc:
                 last_error = exc
-        return {"answer_draft": _deterministic_answer_draft(facts, availability, last_error or RuntimeError("unknown synthesis failure"))}
+                attempts.append({
+                    "attempt": attempt + 1,
+                    "status": "failed",
+                    "error": f"{type(exc).__name__}: {str(exc)[:240]}",
+                    **_generation_metadata(getattr(exc, "response", None)),
+                })
+        diagnostics = {
+            "input": {
+                "facts": len(payload.get("facts", [])),
+                "evidence": len(payload.get("evidence", [])),
+                "derived_values": len(payload.get("validated_derived_values", [])),
+            },
+            "attempts": attempts,
+            "fallback_used": True,
+        }
+        return {"answer_draft": _deterministic_answer_draft(
+            facts,
+            derived,
+            last_error or RuntimeError("unknown synthesis failure"),
+            synthesis_diagnostics=diagnostics,
+        )}
 
     def verify(context: StepExecutionContext) -> dict[str, Any]:
         draft = context.get_artifact("answer_draft", {})

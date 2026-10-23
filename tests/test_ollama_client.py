@@ -87,6 +87,22 @@ class OllamaClientTests(unittest.TestCase):
         with self.assertRaises(StructuredOutputError):
             self.client.complete_structured("Return JSON", schema=AnswerSchema)
 
+    @patch("llm.ollama_client.urlopen")
+    def test_length_terminated_structured_output_retains_generation_metadata(self, mock_urlopen):
+        mock_urlopen.return_value = FakeHTTPResponse(
+            {
+                "model": "qwen3:4b-instruct",
+                "message": {"content": '{"answer":"incomplete'},
+                "done_reason": "length",
+                "prompt_eval_count": 17,
+                "eval_count": 512,
+            }
+        )
+        with self.assertRaises(StructuredOutputError) as raised:
+            self.client.complete_structured("Return JSON", schema=AnswerSchema)
+        self.assertEqual(raised.exception.response.termination_reason, "length")
+        self.assertEqual(raised.exception.response.output_tokens, 512)
+
     def test_empty_prompt_is_rejected_before_network_call(self):
         with self.assertRaises(ValueError):
             self.client.complete("  ")

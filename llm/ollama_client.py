@@ -31,6 +31,10 @@ class OllamaAPIError(OllamaError):
 class StructuredOutputError(OllamaError):
     """The model response could not be validated against the requested schema."""
 
+    def __init__(self, message: str, *, response: LLMResponse | None = None) -> None:
+        super().__init__(message)
+        self.response = response
+
 
 def _env_bool(name: str, default: bool) -> bool:
     raw = os.getenv(name)
@@ -106,7 +110,8 @@ class OllamaChatModel:
         if response.termination_reason in {"length", "max_tokens"}:
             raise StructuredOutputError(
                 f"Model {response.model!r} stopped before completing structured output "
-                f"({response.termination_reason})."
+                f"({response.termination_reason}).",
+                response=response,
             )
         try:
             if hasattr(schema, "model_validate_json"):  # Pydantic v2
@@ -116,7 +121,8 @@ class OllamaChatModel:
         except (ValidationError, ValueError, TypeError) as exc:
             raise StructuredOutputError(
                 f"Model {response.model!r} returned output that does not match "
-                f"{schema.__name__}: {exc}. Output prefix: {response.text[:500]!r}"
+                f"{schema.__name__}: {exc}. Output prefix: {response.text[:500]!r}",
+                response=response,
             ) from exc
         return parsed, response
 

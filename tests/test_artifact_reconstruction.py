@@ -1,7 +1,7 @@
 import unittest
 
 from extraction.artifact_reconstruction import LogicalArtifactReconstructor
-from evaluation.canonical_artifact_integrity import CanonicalArtifactIntegrity
+from evaluation.artifact_metrics.canonical_artifact_integrity import CanonicalArtifactIntegrity
 
 
 class ArtifactReconstructionTests(unittest.TestCase):

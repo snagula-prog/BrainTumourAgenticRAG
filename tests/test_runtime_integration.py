@@ -187,6 +187,10 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertEqual(model.synthesis_calls, 2)
         self.assertEqual(result.execution.artifacts["answer_draft"]["model"], "deterministic_fallback")
         self.assertIn("91%", result.answer_bundle["answer"])
+        self.assertIn("-3.0", result.answer_bundle["answer"])
+        diagnostics = result.execution.artifacts["answer_draft"]["synthesis_diagnostics"]
+        self.assertTrue(diagnostics["fallback_used"])
+        self.assertEqual(len(diagnostics["attempts"]), 2)
 
     def test_same_value_is_deduplicated_but_conflicting_value_is_retained(self):
         analysis = self.make_analysis()
