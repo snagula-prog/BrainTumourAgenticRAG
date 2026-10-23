@@ -17,6 +17,7 @@ class LLMResponse:
     prompt_tokens: int | None = None
     output_tokens: int | None = None
     total_duration_ns: int | None = None
+    termination_reason: str | None = None
 
 
 class ChatModel(Protocol):

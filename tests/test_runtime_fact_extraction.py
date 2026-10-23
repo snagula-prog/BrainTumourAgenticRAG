@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from agent.runtime_adapters import _extract_explicit_metric_facts, _select_balanced_evidence
+from agent.runtime_adapters import _extract_explicit_metric_facts, _reconstruct_parent_evidence, _select_balanced_evidence
 
 
 class RuntimeFactExtractionTests(unittest.TestCase):
@@ -55,6 +55,16 @@ class RuntimeFactExtractionTests(unittest.TestCase):
         for item in selected:
             counts[item["paper_id"]] = counts.get(item["paper_id"], 0) + 1
         self.assertEqual(counts, {"paper_010": 6, "paper_011": 6})
+
+    def test_reconstructs_decimal_across_complete_segments_without_prefix_fact(self):
+        evidence = [
+            {"paper_id": "paper_010", "evidence_id": "a", "chunk_id": "c", "segment_index": 0, "segment_count": 2, "text": "Sensitivity is 93"},
+            {"paper_id": "paper_010", "evidence_id": "b", "chunk_id": "c", "segment_index": 1, "segment_count": 2, "text": ".55%"},
+        ]
+        reconstructed = _reconstruct_parent_evidence(evidence)
+        facts = _extract_explicit_metric_facts(reconstructed, ["sensitivity"])
+        self.assertEqual([fact["value"] for fact in facts], ["93.55"])
+        self.assertEqual(reconstructed[0]["source_evidence_ids"], ["a", "b"])
 
 
 if __name__ == "__main__":

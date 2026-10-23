@@ -103,6 +103,11 @@ class OllamaChatModel:
     ) -> tuple[T, LLMResponse]:
         """Generate output constrained by a Pydantic JSON schema and validate it."""
         response = self._chat(prompt, system_prompt=system_prompt, schema=schema)
+        if response.termination_reason in {"length", "max_tokens"}:
+            raise StructuredOutputError(
+                f"Model {response.model!r} stopped before completing structured output "
+                f"({response.termination_reason})."
+            )
         try:
             if hasattr(schema, "model_validate_json"):  # Pydantic v2
                 parsed = schema.model_validate_json(response.text)
@@ -171,6 +176,7 @@ class OllamaChatModel:
             prompt_tokens=_optional_int(data.get("prompt_eval_count")),
             output_tokens=_optional_int(data.get("eval_count")),
             total_duration_ns=_optional_int(data.get("total_duration")),
+            termination_reason=(str(data["done_reason"]) if data.get("done_reason") else None),
         )
 
     def _post_chat_with_compatibility_fallback(self, payload: dict[str, Any]) -> dict[str, Any]:

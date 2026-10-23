@@ -308,6 +308,44 @@ def _extract_explicit_metric_facts(
     return found
 
 
+def _reconstruct_parent_evidence(evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Return safe extraction sources, joining only complete parent segment sets.
+
+    Searching a segment such as ``"Sensitivity is 93"`` independently can create a
+    false 93 when the next segment begins ``".55"``.  Segmented parents are therefore
+    reconstructed before regex extraction; incomplete parents are excluded rather
+    than treated as complete numeric evidence.
+    """
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    standalone: list[dict[str, Any]] = []
+    for item in evidence:
+        metadata = item.get("metadata") if isinstance(item.get("metadata"), Mapping) else {}
+        count = metadata.get("segment_count", item.get("segment_count"))
+        index = metadata.get("segment_index", item.get("segment_index"))
+        chunk_id = item.get("chunk_id")
+        if type(count) is int and count > 1 and type(index) is int and chunk_id:
+            grouped.setdefault((str(item.get("paper_id")), str(chunk_id)), []).append(item)
+        elif not (type(count) is int and count > 1):
+            standalone.append(item)
+    reconstructed = list(standalone)
+    for (_paper_id, chunk_id), parts in grouped.items():
+        counts = {((part.get("metadata") if isinstance(part.get("metadata"), Mapping) else {}).get("segment_count", part.get("segment_count"))) for part in parts}
+        indices = [((part.get("metadata") if isinstance(part.get("metadata"), Mapping) else {}).get("segment_index", part.get("segment_index"))) for part in parts]
+        if len(counts) != 1 or not isinstance(next(iter(counts)), int):
+            continue
+        count = next(iter(counts))
+        if len(parts) != count or sorted(indices) not in (list(range(count)), list(range(1, count + 1))):
+            continue
+        ordered = sorted(parts, key=lambda part: ((part.get("metadata") if isinstance(part.get("metadata"), Mapping) else {}).get("segment_index", part.get("segment_index"))))
+        first = dict(ordered[0])
+        first["text"] = "".join(str(part.get("text", "")) for part in ordered)
+        first["chunk_id"] = chunk_id
+        first["source_evidence_ids"] = [str(part.get("evidence_id")) for part in ordered]
+        first["reconstructed_parent"] = True
+        reconstructed.append(first)
+    return reconstructed
+
+
 def _select_balanced_evidence(
     evidence: list[dict[str, Any]], target_ids: list[str], *, limit: int = 12
 ) -> list[dict[str, Any]]:
@@ -351,7 +389,7 @@ def _paper_missing_requested_fields(
     missing: list[str] = []
     for paper_id in target_ids:
         scoped_evidence = [item for item in evidence if item.get("paper_id") == paper_id]
-        extracted = _extract_explicit_metric_facts(scoped_evidence, fields)
+        extracted = _extract_explicit_metric_facts(_reconstruct_parent_evidence(scoped_evidence), fields)
         found_fields = {str(item.get("field", "")).casefold() for item in extracted}
         if not scoped_evidence or any(_canonical_field(field).casefold() not in found_fields for field in fields):
             missing.append(paper_id)
@@ -392,6 +430,51 @@ def _unit(value: str, unit: str | None) -> str | None:
 
 def _fact_candidate_dict(item: FactCandidate) -> dict[str, Any]:
     return _dump(item)
+
+
+def _compact_synthesis_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Keep Qwen's structured request small enough to finish deterministically."""
+    compact = dict(payload)
+    compact["facts"] = [
+        {key: item.get(key) for key in ("paper_id", "field", "value", "unit", "evidence_id", "source_evidence_ids", "dataset", "split", "condition")}
+        for item in payload.get("facts", [])[:8] if isinstance(item, Mapping)
+    ]
+    compact["evidence"] = [
+        {**{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page")}, "text": str(item.get("text", ""))[:700]}
+        for item in payload.get("evidence", [])[:8] if isinstance(item, Mapping)
+    ]
+    # These can be large execution records; the model only needs their validated,
+    # answerable surface, not every diagnostic field.
+    for key in ("comparison", "aggregate", "ranking", "table_artifact"):
+        if key in compact and compact[key] is not None:
+            compact[key] = str(compact[key])[:1200]
+    return compact
+
+
+def _deterministic_answer_draft(facts: Any, availability: Any, error: Exception) -> dict[str, Any]:
+    """Produce a bounded, support-linked draft when structured synthesis fails."""
+    claims: list[dict[str, Any]] = []
+    for fact in facts if isinstance(facts, list) else []:
+        if not isinstance(fact, Mapping) or not fact.get("evidence_id"):
+            continue
+        value = str(fact.get("value", "")).strip()
+        field = str(fact.get("field", "")).strip()
+        if not value or not field:
+            continue
+        unit = f" {fact['unit']}" if fact.get("unit") else ""
+        paper = str(fact.get("paper_id") or "The paper")
+        claims.append({
+            "text": f"{paper} reports {field} of {value}{unit}.",
+            "evidence_ids": [str(fact["evidence_id"])],
+            "derived_value_ids": [],
+            "availability_ids": [],
+        })
+        if len(claims) == 8:
+            break
+    caveats = ["Structured synthesis was unavailable; this response was assembled directly from validated extracted facts."]
+    if not claims:
+        caveats.append("No validated extracted fact was available to state a supported result.")
+    return {"claims": claims, "caveats": caveats, "model": "deterministic_fallback", "synthesis_error": f"{type(error).__name__}: {str(error)[:240]}"}
 
 
 def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, Any]:
@@ -505,6 +588,30 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                     "paper_ids": target_ids,
                     "paper_results": [],
                     "limitation": "A document-level scan requires explicit paper IDs and requested fields.",
+                },
+                "evidence": current_evidence,
+            }
+
+        # The exhaustive scan is expensive and is only needed for unresolved
+        # named paper/metric cells after normal retrieval, gap fill, and lookup.
+        resolved_pairs = {
+            (str(item.get("paper_id")), _canonical_field(str(item.get("field", ""))).casefold())
+            for item in context.get_artifact("facts", [])
+            if isinstance(item, Mapping) and item.get("paper_id") and item.get("evidence_id")
+        }
+        unresolved = [
+            (paper_id, field) for paper_id in target_ids for field in requested_fields
+            if (paper_id, _canonical_field(field).casefold()) not in resolved_pairs
+        ]
+        if not unresolved:
+            return {
+                "document_metric_availability": {
+                    "status": "not_checked",
+                    "scope": "indexed_chroma_segments_only",
+                    "fields_requested": requested_fields,
+                    "paper_ids": target_ids,
+                    "paper_results": [],
+                    "limitation": "All requested named-paper metric cells were resolved by supported fact lookup; no absence scan was needed.",
                 },
                 "evidence": current_evidence,
             }
@@ -672,10 +779,11 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
 
         # Deterministic fallback looks across *all* retrieved evidence, not only the
         # balanced LLM context window. It extracts only direct label/value pairs.
-        fallback = _extract_explicit_metric_facts(evidence, requested_fields)
+        extraction_evidence = _reconstruct_parent_evidence(evidence)
+        fallback = _extract_explicit_metric_facts(extraction_evidence, requested_fields)
         diagnostics["deterministic_fallback_fact_count"] = len(fallback)
         combined: list[dict[str, Any]] = []
-        seen: set[tuple[Any, ...]] = set()
+        seen: dict[tuple[Any, ...], dict[str, Any]] = {}
 
         def add_fact(raw: Mapping[str, Any]) -> bool:
             paper_id = raw.get("paper_id")
@@ -690,17 +798,24 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             dataset = raw.get("dataset") or context.analysis.constraints.dataset
             split = raw.get("split") or context.analysis.constraints.split
             condition = raw.get("condition") or context.analysis.constraints.condition
+            # Only collapse the same reported value under the same conditions.  Do
+            # not collapse distinct values: those are genuine conflicts that later
+            # comparison/verification must surface as ambiguous.
             signature = (
                 paper_id,
                 field.casefold(),
                 numeric if numeric is not None else value.casefold(),
                 unit,
-                evidence_id,
                 dataset,
                 split,
                 condition,
             )
             if signature in seen:
+                existing = seen[signature]
+                provenance = existing.setdefault("source_evidence_ids", [existing["evidence_id"]])
+                for candidate_id in raw.get("source_evidence_ids", [evidence_id]):
+                    if candidate_id and str(candidate_id) not in provenance:
+                        provenance.append(str(candidate_id))
                 return False
             if context.scope.mode in {"single_paper", "named_papers"} and target_ids and paper_id not in target_ids:
                 return False
@@ -717,12 +832,13 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                 "split": split,
                 "condition": condition,
                 "evidence_id": evidence_id,
+                "source_evidence_ids": list(dict.fromkeys(str(value) for value in raw.get("source_evidence_ids", [evidence_id]) if value)),
                 "quote": str(raw.get("quote", "")).strip(),
                 "page": raw.get("page"),
                 "extraction_method": raw.get("extraction_method", "llm"),
             }
             combined.append(item)
-            seen.add(signature)
+            seen[signature] = item
             return True
 
         for fact in accepted:
@@ -902,7 +1018,7 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                         for field_result in paper["fields"].values()
                         if isinstance(field_result, Mapping) and field_result.get("availability_id")
                     )
-        payload = {
+        payload = _compact_synthesis_payload({
             "query": context.query,
             "fields_requested": list(context.analysis.fields_requested),
             "resolved_entities": context.get_artifact("resolved_entities", []),
@@ -917,19 +1033,33 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             "valid_availability_ids": list(dict.fromkeys(availability_ids)),
             "table_artifact": context.get_artifact("table_artifact"),
             "evidence": [{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page", "text")} for item in selected],
-        }
-        output, _response = model.complete_structured(
-            "Draft answer claims from this execution record. Every factual claim must cite valid evidence IDs and/or validated derived_value_ids.\n"
+        })
+        prompt = (
+            "Draft at most 8 short answer claims from this execution record. Every factual claim must cite valid evidence IDs and/or validated derived_value_ids.\n"
             "For a statement that a requested numeric metric was not found, use availability_ids and explicitly qualify it to the indexed text.\n"
-            + json.dumps(payload, ensure_ascii=False, default=str),
-            schema=SynthesisOutput,
-            system_prompt=SYNTHESIS_SYSTEM,
+            + json.dumps(payload, ensure_ascii=False, default=str)
         )
-        return {"answer_draft": {
-            "claims": [_dump(claim) for claim in output.claims],
-            "caveats": list(output.caveats),
-            "model": getattr(_response, "model", "unknown"),
-        }}
+        last_error: Exception | None = None
+        # A single retry handles Qwen's occasional truncated/malformed constrained
+        # JSON without turning a recoverable presentation failure into a failed run.
+        for attempt in range(2):
+            try:
+                output, response = model.complete_structured(
+                    prompt + ("\nReturn the complete JSON object now; keep every claim under 280 characters." if attempt else ""),
+                    schema=SynthesisOutput,
+                    system_prompt=SYNTHESIS_SYSTEM,
+                )
+                claims = [_dump(claim) for claim in output.claims[:8]]
+                for claim in claims:
+                    claim["text"] = str(claim.get("text", ""))[:280]
+                return {"answer_draft": {
+                    "claims": claims,
+                    "caveats": [str(item)[:280] for item in output.caveats[:6]],
+                    "model": getattr(response, "model", "unknown"),
+                }}
+            except Exception as exc:
+                last_error = exc
+        return {"answer_draft": _deterministic_answer_draft(facts, availability, last_error or RuntimeError("unknown synthesis failure"))}
 
     def verify(context: StepExecutionContext) -> dict[str, Any]:
         draft = context.get_artifact("answer_draft", {})

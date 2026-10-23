@@ -30,10 +30,11 @@ class DeterministicPlanner:
             and bool(analysis.fields_requested)
             and template not in {"T_META", "T_ARTIFACT", "T_CLARIFY", "T_DECLINE"}
         )
-        if explicitly_scoped and "check_document_metrics" not in operations:
-            insertion_after = "gap_fill" if "gap_fill" in operations else "search_evidence"
-            if insertion_after in operations:
-                operations.insert(operations.index(insertion_after) + 1, "check_document_metrics")
+        # The scan is an absence/gap diagnostic, not a replacement for ordinary fact
+        # lookup.  Run it only after both retrieval and fact extraction have had a
+        # chance to resolve the requested paper/metric cells.
+        if explicitly_scoped and "lookup_facts" in operations and "check_document_metrics" not in operations:
+            operations.insert(operations.index("lookup_facts") + 1, "check_document_metrics")
         steps = self._build_steps(operations)
         budget = self._budget_for(template, len(steps))
         scope = analysis.scope

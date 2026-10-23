@@ -121,6 +121,15 @@ class DocumentMetricCheckTests(unittest.TestCase):
         self.assertEqual(field["status"], "unknown_incomplete_index")
         self.assertNotEqual(field["status"], "not_found_in_indexed_text")
 
+    def test_complete_scan_matches_decimal_across_parent_segments(self) -> None:
+        segments = [
+            {"segment_id": "s1", "paper_id": "paper_010", "chunk_id": "c", "segment_index": 0, "segment_count": 2, "source_sha256": "x", "text": "Sensitivity is 93", "metadata": {}},
+            {"segment_id": "s2", "paper_id": "paper_010", "chunk_id": "c", "segment_index": 1, "segment_count": 2, "source_sha256": "x", "text": ".55%", "metadata": {}},
+        ]
+        result = self.make_checker(FakeMetricScanRetrieval(segments, "complete_indexed_coverage")).execute({"paper_ids": ["paper_010"], "fields": ["sensitivity"]})
+        self.assertEqual(result["document_metric_availability"]["paper_results"][0]["fields"]["sensitivity"]["status"], "numeric_value_evidence_found")
+        self.assertIn("s1", result["evidence"][0]["source_segment_ids"])
+
 
 class FakeCollection:
     def __init__(self, records: list[dict[str, Any]]) -> None:
@@ -271,6 +280,15 @@ class RuntimeAvailabilityVerificationTests(unittest.TestCase):
         self.assertEqual(verified["status"], "verified")
         self.assertEqual(verified["availability_ids"], [availability_id])
 
+    def test_document_scan_is_skipped_when_fact_lookup_resolved_every_cell(self) -> None:
+        handlers = self.handlers_for("complete_indexed_coverage")
+        context = FakeRuntimeContext(paper_ids=["paper_011"], fields=["sensitivity"], artifacts={
+            "facts": [{"paper_id": "paper_011", "field": "sensitivity", "value": "91", "evidence_id": "ev1"}],
+        })
+        checked = handlers["check_document_metrics"](context)
+        self.assertEqual(checked["document_metric_availability"]["status"], "not_checked")
+        self.assertEqual(checked["document_metric_availability"]["paper_results"], [])
+
     def test_verifier_rejects_absence_when_index_coverage_is_incomplete(self) -> None:
         handlers = self.handlers_for("incomplete_indexed_coverage")
         context = FakeRuntimeContext(paper_ids=["paper_011"], fields=["sensitivity"])
@@ -371,8 +389,7 @@ class PlannerMetricCheckTests(unittest.TestCase):
         plan = DeterministicPlanner().plan(FakePlannerAnalysis("named_papers", ["paper_010", "paper_011"]))
         operations = [step.operation for step in plan.steps]
         self.assertIn("check_document_metrics", operations)
-        self.assertGreater(operations.index("check_document_metrics"), operations.index("gap_fill"))
-        self.assertLess(operations.index("check_document_metrics"), operations.index("lookup_facts"))
+        self.assertGreater(operations.index("check_document_metrics"), operations.index("lookup_facts"))
         self.assertIn("document_metric_availability", plan.steps[operations.index("check_document_metrics")].produces)
 
     def test_unscoped_comparison_does_not_run_document_scan(self) -> None:

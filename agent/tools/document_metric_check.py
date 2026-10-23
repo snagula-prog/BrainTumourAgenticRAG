@@ -138,6 +138,31 @@ class DocumentMetricCheckTool:
         pages = source.get("pages")
         return pages[0] if isinstance(pages, list) and pages else None
 
+    @staticmethod
+    def _complete_parent_chunks(segments: list[Any]) -> list[Mapping[str, Any]]:
+        """Reassemble only complete parent chunks before matching metric/value pairs."""
+        groups: dict[str, list[Mapping[str, Any]]] = {}
+        for segment in segments:
+            if isinstance(segment, Mapping) and segment.get("chunk_id"):
+                groups.setdefault(str(segment["chunk_id"]), []).append(segment)
+        parents: list[Mapping[str, Any]] = []
+        for chunk_id, parts in groups.items():
+            counts = {part.get("segment_count") for part in parts}
+            indices = [part.get("segment_index") for part in parts]
+            if len(counts) != 1 or not isinstance(next(iter(counts)), int):
+                continue
+            count = next(iter(counts))
+            if len(parts) != count or sorted(indices) not in (list(range(count)), list(range(1, count + 1))):
+                continue
+            ordered = sorted(parts, key=lambda item: int(item["segment_index"]))
+            first = dict(ordered[0])
+            first["segment_id"] = "parent:" + chunk_id
+            first["text"] = "".join(str(item.get("text", "")) for item in ordered)
+            first["source_segment_ids"] = [str(item.get("segment_id")) for item in ordered]
+            first["reconstructed_parent"] = True
+            parents.append(first)
+        return parents
+
     def execute(self, arguments: dict[str, Any]) -> dict[str, Any]:
         paper_ids, fields = self._validate_arguments(arguments)
         get_segments = getattr(self._retrieval_tool, "get_indexed_segments", None)
@@ -188,6 +213,10 @@ class DocumentMetricCheckTool:
             }
             coverage_status = str(coverage.get("status", "incomplete_indexed_coverage"))
             title = self._paper_title_resolver(paper_id)
+            # A numeric expression may straddle Chroma segments.  Match only the
+            # reconstructed complete parent so a prefix such as "93" never competes
+            # with the supported "93.55" value.
+            match_segments = self._complete_parent_chunks(segments)
 
             by_field: dict[str, dict[str, Any]] = {}
             ranked_matches: list[tuple[int, int, str, Mapping[str, Any]]] = []
@@ -196,7 +225,7 @@ class DocumentMetricCheckTool:
                 mention_matches: list[Mapping[str, Any]] = []
                 numeric_matches: list[Mapping[str, Any]] = []
                 terms_found: set[str] = set()
-                for segment in segments:
+                for segment in match_segments:
                     if not isinstance(segment, Mapping):
                         continue
                     text = segment.get("text")
@@ -265,6 +294,7 @@ class DocumentMetricCheckTool:
                     "paper_title": title,
                     "chunk_id": chunk_id,
                     "segment_id": segment_id,
+                    "source_segment_ids": list(segment.get("source_segment_ids", [segment_id])),
                     "page": self._page(segment),
                     "text": str(segment.get("text", "")).strip(),
                     "metadata": source_metadata,
@@ -274,7 +304,7 @@ class DocumentMetricCheckTool:
             for field, field_result in by_field.items():
                 pattern = self._metric_pattern_factory(field)
                 candidate_segments = []
-                for segment in segments:
+                for segment in match_segments:
                     if not isinstance(segment, Mapping):
                         continue
                     text = segment.get("text")

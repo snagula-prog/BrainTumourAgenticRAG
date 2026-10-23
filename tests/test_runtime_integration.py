@@ -108,6 +108,17 @@ class BadNumberModel(FakeModel):
         return super().complete_structured(prompt, schema=schema, system_prompt=system_prompt)
 
 
+class MalformedSynthesisModel(FakeModel):
+    def __init__(self):
+        self.synthesis_calls = 0
+
+    def complete_structured(self, prompt, *, schema, system_prompt=None):
+        if schema is SynthesisOutput:
+            self.synthesis_calls += 1
+            raise ValueError("unterminated JSON response")
+        return super().complete_structured(prompt, schema=schema, system_prompt=system_prompt)
+
+
 class RuntimeIntegrationTests(unittest.TestCase):
     @staticmethod
     def make_analysis():
@@ -164,6 +175,30 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertFalse(bundle["verified"])
         self.assertNotIn("99%", bundle["answer"])
         self.assertTrue(any(item["reason"] == "numeric_value_not_found_in_support" for item in bundle["verification"]["rejected_claims"]))
+
+    def test_malformed_synthesis_retries_once_then_uses_supported_fallback(self):
+        analysis = self.make_analysis()
+        model = MalformedSynthesisModel()
+        result = ResearchAgent(
+            FakeAnalyzer(analysis), DeterministicPlanner(),
+            Executor(build_runtime_handlers(FakeRetrievalTool(), model)),
+        ).run("Compare sensitivity in paper_010 and paper_011")
+        self.assertTrue(result.execution.succeeded, result.execution.error)
+        self.assertEqual(model.synthesis_calls, 2)
+        self.assertEqual(result.execution.artifacts["answer_draft"]["model"], "deterministic_fallback")
+        self.assertIn("91%", result.answer_bundle["answer"])
+
+    def test_same_value_is_deduplicated_but_conflicting_value_is_retained(self):
+        analysis = self.make_analysis()
+        retrieval = FakeRetrievalTool()
+        retrieval.records.extend([
+            {"paper_id": "paper_010", "chunk_id": "duplicate", "text": "Sensitivity was 91% on the test set."},
+            {"paper_id": "paper_010", "chunk_id": "conflict", "text": "Sensitivity was 92% on the test set."},
+        ])
+        result = ResearchAgent(FakeAnalyzer(analysis), DeterministicPlanner(), Executor(build_runtime_handlers(retrieval, FakeModel()))).run("Compare sensitivity")
+        first_paper = [fact for fact in result.execution.artifacts["facts"] if fact["paper_id"] == "paper_010"]
+        self.assertEqual(sorted(fact["value"] for fact in first_paper), ["91%", "92"])
+        self.assertEqual(result.execution.artifacts["comparison"]["rows"][0]["values"]["paper_010"]["status"], "ambiguous_multiple_values")
 
     def test_gap_fill_retrieves_when_requested_field_is_missing(self):
         analysis = self.make_analysis()
