@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import unittest
 
-from agent.runtime_adapters import _extract_explicit_metric_facts, _reconstruct_parent_evidence, _select_balanced_evidence
+from agent.runtime_adapters import (
+    _deterministic_incomplete_comparison_draft,
+    _extract_explicit_metric_facts,
+    _reconstruct_parent_evidence,
+    _select_balanced_evidence,
+)
 
 
 class RuntimeFactExtractionTests(unittest.TestCase):
@@ -65,6 +70,30 @@ class RuntimeFactExtractionTests(unittest.TestCase):
         facts = _extract_explicit_metric_facts(reconstructed, ["sensitivity"])
         self.assertEqual([fact["value"] for fact in facts], ["93.55"])
         self.assertEqual(reconstructed[0]["source_evidence_ids"], ["a", "b"])
+
+    def test_incomplete_comparison_keeps_supported_facts_and_uses_coverage_ids(self):
+        facts = [
+            {"paper_id": "paper_010", "field": "sensitivity", "value": "93.55", "unit": None, "evidence_id": "ev10"},
+            {"paper_id": "paper_010", "field": "specificity", "value": "69.79", "unit": None, "evidence_id": "ev10"},
+        ]
+        availability = {
+            "paper_results": [{
+                "paper_id": "paper_011",
+                "fields": {
+                    "sensitivity": {"status": "not_found_in_indexed_text", "coverage_status": "complete_indexed_coverage", "availability_id": "av_sens"},
+                    "specificity": {"status": "not_found_in_indexed_text", "coverage_status": "complete_indexed_coverage", "availability_id": "av_spec"},
+                },
+            }],
+        }
+        draft = _deterministic_incomplete_comparison_draft(
+            facts, availability, {"status": "insufficient_comparable_data", "paper_ids": ["paper_010", "paper_011"]}
+        )
+        self.assertEqual(draft["model"], "deterministic_incomplete_comparison")
+        self.assertEqual(len(draft["claims"]), 3)
+        summary = draft["claims"][-1]
+        self.assertIn("not a complete two-paper numeric comparison", summary["text"])
+        self.assertEqual(summary["evidence_ids"], ["ev10"])
+        self.assertEqual(summary["availability_ids"], ["av_sens", "av_spec"])
 
 
 if __name__ == "__main__":

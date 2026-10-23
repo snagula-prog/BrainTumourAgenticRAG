@@ -40,15 +40,15 @@ class FactExtractionOutput(BaseModel):
 
 
 class AnswerClaim(BaseModel):
-    text: str = Field(min_length=1)
-    evidence_ids: list[str] = Field(default_factory=list)
-    derived_value_ids: list[str] = Field(default_factory=list)
-    availability_ids: list[str] = Field(default_factory=list)
+    text: str = Field(min_length=1, max_length=200)
+    evidence_ids: list[str] = Field(default_factory=list, max_length=4)
+    derived_value_ids: list[str] = Field(default_factory=list, max_length=2)
+    availability_ids: list[str] = Field(default_factory=list, max_length=4)
 
 
 class SynthesisOutput(BaseModel):
-    claims: list[AnswerClaim] = Field(default_factory=list)
-    caveats: list[str] = Field(default_factory=list)
+    claims: list[AnswerClaim] = Field(default_factory=list, max_length=4)
+    caveats: list[str] = Field(default_factory=list, max_length=2)
 
 
 FACT_EXTRACTION_SYSTEM = """You extract structured research facts from supplied evidence snippets.
@@ -58,7 +58,7 @@ For each fact, include the evidence_id and an exact verbatim quote copied from t
 Use only requested fields. Preserve reported units and values exactly as text.
 Return an empty facts list when the requested value is absent. Do not compare or calculate.""".strip()
 
-SYNTHESIS_SYSTEM = """You write a concise answer for a research-paper assistant using only supplied artifacts.
+SYNTHESIS_SYSTEM = """You write a compact answer for a research-paper assistant using only supplied artifacts.
 Never invent metrics, results, paper details, or citations. For each factual claim, attach exact IDs from
 valid_evidence_ids and/or valid_derived_value_ids. For metric-availability/absence claims, attach the relevant
 availability_ids from valid_availability_ids; those IDs can support such a claim without a source-passage ID.
@@ -437,11 +437,11 @@ def _compact_synthesis_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
     compact = dict(payload)
     compact["facts"] = [
         {key: item.get(key) for key in ("paper_id", "field", "value", "unit", "evidence_id", "source_evidence_ids", "dataset", "split", "condition")}
-        for item in payload.get("facts", [])[:8] if isinstance(item, Mapping)
+        for item in payload.get("facts", [])[:4] if isinstance(item, Mapping)
     ]
     compact["evidence"] = [
-        {**{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page")}, "text": str(item.get("text", ""))[:700]}
-        for item in payload.get("evidence", [])[:8] if isinstance(item, Mapping)
+        {**{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page")}, "text": str(item.get("text", ""))[:320]}
+        for item in payload.get("evidence", [])[:4] if isinstance(item, Mapping)
     ]
     # These can be large execution records; the model only needs their validated,
     # answerable surface, not every diagnostic field.
@@ -461,11 +461,11 @@ def _compact_synthesis_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
                             key: result.get(key)
                             for key in ("availability_id", "status", "coverage_status")
                         }
-                        for name, result in list(paper.get("fields", {}).items())[:8]
+                        for name, result in list(paper.get("fields", {}).items())[:4]
                         if isinstance(result, Mapping)
                     },
                 }
-                for paper in list(availability.get("paper_results", []))[:8]
+                for paper in list(availability.get("paper_results", []))[:4]
                 if isinstance(paper, Mapping)
             ],
         }
@@ -477,6 +477,89 @@ def _generation_metadata(response: Any) -> dict[str, Any]:
     return {
         key: getattr(response, key, None)
         for key in ("model", "elapsed_seconds", "prompt_tokens", "output_tokens", "total_duration_ns", "termination_reason")
+    }
+
+
+def _deterministic_incomplete_comparison_draft(
+    facts: Any, availability: Any, comparison: Any
+) -> dict[str, Any] | None:
+    """Render a short, fully ledger-backed answer when no numeric comparison exists."""
+    if not isinstance(comparison, Mapping) or comparison.get("status") != "insufficient_comparable_data":
+        return None
+
+    claims: list[dict[str, Any]] = []
+    fact_evidence_ids: list[str] = []
+    fact_papers: set[str] = set()
+    for fact in facts if isinstance(facts, list) else []:
+        if not isinstance(fact, Mapping) or not fact.get("evidence_id"):
+            continue
+        field = str(fact.get("field") or "").strip()
+        value = str(fact.get("value") or "").strip()
+        paper_id = str(fact.get("paper_id") or "").strip()
+        if not field or not value or not paper_id:
+            continue
+        unit = f" {fact['unit']}" if fact.get("unit") else ""
+        evidence_id = str(fact["evidence_id"])
+        claims.append({
+            "text": f"{paper_id} reports {field} of {value}{unit}.",
+            "evidence_ids": [evidence_id],
+            "derived_value_ids": [],
+            "availability_ids": [],
+        })
+        fact_evidence_ids.append(evidence_id)
+        fact_papers.add(paper_id)
+        if len(claims) == 3:
+            break
+
+    conclusive_absences: dict[str, list[tuple[str, str]]] = {}
+    if isinstance(availability, Mapping):
+        for paper in availability.get("paper_results", []):
+            if not isinstance(paper, Mapping) or not isinstance(paper.get("fields"), Mapping):
+                continue
+            paper_id = str(paper.get("paper_id") or "")
+            for field, result in paper["fields"].items():
+                if not isinstance(result, Mapping):
+                    continue
+                if result.get("coverage_status") == "complete_indexed_coverage" and result.get("status") in {
+                    "not_found_in_indexed_text", "metric_mentioned_no_explicit_value_found",
+                } and result.get("availability_id"):
+                    conclusive_absences.setdefault(paper_id, []).append((str(field), str(result["availability_id"])))
+
+    requested_papers = [str(item) for item in comparison.get("paper_ids", []) if item]
+    missing_papers = [paper_id for paper_id in requested_papers if paper_id not in fact_papers]
+    for paper_id in missing_papers:
+        missing = conclusive_absences.get(paper_id, [])
+        if not missing:
+            continue
+        fields = " and ".join(field for field, _availability_id in missing[:2])
+        availability_ids = [availability_id for _field, availability_id in missing[:2]]
+        claims.append({
+            "text": (
+                f"This is not a complete two-paper numeric comparison: supported values were found for "
+                f"{', '.join(sorted(fact_papers))}, but no explicit numeric {fields} values were found "
+                f"in indexed text for {paper_id}."
+            ),
+            "evidence_ids": list(dict.fromkeys(fact_evidence_ids))[:4],
+            "derived_value_ids": [],
+            "availability_ids": availability_ids,
+        })
+        break
+
+    caveats: list[str] = []
+    if not any(claim["availability_ids"] for claim in claims):
+        caveats.append(
+            "No complete two-paper numeric comparison was established; indexed-text coverage did not conclusively resolve every requested metric."
+        )
+    return {
+        "claims": claims[:4],
+        "caveats": caveats,
+        "model": "deterministic_incomplete_comparison",
+        "synthesis_diagnostics": {
+            "input": {"facts": len(facts) if isinstance(facts, list) else 0, "evidence": 0, "derived_values": 0},
+            "attempts": [],
+            "fallback_used": True,
+            "reason": "insufficient_comparable_data",
+        },
     }
 
 
@@ -1068,6 +1151,12 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
         remaining = [item for item in all_evidence if str(item.get("evidence_id")) not in selected_ids]
         selected.extend(_select_balanced_evidence(remaining, _target_ids(context), limit=max(0, 12 - len(selected))))
         derived = [item for item in context.get_artifact("validated_derived_values", []) if isinstance(item, dict) and item.get("validated")]
+        comparison = context.get_artifact("comparison")
+        deterministic_comparison = _deterministic_incomplete_comparison_draft(
+            facts, availability, comparison
+        )
+        if deterministic_comparison is not None:
+            return {"answer_draft": deterministic_comparison}
         availability_ids = []
         if isinstance(availability, Mapping):
             for paper in availability.get("paper_results", []):
@@ -1082,19 +1171,22 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             "fields_requested": list(context.analysis.fields_requested),
             "resolved_entities": context.get_artifact("resolved_entities", []),
             "facts": facts,
-            "comparison": context.get_artifact("comparison"),
+            "comparison": comparison,
             "aggregate": context.get_artifact("aggregate"),
             "ranking": context.get_artifact("ranking"),
             "validated_derived_values": derived,
             "document_metric_availability": availability,
-            "valid_evidence_ids": [str(item["evidence_id"]) for item in selected if item.get("evidence_id")],
+            "valid_evidence_ids": list(dict.fromkeys(
+                [str(item["evidence_id"]) for item in selected if item.get("evidence_id")]
+                + [str(fact["evidence_id"]) for fact in facts if isinstance(fact, Mapping) and fact.get("evidence_id")]
+            )),
             "valid_derived_value_ids": [str(item["derived_value_id"]) for item in derived if item.get("derived_value_id")],
             "valid_availability_ids": list(dict.fromkeys(availability_ids)),
             "table_artifact": context.get_artifact("table_artifact"),
-            "evidence": [{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page", "text")} for item in selected],
+            "evidence": [{key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page", "text")} for item in selected[:4]],
         })
         prompt = (
-            "Draft at most 8 short answer claims from this execution record. Every factual claim must cite valid evidence IDs and/or validated derived_value_ids.\n"
+            "Draft at most 4 non-redundant claims, each under 200 characters. Every factual claim must cite valid evidence IDs and/or validated derived_value_ids.\n"
             "For a statement that a requested numeric metric was not found, use availability_ids and explicitly qualify it to the indexed text.\n"
             + json.dumps(payload, ensure_ascii=False, default=str)
         )
@@ -1109,12 +1201,12 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                     schema=SynthesisOutput,
                     system_prompt=SYNTHESIS_SYSTEM,
                 )
-                claims = [_dump(claim) for claim in output.claims[:8]]
+                claims = [_dump(claim) for claim in output.claims[:4]]
                 for claim in claims:
-                    claim["text"] = str(claim.get("text", ""))[:280]
+                    claim["text"] = str(claim.get("text", ""))[:200]
                 return {"answer_draft": {
                     "claims": claims,
-                    "caveats": [str(item)[:280] for item in output.caveats[:6]],
+                    "caveats": [str(item)[:200] for item in output.caveats[:2]],
                     "model": getattr(response, "model", "unknown"),
                     "synthesis_diagnostics": {
                         "input": {
