@@ -92,6 +92,7 @@ class RuntimeFactExtractionTests(unittest.TestCase):
         self.assertEqual(len(draft["claims"]), 3)
         summary = draft["claims"][-1]
         self.assertIn("not a complete two-paper numeric comparison", summary["text"])
+        self.assertNotIn("paper_010", summary["text"])
         self.assertEqual(summary["evidence_ids"], ["ev10"])
         self.assertEqual(summary["availability_ids"], ["av_sens", "av_spec"])
 

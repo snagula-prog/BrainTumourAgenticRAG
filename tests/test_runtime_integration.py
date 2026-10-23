@@ -158,6 +158,10 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertTrue(result.answer_bundle["verified"])
         self.assertIn("91%", result.answer_bundle["answer"])
         self.assertIn("94%", result.answer_bundle["answer"])
+        timing = result.execution.artifacts["facts_diagnostics"]["timing"]
+        self.assertIn("llm_wall_seconds", timing)
+        self.assertIn("llm_validation_seconds", timing)
+        self.assertIn("deterministic_fallback_seconds", timing)
         self.assertGreaterEqual(len(retrieval.calls), 1)
 
     def test_verifier_rejects_unsupported_numeric_claim(self):

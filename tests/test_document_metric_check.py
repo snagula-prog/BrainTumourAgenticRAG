@@ -280,6 +280,77 @@ class RuntimeAvailabilityVerificationTests(unittest.TestCase):
         self.assertEqual(verified["status"], "verified")
         self.assertEqual(verified["availability_ids"], [availability_id])
 
+    def test_verifier_accepts_supported_metric_value(self) -> None:
+        handlers = self.handlers_for("complete_indexed_coverage")
+        context = FakeRuntimeContext(paper_ids=["paper_010"], fields=["sensitivity"], artifacts={
+            "evidence": [{
+                "evidence_id": "ev10",
+                "paper_id": "paper_010",
+                "text": "Sensitivity is 93.55.",
+            }],
+            "answer_draft": {
+                "claims": [{
+                    "text": "paper_010 reports sensitivity of 93.55.",
+                    "evidence_ids": ["ev10"],
+                    "derived_value_ids": [],
+                    "availability_ids": [],
+                }],
+                "caveats": [],
+            },
+        })
+        verified = handlers["verify"](context)["answer_bundle"]
+        self.assertTrue(verified["verified"])
+        self.assertEqual(verified["verification"]["accepted_claim_count"], 1)
+
+    def test_verifier_rejects_unknown_availability_id(self) -> None:
+        handlers = self.handlers_for("complete_indexed_coverage")
+        context = FakeRuntimeContext(paper_ids=["paper_011"], fields=["sensitivity"])
+        checked = handlers["check_document_metrics"](context)
+        context._artifacts.update(checked)
+        context._artifacts["answer_draft"] = {
+            "claims": [{
+                "text": "No explicit numeric sensitivity value was found in indexed text for paper_011.",
+                "availability_ids": ["av_unknown"],
+                "evidence_ids": [],
+                "derived_value_ids": [],
+            }],
+            "caveats": [],
+        }
+        verified = handlers["verify"](context)["answer_bundle"]
+        self.assertFalse(verified["verified"])
+        self.assertEqual(verified["verification"]["rejected_claims"][0]["reason"], "missing_or_unknown_support_ids")
+
+    def test_verifier_accepts_comparison_summary_with_only_missing_paper_coverage_ids(self) -> None:
+        handlers = self.handlers_for("complete_indexed_coverage")
+        context = FakeRuntimeContext(paper_ids=["paper_010", "paper_011"], fields=["sensitivity", "specificity"], artifacts={
+            "evidence": [{
+                "evidence_id": "ev10",
+                "paper_id": "paper_010",
+                "text": "Sensitivity is 93.55 and specificity is 69.79.",
+            }],
+            "document_metric_availability": {
+                "paper_results": [{
+                    "paper_id": "paper_011",
+                    "fields": {
+                        "sensitivity": {"field": "sensitivity", "availability_id": "av_sens", "status": "not_found_in_indexed_text", "coverage_status": "complete_indexed_coverage"},
+                        "specificity": {"field": "specificity", "availability_id": "av_spec", "status": "not_found_in_indexed_text", "coverage_status": "complete_indexed_coverage"},
+                    },
+                }],
+            },
+            "answer_draft": {
+                "claims": [{
+                    "text": "This is not a complete two-paper numeric comparison: the other paper has supported values, but no explicit numeric sensitivity and specificity values were found in indexed text for paper_011.",
+                    "evidence_ids": ["ev10"],
+                    "derived_value_ids": [],
+                    "availability_ids": ["av_sens", "av_spec"],
+                }],
+                "caveats": [],
+            },
+        })
+        verified = handlers["verify"](context)["answer_bundle"]
+        self.assertTrue(verified["verified"])
+        self.assertEqual(verified["verification"]["accepted_claim_count"], 1)
+
     def test_document_scan_is_skipped_when_fact_lookup_resolved_every_cell(self) -> None:
         handlers = self.handlers_for("complete_indexed_coverage")
         context = FakeRuntimeContext(paper_ids=["paper_011"], fields=["sensitivity"], artifacts={
