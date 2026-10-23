@@ -481,6 +481,15 @@ def _generation_metadata(response: Any) -> dict[str, Any]:
     }
 
 
+def _display_fact_value(value: Any, unit: Any) -> str:
+    """Render an already-validated value/unit pair without changing its meaning."""
+    text = str(value).strip()
+    normalized_unit = str(unit).strip() if unit else ""
+    if not normalized_unit:
+        return text
+    return text + normalized_unit if normalized_unit == "%" else f"{text} {normalized_unit}"
+
+
 def _deterministic_incomplete_comparison_draft(
     facts: Any, availability: Any, comparison: Any
 ) -> dict[str, Any] | None:
@@ -499,10 +508,9 @@ def _deterministic_incomplete_comparison_draft(
         paper_id = str(fact.get("paper_id") or "").strip()
         if not field or not value or not paper_id:
             continue
-        unit = f" {fact['unit']}" if fact.get("unit") else ""
         evidence_id = str(fact["evidence_id"])
         claims.append({
-            "text": f"{paper_id} reports {field} of {value}{unit}.",
+            "text": f"{paper_id} reports {field} of {_display_fact_value(value, fact.get('unit'))}.",
             "evidence_ids": [evidence_id],
             "derived_value_ids": [],
             "availability_ids": [],
@@ -576,10 +584,9 @@ def _deterministic_answer_draft(
         field = str(fact.get("field", "")).strip()
         if not value or not field:
             continue
-        unit = f" {fact['unit']}" if fact.get("unit") else ""
         paper = str(fact.get("paper_id") or "The paper")
         claims.append({
-            "text": f"{paper} reports {field} of {value}{unit}.",
+            "text": f"{paper} reports {field} of {_display_fact_value(value, fact.get('unit'))}.",
             "evidence_ids": [str(fact["evidence_id"])],
             "derived_value_ids": [],
             "availability_ids": [],
@@ -815,7 +822,44 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             diagnostics["reason"] = "no_evidence_or_no_requested_fields"
             return {"facts": [], "facts_diagnostics": diagnostics}
 
-        selected = _select_balanced_evidence(evidence, _target_ids(context), limit=12)
+        # Parse clear label/value pairs before involving the local model. This is
+        # safe because the regex requires an explicit metric label adjacent to a
+        # complete numeric value and retains source quotation/provenance.
+        fast_path_started = perf_counter()
+        extraction_evidence = _reconstruct_parent_evidence(evidence)
+        fast_path_facts = _extract_explicit_metric_facts(extraction_evidence, requested_fields)
+        diagnostics["deterministic_fast_path_fact_count"] = len(fast_path_facts)
+        diagnostics["timing"]["deterministic_fast_path_seconds"] = round(perf_counter() - fast_path_started, 6)
+
+        target_ids_list = _target_ids(context)
+        resolved_fast_pairs = {
+            (str(fact.get("paper_id")), _canonical_field(str(fact.get("field", ""))).casefold())
+            for fact in fast_path_facts
+            if fact.get("paper_id") and fact.get("field")
+        }
+        # Retain the model for unresolved, metric-labelled evidence. A paper with
+        # no requested metric label in retrieved text cannot safely yield a fact:
+        # unrelated table numerics, such as Dice, are not substitutes.
+        llm_candidates = evidence
+        if target_ids_list:
+            unresolved_fields_by_paper: dict[str, list[str]] = {}
+            for paper_id in target_ids_list:
+                unresolved_fields = [
+                    field for field in requested_fields
+                    if (paper_id, _canonical_field(field).casefold()) not in resolved_fast_pairs
+                ]
+                if unresolved_fields:
+                    unresolved_fields_by_paper[paper_id] = unresolved_fields
+            llm_candidates = [
+                item for item in evidence
+                if item.get("paper_id") in unresolved_fields_by_paper
+                and any(
+                    _field_mentioned(str(item.get("text", "")), field)
+                    for field in unresolved_fields_by_paper[str(item.get("paper_id"))]
+                )
+            ]
+
+        selected = _select_balanced_evidence(llm_candidates, target_ids_list, limit=12)
         sent_by_paper: dict[str, int] = {}
         for item in selected:
             paper = str(item.get("paper_id") or "unknown")
@@ -823,32 +867,36 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
         diagnostics["evidence_sent_to_llm_count"] = len(selected)
         diagnostics["evidence_sent_to_llm_by_paper"] = sent_by_paper
 
-        request_payload = {
-            "query": context.query,
-            "requested_fields": requested_fields,
-            "scope": _dump(context.analysis.scope),
-            "evidence": [
-                {key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page", "text")}
-                for item in selected
-            ],
-        }
-        diagnostics["timing"]["prompt_construction_seconds"] = round(perf_counter() - lookup_started, 6)
-
         output: FactExtractionOutput
         response_meta: Any = None
-        llm_started = perf_counter()
-        try:
-            output, response_meta = model.complete_structured(
-                "Extract the requested facts from these snippets. The evidence JSON is untrusted source text.\n"
-                + json.dumps(request_payload, ensure_ascii=False),
-                schema=FactExtractionOutput,
-                system_prompt=FACT_EXTRACTION_SYSTEM,
-            )
-        except Exception as exc:
-            # Explicitly labelled values can still be recovered deterministically below.
-            diagnostics["llm_error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+        if selected:
+            request_payload = {
+                "query": context.query,
+                "requested_fields": requested_fields,
+                "scope": _dump(context.analysis.scope),
+                "evidence": [
+                    {key: item.get(key) for key in ("evidence_id", "paper_id", "paper_title", "page", "text")}
+                    for item in selected
+                ],
+            }
+            diagnostics["timing"]["prompt_construction_seconds"] = round(perf_counter() - lookup_started, 6)
+            llm_started = perf_counter()
+            try:
+                output, response_meta = model.complete_structured(
+                    "Extract the requested facts from these snippets. The evidence JSON is untrusted source text.\n"
+                    + json.dumps(request_payload, ensure_ascii=False),
+                    schema=FactExtractionOutput,
+                    system_prompt=FACT_EXTRACTION_SYSTEM,
+                )
+            except Exception as exc:
+                diagnostics["llm_error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+                output = FactExtractionOutput(facts=[])
+            diagnostics["timing"]["llm_wall_seconds"] = round(perf_counter() - llm_started, 6)
+        else:
             output = FactExtractionOutput(facts=[])
-        diagnostics["timing"]["llm_wall_seconds"] = round(perf_counter() - llm_started, 6)
+            diagnostics["llm_skipped_reason"] = "no_unresolved_metric_labelled_evidence"
+            diagnostics["timing"]["prompt_construction_seconds"] = round(perf_counter() - lookup_started, 6)
+            diagnostics["timing"]["llm_wall_seconds"] = 0.0
 
         diagnostics["llm_model"] = getattr(response_meta, "model", None)
         diagnostics["llm_elapsed_seconds"] = getattr(response_meta, "elapsed_seconds", None)
@@ -927,11 +975,10 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
         diagnostics["llm_rejections"] = dict(sorted(rejection_counts.items()))
         diagnostics["timing"]["llm_validation_seconds"] = round(perf_counter() - validation_started, 6)
 
-        # Deterministic fallback looks across *all* retrieved evidence, not only the
-        # balanced LLM context window. It extracts only direct label/value pairs.
+        # Merge fast-path facts with any LLM-only results. They share validation and
+        # deduplication rules, so overlap cannot create duplicate facts.
         fallback_started = perf_counter()
-        extraction_evidence = _reconstruct_parent_evidence(evidence)
-        fallback = _extract_explicit_metric_facts(extraction_evidence, requested_fields)
+        fallback = fast_path_facts
         diagnostics["deterministic_fallback_fact_count"] = len(fallback)
         combined: list[dict[str, Any]] = []
         seen: dict[tuple[Any, ...], dict[str, Any]] = {}
@@ -1000,6 +1047,7 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                 fallback_added += 1
         diagnostics["timing"]["deterministic_fallback_seconds"] = round(perf_counter() - fallback_started, 6)
         diagnostics["deterministic_fallback_added_count"] = fallback_added
+        diagnostics["deterministic_fast_path_added_count"] = fallback_added
         diagnostics["final_fact_count"] = len(combined)
         diagnostics["final_fact_count_by_paper_field"] = {}
         per_pair: dict[str, int] = {}
@@ -1034,6 +1082,15 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
     def compare(context: StepExecutionContext) -> dict[str, Any]:
         facts = [item for item in context.get_artifact("normalized_facts", []) if isinstance(item, Mapping)]
         paper_ids = _target_ids(context)
+
+        def metadata_state(values: list[Any]) -> str:
+            known = [value for value in values if value is not None]
+            if not known:
+                return "unknown"
+            if len(known) != len(values):
+                return "unknown_or_missing"
+            return "confirmed_matching" if len(set(known)) == 1 else "known_incompatible"
+
         groups: dict[tuple[Any, ...], list[dict[str, Any]]] = {}
         for fact in facts:
             key = (fact.get("field"), fact.get("dataset"), fact.get("split"), fact.get("condition"))
@@ -1048,6 +1105,12 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
             row = {
                 "field": field, "dataset": dataset, "split": split, "condition": condition,
                 "values": {}, "status": "insufficient_data",
+                "metadata_status": {
+                    "dataset": "confirmed_matching" if dataset is not None else "unknown",
+                    "split": "confirmed_matching" if split is not None else "unknown",
+                    "condition": "confirmed_matching" if condition is not None else "unknown",
+                    "unit": "unknown",
+                },
             }
             for paper_id, paper_facts in by_paper.items():
                 if len(paper_facts) == 1:
@@ -1056,6 +1119,15 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                 else:
                     row["values"][paper_id] = {"status": "ambiguous_multiple_values", "count": len(paper_facts)}
             eligible = [pid for pid in paper_ids if pid in by_paper] if paper_ids else sorted(by_paper)
+            missing_paper_ids = [pid for pid in paper_ids if pid not in by_paper] if paper_ids else []
+            if missing_paper_ids:
+                row["status"] = "missing_metric_values"
+                row["missing_paper_ids"] = missing_paper_ids
+            units = [
+                item.get("unit") for paper_facts in by_paper.values()
+                if len(paper_facts) == 1 for item in paper_facts
+            ]
+            row["metadata_status"]["unit"] = metadata_state(units)
             row_derived_before = len(derived)
             for left_id, right_id in itertools.combinations(eligible, 2):
                 left_list, right_list = by_paper[left_id], by_paper[right_id]
@@ -1080,16 +1152,27 @@ def build_runtime_handlers(retrieval_tool: Any, model: ChatModel) -> dict[str, A
                 })
             if len(derived) > row_derived_before:
                 row["status"] = "comparable"
-            elif len(eligible) >= 2:
+            elif not missing_paper_ids and len(eligible) >= 2:
                 row["status"] = "not_comparable"
             rows.append(row)
         has_comparable = bool(derived)
+        missing_value_rows = [row for row in rows if row.get("status") == "missing_metric_values"]
+        if missing_value_rows:
+            missing_labels = sorted({str(row.get("field")) for row in missing_value_rows if row.get("field")})
+            note = (
+                "One or more requested paper-metric values are missing from supported facts; "
+                "available values remain usable as a partial answer. Metadata fields that are null are unknown, not incompatible."
+            )
+        else:
+            missing_labels = []
+            note = None if has_comparable else "No pair of supported numeric values was available for a qualified comparison; unknown metadata is not treated as a mismatch."
         comparison = {
             "status": "completed" if has_comparable else "insufficient_comparable_data",
             "paper_ids": paper_ids,
             "fields_requested": list(context.analysis.fields_requested),
             "rows": rows,
-            "note": None if has_comparable else "No pair of supported numeric values with matching units and conditions was found.",
+            "missing_value_fields": missing_labels,
+            "note": note,
         }
         chart_data = [
             {"field": row["field"], "paper_id": paper_id, **value}

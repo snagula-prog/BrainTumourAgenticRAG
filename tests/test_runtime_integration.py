@@ -205,7 +205,8 @@ class RuntimeIntegrationTests(unittest.TestCase):
         ])
         result = ResearchAgent(FakeAnalyzer(analysis), DeterministicPlanner(), Executor(build_runtime_handlers(retrieval, FakeModel()))).run("Compare sensitivity")
         first_paper = [fact for fact in result.execution.artifacts["facts"] if fact["paper_id"] == "paper_010"]
-        self.assertEqual(sorted(fact["value"] for fact in first_paper), ["91%", "92"])
+        self.assertEqual(sorted(fact["value"] for fact in first_paper), ["91", "92"])
+        self.assertTrue(any(fact["value"] == "91" and fact["unit"] == "%" for fact in first_paper))
         self.assertEqual(result.execution.artifacts["comparison"]["rows"][0]["values"]["paper_010"]["status"], "ambiguous_multiple_values")
 
     def test_gap_fill_retrieves_when_requested_field_is_missing(self):
