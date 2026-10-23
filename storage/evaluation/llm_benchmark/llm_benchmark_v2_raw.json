@@ -1,0 +1,3538 @@
+{
+  "config": {
+    "models": [
+      "qwen3:4b-instruct",
+      "granite4:3b",
+      "phi4-mini",
+      "qwen3.5:4b",
+      "qwen3.5:9b",
+      "gemma3:4b",
+      "granite4:7b-a1b-h"
+    ],
+    "num_ctx": 4096,
+    "temperature": 0.0,
+    "seed": 42,
+    "keep_alive": "5m",
+    "num_predict": {
+      "query_analysis": 192,
+      "fact_extraction": 320,
+      "grounded_synthesis": 224
+    }
+  },
+  "availability": {
+    "qwen3:4b-instruct": [
+      true,
+      null
+    ],
+    "granite4:3b": [
+      true,
+      null
+    ],
+    "phi4-mini": [
+      true,
+      null
+    ],
+    "qwen3.5:4b": [
+      true,
+      null
+    ],
+    "qwen3.5:9b": [
+      true,
+      null
+    ],
+    "gemma3:4b": [
+      true,
+      null
+    ],
+    "granite4:7b-a1b-h": [
+      false,
+      "show_failed: {\"error\":\"model 'granite4:7b-a1b-h' not found\"}"
+    ]
+  },
+  "cold_load_seconds": {
+    "qwen3:4b-instruct": 7.674580899998546,
+    "granite4:3b": 7.032863199943677,
+    "phi4-mini": 8.830153299961239,
+    "qwen3.5:4b": 11.718463500030339,
+    "qwen3.5:9b": 15.544004400027916,
+    "gemma3:4b": 11.200363100040704
+  },
+  "results": [
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.4503500000573695,
+      "load_duration_seconds": null,
+      "prompt_tokens": 297,
+      "output_tokens": 60,
+      "response_text": "{\n  \"datasets\": [],\n  \"intent\": \"quantitative\",\n  \"metrics\": [\"accuracy\"],\n  \"needs_aggregation\": true,\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"paper_ids\": [\"paper_008\"]\n}",
+      "parsed_json": {
+        "datasets": [],
+        "intent": "quantitative",
+        "metrics": [
+          "accuracy"
+        ],
+        "needs_aggregation": true,
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "paper_ids": [
+          "paper_008"
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.611373699968681,
+      "load_duration_seconds": null,
+      "prompt_tokens": 299,
+      "output_tokens": 81,
+      "response_text": "{\n  \"datasets\": [],\n  \"intent\": \"comparison\",\n  \"metrics\": [\n    \"sensitivity\",\n    \"specificity\"\n  ],\n  \"needs_aggregation\": false,\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"paper_ids\": [\n    \"paper_010\",\n    \"paper_011\"\n  ]\n}",
+      "parsed_json": {
+        "datasets": [],
+        "intent": "comparison",
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "needs_aggregation": false,
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.85791360004805,
+      "load_duration_seconds": null,
+      "prompt_tokens": 295,
+      "output_tokens": 57,
+      "response_text": "{\n  \"datasets\": [],\n  \"intent\": \"visualization\",\n  \"metrics\": [\n    \"accuracy\"\n  ],\n  \"needs_aggregation\": true,\n  \"needs_comparison\": true,\n  \"needs_visualization\": true,\n  \"paper_ids\": []\n}",
+      "parsed_json": {
+        "datasets": [],
+        "intent": "visualization",
+        "metrics": [
+          "accuracy"
+        ],
+        "needs_aggregation": true,
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "paper_ids": []
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.2788250998128206,
+      "load_duration_seconds": null,
+      "prompt_tokens": 295,
+      "output_tokens": 38,
+      "response_text": "{\"datasets\":[\"dataset\"],\"intent\":\"fact_lookup\",\"metrics\":[\"accuracy\"],\"needs_aggregation\":false,\"needs_comparison\":false,\"needs_visualization\":false,\"paper_ids\":[]}",
+      "parsed_json": {
+        "datasets": [
+          "dataset"
+        ],
+        "intent": "fact_lookup",
+        "metrics": [
+          "accuracy"
+        ],
+        "needs_aggregation": false,
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "paper_ids": []
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 0.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.548008000012487,
+      "load_duration_seconds": null,
+      "prompt_tokens": 293,
+      "output_tokens": 59,
+      "response_text": "{\n  \"datasets\": [],\n  \"intent\": \"quantitative\",\n  \"metrics\": [\n    \"sensitivity\"\n  ],\n  \"needs_aggregation\": true,\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"paper_ids\": []\n}",
+      "parsed_json": {
+        "datasets": [],
+        "intent": "quantitative",
+        "metrics": [
+          "sensitivity"
+        ],
+        "needs_aggregation": true,
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "paper_ids": []
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 0.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.911619500024244,
+      "load_duration_seconds": null,
+      "prompt_tokens": 240,
+      "output_tokens": 116,
+      "response_text": "{\"facts\":[{\"condition\":\"is\",\"entity\":\"EfficientNet-B0\",\"field\":\"top-1 accuracy\",\"quote\":\"76.3%\",\"unit\":\"%\",\"value\":\"76.3\"},{\"condition\":\"is\",\"entity\":\"EfficientNet-B0\",\"field\":\"top-5 accuracy\",\"quote\":\"93.2%\",\"unit\":\"%\",\"value\":\"93.2\"},{\"condition\":\"is\",\"entity\":\"EfficientNet-B0\",\"field\":\"number of parameters\",\"quote\":\"5.3M\",\"unit\":\"M\",\"value\":\"5.3\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "condition": "is",
+            "entity": "EfficientNet-B0",
+            "field": "top-1 accuracy",
+            "quote": "76.3%",
+            "unit": "%",
+            "value": "76.3"
+          },
+          {
+            "condition": "is",
+            "entity": "EfficientNet-B0",
+            "field": "top-5 accuracy",
+            "quote": "93.2%",
+            "unit": "%",
+            "value": "93.2"
+          },
+          {
+            "condition": "is",
+            "entity": "EfficientNet-B0",
+            "field": "number of parameters",
+            "quote": "5.3M",
+            "unit": "M",
+            "value": "5.3"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 8.667565000010654,
+      "load_duration_seconds": null,
+      "prompt_tokens": 223,
+      "output_tokens": 149,
+      "response_text": "{\"facts\":[{\"condition\":\"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\",\"entity\":\"model\",\"field\":\"sensitivity\",\"quote\":\"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\",\"unit\":\"%\",\"value\":\"97.8\"},{\"condition\":\"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\",\"entity\":\"model\",\"field\":\"specificity\",\"quote\":\"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\",\"unit\":\"%\",\"value\":\"95.4\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "condition": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.",
+            "entity": "model",
+            "field": "sensitivity",
+            "quote": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.",
+            "unit": "%",
+            "value": "97.8"
+          },
+          {
+            "condition": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.",
+            "entity": "model",
+            "field": "specificity",
+            "quote": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.",
+            "unit": "%",
+            "value": "95.4"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 11.642839499982074,
+      "load_duration_seconds": null,
+      "prompt_tokens": 223,
+      "output_tokens": 214,
+      "response_text": "{\"facts\":[{\"condition\":\"The experiment used the BraTS dataset with 3,000 training images and 500 validation images\",\"entity\":\"experiment\",\"field\":\"dataset\",\"quote\":\"The experiment used the BraTS dataset with 3,000 training images and 50\",\"unit\":\"\",\"value\":\"BraTS dataset\"},{\"condition\":\"The experiment used the BraTS dataset with 3,000 training images and 500 validation images\",\"entity\":\"experiment\",\"field\":\"training images\",\"quote\":\"The experiment used the BraTS dataset with 3,000 training images and 500 validation images\",\"unit\":\"images\",\"value\":\"3000\"},{\"condition\":\"The experiment used the BraTS dataset with 3,000 training images and 500 validation images\",\"entity\":\"experiment\",\"field\":\"validation images\",\"quote\":\"The experiment used the BraTS dataset with 3,000 training images and 500 validation images\",\"unit\":\"images\",\"value\":\"500\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "condition": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images",
+            "entity": "experiment",
+            "field": "dataset",
+            "quote": "The experiment used the BraTS dataset with 3,000 training images and 50",
+            "unit": "",
+            "value": "BraTS dataset"
+          },
+          {
+            "condition": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images",
+            "entity": "experiment",
+            "field": "training images",
+            "quote": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images",
+            "unit": "images",
+            "value": "3000"
+          },
+          {
+            "condition": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images",
+            "entity": "experiment",
+            "field": "validation images",
+            "quote": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images",
+            "unit": "images",
+            "value": "500"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 7.074923399835825,
+      "load_duration_seconds": null,
+      "prompt_tokens": 229,
+      "output_tokens": 114,
+      "response_text": "{\"facts\":[{\"condition\":\"accuracy\",\"entity\":\"method\",\"field\":\"accuracy\",\"quote\":\"an accuracy of 92.4%\",\"unit\":\"%\",\"value\":\"92.4\"},{\"condition\":\"sensitivity\",\"entity\":\"method\",\"field\":\"sensitivity\",\"quote\":\"sensitivity was 90.1%\",\"unit\":\"%\",\"value\":\"90.1\"},{\"condition\":\"specificity\",\"entity\":\"method\",\"field\":\"specificity\",\"quote\":\"specificity was 94.7%\",\"unit\":\"%\",\"value\":\"94.7\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "condition": "accuracy",
+            "entity": "method",
+            "field": "accuracy",
+            "quote": "an accuracy of 92.4%",
+            "unit": "%",
+            "value": "92.4"
+          },
+          {
+            "condition": "sensitivity",
+            "entity": "method",
+            "field": "sensitivity",
+            "quote": "sensitivity was 90.1%",
+            "unit": "%",
+            "value": "90.1"
+          },
+          {
+            "condition": "specificity",
+            "entity": "method",
+            "field": "specificity",
+            "quote": "specificity was 94.7%",
+            "unit": "%",
+            "value": "94.7"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.4244560999795794,
+      "load_duration_seconds": null,
+      "prompt_tokens": 218,
+      "output_tokens": 47,
+      "response_text": "{\"facts\":[{\"condition\":\"is\",\"entity\":\"main limitation\",\"field\":\"limitation\",\"quote\":\"the small dataset size and the absence of external validation\",\"unit\":\"\",\"value\":\"the small dataset size and the absence of external validation\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "condition": "is",
+            "entity": "main limitation",
+            "field": "limitation",
+            "quote": "the small dataset size and the absence of external validation",
+            "unit": "",
+            "value": "the small dataset size and the absence of external validation"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.212712800130248,
+      "load_duration_seconds": null,
+      "prompt_tokens": 281,
+      "output_tokens": 68,
+      "response_text": "{\"claims\":[{\"claim_type\":\"comparison\",\"support_ids\":[\"F2\"],\"text\":\"Model B achieved the highest accuracy among the models.\"},{\"claim_type\":\"limitation\",\"support_ids\":[\"F1\",\"F2\",\"F3\"],\"text\":\"The performance of each model is limited to accuracy alone, and no other metrics are provided.\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "claim_type": "comparison",
+            "support_ids": [
+              "F2"
+            ],
+            "text": "Model B achieved the highest accuracy among the models."
+          },
+          {
+            "claim_type": "limitation",
+            "support_ids": [
+              "F1",
+              "F2",
+              "F3"
+            ],
+            "text": "The performance of each model is limited to accuracy alone, and no other metrics are provided."
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.476925499970093,
+      "load_duration_seconds": null,
+      "prompt_tokens": 262,
+      "output_tokens": 56,
+      "response_text": "{\"claims\":[{\"claim_type\":\"comparison\",\"support_ids\":[\"F1\",\"F2\"],\"text\":\"Method B had higher sensitivity than Method A, as Method B reported a sensitivity of 95.2% compared to Method A's 91.0%.\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "claim_type": "comparison",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "text": "Method B had higher sensitivity than Method A, as Method B reported a sensitivity of 95.2% compared to Method A's 91.0%."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.291723300004378,
+      "load_duration_seconds": null,
+      "prompt_tokens": 237,
+      "output_tokens": 40,
+      "response_text": "{\"claims\": [{\"claim_type\": \"reported\", \"support_ids\": [\"F1\"], \"text\": \"The model achieved 88.4% accuracy on the test set.\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "claim_type": "reported",
+            "support_ids": [
+              "F1"
+            ],
+            "text": "The model achieved 88.4% accuracy on the test set."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.465940499911085,
+      "load_duration_seconds": null,
+      "prompt_tokens": 269,
+      "output_tokens": 67,
+      "response_text": "{\"claims\":[{\"claim_type\":\"comparison\",\"support_ids\":[\"F1\",\"F2\"],\"text\":\"The two results are not directly comparable because Method A was evaluated on BraTS 2021 using the validation split, while Method B was evaluated on BraTS 2020 using the held-out test set.\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "claim_type": "comparison",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "text": "The two results are not directly comparable because Method A was evaluated on BraTS 2021 using the validation split, while Method B was evaluated on BraTS 2020 using the held-out test set."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3:4b-instruct",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.019243000075221,
+      "load_duration_seconds": null,
+      "prompt_tokens": 253,
+      "output_tokens": 43,
+      "response_text": "{\"claims\":[{\"claim_type\":\"limitation\",\"support_ids\":[\"F1\",\"F2\"],\"text\":\"The main limitation reported by the authors is a small single-center dataset and the absence of external validation.\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "claim_type": "limitation",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "text": "The main limitation reported by the authors is a small single-center dataset and the absence of external validation."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.774196500191465,
+      "load_duration_seconds": null,
+      "prompt_tokens": 294,
+      "output_tokens": 56,
+      "response_text": "{\n  \"intent\": \"quantitative\",\n  \"paper_ids\": [\"paper_008\"],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.9803834001068026,
+      "load_duration_seconds": null,
+      "prompt_tokens": 294,
+      "output_tokens": 65,
+      "response_text": "{\n  \"intent\": \"comparison\",\n  \"paper_ids\": [\"paper_010\", \"paper_011\"],\n  \"metrics\": [\"sensitivity\", \"specificity\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ],
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.650641900021583,
+      "load_duration_seconds": null,
+      "prompt_tokens": 294,
+      "output_tokens": 51,
+      "response_text": "{\n  \"intent\": \"visualization\",\n  \"paper_ids\": [],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": true,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "visualization",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "needs_aggregation": false
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.0294060001615435,
+      "load_duration_seconds": null,
+      "prompt_tokens": 294,
+      "output_tokens": 60,
+      "response_text": "{\n  \"intent\": \"fact_lookup\",\n  \"paper_ids\": [\"paper_008\"],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [\"dataset_001\"],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "fact_lookup",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [
+          "dataset_001"
+        ],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 0.7142857142857143,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 0.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 0.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.8394640998449177,
+      "load_duration_seconds": null,
+      "prompt_tokens": 292,
+      "output_tokens": 57,
+      "response_text": "{\n  \"intent\": \"quantitative\",\n  \"paper_ids\": [\"paper_008\"],\n  \"metrics\": [\"sensitivity\"],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "sensitivity"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.7142857142857143,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 0.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 0.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.597656300058588,
+      "load_duration_seconds": null,
+      "prompt_tokens": 239,
+      "output_tokens": 158,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"EfficientNet-B0\",\n      \"field\": \"top-1 accuracy\",\n      \"value\": \"76.3%\",\n      \"unit\": \"%\",\n      \"condition\": \"on ImageNet using 5.3M parameters\",\n      \"quote\": \"achieved a top-1 accuracy of 76.3%\"\n    },\n    {\n      \"entity\": \"EfficientNet-B0\",\n      \"field\": \"top-5 accuracy\",\n      \"value\": \"93.2%\",\n      \"unit\": \"%\",\n      \"condition\": \"on ImageNet using 5.3M parameters\",\n      \"quote\": \"achieved a top-5 accuracy of 93.2%\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-1 accuracy",
+            "value": "76.3%",
+            "unit": "%",
+            "condition": "on ImageNet using 5.3M parameters",
+            "quote": "achieved a top-1 accuracy of 76.3%"
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-5 accuracy",
+            "value": "93.2%",
+            "unit": "%",
+            "condition": "on ImageNet using 5.3M parameters",
+            "quote": "achieved a top-5 accuracy of 93.2%"
+          }
+        ]
+      },
+      "score": 0.8277777777777777,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 0.6666666666666666,
+        "fact_f1": 0.8,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 0.5
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.943967700004578,
+      "load_duration_seconds": null,
+      "prompt_tokens": 222,
+      "output_tokens": 118,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"sensitivity\",\n      \"field\": \"performance metric\",\n      \"value\": 97.8,\n      \"unit\": \"%\",\n      \"condition\": \"on the test set\",\n      \"quote\": \"97.8%\"\n    },\n    {\n      \"entity\": \"specificity\",\n      \"field\": \"performance metric\",\n      \"value\": 95.4,\n      \"unit\": \"%\",\n      \"condition\": \"on the test set\",\n      \"quote\": \"95.4%\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "sensitivity",
+            "field": "performance metric",
+            "value": 97.8,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "97.8%"
+          },
+          {
+            "entity": "specificity",
+            "field": "performance metric",
+            "value": 95.4,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "95.4%"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.947338399942964,
+      "load_duration_seconds": null,
+      "prompt_tokens": 220,
+      "output_tokens": 99,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"BraTS dataset\",\n      \"field\": \"training images\",\n      \"value\": \"3000\",\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"\"\n    },\n    {\n      \"entity\": \"BraTS dataset\",\n      \"field\": \"validation images\",\n      \"value\": \"500\",\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "BraTS dataset",
+            "field": "training images",
+            "value": "3000",
+            "unit": "",
+            "condition": "",
+            "quote": ""
+          },
+          {
+            "entity": "BraTS dataset",
+            "field": "validation images",
+            "value": "500",
+            "unit": "",
+            "condition": "",
+            "quote": ""
+          }
+        ]
+      },
+      "score": 0.0,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 8.315421200124547,
+      "load_duration_seconds": null,
+      "prompt_tokens": 227,
+      "output_tokens": 178,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"accuracy\",\n      \"field\": \"accuracy\",\n      \"value\": \"92.4%\",\n      \"unit\": \"%\",\n      \"condition\": \"obtained\",\n      \"quote\": \"obtained an accuracy of 92.4%\"\n    },\n    {\n      \"entity\": \"sensitivity\",\n      \"field\": \"sensitivity\",\n      \"value\": \"90.1%\",\n      \"unit\": \"%\",\n      \"condition\": \"was\",\n      \"quote\": \"sensitivity was 90.1%\"\n    },\n    {\n      \"entity\": \"specificity\",\n      \"field\": \"specificity\",\n      \"value\": \"94.7%\",\n      \"unit\": \"%\",\n      \"condition\": \"was\",\n      \"quote\": \"specificity was 94.7%\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "accuracy",
+            "field": "accuracy",
+            "value": "92.4%",
+            "unit": "%",
+            "condition": "obtained",
+            "quote": "obtained an accuracy of 92.4%"
+          },
+          {
+            "entity": "sensitivity",
+            "field": "sensitivity",
+            "value": "90.1%",
+            "unit": "%",
+            "condition": "was",
+            "quote": "sensitivity was 90.1%"
+          },
+          {
+            "entity": "specificity",
+            "field": "specificity",
+            "value": "94.7%",
+            "unit": "%",
+            "condition": "was",
+            "quote": "specificity was 94.7%"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 2.5565873999148607,
+      "load_duration_seconds": null,
+      "prompt_tokens": 219,
+      "output_tokens": 8,
+      "response_text": "{\n  \"facts\": []\n}",
+      "parsed_json": {
+        "facts": []
+      },
+      "score": 0.0,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.5643864998128265,
+      "load_duration_seconds": null,
+      "prompt_tokens": 279,
+      "output_tokens": 41,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Model B performed best.\",\n      \"support_ids\": [\"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Model B performed best.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.4968647002242506,
+      "load_duration_seconds": null,
+      "prompt_tokens": 261,
+      "output_tokens": 49,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Method B had higher sensitivity than Method A.\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method B had higher sensitivity than Method A.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.6832014999818057,
+      "load_duration_seconds": null,
+      "prompt_tokens": 237,
+      "output_tokens": 50,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The model achieved 88.4% accuracy on the test set.\",\n      \"support_ids\": [\"F1\"],\n      \"claim_type\": \"reported\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The model achieved 88.4% accuracy on the test set.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.652531399857253,
+      "load_duration_seconds": null,
+      "prompt_tokens": 266,
+      "output_tokens": 52,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The two results are directly comparable.\",\n      \"support_ids\": [\n        \"F1\",\n        \"F2\"\n      ],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The two results are directly comparable.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "granite4:3b",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.6808052000124007,
+      "load_duration_seconds": null,
+      "prompt_tokens": 254,
+      "output_tokens": 53,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The main limitation reported by the authors is the use of a small single-center dataset.\",\n      \"support_ids\": [\"F1\"],\n      \"claim_type\": \"reported\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The main limitation reported by the authors is the use of a small single-center dataset.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 0.7,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 0.5,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.599130099872127,
+      "load_duration_seconds": null,
+      "prompt_tokens": 292,
+      "output_tokens": 59,
+      "response_text": "{\n  \"intent\": \"evidence_qa\",\n  \"paper_ids\": [\"paper_008\"],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "evidence_qa",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.011969200102612,
+      "load_duration_seconds": null,
+      "prompt_tokens": 292,
+      "output_tokens": 66,
+      "response_text": "{\n  \"intent\": \"comparison\",\n  \"paper_ids\": [\"paper_010\", \"paper_011\"],\n  \"metrics\": [\"sensitivity\", \"specificity\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ],
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.4646761999465525,
+      "load_duration_seconds": null,
+      "prompt_tokens": 292,
+      "output_tokens": 53,
+      "response_text": "{\n  \"intent\": \"visualization\",\n  \"paper_ids\": [],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": true,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "visualization",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.179701799992472,
+      "load_duration_seconds": null,
+      "prompt_tokens": 292,
+      "output_tokens": 53,
+      "response_text": "{\n  \"intent\": \"fact_lookup\",\n  \"paper_ids\": [],\n  \"metrics\": [\"accuracy\"],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "fact_lookup",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.492065099999309,
+      "load_duration_seconds": null,
+      "prompt_tokens": 290,
+      "output_tokens": 53,
+      "response_text": "{\n  \"intent\": \"comparison\",\n  \"paper_ids\": [],\n  \"metrics\": [\"sensitivity\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [],
+        "metrics": [
+          "sensitivity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 10.76652260008268,
+      "load_duration_seconds": null,
+      "prompt_tokens": 236,
+      "output_tokens": 255,
+      "response_text": "{\"facts\": [{\"entity\": \"EfficientNet-B0\", \"field\": \"top-1 accuracy\", \"value\": 76.3, \"unit\": \"%\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters.\"}, {\"entity\": \"EfficientNet-B0\", \"field\": \"top-5 accuracy\", \"value\": 93.2, \"unit\": \"%\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters.\"}, {\"entity\": \"EfficientNet-B0\", \"field\": \"parameters\", \"value\": 5.3, \"unit\": \"M\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters.\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-1 accuracy",
+            "value": 76.3,
+            "unit": "%",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters."
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-5 accuracy",
+            "value": 93.2,
+            "unit": "%",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters."
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "parameters",
+            "value": 5.3,
+            "unit": "M",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.725014900090173,
+      "load_duration_seconds": null,
+      "prompt_tokens": 219,
+      "output_tokens": 52,
+      "response_text": "{\"facts\": [{\"entity\": \"proposed model\", \"field\": \"sensitivity\", \"value\": 97.8, \"unit\": \"%\", \"condition\": \"on the test set\", \"quote\": \"97.8% sensitivity\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "proposed model",
+            "field": "sensitivity",
+            "value": 97.8,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "97.8% sensitivity"
+          }
+        ]
+      },
+      "score": 0.8611111111111112,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 0.5,
+        "fact_f1": 0.6666666666666666,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.5148435002192855,
+      "load_duration_seconds": null,
+      "prompt_tokens": 217,
+      "output_tokens": 54,
+      "response_text": "{\"facts\": [{\"entity\": \"BraTS dataset\", \"field\": \"number of training images\", \"value\": 3000, \"unit\": \"images\", \"condition\": \"used in the experiment\", \"quote\": \"3,000 training images\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "BraTS dataset",
+            "field": "number of training images",
+            "value": 3000,
+            "unit": "images",
+            "condition": "used in the experiment",
+            "quote": "3,000 training images"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 7.887287700083107,
+      "load_duration_seconds": null,
+      "prompt_tokens": 224,
+      "output_tokens": 164,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"method\",\n      \"field\": \"accuracy\",\n      \"value\": 92.4,\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"obtained an accuracy of 92.4%\"\n    },\n    {\n      \"entity\": \"method\",\n      \"field\": \"sensitivity\",\n      \"value\": 90.1,\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"sensitivity was 90.1%\"\n    },\n    {\n      \"entity\": \"method\",\n      \"field\": \"specificity\",\n      \"value\": 94.7,\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"specificity was 94.7%\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "method",
+            "field": "accuracy",
+            "value": 92.4,
+            "unit": "",
+            "condition": "",
+            "quote": "obtained an accuracy of 92.4%"
+          },
+          {
+            "entity": "method",
+            "field": "sensitivity",
+            "value": 90.1,
+            "unit": "",
+            "condition": "",
+            "quote": "sensitivity was 90.1%"
+          },
+          {
+            "entity": "method",
+            "field": "specificity",
+            "value": 94.7,
+            "unit": "",
+            "condition": "",
+            "quote": "specificity was 94.7%"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 2.646099800011143,
+      "load_duration_seconds": null,
+      "prompt_tokens": 216,
+      "output_tokens": 6,
+      "response_text": "{\"facts\": []}",
+      "parsed_json": {
+        "facts": []
+      },
+      "score": 0.0,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 3.832673199940473,
+      "load_duration_seconds": null,
+      "prompt_tokens": 273,
+      "output_tokens": 41,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Model B performed best.\",\n      \"support_ids\": [\"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Model B performed best.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.442059699911624,
+      "load_duration_seconds": null,
+      "prompt_tokens": 255,
+      "output_tokens": 49,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Method B had higher sensitivity than Method A.\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method B had higher sensitivity than Method A.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.165508799953386,
+      "load_duration_seconds": null,
+      "prompt_tokens": 231,
+      "output_tokens": 50,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The model achieved 88.4% accuracy on the test set.\",\n      \"support_ids\": [\"F1\"],\n      \"claim_type\": \"reported\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The model achieved 88.4% accuracy on the test set.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.585864100139588,
+      "load_duration_seconds": null,
+      "prompt_tokens": 260,
+      "output_tokens": 48,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The two results are not directly comparable.\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The two results are not directly comparable.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "phi4-mini",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.25539409997873,
+      "load_duration_seconds": null,
+      "prompt_tokens": 248,
+      "output_tokens": 91,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The main limitation reported by the authors is the small single-center dataset.\",\n      \"support_ids\": [\"F1\"],\n      \"claim_type\": \"limitation\"\n    },\n    {\n      \"text\": \"Another limitation reported by the authors is the lack of external validation.\",\n      \"support_ids\": [\"F2\"],\n      \"claim_type\": \"limitation\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The main limitation reported by the authors is the small single-center dataset.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "limitation"
+          },
+          {
+            "text": "Another limitation reported by the authors is the lack of external validation.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "limitation"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.409201399888843,
+      "load_duration_seconds": null,
+      "prompt_tokens": 314,
+      "output_tokens": 40,
+      "response_text": "{\"intent\":\"quantitative\",\"paper_ids\":[\"paper_008\"],\"metrics\":[\"accuracy\"],\"datasets\":[],\"needs_comparison\":false,\"needs_visualization\":false,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.9822305999696255,
+      "load_duration_seconds": null,
+      "prompt_tokens": 316,
+      "output_tokens": 49,
+      "response_text": "{\"intent\":\"comparison\",\"paper_ids\":[\"paper_010\",\"paper_011\"],\"metrics\":[\"sensitivity\",\"specificity\"],\"datasets\":[],\"needs_comparison\":true,\"needs_visualization\":false,\"needs_aggregation\":false}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ],
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.8968761002179235,
+      "load_duration_seconds": null,
+      "prompt_tokens": 312,
+      "output_tokens": 34,
+      "response_text": "{\"intent\":\"visualization\",\"paper_ids\":[],\"metrics\":[\"accuracy\"],\"datasets\":[],\"needs_comparison\":true,\"needs_visualization\":true,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "visualization",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.118125200038776,
+      "load_duration_seconds": null,
+      "prompt_tokens": 312,
+      "output_tokens": 37,
+      "response_text": "{\"intent\":\"evidence_qa\",\"paper_ids\":[],\"metrics\":[\"accuracy\"],\"datasets\":[],\"needs_comparison\":false,\"needs_visualization\":false,\"needs_aggregation\":false}",
+      "parsed_json": {
+        "intent": "evidence_qa",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.478457099990919,
+      "load_duration_seconds": null,
+      "prompt_tokens": 310,
+      "output_tokens": 36,
+      "response_text": "{\"intent\":\"quantitative\",\"paper_ids\":[],\"metrics\":[\"sensitivity\"],\"datasets\":[],\"needs_comparison\":true,\"needs_visualization\":false,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [],
+        "metrics": [
+          "sensitivity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 10.544372899923474,
+      "load_duration_seconds": null,
+      "prompt_tokens": 257,
+      "output_tokens": 111,
+      "response_text": "{\"facts\":[{\"entity\":\"EfficientNet-B0\",\"field\":\"top-1 accuracy\",\"value\":76.3,\"unit\":\"%\",\"condition\":\"on ImageNet using 5.3M parameters\",\"quote\":\"top-1 accuracy of 76.3%\"},{\"entity\":\"EfficientNet-B0\",\"field\":\"top-5 accuracy\",\"value\":93.2,\"unit\":\"%\",\"condition\":\"on ImageNet using 5.3M parameters\",\"quote\":\"top-5 accuracy of 93.2%\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-1 accuracy",
+            "value": 76.3,
+            "unit": "%",
+            "condition": "on ImageNet using 5.3M parameters",
+            "quote": "top-1 accuracy of 76.3%"
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-5 accuracy",
+            "value": 93.2,
+            "unit": "%",
+            "condition": "on ImageNet using 5.3M parameters",
+            "quote": "top-5 accuracy of 93.2%"
+          }
+        ]
+      },
+      "score": 0.9111111111111111,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 0.6666666666666666,
+        "fact_f1": 0.8,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 8.054000299889594,
+      "load_duration_seconds": null,
+      "prompt_tokens": 240,
+      "output_tokens": 81,
+      "response_text": "{\"facts\":[{\"entity\":\"The proposed model\",\"field\":\"sensitivity\",\"value\":97.8,\"unit\":\"%\",\"condition\":\"on the test set\",\"quote\":\"97.8% sensitivity\"},{\"entity\":\"The proposed model\",\"field\":\"specificity\",\"value\":95.4,\"unit\":\"%\",\"condition\":\"on the test set\",\"quote\":\"95.4% specificity\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "The proposed model",
+            "field": "sensitivity",
+            "value": 97.8,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "97.8% sensitivity"
+          },
+          {
+            "entity": "The proposed model",
+            "field": "specificity",
+            "value": 95.4,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "95.4% specificity"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 8.897522100014612,
+      "load_duration_seconds": null,
+      "prompt_tokens": 240,
+      "output_tokens": 94,
+      "response_text": "{\"facts\":[{\"entity\":\"experiment\",\"field\":\"dataset\",\"value\":\"BraTS\",\"unit\":\"\",\"condition\":\"\",\"quote\":\"The experiment used the BraTS dataset\"},{\"entity\":\"experiment\",\"field\":\"training_images\",\"value\":\"3,000\",\"unit\":\"\",\"condition\":\"\",\"quote\":\"with 3,000 training images\"},{\"entity\":\"experiment\",\"field\":\"validation_images\",\"value\":\"500\",\"unit\":\"\",\"condition\":\"\",\"quote\":\"and 500 validation images\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "experiment",
+            "field": "dataset",
+            "value": "BraTS",
+            "unit": "",
+            "condition": "",
+            "quote": "The experiment used the BraTS dataset"
+          },
+          {
+            "entity": "experiment",
+            "field": "training_images",
+            "value": "3,000",
+            "unit": "",
+            "condition": "",
+            "quote": "with 3,000 training images"
+          },
+          {
+            "entity": "experiment",
+            "field": "validation_images",
+            "value": "500",
+            "unit": "",
+            "condition": "",
+            "quote": "and 500 validation images"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 10.591774699976668,
+      "load_duration_seconds": null,
+      "prompt_tokens": 246,
+      "output_tokens": 110,
+      "response_text": "{\"facts\":[{\"entity\":\"The method\",\"field\":\"accuracy\",\"value\":92.4,\"unit\":\"%\",\"condition\":\"\",\"quote\":\"The method obtained an accuracy of 92.4%\"},{\"entity\":\"sensitivity\",\"field\":\"value\",\"value\":90.1,\"unit\":\"%\",\"condition\":\"\",\"quote\":\"while sensitivity was 90.1%\"},{\"entity\":\"specificity\",\"field\":\"value\",\"value\":94.7,\"unit\":\"%\",\"condition\":\"\",\"quote\":\"and specificity was 94.7%\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "The method",
+            "field": "accuracy",
+            "value": 92.4,
+            "unit": "%",
+            "condition": "",
+            "quote": "The method obtained an accuracy of 92.4%"
+          },
+          {
+            "entity": "sensitivity",
+            "field": "value",
+            "value": 90.1,
+            "unit": "%",
+            "condition": "",
+            "quote": "while sensitivity was 90.1%"
+          },
+          {
+            "entity": "specificity",
+            "field": "value",
+            "value": 94.7,
+            "unit": "%",
+            "condition": "",
+            "quote": "and specificity was 94.7%"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 7.282311100047082,
+      "load_duration_seconds": null,
+      "prompt_tokens": 235,
+      "output_tokens": 63,
+      "response_text": "{\"facts\":[{\"entity\":\"authors\",\"field\":\"main limitation\",\"value\":\"small dataset size\",\"unit\":\"\",\"condition\":\"\",\"quote\":\"their main limitation is the small dataset size\"},{\"entity\":\"authors\",\"field\":\"main limitation\",\"value\":\"absence of external validation\",\"unit\":\"\",\"condition\":\"\",\"quote\":\"the absence of external validation\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "authors",
+            "field": "main limitation",
+            "value": "small dataset size",
+            "unit": "",
+            "condition": "",
+            "quote": "their main limitation is the small dataset size"
+          },
+          {
+            "entity": "authors",
+            "field": "main limitation",
+            "value": "absence of external validation",
+            "unit": "",
+            "condition": "",
+            "quote": "the absence of external validation"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.508495900081471,
+      "load_duration_seconds": null,
+      "prompt_tokens": 311,
+      "output_tokens": 37,
+      "response_text": "{\"claims\":[{\"text\":\"Model B performed best with 94.7% accuracy.\",\"support_ids\":[\"F2\",\"F1\",\"F3\"],\"claim_type\":\"comparison\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Model B performed best with 94.7% accuracy.",
+            "support_ids": [
+              "F2",
+              "F1",
+              "F3"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.585965000092983,
+      "load_duration_seconds": null,
+      "prompt_tokens": 288,
+      "output_tokens": 30,
+      "response_text": "{\"claims\":[{\"text\":\"Method B had higher sensitivity than Method A.\",\"support_ids\":[\"F1\",\"F2\"],\"claim_type\":\"comparison\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method B had higher sensitivity than Method A.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.745112600037828,
+      "load_duration_seconds": null,
+      "prompt_tokens": 259,
+      "output_tokens": 33,
+      "response_text": "{\"claims\":[{\"text\":\"The model achieved 88.4% accuracy on the test set.\",\"support_ids\":[\"F1\"],\"claim_type\":\"reported\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The model achieved 88.4% accuracy on the test set.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.875187100144103,
+      "load_duration_seconds": null,
+      "prompt_tokens": 295,
+      "output_tokens": 67,
+      "response_text": "{\"claims\":[{\"text\":\"Method A was evaluated on BraTS 2021 using the validation split.\",\"support_ids\":[\"F1\"],\"claim_type\":\"reported\"},{\"text\":\"Method B was evaluated on BraTS 2020 using the held-out test set.\",\"support_ids\":[\"F2\"],\"claim_type\":\"reported\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method A was evaluated on BraTS 2021 using the validation split.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          },
+          {
+            "text": "Method B was evaluated on BraTS 2020 using the held-out test set.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.674022600054741,
+      "load_duration_seconds": null,
+      "prompt_tokens": 279,
+      "output_tokens": 48,
+      "response_text": "{\"claims\":[{\"text\":\"The study is limited by a small single-center dataset.\",\"support_ids\":[\"F1\"],\"claim_type\":\"reported\"},{\"text\":\"External validation was not performed.\",\"support_ids\":[\"F2\"],\"claim_type\":\"reported\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The study is limited by a small single-center dataset.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          },
+          {
+            "text": "External validation was not performed.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 16.306128799915314,
+      "load_duration_seconds": null,
+      "prompt_tokens": 314,
+      "output_tokens": 77,
+      "response_text": "{\n  \"intent\": \"fact_lookup\",\n  \"paper_ids\": [\n    \"paper_008\"\n  ],\n  \"metrics\": [\n    \"accuracy\"\n  ],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "fact_lookup",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 15.777737400028855,
+      "load_duration_seconds": null,
+      "prompt_tokens": 316,
+      "output_tokens": 76,
+      "response_text": "{\n  \"intent\": \"comparison\",\n  \"paper_ids\": [\"paper_010\", \"paper_011\"],\n  \"metrics\": [\"sensitivity\", \"specificity\"],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ],
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 13.825268500018865,
+      "load_duration_seconds": null,
+      "prompt_tokens": 312,
+      "output_tokens": 64,
+      "response_text": "{\n  \"intent\": \"visualization\",\n  \"paper_ids\": [],\n  \"metrics\": [\n    \"accuracy\"\n  ],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": true,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "visualization",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "needs_aggregation": false
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 13.471988999983296,
+      "load_duration_seconds": null,
+      "prompt_tokens": 312,
+      "output_tokens": 65,
+      "response_text": "{\n  \"intent\": \"extraction\",\n  \"paper_ids\": [],\n  \"metrics\": [\n    \"accuracy\"\n  ],\n  \"datasets\": [],\n  \"needs_comparison\": false,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": false\n}",
+      "parsed_json": {
+        "intent": "extraction",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 14.551243100082502,
+      "load_duration_seconds": null,
+      "prompt_tokens": 310,
+      "output_tokens": 68,
+      "response_text": "{\n  \"intent\": \"evidence_qa\",\n  \"paper_ids\": [],\n  \"metrics\": [\n    \"sensitivity\"\n  ],\n  \"datasets\": [],\n  \"needs_comparison\": true,\n  \"needs_visualization\": false,\n  \"needs_aggregation\": true\n}",
+      "parsed_json": {
+        "intent": "evidence_qa",
+        "paper_ids": [],
+        "metrics": [
+          "sensitivity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": false,
+      "elapsed_seconds": 62.48632899997756,
+      "load_duration_seconds": null,
+      "prompt_tokens": 257,
+      "output_tokens": 320,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"EfficientNet-B0\",\n      \"field\": \"top-1 accuracy\",\n      \"value\": 76.3,\n      \"unit\": \"%\",\n      \"condition\": \"on ImageNet using 5.3M parameters\",\n      \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters.\"\n    },\n    {\n      \"entity\": \"EfficientNet-B0\",\n      \"field\": \"top-5 accuracy\",\n      \"value\": 93.2,\n      \"unit\": \"%\",\n      \"condition\": \"on ImageNet using 5.3M parameters\",\n      \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using 5.3M parameters.\"\n    },\n    {\n      \"entity\": \"EfficientNet-B0\",\n      \"field\": \"parameters\",\n      \"value\": 5.3,\n      \"unit\": \"M\",\n      \"condition\": \"on ImageNet\",\n      \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3% and top-5 accuracy of 93.2% on ImageNet using",
+      "parsed_json": null,
+      "score": 0.0,
+      "metrics": {},
+      "error": "json_parse_failed: Unterminated string starting at: line 25 column 16 (char 789)"
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 35.36526790005155,
+      "load_duration_seconds": null,
+      "prompt_tokens": 240,
+      "output_tokens": 181,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"proposed model\",\n      \"field\": \"sensitivity\",\n      \"value\": 97.8,\n      \"unit\": \"%\",\n      \"condition\": \"on the test set\",\n      \"quote\": \"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\"\n    },\n    {\n      \"entity\": \"proposed model\",\n      \"field\": \"specificity\",\n      \"value\": 95.4,\n      \"unit\": \"%\",\n      \"condition\": \"on the test set\",\n      \"quote\": \"The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set.\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "proposed model",
+            "field": "sensitivity",
+            "value": 97.8,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set."
+          },
+          {
+            "entity": "proposed model",
+            "field": "specificity",
+            "value": 95.4,
+            "unit": "%",
+            "condition": "on the test set",
+            "quote": "The proposed model achieved 97.8% sensitivity and 95.4% specificity on the test set."
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 38.35613079997711,
+      "load_duration_seconds": null,
+      "prompt_tokens": 240,
+      "output_tokens": 191,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"experiment\",\n      \"field\": \"dataset\",\n      \"value\": \"BraTS\",\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"The experiment used the BraTS dataset\"\n    },\n    {\n      \"entity\": \"training images\",\n      \"field\": \"count\",\n      \"value\": 3000,\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"with 3,000 training images\"\n    },\n    {\n      \"entity\": \"validation images\",\n      \"field\": \"count\",\n      \"value\": 500,\n      \"unit\": \"\",\n      \"condition\": \"\",\n      \"quote\": \"and 500 validation images\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "experiment",
+            "field": "dataset",
+            "value": "BraTS",
+            "unit": "",
+            "condition": "",
+            "quote": "The experiment used the BraTS dataset"
+          },
+          {
+            "entity": "training images",
+            "field": "count",
+            "value": 3000,
+            "unit": "",
+            "condition": "",
+            "quote": "with 3,000 training images"
+          },
+          {
+            "entity": "validation images",
+            "field": "count",
+            "value": 500,
+            "unit": "",
+            "condition": "",
+            "quote": "and 500 validation images"
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 39.83147729979828,
+      "load_duration_seconds": null,
+      "prompt_tokens": 246,
+      "output_tokens": 204,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"method\",\n      \"field\": \"accuracy\",\n      \"value\": 92.4,\n      \"unit\": \"%\",\n      \"condition\": \"\",\n      \"quote\": \"The method obtained an accuracy of 92.4%\"\n    },\n    {\n      \"entity\": \"sensitivity\",\n      \"field\": \"sensitivity\",\n      \"value\": 90.1,\n      \"unit\": \"%\",\n      \"condition\": \"\",\n      \"quote\": \"while sensitivity was 90.1%\"\n    },\n    {\n      \"entity\": \"specificity\",\n      \"field\": \"specificity\",\n      \"value\": 94.7,\n      \"unit\": \"%\",\n      \"condition\": \"\",\n      \"quote\": \"and specificity was 94.7%.\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "method",
+            "field": "accuracy",
+            "value": 92.4,
+            "unit": "%",
+            "condition": "",
+            "quote": "The method obtained an accuracy of 92.4%"
+          },
+          {
+            "entity": "sensitivity",
+            "field": "sensitivity",
+            "value": 90.1,
+            "unit": "%",
+            "condition": "",
+            "quote": "while sensitivity was 90.1%"
+          },
+          {
+            "entity": "specificity",
+            "field": "specificity",
+            "value": 94.7,
+            "unit": "%",
+            "condition": "",
+            "quote": "and specificity was 94.7%."
+          }
+        ]
+      },
+      "score": 0.6666666666666666,
+      "metrics": {
+        "fact_precision": 0.3333333333333333,
+        "fact_recall": 0.3333333333333333,
+        "fact_f1": 0.3333333333333333,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 28.049460100010037,
+      "load_duration_seconds": null,
+      "prompt_tokens": 235,
+      "output_tokens": 139,
+      "response_text": "{\n  \"facts\": [\n    {\n      \"entity\": \"main limitation\",\n      \"field\": \"dataset size\",\n      \"value\": \"small\",\n      \"unit\": \"\",\n      \"condition\": \"reported by the authors\",\n      \"quote\": \"their main limitation is the small dataset size\"\n    },\n    {\n      \"entity\": \"main limitation\",\n      \"field\": \"external validation\",\n      \"value\": \"absence\",\n      \"unit\": \"\",\n      \"condition\": \"reported by the authors\",\n      \"quote\": \"and the absence of external validation\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "main limitation",
+            "field": "dataset size",
+            "value": "small",
+            "unit": "",
+            "condition": "reported by the authors",
+            "quote": "their main limitation is the small dataset size"
+          },
+          {
+            "entity": "main limitation",
+            "field": "external validation",
+            "value": "absence",
+            "unit": "",
+            "condition": "reported by the authors",
+            "quote": "and the absence of external validation"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 13.818187699886039,
+      "load_duration_seconds": null,
+      "prompt_tokens": 311,
+      "output_tokens": 65,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Model B performed best with 94.7% accuracy.\",\n      \"support_ids\": [\"F1\", \"F2\", \"F3\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Model B performed best with 94.7% accuracy.",
+            "support_ids": [
+              "F1",
+              "F2",
+              "F3"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 30.23190620006062,
+      "load_duration_seconds": null,
+      "prompt_tokens": 288,
+      "output_tokens": 145,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Method A had a sensitivity of 91.0%.\",\n      \"support_ids\": [\"F1\"],\n      \"claim_type\": \"reported\"\n    },\n    {\n      \"text\": \"Method B had a sensitivity of 95.2%.\",\n      \"support_ids\": [\"F2\"],\n      \"claim_type\": \"reported\"\n    },\n    {\n      \"text\": \"Method B had higher sensitivity than Method A.\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method A had a sensitivity of 91.0%.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          },
+          {
+            "text": "Method B had a sensitivity of 95.2%.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "reported"
+          },
+          {
+            "text": "Method B had higher sensitivity than Method A.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 13.84202149999328,
+      "load_duration_seconds": null,
+      "prompt_tokens": 259,
+      "output_tokens": 65,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The model achieved 88.4% accuracy on the test set.\",\n      \"support_ids\": [\n        \"F1\"\n      ],\n      \"claim_type\": \"reported\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The model achieved 88.4% accuracy on the test set.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 28.174966300139204,
+      "load_duration_seconds": null,
+      "prompt_tokens": 295,
+      "output_tokens": 140,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"Method A and Method B were evaluated on different datasets (BraTS 2021 validation split vs. BraTS 2020 held-out test set).\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"derived\"\n    },\n    {\n      \"text\": \"Method A and Method B were evaluated using different data splits (validation split vs. held-out test set).\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"derived\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method A and Method B were evaluated on different datasets (BraTS 2021 validation split vs. BraTS 2020 held-out test set).",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "derived"
+          },
+          {
+            "text": "Method A and Method B were evaluated using different data splits (validation split vs. held-out test set).",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "derived"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "qwen3.5:9b",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 21.55627919989638,
+      "load_duration_seconds": null,
+      "prompt_tokens": 279,
+      "output_tokens": 106,
+      "response_text": "{\n  \"claims\": [\n    {\n      \"text\": \"The study is limited by a small single-center dataset.\",\n      \"support_ids\": [\n        \"F1\"\n      ],\n      \"claim_type\": \"limitation\"\n    },\n    {\n      \"text\": \"External validation was not performed.\",\n      \"support_ids\": [\n        \"F2\"\n      ],\n      \"claim_type\": \"limitation\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The study is limited by a small single-center dataset.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "limitation"
+          },
+          {
+            "text": "External validation was not performed.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "limitation"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "query_analysis",
+      "case_id": "A01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.886641000164673,
+      "load_duration_seconds": null,
+      "prompt_tokens": 327,
+      "output_tokens": 45,
+      "response_text": "{\"intent\":\"quantitative\",\"paper_ids\":[\"paper_008\"],\"metrics\":[\"accuracy\"], \"datasets\": [], \"needs_comparison\":false, \"needs_visualization\":false, \"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [
+          "paper_008"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 1.0,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "query_analysis",
+      "case_id": "A02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.387682900065556,
+      "load_duration_seconds": null,
+      "prompt_tokens": 329,
+      "output_tokens": 50,
+      "response_text": "{\"intent\":\"comparison\",\"paper_ids\":[\"paper_010\",\"paper_011\"],\"metrics\":[\"sensitivity\",\"specificity\"],\"datasets\":[],\"needs_comparison\":true,\"needs_visualization\":false,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "comparison",
+        "paper_ids": [
+          "paper_010",
+          "paper_011"
+        ],
+        "metrics": [
+          "sensitivity",
+          "specificity"
+        ],
+        "datasets": [],
+        "needs_comparison": true,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "query_analysis",
+      "case_id": "A03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.239323999965563,
+      "load_duration_seconds": null,
+      "prompt_tokens": 325,
+      "output_tokens": 55,
+      "response_text": "{\"intent\":\"quantitative\",\"paper_ids\":[\"paper_008\",\"paper_009\",\"paper_010\"],\"metrics\":[\"accuracy\"],\"datasets\":[\"relevant papers\"],\"needs_comparison\":true,\"needs_visualization\":true,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "quantitative",
+        "paper_ids": [
+          "paper_008",
+          "paper_009",
+          "paper_010"
+        ],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [
+          "relevant papers"
+        ],
+        "needs_comparison": true,
+        "needs_visualization": true,
+        "needs_aggregation": true
+      },
+      "score": 0.5714285714285714,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 0.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 0.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "query_analysis",
+      "case_id": "A04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.404684100067243,
+      "load_duration_seconds": null,
+      "prompt_tokens": 325,
+      "output_tokens": 39,
+      "response_text": "{\"intent\":\"fact_lookup\",\"paper_ids\":[],\"metrics\":[\"accuracy\"],\"datasets\":[\"dataset\"],\"needs_comparison\":false,\"needs_visualization\":false,\"needs_aggregation\":false}",
+      "parsed_json": {
+        "intent": "fact_lookup",
+        "paper_ids": [],
+        "metrics": [
+          "accuracy"
+        ],
+        "datasets": [
+          "dataset"
+        ],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": false
+      },
+      "score": 0.8571428571428571,
+      "metrics": {
+        "intent_accuracy": 1.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 0.0,
+        "comparison_accuracy": 1.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "query_analysis",
+      "case_id": "A05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.393886599922553,
+      "load_duration_seconds": null,
+      "prompt_tokens": 323,
+      "output_tokens": 39,
+      "response_text": "{\"intent\":\"fact_lookup\",\"paper_ids\":[],\"metrics\":[\"sensitivity\"],\"datasets\":[],\"needs_comparison\":false,\"needs_visualization\":false,\"needs_aggregation\":true}",
+      "parsed_json": {
+        "intent": "fact_lookup",
+        "paper_ids": [],
+        "metrics": [
+          "sensitivity"
+        ],
+        "datasets": [],
+        "needs_comparison": false,
+        "needs_visualization": false,
+        "needs_aggregation": true
+      },
+      "score": 0.7142857142857143,
+      "metrics": {
+        "intent_accuracy": 0.0,
+        "paper_id_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "dataset_accuracy": 1.0,
+        "comparison_accuracy": 0.0,
+        "visualization_accuracy": 1.0,
+        "aggregation_accuracy": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "fact_extraction",
+      "case_id": "E01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 12.714557700091973,
+      "load_duration_seconds": null,
+      "prompt_tokens": 263,
+      "output_tokens": 195,
+      "response_text": "{\"facts\": [{\"entity\": \"EfficientNet-B0\", \"field\": \"top-1 accuracy\", \"value\": \"76.3%\", \"unit\": \"%\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3%\"}, {\"entity\": \"EfficientNet-B0\", \"field\": \"top-5 accuracy\", \"value\": \"93.2%\", \"unit\": \"%\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3%\"}, {\"entity\": \"EfficientNet-B0\", \"field\": \"parameters\", \"value\": \"5.3M\", \"unit\": \"M\", \"condition\": \"on ImageNet\", \"quote\": \"EfficientNet-B0 achieved a top-1 accuracy of 76.3%\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-1 accuracy",
+            "value": "76.3%",
+            "unit": "%",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3%"
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "top-5 accuracy",
+            "value": "93.2%",
+            "unit": "%",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3%"
+          },
+          {
+            "entity": "EfficientNet-B0",
+            "field": "parameters",
+            "value": "5.3M",
+            "unit": "M",
+            "condition": "on ImageNet",
+            "quote": "EfficientNet-B0 achieved a top-1 accuracy of 76.3%"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "fact_extraction",
+      "case_id": "E02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 7.059723800048232,
+      "load_duration_seconds": null,
+      "prompt_tokens": 246,
+      "output_tokens": 92,
+      "response_text": "{\"facts\":[\n  {\"entity\":\"model\",\"field\":\"sensitivity\",\"value\":\"97.8\",\"unit\":\"\", \"condition\":\"on the test set\", \"quote\":\"The proposed model achieved 97.8% sensitivity\"},\n  {\"entity\":\"model\",\"field\":\"specificity\",\"value\":\"95.4\",\"unit\":\"\", \"condition\":\"on the test set\", \"quote\":\"The proposed model achieved 95.4% specificity\"}\n]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "model",
+            "field": "sensitivity",
+            "value": "97.8",
+            "unit": "",
+            "condition": "on the test set",
+            "quote": "The proposed model achieved 97.8% sensitivity"
+          },
+          {
+            "entity": "model",
+            "field": "specificity",
+            "value": "95.4",
+            "unit": "",
+            "condition": "on the test set",
+            "quote": "The proposed model achieved 95.4% specificity"
+          }
+        ]
+      },
+      "score": 0.08333333333333333,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 0.5
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "fact_extraction",
+      "case_id": "E03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 8.954581700032577,
+      "load_duration_seconds": null,
+      "prompt_tokens": 246,
+      "output_tokens": 129,
+      "response_text": "{\"facts\": [{\"entity\": \"BraTS dataset\", \"field\": \"number of training images\", \"value\": \"3,000\", \"unit\": \"\", \"condition\": \"\", \"quote\": \"The experiment used the BraTS dataset with 3,000 training images and 500 validation images.\"}, {\"entity\": \"BraTS dataset\", \"field\": \"number of validation images\", \"value\": \"500\", \"unit\": \"\", \"condition\": \"\", \"quote\": \"The experiment used the BraTS dataset with 3,000 training images and 500 validation images.\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "BraTS dataset",
+            "field": "number of training images",
+            "value": "3,000",
+            "unit": "",
+            "condition": "",
+            "quote": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images."
+          },
+          {
+            "entity": "BraTS dataset",
+            "field": "number of validation images",
+            "value": "500",
+            "unit": "",
+            "condition": "",
+            "quote": "The experiment used the BraTS dataset with 3,000 training images and 500 validation images."
+          }
+        ]
+      },
+      "score": 0.16666666666666666,
+      "metrics": {
+        "fact_precision": 0.0,
+        "fact_recall": 0.0,
+        "fact_f1": 0.0,
+        "entity_binding": 0.0,
+        "value_exactness": 0.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "fact_extraction",
+      "case_id": "E04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 12.430914799915627,
+      "load_duration_seconds": null,
+      "prompt_tokens": 252,
+      "output_tokens": 180,
+      "response_text": "{\"facts\": [{\"entity\": \"method\", \"field\": \"accuracy\", \"value\": \"92.4\", \"unit\": \"%\", \"condition\": \"obtained\", \"quote\": \"The method obtained an accuracy of 92.4%\"},\n         {\"entity\": \"method\", \"field\": \"sensitivity\", \"value\": \"90.1\", \"unit\": \"%\", \"condition\": \"while\", \"quote\": \"The method obtained an accuracy of 92.4%, while sensitivity was 90.1%\"},\n         {\"entity\": \"method\", \"field\": \"specificity\", \"value\": \"94.7\", \"unit\": \"%\", \"condition\": \"while\", \"quote\": \"The method obtained an accuracy of 92.4%, while sensitivity was 90.1% and specificity was 94.7%\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "method",
+            "field": "accuracy",
+            "value": "92.4",
+            "unit": "%",
+            "condition": "obtained",
+            "quote": "The method obtained an accuracy of 92.4%"
+          },
+          {
+            "entity": "method",
+            "field": "sensitivity",
+            "value": "90.1",
+            "unit": "%",
+            "condition": "while",
+            "quote": "The method obtained an accuracy of 92.4%, while sensitivity was 90.1%"
+          },
+          {
+            "entity": "method",
+            "field": "specificity",
+            "value": "94.7",
+            "unit": "%",
+            "condition": "while",
+            "quote": "The method obtained an accuracy of 92.4%, while sensitivity was 90.1% and specificity was 94.7%"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "fact_precision": 1.0,
+        "fact_recall": 1.0,
+        "fact_f1": 1.0,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "fact_extraction",
+      "case_id": "E05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 6.478491200134158,
+      "load_duration_seconds": null,
+      "prompt_tokens": 241,
+      "output_tokens": 68,
+      "response_text": "{\"facts\": [{\"entity\": \"limitation\", \"field\": \"size\", \"value\": \"small\", \"unit\": \"\", \"condition\": \"\", \"quote\": \"\"}, {\"entity\": \"limitation\", \"field\": \"validation\", \"value\": \"absence\", \"unit\": \"\", \"condition\": \"\", \"quote\": \"\"}]}",
+      "parsed_json": {
+        "facts": [
+          {
+            "entity": "limitation",
+            "field": "size",
+            "value": "small",
+            "unit": "",
+            "condition": "",
+            "quote": ""
+          },
+          {
+            "entity": "limitation",
+            "field": "validation",
+            "value": "absence",
+            "unit": "",
+            "condition": "",
+            "quote": ""
+          }
+        ]
+      },
+      "score": 0.5833333333333334,
+      "metrics": {
+        "fact_precision": 0.5,
+        "fact_recall": 0.5,
+        "fact_f1": 0.5,
+        "entity_binding": 1.0,
+        "value_exactness": 1.0,
+        "quote_fidelity": 0.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S01",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 4.837231999961659,
+      "load_duration_seconds": null,
+      "prompt_tokens": 319,
+      "output_tokens": 47,
+      "response_text": "{\"claims\": [\n  {\n    \"text\": \"Model B achieved the best accuracy.\",\n    \"support_ids\": [\"F2\"],\n    \"claim_type\": \"reported\"\n  }\n]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Model B achieved the best accuracy.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S02",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.304869199870154,
+      "load_duration_seconds": null,
+      "prompt_tokens": 296,
+      "output_tokens": 54,
+      "response_text": "{\"claims\": [\n    {\n      \"text\": \"Method B had higher sensitivity than Method A.\",\n      \"support_ids\": [\"F1\", \"F2\"],\n      \"claim_type\": \"comparison\"\n    }\n  ]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "Method B had higher sensitivity than Method A.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "comparison"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S03",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.376327499980107,
+      "load_duration_seconds": null,
+      "prompt_tokens": 267,
+      "output_tokens": 55,
+      "response_text": "{\"claims\": [\n  {\n    \"text\": \"The model achieved 88.4% accuracy on the test set.\",\n    \"support_ids\": [\"F1\"],\n    \"claim_type\": \"reported\"\n  }\n]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The model achieved 88.4% accuracy on the test set.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "reported"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S04",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.5357567998580635,
+      "load_duration_seconds": null,
+      "prompt_tokens": 304,
+      "output_tokens": 53,
+      "response_text": "{\"claims\": [\n  {\n    \"text\": \"The two results are not directly comparable.\",\n    \"support_ids\": [\"F1\", \"F2\"],\n    \"claim_type\": \"limitation\"\n  }\n]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The two results are not directly comparable.",
+            "support_ids": [
+              "F1",
+              "F2"
+            ],
+            "claim_type": "limitation"
+          }
+        ]
+      },
+      "score": 0.8,
+      "metrics": {
+        "answer_key_match": 0.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    },
+    {
+      "model": "gemma3:4b",
+      "task": "grounded_synthesis",
+      "case_id": "S05",
+      "available": true,
+      "success": true,
+      "schema_valid": true,
+      "elapsed_seconds": 5.87280169990845,
+      "load_duration_seconds": null,
+      "prompt_tokens": 288,
+      "output_tokens": 70,
+      "response_text": "{\"claims\": [{\"text\": \"The main limitation reported by the authors is a small single-center dataset.\", \"support_ids\": [\"F1\"], \"claim_type\": \"limitation\"}, {\"text\": \"External validation was not performed.\", \"support_ids\": [\"F2\"], \"claim_type\": \"limitation\"}]}",
+      "parsed_json": {
+        "claims": [
+          {
+            "text": "The main limitation reported by the authors is a small single-center dataset.",
+            "support_ids": [
+              "F1"
+            ],
+            "claim_type": "limitation"
+          },
+          {
+            "text": "External validation was not performed.",
+            "support_ids": [
+              "F2"
+            ],
+            "claim_type": "limitation"
+          }
+        ]
+      },
+      "score": 1.0,
+      "metrics": {
+        "answer_key_match": 1.0,
+        "support_recall": 1.0,
+        "support_validity": 1.0,
+        "claim_support_coverage": 1.0,
+        "numeric_fidelity": 1.0
+      },
+      "error": null
+    }
+  ]
+}

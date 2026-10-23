@@ -122,10 +122,51 @@ class CrossEncoderReranker:
         self.special_pair_tokens = int(self.tokenizer.num_special_tokens_to_add(pair=True))
 
     def _token_ids(self, text: str) -> list[int]:
-        value = self.tokenizer.encode(
-            text, add_special_tokens=False, truncation=False
-        )
-        return list(value)
+        """Tokenize arbitrarily long text without the wrapper's 512-token warning.
+
+        The windowing logic below needs the complete token stream. Calling the
+        backend tokenizer directly avoids PreTrainedTokenizer's model_max_length
+        warning while preserving the tokenizer's normalizer and pre-tokenizer.
+        Slow-tokenizer fallback uses tokenize/convert_tokens_to_ids for the same
+        reason: the source is windowed here, not sent to the model as one sequence.
+        """
+        backend = getattr(self.tokenizer, "backend_tokenizer", None)
+        if backend is not None:
+            encoded = backend.encode(text, add_special_tokens=False)
+            return list(encoded.ids)
+        tokens = self.tokenizer.tokenize(text)
+        token_ids = self.tokenizer.convert_tokens_to_ids(tokens)
+        if isinstance(token_ids, int):
+            return [token_ids]
+        return list(token_ids)
+
+    def _pad_features(self, features: list[dict[str, Any]]) -> dict[str, Any]:
+        """Pad prepared token-ID features with torch tensors without tokenizer.pad()."""
+        if not features:
+            return {}
+        pad_token_id = getattr(self.tokenizer, "pad_token_id", None)
+        if pad_token_id is None:
+            raise RuntimeError("The reranker tokenizer must define pad_token_id")
+        padding_side = getattr(self.tokenizer, "padding_side", "right")
+        max_size = max(len(feature["input_ids"]) for feature in features)
+        keys = set(features[0])
+        for feature in features[1:]:
+            keys.intersection_update(feature)
+        batch: dict[str, Any] = {}
+        for key in sorted(keys):
+            pad_value = int(pad_token_id) if key == "input_ids" else 0
+            tensor = self._torch.full(
+                (len(features), max_size), pad_value, dtype=self._torch.long
+            )
+            for row, feature in enumerate(features):
+                values = feature[key]
+                if not isinstance(values, (list, tuple)):
+                    raise RuntimeError(f"Unexpected prepared feature type for {key}: {type(values).__name__}")
+                length = len(values)
+                start = max_size - length if padding_side == "left" else 0
+                tensor[row, start:start + length] = self._torch.tensor(values, dtype=self._torch.long)
+            batch[key] = tensor
+        return batch
 
     @staticmethod
     def _windows(token_ids: list[int], size: int, overlap: int) -> list[list[int]]:
@@ -166,7 +207,7 @@ class CrossEncoderReranker:
                 if len(encoded["input_ids"]) > self.max_length:
                     raise RuntimeError("Prepared reranker pair exceeds max_length")
                 features.append(encoded)
-            batch = self.tokenizer.pad(features, padding=True, return_tensors="pt")
+            batch = self._pad_features(features)
             batch = {key: value.to(self.device_name) for key, value in batch.items()}
             with self._torch.inference_mode():
                 logits = self.model(**batch).logits
